@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "npm run build:index && vite",
-    "build": "npm run validate && npm run build:index && tsc -b && vite build",
+    "build": "npm run validate && npm run build:index && vite build",
     "preview": "vite preview",
     "build:index": "tsx scripts/build-index.ts",
     "validate": "tsx scripts/validate.ts",
     "places": "tsx scripts/update-places.ts",
-    "roads": "tsx scripts/fetch-itinere.ts"
+    "roads": "tsx scripts/fetch-itinere.ts",
+    "typecheck": "tsc -p tsconfig.json"
   },
   "engines": {
     "node": ">=20.11"

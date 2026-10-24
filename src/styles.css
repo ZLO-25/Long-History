@@ -43,6 +43,7 @@ a { color: var(--accent); }
 .map-legend { position: absolute; left: 10px; bottom: 10px; z-index: 500; background: rgba(255,255,255,.92); border-radius: 6px; padding: 4px 8px; font-size: 12px; line-height: 1.6; pointer-events: none; }
 .lg { display: inline-block; width: 18px; height: 0; vertical-align: middle; margin: 0 3px 0 8px; }
 .lg.road { border-top: 3px solid #8b4513; } .lg.sea { border-top: 3px dashed #2b6cb0; }
+.lg.wall { border-top: 4px solid #6b2737; }
 .pulse { animation: pulse 1.4s ease-in-out infinite; }
 @keyframes pulse { 50% { stroke-opacity: .25; } }
 

@@ -1,1 +1,115 @@
-routes: []
+# 示意路線：以 Pleiades 城市點位（字串 id）或手動座標（{lat,lng,name}）依序連線。
+# 線條只表示「經過哪些主要地點」，不是實際路面或航跡；精細道路可執行 npm run roads 取得 Itiner-e 資料。
+# start/end 為地圖上顯示的年份範圍（時間軸上限 500 年，仍在使用的道路 end 寫 500）。
+routes:
+  - id: road-via-appia
+    name: 阿庇亞大道（Via Appia）
+    kind: road
+    start: -312
+    end: 500
+    precision: schematic
+    note: 前 312 年由監察官阿庇烏斯修築羅馬至卡普阿段，之後延伸到貝內文托與布林迪西。
+    waypoints: ['423025', '433143', '432754', '432721', '442509']
+    sources:
+      - { id: s1, title: Wikipedia「Appian Way」, url: 'https://en.wikipedia.org/wiki/Appian_Way', accessed: 2026-10-24 }
+      - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
+  - id: road-via-egnatia
+    name: 艾格納提亞大道（Via Egnatia）
+    kind: road
+    start: -146
+    end: 500
+    precision: schematic
+    note: 前 2 世紀由馬其頓總督艾格納提烏斯主持修築，確切年份未知（地圖取前 146 年馬其頓設行省為起點，估計）；連接亞得里亞海岸與拜占庭。
+    waypoints: ['481818', '481900', '491585', '491741', '501347', '520985']
+    sources:
+      - { id: s1, title: Wikipedia「Via Egnatia」, url: 'https://en.wikipedia.org/wiki/Via_Egnatia', accessed: 2026-10-24 }
+      - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
+  - id: road-via-flaminia
+    name: 弗拉米尼亞大道（Via Flaminia）
+    kind: road
+    start: -220
+    end: 500
+    precision: schematic
+    note: 約前 220 年監察官弗拉米尼烏斯修築，羅馬經翁布里亞到亞得里亞海岸的阿里米努姆。
+    waypoints: ['423025', '413225', '413129', '393379']
+    sources:
+      - { id: s1, title: Wikipedia「Via Flaminia」, url: 'https://en.wikipedia.org/wiki/Via_Flaminia', accessed: 2026-10-24 }
+      - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
+  - id: road-via-aurelia
+    name: 奧雷利亞大道（Via Aurelia）
+    kind: road
+    start: -241
+    end: 500
+    precision: schematic
+    note: 約前 241 年修築，原本終點在比薩；前 109 年的 Via Aemilia Scauri 再延伸到熱那亞。此線把兩段畫在一起。
+    waypoints: ['423025', '403253', '403235', '383664']
+    sources:
+      - { id: s1, title: Wikipedia「Via Aurelia」, url: 'https://en.wikipedia.org/wiki/Via_Aurelia', accessed: 2026-10-24 }
+      - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
+  - id: road-via-domitia
+    name: 多米提亞大道（Via Domitia）
+    kind: road
+    start: -118
+    end: 500
+    precision: schematic
+    note: 前 122 年戰勝阿洛布羅基人後由多米提烏斯下令修築（常記為前 118 年），由阿爾卑斯山口經尼姆、納博訥到庇里牛斯山。
+    waypoints: ['167691', '148142', '246347', { lat: 42.48, lng: 2.87, name: 庇里牛斯山口（示意） }]
+    sources:
+      - { id: s1, title: Wikipedia「Via Domitia」, url: 'https://en.wikipedia.org/wiki/Via_Domitia', accessed: 2026-10-24 }
+      - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
+  - id: road-via-augusta
+    name: 奧古斯塔大道（Via Augusta）
+    kind: road
+    start: -8
+    end: 500
+    precision: schematic
+    note: 前 8 至前 2 年奧古斯都下令整修舊有的 Via Herculea 並延伸到加的斯；沿海岸南下，再經內陸到科爾多瓦與塞維亞。
+    waypoints: [{ lat: 42.48, lng: 2.87, name: 庇里牛斯山口（示意） }, '246343', '246349', '266021', '266090', '265855', '256128', '256210', '256177']
+    sources:
+      - { id: s1, title: Wikipedia「Via Augusta」, url: 'https://en.wikipedia.org/wiki/Via_Augusta', accessed: 2026-10-24 }
+      - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
+  - id: wall-hadrian
+    name: 哈德良長城（Hadrian's Wall）
+    kind: wall
+    start: 122
+    end: 410
+    precision: schematic
+    note: 122 年開始修築，東起沃爾森德（Segedunum），西到索爾韋灣的鮑內斯；約 410 年羅馬統治不列顛結束前仍為主要防線。
+    waypoints: ['89288', '89313', '89234', '89239']
+    sources:
+      - { id: s1, title: Wikipedia「Hadrian's Wall」, url: "https://en.wikipedia.org/wiki/Hadrian%27s_Wall", accessed: 2026-10-24 }
+      - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
+  - id: sea-hellespont-grain
+    name: 黑海—赫勒斯滂—雅典 糧食航線
+    kind: sea
+    start: -500
+    end: -322
+    precision: schematic
+    note: 雅典的進口糧食有相當部分來自黑海北岸，經博斯普魯斯與赫勒斯滂（達達尼爾）海峽運到比雷埃夫斯；依賴程度學界有爭論。年份範圍為估計。
+    waypoints: ['854719', { lat: 43.3, lng: 31.0, name: 黑海（示意） }, '520985', '501609', { lat: 39.6, lng: 25.6, name: 愛琴海北部（示意） }, { lat: 38.1, lng: 24.4, name: 愛琴海（示意） }, '580062']
+    sources:
+      - { id: s1, title: "Keen, Grain for Athens: the Hellespontine route (Electronic Antiquity 1.6, 1993)", url: 'https://scholar.lib.vt.edu/ejournals/ElAnt/V1N6/keen.html', accessed: 2026-10-24 }
+      - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
+  - id: sea-alexandria-rome
+    name: 亞歷山卓—羅馬 運糧航線
+    kind: sea
+    start: -30
+    end: 332
+    precision: schematic
+    note: 埃及糧食由政府雇用的私人船隻運到義大利（先到普特奧利，後以奧斯提亞／波爾圖斯為主），再走台伯河運進羅馬。航路為示意；約 332 年亞歷山卓運糧船隊改送君士坦丁堡（也有看法認為約 308 年已不再送羅馬）。
+    waypoints: ['727070', { lat: 34.3, lng: 25.0, name: 克里特島南方（示意） }, { lat: 37.0, lng: 17.5, name: 愛奧尼亞海（示意） }, { lat: 38.1, lng: 15.6, name: 墨西拿海峽（示意） }, '432815', { lat: 41.2, lng: 12.6, name: 第勒尼安海（示意） }, '423012']
+    sources:
+      - { id: s1, title: Wikipedia「Cura Annonae」, url: 'https://en.wikipedia.org/wiki/Cura_Annonae', accessed: 2026-10-24 }
+      - { id: s3, title: ostia-antica.org「The fourth century」, url: 'https://ostia-antica.org/dict/topics/fourth-century/fourth-century-4.htm', accessed: 2026-10-24 }
+      - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
+  - id: sea-baetica-rome
+    name: 貝提卡—羅馬 橄欖油航線
+    kind: sea
+    start: -27
+    end: 260
+    precision: schematic
+    note: 貝提卡（瓜達幾維河流域）的 Dressel 20 雙耳瓶裝橄欖油運到羅馬，空瓶堆成泰斯塔丘；約 260 年代停止堆放。航路為示意。
+    waypoints: ['256210', '256177', { lat: 36.0, lng: -5.4, name: 直布羅陀海峽（示意） }, { lat: 37.3, lng: 0.5, name: 西地中海（示意） }, { lat: 39.5, lng: 4.5, name: 巴利阿里群島附近（示意） }, { lat: 41.2, lng: 9.3, name: 博尼法喬海峽（示意） }, '423012']
+    sources:
+      - { id: s1, title: Wikipedia「Monte Testaccio」, url: 'https://en.wikipedia.org/wiki/Monte_Testaccio', accessed: 2026-10-24 }
+      - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }

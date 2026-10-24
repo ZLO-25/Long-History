@@ -27,7 +27,7 @@ export interface Card {
   backlinks: string[];
 }
 export interface Route {
-  id: string; name: string; kind: 'road' | 'sea'; start: number; end: number;
+  id: string; name: string; kind: 'road' | 'sea' | 'wall'; start: number; end: number;
   precision: string; note?: string; coords: [number, number][]; sources: Source[];
 }
 export interface Framework {

@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import L from 'leaflet';
 import type { Index, Card } from '../types';
-import { activeAt, fmtYear, TYPE_COLOR } from '../lib/format';
+import { activeAt, fmtYear, KIND_LABEL, TYPE_COLOR } from '../lib/format';
 
 interface Props {
   index: Index; cards: Card[]; year: number;
@@ -88,12 +88,12 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       const hl = highlight.routes.includes(r.id);
       if (!on && !hl) continue;
       const line = L.polyline(r.coords, {
-        color: r.kind === 'sea' ? '#2b6cb0' : '#8b4513',
-        weight: hl ? 6 : r.kind === 'sea' ? 2.5 : 3.5,
+        color: r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513',
+        weight: hl ? 6 : r.kind === 'sea' ? 2.5 : r.kind === 'wall' ? 4.5 : 3.5,
         opacity: on ? 0.9 : 0.45,
         dashArray: r.kind === 'sea' ? '6 6' : undefined,
       });
-      line.bindTooltip(`${r.name}（${r.kind === 'sea' ? '航線' : '道路'}・示意）`, { sticky: true });
+      line.bindTooltip(`${r.name}（${KIND_LABEL[r.kind]}・示意）`, { sticky: true });
       line.on('click', () => cb.current.onRoute(r.id));
       line.addTo(g);
     }
@@ -155,7 +155,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       <div ref={el} className="map-canvas" />
       <div className="map-legend">
         <div>{snapLabel}</div>
-        <div><i className="lg road" />道路 <i className="lg sea" />航線（皆為示意）</div>
+        <div><i className="lg road" />道路 <i className="lg sea" />航線 <i className="lg wall" />防線（皆為示意）</div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 // 點地圖上的路線：說明與使用此路線的卡片
 import type { Card, Route } from '../types';
-import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtRange, KIND_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import { Markdown } from '../lib/markdown';
 
 export function RoutePanel({ route, cards, onOpen }: { route: Route; cards: Card[]; onOpen: (id: string) => void }) {
@@ -9,7 +9,7 @@ export function RoutePanel({ route, cards, onOpen }: { route: Route; cards: Card
   return (
     <div className="results">
       <h2>{route.name}</h2>
-      <p className="muted">{route.kind === 'sea' ? '航線' : '道路'}・地圖顯示期間 {fmtRange(route.start, route.end)}・線條為示意（以主要城市連線）</p>
+      <p className="muted">{KIND_LABEL[route.kind]}・地圖顯示期間 {fmtRange(route.start, route.end)}・線條為示意（以主要城市連線）</p>
       {route.note && <Markdown text={route.note} sources={route.sources} />}
       <h3>相關卡片</h3>
       {used.map((c) => (

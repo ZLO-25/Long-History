@@ -1,0 +1,35 @@
+{
+ "source": "Pleiades gazetteer, https://pleiades.stoa.org（GitHub: isawnyu/pleiades.datasets）",
+ "license": "CC BY 3.0",
+ "fetched": "2026-10-24",
+ "places": {
+  "462503": {
+   "title": "Syracusae/Syrakousai",
+   "lat": 37.07008,
+   "lng": 15.28334,
+   "precision": "rough",
+   "uri": "https://pleiades.stoa.org/places/462503"
+  },
+  "570685": {
+   "title": "Sparta",
+   "lat": 37.08178,
+   "lng": 22.42467,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/570685"
+  },
+  "579885": {
+   "title": "Athenae",
+   "lat": 37.97165,
+   "lng": 23.72395,
+   "precision": "rough",
+   "uri": "https://pleiades.stoa.org/places/579885"
+  },
+  "580062": {
+   "title": "Peiraieus/Piraeus",
+   "lat": 37.93722,
+   "lng": 23.64461,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/580062"
+  }
+ }
+}

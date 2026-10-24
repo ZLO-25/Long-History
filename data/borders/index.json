@@ -1,0 +1,59 @@
+{
+ "source": "historical-basemaps (aourednik), https://github.com/aourednik/historical-basemaps",
+ "license": "GPL-3.0",
+ "note": "示意疆界；已去除無名稱區塊、座標四捨五入至小數點後 2 位",
+ "snapshots": [
+  {
+   "year": -700,
+   "file": "world_bc700.geojson"
+  },
+  {
+   "year": -500,
+   "file": "world_bc500.geojson"
+  },
+  {
+   "year": -400,
+   "file": "world_bc400.geojson"
+  },
+  {
+   "year": -323,
+   "file": "world_bc323.geojson"
+  },
+  {
+   "year": -300,
+   "file": "world_bc300.geojson"
+  },
+  {
+   "year": -200,
+   "file": "world_bc200.geojson"
+  },
+  {
+   "year": -100,
+   "file": "world_bc100.geojson"
+  },
+  {
+   "year": -1,
+   "file": "world_bc1.geojson"
+  },
+  {
+   "year": 100,
+   "file": "world_100.geojson"
+  },
+  {
+   "year": 200,
+   "file": "world_200.geojson"
+  },
+  {
+   "year": 300,
+   "file": "world_300.geojson"
+  },
+  {
+   "year": 400,
+   "file": "world_400.geojson"
+  },
+  {
+   "year": 500,
+   "file": "world_500.geojson"
+  }
+ ]
+}

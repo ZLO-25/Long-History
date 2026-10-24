@@ -1,0 +1,20 @@
+# 熱門分析框架：卡片以 frameworks: [id] 引用；結構對照頁選到 trigger_tags 時也會自動顯示
+frameworks:
+  - id: thucydides-trap
+    name: 修昔底德陷阱（Thucydides Trap）
+    trigger_tags: [霸權挑戰]
+    summary: >-
+      政治學者 Graham Allison 推廣的說法（2012 年《金融時報》、2015 年《大西洋》、2017 年《注定一戰》）：
+      崛起強權威脅取代既有強權時，戰爭機率很高；他的研究稱 16 個案例中有 12 個以戰爭收場，但也強調並非必然。[s1]
+    critiques:
+      - text: 案例怎麼選、怎麼算「崛起」「取代」標準模糊；挑出「已是對手」的國家再統計戰爭比例，有循環論證與選樣偏誤。只看 1950 年後的案例，戰爭比例大幅下降。[s2]
+        src: [s2]
+      - text: 對修昔底德的解讀有爭議：Joseph Nye 引 Donald Kagan 認為伯羅奔尼撒戰爭更多源於雅典自身的停滯與決策錯誤；Arthur Waldron 認為這場戰爭裡並不存在所謂「陷阱」。[s1]
+        src: [s1]
+      - text: 機制可能相反：Hal Brands 與 Michael Beckley 認為戰爭常發生在崛起國「見頂停滯」時，而不是害怕被超越時。[s1]
+        src: [s1]
+      - text: 古代城邦衝突與核武、全球化時代差異極大，能否作為今日地緣政治的指引本身就有疑問（James Palmer、Lawrence Freedman）。[s1]
+        src: [s1]
+    sources:
+      - { id: s1, title: Thucydides Trap — Wikipedia, url: "https://en.wikipedia.org/wiki/Thucydides_Trap", accessed: 2026-10-24 }
+      - { id: s2, title: "Richard Hanania, Graham Allison and the Thucydides Trap Myth, Strategic Studies Quarterly (Winter 2021)", url: "https://www.airuniversity.af.edu/Portals/10/SSQ/documents/Volume-15_Issue-4/SC-Hanania.pdf", accessed: 2026-10-24 }

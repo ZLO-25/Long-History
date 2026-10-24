@@ -1,0 +1,6 @@
+node_modules/
+dist/
+public/index.json
+public/data/
+.DS_Store
+.obsidian/workspace*.json

@@ -75,7 +75,7 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace }: Props) {
     a.href = URL.createObjectURL(blob);
     a.download = `對照工作頁-${new Date().toISOString().slice(0, 10)}.md`;
     a.click();
-    URL.revokeObjectURL(a.href);
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   };
 
   return (

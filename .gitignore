@@ -4,3 +4,4 @@ public/index.json
 public/data/
 .DS_Store
 .obsidian/workspace*.json
+data/routes/itinere-simplified.geojson

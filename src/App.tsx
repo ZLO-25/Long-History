@@ -33,10 +33,15 @@ export default function App() {
 
 function Main({ index }: { index: Index }) {
   const isMobile = useIsMobile();
-  const [year, setYear] = useState(-490);
-  const [query, setQuery] = useState('');
+  // 網址參數：?year=100 指定年份、?card=war-peloponnesian 直接開卡、?q=羅馬 預填搜尋
+  const params = useMemo(() => new URLSearchParams(location.search), []);
+  const [year, setYear] = useState(() => { const y = Number(params.get('year')); return Number.isFinite(y) && params.has('year') ? y : -490; });
+  const [query, setQuery] = useState(() => params.get('q') ?? '');
   const [filters, setFilters] = useState<Filters>({ types: [], fields: [], civs: [] });
-  const [stack, setStack] = useState<Panel[]>([{ kind: 'list' }]);
+  const [stack, setStack] = useState<Panel[]>(() => {
+    const id = params.get('card');
+    return id && index.cards.some((c) => c.id === id) ? [{ kind: 'list' }, { kind: 'card', id }] : [{ kind: 'list' }];
+  });
   const [mobileTab, setMobileTab] = useState<'list' | 'map' | 'match'>('list');
   const panel = stack[stack.length - 1];
 

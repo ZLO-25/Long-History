@@ -61,7 +61,7 @@ export function createSearch(cards: Card[]) {
 
     if (year !== null) {
       for (const c of cards) if (c.time.start <= year && year <= c.time.end)
-        add(c.id, 0.05, [{ field: '年份', value: `${fmtYear(c.time.start)}–${fmtYear(c.time.end)}，包含 ${fmtYear(year)} 年` }]);
+        add(c.id, 0.02 + Math.min(0.2, (c.time.end - c.time.start) / 2000), [{ field: '年份', value: `${fmtYear(c.time.start)}–${fmtYear(c.time.end)}，包含 ${fmtYear(year)} 年` }]);
     } else {
       for (const r of text.search(converted)) add(r.item.id, r.score ?? 1, (r.matches ?? []).map(toHighlight));
       // 拼音只在輸入含中文且長度 ≥ 2 時使用，避免英文誤命中

@@ -56,7 +56,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
       const placed = items.map((c) => {
         const x0 = x(c.time.start), x1 = Math.max(x(c.time.end), x0 + 6);
         const label = showFull ? c.summary_line : c.name;
-        const end = Math.max(x1, x0 + label.length * LABEL_PX) + 10;
+        const end = x1 + 4 + label.length * LABEL_PX + 8;
         let row = rowEnds.findIndex((e) => e <= x0);
         if (row === -1) { row = rowEnds.length; rowEnds.push(end); } else rowEnds[row] = end;
         return { c, x0, x1, row, label };
@@ -101,17 +101,17 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
       <svg ref={svgRef} width={width} height={height} onPointerMove={onMove} onPointerUp={endDrag} onPointerLeave={endDrag}>
         <g className="axis" onClick={clickAxis}>
           <rect x={0} y={0} width={width} height={AXIS_H} className="axis-bg" />
-          {ticks.map((y) => {
+          {(() => { let lastLabel = -Infinity; return ticks.map((y) => {
             const px = x(y);
             if (px < -20 || px > width + 20) return null;
             const major = BREAKS.includes(y) || y % 100 === 0;
             return (
               <g key={y} transform={`translate(${px},0)`}>
                 <line y1={AXIS_H - (major ? 8 : 4)} y2={height} className={major ? 'tick major' : 'tick'} />
-                {(major || step <= 25) && <text y={13} textAnchor="middle">{fmtYear(y)}</text>}
+                {(major || step <= 25) && px - lastLabel >= 46 && ((lastLabel = px), true) && <text y={13} textAnchor="middle">{fmtYear(y)}</text>}
               </g>
             );
-          })}
+          }); })()}
         </g>
         {lanes.map((ln, li) => {
           const top = AXIS_H + (li === 0 ? 0 : westH);
@@ -119,7 +119,6 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
           return (
             <g key={ln.track} transform={`translate(0,${top})`}>
               <rect x={0} y={0} width={width} height={h} className={`lane lane-${ln.track}`} />
-              <text x={4} y={12} className="lane-label">{ln.track === 'china' ? '中國對照' : '希臘羅馬'}</text>
               {ln.placed.map(({ c, x0, x1, row, label }) => {
                 if (x1 < -200 || x0 > width + 10) return null;
                 const y = LANE_PAD + row * ROW_H + 2;
@@ -132,6 +131,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
                   </g>
                 );
               })}
+              <text x={4} y={12} className="lane-label">{ln.track === 'china' ? '中國對照' : '希臘羅馬'}</text>
             </g>
           );
         })}

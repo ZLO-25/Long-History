@@ -56,7 +56,7 @@ a { color: var(--accent); }
 .axis text { font-size: 11px; fill: var(--muted); pointer-events: none; }
 .tick { stroke: #e9e4d9; } .tick.major { stroke: #d8d1c2; }
 .lane-west { fill: transparent; } .lane-china { fill: #faf3ea; }
-.lane-label { font-size: 11px; fill: #a19a8f; }
+.lane-label { font-size: 11px; fill: #8a8378; paint-order: stroke; stroke: #fffdf8; stroke-width: 4px; pointer-events: none; }
 .node { cursor: pointer; }
 .node text { font-size: 12px; fill: var(--ink); }
 .node:hover text, .node.sel text { font-weight: 700; }

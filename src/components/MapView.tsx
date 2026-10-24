@@ -26,7 +26,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   const [snapLabel, setSnapLabel] = useState('');
 
   useEffect(() => {
-    const m = L.map(el.current!, { zoomControl: true, worldCopyJump: true, preferCanvas: false }).setView([39, 20], compact ? 3 : 4);
+    const m = L.map(el.current!, { zoomControl: true, worldCopyJump: true, preferCanvas: false }).setView(compact ? [38, 18] : [39, 20], compact ? 4 : 4);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 12,
       attribution: '© OpenStreetMap contributors｜疆域：historical-basemaps (GPL-3.0)｜地名：Pleiades (CC BY)',

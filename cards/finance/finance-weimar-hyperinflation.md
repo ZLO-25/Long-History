@@ -26,6 +26,7 @@ sources:
   - { id: s1, title: "Hyperinflation in the Weimar Republic — Wikipedia", url: "https://en.wikipedia.org/wiki/Hyperinflation_in_the_Weimar_Republic", accessed: 2026-10-25, tier: 百科 }
   - { id: s2, title: "Hyperinflation in Deutschland 1923 — 德國聯邦議院〈威瑪 100 年〉專題", url: "https://www.bundestag.de/parlament/geschichte/100-jahre-weimar/hyperinflation-970722", accessed: 2026-10-25, tier: 通論 }
   - { id: s3, title: "Betty Scholem 致兒子 Gershom Scholem 的信（1923 年 10 月）— German History in Documents and Images（德國歷史研究所華府分所）", url: "https://germanhistorydocs.org/en/weimar-germany-1918-1933/betty-scholem-on-the-inflation-october-1923.pdf", accessed: 2026-10-25, tier: 一手 }
+  - { id: s4, title: "Harold Marcuse（加州大學聖塔芭芭拉分校德國史教授），Historical Dollar-to-Marks Currency Conversion Page", url: "https://marcuse.faculty.history.ucsb.edu/projects/currency.htm", accessed: 2026-10-25, tier: 學術 }
 importance: 3
 learn:
   histories: [歐洲史, 錢的歷史, 世界通史]
@@ -39,7 +40,7 @@ learn:
   primary_source:
     - { text: "The streetcar fare is 20 million (tomorrow it'll be 50!).（電車票要兩千萬馬克，明天就會變五千萬！）", from: 柏林婦人貝蒂．蕭勒姆寫給兒子的信（1923 年 10 月 15 日；GHDI 英譯，中文為本站摘譯）, src: s3 }
   historiography: |
-    **主因是賠款，還是德國自己印鈔？** 維基百科整理指出，歷史學家和經濟學家對此意見分歧：英法專家認為德國政府故意放任通膨來逃避賠款與預算改革；德國官方則說買外匯是為了付現金賠款，但 1921–22 年實際付出的現金並不多。[s1] 德國聯邦議院的專題則強調，1923 年政府用印鈔支付魯爾罷工者的工資，是從「飛奔式通膨」變成「惡性通膨」的轉折；維基百科也說歷史學家大多同意這一點。[s1][s2]
+    **主因是賠款，還是德國自己印鈔？** 維基百科整理指出，歷史學家和經濟學家對此意見分歧：英法專家認為德國政府故意放任通膨來逃避賠款與預算改革；德國官方則說買外匯是為了付現金賠款，但 1921–22 年實際付出的現金並不多。[s1] 德國聯邦議院的專題則強調，1923 年政府用印鈔支付魯爾罷工者的工資，是從「飛奔式通膨」變成「惡性通膨」的轉折；維基百科也說，歷史學家大多同意替罷工工人印鈔助長了通膨。[s1][s2]
     **兩難：** 費格森（Adam Fergusson）認為德國當時進退兩難：止住通膨可能帶來破產、失業和革命；繼續印鈔則會拖垮外債。[s1]
     **長期影響：** 德國聯邦議院引用歷史學家費德曼（Gerald Feldman）的說法，稱惡性通膨在德國人集體記憶中留下「揮之不去的創傷」，並動搖了大家對年輕共和國的信任。[s2]
   hindsight: |
@@ -50,6 +51,7 @@ learn:
   perspectives:
     - { history: 歐洲史, text: 從歐洲看，這是一戰後秩序不穩的縮影，也讓威瑪共和失去民心。 }
     - { history: 錢的歷史, text: 從錢的歷史看，這是最常被拿來講「惡性通膨」的教科書例子。 }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "複查唯一問題（聯邦議院數字的寫法）已依查核者提供的原句改寫。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
@@ -71,8 +73,8 @@ lens_status: 無直接論述
 
 ## F4 規模與數據
 
-- 1 美元換多少馬克：1914 年 4.2；1922 年初約 45（另一說 1922 年上半年約 320）；1923 年 7 月約 100 萬；1923 年 11 月約 4.2 兆。[s1][s2]
-- 1922 年 12 月的匯率兩個來源不同：一說約 1,807 馬克，一說約 7,400 馬克（可能是取月均價或月底價不同，兩說並列）。[s1][s2]
+- 1 美元換多少馬克：1914 年 4.2；1922 年上半年約 320（1922 年全年平均約 430）；1922 年 12 月約 7,400；1923 年 7 月約 100 萬；1923 年 11 月約 4.2 兆。[s1][s2][s4]
+- 德國聯邦議院的專題寫 1922 年初 1 美元約 45 馬克、12 月約 1,807 馬克；這兩個數字其實和「1 金馬克值多少紙馬克」吻合（乘上約 4.2 才是每美元的馬克數），應該不是美元匯率，本卡採用上一行的數字。[s1][s2][s4]
 - 柏林一條麵包：1922 年底約 160 馬克，1923 年底約 2,000 億馬克（估計）。[s1]
 - 1923 年 11 月發行地租馬克，1 地租馬克＝1 兆紙馬克，1 美元＝4.2 地租馬克（發行日一說 15 日、一說 16 日）。[s1][s2]
 

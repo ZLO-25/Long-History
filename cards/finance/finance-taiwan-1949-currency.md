@@ -21,7 +21,7 @@ place:
 structure_tags: [貨幣貶值, 惡性通膨, 貨幣體系轉換, 財政枯竭, 戰爭融資]
 links: [finance-taiwan-stock-exchange, finance-bretton-woods]
 counterparts:
-  - { id: finance-weimar-hyperinflation, note: "相似：政府都靠印鈔撐財政，物價失控後換新貨幣（四萬換一元、一兆換一元）。不同：臺灣的改革靠黃金準備與後來的美援才穩住，德國則靠以資產擔保的地租馬克。", src: [s3, s5] }
+  - { id: finance-weimar-hyperinflation, note: "相似：政府都靠印鈔撐財政，物價失控後換新貨幣（四萬換一元、一兆換一元）。不同：臺灣在改革時撥入黃金準備，但物價要到後來美援進來才穩住；德國則靠以資產擔保的地租馬克（德國的部分見威瑪卡）。", src: [s3, s5] }
 sources:
   - { id: s1, title: "舊臺幣 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/%E8%88%8A%E8%87%BA%E5%B9%A3", accessed: 2026-10-25, tier: 百科 }
   - { id: s2, title: "New Taiwan dollar — Wikipedia", url: "https://en.wikipedia.org/wiki/New_Taiwan_dollar", accessed: 2026-10-25, tier: 百科 }
@@ -56,7 +56,7 @@ learn:
     - { history: 臺灣史, text: 從臺灣看，這是戰後民生最苦的一段，也是新臺幣的起點。 }
     - { history: 中國史, text: 從中國看，這是國共內戰中國民政府財政崩潰的一部分，和大陸的金圓券危機連在一起。 }
     - { history: 錢的歷史, text: 從錢的歷史看，這是「濫發鈔票 → 惡性通膨 → 換新貨幣」的典型例子。 }
-crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) story「最後出現一萬元、甚至一百萬元的本票。[s1]」：s1（中文維基）寫的是 100 萬元鈔券「已印製但未發行」，支持本票說法的是 s7（風傳媒：臺灣銀行發行 5,000、1 萬、10 萬、100 萬即期定額本票）。建議引用改為 [s1][s7] 或 [s7]。2) 「6,000 倍以上」只來自吳聰敏、高櫻芬一篇研究（Cofacts 有 6,385 倍的相近數字，但沒有註明出處），卡片已寫明是兩位作者的研究並標「估計」，可以接受。3) 陳誠與嚴家淦兩段引文都只能透過吳聰敏講義轉引，卡片已註明「轉引自吳聰敏講義」並寫出原始出處，可以接受。4) F4「1945 年 10 月約 29 億" }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "初查依建議修正，複查通過；小建議已修正。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

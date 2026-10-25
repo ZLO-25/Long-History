@@ -58,7 +58,7 @@ learn:
     plain: 西元前 6–4 世紀以今天伊朗為中心的大帝國。
     example: 國土從埃及一直到印度河，比整個希臘大好幾十倍。
   primary_source:
-  - text: Themistocles persuaded the Athenians … to make for themselves with this money two hundred ships for the war, meaning by that the war with the Eginetans.（地米斯托克利說服雅典人……用這筆錢為戰爭建造兩百艘船，他指的是和埃伊納的戰爭。）
+  - text: Themistocles persuaded the Athenians … to make … two hundred ships for the war（地米斯托克利說服雅典人……用這筆錢建造兩百艘戰船）
     from: 希羅多德《歷史》卷 7 第 144 章（Macaulay 英譯；中文為本站摘譯）
     src: s9
   historiography: |

@@ -28,6 +28,7 @@ sources:
   - { id: s2, title: "Koxinga — Wikipedia", url: "https://en.wikipedia.org/wiki/Koxinga", accessed: 2026-10-25, tier: 百科 }
   - { id: s3, title: "鄭成功與荷蘭的降約（1662 年 2 月 1 日於熱蘭遮城簽訂），英譯見 W. Campbell, Formosa under the Dutch (1903) — USC US-China Institute", url: "https://china.usc.edu/node/2182", accessed: 2026-10-25, tier: 一手 }
   - { id: s4, title: "Robert Hoppens, Review of Tonio Andrade, Lost Colony (Princeton UP, 2011) — Education About Asia 18:1 (2013)", url: "https://www.asianstudies.org/wp-content/uploads/lost-colony-the-untold-story-of-chinas-first-great-victory-over-the-west.pdf", accessed: 2026-10-25, tier: 學術 }
+  - { id: s6, title: "劉翠溶，〈漢人拓墾與聚落之形成：臺灣環境變遷之起始〉，收於《積漸所至：中國環境史論文集》，中央研究院經濟研究所，1995，頁 295–347", url: "https://idv.sinica.edu.tw/ectjliu/%E5%8A%89%E7%BF%A0%E6%BA%B6%E5%AD%B8%E8%A1%93%E8%91%97%E4%BD%9C/W9-%E7%92%B0%E5%A2%83%E5%8F%B21pdf/1995%E6%BC%A2%E4%BA%BA%E6%8B%93%E5%A2%BE%E8%88%87%E8%81%9A%E8%90%BD%E4%B9%8B%E5%BD%A2%E6%88%90.pdf", accessed: 2026-10-25, tier: 學術 }
   - { id: s5, title: "Anne Gerritsen, Review of Tonio Andrade, How Taiwan Became Chinese (Columbia UP, 2008) — Reviews in History, Institute of Historical Research", url: "https://reviews.history.ac.uk/review/864", accessed: 2026-10-25, tier: 學術 }
 importance: 3
 learn:
@@ -42,7 +43,7 @@ learn:
   primary_source:
     - { text: "All hostilities committed on either side to be forgotten.（雙方所有的敵對行為一筆勾銷。）", from: 1662 年鄭成功與荷蘭的降約第 1 條（Campbell 1903 英譯；中文為本站摘譯）, src: s3 }
   historiography: |
-    **這是「中國第一次打敗西方」嗎？** 歷史學者歐陽泰（Tonio Andrade）在《決戰熱蘭遮》（Lost Colony）用這個說法當副標題，認為荷蘭人在船艦和火砲上有優勢。[s4] 書評者 Hoppens 指出，書中證據其實顯示這些優勢「很有限」（marginal），鄭軍和荷軍不相上下；他認為用「中國對西方」來形容這場戰爭值得討論，作者自己的證據就能拿來質疑這個副標題。[s4]
+    **這是「中國第一次打敗西方」嗎？** 歷史學者歐陽泰（Tonio Andrade）在《決戰熱蘭遮》（Lost Colony）用這個說法當副標題，認為荷蘭人在船艦和稜堡要塞上有優勢。[s4] 書評者 Hoppens 指出，書中證據其實顯示這些優勢「很有限」（marginal），在火砲、組織、戰術、紀律等方面鄭軍和荷軍不相上下；他認為用「中國對西方」來形容這場戰爭值得討論，作者自己的證據就能拿來質疑這個副標題。[s4]
     **鄭成功是誰的英雄？** 維基百科整理：中華人民共和國稱他是「收復臺灣」的民族英雄，臺灣把他當成開臺人物，日本則因為他的日本母親與出生地而紀念他；清朝康熙皇帝也稱他是忠於明朝的人，而不是叛賊。[s2]
   misconceptions:
     - 明鄭不是一開始就想在臺灣長住：鄭成功攻臺，是因為在大陸沿海打不過清軍，需要新的根據地。[s1][s2]
@@ -57,11 +58,11 @@ lens_status: 無直接論述
 
 ## C1 背景
 
-1644 年清軍入關後，鄭成功在福建沿海以廈門、金門為基地擁明抗清，靠海上貿易維持軍隊。[s2] 1659 年他北攻南京失敗，清朝從 1660 年起推行遷界令，逼沿海居民內遷，切斷鄭家補給。[s1][s2] 鄭成功因此把目光轉向荷蘭人控制的臺灣。[s1]
+1644 年清軍入關後，鄭成功在福建沿海以廈門、金門為基地擁明抗清，靠海上貿易維持軍隊。[s2] 1659 年他北攻南京失敗，清朝從 1661 年起頒布遷界令，逼沿海居民內遷，切斷鄭家補給。[s1][s2] 鄭成功因此把目光轉向荷蘭人控制的臺灣。[s1]
 
 ## C2 經過
 
-1661 年 4 月，鄭成功率約 25,000 人從金門出發，登陸後包圍熱蘭遮城；1662 年 2 月 1 日荷蘭人簽降約離開。[s1][s3] 同年 6 月鄭成功病逝，鄭經繼位，以陳永華等人整頓政務，設天興、萬年二縣。[s1] 1670 年鄭經與英國東印度公司簽約通商。[s1] 1683 年 7 月，清朝施琅率約 238 艘船、2 萬多人出兵，澎湖之戰鄭軍約 12,000 人戰死，9 月年僅 13 歲的鄭克塽投降。[s1]
+1661 年 4 月，鄭成功率約 25,000 人從金門出發，登陸後包圍熱蘭遮城；1662 年 2 月 1 日荷蘭人簽降約離開。[s1][s3] 同年 6 月鄭成功病逝，鄭經繼位，以陳永華等人整頓政務，設天興、萬年二縣。[s1] 1670 年鄭經與英國東印度公司簽約通商。[s1] 1683 年 7 月，清朝施琅率 200 多艘船、2 萬多人出兵，澎湖之戰鄭軍約 12,000 人戰死，9 月年僅 13 歲的鄭克塽投降。[s1]
 
 ## C3 關鍵人物與群體
 
@@ -69,7 +70,7 @@ lens_status: 無直接論述
 
 ## C4 制度或機制變化
 
-明鄭實行屯田：軍隊分區開墾自給；同時發展蔗糖等出口與海上貿易，估計每年出口蔗糖約 119 萬公斤（估計）。[s1] 行政上設府縣，並推動儒學與科舉式教育。[s1]
+明鄭實行屯田：軍隊分區開墾自給；同時發展蔗糖等出口與海上貿易，蔗糖仍是重要出口品；作物以稻米和甘蔗為大宗。[s1][s6] 行政上設府縣，並推動儒學與科舉式教育。[s1]
 
 ## C5 受益者與受損者
 
@@ -78,7 +79,7 @@ lens_status: 無直接論述
 
 ## C6 直接結果
 
-臺灣漢人人口估計從 1662 年約 14 萬人增加到 1683 年約 20 萬人（估計）。[s1] 1683 年清朝取得臺灣，次年設臺灣府，隸屬福建省。[s1]
+明鄭末年臺灣漢人人口，中研院劉翠溶認為約 12 萬人較合理；也有全臺總人口約 20 萬人以上的估計，各家差距很大（估計）。[s1][s6] 1683 年清朝取得臺灣，次年設臺灣府，隸屬福建省。[s1]
 
 ## C7 長期影響
 

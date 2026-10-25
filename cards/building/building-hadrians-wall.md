@@ -26,10 +26,47 @@ links: [war-teutoburg, event-fall-western-rome, building-via-appia]
 counterparts:
   - { id: building-qin-han-great-wall, note: "相似：帝國在北方邊疆築牆，管理與外族之間的邊界，牆邊有駐軍與關口。不同：哈德良長城是一道約 117 公里、規格一致的牆；秦漢長城是用各地材料拼接、延伸數千公里的防線，秦代部分幾乎沒有留下來。", src: [s1, s4] }
 sources:
-  - { id: s1, title: "Hadrian's Wall — Wikipedia", url: "https://en.wikipedia.org/wiki/Hadrian%27s_Wall", accessed: 2026-10-24 }
-  - { id: s2, title: "History of Hadrian's Wall — English Heritage", url: "https://www.english-heritage.org.uk/visit/places/hadrians-wall/hadrians-wall-history-and-stories/history/", accessed: 2026-10-24 }
-  - { id: s3, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
-  - { id: s4, title: "Great Wall of China — Wikipedia", url: "https://en.wikipedia.org/wiki/Great_Wall_of_China", accessed: 2026-10-25 }
+  - { id: s1, title: "Hadrian's Wall — Wikipedia", url: "https://en.wikipedia.org/wiki/Hadrian%27s_Wall", accessed: 2026-10-24, tier: 百科 }
+  - { id: s2, title: "History of Hadrian's Wall — English Heritage", url: "https://www.english-heritage.org.uk/visit/places/hadrians-wall/hadrians-wall-history-and-stories/history/", accessed: 2026-10-24, tier: 通論 }
+  - { id: s3, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s4, title: "Great Wall of China — Wikipedia", url: "https://en.wikipedia.org/wiki/Great_Wall_of_China", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "Tab.Vindol. 164. Ink writing tablet — Roman Inscriptions of Britain（據 Bowman & Thomas 1987 版）", url: "https://romaninscriptionsofbritain.org/inscriptions/TabVindol164", accessed: 2026-10-25, tier: 一手 }
+  - { id: s6, title: "Tab.Vindol. 291. Birthday Invitation of Sulpicia Lepidina — Roman Inscriptions of Britain", url: "https://romaninscriptionsofbritain.org/inscriptions/TabVindol291", accessed: 2026-10-25, tier: 一手 }
+importance: 2
+learn:
+  histories: [希臘羅馬史, 歐洲史]
+  why_care: 一道牆告訴我們羅馬帝國開始「守住」而不是「往外打」；牆邊堡壘留下的信，還讓我們讀到快兩千年前的生日邀請。
+  story: |
+    約西元 122 年，皇帝哈德良在不列顛北部築牆，古代傳記說是為了「把蠻族和羅馬人分開」。[s2] 牆從東到西約 117 公里，每一羅馬里有一座有守衛的小城門「里堡」，後來又加蓋堡壘。[s1][s2] 蓋牆的是三個軍團的士兵，守牆的則是近一萬名來自帝國各地的輔助部隊士兵。[s1][s2] 在牆南邊的文德蘭達堡壘，考古學家挖出用墨水寫的書寫板：有一塊寫著「可憐的不列顛人」不騎上馬擲標槍，也有軍官太太邀請好姊妹來參加生日會。[s5][s6] 這些信約寫於 97–105 年，比長城還早一點。[s5][s6] 長城的堡壘一直用到 5 世紀初，羅馬統治不列顛結束才廢棄。[s2]
+  key_terms:
+    - term: 邊疆防線
+      plain: 帝國在邊界上蓋的牆、堡壘和哨站，用來防守、監視和管理進出的人。
+      example: 像社區大門的警衛室，既擋外人，也登記誰進誰出。
+    - term: 里堡
+      plain: 哈德良長城上每隔一羅馬里（約 1.5 公里）設的小型堡壘兼城門，有士兵看守。
+      example: 像高速公路上的收費站，車子可以通過，但要停下來接受檢查。
+    - term: 輔助部隊
+      plain: 羅馬軍隊裡由非公民組成的部隊，常來自各行省；服役期滿退伍時可以拿到公民權（見「卡拉卡拉敕令」卡）。
+      example: 像外籍工作者在一個國家工作滿一定年限，才有機會申請身分。
+    - term: 蠻族
+      plain: 羅馬人對帝國邊界外民族的稱呼；這是羅馬人的說法，不代表這些人真的比較野蠻。
+      example: 像有些人把外地人一律叫「鄉下人」，這個稱呼透露的是說話者的眼光。
+  primary_source:
+    - text: "nor do the wretched Britons mount in order to throw javelins（那些可憐的不列顛人也不騎上馬擲標槍）"
+      from: 文德蘭達書寫板 Tab. Vindol. 164（約 97–105 年），Roman Inscriptions of Britain 線上版英譯（據 Bowman & Thomas 1987）；中文為本站摘譯
+      src: s5
+    - text: "I shall expect you, sister.（姊妹，我等妳來。）"
+      from: 文德蘭達書寫板 Tab. Vindol. 291，Claudia Severa 寫給 Sulpicia Lepidina 的生日邀請（約 97–105 年），Roman Inscriptions of Britain 線上版英譯；中文為本站摘譯
+      src: s6
+  historiography: |
+    **長城是用來做什麼的？** 古代傳記說它要「把蠻族和羅馬人分開」，也就是防禦用的屏障。[s2] 也有學者認為它更像關卡，透過城門監控往來的人、向他們課稅；考古學家 Neil Faulkner 則說它「既是功能設施，也是宣傳宣言」，用來展示羅馬的權力。[s1]
+    **它和羅馬衰亡有什麼關係？** 有人把長城看成帝國停止擴張、改採固定防線的象徵。[s1][s2] 但它也顯示這套防線撐得很久：堡壘一直使用到 5 世紀初，出土最晚的錢幣是 403–406 年。[s2]
+  misconceptions:
+    - 長城不是密不透風的牆：每一羅馬里就有一座有守衛的城門，人和貨物可以在監控下通過。[s1][s2]
+    - 長城不是照原設計一次完成：完工前改了計畫，牆變薄，又加蓋約 14 座堡壘。[s1][s2]
+  perspectives:
+    - { history: 希臘羅馬史, text: 從羅馬看，這是帝國西北角的邊界，也是哈德良「守住現有領土」政策的象徵。 }
+    - { history: 歐洲史, text: 從英國看，這是羅馬統治不列顛最醒目的遺跡，1987 年列入世界遺產。 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

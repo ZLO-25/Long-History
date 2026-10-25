@@ -22,10 +22,37 @@ structure_tags: [擴大稅基, 意外財源, 慢變結構]
 links: [event-wang-anshi-reform, event-zheng-he-voyages, war-opium-war]
 counterparts: "無適當對照：計畫卡中沒有同時期西方的稅制改革卡；一條鞭法與美洲白銀、歐洲貿易緊密相連，但那是全球白銀流動的一環，不是另一條軌道上結構相似的單一事件。"
 sources:
-  - { id: s1, title: "Single whip law — Wikipedia", url: "https://en.wikipedia.org/wiki/Single_whip_reform", accessed: 2026-10-25 }
-  - { id: s2, title: "一條鞭法 — 維基百科", url: "https://zh.wikipedia.org/zh-tw/一條鞭法", accessed: 2026-10-25 }
-  - { id: s3, title: "Mark Cartwright, Ming Taxation & the Silver Economy — World History Encyclopedia", url: "https://www.worldhistory.org/article/3004/ming-taxation--the-silver-economy/", accessed: 2026-10-25 }
-  - { id: s4, title: "Zhang Juzheng — Wikipedia", url: "https://en.wikipedia.org/wiki/Zhang_Juzheng", accessed: 2026-10-25 }
+  - { id: s1, title: "Single whip law — Wikipedia", url: "https://en.wikipedia.org/wiki/Single_whip_reform", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "一條鞭法 — 維基百科", url: "https://zh.wikipedia.org/zh-tw/一條鞭法", accessed: 2026-10-25, tier: 百科 }
+  - { id: s3, title: "Mark Cartwright, Ming Taxation & the Silver Economy — World History Encyclopedia", url: "https://www.worldhistory.org/article/3004/ming-taxation--the-silver-economy/", accessed: 2026-10-25, tier: 通論 }
+  - { id: s4, title: "Zhang Juzheng — Wikipedia", url: "https://en.wikipedia.org/wiki/Zhang_Juzheng", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "卜永堅，〈明代慈谿縣賦役制度之演變──以四本地方志為中心〉，《田野與文獻》第 98 期，2020-04-15，頁 16–30（引《明史》卷 77〈食貨志二〉）", url: "https://schina-publication.hkust.edu.hk/sites/default/files/pubs/news-098.02.pdf", accessed: 2026-10-25, tier: 學術 }
+importance: 3
+learn:
+  histories: [中國史, 錢的歷史, 世界通史]
+  why_care: 明朝把繳稅改成「全部交白銀」，從此中國農民的稅負，竟然和遠在日本、美洲的銀礦綁在一起。[s1][s3]
+  story: |
+    明朝初年，百姓繳稅是交糧食、布匹，還要輪流替官府做工（徭役）。[s2][s3] 後來朝廷的寶鈔越來越不值錢，民間改用白銀，而白銀大多從日本和美洲流進來（見「大明寶鈔」與「白銀的全球流動」卡）。[s1][s2][s3] 16 世紀，各地官員開始試行一個簡化辦法：把田賦、徭役和各種雜稅合成「一條」，按田地多少分攤，全部改繳白銀。[s1][s2] 1570 年代，首輔張居正把它大力推廣到全國。[s2][s4] 繳稅變簡單了，官府也少了舞弊的空間；但國家財政從此靠海外白銀：1630 年代白銀進口減少、銀價上漲，農民要賣更多糧食才繳得起稅。[s1][s2][s3]
+  key_terms:
+    - { term: 徭役, plain: 百姓要定期替官府無償做工，例如運糧、修路、當差。, example: 像班上每個人輪流當值日生，做事不拿錢。 }
+    - { term: 賦役, plain: 田賦（交給國家的稅）加上徭役，泛指百姓對國家的所有負擔。, example: 像社團要交社費，還要輪流幫忙搬器材。 }
+    - { term: 折銀, plain: 把原本要交的實物或要出的勞力，換算成白銀來繳。, example: 不用親自來打掃，改繳 100 元清潔費，由學校請人做。 }
+    - { term: 首輔, plain: 明朝內閣大學士中排第一、實際主持朝政的大臣。, example: 像學生會裡真正拍板做決定的會長。 }
+    - { term: 胥吏, plain: 官府裡負責登記、收稅等雜事的基層辦事員，常趁機多收錢。, example: 像幫老師收班費的同學，偷偷多收一點放進自己口袋。 }
+  primary_source:
+    - text: "皆計畝徵銀，折辦於官，故謂之一條鞭。（全部按田畝收銀子，由官府統一辦理，所以叫「一條鞭」。）"
+      from: 《明史》卷 77〈食貨志二・賦役〉對一條鞭法的定義（轉引自卜永堅 2020；白話為本站摘譯）
+      src: s5
+  historiography: |
+    **是誰推動的？** 常見的說法把一條鞭法記在張居正名下：他在 1570 年代主政時大力推廣，全國推行的年份有 1580 年和 1581 年兩種說法。[s1][s3][s4] 香港中文大學歷史系卜永堅則用浙江慈谿縣的四本地方志指出，一條鞭法其實是 15 到 18 世紀「由下而上」、各地慢慢摸索的長過程。[s5] 他引用梁方仲的看法：改革的本質是把各種役、各種賦合併起來，再以白銀為媒介；劉志偉、萬明等學者也把源頭追溯到浙江、廣東更早的地方改革。[s5]
+    **是好是壞？** 有人強調它降低了徵稅成本、擴大稅基，也減少胥吏和豪強舞弊，負擔比較公平。[s1][s2] 也有人認為它讓國家稅收綁上外來白銀，北方等遠離貿易的地區農民吃虧，白銀斷流時更成為明朝滅亡的因素之一。[s1][s3]
+  misconceptions:
+    - 一條鞭法不是張居正某一年突然發明的：嘉靖年間就有地方試行，雲貴、四川、陝西等地要到 1587–1589 年間才實施。[s2][s5]
+    - 張居正 1582 年死後許多改革被撤回，但一條鞭法沒有跟著消失，還延續到清朝。[s2][s3][s4]
+  perspectives:
+    - { history: 中國史, text: "從中國看，這是賦役從「交實物、出勞力」改成「繳白銀」的大轉變，清代的攤丁入畝也接著它發展。[s2]" }
+    - { history: 錢的歷史, text: "從錢的歷史看，寶鈔失敗後白銀成了主要貨幣，一條鞭法是明朝第一個預期用白銀繳的稅。[s1][s3]" }
+    - { history: 世界通史, text: "從世界看，日本銀和美洲銀大量流入中國，明朝財政因此被捲進全球白銀流動。[s3]" }
 verification: 爭議
 lens_status: 無直接論述
 ---

@@ -22,12 +22,43 @@ links: [commodity-wuzhu-coin, commodity-salt-iron, event-han-inherits-qin, event
 counterparts:
   - { id: event-augustan-principate, note: "相似：一位朝廷內部的權臣，以「恢復理想古制」為號召取得最高權力（王莽託古於周制；奧古斯都號稱恢復共和）。不同：奧古斯都保留舊制度的外殼、實際改變不大，政權延續數百年；王莽大刀闊斧改變土地、奴婢與貨幣制度，14 年就覆亡。", src: [s1, s2] }
 sources:
-  - { id: s1, title: "Wang Mang — Wikipedia", url: "https://en.wikipedia.org/wiki/Wang_Mang", accessed: 2026-10-25 }
-  - { id: s2, title: "Wang Mang's Reforms — 5000yan 中華上下五千年英文版", url: "https://en.5000yan.com/history-of-china/western-han/wang-mang-reforms.html", accessed: 2026-10-25 }
-  - { id: s3, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-24 }
-  - { id: s4, title: "Wu Zhu — Wikipedia", url: "https://en.wikipedia.org/wiki/Wu_Zhu", accessed: 2026-10-25 }
-  - { id: s5, title: "李彔《現代化十六講》之十一（現代化的本質和鐵律），虎嗅 2014", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25 }
-  - { id: s6, title: "Sapiens 金錢篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25 }
+  - { id: s1, title: "Wang Mang — Wikipedia", url: "https://en.wikipedia.org/wiki/Wang_Mang", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Wang Mang's Reforms — 5000yan 中華上下五千年英文版", url: "https://en.5000yan.com/history-of-china/western-han/wang-mang-reforms.html", accessed: 2026-10-25, tier: 通論 }
+  - { id: s3, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-24, tier: 百科 }
+  - { id: s4, title: "Wu Zhu — Wikipedia", url: "https://en.wikipedia.org/wiki/Wu_Zhu", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "李彔《現代化十六講》之十一（現代化的本質和鐵律），虎嗅 2014", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s6, title: "Sapiens 金錢篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s7, title: "Pan Ku's Book of the Former Han（班固《漢書》英譯節選：H. H. Dubs, The History of the Former Han Dynasty, vol. 3, ACLS / Waverly Press, 1955）— Columbia University 課程網頁", url: "https://www.columbia.edu/itc/religion/f2001/docs/pan_ku.html", accessed: 2026-10-25, tier: 一手 }
+  - { id: s8, title: "Mike Dash, Emperor Wang Mang: China's First Socialist? — Smithsonian Magazine，2011-12-09", url: "https://www.smithsonianmag.com/history/emperor-wang-mang-chinas-first-socialist-2402977/", accessed: 2026-10-25, tier: 通論 }
+  - { id: s9, title: "Xin dynasty coinage — Wikipedia", url: "https://en.wikipedia.org/wiki/Xin_dynasty_coinage", accessed: 2026-10-25, tier: 百科 }
+importance: 2
+learn:
+  histories: [中國史, 錢的歷史]
+  why_care: 一個想把天下「改回古代理想」的皇帝，十幾年就亡國；他一再亂改貨幣的故事，是理解「貨幣貶值」最好的教材。[s1][s9]
+  story: |
+    王莽是西漢的外戚，先以輔政大臣掌權，9 年乾脆自己當皇帝，建立新朝。[s1][s2] 他想恢復古代的理想制度：把全國土地收歸國有、禁止買賣，也管制奴婢。[s1][s2] 他還大改貨幣：7 年起發行「一刀平五千」等大面額刀錢，面額遠比銅本身值錢；後來又廢掉大家用慣的五銖錢，改發金、銀、龜甲、貝殼等好幾十種錢。[s1][s9] 百姓搞不清楚、也不信任，私下照用五銖，朝廷就用重刑處罰。[s1][s9] 再加上黃河潰決、饑荒四起，綠林、赤眉起兵，23 年王莽在長安被殺。[s1][s2]
+  key_terms:
+    - { term: 外戚, plain: 皇后或太后的娘家親戚，常靠這層關係掌握大權。, example: 像校長太太的兄弟在學校當主任。 }
+    - { term: 托古改制, plain: 打著「恢復古代聖王制度」的旗號推動改革。, example: 用「以前的學長姊都這樣做」當理由，改掉現在的班規。 }
+    - { term: 貨幣貶值, plain: 同樣面額的錢能買到的東西變少。王莽的刀錢面額很大、用的銅卻很少，等於硬用命令讓一小塊銅變得很值錢，大家自然不信。, example: 老師規定一張小貼紙等於 100 分，但大家都知道它沒那麼值錢，私下還是用原來的點數。 }
+    - { term: 面額與實值, plain: 面額是錢上寫的價值，實值是金屬本身值多少；差越多，越多人偷鑄。, example: 一枚寫著「一千元」的代幣，材料只值 3 元，大家就會想自己做。 }
+    - { term: 專賣, plain: 某些商品只准政府經營、販賣。, example: 校園裡只准福利社賣飲料。 }
+  primary_source:
+    - text: "their group of five neighboring [families] might be casting money or possessing copper（只因五戶鄰居中可能有人私鑄錢幣或藏有銅料，就一起被判罪。）"
+      from: 班固《漢書》王莽傳，使者回報百姓抱怨法令苛刻的段落（H. H. Dubs 1955 英譯；中文為本站摘譯）
+      src: s7
+    - text: "Since [Wang] Mang did not [possess] benevolence, but had a talent for flattery and evil（王莽沒有仁德，只有諂媚和作惡的本事。）"
+      from: 班固《漢書》對王莽的評語（H. H. Dubs 1955 英譯；中文為本站摘譯）
+      src: s7
+  historiography: |
+    **暴君還是改革者？** 傳統史學把王莽當成篡位的偽君子：《漢書》作者班固說他沒有仁德，只有諂媚和作惡的本事。[s7] Clyde Sargent 也指出，王莽傳統上被視為中國史上最大的暴君之一。[s8] 1928 年胡適則把他重新描繪成改革家，說他的政策「坦白說是共產主義的」，而且是當成稱讚。[s8]
+    **改革為什麼失敗？** 漢學家 Homer Dubs 認為王莽的政策其實很「儒家」，連貨幣制度都是在模仿古代聖王。[s8] Hans Bielenstein 等學者則指出，黃河在這段時間改道，帶來饑荒、旱災和水災，王莽是在和他無法控制的天災對抗。[s8] Sargent 承認王莽的想法有驚人的「現代感」，但認為證據不足以說他是革命者。[s8]
+  misconceptions:
+    - 王莽的錢到底有幾種，說法不一：常見說法是 28 種，也有整理說四次幣制改革前後共出現 37 種。[s1][s2][s9]
+    - 「中國第一個社會主義者」是 20 世紀學者的比喻，不是王莽自己的主張。[s1][s8]
+  perspectives:
+    - { history: 中國史, text: "從中國看，新朝只維持十幾年，夾在西漢和東漢之間，王莽是評價最兩極的人物之一。[s1]" }
+    - { history: 錢的歷史, text: "從錢的歷史看，用命令讓一小塊銅錢值上千枚五銖錢，結果百姓私下照用舊錢、偷鑄新錢，這是貨幣失去信任的典型例子（見「五銖錢」卡）。[s9]" }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 ---

@@ -22,17 +22,61 @@ links: [finance-nyse, finance-bretton-woods, finance-2008-crisis, war-world-war-
 counterparts:
   - { id: finance-taiwan-stock-exchange, note: "相似：都是借錢炒股把指數推到高點後崩跌——道瓊指數從 1929 年 381 點跌到 1932 年 41 點（約 89%），台股從 1990 年 2 月 12,682 點跌到 10 月 2,485 點（約 80%）。不同：美國股災之後接著銀行倒閉潮與全球大蕭條；台股崩盤的資料主要談股市本身，沒有演變成類似規模的經濟大蕭條（來源未提及）。", src: [s1, s3, s9, s10] }
 sources:
-  - { id: s1, title: "Wall Street crash of 1929 — Wikipedia", url: "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929", accessed: 2026-10-25 }
-  - { id: s2, title: "Great Depression — Wikipedia", url: "https://en.wikipedia.org/wiki/Great_Depression", accessed: 2026-10-25 }
-  - { id: s3, title: "Stock Market Crash of 1929 — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/stock-market-crash-of-1929", accessed: 2026-10-25 }
-  - { id: s4, title: "The Great Depression — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/great-depression", accessed: 2026-10-25 }
-  - { id: s5, title: "U.S. Securities and Exchange Commission — Wikipedia", url: "https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission", accessed: 2026-10-25 }
-  - { id: s6, title: "李彔〈全球價值投資與時代〉北京大學演講（2024 年 12 月，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/67a4f8e8160103c8a74017a7_%E5%85%A8%E7%90%83%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E4%B8%8E%E6%97%B6%E4%BB%A32024%E5%B9%B412%E6%9C%88.pdf", accessed: 2026-10-25 }
-  - { id: s7, title: "李錄書評：中國仍然處在黃金發展的機遇期（評辜朝明《大衰退年代》）— 虎嗅網，2019-11-20", url: "https://www.huxiu.com/article/327249.html", accessed: 2026-10-25 }
-  - { id: s8, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25 }
-  - { id: s9, title: "股市時光機：一張舊報紙回到「台灣錢淹腳目」的瘋狂年代 — Smart 自學網（商業周刊），2019-04-29", url: "https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?ID=38490", accessed: 2026-10-25 }
-  - { id: s10, title: "蔡明彰觀點：挑戰 12682 天價的危與機 — 鉅亨網，2020-07-23", url: "https://news.cnyes.com/news/id/4508251", accessed: 2026-10-25 }
-  - { id: s11, title: "李彔〈價值投資在中國的展望〉北京大學演講（2015-10-23，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/5f0936c4321954706fa9eca2_%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%B1%95%E6%9C%9B-%E6%9D%8E%E5%BD%952015-10-23%E5%8C%97%E5%A4%A7%E6%BC%94%E8%AE%B2.pdf", accessed: 2026-10-25 }
+  - { id: s1, title: "Wall Street crash of 1929 — Wikipedia", url: "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Great Depression — Wikipedia", url: "https://en.wikipedia.org/wiki/Great_Depression", accessed: 2026-10-25, tier: 百科 }
+  - { id: s3, title: "Stock Market Crash of 1929 — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/stock-market-crash-of-1929", accessed: 2026-10-25, tier: 通論 }
+  - { id: s4, title: "The Great Depression — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/great-depression", accessed: 2026-10-25, tier: 通論 }
+  - { id: s5, title: "U.S. Securities and Exchange Commission — Wikipedia", url: "https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission", accessed: 2026-10-25, tier: 百科 }
+  - { id: s6, title: "李彔〈全球價值投資與時代〉北京大學演講（2024 年 12 月，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/67a4f8e8160103c8a74017a7_%E5%85%A8%E7%90%83%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E4%B8%8E%E6%97%B6%E4%BB%A32024%E5%B9%B412%E6%9C%88.pdf", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s7, title: "李錄書評：中國仍然處在黃金發展的機遇期（評辜朝明《大衰退年代》）— 虎嗅網，2019-11-20", url: "https://www.huxiu.com/article/327249.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s8, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s9, title: "股市時光機：一張舊報紙回到「台灣錢淹腳目」的瘋狂年代 — Smart 自學網（商業周刊），2019-04-29", url: "https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?ID=38490", accessed: 2026-10-25, tier: 通論 }
+  - { id: s10, title: "蔡明彰觀點：挑戰 12682 天價的危與機 — 鉅亨網，2020-07-23", url: "https://news.cnyes.com/news/id/4508251", accessed: 2026-10-25, tier: 通論 }
+  - { id: s11, title: "李彔〈價值投資在中國的展望〉北京大學演講（2015-10-23，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/5f0936c4321954706fa9eca2_%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%B1%95%E6%9C%9B-%E6%9D%8E%E5%BD%952015-10-23%E5%8C%97%E5%A4%A7%E6%BC%94%E8%AE%B2.pdf", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s12, title: "Franklin D. Roosevelt, Fireside Chat on Banking, March 12, 1933 — The American Presidency Project（UC Santa Barbara）", url: "https://www.presidency.ucsb.edu/documents/fireside-chat-banking", accessed: 2026-10-25, tier: 一手 }
+  - { id: s13, title: "Gary Richardson, Banking Panics of 1930-31 — Federal Reserve History, 2013-11-22", url: "https://www.federalreservehistory.org/essays/banking-panics-1930-31", accessed: 2026-10-25, tier: 通論 }
+importance: 3
+learn:
+  histories: [美洲史, 錢的歷史, 世界通史]
+  why_care: 什麼是「銀行擠兌」？大蕭條告訴我們，存款人一起衝去領錢，就能讓一家又一家銀行關門，讓股災變成長達十年的大災難。
+  story: |
+    1929 年 10 月，美國股市在幾天內暴跌，很多人是借錢買股票的。[s1][s3] 但聯準會認為，真正把衰退變成大蕭條的，是 1930–1933 年一波波的銀行擠兌。[s3][s4] 銀行不會把你的存款鎖在保險庫，而是借給別人、買債券和房貸。[s12] 所以當很多存款人同時來領錢，銀行手上的現金就不夠了；1930 年紐約的美國銀行合併談判破局，存款人衝去領錢，銀行就被關閉。[s13] 一家倒了，別家的存款人也害怕，恐慌「從一個城鎮傳到另一個城鎮」。[s13] 到 1933 年，美國約兩萬五千家銀行中約九千家倒閉（估計）。[s2] 1933 年 3 月，羅斯福總統在廣播中告訴大家：把錢放在重新開門的銀行，比藏在床墊下安全。[s12]
+  key_terms:
+    - term: 銀行擠兌
+      plain: 很多存款人因為擔心銀行出事，同時去把錢領出來。銀行收到的存款大多已經借出去，手上現金只夠應付平常少數人領錢，大家一起來領就付不出來，只好關門；結果連原本撐得住的銀行，也可能因為大家害怕而倒。
+      example: 同學們把零用錢交給班長保管，班長把大部分借給別人。平常一天只有一兩個人來拿，沒問題；某天謠傳班長還不出錢，全班同時要拿回來，他手上當然沒那麼多現金。
+    - term: 融資
+      plain: 向券商借錢買股票；股價一跌，就可能被迫賣股還債。
+      example: 跟朋友借錢買球員卡，卡價一跌，朋友要你馬上還錢，你只好賤價把卡賣掉。
+    - term: 存款保險
+      plain: 由政府機構保證，就算銀行倒了，一般人一定金額內的存款也拿得回來；美國在大蕭條後成立聯邦存款保險公司（FDIC）。
+      example: 像手機有保險，摔壞了也能拿回一定的賠償，所以你不用每天擔心。
+    - term: 最後放款人
+      plain: 銀行一時缺現金時，中央銀行出面借錢給它，避免擠兌把銀行拖垮。
+      example: 班長一時周轉不過來，老師先借錢給他，讓同學們拿得到錢，恐慌就停了。
+    - term: 貨幣供給
+      plain: 整個社會上流通的錢的總量，包括現金和銀行存款。
+      example: 全班手上的零用錢加上交給班長保管的錢，就是全班的「錢的總量」。
+  primary_source:
+    - text: "it is safer to keep your money in a reopened bank than under the mattress（把錢放在重新開門的銀行，比藏在床墊下更安全）"
+      from: 羅斯福第一次爐邊談話〈談銀行危機〉，1933 年 3 月 12 日廣播，The American Presidency Project 版；中文為本站摘譯
+      src: s12
+    - text: "the bank does not put the money into a safe deposit vault（銀行不會把錢放進保險庫）"
+      from: 羅斯福第一次爐邊談話〈談銀行危機〉，1933 年 3 月 12 日，向聽眾解釋銀行怎麼運用存款；中文為本站摘譯
+      src: s12
+  historiography: |
+    **大蕭條的主因是什麼？** 傅利曼與舒瓦茲認為，銀行危機讓銀行拚命保留準備、民眾把現金藏起來，貨幣數量萎縮、物價下跌，這是貨幣面的解釋。[s13] 柏南奇（1983）則強調，銀行倒閉讓企業借不到錢或借錢變貴，信用中斷才讓衰退加深。[s13] 凱因斯學派強調消費與投資需求不足；英文維基引用的調查顯示，經濟學家支持貨幣面和需求面解釋的大約各占一半。[s2]
+    **股災是原因還是症狀？** 聯準會歷史網站指出，股災本身的影響幾個月就淡了，股災究竟是大蕭條的原因還是症狀，至今仍有爭論。[s3]
+  hindsight: |
+    事後看，1929 年的泡沫好像很明顯；但著名經濟學家費雪在崩盤前不久還說，股價「已經到達看起來永久的高原」。[s1] 崩盤後也不是一路往下：1929 年 10 月 30 日道瓊單日反彈 12.34%，1930 年 4 月 17 日回到 294 點；如果有人在這時以為最壞的已經過去而買進，到 1932 年 7 月 8 日跌到 41 點時，還會再虧約 86%（本站換算）。[s1] 如果在 1929 年 9 月最高點買進，要等到 1954 年 11 月才回本，整整 25 年。[s1][s3]
+    倖存者偏差：我們常聽到格雷厄姆在 1929–1932 年虧損七成、後來創立價值投資的故事，可是約九千家倒閉銀行的存款人和破產的投資人，大多沒有留下故事。[s2][s6] 本卡不構成投資建議。
+  misconceptions:
+    - 大蕭條不是 1929 年股災一天造成的：聯準會的說法是，真正讓衰退惡化的是 1930–1933 年的銀行擠兌與貨幣供給減少近三成。[s3][s4]
+    - 擠兌不只打垮一家銀行：銀行之間靠代理行存放準備金，一家出事，恐慌會連鎖傳到其他銀行和城鎮。[s13]
+    - 美國的存款保險不是一直都有：聯邦存款保險公司（FDIC）是大蕭條之後才成立的。[s2][s4]
+  perspectives:
+    - { history: 美洲史, text: 從美國看，這是二十世紀最嚴重的經濟災難，也催生了羅斯福新政、存款保險和證券交易委員會。 }
+    - { history: 錢的歷史, text: 從錢的歷史看，大蕭條讓人學到：銀行靠信任運作，信任一崩，存款就會像雪崩一樣被領走。 }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 ---

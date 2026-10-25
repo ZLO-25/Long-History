@@ -26,10 +26,45 @@ structure_tags: [技術代差, 海權對陸權, 海峽封鎖, 合法性危機]
 links: [event-single-whip-reform, event-xinhai-revolution, tech-steam-engine]
 counterparts: "無適當對照：計畫卡中沒有同時期由西方國家被迫開港、簽不平等條約的事件；以「工業化海權打敗農業帝國」來看，結構上屬於全球帝國擴張的一環，不宜硬配單一西方事件。"
 sources:
-  - { id: s1, title: "First Opium War — Wikipedia", url: "https://en.wikipedia.org/wiki/First_Opium_War", accessed: 2026-10-25 }
-  - { id: s2, title: "第一次鴉片戰爭 — 維基百科", url: "https://zh.wikipedia.org/zh-tw/第一次鴉片戰爭", accessed: 2026-10-25 }
-  - { id: s3, title: "Sapiens Chapter 16: The Capitalist Creed 摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25 }
-  - { id: s4, title: "王雅，〈從「李約瑟之問」到「李錄之答」 政治賢能制能否推動中國現代化〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25 }
+  - { id: s1, title: "First Opium War — Wikipedia", url: "https://en.wikipedia.org/wiki/First_Opium_War", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "第一次鴉片戰爭 — 維基百科", url: "https://zh.wikipedia.org/zh-tw/第一次鴉片戰爭", accessed: 2026-10-25, tier: 百科 }
+  - { id: s3, title: "Sapiens Chapter 16: The Capitalist Creed 摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s4, title: "王雅，〈從「李約瑟之問」到「李錄之答」 政治賢能制能否推動中國現代化〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25, tier: 通論 }
+  - { id: s5, title: "Lin Zexu, Letter of Advice to Queen Victoria (1839)（英譯：Ssu-yu Teng & John K. Fairbank, China's Response to the West, Harvard University Press, 1954）— digital china/harvard", url: "https://cyber.harvard.edu/ChinaDragon/lin_xexu.html", accessed: 2026-10-25, tier: 一手 }
+  - { id: s6, title: "The First Opium War — MIT Visualizing Cultures（Rise & Fall of the Canton Trade System / Opium Wars 單元，2011）", url: "https://visualizingcultures.mit.edu/opium_wars_01/ow1_essay01.html", accessed: 2026-10-25, tier: 學術 }
+  - { id: s7, title: "John W. Dower, The Opium War in Japanese Eyes — MIT Visualizing Cultures，2010", url: "https://visualizingcultures.mit.edu/opium_wars_japan/oje_essay01.html", accessed: 2026-10-25, tier: 學術 }
+  - { id: s8, title: "Letter to Queen Victoria — Wikipedia", url: "https://en.wikipedia.org/wiki/Letter_to_Queen_Victoria", accessed: 2026-10-25, tier: 百科 }
+  - { id: s9, title: "Bill Hayton, It's time China got over the Opium War — UnHerd，2020-10-07", url: "https://unherd.com/2020/10/its-time-china-got-over-the-opium-war/", accessed: 2026-10-25, tier: 通論 }
+importance: 3
+learn:
+  histories: [中國史, 日本史, 歐洲史, 世界通史]
+  why_care: 一場因為毒品貿易打起來的戰爭，讓清朝被迫割地開港；隔海的日本看著清朝戰敗，把它當成給自己的警告。[s1][s7]
+  story: |
+    英國人很愛喝中國茶，卻沒什麼東西能賣給中國，於是英商把印度種的鴉片運進中國換茶。[s1][s2] 鴉片越賣越多，白銀反過來大量流出中國，吸食的人也越來越多。[s1][s6] 1839 年，林則徐到廣州禁煙，逼英商交出兩萬多箱鴉片，在虎門公開銷毀，還寫信質問英國女王。[s1][s2][s5] 英國派出艦隊，靠蒸汽船和射程更遠的大炮沿海北上，1842 年攻下鎮江、切斷大運河。[s1] 清朝只好簽下《南京條約》：割讓香港島、開放五個港口通商、賠款 2,100 萬。[s1][s2] 消息經由書籍傳到鎖國中的日本，有日本人把清朝的失敗當成日本的反面教材。[s7]
+  key_terms:
+    - { term: 貿易逆差, plain: 向別人買的東西比賣給別人的多，錢一直往外流。, example: 每個月買飲料花的錢，比打工賺的還多。 }
+    - { term: 不平等條約, plain: 戰敗的一方被迫簽下、只對另一方有利的條約。, example: 打賭輸了，被迫把房間和零用錢讓給對方，還不能抗議。 }
+    - { term: 五口通商, plain: 開放廣州、廈門、福州、寧波、上海五個港口讓英國人居住和做生意。, example: 原本只開一個校門，現在被迫多開四個。 }
+    - { term: 領事裁判權, plain: 外國人在當地犯法，不歸當地法院審，而是交給自己國家的領事審。, example: 轉學生在學校犯錯，學校不能處罰，只能交給他原本學校的老師處理。 }
+    - { term: 欽差大臣, plain: 皇帝特別派去處理某件大事、握有很大權力的官員。, example: 校長親自指定、專門處理某件事的特派老師。 }
+  primary_source:
+    - text: "Let us ask, where is your conscience?（請問，你們的良心在哪裡？）"
+      from: 林則徐〈致英國女王書〉，1839 年（英譯 Ssu-yu Teng & John K. Fairbank, China's Response to the West, Harvard University Press, 1954；中文為本站摘譯）
+      src: s5
+    - text: "For months and years work is continued in order to accumulate the poison.（年復一年地工作，只為了累積這種毒物。）"
+      from: 同一封信，林則徐描述英國在印度種植、製造鴉片（Teng & Fairbank 1954 英譯；中文為本站摘譯）
+      src: s5
+  historiography: |
+    **這場戰爭到底為了什麼？** 中國史家多把它看成外國勢力強加在衰弱清朝身上的不義戰爭，後來更被當成「百年國恥」的開端。[s1][s2][s6] 麻省理工學院 Visualizing Cultures 的教材強調，引發戰爭的「不是貿易本身」，而是西方（尤其英國）不受限制的鴉片貿易。[s6] 當時的英國商人則把問題說成廣州通商制度限制太多，認為只有武力才能讓清朝開港。[s6] 依 LitCharts 摘要，哈拉瑞把它當成商人遊說政府、為商業利益開戰的例子。[s3]
+    **只是英國的錯嗎？** 同一份教材提醒，只看西方強加會把畫面看得「太窄」：清朝內部吸食鴉片的官員增加、白銀外流擾亂幣制，朝廷也分成主張嚴禁的一派，和主張合法化、課稅的一派。[s6] 研究者 Bill Hayton 在 2020 年的評論中主張，這場戰爭「有好幾個主角」，也有清朝自身的危機與白銀短缺，並批評把它只講成國恥故事。[s9]
+  misconceptions:
+    - 林則徐寫給英國女王的信，史家普遍認為女王從來沒收到；不過它在 1839 年刊登在英國《泰晤士報》上。[s8]
+    - 《南京條約》並沒有解決鴉片問題，條約裡根本沒處理鴉片要不要禁。[s1]
+    - 起點年份說法不同：中文常說「1840 年鴉片戰爭」，英文來源多從 1839 年 9 月第一次交火算起。[s1][s4]
+  perspectives:
+    - { history: 中國史, text: "從中國看，這是清朝第一次被迫簽不平等條約，也讓許多中國人開始思考怎麼趕上西方，後來的自強運動先學的是西方武器與技術（見「自強運動」卡）。[s1][s4]" }
+    - { history: 日本史, text: "從日本看，鎖國中的日本透過長崎的中國與荷蘭書籍得知清朝戰敗；1849 年的《海外新話》把它當成日本的反面教材，幕府卻查禁了這本書。[s7]" }
+    - { history: 歐洲史, text: "從英國看，這是靠蒸汽船與火炮打開中國市場、取得香港島的戰爭。[s1]" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

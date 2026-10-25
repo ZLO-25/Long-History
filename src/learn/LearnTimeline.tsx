@@ -81,6 +81,7 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
       const next = placed.filter((q) => q.row === p.row && q.x0 > p.x0).sort((a, b) => a.x0 - b.x0)[0];
       if (next && p.x1 + 4 + p.c.name.length * CH_W + 6 > next.x0) p.label = false;
       if (p.x1 + 4 + p.c.name.length * CH_W > width) p.label = false;
+      if (p.x1 + 4 < LEFT) p.label = false; // 標籤會壓到左邊的軌名
     }
     // 擠不進來的：相近的合併成一顆「+N」
     const clusters: { x: number; a: number; b: number; cards: Card[] }[] = [];
@@ -117,7 +118,7 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
           const r = svgRef.current!.getBoundingClientRect(); const y = Math.round(base.invert(t.invertX(e.clientX - r.left - LEFT)));
           setYear(Math.max(MIN_YEAR, Math.min(MAX_YEAR, y || 1)));
         }} />
-        {ticks.map((y) => { const px = x(y); if (px < LEFT || px > width || px - lastTick < 44) return null; lastTick = px;
+        {ticks.map((y) => { const px = x(y); if (px < LEFT || px + fmtYear(y).length * 4 + 2 > width || px - lastTick < 44) return null; lastTick = px;
           return <g key={y}><line x1={px} x2={px} y1={AXIS_H - 5} y2={height} className="tick" /><text x={px} y={14} textAnchor="middle" className="tk">{fmtYear(y)}</text></g>; })}
         {lanes.map((l) => {
           const top = tops[l];
@@ -145,7 +146,10 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
               {ERAS.map(([n, a, b, col]) => { const x0 = Math.max(LEFT, x(a)), x1 = Math.min(width, x(b)); if (x1 <= x0) return null;
                 const cnt = mainCards.filter((c) => c.time.start >= a && c.time.start < b).length;
                 return <g key={n} className="era" onClick={() => zoomTo(a, b)}><rect x={x0} y={4} width={x1 - x0} height={mainH - AXIS_H - 8} fill={col} opacity={overview ? 0.9 : 0.35} />
-                  {overview && x1 - x0 > 60 && <text x={(x0 + x1) / 2} y={(mainH - AXIS_H) / 2 + 4} textAnchor="middle" className="era-t">{n}・{cnt} 張</text>}</g>; })}
+                  {overview && (() => { // 色塊太窄時先改成只寫張數，再不行就不寫（點色塊仍可放大）
+                    const room = x1 - x0 - 8, full = `${n}・${cnt} 張`, short = `${cnt} 張`;
+                    const s = full.length * CH_W <= room ? full : short.length * CH_W <= room ? short : null;
+                    return s && <text x={(x0 + x1) / 2} y={(mainH - AXIS_H) / 2 + 4} textAnchor="middle" className="era-t">{s}</text>; })()}</g>; })}
               <text x={6} y={14} className="lane-name main">{label}</text>
               {!overview && layout.placed.map(({ c, x0, x1, row, label: lb }) => (
                 <g key={c.id} className={`lnode ${c.id === selectedId ? 'sel' : ''}`} transform={`translate(${x0},${6 + row * ROW_H})`} onClick={() => onOpen(c.id)}>

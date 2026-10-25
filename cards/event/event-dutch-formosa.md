@@ -1,0 +1,102 @@
+---
+id: event-dutch-formosa
+type: event
+name: 荷蘭東印度公司統治臺灣（大員與熱蘭遮城）
+aliases: [荷蘭時期, 荷治時期, 荷據時期, 大員, 熱蘭遮城, 安平古堡, Dutch Formosa, Fort Zeelandia, Tayouan, VOC Taiwan]
+civilization: [臺灣（荷西時期）, 荷蘭]
+track: east
+time:
+  start: 1624
+  end: 1662
+  precision: exact
+  src: [s1, s3]
+summary_line: 大事｜港口／海峽｜大員（今臺南安平）｜荷蘭東印度公司統治臺灣（大員與熱蘭遮城）
+place:
+  primary_field: 港口／海峽
+  secondary_fields: [商路, 宮廷／政治中心]
+  locations:
+    - { name_ancient: 大員（熱蘭遮城）, name_modern: 臺南市安平區（臺灣）, lat: 23.0015, lng: 120.1606, precision: exact, role: 荷蘭商館與城堡, src: [s2] }
+    - { name_ancient: 澎湖（媽宮）, name_modern: 澎湖縣馬公市（臺灣）, lat: 23.5655, lng: 119.5793, precision: exact, role: 1622–1624 荷蘭先占澎湖、被明軍逼退, src: [s1] }
+    - { name_ancient: 新港社, name_modern: 臺南市新市區（臺灣）, lat: 23.0785, lng: 120.2953, precision: schematic, role: 最早與荷蘭結盟的西拉雅聚落, src: [s1] }
+  scale: area
+structure_tags: [商路改道, 單一港口依賴, 擴大稅基, 外部勢力介入, 技術擴散]
+links: [finance-amsterdam-exchange, social-siraya-deer, event-spanish-north-taiwan, event-koxinga-taiwan]
+counterparts:
+  - { id: finance-amsterdam-exchange, note: "相似：大員商館就是阿姆斯特丹股東出錢的 VOC 在亞洲的一個據點，賺的錢最後變成股息。不同：交易所講的是歐洲怎麼集資，大員講的是錢在亞洲當地怎麼從鹿皮、蔗糖和人頭稅裡賺回來。", src: [s1, s3] }
+sources:
+  - { id: s1, title: "Dutch Formosa — Wikipedia", url: "https://en.wikipedia.org/wiki/Dutch_Formosa", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "安平古堡 — 交通部觀光署 台灣觀光資訊網", url: "https://www.taiwan.net.tw/m1.aspx?id=147&sno=0001016", accessed: 2026-10-25, tier: 通論 }
+  - { id: s3, title: "吳聰敏，第 2 單元摘要與提問（荷蘭時代的臺灣經濟），臺灣大學經濟系課程講義，2024", url: "https://homepage.ntu.edu.tw/~ntut019/teh/bm-Summary-unit2.pdf", accessed: 2026-10-25, tier: 學術 }
+  - { id: s4, title: "Anne Gerritsen, Review of Tonio Andrade, How Taiwan Became Chinese (Columbia UP, 2008) — Reviews in History, Institute of Historical Research", url: "https://reviews.history.ac.uk/review/864", accessed: 2026-10-25, tier: 學術 }
+  - { id: s5, title: "鄭成功與荷蘭的降約（1662 年 2 月 1 日於熱蘭遮城簽訂），英譯見 W. Campbell, Formosa under the Dutch (1903) — USC US-China Institute", url: "https://china.usc.edu/node/2182", accessed: 2026-10-25, tier: 一手 }
+importance: 3
+learn:
+  histories: [臺灣史, 歐洲史]
+  why_care: 臺灣第一次被寫進「全球貿易地圖」，大批漢人移民來臺也是從這時開始的，而帶他們來的竟然是一家荷蘭公司。
+  story: |
+    1624 年，荷蘭東印度公司被明朝軍隊趕出澎湖，轉到對岸的大員（今天臺南安平）落腳，蓋了熱蘭遮城。[s1][s2] 這是一家公司，不是國家，它要的是賺錢：把中國的生絲賣到日本換白銀，把臺灣的鹿皮賣到日本，再找人來種甘蔗做糖。[s1][s3] 荷蘭人自己人手不夠，就從福建招募漢人來開墾，提供船位、耕牛和貸款，再向他們收人頭稅。[s1][s4] 38 年後，鄭成功的大軍圍城九個月，荷蘭人在 1662 年初投降離開。[s1][s5]
+  key_terms:
+    - { term: 荷蘭東印度公司, plain: 荷蘭商人合資成立、可以自己養軍隊、蓋城堡、跟外國簽約的大公司（簡稱 VOC）。, example: 像一家跨國企業，但它有自己的軍隊和殖民地。 }
+    - { term: 人頭稅, plain: 不看收入，每個人都要繳一樣多的稅。, example: 班上每人固定繳 50 元班費，不管家裡有沒有錢。 }
+    - { term: 商館, plain: 外國商人在港口設立的辦事處和倉庫，負責買賣。, example: 像連鎖店在國外開的分公司。 }
+  primary_source:
+    - { text: "No other than a white flag shall float from the Castle until the Honourable Company's people have marched out.（公司的人撤出之前，城堡上只能掛白旗。）", from: 1662 年鄭成功與荷蘭的降約第 14 條（Campbell 1903 英譯；中文為本站摘譯）, src: s5 }
+  historiography: |
+    **大員到底賺不賺錢？** 維基百科整理的研究指出，大員曾是荷蘭東印度公司在亞洲獲利第二高的商館，1664 年甚至占公司利潤約 26%。[s1] 臺大經濟系吳聰敏則依帳目指出：1630 年代多半虧損，1640 年代後期才較賺，1650 年後又轉虧，「整體而言……不足以稱之為東方明珠」。[s3]
+    **臺灣是怎麼「變成漢人的」？** 歷史學者歐陽泰（Tonio Andrade）提出「共構殖民」：荷蘭人沒有足夠人力開墾，於是招募福建移民，以保護和秩序換取稅收；漢人移民和荷蘭公司彼此合作多於衝突。[s4] 書評者也提醒，這本書引用的部分中文史料需要更謹慎檢查。[s4]
+  misconceptions:
+    - 「荷蘭統治臺灣」不是荷蘭王國派官員來，而是一家公司在經營；它的目標是利潤，不是建立國家。[s1][s3]
+    - 荷蘭時期並沒有統治全臺灣：主要在西南部平原，北部有一段時間是西班牙人，山區與東部大多不受管轄。[s1]
+  perspectives:
+    - { history: 臺灣史, text: 從臺灣看，這是臺灣第一次被納入全球貿易網，也是大量漢人移民開始定居的起點。 }
+    - { history: 歐洲史, text: 從荷蘭看，大員只是東印度公司在亞洲許多商館之一，主要目的是做中國和日本的生意。 }
+verification: 交叉確認
+lens_status: 無直接論述
+---
+
+## C1 背景
+
+17 世紀初，荷蘭東印度公司想打進中國貿易，1622 年先占領澎湖並逼迫漢人勞工築城；1624 年 7 月明軍以數千兵力圍攻，荷蘭人在 8 月同意退出澎湖，轉往臺灣的大員。[s1][s3] 當時臺灣島上的漢人估計只有約 1,000–1,500 人。[s1]
+
+## C2 經過
+
+荷蘭人在大員沙洲先建臨時城堡，之後改建為熱蘭遮城，作為統治與對外貿易的中樞。[s1][s2] 他們先與新港社結盟，1629 年一支約 60 人的部隊在麻豆社附近遇伏全滅；1635 年底起荷蘭聯合新港社出兵征服麻豆等社，1636 年約 28 社代表到大員表示歸順。[s1][s3] 1652 年爆發郭懷一領導的漢人農民起事，被荷蘭與原住民聯軍鎮壓，死者數千人（各來源數字不一）。[s1] 1661 年 4 月鄭成功率約 25,000 人圍城，1662 年初荷蘭投降，2 月撤離。[s1][s5]
+
+## C3 關鍵人物與群體
+
+荷蘭東印度公司的長官（例如最後一任長官揆一，1656–1662 在任）；最早的傳教士干治士、尤羅伯；西拉雅各社；從福建來的漢人移民與商人。[s1]
+
+## C4 制度或機制變化
+
+公司從 1630 年代中期開始由「貿易站」轉為「殖民政府」，但仍以利潤最大為目標。[s3] 稅收包括漢人的人頭稅（每月約 1/4 里爾）、狩獵執照費、農漁產品約一成的稅；荷蘭人並提供船位、工具、耕牛與貸款，招募福建移民來開墾、種甘蔗。[s1][s4]
+
+## C5 受益者與受損者
+
+**受益**：公司與股東、取得土地與經商機會的漢人移民與商人。[s1][s4]
+**受損**：被征服、被課稅的原住民聚落；被迫繳人頭稅、常遭士兵勒索的漢人農民；大量被捕殺的梅花鹿。[s1][s3]
+
+## C6 直接結果
+
+估計荷蘭時期 38 年間有 5–6 萬漢人移居臺灣；1658 年蔗糖產量約 173 萬斤，主要賣往波斯與日本；1638 年鹿皮出口一年超過 15 萬張，後來因鹿群減少降到每年 5–8 萬張。[s1]
+
+## C7 長期影響
+
+漢人農業移民社會在臺灣西南部成形，為之後明鄭與清代的開墾打下基礎。[s1][s4] 傳教士用羅馬字拼寫西拉雅語，留下的「新港文書」是最早的臺灣語言文字紀錄之一。[s1]
+
+## C8 雙軌解讀
+
+### 李彔
+
+無直接論述：查不到李彔公開講稿談荷蘭時期的臺灣。
+
+### 哈拉瑞
+
+無直接論述：查不到哈拉瑞公開摘要談荷蘭時期的臺灣。
+
+## C9 今日對照鉤子
+
+「一家跨國公司在海外據點同時做貿易、收稅、管人」，以及「一座島因為位在幾條大貿易路線交會處而被大國爭奪」的結構。[s1][s3]
+
+## C10 不可類比的差異
+
+17 世紀的荷蘭東印度公司可以養軍隊、宣戰、對當地人課稅，今天的跨國企業沒有這種權力；當時島上的原住民與漢人也沒有今天的公民權與國際法保障，不能直接拿來類比今天的外資或國際關係。[s1][s3]

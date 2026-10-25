@@ -47,7 +47,7 @@ learn:
     - text: "to avoid competitive exchange depreciation（避免各國競相讓貨幣貶值。）"
       from: 《國際貨幣基金協定》第 1 條宗旨第 3 款，1944 年 7 月 22 日於布列敦森林會議通過（World Gold Council 收錄之節錄本；中文為本站摘譯）
       src: s8
-    - text: "The par value of the currency of each member shall be expressed in terms of gold as a common denominator（每個會員國貨幣的平價，都要以黃金作為共同標準來表示。）"
+    - text: "The par value of the currency of each member shall be expressed in terms of gold as a common denominator or in terms of the United States dollar of the weight and fineness in effect on July 1, 1944.（每個會員國貨幣的平價，要以黃金作為共同標準來表示，或以 1944 年 7 月 1 日當時重量與成色的美元來表示。）"
       from: 《國際貨幣基金協定》第 4 條第 1 節 (a)，1944 年（World Gold Council 收錄之節錄本；中文為本站摘譯）
       src: s8
   historiography: |

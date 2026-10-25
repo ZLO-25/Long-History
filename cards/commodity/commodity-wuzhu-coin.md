@@ -42,7 +42,7 @@ learn:
     - { term: 劣幣驅逐良幣, plain: 好錢和壞錢被規定一樣值錢時，大家會把好錢存起來、先花壞錢，最後市面上只剩壞錢。, example: 皮夾裡有一張新鈔和一張皺巴巴的舊鈔，買東西時你一定先花舊鈔。 }
   primary_source:
     - text: "If coin issues from the ruler, the people will have no doubts about whether it is genuine or not.（錢由君主發行，百姓就不會懷疑它是真是假。）"
-      from: 桑弘羊在前 81 年鹽鐵會議上的發言，《鹽鐵論・錯幣》（英譯 Richard von Glahn, Fountain of Fortune, p. 36；轉引自 Dorn 2017；中文為本站摘譯）
+      from: 桑弘羊在前 81 年鹽鐵會議上的發言，《鹽鐵論・錯幣》，原文「幣由上，則下不疑也」（英譯 Richard von Glahn, Fountain of Fortune, p. 36；轉引自 Dorn 2017；中文為本站摘譯）
       src: s5
   historiography: |
     **國家壟斷鑄錢，是好是壞？** 支持的一方以漢武帝的大臣桑弘羊為代表：錢由朝廷統一發行，百姓才不會懷疑真假。[s5] 五銖錢收歸中央後規格穩定、流通約七百年，常被拿來支持這種看法。[s1][s2] 反對的一方是前 81 年鹽鐵會議上的六十多位儒生，他們主張開放鑄錢；經濟史學者 Richard von Glahn 也指出，國家壟斷鑄幣，等於讓國家可以「不受懲罰地」讓自己的錢貶值。[s5]
@@ -53,6 +53,7 @@ learn:
   perspectives:
     - { history: 中國史, text: "從中國看，五銖錢從漢武帝用到唐初，前後約七百年，鑄幣權收歸中央也是漢武帝集中財權的一部分。[s1][s2]" }
     - { history: 錢的歷史, text: "從錢的歷史看，「誰能鑄錢」和「錢夠不夠重」決定大家信不信這種錢；王莽廢五銖、百姓卻私下照用，就是例子（見「王莽改制」卡）。[s1][s5]" }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "桑弘羊引文與《鹽鐵論・錯幣》原文相符（經 Cato 轉引 von Glahn 英譯）；已補原文" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

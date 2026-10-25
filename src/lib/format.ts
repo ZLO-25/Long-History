@@ -29,7 +29,8 @@ export function roadInEra(t: string, era: string): boolean {
 }
 
 // 經濟曲線
-export const ENTITY_COLORS = ['#2b6cb0', '#c05621', '#2f855a', '#9b2c2c', '#6b46c1', '#b7791f', '#2c7a7b', '#97266d', '#4a5568'];
+export const ENTITY_COLORS = ['#2b6cb0', '#c05621', '#2f855a', '#9b2c2c', '#6b46c1', '#b7791f', '#2c7a7b', '#97266d', '#4a5568',
+  '#d53f8c', '#38a169', '#805ad5', '#dd6b20', '#3182ce', '#718096'];
 export const fmtEcon = (v: number, metric: string) =>
   metric === 'population' ? (v >= 1e4 ? `${(v / 1e4).toLocaleString('zh-TW', { maximumFractionDigits: v >= 1e6 ? 0 : 1 })} 萬` : v.toLocaleString())
   : metric === 'silver' ? `${v}%` : v.toLocaleString();

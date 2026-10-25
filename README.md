@@ -115,7 +115,9 @@ sources:
 | 古代道路網與城牆 | AWMC geodata（依《巴林頓古典世界地圖集》） | ODbL 1.0 |
 | 海岸線（算海路用） | Natural Earth 1:10m（world-atlas 套件） | 公有領域 |
 | 羅馬道路細線（選用） | Itiner-e，Zenodo 10.5281/zenodo.17122148 | CC BY 4.0 |
-| 人口、人均 GDP（西元 1 年） | Maddison Project Database 2020（Bolt & van Zanden），經 Our World in Data 的 GitHub 取得 | CC BY 4.0 |
+| 人口、人均 GDP（西元 1–2022 年） | Maddison Project Database 2023（Bolt & van Zanden 2024）；各國原始研究列在資料點說明 | CC BY 4.0 |
+| 實質工資（一天工資買幾籃生活必需品，1820–2008） | Clio Infra，de Zwart, van Leeuwen & van Leeuwen-Li（2015）Labourers Real Wage | CC0 |
+| 英格蘭名目日薪、英國物價、英國實質工資（1209–2016） | 英格蘭銀行 A millennium of macroeconomic data 3.1 版（工資為 Clark 2009） | Open Government Licence（第三方資料版權屬原作者） |
 | 底圖 | OpenStreetMap | ODbL |
 
 卡片內文每段都附來源連結；本工具只是思考框架，不構成預測或投資建議。

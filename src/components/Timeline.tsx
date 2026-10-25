@@ -110,6 +110,12 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
   const ey = m?.scale === 'log'
     ? scaleLog().domain([Math.min(...eVals) * 0.7, Math.max(...eVals) * 1.4]).range([ECON_H - EPAD, EPAD])
     : scaleLinear().domain([0, Math.max(...eVals, 1) * 1.1]).range([ECON_H - EPAD, EPAD]);
+  // 對數刻度的 d3 預設刻度太密（1、2、3…9、10…），只留 10 的次方；跨不到兩個次方時加上 2、5 倍
+  const eTicks = m?.scale === 'log'
+    ? (() => { const all = ey.ticks(); const p10 = all.filter((v) => Math.abs(Math.log10(v) % 1) < 1e-9 || Math.abs(Math.log10(v) % 1) > 1 - 1e-9);
+        const out = p10.length >= 2 ? p10 : all.filter((v) => '125'.includes(v.toExponential()[0]));
+        return out.length > 6 ? out.filter((_, i) => i % Math.ceil(out.length / 6) === 0) : out; })()
+    : ey.ticks(4);
   const entities = [...new Set(eSeries.flatMap((s) => s.points.map((p) => p.entity)))];
   const ecolor = (e: string) => ENTITY_COLORS[entities.indexOf(e) % ENTITY_COLORS.length];
   const height = AXIS_H + ECON_H + westH + chinaH + techH + finH + 4;
@@ -196,7 +202,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
           <g className="econ" transform={`translate(0,${econTop})`}>
             <rect x={0} y={0} width={width} height={ECON_H} className="lane lane-econ" />
             <text x={4} y={12} className="lane-label">{m.name}（{m.unit}{m.scale === 'log' ? '，對數刻度' : ''}）</text>
-            {ey.ticks(4).map((v) => (
+            {eTicks.map((v) => (
               <g key={v} transform={`translate(0,${ey(v)})`}>
                 <line x1={22} x2={width} className="econ-grid" />
                 <text x={width - 4} y={-2} textAnchor="end" className="econ-tick">{fmtEcon(v, m.id)}</text>

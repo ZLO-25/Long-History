@@ -1,9 +1,10 @@
 # 經濟曲線資料：只放有來源的點，不補線、不內插。
 # 欄位：start/end（年，前為負；單一年份可只寫 start）、value 或 low/high（範圍）、kind（估計｜登記｜實測）、verification、src、note
-# metric：population（人）｜gdp_pc（人均 GDP，2011 年國際元）｜silver（銀幣含銀率 %）
+# metric：population（人）｜gdp_pc（人均 GDP，2011 年國際元）｜silver（銀幣含銀率 %）｜real_wage（一天工資買得到幾籃生活必需品）
+#         eng_wage（英格蘭名目日薪，便士）｜uk_cpi（英國物價指數）｜uk_real（英國實質工資指數）
+# 名目（錢的面額）與實質（買得到多少東西）一定分開放，不畫在同一條軸上。
+# 第 6 期延伸的 1000–2022 年資料由 3 份下載檔產生：每十年取「最低到最高」，不平均、不內插。
 sources:
-  - { id: m1, title: "Bolt & van Zanden, Maddison Project Database 2020 — Groningen Growth and Development Centre", url: "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020", accessed: 2026-10-25 }
-  - { id: m2, title: "Maddison Project Database 2020 CSV — Our World in Data（GitHub owid-datasets）", url: "https://raw.githubusercontent.com/owid/owid-datasets/master/datasets/Maddison%20Project%20Database%202020%20(Bolt%20and%20van%20Zanden%20(2020))/Maddison%20Project%20Database%202020%20(Bolt%20and%20van%20Zanden%20(2020)).csv", accessed: 2026-10-25 }
   - { id: h1, title: "Han dynasty — Wikipedia", url: "https://en.wikipedia.org/wiki/Han_dynasty", accessed: 2026-10-25 }
   - { id: h2, title: "Population history of China — Wikipedia", url: "https://en.wikipedia.org/wiki/Population_history_of_China", accessed: 2026-10-25 }
   - { id: h3, title: "嚴耕望，A Comparison of Household Register Figures with the Actual Numbers — 中研院史語所集刊", url: "https://www.ihp.sinica.edu.tw/~bihp/67/67.1/yen.html", accessed: 2026-10-25 }
@@ -12,27 +13,177 @@ sources:
   - { id: d1, title: "Denarius — Wikipedia", url: "https://en.wikipedia.org/wiki/Denarius", accessed: 2026-10-25 }
   - { id: d2, title: "Fineness of Denarius, 64–192／Debasement 193–274 — University of Oregon（klio.uoregon.edu）", url: "https://klio.uoregon.edu/maps/re/debasement2.htm", accessed: 2026-10-25 }
   - { id: d3, title: "David Vagi, NGC Ancients: The Decline of Roman Silver Coinage, Part I — NGC", url: "https://www.ngccoin.com/news/article/6842/ngc-ancient-coins/", accessed: 2026-10-25 }
+  - { id: m3, title: "Bolt & van Zanden (2024), Maddison style estimates of the evolution of the world economy: A new 2023 update — Maddison Project Database 2023（CC BY 4.0）", url: "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2023", accessed: 2026-10-25 }
+  - { id: m4, title: "Bolt, J. & van Zanden, J. L. (2024), Journal of Economic Surveys 1–41（Maddison 2023 說明論文）", url: "https://doi.org/10.1111/joes.12618", accessed: 2026-10-25 }
+  - { id: w1, title: "de Zwart, van Leeuwen & van Leeuwen-Li (2015), Labourers Real Wage — Clio Infra（CC0）", url: "http://hdl.handle.net/10622/QK8VRF", accessed: 2026-10-25 }
+  - { id: w2, title: "de Zwart, van Leeuwen & van Leeuwen-Li (2014), Real wages since 1820 — OECD, How Was Life? 第 4 章", url: "https://pure.knaw.nl/ws/files/1067837/3014041ec008_1_.pdf", accessed: 2026-10-25 }
+  - { id: b1, title: "Bank of England, A millennium of macroeconomic data（第 3.1 版，A47 工資與物價、A48 實質工資）", url: "https://www.bankofengland.co.uk/statistics/research-datasets", accessed: 2026-10-25 }
+  - { id: b2, title: "Clark, G. (2009) 英格蘭建築工人日薪，收錄於英格蘭銀行千年資料 A47 表（AC 欄）", url: "https://www.bankofengland.co.uk/-/media/boe/files/statistics/research-datasets/a-millennium-of-macroeconomic-data-for-the-uk.xlsx", accessed: 2026-10-25 }
 
 metrics:
   - { id: population, name: 人口, unit: 人, scale: log }
-  - { id: gdp_pc, name: 人均 GDP, unit: 2011 年國際元, scale: linear }
+  - { id: gdp_pc, name: 人均 GDP, unit: 2011 年國際元, scale: log }
   - { id: silver, name: 銀幣含銀率, unit: "%", scale: linear }
+  - { id: real_wage, name: 實質工資, unit: 一天工資買得到幾籃生活必需品, scale: log }
+  - { id: eng_wage, name: 英格蘭名目日薪, unit: 便士, scale: log }
+  - { id: uk_cpi, name: 英國物價, unit: 指數，2015 年＝100, scale: log }
+  - { id: uk_real, name: 英國實質工資, unit: 指數，1900 年＝100, scale: log }
 
 series:
   - id: maddison-pop
     metric: population
-    name: Maddison 人口估計（西元 1 年）
+    name: Maddison 人口估計（2023 版）
     kind: 估計
     verification: AI草稿
-    note: Maddison 2020 在本時間軸範圍內只有西元 1 年一個時間點（下一個點是 1000 年，超出範圍，寫在說明中）；國界是今日國家，不是古代政權。
+    note: Maddison 2023 的人口數字（原檔以千人為單位）。國界是今日國家，不是古代政權；1820 年以前的點很稀疏，只畫檔案裡有的年份。西元 1 年的數字與 2020 版相同。
     points:
-      - { entity: 中國, start: 1, value: 59600000, src: [m1, m2], note: "1000 年為 5,900 萬" }
-      - { entity: 義大利, start: 1, value: 8000000, src: [m1, m2], note: "1000 年為 500 萬" }
-      - { entity: 土耳其, start: 1, value: 8000000, src: [m1, m2], note: "1000 年為 700 萬" }
-      - { entity: 埃及, start: 1, value: 4500000, src: [m1, m2], note: "1000 年為 500 萬" }
-      - { entity: 西班牙, start: 1, value: 3750000, src: [m1, m2], note: "1000 年為 400 萬" }
-      - { entity: 希臘, start: 1, value: 2000000, src: [m1, m2], note: "1000 年為 100 萬" }
-
+      - { entity: 希臘, start: 1, value: 2000000, src: [m3, m4] }
+      - { entity: 埃及, start: 1, value: 4500000, src: [m3, m4] }
+      - { entity: 伊拉克, start: 1, value: 1000000, src: [m3, m4] }
+      - { entity: 法國, start: 1, value: 5000000, src: [m3, m4] }
+      - { entity: 土耳其, start: 1, value: 8000000, src: [m3, m4] }
+      - { entity: 西班牙, start: 1, value: 3750000, src: [m3, m4] }
+      - { entity: 義大利, start: 1, value: 8000000, src: [m3, m4] }
+      - { entity: 中國, start: 1000, value: 59000000, src: [m3, m4] }
+      - { entity: 中國, start: 1500, value: 103000000, src: [m3, m4] }
+      - { entity: 中國, start: 1600, value: 160000000, src: [m3, m4] }
+      - { entity: 中國, start: 1700, value: 138000000, src: [m3, m4] }
+      - { entity: 中國, start: 1820, value: 381000000, src: [m3, m4] }
+      - { entity: 中國, start: 1850, value: 412000000, src: [m3, m4] }
+      - { entity: 中國, start: 1870, value: 358000000, src: [m3, m4] }
+      - { entity: 中國, start: 1900, value: 400000000, src: [m3, m4] }
+      - { entity: 中國, start: 1913, value: 437140000, src: [m3, m4] }
+      - { entity: 中國, start: 1929, value: 487273000, src: [m3, m4] }
+      - { entity: 中國, start: 1950, value: 546815000, src: [m3, m4] }
+      - { entity: 中國, start: 1960, value: 667070000, src: [m3, m4] }
+      - { entity: 中國, start: 1973, value: 881940000, src: [m3, m4] }
+      - { entity: 中國, start: 1980, value: 981235000, src: [m3, m4] }
+      - { entity: 中國, start: 1990, value: 1135185000, src: [m3, m4] }
+      - { entity: 中國, start: 2000, value: 1258400920, src: [m3, m4] }
+      - { entity: 中國, start: 2010, value: 1331357450, src: [m3, m4] }
+      - { entity: 中國, start: 2022, value: 1401692800, src: [m3, m4] }
+      - { entity: 日本, start: 1000, value: 7500000, src: [m3, m4] }
+      - { entity: 日本, start: 1500, value: 15400000, src: [m3, m4] }
+      - { entity: 日本, start: 1600, value: 18500000, src: [m3, m4] }
+      - { entity: 日本, start: 1700, value: 27000000, src: [m3, m4] }
+      - { entity: 日本, start: 1820, value: 31000000, src: [m3, m4] }
+      - { entity: 日本, start: 1850, value: 32000000, src: [m3, m4] }
+      - { entity: 日本, start: 1870, value: 34437000, src: [m3, m4] }
+      - { entity: 日本, start: 1900, value: 44103000, src: [m3, m4] }
+      - { entity: 日本, start: 1913, value: 51672000, src: [m3, m4] }
+      - { entity: 日本, start: 1929, value: 63244000, src: [m3, m4] }
+      - { entity: 日本, start: 1950, value: 83805000, src: [m3, m4] }
+      - { entity: 日本, start: 1960, value: 94091638, src: [m3, m4] }
+      - { entity: 日本, start: 1973, value: 108706797, src: [m3, m4] }
+      - { entity: 日本, start: 1980, value: 116807309, src: [m3, m4] }
+      - { entity: 日本, start: 1990, value: 123537399, src: [m3, m4] }
+      - { entity: 日本, start: 2000, value: 126755480, src: [m3, m4] }
+      - { entity: 日本, start: 2010, value: 127966760, src: [m3, m4] }
+      - { entity: 日本, start: 2022, value: 124762110, src: [m3, m4] }
+      - { entity: 臺灣, start: 1820, value: 2000000, src: [m3, m4] }
+      - { entity: 臺灣, start: 1850, value: 2200000, src: [m3, m4] }
+      - { entity: 臺灣, start: 1870, value: 2345000, src: [m3, m4] }
+      - { entity: 臺灣, start: 1900, value: 2794000, src: [m3, m4] }
+      - { entity: 臺灣, start: 1913, value: 3477000, src: [m3, m4] }
+      - { entity: 臺灣, start: 1929, value: 4437000, src: [m3, m4] }
+      - { entity: 臺灣, start: 1950, value: 7456000, src: [m3, m4] }
+      - { entity: 臺灣, start: 1960, value: 10861000, src: [m3, m4] }
+      - { entity: 臺灣, start: 1973, value: 15454000, src: [m3, m4] }
+      - { entity: 臺灣, start: 1980, value: 17788000, src: [m3, m4] }
+      - { entity: 臺灣, start: 1990, value: 20172000, src: [m3, m4] }
+      - { entity: 臺灣, start: 2000, value: 22068320, src: [m3, m4] }
+      - { entity: 臺灣, start: 2010, value: 22989870, src: [m3, m4] }
+      - { entity: 臺灣, start: 2022, value: 23481450, src: [m3, m4] }
+      - { entity: 英國, start: 1000, value: 2000000, src: [m3, m4] }
+      - { entity: 英國, start: 1500, value: 3942000, src: [m3, m4] }
+      - { entity: 英國, start: 1600, value: 6170000, src: [m3, m4] }
+      - { entity: 英國, start: 1700, value: 8565000, src: [m3, m4] }
+      - { entity: 英國, start: 1820, value: 21239000, src: [m3, m4] }
+      - { entity: 英國, start: 1850, value: 27181000, src: [m3, m4] }
+      - { entity: 英國, start: 1870, value: 31400000, src: [m3, m4] }
+      - { entity: 英國, start: 1900, value: 41155000, src: [m3, m4] }
+      - { entity: 英國, start: 1913, value: 45649000, src: [m3, m4] }
+      - { entity: 英國, start: 1929, value: 45672000, src: [m3, m4] }
+      - { entity: 英國, start: 1950, value: 50127000, src: [m3, m4] }
+      - { entity: 英國, start: 1960, value: 52372000, src: [m3, m4] }
+      - { entity: 英國, start: 1973, value: 56210000, src: [m3, m4] }
+      - { entity: 英國, start: 1980, value: 56314000, src: [m3, m4] }
+      - { entity: 英國, start: 1990, value: 57493307, src: [m3, m4] }
+      - { entity: 英國, start: 2000, value: 59148660, src: [m3, m4] }
+      - { entity: 英國, start: 2010, value: 63039940, src: [m3, m4] }
+      - { entity: 英國, start: 2022, value: 68093380, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1000, value: 300000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1500, value: 950000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1600, value: 1500000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1700, value: 1900000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1820, value: 2333000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1850, value: 3098000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1870, value: 3610000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1900, value: 5142000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1913, value: 6164000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1929, value: 7782000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1950, value: 10113527, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1960, value: 11486000, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1973, value: 13438404, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1980, value: 14143901, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1990, value: 14951510, src: [m3, m4] }
+      - { entity: 荷蘭, start: 2000, value: 15931500, src: [m3, m4] }
+      - { entity: 荷蘭, start: 2010, value: 16620730, src: [m3, m4] }
+      - { entity: 荷蘭, start: 2022, value: 17709110, src: [m3, m4] }
+      - { entity: 義大利, start: 1000, value: 5000000, src: [m3, m4] }
+      - { entity: 義大利, start: 1500, value: 10500000, src: [m3, m4] }
+      - { entity: 義大利, start: 1600, value: 13100000, src: [m3, m4] }
+      - { entity: 義大利, start: 1700, value: 13300000, src: [m3, m4] }
+      - { entity: 義大利, start: 1820, value: 20176000, src: [m3, m4] }
+      - { entity: 義大利, start: 1850, value: 24460000, src: [m3, m4] }
+      - { entity: 義大利, start: 1870, value: 27888000, src: [m3, m4] }
+      - { entity: 義大利, start: 1900, value: 33672000, src: [m3, m4] }
+      - { entity: 義大利, start: 1913, value: 37248000, src: [m3, m4] }
+      - { entity: 義大利, start: 1929, value: 40469000, src: [m3, m4] }
+      - { entity: 義大利, start: 1950, value: 47105000, src: [m3, m4] }
+      - { entity: 義大利, start: 1960, value: 50197600, src: [m3, m4] }
+      - { entity: 義大利, start: 1973, value: 54796843, src: [m3, m4] }
+      - { entity: 義大利, start: 1980, value: 56451247, src: [m3, m4] }
+      - { entity: 義大利, start: 1990, value: 56742886, src: [m3, m4] }
+      - { entity: 義大利, start: 2000, value: 56965880, src: [m3, m4] }
+      - { entity: 義大利, start: 2010, value: 59844380, src: [m3, m4] }
+      - { entity: 義大利, start: 2022, value: 58966210, src: [m3, m4] }
+      - { entity: 印度, start: 1000, value: 75000000, src: [m3, m4] }
+      - { entity: 印度, start: 1500, value: 110000000, src: [m3, m4] }
+      - { entity: 印度, start: 1600, value: 135000000, src: [m3, m4] }
+      - { entity: 印度, start: 1700, value: 165000000, src: [m3, m4] }
+      - { entity: 印度, start: 1820, value: 209000000, src: [m3, m4] }
+      - { entity: 印度, start: 1850, value: 235800000, src: [m3, m4] }
+      - { entity: 印度, start: 1870, value: 253000000, src: [m3, m4] }
+      - { entity: 印度, start: 1900, value: 284500000, src: [m3, m4] }
+      - { entity: 印度, start: 1913, value: 303700000, src: [m3, m4] }
+      - { entity: 印度, start: 1929, value: 333100000, src: [m3, m4] }
+      - { entity: 印度, start: 1950, value: 359000000, src: [m3, m4] }
+      - { entity: 印度, start: 1960, value: 434000000, src: [m3, m4] }
+      - { entity: 印度, start: 1973, value: 580000000, src: [m3, m4] }
+      - { entity: 印度, start: 1980, value: 679000000, src: [m3, m4] }
+      - { entity: 印度, start: 1990, value: 839000000, src: [m3, m4] }
+      - { entity: 印度, start: 2000, value: 1018667410, src: [m3, m4] }
+      - { entity: 印度, start: 2010, value: 1184638230, src: [m3, m4] }
+      - { entity: 印度, start: 2022, value: 1349059740, src: [m3, m4] }
+      - { entity: 美國, start: 1000, value: 1300000, src: [m3, m4] }
+      - { entity: 美國, start: 1500, value: 2000000, src: [m3, m4] }
+      - { entity: 美國, start: 1600, value: 1500000, src: [m3, m4] }
+      - { entity: 美國, start: 1700, value: 1000000, src: [m3, m4] }
+      - { entity: 美國, start: 1820, value: 9981000, src: [m3, m4] }
+      - { entity: 美國, start: 1850, value: 23580000, src: [m3, m4] }
+      - { entity: 美國, start: 1870, value: 40241000, src: [m3, m4] }
+      - { entity: 美國, start: 1900, value: 76391000, src: [m3, m4] }
+      - { entity: 美國, start: 1913, value: 97606000, src: [m3, m4] }
+      - { entity: 美國, start: 1929, value: 122245000, src: [m3, m4] }
+      - { entity: 美國, start: 1950, value: 152271000, src: [m3, m4] }
+      - { entity: 美國, start: 1960, value: 180671000, src: [m3, m4] }
+      - { entity: 美國, start: 1973, value: 211909000, src: [m3, m4] }
+      - { entity: 美國, start: 1980, value: 227726463, src: [m3, m4] }
+      - { entity: 美國, start: 1990, value: 250131894, src: [m3, m4] }
+      - { entity: 美國, start: 2000, value: 282162000, src: [m3, m4] }
+      - { entity: 美國, start: 2010, value: 309327000, src: [m3, m4] }
+      - { entity: 美國, start: 2022, value: 333288000, src: [m3, m4] }
   - id: census
     metric: population
     name: 官方登記數字（戶口／公民普查）
@@ -62,19 +213,143 @@ series:
 
   - id: maddison-gdp
     metric: gdp_pc
-    name: Maddison 人均 GDP（西元 1 年）
+    name: Maddison 人均 GDP（2023 版）
     kind: 估計
     verification: AI草稿
-    note: 西元 1 年的數字多是依少數研究推估的區域值，因此埃及、伊拉克、伊朗、突尼西亞都是同一個值 1,116；中國在 Maddison 2020 沒有西元 1 年的人均 GDP（最早是 1000 年的 1,225），所以圖上沒有中國的點。
+    note: 人均 GDP 換算成 2011 年的國際元（已扣掉物價上漲，可以跨年代比）。越早的數字越是「根據少數資料推估」，西元 1 年埃及、伊拉克都是同一個區域值 1,116。Maddison 2023 規定以圖呈現時要列出各國原始研究，寫在每國第一個點的說明裡；2008 年以後的數字來自 Conference Board 的 Total Economy Database。中國沒有西元 1 年的人均 GDP（最早是 1000 年）。用對數刻度，因為 2022 年和 1000 年相差十幾到幾十倍。
     points:
-      - { entity: 義大利, start: 1, value: 1407, src: [m1, m2] }
-      - { entity: 希臘, start: 1, value: 1275, src: [m1, m2] }
-      - { entity: 埃及, start: 1, value: 1116, src: [m1, m2], note: "730 年 1,164；1000 年 956" }
-      - { entity: 伊拉克, start: 1, value: 1116, src: [m1, m2], note: "730 年 1,466；1000 年 1,307" }
-      - { entity: 法國, start: 1, value: 956, src: [m1, m2] }
-      - { entity: 土耳其, start: 1, value: 897, src: [m1, m2], note: "1000 年 768" }
-      - { entity: 西班牙, start: 1, value: 886, src: [m1, m2] }
-
+      - { entity: 希臘, start: 1, value: 1275, src: [m3, m4], note: "原始研究：西元 1 年 Scheidel & Friesen（2009, Journal of Roman Studies）。" }
+      - { entity: 埃及, start: 1, value: 1116, src: [m3, m4], note: "原始研究：西元 1 年 Scheidel & Friesen（2009, Journal of Roman Studies）。" }
+      - { entity: 伊拉克, start: 1, value: 1116, src: [m3, m4], note: "原始研究：西元 1 年 Scheidel & Friesen（2009, Journal of Roman Studies）。" }
+      - { entity: 法國, start: 1, value: 956, src: [m3, m4], note: "原始研究：西元 1 年 Scheidel & Friesen（2009, Journal of Roman Studies）。" }
+      - { entity: 土耳其, start: 1, value: 897, src: [m3, m4], note: "原始研究：西元 1 年 Scheidel & Friesen（2009, Journal of Roman Studies）。" }
+      - { entity: 西班牙, start: 1, value: 886, src: [m3, m4], note: "原始研究：西元 1 年 Scheidel & Friesen（2009, Journal of Roman Studies）。" }
+      - { entity: 義大利, start: 1, value: 1407, src: [m3, m4], note: "原始研究：西元 1 年的數字在 Maddison 2023 來源表中沒有列出原始研究；1451–1861 年 Chilosi & Ciccarelli（2023）；1861–1871 年 Malanima（2010，北義）；1871–1990 年 Baffigi（2011）。" }
+      - { entity: 中國, start: 1000, value: 1225, src: [m3, m4], note: "原始研究：1000–1661 年 Broadberry, Guan & Li（2018, JEH）；1661–1933 年 Broadberry, Guan & Li（2018）與 Xu 等（2016, AEHR）；1952–2008 年 Wu（2014）。" }
+      - { entity: 中國, start: 1500, value: 1207, src: [m3, m4] }
+      - { entity: 中國, start: 1600, value: 1217, src: [m3, m4] }
+      - { entity: 中國, start: 1700, value: 1543, src: [m3, m4] }
+      - { entity: 中國, start: 1820, value: 882, src: [m3, m4] }
+      - { entity: 中國, start: 1850, value: 858, src: [m3, m4] }
+      - { entity: 中國, start: 1870, value: 945, src: [m3, m4] }
+      - { entity: 中國, start: 1900, value: 972, src: [m3, m4] }
+      - { entity: 中國, start: 1913, value: 985, src: [m3, m4] }
+      - { entity: 中國, start: 1929, value: 1003, src: [m3, m4] }
+      - { entity: 中國, start: 1950, value: 799, src: [m3, m4] }
+      - { entity: 中國, start: 1960, value: 1057, src: [m3, m4] }
+      - { entity: 中國, start: 1973, value: 1513, src: [m3, m4] }
+      - { entity: 中國, start: 1980, value: 1930, src: [m3, m4] }
+      - { entity: 中國, start: 1990, value: 2982, src: [m3, m4] }
+      - { entity: 中國, start: 2000, value: 4730, src: [m3, m4] }
+      - { entity: 中國, start: 2010, value: 9658, src: [m3, m4] }
+      - { entity: 中國, start: 2022, value: 19238, src: [m3, m4] }
+      - { entity: 日本, start: 1000, value: 1010, src: [m3, m4], note: "原始研究：724–1874 年 Bassino 等（2018）；1874–1940 年 Fukao 等（2015）。" }
+      - { entity: 日本, start: 1600, value: 1061, src: [m3, m4] }
+      - { entity: 日本, start: 1700, value: 1073, src: [m3, m4] }
+      - { entity: 日本, start: 1820, value: 1317, src: [m3, m4] }
+      - { entity: 日本, start: 1850, value: 1436, src: [m3, m4] }
+      - { entity: 日本, start: 1870, value: 1580, src: [m3, m4] }
+      - { entity: 日本, start: 1900, value: 2123, src: [m3, m4] }
+      - { entity: 日本, start: 1913, value: 2431, src: [m3, m4] }
+      - { entity: 日本, start: 1929, value: 3665, src: [m3, m4] }
+      - { entity: 日本, start: 1950, value: 3062, src: [m3, m4] }
+      - { entity: 日本, start: 1960, value: 6354, src: [m3, m4] }
+      - { entity: 日本, start: 1973, value: 18226, src: [m3, m4] }
+      - { entity: 日本, start: 1980, value: 21404, src: [m3, m4] }
+      - { entity: 日本, start: 1990, value: 29949, src: [m3, m4] }
+      - { entity: 日本, start: 2000, value: 33211, src: [m3, m4] }
+      - { entity: 日本, start: 2010, value: 35011, src: [m3, m4] }
+      - { entity: 日本, start: 2022, value: 38269, src: [m3, m4] }
+      - { entity: 臺灣, start: 1820, value: 966, src: [m3, m4], note: "原始研究：1820–1940 年 Fukao, Ma & Yuan（2007, RIW）以 1934–36 年為基準，再套用 Maddison 原始估計的趨勢——所以 1940 年以前是推回去的，誤差大。" }
+      - { entity: 臺灣, start: 1870, value: 968, src: [m3, m4] }
+      - { entity: 臺灣, start: 1913, value: 1286, src: [m3, m4] }
+      - { entity: 臺灣, start: 1929, value: 1991, src: [m3, m4] }
+      - { entity: 臺灣, start: 1950, value: 1460, src: [m3, m4] }
+      - { entity: 臺灣, start: 1960, value: 2157, src: [m3, m4] }
+      - { entity: 臺灣, start: 1973, value: 5496, src: [m3, m4] }
+      - { entity: 臺灣, start: 1980, value: 8384, src: [m3, m4] }
+      - { entity: 臺灣, start: 1990, value: 15841, src: [m3, m4] }
+      - { entity: 臺灣, start: 2000, value: 26787, src: [m3, m4] }
+      - { entity: 臺灣, start: 2010, value: 37385, src: [m3, m4] }
+      - { entity: 臺灣, start: 2022, value: 53143, src: [m3, m4] }
+      - { entity: 英國, start: 1000, value: 1151, src: [m3, m4], note: "原始研究：1252–1870 年 Broadberry 等（2015）《British Economic Growth 1270–1870》（1700 年以前只算英格蘭）；1000 年的數字在來源表中沒有列出原始研究。" }
+      - { entity: 英國, start: 1500, value: 1697, src: [m3, m4] }
+      - { entity: 英國, start: 1600, value: 1691, src: [m3, m4] }
+      - { entity: 英國, start: 1700, value: 2412, src: [m3, m4] }
+      - { entity: 英國, start: 1820, value: 3306, src: [m3, m4] }
+      - { entity: 英國, start: 1850, value: 4332, src: [m3, m4] }
+      - { entity: 英國, start: 1870, value: 5829, src: [m3, m4] }
+      - { entity: 英國, start: 1900, value: 7594, src: [m3, m4] }
+      - { entity: 英國, start: 1913, value: 8212, src: [m3, m4] }
+      - { entity: 英國, start: 1929, value: 8772, src: [m3, m4] }
+      - { entity: 英國, start: 1950, value: 11061, src: [m3, m4] }
+      - { entity: 英國, start: 1960, value: 13780, src: [m3, m4] }
+      - { entity: 英國, start: 1973, value: 19168, src: [m3, m4] }
+      - { entity: 英國, start: 1980, value: 20612, src: [m3, m4] }
+      - { entity: 英國, start: 1990, value: 26189, src: [m3, m4] }
+      - { entity: 英國, start: 2000, value: 31946, src: [m3, m4] }
+      - { entity: 英國, start: 2010, value: 34754, src: [m3, m4] }
+      - { entity: 英國, start: 2022, value: 38407, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1500, value: 2332, src: [m3, m4], note: "原始研究：1348–1807 年 van Zanden & van Leeuwen（2012, EEH，只算荷蘭省）；1807–1913 年 Smits, Horlings & van Zanden（2000）。" }
+      - { entity: 荷蘭, start: 1600, value: 4270, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1700, value: 3377, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1820, value: 3006, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1850, value: 3779, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1870, value: 4422, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1900, value: 5306, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1913, value: 6454, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1929, value: 9068, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1950, value: 9558, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1960, value: 13209, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1973, value: 20851, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1980, value: 23438, src: [m3, m4] }
+      - { entity: 荷蘭, start: 1990, value: 27515, src: [m3, m4] }
+      - { entity: 荷蘭, start: 2000, value: 37900, src: [m3, m4] }
+      - { entity: 荷蘭, start: 2010, value: 43812, src: [m3, m4] }
+      - { entity: 荷蘭, start: 2022, value: 49670, src: [m3, m4] }
+      - { entity: 義大利, start: 1820, value: 2523, src: [m3, m4] }
+      - { entity: 義大利, start: 1850, value: 2541, src: [m3, m4] }
+      - { entity: 義大利, start: 1870, value: 2826, src: [m3, m4] }
+      - { entity: 義大利, start: 1900, value: 3264, src: [m3, m4] }
+      - { entity: 義大利, start: 1913, value: 4057, src: [m3, m4] }
+      - { entity: 義大利, start: 1929, value: 4889, src: [m3, m4] }
+      - { entity: 義大利, start: 1950, value: 5582, src: [m3, m4] }
+      - { entity: 義大利, start: 1960, value: 9430, src: [m3, m4] }
+      - { entity: 義大利, start: 1973, value: 16950, src: [m3, m4] }
+      - { entity: 義大利, start: 1980, value: 20959, src: [m3, m4] }
+      - { entity: 義大利, start: 1990, value: 26003, src: [m3, m4] }
+      - { entity: 義大利, start: 2000, value: 32717, src: [m3, m4] }
+      - { entity: 義大利, start: 2010, value: 34766, src: [m3, m4] }
+      - { entity: 義大利, start: 2022, value: 36224, src: [m3, m4] }
+      - { entity: 印度, start: 1600, value: 1264, src: [m3, m4], note: "原始研究：1600–1870 年 Broadberry, Custodis & Gupta（2015, EEH）。" }
+      - { entity: 印度, start: 1700, value: 1162, src: [m3, m4] }
+      - { entity: 印度, start: 1850, value: 947, src: [m3, m4] }
+      - { entity: 印度, start: 1870, value: 850, src: [m3, m4] }
+      - { entity: 印度, start: 1900, value: 955, src: [m3, m4] }
+      - { entity: 印度, start: 1913, value: 1073, src: [m3, m4] }
+      - { entity: 印度, start: 1929, value: 1160, src: [m3, m4] }
+      - { entity: 印度, start: 1950, value: 987, src: [m3, m4] }
+      - { entity: 印度, start: 1960, value: 1200, src: [m3, m4] }
+      - { entity: 印度, start: 1973, value: 1360, src: [m3, m4] }
+      - { entity: 印度, start: 1980, value: 1495, src: [m3, m4] }
+      - { entity: 印度, start: 1990, value: 2087, src: [m3, m4] }
+      - { entity: 印度, start: 2000, value: 2753, src: [m3, m4] }
+      - { entity: 印度, start: 2010, value: 4526, src: [m3, m4] }
+      - { entity: 印度, start: 2022, value: 7766, src: [m3, m4] }
+      - { entity: 美國, start: 1820, value: 2674, src: [m3, m4], note: "原始研究：1650–1790 年 McCusker；1790–1870 年 Sutch（2006）；1800–1830 年另參 Prados de la Escosura（2009）。" }
+      - { entity: 美國, start: 1850, value: 3632, src: [m3, m4] }
+      - { entity: 美國, start: 1870, value: 4803, src: [m3, m4] }
+      - { entity: 美國, start: 1900, value: 8038, src: [m3, m4] }
+      - { entity: 美國, start: 1913, value: 10108, src: [m3, m4] }
+      - { entity: 美國, start: 1929, value: 11954, src: [m3, m4] }
+      - { entity: 美國, start: 1950, value: 15240, src: [m3, m4] }
+      - { entity: 美國, start: 1960, value: 18057, src: [m3, m4] }
+      - { entity: 美國, start: 1973, value: 26602, src: [m3, m4] }
+      - { entity: 美國, start: 1980, value: 29611, src: [m3, m4] }
+      - { entity: 美國, start: 1990, value: 36982, src: [m3, m4] }
+      - { entity: 美國, start: 2000, value: 45886, src: [m3, m4] }
+      - { entity: 美國, start: 2010, value: 49267, src: [m3, m4] }
+      - { entity: 美國, start: 2022, value: 58487, src: [m3, m4] }
   - id: denarius
     metric: silver
     name: 羅馬第納里烏斯／安東尼尼安努斯銀幣含銀率
@@ -101,3 +376,390 @@ series:
       - { entity: 安東尼尼安努斯, start: 267, end: 268, value: 6, src: [d2, d3], note: "加里恩努斯末年，NGC 寫約 2.5–5%。" }
       - { entity: 安東尼尼安努斯, start: 269, value: 2, src: [d2], verification: AI草稿, note: "克勞狄二世。" }
       - { entity: 安東尼尼安努斯, start: 274, value: 5, src: [d1, d2], note: "奧勒良改革。" }
+
+  - id: clio-real-wage
+    metric: real_wage
+    name: 都市非技術工人的實質工資（Clio Infra）
+    kind: 估計
+    verification: AI草稿
+    note: 單位是「一天的工資買得到幾籃最低生活必需品」。一籃＝一個人一天最基本的生活所需：主要是最便宜的主食（每天至少 1,940 大卡、40 公克蛋白質），再加少量衣物、燃料、肥皂和蠟燭，不含房租。數字 1 代表一天工資只夠一個人過一天最基本的生活；工人還要養家，也不是每天都有工作，所以數字要明顯大於 1，一家人才過得下去。資料主要是都市建築業的非技術男性工人，有些年份是內插的。作者自評資料品質：1820、1870 年各地區都是「低」；1913、1950 年只有西歐是「中」，其他地區是「低」；1973、2008 年各地區都是「中」。每十年畫最低到最高。臺灣只有 1951–1960、1964–1970 和 2002–2004 年。
+    points:
+      - { entity: 英國, start: 1820, end: 1829, low: 13.8, high: 19.4, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1830, end: 1839, low: 14.8, high: 18.5, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1840, end: 1849, low: 13.9, high: 17.5, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1850, end: 1859, low: 15.1, high: 19.2, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1860, end: 1869, low: 15.7, high: 18.3, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1870, end: 1879, low: 17.7, high: 23.4, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1880, end: 1889, low: 22.9, high: 26.7, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1890, end: 1899, low: 26.1, high: 28.9, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1900, end: 1909, low: 26.8, high: 29.5, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1910, end: 1919, low: 16.3, high: 29.5, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1920, end: 1929, low: 25.4, high: 34.4, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1930, end: 1939, low: 33.1, high: 41.8, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1940, end: 1949, low: 36.4, high: 48.3, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1950, end: 1959, low: 29.6, high: 43.8, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1964, end: 1969, low: 43.1, high: 53.1, src: [w1, w2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1970, end: 1979, low: 55.2, high: 73.9, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1980, end: 1986, low: 68.1, high: 96.5, src: [w1, w2], note: "這十年有 4 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 1990, end: 1999, low: 91.7, high: 139, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國, start: 2000, end: 2006, low: 151, high: 183, src: [w1, w2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1820, end: 1829, low: 12.6, high: 21.2, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1830, end: 1839, low: 11.6, high: 13.2, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1840, end: 1849, low: 10.4, high: 11.9, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1850, end: 1859, low: 9.3, high: 12.5, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1860, end: 1869, low: 9.28, high: 10.8, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1870, end: 1879, low: 10.0, high: 13.0, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1880, end: 1889, low: 13.0, high: 17.7, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1890, end: 1899, low: 15.6, high: 22.7, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1900, end: 1909, low: 19.9, high: 25.5, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1910, value: 25.9, src: [w1, w2] }
+      - { entity: 荷蘭, start: 1925, end: 1929, low: 28.9, high: 33.6, src: [w1, w2], note: "這十年有 5 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1930, end: 1939, low: 28.2, high: 45.7, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1945, end: 1947, low: 25.0, high: 27.6, src: [w1, w2], note: "這十年有 3 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1950, end: 1959, low: 18.9, high: 27.9, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1964, end: 1969, low: 20.9, high: 30.5, src: [w1, w2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1971, end: 1979, low: 36.3, high: 57.8, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 荷蘭, start: 1980, end: 1983, low: 57.7, high: 72.5, src: [w1, w2], note: "這十年有 4 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1820, end: 1829, low: 3.37, high: 5.08, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1830, end: 1839, low: 3.25, high: 4.72, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1840, end: 1849, low: 3.21, high: 3.87, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1850, end: 1859, low: 2.46, high: 3.99, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1860, end: 1869, low: 3.28, high: 4.49, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1870, end: 1879, low: 4.09, high: 5.33, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1880, end: 1889, low: 4.29, high: 6.24, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1890, end: 1899, low: 6.18, high: 9.9, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1900, end: 1909, low: 5.59, high: 9.87, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1910, end: 1919, low: 6.89, high: 11.0, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1924, end: 1928, low: 10.8, high: 16.3, src: [w1, w2], note: "這十年有 5 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1930, end: 1939, low: 14.3, high: 16.4, src: [w1, w2], note: "這十年有 8 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1947, end: 1949, low: 6.62, high: 13.6, src: [w1, w2], note: "這十年有 2 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1952, end: 1955, low: 12.1, high: 13.9, src: [w1, w2], note: "這十年有 4 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1964, end: 1969, low: 22.4, high: 28.2, src: [w1, w2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1970, end: 1978, low: 32.5, high: 54.4, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1981, end: 1989, low: 69.6, high: 99.4, src: [w1, w2], note: "這十年有 7 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 1990, end: 1999, low: 97.2, high: 123, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 義大利, start: 2000, end: 2008, low: 0.0614, high: 141, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 美國, start: 1925, end: 1929, low: 68.5, high: 80.6, src: [w1, w2], note: "這十年有 4 年的資料，畫的是最低到最高。" }
+      - { entity: 美國, start: 1930, end: 1939, low: 44.5, high: 108, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 美國, start: 1940, end: 1949, low: 57.4, high: 99.2, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 美國, start: 1950, end: 1959, low: 83.9, high: 125, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 美國, start: 1960, end: 1969, low: 126, high: 178, src: [w1, w2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 美國, start: 1970, end: 1978, low: 129, high: 216, src: [w1, w2], note: "這十年有 8 年的資料，畫的是最低到最高。" }
+      - { entity: 美國, start: 1986, end: 1989, low: 168, high: 189, src: [w1, w2], note: "這十年有 4 年的資料，畫的是最低到最高。" }
+      - { entity: 美國, start: 1990, end: 1999, low: 163, high: 212, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 美國, start: 2000, end: 2007, low: 197, high: 218, src: [w1, w2], note: "這十年有 8 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1820, end: 1829, low: 2.86, high: 3.71, src: [w1, w2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1830, end: 1838, low: 2.52, high: 3.07, src: [w1, w2], note: "這十年有 7 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1841, end: 1849, low: 1.82, high: 3.31, src: [w1, w2], note: "這十年有 7 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1850, end: 1858, low: 1.15, high: 2.71, src: [w1, w2], note: "這十年有 7 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1870, end: 1879, low: 2.51, high: 3.57, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1880, end: 1889, low: 3.47, high: 4.74, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1890, end: 1899, low: 3.99, high: 5.03, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1900, end: 1909, low: 3.75, high: 5.27, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1910, end: 1919, low: 3.01, high: 5.23, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1920, end: 1929, low: 2.16, high: 3.9, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1930, end: 1933, low: 2.5, high: 3.88, src: [w1, w2], note: "這十年有 4 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1951, end: 1955, low: 4.66, high: 5.98, src: [w1, w2], note: "這十年有 4 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1964, end: 1969, low: 9.12, high: 13.3, src: [w1, w2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1970, end: 1979, low: 16.3, high: 21.7, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1980, end: 1989, low: 19.0, high: 28.4, src: [w1, w2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 中國, start: 1990, end: 1998, low: 14.2, high: 30.3, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1820, end: 1829, low: 3.72, high: 5.23, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1830, end: 1839, low: 2.15, high: 3.81, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1840, end: 1849, low: 3.33, high: 4.34, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1850, end: 1859, low: 2.73, high: 3.71, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1860, value: 3.4, src: [w1, w2] }
+      - { entity: 日本, start: 1882, end: 1889, low: 4.43, high: 7.41, src: [w1, w2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1890, end: 1899, low: 5.24, high: 8.62, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1900, end: 1909, low: 7.94, high: 9.32, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1910, end: 1919, low: 5.51, high: 9.61, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1920, end: 1929, low: 8.51, high: 10.2, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1930, end: 1939, low: 7.86, high: 11.2, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1940, end: 1948, low: 4.17, high: 15.3, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1950, end: 1959, low: 5.59, high: 7.94, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1960, end: 1969, low: 8.19, high: 19.8, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1970, end: 1979, low: 20.8, high: 31.2, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1980, end: 1989, low: 27.0, high: 32.8, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 1990, end: 1999, low: 34.2, high: 44.7, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 日本, start: 2000, value: 45.0, src: [w1, w2] }
+      - { entity: 印度, start: 1870, end: 1879, low: 2.64, high: 4.02, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1880, end: 1889, low: 3.31, high: 4.4, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1890, end: 1899, low: 3.11, high: 4.19, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1900, end: 1909, low: 3.24, high: 4.1, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1910, end: 1919, low: 2.97, high: 3.96, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1920, end: 1929, low: 3.14, high: 5.4, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1930, end: 1939, low: 4.2, high: 6.17, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1940, end: 1949, low: 2.51, high: 5.79, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1950, end: 1959, low: 4.22, high: 8.33, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1960, end: 1969, low: 3.14, high: 4.74, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1970, end: 1979, low: 2.53, high: 3.87, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1980, end: 1989, low: 3.05, high: 10.7, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 1990, end: 1999, low: 6.5, high: 14.1, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 印度, start: 2000, end: 2001, low: 6.81, high: 7.01, src: [w1, w2], note: "這十年有 2 年的資料，畫的是最低到最高。" }
+      - { entity: 臺灣, start: 1951, end: 1959, low: 4.59, high: 11.6, src: [w1, w2], note: "這十年有 9 年的資料，畫的是最低到最高。" }
+      - { entity: 臺灣, start: 1960, end: 1969, low: 9.77, high: 20.0, src: [w1, w2], note: "這十年有 7 年的資料，畫的是最低到最高。" }
+      - { entity: 臺灣, start: 1970, value: 18.5, src: [w1, w2] }
+      - { entity: 臺灣, start: 2002, end: 2004, low: 36.4, high: 38.3, src: [w1, w2], note: "這十年有 3 年的資料，畫的是最低到最高。" }
+      - { entity: 南韓, start: 1955, value: 11.3, src: [w1, w2] }
+      - { entity: 南韓, start: 1964, end: 1967, low: 6.54, high: 12.5, src: [w1, w2], note: "這十年有 4 年的資料，畫的是最低到最高。" }
+      - { entity: 南韓, start: 1977, end: 1978, low: 16.9, high: 19.5, src: [w1, w2], note: "這十年有 2 年的資料，畫的是最低到最高。" }
+      - { entity: 南韓, start: 1984, end: 1989, low: 19.3, high: 31.7, src: [w1, w2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 南韓, start: 1990, end: 1999, low: 29.7, high: 52.6, src: [w1, w2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 南韓, start: 2000, end: 2006, low: 28.5, high: 38.3, src: [w1, w2], note: "這十年有 7 年的資料，畫的是最低到最高。" }
+
+  - id: boe-eng-wage
+    metric: eng_wage
+    name: 英格蘭建築工人名目日薪（Clark）
+    kind: 估計
+    verification: AI草稿
+    note: 名目工資就是「拿到幾便士」，沒有扣掉物價。1971 年以前英國用舊制，1 英鎊＝240 便士。要看生活有沒有變好，要配合「英國物價」與「英國實質工資」一起看。每十年畫最低到最高；早期有些十年只有幾年的資料。資料只到 1914 年。
+    points:
+      - { entity: 英格蘭建築工人, start: 1221, end: 1227, low: 1.57, high: 1.72, src: [b1, b2], note: "這十年有 3 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1246, end: 1248, low: 1.69, high: 2.07, src: [b1, b2], note: "這十年有 2 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1252, end: 1259, low: 1.11, high: 2.35, src: [b1, b2], note: "這十年有 8 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1260, end: 1269, low: 1.42, high: 2.26, src: [b1, b2], note: "這十年有 6 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1271, end: 1279, low: 1.04, high: 1.88, src: [b1, b2], note: "這十年有 8 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1280, end: 1289, low: 1.19, high: 1.68, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1290, end: 1299, low: 1.14, high: 1.66, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1300, end: 1309, low: 1.44, high: 1.84, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1310, end: 1319, low: 1.48, high: 1.9, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1320, end: 1329, low: 1.44, high: 1.86, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1330, end: 1339, low: 1.5, high: 1.87, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1340, end: 1349, low: 1.54, high: 1.71, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1350, end: 1359, low: 2.12, high: 2.47, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1360, end: 1369, low: 2.27, high: 3.13, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1370, end: 1379, low: 2.68, high: 3.18, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1380, end: 1389, low: 2.51, high: 3.45, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1390, end: 1399, low: 2.62, high: 3.01, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1400, end: 1409, low: 2.87, high: 3.36, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1410, end: 1419, low: 2.95, high: 3.36, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1420, end: 1429, low: 3.09, high: 3.66, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1430, end: 1439, low: 3.15, high: 3.64, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1440, end: 1449, low: 3.37, high: 3.88, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1450, end: 1459, low: 3.31, high: 4.0, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1460, end: 1469, low: 3.32, high: 3.88, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1470, end: 1479, low: 3.32, high: 3.54, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1480, end: 1489, low: 3.22, high: 3.87, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1490, end: 1499, low: 3.14, high: 3.68, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1500, end: 1509, low: 3.22, high: 3.53, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1510, end: 1519, low: 3.15, high: 3.83, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1520, end: 1529, low: 3.24, high: 3.81, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1530, end: 1539, low: 3.4, high: 4.12, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1540, end: 1549, low: 3.52, high: 4.4, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1550, end: 1559, low: 4.94, high: 5.7, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1560, end: 1569, low: 5.63, high: 6.47, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1570, end: 1579, low: 5.85, high: 6.99, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1580, end: 1589, low: 6.04, high: 7.38, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1590, end: 1599, low: 6.35, high: 7.08, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1600, end: 1609, low: 7.12, high: 7.9, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1610, end: 1619, low: 7.57, high: 8.64, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1620, end: 1629, low: 7.73, high: 8.54, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1630, end: 1639, low: 8.8, high: 9.49, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1640, end: 1649, low: 9.25, high: 11.2, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1650, end: 1659, low: 10.5, high: 11.8, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1660, end: 1669, low: 11.1, high: 11.9, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1670, end: 1679, low: 11.4, high: 12.5, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1680, end: 1689, low: 11.6, high: 12.8, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1690, end: 1699, low: 11.9, high: 12.9, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1700, end: 1709, low: 11.6, high: 12.3, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1710, end: 1719, low: 11.8, high: 12.5, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1720, end: 1729, low: 12.0, high: 12.6, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1730, end: 1739, low: 12.3, high: 12.8, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1740, end: 1749, low: 11.7, high: 13.0, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1750, end: 1759, low: 12.7, high: 13.4, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1760, end: 1769, low: 13.4, high: 14.5, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1770, end: 1779, low: 14.4, high: 15.7, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1780, end: 1789, low: 14.9, high: 15.8, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1790, end: 1799, low: 15.9, high: 19.8, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1800, end: 1809, low: 20.0, high: 27.2, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1810, end: 1819, low: 27.8, high: 31.5, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1820, end: 1829, low: 25.4, high: 28.1, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1830, end: 1839, low: 26.0, high: 29.9, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1840, end: 1849, low: 26.0, high: 32.4, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1850, end: 1859, low: 28.2, high: 33.2, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1860, end: 1869, low: 32.5, high: 40.5, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1870, end: 1879, low: 39.4, high: 50.9, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1880, end: 1889, low: 46.1, high: 47.5, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1890, end: 1899, low: 46.8, high: 56.5, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1900, end: 1909, low: 56.1, high: 58.0, src: [b1, b2], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英格蘭建築工人, start: 1910, end: 1914, low: 56.3, high: 65.0, src: [b1, b2], note: "這十年有 5 年的資料，畫的是最低到最高。" }
+
+  - id: boe-cpi
+    metric: uk_cpi
+    name: 英國消費者物價指數（拼接，2015 年＝100）
+    kind: 估計
+    verification: AI草稿
+    note: 英格蘭銀行把不同時期的物價指數接成一條：1661 年以前用 Clark（2009, 2014）的生活費指數，1661–1750 年 Schumpeter-Gilboy 指數，1750–1770 年 Crafts & Mills，1770–1882 年 Feinstein（1998），1882–1914 年 Feinstein（1991），1914 年以後英國國家統計局（詳見 A47 表說明）。指數 1 代表當年物價是 2015 年的百分之一。每十年畫最低到最高。
+    points:
+      - { entity: 英國物價, start: 1209, value: 0.0824, src: [b1] }
+      - { entity: 英國物價, start: 1210, end: 1219, low: 0.0776, high: 0.119, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1220, end: 1229, low: 0.0801, high: 0.132, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1230, end: 1239, low: 0.101, high: 0.113, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1240, end: 1249, low: 0.0887, high: 0.135, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1250, end: 1259, low: 0.0911, high: 0.138, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1260, end: 1269, low: 0.109, high: 0.13, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1270, end: 1279, low: 0.125, high: 0.168, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1280, end: 1289, low: 0.0992, high: 0.153, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1290, end: 1299, low: 0.125, high: 0.167, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1300, end: 1309, low: 0.123, high: 0.171, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1310, end: 1319, low: 0.136, high: 0.243, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1320, end: 1329, low: 0.128, high: 0.22, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1330, end: 1339, low: 0.107, high: 0.171, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1340, end: 1349, low: 0.119, high: 0.155, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1350, end: 1359, low: 0.147, high: 0.199, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1360, end: 1369, low: 0.155, high: 0.191, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1370, end: 1379, low: 0.131, high: 0.248, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1380, end: 1389, low: 0.12, high: 0.16, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1390, end: 1399, low: 0.127, high: 0.18, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1400, end: 1409, low: 0.131, high: 0.183, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1410, end: 1419, low: 0.141, high: 0.182, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1420, end: 1429, low: 0.135, high: 0.171, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1430, end: 1439, low: 0.135, high: 0.203, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1440, end: 1449, low: 0.127, high: 0.169, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1450, end: 1459, low: 0.131, high: 0.15, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1460, end: 1469, low: 0.122, high: 0.165, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1470, end: 1479, low: 0.135, high: 0.157, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1480, end: 1489, low: 0.145, high: 0.187, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1490, end: 1499, low: 0.127, high: 0.158, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1500, end: 1509, low: 0.125, high: 0.169, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1510, end: 1519, low: 0.13, high: 0.179, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1520, end: 1529, low: 0.151, high: 0.239, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1530, end: 1539, low: 0.173, high: 0.206, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1540, end: 1549, low: 0.181, high: 0.271, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1550, end: 1559, low: 0.274, high: 0.426, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1560, end: 1569, low: 0.317, high: 0.387, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1570, end: 1579, low: 0.326, high: 0.44, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1580, end: 1589, low: 0.368, high: 0.503, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1590, end: 1599, low: 0.436, high: 0.718, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1600, end: 1609, low: 0.508, high: 0.672, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1610, end: 1619, low: 0.594, high: 0.679, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1620, end: 1629, low: 0.583, high: 0.704, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1630, end: 1639, low: 0.731, high: 0.818, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1640, end: 1649, low: 0.686, high: 0.978, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1650, end: 1659, low: 0.625, high: 0.924, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1660, end: 1669, low: 0.756, high: 0.929, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1670, end: 1679, low: 0.723, high: 0.83, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1680, end: 1689, low: 0.657, high: 0.764, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1690, end: 1699, low: 0.674, high: 0.889, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1700, end: 1709, low: 0.593, high: 0.775, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1710, end: 1719, low: 0.626, high: 0.909, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1720, end: 1729, low: 0.6, high: 0.701, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1730, end: 1739, low: 0.573, high: 0.64, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1740, end: 1749, low: 0.566, high: 0.728, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1750, end: 1759, low: 0.64, high: 0.893, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1760, end: 1769, low: 0.665, high: 0.943, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1770, end: 1779, low: 0.825, high: 0.92, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1780, end: 1789, low: 0.855, high: 0.948, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1790, end: 1799, low: 0.907, high: 1.3, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1800, end: 1809, low: 1.21, high: 1.69, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1810, end: 1819, low: 1.41, high: 1.83, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1820, end: 1829, low: 1.16, high: 1.36, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1830, end: 1839, low: 1.06, high: 1.29, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1840, end: 1849, low: 1.09, high: 1.36, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1850, end: 1859, low: 1.04, high: 1.35, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1860, end: 1869, low: 1.23, high: 1.41, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1870, end: 1879, low: 1.2, high: 1.38, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1880, end: 1889, low: 1.1, high: 1.23, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1890, end: 1899, low: 1.06, high: 1.12, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1900, end: 1909, low: 1.13, high: 1.17, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1910, end: 1919, low: 1.2, high: 2.85, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1920, end: 1929, low: 2.31, high: 3.29, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1930, end: 1939, low: 2.05, high: 2.25, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1940, end: 1949, low: 2.63, high: 4.16, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1950, end: 1959, low: 4.32, high: 6.56, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1960, end: 1969, low: 6.61, high: 9.09, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1970, end: 1979, low: 9.69, high: 28.1, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1980, end: 1989, low: 32.3, high: 52.2, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 1990, end: 1999, low: 55.9, high: 72.1, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 2000, end: 2009, low: 72.7, high: 86.6, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國物價, start: 2010, end: 2016, low: 89.4, high: 101, src: [b1], note: "這十年有 7 年的資料，畫的是最低到最高。" }
+
+  - id: boe-real-wage
+    metric: uk_real
+    name: 英國實質消費工資（1900 年＝100）
+    kind: 估計
+    verification: AI草稿
+    note: 實質工資＝名目工資扣掉物價，代表「薪水買得到多少東西」。英格蘭銀行用全職工作的收入除以物價指數；1750 年以前用英格蘭日薪推算。1500 到 1600 年，英格蘭建築工人的名目日薪漲了一倍多（約 3.2 便士→7.1 便士），物價卻漲了約 4 倍，實質工資反而掉了約四成——物價上漲吃掉了加薪（歐洲「價格革命」）。每十年畫最低到最高。
+    points:
+      - { entity: 英國實質工資, start: 1209, value: 51.8, src: [b1] }
+      - { entity: 英國實質工資, start: 1210, end: 1219, low: 30.7, high: 66.5, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1220, end: 1229, low: 29.9, high: 54.9, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1230, end: 1239, low: 31.9, high: 38.0, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1240, end: 1249, low: 29.3, high: 44.8, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1250, end: 1259, low: 28.9, high: 46.4, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1260, end: 1269, low: 29.3, high: 40.0, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1270, end: 1279, low: 18.6, high: 30.1, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1280, end: 1289, low: 25.4, high: 37.1, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1290, end: 1299, low: 22.6, high: 30.4, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1300, end: 1309, low: 22.1, high: 33.6, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1310, end: 1319, low: 17.3, high: 31.4, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1320, end: 1329, low: 20.8, high: 33.2, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1330, end: 1339, low: 25.5, high: 40.7, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1340, end: 1349, low: 25.9, high: 36.2, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1350, end: 1359, low: 35.7, high: 51.9, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1360, end: 1369, low: 40.5, high: 49.9, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1370, end: 1379, low: 31.5, high: 62.4, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1380, end: 1389, low: 51.2, high: 67.2, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1390, end: 1399, low: 45.4, high: 62.9, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1400, end: 1409, low: 48.5, high: 66.8, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1410, end: 1419, low: 49.1, high: 64.4, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1420, end: 1429, low: 54.0, high: 69.6, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1430, end: 1439, low: 47.6, high: 69.6, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1440, end: 1449, low: 57.1, high: 76.0, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1450, end: 1459, low: 63.5, high: 72.4, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1460, end: 1469, low: 57.9, high: 78.1, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1470, end: 1479, low: 55.3, high: 70.2, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1480, end: 1489, low: 52.7, high: 65.9, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1490, end: 1499, low: 48.4, high: 74.2, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1500, end: 1509, low: 52.0, high: 71.4, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1510, end: 1519, low: 46.4, high: 70.8, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1520, end: 1529, low: 36.4, high: 59.2, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1530, end: 1539, low: 34.5, high: 59.0, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1540, end: 1549, low: 36.4, high: 55.9, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1550, end: 1559, low: 34.3, high: 48.7, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1560, end: 1569, low: 41.3, high: 50.5, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1570, end: 1579, low: 39.4, high: 53.1, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1580, end: 1589, low: 34.9, high: 44.1, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1590, end: 1599, low: 25.6, high: 40.7, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1600, end: 1609, low: 27.9, high: 38.3, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1610, end: 1619, low: 28.7, high: 35.7, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1620, end: 1629, low: 29.1, high: 37.3, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1630, end: 1639, low: 28.6, high: 33.3, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1640, end: 1649, low: 26.1, high: 35.7, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1650, end: 1659, low: 28.7, high: 44.0, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1660, end: 1669, low: 29.3, high: 39.3, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1670, end: 1679, low: 33.6, high: 38.9, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1680, end: 1689, low: 36.1, high: 45.4, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1690, end: 1699, low: 30.8, high: 41.8, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1700, end: 1709, low: 35.4, high: 48.2, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1710, end: 1719, low: 30.9, high: 47.4, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1720, end: 1729, low: 41.2, high: 50.5, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1730, end: 1739, low: 48.2, high: 54.9, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1740, end: 1749, low: 41.7, high: 55.5, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1750, end: 1759, low: 32.7, high: 48.6, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1760, end: 1769, low: 35.1, high: 48.1, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1770, end: 1779, low: 39.9, high: 45.5, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1780, end: 1789, low: 41.7, high: 46.5, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1790, end: 1799, low: 44.9, high: 52.8, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1800, end: 1809, low: 37.2, high: 51.7, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1810, end: 1819, low: 41.7, high: 51.1, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1820, end: 1829, low: 47.2, high: 53.2, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1830, end: 1839, low: 49.8, high: 56.9, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1840, end: 1849, low: 50.8, high: 58.5, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1850, end: 1859, low: 55.8, high: 62.1, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1860, end: 1869, low: 59.2, high: 65.5, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1870, end: 1879, low: 66.3, high: 77.4, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1880, end: 1889, low: 76.2, high: 87.9, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1890, end: 1899, low: 90.7, high: 101, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1900, end: 1909, low: 100, high: 103, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1910, end: 1919, low: 101, high: 110, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1920, end: 1929, low: 103, high: 112, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1930, end: 1939, low: 111, high: 123, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1940, end: 1949, low: 131, high: 146, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1950, end: 1959, low: 145, high: 171, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1960, end: 1969, low: 179, high: 225, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1970, end: 1979, low: 238, high: 308, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1980, end: 1989, low: 325, high: 440, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 1990, end: 1999, low: 454, high: 528, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 2000, end: 2009, low: 546, high: 652, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
+      - { entity: 英國實質工資, start: 2010, end: 2016, low: 600, high: 631, src: [b1], note: "這十年有 7 年的資料，畫的是最低到最高。" }

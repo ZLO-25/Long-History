@@ -1,10 +1,10 @@
-# 經濟曲線與物資鏈：資料格式（第 3 期）
+# 經濟曲線與物資鏈：資料格式（第 3 期，第 6 期延伸到 2022 年）
 
 ## 經濟曲線 `data/economy/series.yaml`
 
 ```
 sources:  來源清單（id、title、url、accessed）
-metrics:  指標（population 人口｜gdp_pc 人均 GDP｜silver 銀幣含銀率），scale 可為 log 或 linear
+metrics:  指標（population 人口｜gdp_pc 人均 GDP｜silver 銀幣含銀率｜real_wage 實質工資｜eng_wage 英格蘭名目日薪｜uk_cpi 英國物價｜uk_real 英國實質工資），scale 可為 log 或 linear
 series:   數列
   └ points：每一個有來源的點
        entity        對象（例如「義大利」「漢朝戶口」）
@@ -15,7 +15,7 @@ series:   數列
        note          說明
 ```
 
-規則：年份必須在前 800 到 500 年之間；不補線、不內插，沒有資料的年代就留白。`kind` 標明性質：估計（學者推算）、登記（官方戶口或普查，不等於實際人口）、實測（錢幣化驗）。
+規則：年份必須在前 800 到 2025 年之間；不補線、不內插，沒有資料的年代就留白。`kind` 標明性質：估計（學者推算）、登記（官方戶口或普查，不等於實際人口）、實測（錢幣化驗）。
 
 ## 物資鏈 `data/chains/chains.yaml`
 
@@ -30,3 +30,23 @@ chain: id、card（物資卡 id）、name、start、end、sources（本鏈額外
 `npm run build:index` 會把每一段（leg）算成線條：有 via 時取路線上離兩端最近的那一段，頭尾若和節點有距離就補點線；只標站點的路線（例如張騫）一律畫成點線。`npm run validate` 會檢查座標、角色、來源與路線 id。
 
 網址小技巧：`?chain=chain-silk` 直接打開並準備播放絲綢鏈。
+
+## 第 6 期延伸：1000–2022 年與實質工資
+
+```
+名目工資（拿到幾便士） ──÷ 物價指數 ──► 實質工資（買得到多少東西）
+   eng_wage                uk_cpi            uk_real、real_wage
+   └──── 這三種單位不同，一定分開放，不畫在同一條軸上 ────┘
+```
+
+| 數列 | 指標 | 來源檔（ZL 下載，放在 `Long histroy\data-downloads\`） | 授權 |
+|---|---|---|---|
+| maddison-gdp、maddison-pop | 人均 GDP、人口 | Maddison Project Database 2023（`mpd2023_web.xlsx`） | CC BY 4.0；以圖呈現時要列出各國原始研究，寫在每國第一個點的說明，面板選到同國任何點都會顯示 |
+| clio-real-wage | 實質工資（一天工資買得到幾籃最低生活必需品） | Clio Infra Labourers Real Wage（`LabourersRealWage_Compact.xlsx`） | CC0 |
+| boe-eng-wage、boe-cpi、boe-real-wage | 英格蘭名目日薪、英國物價、英國實質工資 | 英格蘭銀行 A millennium of macroeconomic data 3.1 版（A47、A48 表） | 英格蘭銀行網站法律頁：資料庫資訊依英國 Open Government Licence 重製；第三方資料（例如 Clark 的工資）版權屬原作者，本站只畫十年範圍並註明出處 |
+
+**「一天工資買幾籃」怎麼讀**：一籃＝一個人一天最少要吃的東西（至少 1,940 大卡、40 公克蛋白質）。數字 1 代表一天工資只夠一個人吃一天；工人要養家、也不是天天有工作，所以要明顯大於 1 才過得下去。
+
+**怎麼產生**：每十年取「最低到最高」畫成一個範圍（只有一年資料就畫一個點），不平均、不內插；Maddison 只取檔案裡有的年份（1000、1500、1600、1700、1820、1850、1870、1900、1913、1929、1950、1960、1973、1980、1990、2000、2010、2022）。數字是用腳本直接從下載檔讀出來的，並由另一個沒參與的查核 agent 逐點對照原檔。
+
+**沒做**：主計總處（臺灣薪資與物價）還沒接；Clio Infra 的臺灣只有 1951–1970、2002–2004 年。手機版研究模式本來就沒有時間軸，經濟曲線只在桌機寬度看得到。

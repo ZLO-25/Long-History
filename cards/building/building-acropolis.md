@@ -22,12 +22,37 @@ links: [war-greco-persian, war-peloponnesian, building-theatre-dionysus, commodi
 counterparts:
   - { id: building-han-changan, note: "相似：都城的大型建設展示權力，花的錢也成為問題（伯里克利挪用提洛同盟貢金；蕭何因花費過多受責備）。不同：衛城以神殿為中心；漢長安城以皇帝宮殿為中心。", src: [s2, s6] }
 sources:
-  - { id: s1, title: "Parthenon — Wikipedia", url: "https://en.wikipedia.org/wiki/Parthenon", accessed: 2026-10-24 }
-  - { id: s2, title: "Athens' rise to superpower — MoneyMuseum", url: "https://www.moneymuseum.com/en/archive/athens-rise-to-superpower--382?slbox=true", accessed: 2026-10-24 }
-  - { id: s3, title: "Acropolis of Athens — New World Encyclopedia", url: "https://www.newworldencyclopedia.org/entry/Acropolis_of_Athens", accessed: 2026-10-24 }
-  - { id: s4, title: "Acropolis, Athens — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/404/maps", accessed: 2026-10-24 }
-  - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-25 }
-  - { id: s6, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-25 }
+  - { id: s1, title: "Parthenon — Wikipedia", url: "https://en.wikipedia.org/wiki/Parthenon", accessed: 2026-10-24, tier: 百科 }
+  - { id: s2, title: "Athens' rise to superpower — MoneyMuseum", url: "https://www.moneymuseum.com/en/archive/athens-rise-to-superpower--382?slbox=true", accessed: 2026-10-24, tier: 通論 }
+  - { id: s3, title: "Acropolis of Athens — New World Encyclopedia", url: "https://www.newworldencyclopedia.org/entry/Acropolis_of_Athens", accessed: 2026-10-24, tier: 百科 }
+  - { id: s4, title: "Acropolis, Athens — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/404/maps", accessed: 2026-10-24, tier: 通論 }
+  - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s6, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-25, tier: 百科 }
+  - { id: s7, title: "普魯塔克《伯里克利傳》第 12 章，Bernadotte Perrin 英譯（1916，公有領域）— Lexundria", url: "https://lexundria.com/plut_per/12/prr", accessed: 2026-10-25, tier: 一手 }
+importance: 2
+learn:
+  histories:
+  - 希臘羅馬史
+  why_care: 世界上最有名的神廟之一，是用「盟友繳的保護費」蓋的。這樣做對嗎？當時的雅典人自己就吵過。
+  story: |
+    前 480 年波斯人攻進雅典，把衛城上的神廟燒了。[s1] 三十年後，雅典已經是提洛同盟的老大，還把同盟的金庫從提洛島搬回自己家。[s2] 伯里克利拿這筆錢重建衛城，蓋了獻給雅典娜的帕德嫩神廟。[s1][s2] 反對他的人罵他：這些錢是盟友出來對抗波斯的，怎麼拿去打扮自己的城市？[s7] 大約一千年後，帕德嫩被改成基督教教堂，15 世紀又變成清真寺；1687 年被砲彈擊中，中段炸毀。[s1][s3]
+  key_terms:
+  - term: 衛城
+    plain: 希臘城市裡蓋在高丘上的城堡與神廟區。
+    example: 像一座城市最高處的廟和城堡合在一起。
+  - term: 政治宣傳工程
+    plain: 用壯觀的建築塑造統治者或城市想要的形象。
+    example: 學校在校門口蓋一座很大的新校門，讓大家覺得學校很厲害。
+  primary_source:
+  - text: … we are gilding and bedizening our city, which, for all the world like a wanton woman, adds to her wardrobe precious stones …（……我們把城市鍍金打扮，像愛炫耀的人一樣給自己掛滿寶石……）
+    from: 普魯塔克《伯里克利傳》第 12 章，記伯里克利的政敵在公民大會上的批評（Perrin 英譯；中文為本站摘譯）
+    src: s7
+  historiography: |
+    **盟友的錢，可以這樣用嗎？** 普魯塔克記下兩種聲音：反對派說這是挪用盟友的錢；伯里克利則回答，只要雅典有保護盟友，錢怎麼用不必向他們交代，而且工程讓很多公民有工作。[s7]
+    **今天的看法**：有研究者把它看成「盟主把同盟資金轉為自己城市建設」的典型例子，也就是同盟變成帝國的證據。[s2] 普魯塔克生活在帕德嫩完工後約 500 年，他的記載本身也是後人的整理，要小心使用。[s7]
+  misconceptions:
+  - 帕德嫩原本是彩色的，有彩繪雕刻；今天看到的純白大理石，是顏料褪去後的樣子。[s1]
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "從前 432 年算到西元 5、6 世紀末約 900–1,000 年，『大約一千年後』合理。" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

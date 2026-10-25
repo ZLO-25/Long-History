@@ -28,13 +28,48 @@ frameworks: [thucydides-trap]
 counterparts:
   - { id: war-chengpu, note: "相似：南北兩大集團各帶一批盟國對抗，勝方取得「盟主」地位。不同：伯羅奔尼撒戰爭打了 27 年、雅典最後投降；城濮是一天決勝的會戰，楚國並未因此衰落。", src: [s1, s7] }
 sources:
-  - { id: s1, title: "Peloponnesian War — Encyclopaedia Britannica", url: "https://www.britannica.com/print/article/449362", accessed: 2026-10-24 }
-  - { id: s2, title: "Mark Cartwright, Peloponnesian War — World History Encyclopedia (2018)", url: "https://www.worldhistory.org/Peloponnesian_War/", accessed: 2026-10-24 }
-  - { id: s3, title: "Peloponnesian War — Wikipedia", url: "https://en.wikipedia.org/wiki/Peloponnesian_War", accessed: 2026-10-24 }
-  - { id: s4, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
-  - { id: s5, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
-  - { id: s6, title: "李彔在哥倫比亞商學院第 36 屆格雷厄姆與多德論壇的談話（虎嗅整理，2026）", url: "https://www.huxiu.com/article/4896732.html", accessed: 2026-10-25 }
-  - { id: s7, title: "Battle of Chengpu — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Chengpu", accessed: 2026-10-25 }
+  - { id: s1, title: "Peloponnesian War — Encyclopaedia Britannica", url: "https://www.britannica.com/print/article/449362", accessed: 2026-10-24, tier: 百科 }
+  - { id: s2, title: "Mark Cartwright, Peloponnesian War — World History Encyclopedia (2018)", url: "https://www.worldhistory.org/Peloponnesian_War/", accessed: 2026-10-24, tier: 通論 }
+  - { id: s3, title: "Peloponnesian War — Wikipedia", url: "https://en.wikipedia.org/wiki/Peloponnesian_War", accessed: 2026-10-24, tier: 百科 }
+  - { id: s4, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24, tier: 摘要 }
+  - { id: s5, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s6, title: "李彔在哥倫比亞商學院第 36 屆格雷厄姆與多德論壇的談話（虎嗅整理，2026）", url: "https://www.huxiu.com/article/4896732.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s7, title: "Battle of Chengpu — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Chengpu", accessed: 2026-10-25, tier: 百科 }
+  - { id: s8, title: "修昔底德《伯羅奔尼撒戰爭史》1.23.6，Richard Crawley 英譯（1874／1914 年版，公有領域）— Perseids", url: "https://fgh.perseids.org/read/greekLit/tlg0003/tlg001/perseus-eng6/1.23.4-1.23.6", accessed: 2026-10-25, tier: 一手 }
+  - { id: s9, title: "Donald Kagan, Introduction to Ancient Greek History, Lecture 19: The Peloponnesian War, Part II — Yale Open Courses", url: "https://oyc.yale.edu/node/919", accessed: 2026-10-25, tier: 學術 }
+  - { id: s10, title: "Thucydides Trap（詞源、艾利森的推廣與學者批評）— Wikipedia", url: "https://en.wikipedia.org/wiki/Thucydides_Trap", accessed: 2026-10-25, tier: 百科 }
+  - { id: s11, title: "Sicilian Expedition — Wikipedia", url: "https://en.wikipedia.org/wiki/Sicilian_Expedition", accessed: 2026-10-25, tier: 百科 }
+importance: 3
+learn:
+  histories:
+  - 希臘羅馬史
+  why_care: 「強國崛起，老大哥害怕，所以一定會打仗嗎？」今天的新聞常拿這場兩千四百年前的戰爭來比喻大國競爭。
+  story: |
+    西元前 5 世紀，希臘有兩個老大：靠海軍和盟友貢金越來越有錢的雅典，和以陸軍聞名的斯巴達。[s2][s3] 前 431 年兩邊開打，斯巴達每年入侵雅典鄉間燒田，雅典人躲進城牆，靠海運吃飯。[s2] 沒想到城裡爆發瘟疫，領袖伯里克利也病死了。[s2][s3] 雅典後來又派大軍遠征西西里，結果全軍覆沒。[s3] 最後斯巴達拿波斯給的錢建艦隊，在羊河摧毀雅典艦隊，掐斷糧道。前 404 年，雅典投降。[s2][s3]
+  key_terms:
+  - term: 提洛同盟
+    plain: 以雅典為首、一起對抗波斯的城邦同盟，盟邦要出錢或出船。
+    example: 像班上大家繳班費，但班費最後都由班長一個人決定怎麼花。
+  - term: 霸權
+    plain: 一個國家在一群國家裡說了算的地位。
+    example: 一個社團裡，大家都要看某一個人的臉色做事。
+  - term: 長牆
+    plain: 把雅典城和比雷埃夫斯港連起來的兩道城牆，讓雅典被圍時還能從海上運糧。
+    example: 像一條有屋頂的走廊，下雨也能從教室走到福利社。
+  primary_source:
+  - text: The growth of the power of Athens, and the alarm which this inspired in Lacedaemon, made war inevitable.（雅典勢力的增長，以及它在斯巴達引起的恐懼，使戰爭無可避免。）
+    from: 修昔底德《伯羅奔尼撒戰爭史》卷 1 第 23 章（Crawley 英譯；中文為本站摘譯）
+    src: s8
+  historiography: |
+    **說法一：結構注定。** 修昔底德自己認為，表面上的爭端只是藉口，真正原因是雅典變強、斯巴達害怕，所以戰爭「無可避免」。[s8] 今天「修昔底德陷阱」的說法就是從這句話延伸出來的，由美國學者艾利森推廣。[s10]
+    **說法二：是人的選擇。** 耶魯大學史家卡根（Donald Kagan）不同意「注定」：他認為雙方其實都不想打，但都不肯讓步；伯里克利以為禁運墨伽拉只是「警告」，卻低估了斯巴達的憤怒與恐懼。[s9]
+    兩種說法的差別在於：戰爭是被結構推著走，還是領導人一連串可以避免的判斷錯誤？
+  misconceptions:
+  - 「修昔底德陷阱」不是修昔底德自己發明的詞，是現代人（小說家沃克首先提出這個想法，政治學者艾利森把它推廣）借用他的話；他的原文能不能推出「崛起國一定會和霸主打仗」，學者爭議很大。[s9][s10]
+  perspectives:
+  - history: 希臘羅馬史
+    text: 從希臘看，這場戰爭讓城邦互相消耗，最後讓北方的馬其頓有機會統一希臘。
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "小問題：s10 記載這個說法最早由小說家 Herman Wouk 在 1980 年使用，後由政治學者艾利森推廣，所以 misconception 寫『是現代學者借用他的話』不夠精確，可改『是現代人（主要是政治學者艾利森）借用他的話』。## A4『之後又增援約 100 艘船』與史實不符：狄摩西尼的增援是 73 艘（Wikipedia Sicilian Expedition）；『士兵幾乎全被賣為奴隸』也不準確（見 unit-athens-sparta 條目），建議一併修正 ## A4。" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -55,7 +90,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ## A4 兵力與軍事技術
 
-西西里遠征首批兵力超過 100 艘船、約 5,000 名步兵與輕裝兵，之後又增援約 100 艘船與 5,000 人；最終艦隊全滅，士兵幾乎全被賣為奴隸（數字為古代記載，屬估計）。[s3] 羊河之役雅典約 168–170 艘船被俘或摧毀，各來源數字略有差異。[s2][s3]
+西西里遠征首批兵力超過 100 艘船、約 5,000 名步兵與輕裝兵，前 413 年又由德摩斯梯尼率約 73 艘船增援；最終全軍覆沒，約 7,000 名俘虜被關進敘拉古的採石場，許多雅典人病死、餓死，非雅典籍的俘虜被賣為奴隸（數字為古代記載，屬估計）。[s3][s11] 羊河之役雅典約 168–170 艘船被俘或摧毀，各來源數字略有差異。[s2][s3]
 
 ## A5 後勤與補給
 

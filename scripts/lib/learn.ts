@@ -126,6 +126,9 @@ export function checkUnits(units: { file: string; unit: any }[], cards: RawCard[
       }
       for (const k of ['text', 'situation', 'explain', 'actual']) if (s[k] && refsOf(String(s[k])).length) warn(`${w}：單元文字不要用 [s1] 代號，請用 ref 連回卡片`);
     });
+    const cc = u.crosscheck;
+    if (!cc) warn('還沒有交叉查核紀錄（crosscheck），不會出現在學習模式');
+    else if (cc.result !== '通過') warn('交叉查核不通過，不會出現在學習模式');
     for (const t of REQUIRED_STEPS) if (!seen.has(t)) err(`單元缺少「${t}」步驟（每個單元都要有史料判讀、因果鏈、觀點比較、決策、今日對照、自我檢查、回顧）`);
   }
   return out;

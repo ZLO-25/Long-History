@@ -11,6 +11,8 @@ interface Props {
   onPlace: (key: string) => void; onRoute: (id: string) => void; compact?: boolean;
   chain?: { chain: Chain; t: number } | null;
   todayOn?: boolean; setTodayOn?: (v: boolean) => void; onToday?: (id: string) => void; todaySel?: string | null;
+  // 第 6 期學習模式：其他史的卡淡化成背景小點；多一個「東亞」視野；圖例加上疆域示意的說明
+  bgCards?: Card[]; learn?: boolean;
 }
 
 // 地圖視野：地中海／中國／歐亞
@@ -29,7 +31,7 @@ const loadBorders = (file: string) => {
   return borderCache.get(file)!;
 };
 
-export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel }: Props) {
+export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel, bgCards, learn }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map>();
   const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup }>();
@@ -147,6 +149,13 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     const g = layers.current?.places;
     if (!g) return;
     g.clearLayers();
+    // 學習模式：不屬於目前這個史的卡，只畫灰色小點當背景
+    const own = new Set(places.map((p) => p.key));
+    for (const c of bgCards ?? []) for (const l of c.place.locations) {
+      if (own.has(l.key)) continue;
+      L.circleMarker([l.lat, l.lng], { radius: 3, color: '#999', weight: 1, fillColor: '#bbb', fillOpacity: 0.6, interactive: true })
+        .bindTooltip(`${c.name}（其他史）`).addTo(g);
+    }
     for (const p of places) {
       const act = p.cards.filter((c) => activeAt(c, year));
       const on = act.length > 0;
@@ -160,7 +169,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       mk.on('click', () => cb.current.onPlace(p.key));
       mk.addTo(g);
     }
-  }, [places, year]);
+  }, [places, year, bgCards]);
 
   // 高亮並移動視角
   useEffect(() => {
@@ -237,11 +246,13 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     <div className="map">
       <div ref={el} className="map-canvas" />
       <div className="map-views">
+        {learn && <button onClick={() => map.current?.flyToBounds([[0, 95], [45, 145]], { duration: 0.6 })}>東亞</button>}
         {VIEWS.map((v) => <button key={v.label} onClick={() => map.current?.flyToBounds(v.bounds, { duration: 0.6 })}>{v.label}</button>)}
         {setTodayOn && <button className={`today-toggle ${todayOn ? 'on' : ''}`} onClick={() => { const v = !todayOn; setTodayOn(v); if (v) map.current?.flyToBounds(TODAY_VIEW, { duration: 0.6 }); }} title="疊上今天的咽喉要道（每筆都標資料截至）">◆ 今日對照層</button>}
       </div>
       <div className="map-legend">
         <div>{snapLabel}</div>
+        {learn && <div className="learn-map-note">疆域都是示意：古代國界不像今天是一條清楚的線，很多地方是勢力越往外越淡，或好幾方都說是自己的。</div>}
         <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
         {era !== 'M' && <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>}
         {todayOn && <div><i className="lg today" />今日咽喉要道（灰色＝資料可能過時）</div>}

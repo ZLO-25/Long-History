@@ -22,8 +22,33 @@ links: []
 counterparts:
   - { id: war-peloponnesian, note: "相似：北方與南方兩大集團各帶一批盟國對抗，勝方成為「盟主」主持諸國會盟。不同：城濮是一天定勝負的會戰，伯羅奔尼撒戰爭打了 27 年；春秋霸主名義上仍尊周王。", src: [s1] }
 sources:
-  - { id: s1, title: "Battle of Chengpu — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Chengpu", accessed: 2026-10-25 }
-  - { id: s2, title: "The Battle of Chengpu — 中華文化資訊網（chiculture.org.hk）", url: "https://www.chiculture.org.hk/en/china-five-thousand-years/4068", accessed: 2026-10-25 }
+  - { id: s1, title: "Battle of Chengpu — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Chengpu", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "The Battle of Chengpu — 中華文化資訊網（chiculture.org.hk）", url: "https://www.chiculture.org.hk/en/china-five-thousand-years/4068", accessed: 2026-10-25, tier: 通論 }
+  - { id: s3, title: "蔡哲茂〈「退避三舍」誰之謀？從故宮藏〈子犯編鐘〉談子犯的功勞與形象〉，《故宮文物月刊》第 449 期", url: "https://www.npm.edu.tw/NewChineseArtDownload.ashx?bid=4177", accessed: 2026-10-25, tier: 學術 }
+importance: 2
+learn:
+  histories:
+  - 中國史
+  why_care: 「退避三舍」這句成語，原來是一場大戰前的承諾，而且這個承諾到底是誰出的主意，史家到現在還在查。
+  story: |
+    晉國公子重耳流亡時到過楚國，楚王很照顧他。重耳答應：將來兩國若在戰場相遇，晉軍會先後退三舍（約三天的行軍路程）。[s1][s3] 後來重耳回國當了國君，就是晉文公。前 633 年冬，楚國北上圍攻晉的盟國宋；隔年（前 632 年），晉楚兩軍真的碰上了。[s1][s2] 晉軍依約後退到城濮，楚軍追上來，結果被晉軍打敗。[s1] 晉文公因此成為諸侯的霸主。[s1][s2]
+  key_terms:
+  - term: 舍
+    plain: 古代行軍一天的路程，一舍約 30 里。
+    example: 「退避三舍」就是往後退三天的路，比喻主動讓步。
+  - term: 霸主
+    plain: 春秋時代在諸侯之間帶頭主持會盟的國君，名義上仍尊周天子。
+    example: 像各班代表開會時，大家公認的主席。
+  primary_source:
+  - text: 晉楚治兵，遇於中原，其辟君三舍。
+    from: 《左傳·僖公二十三年》，重耳對楚成王說的話（引自蔡哲茂文）
+    src: s3
+  historiography: |
+    **退三舍是守信，還是戰術？** 《左傳》把後退寫成晉文公報答楚王的承諾。[s1][s3] 研究故宮〈子犯編鐘〉的學者蔡哲茂指出，鐘上銘文記子犯參與晉公率軍伐楚、立下大功；他認為「退三舍」更可能是子犯「誘敵深入」的計策，報恩守信的情節則可能是《左傳》作者為了強調信義而寫成的（這是推測）。[s3]
+    **功勞是誰的？** 《國語》似乎歸功先軫，《史記》歸功狐偃（子犯），《呂氏春秋》又提到雍季，不同古書的說法並不一致。[s3]
+  misconceptions:
+  - 「退避三舍」不只是「很有禮貌」：放在戰場上，後退也可能是把敵人引到對自己有利的地方。[s3]
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "上次的建議尚未採用：蔡文說《國語》的記載『似有將首功歸於先軫的意味』，卡片寫『《國語》歸功先軫』語氣太肯定，建議改成『《國語》似乎歸功先軫』。如果想讓子玉自殺有第二個來源，可補《左傳·僖公二十八年》（子玉至連穀而死）。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
@@ -61,7 +86,7 @@ lens_status: 無直接論述
 
 ## A8 結果
 
-晉勝。楚軍損失戰車 100 乘、被俘 1,000 人；楚主帥子玉戰後自殺。[s1][s2] 周天子承認晉文公為諸侯之長；前 631 年晉文公主持諸侯會盟，各國宣誓支持周王室並結盟。[s1]
+晉勝。楚軍損失戰車 100 乘、被俘 1,000 人；楚主帥子玉戰後自殺。[s2] 周天子承認晉文公為諸侯之長；前 631 年晉文公主持諸侯會盟，各國宣誓支持周王室並結盟。[s1]
 
 ## A9 長期影響
 

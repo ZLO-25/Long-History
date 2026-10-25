@@ -29,14 +29,49 @@ counterparts:
   - { id: war-red-cliffs, note: "相似：兵力佔優的入侵者在水戰中被較小的聯軍擊敗，主力隨即撤退（薩拉米斯；赤壁）。不同：波斯帝國戰後依然強大；赤壁之後中國分裂成三國。", src: [s1, s7] }
   - { id: war-feishui, note: "相似：由許多被征服民族組成的龐大入侵軍，敗給人數少、訓練好的守方。不同：波斯戰後仍存續；前秦在淝水之後兩年內就瓦解。", src: [s1, s8] }
 sources:
-  - { id: s1, title: "Greco-Persian Wars — Wikipedia", url: "https://en.wikipedia.org/wiki/Greco-Persian_Wars", accessed: 2026-10-24 }
-  - { id: s2, title: "Battle of Salamis — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Salamis", accessed: 2026-10-24 }
-  - { id: s3, title: "Mark Cartwright, Themistocles — World History Encyclopedia (2016)", url: "https://worldhistory.org/Themistocles", accessed: 2026-10-24 }
-  - { id: s4, title: "Themistocles summary — Encyclopaedia Britannica", url: "https://www.britannica.com/summary/Themistocles", accessed: 2026-10-24 }
-  - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
-  - { id: s6, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
-  - { id: s7, title: "Battle of Red Cliffs — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Red_Cliffs", accessed: 2026-10-25 }
-  - { id: s8, title: "Battle of Fei River — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Fei_River", accessed: 2026-10-25 }
+  - { id: s1, title: "Greco-Persian Wars — Wikipedia", url: "https://en.wikipedia.org/wiki/Greco-Persian_Wars", accessed: 2026-10-24, tier: 百科 }
+  - { id: s2, title: "Battle of Salamis — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Salamis", accessed: 2026-10-24, tier: 百科 }
+  - { id: s3, title: "Mark Cartwright, Themistocles — World History Encyclopedia (2016)", url: "https://worldhistory.org/Themistocles", accessed: 2026-10-24, tier: 通論 }
+  - { id: s4, title: "Themistocles summary — Encyclopaedia Britannica", url: "https://www.britannica.com/summary/Themistocles", accessed: 2026-10-24, tier: 百科 }
+  - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24, tier: 摘要 }
+  - { id: s6, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s7, title: "Battle of Red Cliffs — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Red_Cliffs", accessed: 2026-10-25, tier: 百科 }
+  - { id: s8, title: "Battle of Fei River — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Fei_River", accessed: 2026-10-25, tier: 百科 }
+  - { id: s9, title: "希羅多德《歷史》7.144，G. C. Macaulay 英譯（1890，公有領域）— Lexundria", url: "https://lexundria.com/hdt/7.144/mcly", accessed: 2026-10-25, tier: 一手 }
+  - { id: s10, title: "Second Persian invasion of Greece（含希羅多德兵力數字與 Grote、Bury、Maurice 等學者估計）— Wikipedia", url: "https://en.wikipedia.org/wiki/Second_Persian_invasion_of_Greece", accessed: 2026-10-25, tier: 百科 }
+importance: 3
+learn:
+  histories:
+  - 希臘羅馬史
+  - 伊斯蘭世界史
+  why_care: 一群吵吵鬧鬧的小城邦，怎麼擋下當時世界最大的帝國？答案跟一筆意外挖到的銀礦有關。
+  story: |
+    波斯是當時最大的帝國，從今天的伊朗一路管到土耳其。[s1] 小亞細亞的希臘城邦起來反抗，雅典派兵去幫忙，波斯決定報復。[s1] 前 480 年，薛西斯國王親自帶大軍渡海而來。[s1][s2] 幸好幾年前，雅典人在勞里昂挖到大銀礦，地米斯托克利說服大家不要把錢分掉，而是拿去造戰船，名義上是為了對付鄰近的埃伊納島。[s3][s9] 這支新艦隊把波斯艦隊引進狹窄的薩拉米斯海峽，船多的一方反而施展不開，希臘贏了。[s2][s3]
+  key_terms:
+  - term: 三列槳戰船
+    plain: 有三層划槳手的古希臘戰船，靠撞擊敵船作戰，需要大量划槳的人。
+    example: 像龍舟比賽，但划手有一百多人，還要用船頭去撞別人。
+  - term: 地米斯托克利
+    plain: 雅典政治家，主張把銀礦收入拿去建海軍。
+    example: 班上拿到一筆意外的獎金，他說服大家別平分，拿去買比賽要用的器材。
+  - term: 波斯帝國（阿契美尼德）
+    plain: 西元前 6–4 世紀以今天伊朗為中心的大帝國。
+    example: 國土從埃及一直到印度河，比整個希臘大好幾十倍。
+  primary_source:
+  - text: Themistocles persuaded the Athenians … to make for themselves with this money two hundred ships for the war, meaning by that the war with the Eginetans.（地米斯托克利說服雅典人……用這筆錢為戰爭建造兩百艘船，他指的是和埃伊納的戰爭。）
+    from: 希羅多德《歷史》卷 7 第 144 章（Macaulay 英譯；中文為本站摘譯）
+    src: s9
+  historiography: |
+    **波斯大軍到底多大？** 希羅多德說薛西斯帶來的人連後勤超過 500 萬。[s10] 19 世紀史家格羅特（Grote）說這數字「顯然不可能」，伯里（Bury）估計陸軍約 18 萬；也有學者從飲水補給推算，認為最多約 20 萬人。[s10] 現代學者的估計多在 20 萬左右，或 30 萬到 50 萬之間，也有人認為更少。[s10]
+    **為什麼會差這麼多？** 我們的資料幾乎都來自希臘一方，勝利者有誇大敵人的理由；這提醒我們讀史料時要問：「寫的人是誰？他為什麼這樣寫？」[s1][s10]
+  misconceptions:
+  - 電影常把溫泉關說成「300 壯士」單獨作戰，其實還有其他希臘城邦的部隊；溫泉關也是一場敗仗，真正扭轉局勢的是薩拉米斯海戰。[s1][s2]
+  perspectives:
+  - history: 希臘羅馬史
+    text: 從希臘看，這是自由城邦擋下帝國的勝利，也讓雅典變成海上強權。
+  - history: 伊斯蘭世界史
+    text: 從波斯看，這只是帝國西邊邊境的一次失利；波斯帝國之後又延續了大約 150 年，直到亞歷山大東征。
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "『名義上』帶有『埃吉納只是藉口』的詮釋，這是 WHE 的說法；希羅多德本人只說是為了埃吉納戰爭。可接受，但也可以改成『當時的理由是要對付鄰近的埃伊納島』，比較中性。" }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -56,7 +91,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ## A4 兵力與軍事技術
 
-**數字爭議大**：希羅多德說波斯陸軍約 250 萬，現代學者多認為約 20 萬；波斯艦隊希羅多德記為 1,207 艘，現代估計多在 600–800 艘或更少。[s1][s2] 希臘艦隊在薩拉米斯約 310–378 艘（各古代作者說法不同）。[s2] 主力艦種是三列槳戰船。[s2][s3]
+**數字爭議大**：希羅多德說波斯參戰兵力（陸海軍合計）約 264 萬、連後勤超過 500 萬，現代學者多認為陸軍約 20 萬或 30–50 萬；波斯艦隊希羅多德記為 1,207 艘，現代估計多在 600–800 艘或更少。[s1][s2][s10] 希臘艦隊在薩拉米斯約 310–378 艘（各古代作者說法不同）。[s2] 主力艦種是三列槳戰船。[s2][s3]
 
 ## A5 後勤與補給
 

@@ -170,6 +170,7 @@ export function checkCards(
       else needRefs(refsOf(L.historiography), 'learn.historiography');
       if (L.money_scale) needRefs(refsOf(L.money_scale), 'learn.money_scale');
       if (type === 'finance' && !L.hindsight) w('金融卡要有 hindsight（事後看很清楚的陷阱：後見之明、倖存者偏差）');
+      (L.misconceptions ?? []).forEach((m: any, i: number) => { if (!refsOf(String(m)).length) warn(`learn.misconceptions[${i}] 沒有來源代號`); else needRefs(refsOf(String(m)), `learn.misconceptions[${i}]`); });
       for (const p of L.perspectives ?? []) {
         if (!p?.history || !p?.text) w('perspectives 每筆需要 history 與 text');
         else if (!ctx.histories?.has(p.history)) w(`perspectives 的「${p.history}」不在 data/histories.yaml`);

@@ -21,7 +21,9 @@ const raw = loadCards();
 const histories = loadHistories();
 const issues = checkCards(raw, loadContext(tagCats, routesRaw, frameworks, historyKeys(histories)));
 // 學習模式可用：有 learn、交叉查核通過、沒有錯誤
-const eligible = new Set(raw.filter((c) => c.fm?.learn && c.fm?.crosscheck?.result === '通過' && !issues.some((i) => i.file === c.file && i.level === 'error')).map((c) => c.fm.id));
+// LEARN_DEV=1：開發時讓還沒查核的學習卡與單元也顯示（正式 build 不會用）
+const DEV = !!process.env.LEARN_DEV;
+const eligible = new Set(raw.filter((c) => c.fm?.learn && (DEV || c.fm?.crosscheck?.result === '通過') && !issues.some((i) => i.file === c.file && i.level === 'error')).map((c) => c.fm.id));
 // 沒標 tier 的舊來源依網域推測（只供顯示；學習卡一律要明標）
 const guessTier = (url: string) => {
   const h = (() => { try { return new URL(url).hostname; } catch { return ''; } })();
@@ -134,7 +136,7 @@ const index = {
   chains: buildChains(loadChains(), raw, routes),
   today: buildToday(loadToday(), routes),
   histories,
-  units: loadUnits().map((u) => u.unit),
+  units: loadUnits().map((u) => u.unit).filter((u) => DEV || u.crosscheck?.result === '通過'),
 };
 const unitIssues = checkUnits(loadUnits(), raw, histories, eligible).filter((i) => i.level === 'error');
 if (unitIssues.length) console.warn(`注意：學習單元有 ${unitIssues.length} 個問題，請執行 npm run validate`);

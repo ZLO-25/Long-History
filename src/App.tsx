@@ -15,6 +15,7 @@ import { EconPanel } from './components/EconPanel';
 import { TodayPanel } from './components/TodayPanel';
 import { useIsMobile } from './lib/useIsMobile';
 import { MIN_YEAR, MAX_YEAR } from './lib/timeScale';
+import { LearnApp } from './learn/LearnApp';
 
 export type Panel =
   | { kind: 'list' }
@@ -35,10 +36,17 @@ export default function App() {
   }, []);
   if (error) return <div className="fatal">{error}</div>;
   if (!index) return <div className="fatal">載入中…</div>;
-  return <Main index={index} />;
+  return <ModeSwitch index={index} />;
 }
 
-function Main({ index }: { index: Index }) {
+// 第 6 期：研究模式／學習模式。網址 ?mode=learn 進入學習模式；研究模式的網址參數完全不變
+function ModeSwitch({ index }: { index: Index }) {
+  const [mode, setMode] = useState(() => new URLSearchParams(location.search).get('mode') === 'learn' ? 'learn' : 'research');
+  const go = (m: 'learn' | 'research') => { history.replaceState(null, '', m === 'learn' ? `${location.pathname}?mode=learn` : location.pathname); setMode(m); };
+  return mode === 'learn' ? <LearnApp index={index} onResearch={() => go('research')} /> : <Main index={index} onLearn={() => go('learn')} />;
+}
+
+function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const isMobile = useIsMobile();
   // 網址參數：?year=100 指定年份、?card=war-peloponnesian 直接開卡、?chain=chain-silk 直接播物資鏈、?q=羅馬 預填搜尋
   const params = useMemo(() => new URLSearchParams(location.search), []);
@@ -140,6 +148,7 @@ function Main({ index }: { index: Index }) {
         <input className="search" type="search" value={query} onChange={(e) => onQuery(e.target.value)}
           placeholder="搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）" aria-label="搜尋" />
         {!isMobile && <button className={`btn ${panel.kind === 'match' ? 'on' : ''}`} onClick={() => open({ kind: 'match' })}>結構對照</button>}
+        <button className="btn learn-btn" onClick={onLearn} title="給國高中生的自主學習模式">學習模式</button>
         <a className="btn credits" href={`${import.meta.env.BASE_URL}credits.html`} target="_blank" rel="noopener" title="資料來源與授權">出處</a>
       </header>
       <FilterBar index={index} filters={filters} setFilters={setFilters} />

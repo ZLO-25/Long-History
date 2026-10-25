@@ -47,6 +47,7 @@ learn:
   perspectives:
     - { history: 日本史, text: 從日本看，秀吉結束了戰國亂世，並用刀狩、檢地等政策替後來江戶時代的身分秩序打底。 }
     - { history: 朝鮮半島史, text: 從朝鮮看，秀吉是 1592 年起兩次入侵、造成巨大破壞的人。 }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "初查不通過，依建議修正後複查通過。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

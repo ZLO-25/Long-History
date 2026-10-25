@@ -52,6 +52,7 @@ learn:
     - 加工區的工作不只是「女工吃苦」一種故事：對很多農村女孩來說，這也是第一次有自己收入的機會。[s1][s2]
   perspectives:
     - { history: 臺灣史, text: 從臺灣看，這是從農業轉向出口工業、也是大批農村女性進入工廠的起點。 }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "初查不通過，依建議修正後複查通過。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

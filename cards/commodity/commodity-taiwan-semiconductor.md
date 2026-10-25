@@ -27,13 +27,14 @@ sources:
   - { id: s3, title: "Oral History of Morris Chang（訪談者 Alan Patterson，2007-08-24）— Computer History Museum, CHM Ref. X4151.2008", url: "https://archive.computerhistory.org/resources/access/text/2013/05/102658129-05-01-acc.pdf", accessed: 2026-10-25, tier: 一手 }
   - { id: s4, title: "TSMC — Wikipedia", url: "https://en.wikipedia.org/wiki/TSMC", accessed: 2026-10-25, tier: 百科 }
   - { id: s5, title: "Chip War（Chris Miller, Scribner 2022）— Wikipedia（含書評摘要）", url: "https://en.wikipedia.org/wiki/Chip_War", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s7, title: "〈遠見獨家調查》64％憂台積電「矽盾」正崩解！〉— 遠見雜誌，2025-03-24（網路問卷，2025 年 3 月 18–22 日，1,202 份）", url: "https://www.gvm.com.tw/article/120066", accessed: 2026-10-25, tier: 通論 }
   - { id: s6, title: "Ling-Ming Huang，A Short History of Semiconductor Technology in Taiwan during the 1970s and the 1980s — Taiwan Insight，2024-05-10", url: "https://taiwaninsight.org/2024/05/10/a-short-history-of-semiconductor-technology-in-taiwan-during-the-1970s-and-the-1980s/", accessed: 2026-10-25, tier: 學術 }
 importance: 3
 learn:
   histories: [臺灣史, 科技史]
   why_care: 手機、電腦、汽車、AI 都需要晶片，而全世界大部分的晶片「代工」都在臺灣；這讓一座小島變成全世界都在看的地方。
   story: |
-    晶片是把大量微小電子開關做在矽片上的零件，幾乎所有電子產品都需要它。[s1] 臺灣從 1976 年向美國 RCA 學技術開始，一路發展出自己的晶片製造業。[s1][s6] 根據瑞典智庫整理，2023 年臺灣的晶圓代工占全球市場約四分之三，封裝測試約占一半；台積電製造全世界一半以上的先進晶片。[s1][s2] 但臺灣並不是什麼都自己來：IC 設計約七成營收在美國，製造設備大多從美國、荷蘭、日本進口，前段材料臺灣自己只生產約 1%。[s2] 晶片高度集中在臺灣海峽旁，被有些人稱為「矽盾」，也有人認為這反而是風險。[s1][s5]
+    晶片是把大量微小電子開關做在矽片上的零件，幾乎所有電子產品都需要它。[s1] 臺灣從 1976 年向美國 RCA 學技術開始，一路發展出自己的晶片製造業。[s1][s6] 根據瑞典智庫整理，2023 年臺灣的晶圓代工占全球市場約四分之三，封裝測試約占一半；台積電製造全世界一半以上的先進晶片。[s1] 但臺灣並不是什麼都自己來：IC 設計約七成營收在美國，製造設備大多從美國、荷蘭、日本進口，前段材料臺灣自己只生產約 1%（2022 年）。[s2] 晶片高度集中在臺灣海峽旁，被有些人稱為「矽盾」，也有人認為這反而是風險。[s1][s5]
   key_terms:
     - { term: 半導體, plain: 導電能力介於導體（例如銅）和絕緣體（例如塑膠）之間的材料，最常用的是矽。, example: 像可以調整大小的水龍頭，能控制電流開或關。 }
     - { term: 供應鏈, plain: 一個產品從原料、零件、製造到送到你手上，中間所有公司和國家連成的鏈子。, example: 一杯珍奶要有茶葉、牛奶、珍珠、杯子、店員，少一樣都做不出來。 }
@@ -42,7 +43,7 @@ learn:
   primary_source:
     - { text: "We had no strength in research and development, or very little anyway.（我們在研發上沒有什麼優勢，就算有也很少。）", from: 張忠謀 2007 年電腦歷史博物館口述歷史，談 1980 年代臺灣半導體的起點（頁 12；中文為本站摘譯）, src: s3 }
   historiography: |
-    **矽盾能保護臺灣嗎？** 「矽盾」的說法認為，全世界都依賴臺灣的晶片，所以臺灣比較安全；《紐約時報》也寫臺灣靠晶片產業的主導地位作為防衛的一部分。[s1] 但前美國官員博明（Matthew Pottinger）2022 年質疑這種想法，維基百科也整理了臺灣一份民調（遠見民調），說多數受訪者認為台積電赴美投資會削弱「矽盾」（本站只找到這一個轉述來源）。[s1]
+    **矽盾能保護臺灣嗎？** 「矽盾」的說法認為，全世界都依賴臺灣的晶片，所以臺灣比較安全；《紐約時報》也寫臺灣靠晶片產業的主導地位作為防衛的一部分。[s1] 但前美國官員博明（Matthew Pottinger）2022 年質疑這種想法，遠見民調 2025 年 3 月的網路問卷（1,202 人）中，64% 認為台積電赴美投資會削弱「矽盾」。[s1][s7]
     **晶片是「新石油」嗎？** 經濟史學者克里斯．米勒（Chris Miller）的《晶片戰爭》指出，最先進的邏輯晶片大多在臺灣製造；有書評用「武器化的相互依賴」來形容今天的晶片產業。[s5] 書評者艾肯格林（Barry Eichengreen）則提醒，這本書沒有評估美國出口管制會不會反而逼中國加速發展、甚至對臺灣採取行動。[s5]
   misconceptions:
     - 臺灣不是自己就能做出晶片的全部流程：設計軟體、設備和材料大量依賴美國、荷蘭、日本。[s2]
@@ -50,6 +51,7 @@ learn:
   perspectives:
     - { history: 臺灣史, text: 從臺灣看，半導體是戰後經濟從農業、加工出口一路升級的最新一站。 }
     - { history: 科技史, text: 從科技史看，晶片是 20 世紀後半最重要的「通用物資」，地位像工業革命時的煤和鐵。 }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "建議（非錯誤）：1) historiography 的「（本站只找到這一個轉述來源）」可以換成原始調查：「遠見民調 2025 年 3 月的網路問卷（1,202 人）中，64% 認為台積電赴美投資會削弱『矽盾』」，並新增來源 https://www.gvm.com.tw/article/120066 。2) story「台積電製造全世界一半以上的先進晶片 [s1][s2]」：ISDP（s2）沒有這句，只有 s1 支持，建議改成只標 [s1]。3) story「前段材料臺灣自己只 小建議已修正。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

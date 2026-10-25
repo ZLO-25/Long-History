@@ -23,7 +23,7 @@ counterparts: 無適當對照：這是一張朝代概覽卡，跨越五百年，
 sources:
   - { id: s1, title: "Joseon — Wikipedia", url: "https://en.wikipedia.org/wiki/Joseon", accessed: 2026-10-25, tier: 百科 }
   - { id: s2, title: "Hunminjeongeum — Wikipedia", url: "https://en.wikipedia.org/wiki/Hunminjeongeum", accessed: 2026-10-25, tier: 百科 }
-  - { id: s3, title: "UNESCO Memory of the World：Hunminjeongeum Manuscript（1997 年登錄）", url: "https://www.unesco.org/en/memory-world", accessed: 2026-10-25, tier: 通論 }
+  - { id: s3, title: "UNESCO：Hunminjeongum Manuscript（世界記憶名錄，1997 年登錄）", url: "https://en.unesco.org/silkroad/silk-road-themes/documentary-heritage/hunminjeongum-manuscript", accessed: 2026-10-25, tier: 通論 }
   - { id: s4, title: "James B. Lewis, The Wanli Emperor and Ming China's Defence of Korea against Japan — International Journal of Asian Studies 8(1)，2011", url: "https://www.cambridge.org/core/product/4FF66FAA777554179BF8B5CEFE96E65F", accessed: 2026-10-25, tier: 學術 }
   - { id: s5, title: "Imjin War — Wikipedia", url: "https://en.wikipedia.org/wiki/Imjin_War", accessed: 2026-10-25, tier: 百科 }
 importance: 2
@@ -46,6 +46,7 @@ learn:
     - 「朝鮮」不只是今天的北韓：朝鮮王朝統治的是整個朝鮮半島。[s1]
   perspectives:
     - { history: 朝鮮半島史, text: 從朝鮮半島看，這是塑造今天韓國文化（文字、禮儀、首都）的關鍵王朝。 }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) primary_source 英譯和維基一致。2) s3 的 URL 是 UNESCO 世界記憶首頁，不是《訓民正音》的登錄頁，建議換成具體頁面。3) 維基寫 1393 年遷都，卡片寫 1393–1394，可接受（正式遷都一般作 1394）。 小建議已修正。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

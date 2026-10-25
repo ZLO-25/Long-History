@@ -26,12 +26,13 @@ sources:
   - { id: s2, title: "Benjamin A. Elman, Naval Warfare and the Refraction of China's Self-Strengthening Reforms into Scientific and Technological Failure, 1865–1895 — Modern Asian Studies 38(2)，2004，頁 283–326", url: "https://www.princeton.edu/~elman/documents/Naval_Warfare_and_the_Refraction_of_China's_Self-Strengthening_Reforms.pdf", accessed: 2026-10-25, tier: 學術 }
   - { id: s3, title: "Asia Society, China's Quest for Wealth and Power：Who was Feng Guifen?", url: "https://sites.asiasociety.org/chinawealthpower/?p=25", accessed: 2026-10-25, tier: 通論 }
   - { id: s4, title: "中國文化研究院（燦爛的中國文明）：Chinese Intellectuals Began to Explore the World", url: "https://www.chiculture.org.hk/en/photo-story/115", accessed: 2026-10-25, tier: 通論 }
+  - { id: s5, title: "Self-Strengthening Wuhan — Hankou: A Digital History（Reed College）", url: "https://omeka.reed.edu/s/hankou/page/self-strengthening-wuhan", accessed: 2026-10-25, tier: 學術 }
 importance: 3
 learn:
   histories: [中國史, 世界通史]
   why_care: 清朝和日本差不多同時開始學西方，結果三十年後日本打敗了清朝；為什麼？答案沒有課本寫的那麼簡單。
   story: |
-    清朝在鴉片戰爭和太平天國之後，一批官員主張學習西方的武器與技術，讓國家「自強」。[s1] 1861 年成立處理外交的「總理衙門」，同年開始購買外國武器。[s1] 學者馮桂芬在 1861 年寫成《校邠廬抗議》，主張學習西方知識、製造西方器械，同時保留儒家倫理。[s3][s4] 曾國藩、李鴻章、左宗棠等地方大員陸續開辦兵工廠和造船廠：江南製造局 1865 年夏天開辦，福州船政局 1866 年奏請設立，張之洞在 1889 年建立漢陽鐵廠。[s1][s2] 1895 年清朝在甲午戰爭中敗給日本，這場運動也被看成失敗。[s1]
+    清朝在鴉片戰爭和太平天國之後，一批官員主張學習西方的武器與技術，讓國家「自強」。[s1] 1861 年成立處理外交的「總理衙門」，同年開始購買外國武器。[s1] 學者馮桂芬在 1861 年寫成《校邠廬抗議》，主張學習西方知識、製造西方器械，同時保留儒家倫理。[s3][s4] 曾國藩、李鴻章、左宗棠等地方大員陸續開辦兵工廠和造船廠：江南製造局 1865 年夏天開辦，福州船政局 1866 年奏請設立，張之洞 1889 年調任湖廣總督後籌建漢陽鐵廠（1893 年建成）。[s1][s5] 1895 年清朝在甲午戰爭中敗給日本，這場運動也被看成失敗。[s1]
   key_terms:
     - { term: 洋務, plain: 清朝對「和西方國家有關的事務」的稱呼，包括外交、買武器、辦工廠。, example: 所以自強運動也叫洋務運動。 }
     - { term: 總理衙門, plain: 1861 年成立、專門處理對外事務的機關，類似外交部。, example: 由恭親王主持。 }
@@ -58,7 +59,7 @@ lens_status: 無直接論述
 
 ## C2 經過
 
-1861 年恭親王主持總理衙門，同年 7 月批准購買外國武器；1865 年夏李鴻章、丁日昌開辦江南製造局，1867 年遷址；1866 年左宗棠奏請設立福州船政局，並設船政學堂；1889 年張之洞設湖北織布局與漢陽鐵廠；1895 年甲午戰敗。[s1][s2]
+1861 年恭親王主持總理衙門，同年 7 月批准購買外國武器；1865 年夏李鴻章、丁日昌開辦江南製造局，1867 年遷址；1866 年左宗棠奏請設立福州船政局，並設船政學堂；1889 年張之洞調任湖廣總督，隨後籌辦湖北織布局與漢陽鐵廠（鐵廠 1893 年建成）；1895 年甲午戰敗。[s1][s2][s5]
 
 ## C3 關鍵人物與群體
 

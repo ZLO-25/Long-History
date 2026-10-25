@@ -49,6 +49,7 @@ learn:
   perspectives:
     - { history: 日本史, text: 從日本看，這是建立近代國家的起點。 }
     - { history: 臺灣史, text: 從臺灣看，明治日本在 1895 年打贏甲午戰爭，臺灣因此被割讓給日本。 }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 1877 西南戰爭年份維基正文與 Britannica 都沒寫明，屬於通識常識，可以接受。2) Elman 原文說雙方把結果倒著讀回「明治初年／1865 年後」，卡片寫「1860 年代」可以。 小建議已修正。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

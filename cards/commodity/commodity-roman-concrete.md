@@ -22,6 +22,7 @@ place:
   scale: area
 structure_tags: [技術代差, 默會知識外流, 標準化量產, 基礎建設網絡]
 links: [building-pantheon, building-colosseum, building-roman-aqueducts, commodity-amphora-trade]
+counterparts: "無適當對照：中國卡沒有專門談建材技術的卡；秦漢長城與秦直道使用的夯土是另一種工法，但沒有獨立成卡，硬配會失準。"
 sources:
   - { id: s1, title: "Roman concrete — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_concrete", accessed: 2026-10-24 }
   - { id: s2, title: "Riddle solved: Why was Roman concrete so durable? — MIT News (2023-01-06)", url: "https://news.mit.edu/2023/roman-concrete-durability-lime-casts-0106", accessed: 2026-10-24 }

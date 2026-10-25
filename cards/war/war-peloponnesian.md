@@ -25,6 +25,8 @@ routes: [sea-hellespont-grain]
 structure_tags: [霸權挑戰, 海權對陸權, 聯盟破裂, 盟主剝削盟友, 海峽封鎖, 糧食進口依賴, 外部勢力介入, 補給線過長]
 links: [commodity-laurion-silver, building-acropolis, war-greco-persian, event-death-of-socrates]
 frameworks: [thucydides-trap]
+counterparts:
+  - { id: war-chengpu, note: "相似：南北兩大集團各帶一批盟國對抗，勝方取得「盟主」地位。不同：伯羅奔尼撒戰爭打了 27 年、雅典最後投降；城濮是一天決勝的會戰，楚國並未因此衰落。", src: [s1, s7] }
 sources:
   - { id: s1, title: "Peloponnesian War — Encyclopaedia Britannica", url: "https://www.britannica.com/print/article/449362", accessed: 2026-10-24 }
   - { id: s2, title: "Mark Cartwright, Peloponnesian War — World History Encyclopedia (2018)", url: "https://www.worldhistory.org/Peloponnesian_War/", accessed: 2026-10-24 }
@@ -32,6 +34,7 @@ sources:
   - { id: s4, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
   - { id: s5, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
   - { id: s6, title: "李彔在哥倫比亞商學院第 36 屆格雷厄姆與多德論壇的談話（虎嗅整理，2026）", url: "https://www.huxiu.com/article/4896732.html", accessed: 2026-10-25 }
+  - { id: s7, title: "Battle of Chengpu — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Chengpu", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

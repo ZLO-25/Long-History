@@ -26,12 +26,17 @@ place:
   scale: line
 structure_tags: [快速擴張, 補給線過長, 戰爭融資, 突變事件, 地形險阻]
 links: [war-greco-persian, building-acropolis]
+counterparts:
+  - { id: event-qin-unification, note: "相似：十年左右的連續征戰，把多個國家併成一個大帝國。不同：亞歷山大死後帝國被部將瓜分；秦朝本身只存在 15 年，但制度被漢朝接收延續。", src: [s1, s6] }
+  - { id: event-zhang-qian-west, note: "相似：一趟深入未知地區的遠行，兩人都到過大夏（巴克特里亞），把東西兩端的地理知識連起來。不同：亞歷山大帶大軍征服；張騫只帶百餘人去結盟與蒐集情報。", src: [s1, s7] }
 sources:
   - { id: s1, title: "Wars of Alexander the Great — Wikipedia", url: "https://en.wikipedia.org/wiki/Wars_of_Alexander_the_Great", accessed: 2026-10-24 }
   - { id: s2, title: "Donald L. Wasson, Death of Alexander the Great — World History Encyclopedia (2024)", url: "https://www.worldhistory.org/article/2366/death-of-alexander-the-great/", accessed: 2026-10-24 }
   - { id: s3, title: "Arrian, The Anabasis of Alexander（英譯本，Wikisource）", url: "https://en.wikisource.org/wiki/The_Anabasis_of_Alexander/Book_I/Chapter_XI", accessed: 2026-10-24 }
   - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
   - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-25 }
+  - { id: s6, title: "Qin's wars of unification — Wikipedia", url: "https://en.wikipedia.org/wiki/Qin%27s_wars_of_unification", accessed: 2026-10-24 }
+  - { id: s7, title: "Zhang Qian — Wikipedia", url: "https://en.wikipedia.org/wiki/Zhang_Qian", accessed: 2026-10-24 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

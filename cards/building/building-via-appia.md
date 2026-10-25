@@ -23,12 +23,17 @@ place:
 routes: [road-via-appia, road-via-egnatia, road-via-flaminia, road-via-aurelia, road-via-domitia, road-via-augusta]
 structure_tags: [基礎建設網絡, 公共工程支出, 補給線過長, 快速擴張]
 links: [event-twelve-tables, building-roman-aqueducts, commodity-roman-concrete, event-rubicon]
+counterparts:
+  - { id: building-qin-straight-road, note: "相似：國家為讓軍隊快速移動而修的大道，同時成為長期交通幹線。不同：阿庇亞大道向南連接新征服的義大利城市；秦直道向北直通對付匈奴的邊疆。", src: [s1, s6] }
+  - { id: building-lingqu, note: "相似：為了把兵員與糧食送到新征服地區而修的交通工程。不同：阿庇亞大道是陸路；靈渠是只有 36.4 公里、連通長江與珠江兩大水系的運河。", src: [s1, s7] }
 sources:
   - { id: s1, title: "Appian Way — Wikipedia", url: "https://en.wikipedia.org/wiki/Appian_Way", accessed: 2026-10-24 }
   - { id: s2, title: "Roman roads — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_roads", accessed: 2026-10-24 }
   - { id: s3, title: "Via Appia. Regina Viarum — worldheritagesite.org（UNESCO 2024）", url: "https://www.worldheritagesite.org/list/id/1708", accessed: 2026-10-24 }
   - { id: s4, title: "de Soto et al., Itiner-e: A high-resolution dataset of roads of the Roman Empire — Scientific Data (2025)", url: "https://www.nature.com/articles/s41597-025-06140-z", accessed: 2026-10-24 }
   - { id: s5, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
+  - { id: s6, title: "Chi Dao and Zhi Dao — the Oldest Express Way（陝西省人民政府英文網，2017-04-27）", url: "https://en.shaanxi.gov.cn/as/hac/ch/201704/t20170427_1595074.html", accessed: 2026-10-25 }
+  - { id: s7, title: "Lingqu — Wikipedia", url: "https://en.wikipedia.org/wiki/Lingqu", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

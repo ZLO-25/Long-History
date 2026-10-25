@@ -21,6 +21,9 @@ place:
   scale: area
 structure_tags: [意外財源, 關鍵原料壟斷, 戰爭融資, 慢變結構]
 links: [war-greco-persian, war-peloponnesian, building-acropolis]
+counterparts:
+  - { id: commodity-salt-iron, note: "相似：國家把關鍵礦產收歸公有，收入直接支撐戰爭（雅典艦隊；漢對匈奴）。不同：雅典把開採權租給私人收租；漢朝由官府設鐵官直接生產販賣、禁止民營。", src: [s1, s8] }
+  - { id: commodity-wuzhu-coin, note: "相似：一種由單一權力發行、規格穩定的錢幣，因大家信任而長期大範圍流通。不同：雅典銀幣靠白銀本身的價值；五銖是銅錢，價值靠國家壟斷鑄造與官定比價維持。", src: [s1, s9] }
 sources:
   - { id: s1, title: "Laurium — Wikipedia", url: "https://en.wikipedia.org/wiki/Laurium", accessed: 2026-10-24 }
   - { id: s2, title: "Jona Lendering, Laurion — Livius.org", url: "https://livius.org/articles/place/laurion", accessed: 2026-10-24 }
@@ -29,6 +32,8 @@ sources:
   - { id: s5, title: "Mark Cartwright, Themistocles — World History Encyclopedia (2016)", url: "https://worldhistory.org/Themistocles", accessed: 2026-10-24 }
   - { id: s6, title: "Sapiens 金錢篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-24 }
   - { id: s7, title: "李彔《現代化十六講》之十一（現代化的本質和鐵律），虎嗅 2014", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25 }
+  - { id: s8, title: "Donald B. Wagner, Technology as seen through the case of ferrous metallurgy in Han China", url: "https://donwagner.dk/EncIt/EncIt.html", accessed: 2026-10-25 }
+  - { id: s9, title: "Wu Zhu — Wikipedia", url: "https://en.wikipedia.org/wiki/Wu_Zhu", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

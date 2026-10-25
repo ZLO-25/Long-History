@@ -23,10 +23,13 @@ place:
 routes: [wall-hadrian]
 structure_tags: [邊疆防線, 政治宣傳工程, 公共工程支出, 慢變結構]
 links: [war-teutoburg, event-fall-western-rome, building-via-appia]
+counterparts:
+  - { id: building-qin-han-great-wall, note: "相似：帝國在北方邊疆築牆，管理與外族之間的邊界，牆邊有駐軍與關口。不同：哈德良長城是一道約 117 公里、規格一致的牆；秦漢長城是用各地材料拼接、延伸數千公里的防線，秦代部分幾乎沒有留下來。", src: [s1, s4] }
 sources:
   - { id: s1, title: "Hadrian's Wall — Wikipedia", url: "https://en.wikipedia.org/wiki/Hadrian%27s_Wall", accessed: 2026-10-24 }
   - { id: s2, title: "History of Hadrian's Wall — English Heritage", url: "https://www.english-heritage.org.uk/visit/places/hadrians-wall/hadrians-wall-history-and-stories/history/", accessed: 2026-10-24 }
   - { id: s3, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s4, title: "Great Wall of China — Wikipedia", url: "https://en.wikipedia.org/wiki/Great_Wall_of_China", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

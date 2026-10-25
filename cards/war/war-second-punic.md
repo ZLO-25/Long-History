@@ -25,6 +25,8 @@ place:
   scale: area
 structure_tags: [海權對陸權, 補給線過長, 聯盟破裂, 附庸反叛, 關鍵原料壟斷, 地形險阻, 霸權挑戰]
 links: [event-twelve-tables, war-actium, commodity-amphora-trade]
+counterparts:
+  - { id: war-changping, note: "相似：守方先採取避免決戰、拖垮對手的戰略，後來換上主張出擊的將領，主力被包圍殲滅（坎尼；長平）。不同：羅馬在坎尼之後仍能重新動員並最終獲勝；趙國的兵源在長平之後再也沒有恢復。", src: [s1, s7] }
 sources:
   - { id: s1, title: "Second Punic War — Wikipedia", url: "https://en.wikipedia.org/wiki/Second_Punic_War", accessed: 2026-10-24 }
   - { id: s2, title: "Mark Cartwright, Second Punic War — World History Encyclopedia (2016)", url: "https://www.worldhistory.org/Second_Punic_War/", accessed: 2026-10-24 }
@@ -32,6 +34,7 @@ sources:
   - { id: s4, title: "Denarius — Wikipedia", url: "https://en.wikipedia.org/wiki/Denarius", accessed: 2026-10-24 }
   - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
   - { id: s6, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s7, title: "Battle of Changping — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Changping", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

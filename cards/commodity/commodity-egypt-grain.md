@@ -24,12 +24,15 @@ place:
 routes: [sea-alexandria-rome]
 structure_tags: [糧食進口依賴, 單一港口依賴, 合法性危機, 公共工程支出, 基礎建設網絡]
 links: [war-actium, event-augustan-principate, event-fall-western-rome, commodity-amphora-trade]
+counterparts:
+  - { id: commodity-salt-iron, note: "相似：國家掌握一種戰略物資的供應，並因此產生依賴與政治爭議。不同：埃及穀物主要是實物稅、運去餵養首都；漢朝鹽鐵官營是國家自己生產並賣給百姓以增加財政收入。", src: [s1, s6] }
 sources:
   - { id: s1, title: "Cura Annonae — Wikipedia", url: "https://en.wikipedia.org/wiki/Cura_Annonae", accessed: 2026-10-24 }
   - { id: s2, title: "Puteoli: Alexandrian ships — Ostia Antica（ostia-antica.org）", url: "https://ostia-antica.org/dict/topics/puteoli/presentation/puteoli-ships.htm", accessed: 2026-10-24 }
   - { id: s3, title: "Battle of Actium — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Actium", accessed: 2026-10-24 }
   - { id: s4, title: "10 Facts About the Fall of the Roman Empire — History Hit", url: "https://historyhit.com/facts-about-the-fall-of-the-roman-empire", accessed: 2026-10-24 }
   - { id: s5, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
+  - { id: s6, title: "Donald B. Wagner, Technology as seen through the case of ferrous metallurgy in Han China", url: "https://donwagner.dk/EncIt/EncIt.html", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

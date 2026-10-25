@@ -24,6 +24,8 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace }: Props) {
   const [fields, setFields] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>(initialTags ?? []);
   const [keyword, setKeyword] = useState('');
+  // 軌道：全部／只看西方／只看中國／中西各挑（預設勾選時兩邊各取最前面的卡）
+  const [track, setTrack] = useState<'all' | 'west' | 'china' | 'both'>('all');
   const [sheet, setSheet] = useState<Sheet>(() => {
     try { return { ...empty, ...JSON.parse(localStorage.getItem(STORE) ?? '{}') }; } catch { return empty; }
   });
@@ -48,18 +50,22 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace }: Props) {
       const weight = mf.reduce((s, f) => s + (c.place.primary_field === f ? 8 : 6), 0)
         + mt.reduce((s, t) => s + weightOf(catOf.get(t) ?? '', t), 0) + mk;
       return { c, mf, mt, mk, count, weight };
-    }).filter((r) => r.count > 0)
+    }).filter((r) => r.count > 0 && (track === 'china' ? r.c.track === 'china' : track === 'west' ? r.c.track !== 'china' : true))
       .sort((a, b) => b.count - a.count || b.weight - a.weight || b.c.completeness - a.c.completeness);
-  }, [index, fields, tags, keyword, anyCond, catOf]);
+  }, [index, fields, tags, keyword, anyCond, catOf, track]);
 
   // 預設勾選前 3 張（2–4 張）
   useEffect(() => {
     if (!ranked.length) return;
     setSheet((s) => {
       const still = s.picked.filter((id) => ranked.some((r) => r.c.id === id));
+      if (track === 'both') {
+        const w = ranked.filter((r) => r.c.track !== 'china').slice(0, 2), c = ranked.filter((r) => r.c.track === 'china').slice(0, 2);
+        return { ...s, picked: [...w, ...c].map((r) => r.c.id) };
+      }
       return still.length >= 2 ? { ...s, picked: still } : { ...s, picked: ranked.slice(0, 3).map((r) => r.c.id) };
     });
-  }, [ranked.map((r) => r.c.id).join()]);
+  }, [ranked.map((r) => r.c.id).join(), track]);
 
   const picked = ranked.filter((r) => sheet.picked.includes(r.c.id)).slice(0, 4);
   const triggered = index.frameworks.filter((f) => f.trigger_tags.some((t) => tags.includes(t)) || picked.some((r) => r.c.frameworks.includes(f.id)));
@@ -95,6 +101,11 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace }: Props) {
           ))}
         </fieldset>
       ))}
+      <fieldset className="conds">
+        <legend>中西</legend>
+        {([['all', '全部'], ['west', '只看西方'], ['china', '只看中國'], ['both', '中西各挑兩張']] as const).map(([k, l]) =>
+          <button key={k} className={`chip ${track === k ? 'on' : ''}`} onClick={() => setTrack(k)}>{l}</button>)}
+      </fieldset>
       <label className="kw">關鍵字（選填）<input value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="例如：糧食、海峽" /></label>
       {anyCond && <button className="btn sm" onClick={() => { setFields([]); setTags([]); setKeyword(''); }}>清除條件</button>}
 
@@ -107,6 +118,7 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace }: Props) {
               <input type="checkbox" checked={sheet.picked.includes(r.c.id)} aria-label="放入工作頁"
                 onChange={() => setSheet((s) => ({ ...s, picked: toggle(s.picked, r.c.id).slice(-4) }))} />
               <button className="link" onClick={() => onOpen(r.c.id)} style={{ color: TYPE_COLOR[r.c.type] }}>{r.c.name}</button>
+              <span className="tag-muted">{r.c.track === 'china' ? '中國' : '西方'}</span>
               <span className="muted small">{fmtRange(r.c.time.start, r.c.time.end)}</span>
               <span className="score">符合 {r.count} 項</span>
               <span className="small">{[...r.mf, ...r.mt, ...(r.mk ? [`關鍵字「${keyword}」`] : [])].join('、')}</span>

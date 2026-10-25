@@ -20,11 +20,16 @@ place:
   scale: point
 structure_tags: [思想異見與審判, 合法性危機, 精英內鬥]
 links: [war-peloponnesian, event-cleisthenes-reform, building-theatre-dionysus]
+counterparts:
+  - { id: event-confucius, note: "相似：一位沒有留下著作的老師，學說靠弟子記錄流傳，日後成為整個文明的思想基礎。不同：蘇格拉底被雅典民主處死；孔子周遊列國求官未果，晚年回鄉教書而終。", src: [s1, s5] }
+  - { id: event-burning-books, note: "相似：國家以法律手段處理被認為動搖人心的知識人。不同：蘇格拉底是由公民陪審團依法審判一個人；秦朝是皇帝下令大規模禁書，而「坑儒」的規模與對象在學界有很大爭議。", src: [s1, s6] }
 sources:
   - { id: s1, title: "Trial of Socrates — Wikipedia", url: "https://en.wikipedia.org/wiki/Trial_of_Socrates", accessed: 2026-10-24 }
   - { id: s2, title: "Socrates — Encyclopaedia Britannica", url: "https://www.britannica.com/print/article/551948", accessed: 2026-10-24 }
   - { id: s3, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
   - { id: s4, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
+  - { id: s5, title: "Confucius — Wikipedia", url: "https://en.wikipedia.org/wiki/Confucius", accessed: 2026-10-25 }
+  - { id: s6, title: "Burning of books and burying of scholars — Wikipedia", url: "https://en.wikipedia.org/wiki/Burning_of_books_and_burying_of_scholars", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

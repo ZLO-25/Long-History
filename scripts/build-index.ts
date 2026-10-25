@@ -53,6 +53,9 @@ const cards = raw.filter((c) => c.fm?.id).map((c) => {
     },
     routes: f.routes ?? [], structure_tags: f.structure_tags ?? [], links: f.links ?? [],
     frameworks: f.frameworks ?? [], summary_card: !!f.summary_card,
+    counterparts: Array.isArray(f.counterparts) ? f.counterparts.map((x: any) => ({ id: x.id, note: x.note, src: x.src ?? [] })) : [],
+    counterparts_none: typeof f.counterparts === 'string' ? f.counterparts : '',
+    counterpart_of: [] as string[],
     sources: (f.sources ?? []).map((s: any) => ({ ...s, accessed: dateStr(s.accessed) })),
     verification: f.verification, lens_status: f.lens_status,
     sections, completeness,
@@ -68,6 +71,11 @@ const cards = raw.filter((c) => c.fm?.id).map((c) => {
 });
 // 反向連結（被誰引用）
 for (const c of cards) for (const l of c.links) cards.find((x) => x.id === l)?.backlinks.push(c.id);
+// 反向對照（別人把我列為對照、我自己沒列回去的）
+for (const c of cards) for (const x of c.counterparts) {
+  const t = cards.find((y) => y.id === x.id);
+  if (t && !t.counterparts.some((y) => y.id === c.id)) t.counterpart_of.push(c.id);
+}
 
 // ---- 複製地圖資料 ----
 const pubData = path.join(ROOT, 'public', 'data');

@@ -25,6 +25,9 @@ place:
 routes: [sea-hellespont-grain]
 structure_tags: [海權對陸權, 地形險阻, 海峽封鎖, 補給線過長, 意外財源, 附庸反叛, 突變事件]
 links: [commodity-laurion-silver, building-acropolis, war-peloponnesian, event-cleisthenes-reform]
+counterparts:
+  - { id: war-red-cliffs, note: "相似：兵力佔優的入侵者在水戰中被較小的聯軍擊敗，主力隨即撤退（薩拉米斯；赤壁）。不同：波斯帝國戰後依然強大；赤壁之後中國分裂成三國。", src: [s1, s7] }
+  - { id: war-feishui, note: "相似：由許多被征服民族組成的龐大入侵軍，敗給人數少、訓練好的守方。不同：波斯戰後仍存續；前秦在淝水之後兩年內就瓦解。", src: [s1, s8] }
 sources:
   - { id: s1, title: "Greco-Persian Wars — Wikipedia", url: "https://en.wikipedia.org/wiki/Greco-Persian_Wars", accessed: 2026-10-24 }
   - { id: s2, title: "Battle of Salamis — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Salamis", accessed: 2026-10-24 }
@@ -32,6 +35,8 @@ sources:
   - { id: s4, title: "Themistocles summary — Encyclopaedia Britannica", url: "https://www.britannica.com/summary/Themistocles", accessed: 2026-10-24 }
   - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
   - { id: s6, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s7, title: "Battle of Red Cliffs — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Red_Cliffs", accessed: 2026-10-25 }
+  - { id: s8, title: "Battle of Fei River — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Fei_River", accessed: 2026-10-25 }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 ---

@@ -18,6 +18,8 @@ place:
   scale: area
 structure_tags: [公民身分擴張, 擴大稅基, 財政枯竭, 貨幣貶值]
 links: [event-twelve-tables, event-augustan-principate, event-fall-western-rome]
+counterparts:
+  - { id: event-xiaowen-reform, note: "相似：統治者以一道命令改寫全國人的身分（羅馬公民權；漢服、漢語、漢姓）。不同：卡拉卡拉把統治者的身分擴大給被統治者；孝文帝讓統治族群改採被統治者的語言與姓氏。", src: [s1, s7] }
 sources:
   - { id: s1, title: "Constitutio Antoniniana — Wikipedia", url: "https://en.wikipedia.org/wiki/Constitutio_Antoniniana", accessed: 2026-10-24 }
   - { id: s2, title: "Patrick Hurley, Caracalla — World History Encyclopedia (2011)", url: "https://www.worldhistory.org/caracalla/", accessed: 2026-10-24 }
@@ -25,6 +27,7 @@ sources:
   - { id: s4, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
   - { id: s5, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
   - { id: s6, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
+  - { id: s7, title: "Emperor Xiaowen of Northern Wei — Wikipedia", url: "https://en.wikipedia.org/wiki/Emperor_Xiaowen_of_Northern_Wei", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

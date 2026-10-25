@@ -22,11 +22,14 @@ place:
   scale: line
 structure_tags: [基礎建設網絡, 公共工程支出, 技術代差, 單一港口依賴]
 links: [building-via-appia, commodity-roman-concrete, building-colosseum]
+counterparts:
+  - { id: building-dujiangyan, note: "相似：國家投入的大型水利工程，靠重力與精確的地形判斷運作，長期持續維護。不同：羅馬水道把水送進城市；都江堰不築壩，把岷江分流灌溉整個成都平原，至今仍在使用。", src: [s1, s5] }
 sources:
   - { id: s1, title: "Roman aqueduct — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_aqueduct", accessed: 2026-10-24 }
   - { id: s2, title: "Pont du Gard — Wikipedia", url: "https://en.wikipedia.org/wiki/Pont_du_Gard", accessed: 2026-10-24 }
   - { id: s3, title: "Pont du Gard (Roman Aqueduct) — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/344", accessed: 2026-10-24 }
   - { id: s4, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
+  - { id: s5, title: "Dujiangyan — Wikipedia", url: "https://en.wikipedia.org/wiki/Dujiangyan", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

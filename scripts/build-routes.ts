@@ -4,6 +4,7 @@
 //                              依序找相鄰兩站之間的最短路徑 → 線條完全沿著地圖集畫出的古道
 //   長城（method: awmc-wall）：直接取 AWMC 城牆圖層中位於兩端點範圍內的線
 //   海路（method: sea）       ：經停港依史料；港與港之間在 Natural Earth 陸地格網上算出不穿過陸地的最短海路（scripts/lib/sea.ts）
+//   站點（method: stations）  ：沒有可用古道圖資的路線（中國段）。只標史料記載的站點，站與站之間以點線相連並標「路線不詳」
 //
 // 每條線另外記錄：各站吸附到路網的距離、沿「確定位置」路段的比例，供卡片與報告標示精度。
 import fs from 'node:fs';
@@ -31,7 +32,7 @@ const km = (a: P, b: P) => {
 
 // ---------- AWMC 道路網 → 圖 ----------
 // 邊的種類：known＝地圖集標「路線確定」；approx＝地圖集標「大致路線」；gap＝地圖集兩段古道之間的缺口（程式補接）
-type Kind = 'known' | 'approx' | 'gap';
+type Kind = 'known' | 'approx' | 'gap' | 'unknown';
 const SLIVER_KM = 0.3;   // 小於此距離的端點縫隙：視為同一點直接接上
 const GAP_KM = 8;        // 缺口補接上限；補接段權重加倍，只有路網真的斷開時才會被走到
 const GAP_PENALTY = 3;
@@ -112,7 +113,7 @@ for (const r of routes) {
   let segments: { kind: Kind; coords: P[] }[] = [];
   if (r.method === 'awmc-road') {
     const snaps = pts.map((s: any) => ({ ...s, ...nearestNode(s.p) }));
-    const byKind: Record<Kind, number> = { known: 0, approx: 0, gap: 0 };
+    const byKind: Record<Kind, number> = { known: 0, approx: 0, gap: 0, unknown: 0 };
     for (let i = 1; i < snaps.length; i++) {
       const steps = dijkstra(snaps[i - 1].k, snaps[i].k);
       if (!steps) throw new Error(`${r.id}：${snaps[i - 1].name} → ${snaps[i].name} 找不到路徑`);
@@ -145,6 +146,10 @@ for (const r of routes) {
       coords.push(...(coords.length ? leg.coords.slice(1) : leg.coords));
     }
     stats = { km: Math.round(total) };
+  } else if (r.method === 'stations') {
+    coords = pts.map((s: any) => s.p);
+    segments = [{ kind: 'unknown', coords }];
+    stats = { km: Math.round(pts.slice(1).reduce((t: number, s: any, i: number) => t + km(pts[i].p, s.p), 0)) };
   } else throw new Error(`路線 ${r.id} 的 method 不明：${r.method}`);
   const ll = (cs: P[]) => cs.map((p) => [Math.round(p[1] * 1e4) / 1e4, Math.round(p[0] * 1e4) / 1e4]); // 轉成 [lat, lng]
   if (!segments.length) segments = [{ kind: r.method === 'sea' ? 'approx' : 'known', coords }];

@@ -1,4 +1,4 @@
-// 可縮放的非線性時間軸（D3 zoom）：上方西方軌、下方中國對照軌；拖動紅線改變年代
+// 可縮放的非線性時間軸（D3 zoom）：上方西方軌、下方中國軌，兩軌等高並列；滑鼠移到卡上會連線到另一軌的對照卡；拖動紅線改變年代
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { select } from 'd3-selection';
 import { zoom as d3zoom, zoomIdentity, type ZoomTransform } from 'd3-zoom';
@@ -19,6 +19,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
   const [width, setWidth] = useState(800);
   const [t, setT] = useState<ZoomTransform>(zoomIdentity);
   const dragging = useRef(false);
+  const [hover, setHover] = useState<string | null>(null);
 
   useEffect(() => {
     const ro = new ResizeObserver(([e]) => setWidth(Math.max(320, e.contentRect.width)));
@@ -65,8 +66,17 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
     });
   }, [cards, t, base, showFull]);
 
-  const westH = lanes[0].rows * ROW_H + LANE_PAD * 2;
-  const chinaH = lanes[1].rows * ROW_H + LANE_PAD * 2;
+  // 兩軌等高：以列數較多的一軌為準，中西份量在畫面上相同
+  const laneH = Math.max(lanes[0].rows, lanes[1].rows) * ROW_H + LANE_PAD * 2;
+  const westH = laneH, chinaH = laneH;
+
+  // 對照連線：滑鼠所在（或已選取）的卡 ↔ 另一軌的對照卡
+  const focus = hover ?? selectedId;
+  const pos = new Map<string, { x: number; y: number }>();
+  lanes.forEach((ln, li) => ln.placed.forEach(({ c, x0, x1, row }) =>
+    pos.set(c.id, { x: (x0 + Math.max(x1, x0 + 6)) / 2, y: AXIS_H + (li === 0 ? 0 : westH) + LANE_PAD + row * ROW_H + 2 + (ROW_H - 6) / 2 })));
+  const fc = focus ? allCards.find((c) => c.id === focus) : undefined;
+  const related = new Set(fc ? [...fc.counterparts.map((x) => x.id), ...fc.counterpart_of] : []);
   const height = AXIS_H + westH + chinaH + 4;
 
   // 刻度：縮放越大越細
@@ -123,17 +133,24 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
                 if (x1 < -200 || x0 > width + 10) return null;
                 const y = LANE_PAD + row * ROW_H + 2;
                 const sel = c.id === selectedId;
+                const rel = related.has(c.id);
                 return (
-                  <g key={c.id} className={`node ${sel ? 'sel' : ''}`} onClick={() => onOpen(c.id)} transform={`translate(${x0},${y})`}>
+                  <g key={c.id} className={`node ${sel ? 'sel' : ''} ${rel ? 'rel' : ''} ${fc && !sel && !rel && c.id !== focus ? 'dim' : ''}`} onClick={() => onOpen(c.id)}
+                    onMouseEnter={() => setHover(c.id)} onMouseLeave={() => setHover(null)} transform={`translate(${x0},${y})`}>
                     <title>{`${c.summary_line}\n${fmtYear(c.time.start)}–${fmtYear(c.time.end)}`}</title>
                     <rect width={x1 - x0} height={ROW_H - 6} rx={3} fill={TYPE_COLOR[c.type]} opacity={sel ? 1 : 0.85} />
                     <text x={Math.max(x1 - x0, 6) + 4} y={ROW_H - 9}>{label}</text>
                   </g>
                 );
               })}
-              <text x={4} y={12} className="lane-label">{ln.track === 'china' ? '中國對照' : '希臘羅馬'}</text>
+              <text x={4} y={12} className="lane-label">{ln.track === 'china' ? '中國' : '希臘羅馬'}</text>
             </g>
           );
+        })}
+        {fc && pos.has(fc.id) && [...related].map((id) => {
+          const a = pos.get(fc.id)!, b = pos.get(id);
+          if (!b) return null;
+          return <line key={id} className="cp-link" x1={a.x} y1={a.y} x2={b.x} y2={b.y} />;
         })}
         <g className="cursor" transform={`translate(${cx},0)`} onPointerDown={startDrag}>
           <line y1={0} y2={height} />

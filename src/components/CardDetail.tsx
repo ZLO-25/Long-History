@@ -1,6 +1,7 @@
 // 卡片詳情：分區顯示欄位、來源可點擊、連結與被引用、完整度、查證狀態
 import type { Card, Index } from '../types';
 import { Markdown } from '../lib/markdown';
+import { Counterparts } from './Counterparts';
 import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 interface Props {
@@ -71,6 +72,8 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onPlace, onRou
           ) : <Markdown text={s.text} sources={c.sources} />}
         </section>
       ))}
+
+      <Counterparts card={c} byId={byId} onOpen={onOpen} />
 
       {fws.map((f) => (
         <section key={f.id} className="cd-sec framework">

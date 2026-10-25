@@ -19,12 +19,17 @@ place:
   scale: point
 structure_tags: [制度包裝延續, 強人繞過制度, 政治宣傳工程, 慢變結構]
 links: [war-actium, event-rubicon, building-forum-romanum, building-pantheon, commodity-egypt-grain, war-teutoburg]
+counterparts:
+  - { id: event-han-inherits-qin, note: "相似：新統治者沿用前一體制的權力機器，卻刻意包裝成與前任不同。不同：奧古斯都保留共和的名義與官職，實質上建立君主制；漢朝延續的本來就是秦的皇帝集權體制。", src: [s1, s6] }
+  - { id: event-wang-mang-reform, note: "相似：朝廷內部的權臣以恢復理想古制為號召取得最高權力。不同：奧古斯都保留舊制度外殼、實際變動有限，政權延續數百年；王莽大幅改變土地、奴婢與貨幣制度，14 年就覆亡。", src: [s1, s7] }
 sources:
   - { id: s1, title: "Principate — Wikipedia", url: "https://en.wikipedia.org/wiki/Principate", accessed: 2026-10-24 }
   - { id: s2, title: "Donald L. Wasson, The Principate of Augustus — World History Encyclopedia (2024)", url: "https://www.worldhistory.org/article/2363/the-principate-of-augustus/", accessed: 2026-10-24 }
   - { id: s3, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
   - { id: s4, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
   - { id: s5, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
+  - { id: s6, title: "Han dynasty — Wikipedia", url: "https://en.wikipedia.org/wiki/Han_dynasty", accessed: 2026-10-25 }
+  - { id: s7, title: "Wang Mang — Wikipedia", url: "https://en.wikipedia.org/wiki/Wang_Mang", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

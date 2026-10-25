@@ -21,11 +21,14 @@ place:
   scale: area
 structure_tags: [海峽封鎖, 補給線過長, 精英內鬥, 政治宣傳工程, 聯盟破裂]
 links: [event-rubicon, event-augustan-principate, commodity-egypt-grain]
+counterparts:
+  - { id: war-chu-han, note: "相似：舊秩序瓦解後兩個強人爭天下，勝者建立延續數百年的新政體（元首制；漢朝）。不同：亞克興是羅馬共和制度內兩派的內戰；楚漢是秦帝國崩潰後群雄起兵的混戰。", src: [s1, s5] }
 sources:
   - { id: s1, title: "Battle of Actium — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Actium", accessed: 2026-10-24 }
   - { id: s2, title: "Jona Lendering, Actium (31 BCE) — Livius.org", url: "https://www.livius.org/articles/battle/actium-31-bce", accessed: 2026-10-24 }
   - { id: s3, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
   - { id: s4, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
+  - { id: s5, title: "Chu–Han Contention — Wikipedia", url: "https://en.wikipedia.org/wiki/Chu%E2%80%93Han_Contention", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

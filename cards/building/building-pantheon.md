@@ -19,12 +19,15 @@ place:
   scale: point
 structure_tags: [技術代差, 政治宣傳工程, 制度包裝延續, 宗教／意識形態動員]
 links: [commodity-roman-concrete, event-augustan-principate, building-colosseum]
+counterparts:
+  - { id: building-yungang, note: "相似：由統治者出資、規模宏大的宗教建築，也是展示權力與正統的地方。不同：萬神殿供奉羅馬的眾神；雲岡石窟供奉從南亞、中亞傳來的佛教。", src: [s1, s6] }
 sources:
   - { id: s1, title: "Pantheon, Rome — Wikipedia", url: "https://en.wikipedia.org/wiki/Pantheon,_Rome", accessed: 2026-10-24 }
   - { id: s2, title: "Riddle solved: Why was Roman concrete so durable? — MIT News (2023-01-06)", url: "https://news.mit.edu/2023/roman-concrete-durability-lime-casts-0106", accessed: 2026-10-24 }
   - { id: s3, title: "Roman concrete — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_concrete", accessed: 2026-10-24 }
   - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
   - { id: s5, title: "Sapiens 宗教篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-12-the-law-of-religion", accessed: 2026-10-25 }
+  - { id: s6, title: "Yungang Grottoes — Wikipedia", url: "https://en.wikipedia.org/wiki/Yungang_Grottoes", accessed: 2026-10-25 }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 ---

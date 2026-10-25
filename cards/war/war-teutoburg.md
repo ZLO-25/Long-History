@@ -18,11 +18,14 @@ place:
   scale: area
 structure_tags: [地形險阻, 附庸反叛, 補給線過長, 邊疆防線, 突變事件, 雇傭兵與蠻族化軍隊]
 links: [event-augustan-principate, building-hadrians-wall]
+counterparts:
+  - { id: war-han-xiongnu, note: "相似：農業帝國與邊疆外沒有城市、可以移動的對手作戰，戰爭決定了帝國的邊界畫在哪裡。不同：羅馬在條頓堡森林失去三個軍團後退守萊茵河；漢朝深入草原打贏多場大戰，但同樣無法佔領草原。", src: [s1, s5] }
 sources:
   - { id: s1, title: "Battle of the Teutoburg Forest — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_the_Teutoburg_Forest", accessed: 2026-10-24 }
   - { id: s2, title: "Karen Schousboe, Battle of Teutoburg Forest — World History Encyclopedia (2017)", url: "https://worldhistory.org/article/1010", accessed: 2026-10-24 }
   - { id: s3, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
   - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s5, title: "Han–Xiongnu wars — Wikipedia", url: "https://en.wikipedia.org/wiki/Han%E2%80%93Xiongnu_wars", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

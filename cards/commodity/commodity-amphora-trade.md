@@ -23,6 +23,8 @@ place:
 routes: [sea-baetica-rome]
 structure_tags: [標準化量產, 商路改道, 單一港口依賴, 基礎建設網絡, 慢變結構]
 links: [commodity-egypt-grain, commodity-roman-concrete, building-via-appia]
+counterparts:
+  - { id: building-terracotta-army, note: "相似：大量、規格化的陶製品，作坊在產品上留下戳記或名號，可以追查來源與品質。不同：雙耳瓶是市場與運輸用的容器；兵馬俑是國家為皇帝陵墓製作、埋入地下的陪葬品。", src: [s1, s7] }
 sources:
   - { id: s1, title: "Amphora — Wikipedia", url: "https://en.wikipedia.org/wiki/Amphora", accessed: 2026-10-24 }
   - { id: s2, title: "Monte Testaccio — Wikipedia", url: "https://en.wikipedia.org/wiki/Monte_Testaccio", accessed: 2026-10-24 }
@@ -30,6 +32,7 @@ sources:
   - { id: s4, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
   - { id: s5, title: "李彔《現代化十六講》之十一（現代化的本質和鐵律），虎嗅 2014", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25 }
   - { id: s6, title: "Sapiens 金錢篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25 }
+  - { id: s7, title: "Terracotta Army — Wikipedia", url: "https://en.wikipedia.org/wiki/Terracotta_Army", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

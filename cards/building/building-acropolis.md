@@ -19,12 +19,15 @@ place:
   scale: point
 structure_tags: [政治宣傳工程, 盟主剝削盟友, 公共工程支出, 宗教／意識形態動員]
 links: [war-greco-persian, war-peloponnesian, building-theatre-dionysus, commodity-laurion-silver]
+counterparts:
+  - { id: building-han-changan, note: "相似：都城的大型建設展示權力，花的錢也成為問題（伯里克利挪用提洛同盟貢金；蕭何因花費過多受責備）。不同：衛城以神殿為中心；漢長安城以皇帝宮殿為中心。", src: [s2, s6] }
 sources:
   - { id: s1, title: "Parthenon — Wikipedia", url: "https://en.wikipedia.org/wiki/Parthenon", accessed: 2026-10-24 }
   - { id: s2, title: "Athens' rise to superpower — MoneyMuseum", url: "https://www.moneymuseum.com/en/archive/athens-rise-to-superpower--382?slbox=true", accessed: 2026-10-24 }
   - { id: s3, title: "Acropolis of Athens — New World Encyclopedia", url: "https://www.newworldencyclopedia.org/entry/Acropolis_of_Athens", accessed: 2026-10-24 }
   - { id: s4, title: "Acropolis, Athens — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/404/maps", accessed: 2026-10-24 }
   - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-25 }
+  - { id: s6, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

@@ -19,10 +19,13 @@ place:
   scale: point
 structure_tags: [政治宣傳工程, 公共工程支出, 制度包裝延續, 慢變結構]
 links: [event-twelve-tables, event-augustan-principate, event-rubicon, building-colosseum]
+counterparts:
+  - { id: building-han-changan, note: "相似：帝國首都的權力與商業中心，也是遠距貿易的一端。不同：羅馬廣場是開放的公共空間，元老院、法庭與神殿集中；漢長安城以高牆圍起的宮殿為主體，市場也有圍牆管理。", src: [s1, s4] }
 sources:
   - { id: s1, title: "Roman Forum — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_Forum", accessed: 2026-10-24 }
   - { id: s2, title: "Roman Forum — Encyclopaedia Britannica", url: "https://www.britannica.com/topic/Roman-Forum", accessed: 2026-10-24 }
   - { id: s3, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
+  - { id: s4, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

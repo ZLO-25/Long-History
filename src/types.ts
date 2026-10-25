@@ -19,7 +19,9 @@ export interface Card {
   summary_line: string;
   place: { primary_field: string; secondary_fields: string[]; locations: Location[]; scale: string };
   routes: string[]; structure_tags: string[]; links: string[]; frameworks: string[];
-  summary_card: boolean; sources: Source[]; verification: string; lens_status: string;
+  summary_card: boolean;
+  counterparts: { id: string; note: string; src: string[] }[]; counterparts_none: string; counterpart_of: string[];
+  sources: Source[]; verification: string; lens_status: string;
   sections: Section[]; completeness: number; today_hook: string; non_analogous: string;
   lens: { lilu: string; harari: string };
   unknownFields: string[]; file: string;
@@ -29,8 +31,8 @@ export interface Card {
 export interface Route {
   id: string; name: string; kind: 'road' | 'sea' | 'wall'; start: number; end: number;
   precision: string; note?: string; coords: [number, number][]; sources: Source[];
-  method: 'awmc-road' | 'awmc-wall' | 'sea';
-  segments: { kind: 'known' | 'approx' | 'gap'; coords: [number, number][] }[];
+  method: 'awmc-road' | 'awmc-wall' | 'sea' | 'stations';
+  segments: { kind: 'known' | 'approx' | 'gap' | 'unknown'; coords: [number, number][] }[];
   stations: { name: string; lat: number; lng: number }[];
   stats: { km: number; known_pct?: number; approx_pct?: number; gap_km?: number; max_snap_km?: number };
 }

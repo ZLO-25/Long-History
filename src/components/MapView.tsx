@@ -10,6 +10,12 @@ interface Props {
   onPlace: (key: string) => void; onRoute: (id: string) => void; compact?: boolean;
 }
 
+// 地圖視野：地中海／中國／歐亞
+const VIEWS: { label: string; bounds: [[number, number], [number, number]] }[] = [
+  { label: '地中海', bounds: [[29, -10], [48, 42]] },
+  { label: '中國', bounds: [[20, 95], [45, 125]] },
+  { label: '歐亞', bounds: [[18, -10], [52, 125]] },
+];
 const hue = (s: string) => { let h = 0; for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) % 360; return h; };
 const borderCache = new Map<string, Promise<any>>();
 const loadBorders = (file: string) => {
@@ -102,20 +108,20 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       const on = r.start <= year && year <= r.end;
       const hl = highlight.routes.includes(r.id);
       if (!on && !hl) continue;
-      const color = r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513';
+      const color = r.method === 'stations' ? '#555' : r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513';
       const base = hl ? 6 : r.kind === 'sea' ? 2.5 : r.kind === 'wall' ? 4.5 : 3.5;
       const tip = `${r.name}（${KIND_LABEL[r.kind]}・${METHOD_LABEL[r.method]}）`;
       for (const sg of r.segments) {
         const line = L.polyline(sg.coords, {
           color, opacity: on ? 0.9 : 0.45,
           weight: sg.kind === 'gap' ? Math.max(2, base - 1.5) : base,
-          dashArray: r.kind === 'sea' ? '6 6' : sg.kind === 'approx' ? '8 4' : sg.kind === 'gap' ? '2 5' : undefined,
+          dashArray: sg.kind === 'unknown' ? '1 7' : r.kind === 'sea' ? '6 6' : sg.kind === 'approx' ? '8 4' : sg.kind === 'gap' ? '2 5' : undefined,
         });
-        line.bindTooltip(`${tip}${r.kind === 'road' ? `：${SEG_LABEL[sg.kind]}` : ''}`, { sticky: true });
+        line.bindTooltip(`${tip}${r.kind === 'road' || sg.kind === 'unknown' ? `：${SEG_LABEL[sg.kind]}` : ''}`, { sticky: true });
         line.on('click', () => cb.current.onRoute(r.id));
         line.addTo(g);
       }
-      if (hl) for (const st of r.stations) L.circleMarker([st.lat, st.lng], { radius: 3, color, weight: 1, fillOpacity: 1 }).bindTooltip(st.name).addTo(g);
+      if (hl || r.method === 'stations') for (const st of r.stations) L.circleMarker([st.lat, st.lng], { radius: 3, color, weight: 1, fillOpacity: 1 }).bindTooltip(st.name).addTo(g);
     }
   }, [index, year, highlight]);
 
@@ -173,9 +179,12 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   return (
     <div className="map">
       <div ref={el} className="map-canvas" />
+      <div className="map-views">
+        {VIEWS.map((v) => <button key={v.label} onClick={() => map.current?.flyToBounds(v.bounds, { duration: 0.6 })}>{v.label}</button>)}
+      </div>
       <div className="map-legend">
         <div>{snapLabel}</div>
-        <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城</div>
+        <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
         <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>
       </div>
     </div>

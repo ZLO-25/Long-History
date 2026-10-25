@@ -22,12 +22,15 @@ place:
   scale: area
 structure_tags: [長期衰退, 雇傭兵與蠻族化軍隊, 財政枯竭, 糧食進口依賴, 精英內鬥, 合法性危機, 慢變結構]
 links: [event-constitutio-antoniniana, commodity-egypt-grain, building-hadrians-wall, war-teutoburg]
+counterparts:
+  - { id: event-pingwang-east, note: "相似：最高統治者在外族壓力與內部繼承之爭中失去實權，權力分散到各地強權手中。不同：西羅馬皇帝的位置在 476 年後就不再設立；周王作為名義共主又延續了約五百年。", src: [s1, s6] }
 sources:
   - { id: s1, title: "Fall of the Western Roman Empire — Wikipedia", url: "https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire", accessed: 2026-10-24 }
   - { id: s2, title: "10 Facts About the Fall of the Roman Empire — History Hit", url: "https://historyhit.com/facts-about-the-fall-of-the-roman-empire", accessed: 2026-10-24 }
   - { id: s3, title: "Cura Annonae — Wikipedia", url: "https://en.wikipedia.org/wiki/Cura_Annonae", accessed: 2026-10-24 }
   - { id: s4, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
   - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
+  - { id: s6, title: "King Ping of Zhou — Wikipedia", url: "https://en.wikipedia.org/wiki/King_Ping_of_Zhou", accessed: 2026-10-25 }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 ---

@@ -94,6 +94,20 @@ export function checkCards(
     for (const r of f.routes ?? []) if (!ctx.routes.has(r)) err(`routes 指向不存在的路線：${r}`);
     for (const fw of f.frameworks ?? []) if (!ctx.frameworks.has(fw)) err(`frameworks 指向不存在的框架：${fw}`);
 
+    // ---- 中西對照：指向另一條軌道的卡；找不到就寫「無適當對照：原因」----
+    const cp = f.counterparts;
+    if (cp === undefined) { if (!f.summary_card) warn('缺少 counterparts（中西對照）；沒有合適對照請寫「無適當對照：原因」'); }
+    else if (typeof cp === 'string') { if (!cp.startsWith('無適當對照')) err('counterparts 若不是清單，必須以「無適當對照」開頭'); }
+    else if (!Array.isArray(cp)) err('counterparts 必須是清單或「無適當對照」字串');
+    else cp.forEach((x: any, i: number) => {
+      const w = `counterparts[${i}]`;
+      const other = cards.find((y) => y.fm?.id === x?.id)?.fm;
+      if (!other) { err(`${w} 指向不存在的卡片：${x?.id}`); return; }
+      if (other.track === f.track) err(`${w}（${other.name}）與本卡在同一條軌道，對照要指向另一邊`);
+      if (!x.note || String(x.note).length < 10) err(`${w} 需要一句說明「哪裡相似、哪裡不同」`);
+      needRefs(x.src, w);
+    });
+
     if (!VERIFICATION.includes(f.verification)) err(`verification 必須是 ${VERIFICATION.join('|')}`);
     if (f.verification === '交叉確認') {
       const hosts = new Set((f.sources ?? []).map((s: any) => { try { return new URL(s.url).hostname.replace(/^www\./, ''); } catch { return ''; } }));
@@ -103,7 +117,7 @@ export function checkCards(
 
     // ---- 段落 ----
     if (!(type in SECTIONS)) continue;
-    const deepRequired = f.track === 'west' && !f.summary_card;
+    const deepRequired = !f.summary_card;
     for (const def of SECTIONS[type]) {
       const sec = c.sections.find((s) => s.code === def.code);
       const filled = sec && sec.text.length > 0;

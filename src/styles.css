@@ -161,3 +161,15 @@ a { color: var(--accent); }
   .kv { grid-template-columns: 56px 1fr; }
   .card-detail h2 { font-size: 20px; }
 }
+
+/* 第 2 期：中西對照 */
+.timeline .node.rel rect { stroke: #e53e3e; stroke-width: 2; opacity: 1; }
+.timeline .node.rel text { font-weight: 700; }
+.timeline .node.dim { opacity: 0.35; }
+.timeline .cp-link { stroke: #e53e3e; stroke-width: 1.5; stroke-dasharray: 4 3; pointer-events: none; }
+.counterparts .cp-item { border-left: 3px solid var(--line); padding-left: 8px; margin: 6px 0; }
+.map-views { position: absolute; top: 10px; right: 10px; z-index: 500; display: flex; gap: 4px; }
+.map-views button { background: #fff; border: 1px solid #999; border-radius: 4px; padding: 3px 8px; font-size: 13px; cursor: pointer; }
+.map-views button:hover { background: #f0f0f0; }
+.track-filter { display: flex; gap: 4px; flex-wrap: wrap; margin: 6px 0; }
+.lg.unknown { border-top: 3px dotted #555; }

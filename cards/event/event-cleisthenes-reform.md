@@ -20,12 +20,17 @@ place:
   scale: point
 structure_tags: [重新設計基本單位, 公民身分擴張, 外部勢力介入, 精英內鬥]
 links: [war-greco-persian, building-theatre-dionysus, event-death-of-socrates]
+counterparts:
+  - { id: event-shang-yang-reform, note: "相似：重新設計社會的基本單位，打破舊貴族以血緣為基礎的控制。不同：克里斯提尼擴大公民參與；商鞅強化國家動員，平民的上升管道是軍功而非投票。", src: [s1, s6] }
+  - { id: event-guan-zhong-reform, note: "相似：把人口重新劃分成新的單位，同一套單位同時用來編組軍隊。不同：克里斯提尼的部落是公民參政的單位；管仲的鄉里是國君徵稅、徵兵的單位，還搭配國家專營鹽鐵。", src: [s1, s7] }
 sources:
   - { id: s1, title: "Cleisthenes — Wikipedia", url: "https://en.wikipedia.org/wiki/Cleisthenes", accessed: 2026-10-24 }
   - { id: s2, title: "Mark Cartwright, Cleisthenes — World History Encyclopedia (2016)", url: "https://www.worldhistory.org/Cleisthenes/", accessed: 2026-10-24 }
   - { id: s3, title: "Sapiens 想像的秩序篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-6-building-pyramids", accessed: 2026-10-24 }
   - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
   - { id: s5, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
+  - { id: s6, title: "Shang Yang — Wikipedia", url: "https://en.wikipedia.org/wiki/Shang_Yang", accessed: 2026-10-24 }
+  - { id: s7, title: "Guan Zhong — Wikipedia", url: "https://en.wikipedia.org/wiki/Guan_Zhong", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

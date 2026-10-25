@@ -19,11 +19,14 @@ place:
   scale: point
 structure_tags: [法律成文化, 精英內鬥, 債務擴張, 慢變結構]
 links: [building-forum-romanum, event-constitutio-antoniniana, event-cleisthenes-reform]
+counterparts:
+  - { id: event-shang-yang-reform, note: "相似：把法律統一並公開施行，讓規則不再只由貴族掌握。不同：《十二銅表法》是平民爭取來的成文法；商鞅的法律由國君推行，重點在連坐與獎懲以動員人民。", src: [s1, s5] }
 sources:
   - { id: s1, title: "Twelve Tables — Wikipedia", url: "https://en.wikipedia.org/wiki/Twelve_Tables", accessed: 2026-10-24 }
   - { id: s2, title: "Law of the Twelve Tables — Encyclopaedia Britannica", url: "https://www.britannica.com/print/article/610934", accessed: 2026-10-24 }
   - { id: s3, title: "Sapiens 想像的秩序篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-6-building-pyramids", accessed: 2026-10-24 }
   - { id: s4, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
+  - { id: s5, title: "Shang Yang — Wikipedia", url: "https://en.wikipedia.org/wiki/Shang_Yang", accessed: 2026-10-24 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

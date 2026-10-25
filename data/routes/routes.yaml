@@ -3,7 +3,8 @@
 #   method: awmc-road  陸路沿 AWMC 古道網（巴林頓地圖集）找相鄰兩站間的最短路徑
 #   method: awmc-wall  直接取 AWMC 城牆圖層
 #   method: sea        經停港依史料（見 note 與 sources），港間海路在 Natural Earth 陸地格網上計算最短可行海路
-# precision：traced＝沿地圖集描繪的古道；attested-ports＝經停港有史料，海上路徑為推算
+#   method: stations   沒有可用古道圖資（中國段）：只標史料記載的站點，站與站之間以點線相連並標「路線不詳」
+# precision：traced＝沿地圖集描繪的古道；attested-ports＝經停港有史料，海上路徑為推算；stations-only＝只有站點，中間路線不詳
 # start/end 為地圖上顯示的年份範圍（時間軸上限 500 年，仍在使用的道路 end 寫 500）。
 routes:
   - id: road-via-appia
@@ -152,3 +153,37 @@ routes:
       - { id: s3, title: "Encuentra Bardina, Shipwrecks and Western Mediterranean trade networks (MA diss., Southampton, 2013)", url: 'https://www.ancientportsantiques.com/wp-content/uploads/Documents/AUTHORS/Encuentra%202013-WesternMedTrade.pdf', accessed: 2026-10-25 }
       - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
       - { id: s9, title: "Natural Earth 1:10m 陸地（world-atlas，公有領域；用來算港間不穿過陸地的海路）", url: 'https://www.naturalearthdata.com/', accessed: 2026-10-25 }
+
+  # ---------- 第 2 期：中國段（沒有古道圖資，只標站點） ----------
+  - id: stations-zhang-qian
+    name: 張騫出使西域（站點）
+    kind: road
+    start: -138
+    end: 500
+    precision: stations-only
+    note: 張騫前 138 年從長安出發，途中被匈奴扣留多年，逃脫後到達大宛、月氏與大夏，前 125 年回到漢廷 [s1][s2]。史料只說他到過哪些國家，沒有留下逐站路線，因此地圖只標三個有座標根據的點：長安 [s3]、大宛都城貳師（維基百科以今苦盞比定）[s4][s5]、大夏（巴克特拉，Pleiades）[s6]；點與點之間的點線**不是**實際走法。月氏當時的確切位置不明，未標。
+    method: stations
+    waypoints: [{ lat: 34.30833, lng: 108.85833, name: 長安 }, { lat: 40.2794, lng: 69.6319, name: 大宛（貳師城，今苦盞） }, '961886']
+    sources:
+      - { id: s1, title: "Zhang Qian — Wikipedia", url: 'https://en.wikipedia.org/wiki/Zhang_Qian', accessed: 2026-10-25 }
+      - { id: s2, title: "Zhang Qian — New World Encyclopedia", url: 'https://www.newworldencyclopedia.org/entry/Zhang_Qian', accessed: 2026-10-25 }
+      - { id: s3, title: "Chang'an — Wikipedia", url: 'https://en.wikipedia.org/wiki/Chang%27an', accessed: 2026-10-25 }
+      - { id: s4, title: "War of the Heavenly Horses — Wikipedia", url: 'https://en.wikipedia.org/wiki/War_of_the_Heavenly_Horses', accessed: 2026-10-25 }
+      - { id: s5, title: "Khujand — Wikipedia", url: 'https://en.wikipedia.org/wiki/Khujand', accessed: 2026-10-25 }
+      - { id: s6, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
+
+  - id: stations-qin-zhidao
+    name: 秦直道（站點）
+    kind: road
+    start: -212
+    end: 220
+    precision: stations-only
+    note: 秦直道從首都一帶向北直通九原（今包頭）[s1][s2]。各來源的總長（約 700 或近 900 公里）與起點寫法不一，考古只確認了部分路段（例如陝西甘泉縣方家河村、榆林發掘的 13 公里）[s1][s2]，因此地圖只標三個點：咸陽 [s3]、甘泉縣遺址 [s4]、九原 [s5]；點線**不是**實際路線。地圖顯示到東漢末（220 年）為估計。
+    method: stations
+    waypoints: [{ lat: 34.3299, lng: 108.7088, name: 咸陽 }, { lat: 36.2768, lng: 109.3513, name: 甘泉縣（方家河直道遺址） }, { lat: 40.6213, lng: 109.9532, name: 九原（今包頭） }]
+    sources:
+      - { id: s1, title: "Chi Dao and Zhi Dao — the Oldest Express Way（陝西省人民政府英文網，2017）", url: 'https://en.shaanxi.gov.cn/as/hac/ch/201704/t20170427_1595074.html', accessed: 2026-10-25 }
+      - { id: s2, title: "Cécile Breton, China uncovers a 2,200-year-old imperial road — Futura-Sciences（2026）", url: 'https://www.futura-sciences.com/en/china-uncovers-a-2200-year-old-imperial-road-that-rivals-modern-highways_23010/', accessed: 2026-10-25 }
+      - { id: s3, title: "Xianyang — Wikipedia", url: 'https://en.wikipedia.org/wiki/Xianyang', accessed: 2026-10-24 }
+      - { id: s4, title: "Ganquan County — Wikipedia", url: 'https://en.wikipedia.org/wiki/Ganquan_County', accessed: 2026-10-25 }
+      - { id: s5, title: "Baotou — Wikipedia", url: 'https://en.wikipedia.org/wiki/Baotou', accessed: 2026-10-25 }

@@ -19,6 +19,7 @@ place:
   scale: point
 structure_tags: [政治宣傳工程, 公共工程支出, 戰爭融資, 合法性危機]
 links: [commodity-roman-concrete, building-forum-romanum, building-pantheon]
+counterparts: "無適當對照：中國卡沒有為群眾娛樂而建的大型公共建築；秦漢的大型工程多是宮殿、陵墓、水利與邊防，結構不同。"
 sources:
   - { id: s1, title: "Colosseum — Wikipedia", url: "https://en.wikipedia.org/wiki/Colosseum", accessed: 2026-10-24 }
   - { id: s2, title: "Mark Cartwright, Colosseum — World History Encyclopedia (2018)", url: "https://www.worldhistory.org/Colosseum/", accessed: 2026-10-24 }

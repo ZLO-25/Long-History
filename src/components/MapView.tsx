@@ -195,12 +195,15 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     });
     m.flyToBounds(L.latLngBounds(pts).pad(0.2), { duration: 0.6, maxZoom: 8 });
   }, [ch]);
+  // 移動中的紅點：同一個標記只更新位置，不每格重畫
+  const mover = useRef<L.CircleMarker>();
   useEffect(() => {
     const g = layers.current?.mover;
     if (!g) return;
-    g.clearLayers();
-    if (!chain) return;
-    L.circleMarker(posAt(chain.chain, chain.t), { radius: 8, color: '#fff', weight: 2, fillColor: '#c53030', fillOpacity: 1, className: 'chain-mover' }).addTo(g);
+    if (!chain) { g.clearLayers(); mover.current = undefined; return; }
+    const at = posAt(chain.chain, chain.t);
+    if (!mover.current) mover.current = L.circleMarker(at, { radius: 8, color: '#fff', weight: 2, fillColor: '#c53030', fillOpacity: 1, className: 'chain-mover' }).addTo(g);
+    else mover.current.setLatLng(at);
   }, [chain]);
 
   useEffect(() => { setTimeout(() => map.current?.invalidateSize(), 50); });

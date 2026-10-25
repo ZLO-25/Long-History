@@ -1,4 +1,4 @@
-# 歷史長河（第 2 期）
+# 歷史長河（第 3 期）
 
 個人用的「歷史思考工具」：用模糊搜尋或勾選結構條件，找到結構相似的歷史案例；每張卡片都有時間軸、地圖位置與可點的來源。
 
@@ -7,6 +7,8 @@
 ```
 
 第 2 期加入中國軌道：時間軸上下兩條（希臘羅馬／中國），卡片頁有「中西對照」，地圖可切「地中海／中國／歐亞」，結構對照可只看一邊或「中西各挑兩張」。
+
+第 3 期加入經濟曲線與物資鏈：時間軸右上角「經濟曲線」可切換人口、人均 GDP、銀幣含銀率（只畫有來源的點，點一下看來源）；物資卡上按「播放物資鏈」，地圖上會有紅點沿著產地、運輸、消費地移動。
 
 ---
 
@@ -81,6 +83,7 @@ sources:
 - `http://localhost:5173/?year=100`：直接跳到西元 100 年
 - `http://localhost:5173/?card=building-pantheon`：直接打開某張卡
 - `http://localhost:5173/?q=羅馬`：直接搜尋
+- `http://localhost:5173/?chain=chain-silk`：直接打開絲綢物資鏈
 
 ## 五、資料來源與授權
 
@@ -91,6 +94,7 @@ sources:
 | 古代道路網與城牆 | AWMC geodata（依《巴林頓古典世界地圖集》） | ODbL 1.0 |
 | 海岸線（算海路用） | Natural Earth 1:10m（world-atlas 套件） | 公有領域 |
 | 羅馬道路細線（選用） | Itiner-e，Zenodo 10.5281/zenodo.17122148 | CC BY 4.0 |
+| 人口、人均 GDP（西元 1 年） | Maddison Project Database 2020（Bolt & van Zanden），經 Our World in Data 的 GitHub 取得 | CC BY 4.0 |
 | 底圖 | OpenStreetMap | ODbL |
 
 卡片內文每段都附來源連結；本工具只是思考框架，不構成預測或投資建議。
@@ -101,5 +105,7 @@ sources:
 - `docs/phase1-report.md`：第 1 期驗收回報（做了什麼、沒做什麼、已知問題）
 - `docs/phase2-plan.md`：第 2 期計畫（中國卡與中西對照）
 - `docs/phase2-report.md`：第 2 期驗收回報
+- `docs/phase3-plan.md`、`docs/phase3-report.md`：第 3 期計畫與驗收回報
+- `docs/economy-and-chains.md`：經濟曲線與物資鏈的資料格式
 - `docs/card-fields.md`：卡片欄位規格
 - `docs/structure-tags.md`：結構標籤詞表

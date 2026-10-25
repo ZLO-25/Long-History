@@ -28,13 +28,14 @@ export function checkCards(
 
     // ---- 核心欄位 ----
     const type = f.type as CardType;
-    if (!(type in TYPE_LABEL)) err(`type 必須是 war|commodity|event|building，目前是「${f.type}」`);
-    if (!/^(war|commodity|event|building)-[a-z0-9]+(-[a-z0-9]+)*$/.test(f.id ?? '')) err(`id 格式錯誤：「${f.id}」`);
+    if (!(type in TYPE_LABEL)) err(`type 必須是 war|commodity|event|building|tech|finance，目前是「${f.type}」`);
+    if (!/^(war|commodity|event|building|tech|finance)-[a-z0-9]+(-[a-z0-9]+)*$/.test(f.id ?? '')) err(`id 格式錯誤：「${f.id}」`);
     else if (!f.id.startsWith(type + '-')) err(`id 前綴應為「${type}-」`);
     if (f.id && path.basename(c.file, '.md') !== f.id) err(`檔名應為 ${f.id}.md`);
     if ([...cards].filter((x) => x.fm?.id === f.id).length > 1) err(`id 重複：${f.id}`);
     if (!f.name) err('缺少 name');
     if (!Array.isArray(f.aliases) || !f.aliases.length) err('aliases 至少要有 1 個');
+    else for (const a of f.aliases) if (typeof a !== 'string') warn(`別名 ${a} 會被 YAML 讀成數字，請加引號寫成字串`);
     if (!Array.isArray(f.civilization) || !f.civilization.length) err('缺少 civilization');
     if (!TRACKS.includes(f.track)) err(`track 必須是 ${TRACKS.join('|')}`);
 

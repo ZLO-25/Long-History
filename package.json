@@ -12,6 +12,7 @@
     "places": "tsx scripts/update-places.ts",
     "routes": "tsx scripts/build-routes.ts",
     "roads": "tsx scripts/fetch-itinere.ts",
+    "borders": "tsx scripts/fetch-borders.ts",
     "typecheck": "tsc -p tsconfig.json"
   },
   "engines": {

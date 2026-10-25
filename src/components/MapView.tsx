@@ -18,6 +18,7 @@ const VIEWS: { label: string; bounds: [[number, number], [number, number]] }[] =
   { label: '地中海', bounds: [[29, -10], [48, 42]] },
   { label: '中國', bounds: [[20, 95], [45, 125]] },
   { label: '歐亞', bounds: [[18, -10], [52, 125]] },
+  { label: '全球', bounds: [[-40, -120], [65, 150]] },
 ];
 // 今日對照層的視野：大致涵蓋巴拿馬到東亞
 const TODAY_VIEW: [[number, number], [number, number]] = [[-5, -85], [55, 125]];
@@ -242,7 +243,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       <div className="map-legend">
         <div>{snapLabel}</div>
         <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
-        <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>
+        {era !== 'M' && <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>}
         {todayOn && <div><i className="lg today" />今日咽喉要道（灰色＝資料可能過時）</div>}
         {ch && <div><i className="lg chain" />物資鏈（實線＝沿已畫路線，點線＝路線示意）</div>}
       </div>

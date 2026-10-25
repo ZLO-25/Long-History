@@ -5,6 +5,7 @@ import { loadCards, loadTagVocab, readYaml, readJson, dateStr, ROOT, refsOf } fr
 import { checkCards, loadContext, exists } from './lib/check.ts';
 import { loadEcon, loadChains, checkEcon, checkChains, buildEcon, buildChains } from './lib/econ.ts';
 import { loadToday, checkToday, buildToday } from './lib/today.ts';
+import { loadCivTaxonomy } from './lib/civ.ts';
 import { SECTIONS, CORE_KEYS, TYPE_LABEL, FIELD_OPTIONS, type CardType } from './lib/fields.ts';
 
 const get = (o: any, k: string) => k.split('.').reduce((a, p) => (a == null ? a : a[p]), o);
@@ -17,6 +18,8 @@ const routesRaw: any[] = readYaml('data/routes/routes.yaml')?.routes ?? [];
 const frameworks: any[] = readYaml('data/frameworks.yaml')?.frameworks ?? [];
 const raw = loadCards();
 const issues = checkCards(raw, loadContext(tagCats, routesRaw, frameworks));
+const civ = loadCivTaxonomy();
+const civPathsOf = (list: string[]) => { const ps = [...new Set(list.flatMap((v) => civ.resolve(v)))]; return ps.length ? ps : ['其他']; };
 
 // ---- 路線：幾何由 npm run routes 預先算好（data/routes/routes.geojson）----
 const built: Record<string, any> = Object.fromEntries((exists('data/routes/routes.geojson') ? readJson('data/routes/routes.geojson').routes : []).map((r: any) => [r.id, r]));
@@ -46,8 +49,8 @@ const cards = raw.filter((c) => c.fm?.id).map((c) => {
   const byRole = (r: string) => sections.find((s) => s.role === r);
   const lens = byRole('lens');
   return {
-    id: f.id, type, typeLabel: TYPE_LABEL[type], name: f.name, aliases: f.aliases ?? [],
-    civilization: f.civilization ?? [], track: f.track, time: f.time, summary_line: f.summary_line,
+    id: f.id, type, typeLabel: TYPE_LABEL[type], name: f.name, aliases: (f.aliases ?? []).map(String),
+    civilization: f.civilization ?? [], civPaths: civPathsOf(f.civilization ?? []), track: f.track, time: f.time, summary_line: f.summary_line,
     place: {
       ...f.place,
       secondary_fields: f.place?.secondary_fields ?? [],
@@ -101,6 +104,7 @@ const index = {
   cards,
   tagCategories: tagCats,
   fieldOptions: FIELD_OPTIONS,
+  civTree: [...civ.tree, { name: '其他', path: '其他', children: [] }],
   frameworks: frameworks.map((f) => ({ ...f, sources: (f.sources ?? []).map((s: any) => ({ ...s, accessed: dateStr(s.accessed) })) })),
   routes,
   borders: { source: borders.source, license: borders.license, note: borders.note, snapshots: borders.snapshots },

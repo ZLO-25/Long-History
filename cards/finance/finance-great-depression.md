@@ -1,0 +1,85 @@
+---
+id: finance-great-depression
+type: finance
+name: 1929 股災與大蕭條
+aliases: [大蕭條, 大萧条, 經濟大恐慌, 1929年股災, 1929年股灾, 華爾街股災, Great Depression, Wall Street Crash of 1929, Black Tuesday, 黑色星期四, 黑色星期二, 羅斯福新政, 罗斯福新政, New Deal, Franklin D. Roosevelt, 美國證券交易委員會, SEC, 斯姆特－霍利關稅法]
+civilization: [美國]
+track: west
+time:
+  start: 1929
+  end: 1939
+  precision: disputed
+  src: [s1, s2, s4]
+summary_line: 金融｜金融中心｜紐約｜1929 股災與大蕭條
+place:
+  primary_field: 金融中心
+  secondary_fields: [宮廷／政治中心, 工業／製造區]
+  locations:
+    - { name_ancient: 紐約華爾街, name_modern: 紐約曼哈頓（美國）, lat: 40.7069, lng: -74.0111, precision: schematic, role: 1929 年 10 月股災發生的紐約證券交易所（座標為今交易所大樓）, src: [s1, s3] }
+  scale: area
+structure_tags: [投機泡沫與崩盤, 債務擴張, 臨界點, 公共工程支出]
+links: [finance-nyse, finance-bretton-woods, finance-2008-crisis, war-world-war-two]
+counterparts:
+  - { id: finance-taiwan-stock-exchange, note: "相似：都是借錢炒股把指數推到高點後崩跌——道瓊指數從 1929 年 381 點跌到 1932 年 41 點（約 89%），台股從 1990 年 2 月 12,682 點跌到 10 月 2,485 點（約 80%）。不同：美國股災之後接著銀行倒閉潮與全球大蕭條；台股崩盤的資料主要談股市本身，沒有演變成類似規模的經濟大蕭條（來源未提及）。", src: [s1, s3, s9, s10] }
+sources:
+  - { id: s1, title: "Wall Street crash of 1929 — Wikipedia", url: "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929", accessed: 2026-10-25 }
+  - { id: s2, title: "Great Depression — Wikipedia", url: "https://en.wikipedia.org/wiki/Great_Depression", accessed: 2026-10-25 }
+  - { id: s3, title: "Stock Market Crash of 1929 — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/stock-market-crash-of-1929", accessed: 2026-10-25 }
+  - { id: s4, title: "The Great Depression — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/great-depression", accessed: 2026-10-25 }
+  - { id: s5, title: "U.S. Securities and Exchange Commission — Wikipedia", url: "https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission", accessed: 2026-10-25 }
+  - { id: s6, title: "李彔〈全球價值投資與時代〉北京大學演講（2024 年 12 月，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/67a4f8e8160103c8a74017a7_%E5%85%A8%E7%90%83%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E4%B8%8E%E6%97%B6%E4%BB%A32024%E5%B9%B412%E6%9C%88.pdf", accessed: 2026-10-25 }
+  - { id: s7, title: "李錄書評：中國仍然處在黃金發展的機遇期（評辜朝明《大衰退年代》）— 虎嗅網，2019-11-20", url: "https://www.huxiu.com/article/327249.html", accessed: 2026-10-25 }
+  - { id: s8, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25 }
+  - { id: s9, title: "股市時光機：一張舊報紙回到「台灣錢淹腳目」的瘋狂年代 — Smart 自學網（商業周刊），2019-04-29", url: "https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?ID=38490", accessed: 2026-10-25 }
+  - { id: s10, title: "蔡明彰觀點：挑戰 12682 天價的危與機 — 鉅亨網，2020-07-23", url: "https://news.cnyes.com/news/id/4508251", accessed: 2026-10-25 }
+  - { id: s11, title: "李彔〈價值投資在中國的展望〉北京大學演講（2015-10-23，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/5f0936c4321954706fa9eca2_%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%B1%95%E6%9C%9B-%E6%9D%8E%E5%BD%952015-10-23%E5%8C%97%E5%A4%A7%E6%BC%94%E8%AE%B2.pdf", accessed: 2026-10-25 }
+verification: 爭議
+lens_status: 依公開資料推論，未對照原書
+---
+
+## F1 是什麼、解決什麼問題
+
+1929 年 10 月，美國股市在幾天內暴跌，接著美國和全世界陷入長達十年的「大蕭條」：工廠關門、銀行倒閉、大量的人失業 [s1][s2]。這張卡要回答的是：股市崩盤怎麼變成整個經濟的災難？之後政府又建立了哪些新規則來防止重演 [s4][s5]？
+
+## F2 起源與背景
+
+- **1920 年代的大漲**：道瓊工業指數從 1921 年 8 月的 63 點漲到 1929 年 9 月 3 日的 381.17 點 [s3]。
+- **借錢買股票**：很多人只付約一成的錢，其餘向券商借（稱為「融資」）[s3]；到 1929 年 8 月，借出去的錢超過 85 億美元，比當時流通的現金總額還多 [s1]。
+- **聯準會升息**：聯準會（美國中央銀行）想壓抑投機，1929 年 8 月把紐約的利率調到 6%；因為各國都用金本位，其他國家也被迫升息，世界經濟跟著轉弱 [s3][s4]。
+
+## F3 怎麼運作
+
+- **股災經過**：10 月 24 日「黑色星期四」成交 1,290 萬股；10 月 28 日道瓊跌 12.82%，10 月 29 日「黑色星期二」再跌 11.73%，兩天合計跌約 23% [s1][s3]。
+- **融資斷頭**：股價一跌，借錢買股的人被迫賣股還債，賣壓又讓股價更低 [s1][s3]。
+- **從股市到經濟**：聯準會的說法是，股災本身的影響幾個月就淡了；真正把衰退變成大蕭條的是 1930–1933 年一波波的銀行擠兌，而聯準會沒有及時當「最後放款人」，貨幣供給因此減少近 30% [s3][s4]。
+- **怎麼傳到全世界**：金本位把各國利率綁在一起；1930 年美國通過斯姆特－霍利關稅法，把應稅進口品平均關稅從約 25.9% 提高到約 50%，國際貿易萎縮超過一半 [s2][s4]。
+
+## F4 規模與數據
+
+- 道瓊指數在 1932 年 7 月 8 日跌到 41.22 點，比高點少約 89%（英文維基另引聯準會月資料為 87.1%）；要到 1954 年 11 月 23 日才回到 1929 年高點 [s1][s3]。
+- 全球 GDP 在 1929–1932 年估計減少約 15%，美國 GDP 減少約 30%；美國失業率 1933 年約 25%（估計）[s2]。
+- 到 1933 年美國約 25,000 家銀行中有約 9,000 家倒閉（估計）[s2]。
+
+## F5 改變了什麼
+
+- **新政與新規則**：羅斯福 1933 年起推出新政，包括緊急銀行法、1933 年銀行法（格拉斯－斯蒂格爾法）、成立聯邦存款保險公司（FDIC）[s2][s4]。1933 年證券法要求公司公開財務資訊，1934 年 6 月 6 日依證券交易法成立美國證券交易委員會（SEC），第一任主席是約瑟夫・甘迺迪 [s5]。
+- **什麼時候結束？說法不一**：英文維基寫 1929–1939，並說經濟史學界普遍認為是二戰結束了大蕭條 [s2]；聯準會歷史網站則寫 1929 年 8 月到 1941 年 [s4]。本卡 `time.end` 取 1939 年。
+- **原因的爭論**：貨幣學派強調貨幣供給崩縮與銀行倒閉，凱因斯學派強調消費與投資需求不足，經濟學家大約各占一半 [s2]。股災究竟是「原因」還是「症狀」也有爭論 [s3]。前聯準會主席柏南奇 2002 年承認聯準會的錯誤，說「我們做的」[s4]。
+
+## F6 雙軌解讀
+
+### 李彔
+
+李彔說，價值投資之父格雷厄姆在 1929–1932 年的投資帳面虧損高達 70%，痛定思痛才開始實踐價值投資——價值投資正是誕生於這樣極度動盪的時期 [s6]。他在 2015 年也說，投資一個國家就要面對它「可能會出現 1929 年」的情況 [s11]。2019 年的書評中，他引用辜朝明的「資產負債表衰退」：泡沫破裂後，私部門從追求利潤改為追求負債最小，並說美國經濟幾年內萎縮了「將近 46%」[s7]；這個數字比英文維基的實質 GDP 約 30% 高，可能是計算方式不同（本卡未查證）[s2][s7]。
+
+### 哈拉瑞
+
+依公開摘要，哈拉瑞認為「完全自由放任」的市場觀很天真：資本主義需要信任，詐欺和謊言會讓市場崩盤，所以政府應該管理市場 [s8]。他在該章沒有直接談大蕭條 [s8]；1934 年成立 SEC、要求資訊公開，可以看成這個觀點的實例（本卡推論）[s5]。
+
+## F7 今日對照鉤子
+
+結構：大量借錢買資產 → 價格下跌被迫賣出 → 銀行出問題 → 波及整體經濟 [s1][s3][s4]。另一個結構是「政策傳染」：當各國貨幣被同一套規則綁在一起（當年是金本位），一國緊縮會傳到全世界 [s4]。這裡只描述結構，不預測今天的市場。
+
+## F8 不可類比的差異
+
+1929 年沒有存款保險、沒有 SEC，聯準會也沒有把救銀行當成責任；這些都是大蕭條之後才建立的 [s4][s5]。當時各國還在金本位之下，今天主要國家的貨幣已不再與黃金掛鉤（見布列敦森林體系卡）[s4]。當年的統計資料也比今天粗略，GDP、失業率都是後人估計 [s2]。

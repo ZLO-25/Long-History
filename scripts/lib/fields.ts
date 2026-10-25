@@ -1,5 +1,5 @@
 // 欄位規格：對應 docs/card-fields.md。改規格時兩邊一起改。
-export type CardType = 'war' | 'commodity' | 'event' | 'building';
+export type CardType = 'war' | 'commodity' | 'event' | 'building' | 'tech' | 'finance';
 export type Level = 'core' | 'deep' | 'optional';
 
 export interface SectionDef {
@@ -14,9 +14,11 @@ export const TYPE_LABEL: Record<CardType, string> = {
   commodity: '物資',
   event: '大事',
   building: '建築',
+  tech: '技術',
+  finance: '金融',
 };
 
-export const TYPE_PREFIX: Record<CardType, string> = { war: 'A', commodity: 'B', event: 'C', building: 'D' };
+export const TYPE_PREFIX: Record<CardType, string> = { war: 'A', commodity: 'B', event: 'C', building: 'D', tech: 'T', finance: 'F' };
 
 export const FIELD_OPTIONS = [
   '戰場', '宮廷／政治中心', '港口／海峽', '商路', '資源產地', '城市／都會',
@@ -81,6 +83,28 @@ export const SECTIONS: Record<CardType, SectionDef[]> = {
     { code: 'D6', title: '雙軌解讀', level: 'deep', role: 'lens' },
     { code: 'D7', title: '今日對照鉤子', level: 'deep', role: 'today_hook' },
     { code: 'D8', title: '不可類比的差異', level: 'deep', role: 'non_analogous' },
+  ],
+  // 第 5 期：技術卡（重大發明與大規模使用的技術），時間軸上另成「技術軌」
+  tech: [
+    { code: 'T1', title: '是什麼、解決什麼問題', level: 'deep' },
+    { code: 'T2', title: '發明與起源', level: 'deep' },
+    { code: 'T3', title: '傳播與普及', level: 'deep' },
+    { code: 'T4', title: '規模與數據', level: 'optional' },
+    { code: 'T5', title: '改變了什麼', level: 'deep' },
+    { code: 'T6', title: '雙軌解讀', level: 'deep', role: 'lens' },
+    { code: 'T7', title: '今日對照鉤子', level: 'deep', role: 'today_hook' },
+    { code: 'T8', title: '不可類比的差異', level: 'deep', role: 'non_analogous' },
+  ],
+  // 第 5 期：金融卡（貨幣、銀行、交易所、金融危機與制度），時間軸上另成「金融軌」
+  finance: [
+    { code: 'F1', title: '是什麼、解決什麼問題', level: 'deep' },
+    { code: 'F2', title: '起源與背景', level: 'deep' },
+    { code: 'F3', title: '怎麼運作', level: 'deep' },
+    { code: 'F4', title: '規模與數據', level: 'optional' },
+    { code: 'F5', title: '改變了什麼', level: 'deep' },
+    { code: 'F6', title: '雙軌解讀', level: 'deep', role: 'lens' },
+    { code: 'F7', title: '今日對照鉤子', level: 'deep', role: 'today_hook' },
+    { code: 'F8', title: '不可類比的差異', level: 'deep', role: 'non_analogous' },
   ],
 };
 

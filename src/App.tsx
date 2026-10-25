@@ -14,6 +14,7 @@ import { ChainPanel } from './components/ChainPanel';
 import { EconPanel } from './components/EconPanel';
 import { TodayPanel } from './components/TodayPanel';
 import { useIsMobile } from './lib/useIsMobile';
+import { MIN_YEAR, MAX_YEAR } from './lib/timeScale';
 
 export type Panel =
   | { kind: 'list' }
@@ -45,7 +46,10 @@ function Main({ index }: { index: Index }) {
     const y = Number(params.get('year'));
     if (Number.isFinite(y) && params.has('year')) return y;
     const ch = index.chains.find((c) => c.id === params.get('chain'));
-    return ch ? ch.start : -490;
+    if (ch) return ch.start;
+    // ?card= 直接開卡時，年代跳到該卡開始的年份
+    const cd = index.cards.find((c) => c.id === params.get('card'));
+    return cd ? cd.time.start : -490;
   });
   const [query, setQuery] = useState(() => params.get('q') ?? '');
   const [filters, setFilters] = useState<Filters>({ types: [], fields: [], civs: [] });
@@ -68,7 +72,7 @@ function Main({ index }: { index: Index }) {
   const passFilter = useCallback((c: Card) =>
     (!filters.types.length || filters.types.includes(c.type)) &&
     (!filters.fields.length || [c.place.primary_field, ...c.place.secondary_fields].some((f) => filters.fields.includes(f))) &&
-    (!filters.civs.length || c.civilization.some((v) => filters.civs.includes(v))), [filters]);
+    (!filters.civs.length || c.civPaths.some((v) => filters.civs.some((f) => v === f || v.startsWith(f + '/')))), [filters]);
   const visible = useMemo(() => index.cards.filter(passFilter), [index, passFilter]);
   const result = useMemo(() => search(query), [search, query]);
   const hits = useMemo(() => result.hits.filter((h) => passFilter(h.card)), [result, passFilter]);
@@ -185,7 +189,7 @@ function YearSlider({ year, setYear }: { year: number; setYear: (y: number) => v
   return (
     <label className="year-slider">
       <span>年代 {year < 0 ? `前${-year}` : year}</span>
-      <input type="range" min={-800} max={500} step={1} value={year} onChange={(e) => setYear(Number(e.target.value) || 1)} />
+      <input type="range" min={MIN_YEAR} max={MAX_YEAR} step={1} value={year} onChange={(e) => setYear(Number(e.target.value) || 1)} />
     </label>
   );
 }

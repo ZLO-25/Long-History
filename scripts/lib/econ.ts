@@ -5,7 +5,7 @@ import { exists } from './check.ts';
 const KINDS = ['估計', '登記', '實測'];
 const VERIF = ['AI草稿', '交叉確認', '爭議'];
 const ROLES = ['產地', '加工', '集散', '運輸', '消費', '決策'];
-const MIN_YEAR = -800, MAX_YEAR = 500;
+const MIN_YEAR = -800, MAX_YEAR = 2025;
 
 export interface EconIssue { file: string; level: 'error' | 'warning'; msg: string }
 

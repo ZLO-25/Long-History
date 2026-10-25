@@ -1,13 +1,15 @@
-// 可縮放的非線性時間軸（D3 zoom）：上方西方軌、下方中國軌，兩軌等高並列；滑鼠移到卡上會連線到另一軌的對照卡；拖動紅線改變年代
+// 可縮放的非線性時間軸（D3 zoom）：上方西方軌、中間中國軌（兩軌等高並列）、下方技術軌與金融軌；滑鼠移到卡上會連線到另一軌的對照卡；拖動紅線改變年代
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { select } from 'd3-selection';
 import { zoom as d3zoom, zoomIdentity, type ZoomTransform } from 'd3-zoom';
 import type { Card, Econ } from '../types';
 import { scaleLinear, scaleLog } from 'd3-scale';
 import { fmtEcon, ENTITY_COLORS } from '../lib/format';
-import { makeBaseScale, BREAKS } from '../lib/timeScale';
+import { makeBaseScale, BREAKS, MIN_YEAR, MAX_YEAR } from '../lib/timeScale';
 import { fmtYear, TYPE_COLOR } from '../lib/format';
 
+// 時代快速跳轉（大致依課本分期）
+const ERAS: [string, number, number][] = [['上古', MIN_YEAR, 500], ['中古', 500, 1500], ['近代', 1500, 1900], ['現代', 1900, MAX_YEAR]];
 const AXIS_H = 26, ROW_H = 20, LANE_PAD = 6, LABEL_PX = 12.5;
 
 interface Props {
@@ -24,6 +26,8 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
   const [width, setWidth] = useState(800);
   const [t, setT] = useState<ZoomTransform>(zoomIdentity);
   const dragging = useRef(false);
+  // 目前選的時代；畫面寬度改變時重新套用，使用者自己縮放平移就取消
+  const era = useRef<[number, number] | null>(null);
   const [hover, setHover] = useState<string | null>(null);
 
   useEffect(() => {
@@ -46,18 +50,30 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
       .translateExtent([[0, 0], [width, 0]])
       .extent([[0, 0], [width, 0]])
       .filter((ev: any) => !dragging.current && (ev.type === 'wheel' || ev.type.startsWith('touch') || (ev.type === 'mousedown' && !(ev.target as Element).closest('.cursor, .node'))))
-      .on('zoom', (ev) => setT(ev.transform));
+      .on('zoom', (ev) => { if (ev.sourceEvent) era.current = null; setT(ev.transform); });
     svg.call(z).on('dblclick.zoom', null);
-    (svg.node() as any).__zoom_reset = () => svg.call(z.transform, zoomIdentity);
+    (svg.node() as any).__zoom_reset = () => { era.current = null; svg.call(z.transform, zoomIdentity); };
+    // 跳到某個時代：讓 [a, b] 剛好填滿畫面
+    const zoomTo = (svg.node() as any).__zoom_to = (a: number, b: number) => {
+      era.current = [a, b];
+      const k = Math.min(40, Math.max(1, (width - 50) / (base(b) - base(a))));
+      svg.call(z.transform, zoomIdentity.translate(-base(a) * k, 0).scale(k));
+    };
+    // 寬度或刻度變了：有選時代就重新對準，否則回到全覽，避免畫面跑到別的年代
+    if (era.current) zoomTo(...era.current); else svg.call(z.transform, zoomIdentity);
     return () => { svg.on('.zoom', null); };
-  }, [width]);
+  }, [width, base]);
 
   // 依目前縮放排列：每條軌道內以貪婪法分列，避免重疊
   const showFull = t.k >= 2.5;
   const lanes = useMemo(() => {
-    const lane = (track: 'west' | 'other' | 'china') => cards.filter((c) => (track === 'china' ? c.track === 'china' : c.track !== 'china'));
-    return (['west', 'china'] as const).map((track) => {
-      const items = lane(track).slice().sort((a, b) => a.time.start - b.time.start || b.time.end - a.time.end);
+    // 技術卡、金融卡不分中西，各自獨立一條軌
+    const own = (c: Card) => c.type === 'tech' || c.type === 'finance';
+    const lane = (track: 'west' | 'china' | 'tech' | 'finance') => cards.filter((c) => (track === 'tech' || track === 'finance' ? c.type === track : !own(c) && (track === 'china' ? c.track === 'china' : c.track !== 'china')));
+    return (['west', 'china', 'tech', 'finance'] as const).map((track) => {
+      // 只排目前畫面內的卡：放大到某個時代時，軌道高度只依畫面內的卡數，技術軌與金融軌才不會被擠到下面看不到
+      const items = lane(track).filter((c) => x(Math.max(c.time.end, c.time.start)) >= -200 && x(c.time.start) <= width + 10)
+        .sort((a, b) => a.time.start - b.time.start || b.time.end - a.time.end);
       const rowEnds: number[] = [];
       const placed = items.map((c) => {
         const x0 = x(c.time.start), x1 = Math.max(x(c.time.end), x0 + 6);
@@ -69,17 +85,20 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
       });
       return { track, placed, rows: Math.max(1, rowEnds.length) };
     });
-  }, [cards, t, base, showFull]);
+  }, [cards, t, base, showFull, width]);
 
   // 兩軌等高：以列數較多的一軌為準，中西份量在畫面上相同
   const laneH = Math.max(lanes[0].rows, lanes[1].rows) * ROW_H + LANE_PAD * 2;
   const westH = laneH, chinaH = laneH;
+  const techH = lanes[2].rows * ROW_H + LANE_PAD * 2, finH = lanes[3].rows * ROW_H + LANE_PAD * 2;
+  const laneTop = [0, westH, westH + chinaH, westH + chinaH + techH];
+  const laneHt = [westH, chinaH, techH, finH];
 
   // 對照連線：滑鼠所在（或已選取）的卡 ↔ 另一軌的對照卡
   const focus = hover ?? selectedId;
   const pos = new Map<string, { x: number; y: number }>();
   lanes.forEach((ln, li) => ln.placed.forEach(({ c, x0, x1, row }) =>
-    pos.set(c.id, { x: (x0 + Math.max(x1, x0 + 6)) / 2, y: AXIS_H + ECON_H + (li === 0 ? 0 : westH) + LANE_PAD + row * ROW_H + 2 + (ROW_H - 6) / 2 })));
+    pos.set(c.id, { x: (x0 + Math.max(x1, x0 + 6)) / 2, y: AXIS_H + ECON_H + laneTop[li] + LANE_PAD + row * ROW_H + 2 + (ROW_H - 6) / 2 })));
   const fc = focus ? allCards.find((c) => c.id === focus) : undefined;
   const related = new Set(fc ? [...fc.counterparts.map((x) => x.id), ...fc.counterpart_of] : []);
   // 經濟曲線帶：共用同一條 x 刻度；只畫有來源的點與期間，不連線、不內插
@@ -93,13 +112,13 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
     : scaleLinear().domain([0, Math.max(...eVals, 1) * 1.1]).range([ECON_H - EPAD, EPAD]);
   const entities = [...new Set(eSeries.flatMap((s) => s.points.map((p) => p.entity)))];
   const ecolor = (e: string) => ENTITY_COLORS[entities.indexOf(e) % ENTITY_COLORS.length];
-  const height = AXIS_H + ECON_H + westH + chinaH + 4;
+  const height = AXIS_H + ECON_H + westH + chinaH + techH + finH + 4;
 
   // 刻度：縮放越大越細
   const span = base.invert(t.invertX(width)) - base.invert(t.invertX(0));
   const step = span > 900 ? 100 : span > 400 ? 50 : span > 150 ? 25 : span > 60 ? 10 : 5;
   const ticks: number[] = [];
-  for (let y = Math.ceil(-800 / step) * step; y <= 500; y += step) ticks.push(y === 0 ? 1 : y);
+  for (let y = Math.ceil(MIN_YEAR / step) * step; y <= MAX_YEAR; y += step) ticks.push(y === 0 ? 1 : y);
 
   const startDrag = (e: React.PointerEvent) => {
     dragging.current = true;
@@ -108,12 +127,12 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
   const onMove = (e: React.PointerEvent) => {
     if (!dragging.current) return;
     const r = svgRef.current!.getBoundingClientRect();
-    setYear(Math.max(-800, Math.min(500, yearAt(e.clientX - r.left))));
+    setYear(Math.max(MIN_YEAR, Math.min(MAX_YEAR, yearAt(e.clientX - r.left))));
   };
   const endDrag = () => { dragging.current = false; };
   const clickAxis = (e: React.MouseEvent) => {
     const r = svgRef.current!.getBoundingClientRect();
-    setYear(Math.max(-800, Math.min(500, yearAt(e.clientX - r.left))));
+    setYear(Math.max(MIN_YEAR, Math.min(MAX_YEAR, yearAt(e.clientX - r.left))));
   };
 
   const cx = x(year);
@@ -122,7 +141,8 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
       <div className="tl-head">
         <span>時間軸（滾輪縮放、拖曳平移；拖動紅線或點刻度列改變年代）</span>
         <span className="tl-year">目前：{fmtYear(year)} 年</span>
-        <button className="btn sm" onClick={() => (svgRef.current as any)?.__zoom_reset?.()}>重設縮放</button>
+        <button className="btn sm" onClick={() => (svgRef.current as any)?.__zoom_reset?.()}>全部</button>
+        {ERAS.map(([l, a, b]) => <button key={l} className="btn sm" title={`${fmtYear(a)}–${fmtYear(b)} 年`} onClick={() => { (svgRef.current as any)?.__zoom_to?.(a, b); if (year < a || year > b) setYear(a); }}>{l}</button>)}
         {econ && <span className="econ-toggle">經濟曲線：
           {[{ id: null, name: '關' }, ...econ.metrics].map((x) => (
             <button key={x.id ?? 'off'} className={`chip ${metric === x.id ? 'on' : ''}`} onClick={() => setMetric(x.id)}>{x.name}</button>))}
@@ -144,8 +164,8 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
           }); })()}
         </g>
         {lanes.map((ln, li) => {
-          const top = AXIS_H + ECON_H + (li === 0 ? 0 : westH);
-          const h = li === 0 ? westH : chinaH;
+          const top = AXIS_H + ECON_H + laneTop[li];
+          const h = laneHt[li];
           return (
             <g key={ln.track} transform={`translate(0,${top})`}>
               <rect x={0} y={0} width={width} height={h} className={`lane lane-${ln.track}`} />
@@ -163,7 +183,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
                   </g>
                 );
               })}
-              <text x={4} y={12} className="lane-label">{ln.track === 'china' ? '中國' : '希臘羅馬'}</text>
+              <text x={4} y={12} className="lane-label">{{ china: '中國', west: '西方', tech: '技術（發明→普及）', finance: '金融' }[ln.track]}</text>
             </g>
           );
         })}

@@ -221,3 +221,21 @@ a { color: var(--accent); }
 .today-refs { border-left: 3px solid #553c9a; padding-left: 10px; }
 .result.today .r-type { color: #553c9a; }
 .mrow.today { background: #faf5ff; }
+
+/* 第 5 期：文明分層篩選 */
+.civ-tree .civ-body { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; max-height: 46vh; overflow: auto; }
+.civ-hint { margin: 0 0 2px; font-size: 12px; }
+.civ-region { display: flex; align-items: flex-start; gap: 6px; border-top: 1px dashed var(--line); padding-top: 3px; }
+.civ-region:first-of-type { border-top: 0; }
+.civ-civs { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0 6px; flex: 1; }
+.civ-civ { display: inline-flex; flex-wrap: wrap; align-items: center; }
+.civ-civ.open { flex-basis: 100%; background: #f6f7f9; border-radius: 8px; padding: 1px 4px; }
+.civ-row { display: inline-flex; align-items: center; }
+.civ-periods { display: inline-flex; flex-wrap: wrap; padding-left: 4px; border-left: 2px solid var(--line); margin-left: 2px; }
+.chip small { margin-left: 4px; opacity: 0.6; font-size: 10.5px; }
+.chip.region { font-weight: 600; min-width: 5.5em; text-align: left; }
+.chip.period { font-size: 12px; padding: 1px 7px; }
+.civ-exp { border: 0; background: none; cursor: pointer; color: var(--muted); padding: 0 4px; font-size: 13px; }
+.mobile .civ-region { flex-direction: column; }
+.lane-tech { fill: #f4f0fb; }
+.lane-finance { fill: #eef8f6; }

@@ -31,6 +31,7 @@ sources:
   - { id: s5, title: "Andre Gunder Frank, review of Richard von Glahn, Fountain of Fortune（1996），為 Journal of World History 撰寫", url: "https://rrojasdatabank.info/agfrank/von_glahn_review.html", accessed: 2026-10-25, tier: 學術 }
   - { id: s6, title: "范金民（南京大學歷史系），〈販番販到死方休──明代後期（1567–1644 年）的通番案〉演講稿（中研院網站）", url: "https://idv.sinica.edu.tw/wujs/speech/speech-FanCM960602.pdf", accessed: 2026-10-25, tier: 學術 }
   - { id: s7, title: "丸橋充拓，〈中華帝国の財政と東アジアの銀流通〉— 島根大學學術機構典藏", url: "https://ir.lib.shimane-u.ac.jp/38021/files/8970", accessed: 2026-10-25, tier: 學術 }
+  - { id: s9, title: "黃啟臣、鄧開頌，The Development of Macau's Foreign Trade in the Ming Dynasty — 澳門文化局《文化雜誌》，1988", url: "https://www.icm.gov.mo/rc/viewer/20006/840", accessed: 2026-10-25, tier: 學術 }
   - { id: s8, title: "Why historians call Manila the world's first global city — seasia.co，2026-06-28（介紹 Flynn 與 Giráldez 1995 年論文）", url: "https://seasia.co/2026/06/28/why-historians-call-manila-the-worlds-first-global-city", accessed: 2026-10-25, tier: 摘要 }
 importance: 3
 learn:
@@ -43,7 +44,7 @@ learn:
     - { term: 金銀比價, plain: 一兩黃金可以換多少兩白銀；比價不同，商人就能搬運套利。, example: 同一張卡在 A 店賣 100 元、B 店收 200 元，有人就會從 A 買來賣給 B。 }
     - { term: 米塔制（mita）, plain: 西班牙殖民者強迫安地斯原住民輪流到礦坑工作的制度。, example: 每個村子每年都要派一定人數去做很危險的工作，不能拒絕。 }
   primary_source:
-    - { text: "所貿金錢，歲無慮數十萬，公私並賴", from: 周起元〈東西洋考序〉（張燮《東西洋考》，1618），談隆慶開海後的海外貿易（轉引自范金民演講稿）, src: s6 }
+    - { text: "所貿金錢，歲無慮數十萬，公私並賴", from: 周起元〈東西洋考序〉（張燮《東西洋考》，1617 年成書），談隆慶開海後的海外貿易（轉引自范金民演講稿）, src: s6 }
   historiography: |
     **白銀是中國「吸」過去的，還是世界「推」過去的？** 經濟史學者弗林與吉拉德茲認為，中國對白銀的需求是推動全球白銀貿易的主力；貢德．弗蘭克（Andre Gunder Frank）也強調中國在世界經濟中的中心地位。[s5][s8] 丸橋充拓則從明朝財政看，認為北方邊防軍需改用白銀，才是把白銀拉進中國的關鍵。[s7]
     **白銀不夠，讓明朝滅亡了嗎？** 有一種說法認為 1630–40 年代日本與美洲白銀減少，造成通貨緊縮，加速明朝在 1644 年滅亡。[s1] 但萬志英（von Glahn）認為 1640 年前後流入中國的白銀並沒有明顯減少，存量下降最多約 4%，不足以造成危機；弗蘭克則不同意，認為下降很突然、和明亡有關。[s5]
@@ -77,9 +78,9 @@ lens_status: 無直接論述
 
 ## B5 規模與數量
 
-- 葡萄牙人每年從日本運約 20 公噸白銀到中國（估計）。[s1]
-- 17 世紀大部分時間，每年約 150 公噸白銀從美洲流入亞洲（估計）。[s2]
-- 中國吸收了墨西哥與玻利維亞產銀的約一半（估計）。[s1]
+- 葡萄牙人每年經澳門運入中國的日本白銀約 10–20 公噸（各家估計不同：一說約 20 公噸；另一研究算出 1585–1630 年平均每年 33 萬多兩，約 12 公噸）。[s1][s9]
+- 17 世紀大部分時間，每年約 150 公噸美洲白銀經歐洲轉運到亞洲（估計，一種說法）。[s2]
+- 中國吸收了墨西哥與玻利維亞產銀的約一半（一種估計）。[s1]
 - 16 世紀後期流入中國的國外白銀約每年 30–40 萬兩（另一種估計）。[s7]
 （各家估計單位與範圍不同，差距很大。）
 

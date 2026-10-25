@@ -16,7 +16,7 @@ place:
   secondary_fields: [商路]
   locations:
     - { name_ancient: 石見銀山（大森）, name_modern: 島根縣大田市大森町（日本）, lat: 35.1080, lng: 132.4430, precision: schematic, role: 銀礦與冶煉區（示意）, src: [s1, s2] }
-    - { name_ancient: 溫泉津港, name_modern: 島根縣大田市溫泉津町（日本）, lat: 35.0930, lng: 132.3480, precision: schematic, role: 運出白銀的港口之一（示意）, src: [s2] }
+    - { name_ancient: 溫泉津港, name_modern: 島根縣大田市溫泉津町（日本）, lat: 35.0930, lng: 132.3480, precision: schematic, role: 運出白銀的港口之一（示意）, src: [s4] }
   scale: area
 structure_tags: [意外財源, 技術擴散, 關鍵原料壟斷, 商路改道]
 links: [commodity-silver-flow, commodity-manila-galleon, finance-ming-baochao, commodity-laurion-silver]
@@ -30,24 +30,27 @@ sources:
   - { id: s5, title: "丸橋充拓，〈中華帝国の財政と東アジアの銀流通〉（研究編，頁 7–17）— 島根大學學術機構典藏", url: "https://ir.lib.shimane-u.ac.jp/38021/files/8970", accessed: 2026-10-25, tier: 學術 }
   - { id: s6, title: "Iaponiae Insulae Descriptio（奧特里烏斯地圖集，1595）館藏說明 — 立命館大學 ARC", url: "https://www.arc.ritsumei.ac.jp/lib/vm/SISJAC/2018/09/51-iaponiae-insvlae-descriptio.html", accessed: 2026-10-25, tier: 一手 }
   - { id: s7, title: "Mark Cartwright, Ming Taxation & the Silver Economy — World History Encyclopedia", url: "https://www.worldhistory.org/article/3004/ming-taxation--the-silver-economy/", accessed: 2026-10-25, tier: 通論 }
+  - { id: s8, title: "Ota Atsushi, The Dutch East India Company and the Rise of Intra-Asian Commerce — nippon.com，2013-09-18", url: "https://www.nippon.com/en/features/c00105/the-dutch-east-india-company-and-the-rise-of-intra-asian-commerce.html", accessed: 2026-10-25, tier: 學術 }
+  - { id: s9, title: "Osher Map Library, An Early European Imagining of Japan（泰謝拉 1595 年日本地圖解說）", url: "https://oshermaps.org/exhibitions/map-commentaries/early-european-imagining-japan", accessed: 2026-10-25, tier: 通論 }
+  - { id: s10, title: "內閣府，〈第3章 第5節 ケーススタディ2：石見銀山〉（地域の経済 2007）", url: "https://www5.cao.go.jp/j-j/cr/cr07/chr07_3-5-4.html", accessed: 2026-10-25, tier: 通論 }
 importance: 2
 learn:
   histories: [日本史, 錢的歷史, 中國史]
   why_care: 16 世紀日本一座山裡挖出的白銀，一路流到明朝中國，還讓歐洲人的地圖上第一次標出了「銀礦山」。
   story: |
-    1527 年，博多商人神屋壽禎發現（開發）了石見銀山。[s2][s3] 1533 年，從朝鮮半島傳來的「灰吹法」提煉技術讓產量大增。[s2][s3] 這時明朝正需要大量白銀，石見銀在 16 世紀中葉大量流進中國，主要由葡萄牙人用中國絲綢交換再轉運。[s3][s5] 日本觀光廳的資料估計，16 世紀後期全世界交易的白銀至少一成來自石見。[s3] 1595 年歐洲出版的日本地圖，在「Hivami」（石見）旁標出了銀礦山。[s6] 江戶時代石見歸幕府直轄，1923 年停止開採，2007 年列入世界遺產。[s2][s4]
+    1526 或 1527 年（說法不一），博多商人神屋壽禎發現（開發）了石見銀山。[s1][s2][s3][s10] 1533 年，從朝鮮半島傳來的「灰吹法」提煉技術讓產量大增。[s2][s3] 這時明朝正需要大量白銀，石見銀在 16 世紀中葉大量流進中國：明朝禁止和日本貿易，起初多由中國走私海商（倭寇）偷運；1557 年葡萄牙人在澳門落腳後，也用中國絲綢到長崎換取日本白銀。[s3][s5][s8] 日本觀光廳的資料估計，16 世紀後期全世界交易的白銀至少一成來自石見。[s3] 1595 年歐洲出版的日本地圖，在「Hivami」（石見）旁標出了銀礦山。[s6][s9] 江戶時代石見歸幕府直轄，1923 年停止開採，2007 年列入世界遺產。[s2][s4]
   key_terms:
     - { term: 灰吹法, plain: 一種把銀從礦石裡分離出來的冶煉方法，先把銀和鉛熔在一起，再把鉛吸掉、留下純銀。, example: 像用濾紙把咖啡渣和咖啡分開。 }
     - { term: 直轄, plain: 由中央政府直接管理，不交給地方領主。, example: 學校重要的設備由校長室直接管，不交給各班。 }
     - { term: 世界遺產, plain: 聯合國教科文組織認定對全人類有重要價值、需要保護的地方。, example: 中國的長城、日本的富士山都是。 }
   primary_source:
-    - { text: "Argenti fodinae（銀礦山，標在 Hivami＝石見 旁）", from: 1595 年奧特里烏斯地圖集收錄的日本地圖〈Iaponiae Insulae Descriptio〉上的拉丁文標註（拼法各館說明略有不同）, src: s6 }
+    - { text: "Argenti fodinae（銀礦山，標在 Hivami＝石見 旁）", from: 葡萄牙製圖師泰謝拉（Luís Teixeira）繪製、1595 年收入奧特里烏斯地圖集的日本地圖〈Iaponiae Insulae Descriptio〉上的拉丁文標註（此處依拉丁文正寫；各館轉寫作 fodiane、fordiae）, src: s6 }
   historiography: |
-    **石見銀到底占世界多少？** 數字說法不一：維基百科寫 17 世紀初日本每年產銀約 200 噸、約占世界三分之一，石見每年約 38 噸；日本觀光廳則較保守，說 16 世紀後期世界交易的白銀「至少一成」來自石見。[s1][s3] 前者講的是全日本、後者講的是石見一地，不能混為一談。
+    **石見銀到底占世界多少？** 數字說法不一：日本全國產銀約占世界三分之一（內閣府、維基百科），維基百科估計 17 世紀初日本每年產銀約 200 噸，石見每年約 38 噸；日本觀光廳則較保守，說 16 世紀後期世界交易的白銀「至少一成」來自石見。[s1][s3][s10] 前者講的是全日本、後者講的是石見一地，不能混為一談。
     **是誰把白銀「吸」進中國？** 常見說法是中國對白銀的巨大需求把全世界的銀吸了過去。[s7] 日本學者丸橋充拓則認為關鍵在明朝北方邊防：15 世紀末起邊境軍需改用白銀支付，「從鈔到銀」的轉換，讓北方邊境的動向和國外白銀流動直接連在一起。[s5]
   misconceptions:
     - 石見銀山不是日本人自己發明的冶煉技術：灰吹法是從朝鮮半島傳入的，源頭可追溯到中國。[s3][s4]
-    - 石見銀不是由日本人直接賣到中國為主：16 世紀主要是葡萄牙商人經手，用中國絲綢換取。[s3]
+    - 石見銀主要不是日本人直接運到中國：16 世紀中葉多由中國走私海商（倭寇）運入，葡萄牙人在澳門落腳後也大量經手，用中國絲綢交換。[s3][s8]
   perspectives:
     - { history: 日本史, text: 從日本看，銀山是戰國大名爭奪的財源，後來成為德川幕府的重要收入。 }
     - { history: 中國史, text: 從中國看，日本白銀是明朝白銀經濟的重要來源之一。 }
@@ -70,11 +73,11 @@ lens_status: 無直接論述
 
 ## B4 運輸路線與咽喉
 
-白銀經港口運出，16 世紀主要由葡萄牙人經手，用中國絲綢交換，部分賣到明朝，其餘在葡萄牙的海上貿易網中流通。[s3]
+白銀經港口運出；明朝禁止對日貿易，起初多由中國走私海商（倭寇）運進中國東南沿海，1557 年後葡萄牙人也經澳門—長崎航線用中國絲綢交換。[s3][s8]
 
 ## B5 規模與數量
 
-- 17 世紀初石見每年產銀約 38 噸，日本全國約 200 噸（估計）。[s1]
+- 17 世紀初石見每年產銀約 38 噸（估計）；日本全國約 200 噸（估計，只見於維基百科）。[s1]
 - 16 世紀後期全世界交易的白銀至少約一成來自石見（估計）。[s3]
 - 16 世紀後期流入中國的國外白銀估計每年約 30–40 萬兩（估計）。[s5]
 

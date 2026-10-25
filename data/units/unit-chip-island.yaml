@@ -56,7 +56,7 @@ steps:
       - 「最不壞」和「最好」有什麼不同？
       - 回去看卡片「代工是遠見，還是不得不？」那一段。
       - 這是事情發生二十年後的訪談，會不會影響說法？
-    ref: event-hsinchu-park-tsmc#C2
+    ref: event-hsinchu-park-tsmc#C4
   - type: compare
     cards: [event-kaohsiung-epz, event-hsinchu-park-tsmc]
     prompt: 比一比加工出口區和科學園區。
@@ -114,3 +114,4 @@ steps:
   - type: recap
     model_answer: 一步一步來的。1960 年代加工區讓外國電子公司來臺組裝，臺灣累積了工廠經驗；1970 年代十大建設補上交通和重工業；1974 年起政府決定發展積體電路，向美國 RCA 學技術、培養工程師；1980 年竹科開幕；1987 年台積電選擇只做代工。學者對「是不是政府計畫成功」看法不一：有人強調國家主導，也有人強調跨國人才和整個產業聚落。而且這條路上也有人付出代價，例如加工區的女工和後來失業的工人。
 next: [unit-taiwan-currency-1949, unit-bubbles]
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "複查通過；選擇性建議已採用" }

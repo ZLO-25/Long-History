@@ -21,7 +21,7 @@ steps:
     prompt: 先看明朝的紙鈔怎麼失敗。注意：寶鈔能不能拿去換回金銀？
   - type: sim
     sim: debase
-    prompt: 動手試試看：一直加印、又不能兌換的錢，會發生什麼事？
+    prompt: 動手試試看：這個模擬用的是銀幣，但道理相通：政府用「不值那麼多」的錢付帳，付得越多，物價會怎樣？想一想，寶鈔的情況哪裡和模擬一樣、哪裡不一樣？
   - type: chain
     prompt: 把下列事件依照「因 → 果」排成一條鏈（最上面是最早的原因）。
     items:
@@ -35,7 +35,7 @@ steps:
       - 最早的原因是一種「紙做的錢」。
       - 先有人改用白銀，白銀才會變得搶手。
       - 銀子為什麼要千里迢迢運到中國？因為在那裡最值錢。
-    ref: commodity-silver-flow#B6
+    ref: finance-ming-baochao#F5
   - type: card
     id: commodity-iwami-silver
     depth: story
@@ -63,7 +63,7 @@ steps:
       - 「歲」是每年，「公私」是官府和民間。
       - 這段話寫在明朝開放民間出海之後還是之前？
       - 作者在替什麼樣的書寫序？
-    ref: commodity-silver-flow#B6
+    ref: commodity-silver-flow#B7
   - type: compare
     cards: [commodity-iwami-silver, commodity-manila-galleon]
     prompt: 比一比兩條白銀路線。
@@ -117,3 +117,4 @@ steps:
   - type: recap
     model_answer: 因為明朝自己的紙鈔失敗了。寶鈔不能兌換、又越印越多，民間改用白銀，朝廷也跟著收白銀；中國對白銀的需求極大、自己又產得不多，白銀在中國最值錢，於是日本石見和美洲（墨西哥、波托西）的白銀，經走私海商、葡萄牙商船和西班牙大帆船源源不絕地流進中國。學者還在爭論：這是中國把白銀「吸」過去，還是世界把白銀「推」過來；全球化是不是從這時候開始。
 next: [unit-imjin-war, unit-bubbles]
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "複查通過；選擇性建議已採用" }

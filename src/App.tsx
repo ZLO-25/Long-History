@@ -40,9 +40,19 @@ export default function App() {
 }
 
 // 第 6 期：研究模式／學習模式。網址 ?mode=learn 進入學習模式；研究模式的網址參數完全不變
+// 第一次來（網址沒帶任何參數、也沒記住過模式）的人，預設進學習模式；之後記住上次用的模式。
+// 研究模式的網址參數（?card= ?year= ?chain= …）一律維持研究模式，舊連結不受影響。
+const MODE_KEY = 'history-river-mode';
+function initialMode(): 'learn' | 'research' {
+  const q = new URLSearchParams(location.search);
+  if (q.get('mode') === 'learn') return 'learn';
+  if (q.get('mode') === 'research' || [...q.keys()].length) return 'research';
+  try { return window.localStorage.getItem(MODE_KEY) === 'research' ? 'research' : 'learn'; } catch { return 'learn'; }
+}
 function ModeSwitch({ index }: { index: Index }) {
-  const [mode, setMode] = useState(() => new URLSearchParams(location.search).get('mode') === 'learn' ? 'learn' : 'research');
-  const go = (m: 'learn' | 'research') => { history.replaceState(null, '', m === 'learn' ? `${location.pathname}?mode=learn` : location.pathname); setMode(m); };
+  const [mode, setMode] = useState<'learn' | 'research'>(initialMode);
+  useEffect(() => { try { window.localStorage.setItem(MODE_KEY, mode); } catch { /* 無痕模式不記 */ } }, [mode]);
+  const go = (m: 'learn' | 'research') => { history.replaceState(null, '', m === 'learn' ? `${location.pathname}?mode=learn` : `${location.pathname}?mode=research`); setMode(m); };
   return mode === 'learn' ? <LearnApp index={index} onResearch={() => go('research')} /> : <Main index={index} onLearn={() => go('learn')} />;
 }
 
@@ -146,7 +156,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
       <header className="top">
         <button className="brand" onClick={() => { home(); setQuery(''); }} title="回到首頁">歷史長河</button>
         <input className="search" type="search" value={query} onChange={(e) => onQuery(e.target.value)}
-          placeholder="搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）" aria-label="搜尋" />
+          placeholder={isMobile ? '搜尋卡片（可打錯字、簡體、英文）' : '搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）'} aria-label="搜尋" />
         {!isMobile && <button className={`btn ${panel.kind === 'match' ? 'on' : ''}`} onClick={() => open({ kind: 'match' })}>結構對照</button>}
         <button className="btn learn-btn" onClick={onLearn} title="給國高中生的自主學習模式">學習模式</button>
         <a className="btn credits" href={`${import.meta.env.BASE_URL}credits.html`} target="_blank" rel="noopener" title="資料來源與授權">出處</a>

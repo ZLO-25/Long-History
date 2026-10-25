@@ -11,8 +11,18 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen }
   index: Index; p: Progress; onHistory: (id: string) => void; onUnit: (id: string) => void; onRandom: () => void; onIntroSeen: () => void;
 }) {
   const cards = learnCards(index);
+  // 上次做到一半的單元：放在最上面，一鍵接著做
+  const resume = index.units.map((u) => [u, p.units[u.id]] as const).filter(([, x]) => x && !x.done && x.step > 0).sort((a, b) => (b[1]!.step) - (a[1]!.step))[0];
+  const doneN = index.units.filter((u) => p.units[u.id]?.done).length;
   return (
     <div className="lhome">
+      {resume && (
+        <section className="resume">
+          <div><small>上次做到一半</small><b>❓ {resume[0].mystery}</b><span className="muted">{resume[0].title}・第 {resume[1]!.step + 1}／{resume[0].steps.length} 步</span></div>
+          <button className="btn primary" onClick={() => onUnit(resume[0].id)}>接著做 →</button>
+        </section>
+      )}
+      {doneN > 0 && !resume && <p className="muted small">你已完成 {doneN}／{index.units.length} 個單元。</p>}
       {!p.seenIntro && (
         <section className="intro">
           <h2>歡迎來到「歷史長河」自主學習模式</h2>

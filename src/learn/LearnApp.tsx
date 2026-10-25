@@ -64,6 +64,18 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const [year, setYear] = useState(() => (view.kind === 'card' ? byId(view.id)?.time.start : undefined) ?? 1);
   useEffect(() => { if (selected) setYear(selected.time.start); }, [selected?.id]);
   const fs = p.fontScale ?? 1;
+  // 桌機的時間軸可以收起來，讀單元時留更多空間給文字；記在瀏覽器
+  const tlOpen = p.timelineOpen ?? true;
+  const toggleTl = () => update((o) => ({ ...o, timelineOpen: !(o.timelineOpen ?? true) }));
+  // 字級：手機上用一顆按鈕循環（標準 → 大 → 特大 → 標準）
+  const cycleFs = () => update((o) => { const cur = o.fontScale ?? 1; return { ...o, fontScale: cur >= 1.35 ? 1 : cur >= 1.15 ? 1.4 : 1.2 }; });
+  const fsLabel = fs >= 1.35 ? '特大' : fs >= 1.15 ? '大' : '標準';
+
+  // 分頁標題跟著目前在看的東西走，瀏覽器歷史與書籤才看得出是哪一課
+  useEffect(() => {
+    const t = view.kind === 'unit' ? unit?.title : view.kind === 'card' ? byId(view.id)?.name : view.kind === 'history' ? h?.name : view.kind === 'mymap' ? '我的歷史地圖' : null;
+    document.title = t ? `${t}｜歷史長河` : '歷史長河：國高中生的歷史學習';
+  }, [view, unit, h]);
 
   // 狀態寫回網址，方便分享與重新整理
   useEffect(() => {
@@ -130,12 +142,17 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="想知道什麼？例：羅馬為什麼滅亡" aria-label="搜尋學習內容" />
         {!query && !isMobile && index.units.length > 0 && <div className="suggest">試試：{index.units.slice(0, 3).map((u) => <button key={u.id} className="link" onClick={() => openUnit(u.id)}>{u.mystery}</button>)}</div>}
       </div>
-      <button className="btn sm" onClick={random} title="隨機一個謎題">🎲</button>
-      <button className="btn sm" onClick={() => push({ kind: 'mymap' })} title="我的歷史地圖">🗺 我的地圖</button>
-      <div className="fs" role="group" aria-label="字級">
-        <button className="btn sm" onClick={() => update((o) => ({ ...o, fontScale: Math.max(0.85, (o.fontScale ?? 1) - 0.1) }))} aria-label="字變小">A−</button>
-        <button className="btn sm" onClick={() => update((o) => ({ ...o, fontScale: Math.min(1.5, (o.fontScale ?? 1) + 0.1) }))} aria-label="字變大">A＋</button>
-      </div>
+      <button className="btn sm" onClick={random} title="隨機一個謎題" aria-label="隨機一個謎題">🎲</button>
+      <button className="btn sm" onClick={() => push({ kind: 'mymap' })} title="我的歷史地圖">🗺{!isMobile && ' 我的地圖'}</button>
+      {isMobile ? (
+        <button className="btn sm" onClick={cycleFs} title="切換字級" aria-label={`字級：${fsLabel}，按一下切換`}>Aa {fsLabel}</button>
+      ) : (
+        <div className="fs" role="group" aria-label="字級">
+          <button className="btn sm" onClick={() => update((o) => ({ ...o, fontScale: Math.max(0.85, (o.fontScale ?? 1) - 0.1) }))} aria-label="字變小">A−</button>
+          <button className="btn sm" onClick={() => update((o) => ({ ...o, fontScale: Math.min(1.5, (o.fontScale ?? 1) + 0.1) }))} aria-label="字變大">A＋</button>
+        </div>
+      )}
+      <button className="btn sm" onClick={() => { update((o) => ({ ...o, seenIntro: false })); setStack([{ kind: 'home' }]); setQuery(''); }} title="怎麼使用這個網站" aria-label="使用說明">？</button>
     </header>
   );
 
@@ -155,12 +172,15 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     </div>
   );
   return (
-    <div className="learn desktop" style={{ ['--fs' as any]: fs }}>
+    <div className={`learn desktop ${tlOpen ? '' : 'tl-closed'}`} style={{ ['--fs' as any]: fs }}>
       {header}
       <main className="ld-main">
         <section className="lcontent">{stack.length > 1 && <button className="back" onClick={back}>← 返回</button>}{content}</section>
         <div className="ld-map">{map}</div>
-        <div className="ld-tl">{timeline}</div>
+        <div className="ld-tl">
+          <button className="tl-toggle" onClick={toggleTl} aria-expanded={tlOpen}>{tlOpen ? '▾ 收起時間軸' : '▸ 展開時間軸'}</button>
+          {tlOpen && timeline}
+        </div>
       </main>
     </div>
   );

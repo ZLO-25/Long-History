@@ -1,5 +1,5 @@
 // 單元播放器：謎題 → 一步一步（進度條）→ 自我檢查 → 回顧 → 接下來可以挖
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Index, Step, Unit } from '../types';
 import { LearnCard, type Depth } from './LearnCard';
 import { LearnText } from './LearnText';
@@ -29,6 +29,27 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
   useEffect(() => { onFocus?.(focusId ?? null); }, [focusId]);
   const ref = (r?: string) => <RefLink refStr={r} index={index} onCard={onCard} />;
   const save = (k: string, v: unknown) => setProg({ answers: { ...(prog?.answers ?? {}), [k]: v } });
+  // 自我檢查的小計：每題答對／答錯／簡答（不評分）
+  const [checkRes, setCheckRes] = useState<Record<number, boolean | null>>({});
+  useEffect(() => setCheckRes({}), [step]);
+  // 鍵盤 ← → 換步（打字中不觸發）
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      if (e.altKey || e.ctrlKey || e.metaKey || tag === 'INPUT' || tag === 'TEXTAREA' || step < 0) return;
+      if (e.key === 'ArrowRight' && step < u.steps.length - 1) go(step + 1);
+      if (e.key === 'ArrowLeft' && step > 0) go(step - 1);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [step, u.steps.length]);
+  // 複製這一課的連結（老師派作業、同學互傳）
+  const [copied, setCopied] = useState(false);
+  const copyLink = async () => {
+    const url = `${location.origin}${location.pathname}?mode=learn&unit=${u.id}`;
+    try { await navigator.clipboard.writeText(url); setCopied(true); setTimeout(() => setCopied(false), 1500); }
+    catch { window.prompt('複製這個連結：', url); }
+  };
 
   const body = (() => {
     if (!s) return (
@@ -38,6 +59,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
         <h3>學完你會</h3>
         <ul>{u.goals.map((g) => <li key={g}>{g}</li>)}</ul>
         <p className="muted">預估 {u.minutes} 分鐘・{u.steps.length} 步・可以隨時離開，進度會記在這台瀏覽器</p>
+        <ol className="step-outline" aria-label="這一課的步驟">{u.steps.map((x, i) => <li key={i} className={prog?.step != null && i < prog.step ? 'done' : ''}>{STEP_LABEL[x.type]}</li>)}</ol>
         <button className="btn primary big" onClick={() => go(0)}>{prog?.step != null && prog.step > 0 ? `從第 ${prog.step + 1} 步繼續` : '開始'}</button>
       </div>
     );
@@ -80,7 +102,14 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
         </>;
       }
       case 'sim': return <>{s.prompt && <p className="prompt">{s.prompt}</p>}<SimView id={s.sim} index={index} onCard={onCard} /></>;
-      case 'check': return <div className="checks-list">{s.items.map((q, i) => <CheckQ key={`${step}-${i}`} q={q} i={i} seed={`${u.id}-${step}`} index={index} onCard={onCard} />)}</div>;
+      case 'check': {
+        const graded = s.items.map((_, i) => checkRes[i]).filter((v) => typeof v === 'boolean');
+        const right = graded.filter(Boolean).length, nGrade = s.items.filter((q) => q.kind !== 'short').length;
+        return <>
+          <p className="check-tally" aria-live="polite">{graded.length ? <>選擇與排序題：答對 <b>{right}</b>／{nGrade}（已作答 {graded.length}）{graded.length === nGrade && (right === nGrade ? '・全對，太強了 🎉' : '・答錯的題目下面有「回到卡片看」，看完再試一次')}</> : `共 ${s.items.length} 題，答完每一題都會馬上有解析。`}</p>
+          <div className="checks-list">{s.items.map((q, i) => <CheckQ key={`${step}-${i}`} q={q} i={i} seed={`${u.id}-${step}`} index={index} onCard={onCard} onResult={(ok) => setCheckRes((r) => (r[i] === ok ? r : { ...r, [i]: ok }))} />)}</div>
+        </>;
+      }
       case 'recap': return (
         <div className="recap">
           <p className="mystery-big">❓ {u.mystery}</p>
@@ -102,16 +131,17 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
   return (
     <div className="unit" ref={top}>
       <div className="unit-head">
-        <h2>{u.title}</h2>
+        <div className="unit-title-row"><h2>{u.title}</h2><button className="btn sm" onClick={copyLink} title="複製這一課的連結，可以傳給同學或老師">{copied ? '✓ 已複製' : '🔗 複製連結'}</button></div>
         {step >= 0 && <div className="progress" aria-label={`第 ${step + 1} 步，共 ${u.steps.length} 步`}>
           {u.steps.map((x, i) => <button key={i} className={`pdot ${i < step ? 'done' : ''} ${i === step ? 'on' : ''}`} title={`${i + 1}. ${STEP_LABEL[x.type]}`} onClick={() => go(i)} />)}
         </div>}
-        {s && <p className="step-label">第 {step + 1}／{u.steps.length} 步・{STEP_LABEL[s.type]}</p>}
+        {s && <p className="step-label">第 {step + 1}／{u.steps.length} 步・{STEP_LABEL[s.type]}{step < u.steps.length - 1 && <span className="muted">・下一步：{STEP_LABEL[u.steps[step + 1].type]}</span>}</p>}
       </div>
       {body}
       {s && <div className="step-nav">
         <button className="btn" onClick={() => go(step - 1)}>← 上一步</button>
-        {step < u.steps.length - 1 && <button className="btn primary" onClick={() => go(step + 1)}>下一步 →</button>}
+        {step < u.steps.length - 1 ? <button className="btn primary" onClick={() => go(step + 1)}>下一步：{STEP_LABEL[u.steps[step + 1].type]} →</button>
+          : <span className="muted small">最後一步了，記得按「完成這個單元」</span>}
       </div>}
     </div>
   );

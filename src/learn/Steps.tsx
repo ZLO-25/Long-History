@@ -117,12 +117,13 @@ export function Short({ q, model, hints, after, saved, onSave, label = '看參�
   );
 }
 
-export function CheckQ({ q, i, seed, index, onCard }: { q: CheckItem; i: number; seed: string; index: Index; onCard: (id: string, s?: string) => void }) {
+// onResult：回報這一題答對與否（簡答題不評分，回報 null），讓自我檢查那一步可以統計
+export function CheckQ({ q, i, seed, index, onCard, onResult }: { q: CheckItem; i: number; seed: string; index: Index; onCard: (id: string, s?: string) => void; onResult?: (ok: boolean | null) => void }) {
   const after = <RefLink refStr={q.ref} index={index} onCard={onCard} />;
   const head = <><span className="qnum">第 {i + 1} 題</span> {q.q}</>;
-  if (q.kind === 'choice') return <Choice q={head} options={q.options!} answer={q.answer!} explain={q.explain} hints={q.hints} after={after} />;
-  if (q.kind === 'order') return <Order prompt={head} items={q.items!} explain={q.explain} hints={q.hints} seed={`${seed}-${i}`} after={after} />;
-  return <Short q={head} model={`${q.model}（${q.explain}）`} hints={q.hints} after={after} />;
+  if (q.kind === 'choice') return <Choice q={head} options={q.options!} answer={q.answer!} explain={q.explain} hints={q.hints} after={after} onDone={(v) => onResult?.(v === q.answer)} />;
+  if (q.kind === 'order') return <Order prompt={head} items={q.items!} explain={q.explain} hints={q.hints} seed={`${seed}-${i}`} after={after} onDone={(ok) => onResult?.(ok)} />;
+  return <Short q={head} model={`${q.model}（${q.explain}）`} hints={q.hints} after={after} onSave={() => onResult?.(null)} />;
 }
 
 export function CompareTable({ a, b, rows }: { a: Card; b: Card; rows: { aspect: string; a: string; b: string }[] }) {

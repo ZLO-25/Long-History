@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
 export interface UnitProgress { step: number; done: boolean; recap?: string; answers?: Record<string, unknown>; doneAt?: string }
-export interface Progress { units: Record<string, UnitProgress>; cards: Record<string, true>; history?: string; fontScale?: number; seenIntro?: boolean }
+export interface Progress { units: Record<string, UnitProgress>; cards: Record<string, true>; history?: string; fontScale?: number; seenIntro?: boolean; timelineOpen?: boolean }
 
 const KEY = 'history-river-learn-v1';
 const empty = (): Progress => ({ units: {}, cards: {} });

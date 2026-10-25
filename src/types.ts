@@ -29,6 +29,10 @@ export interface Card {
 export interface Route {
   id: string; name: string; kind: 'road' | 'sea' | 'wall'; start: number; end: number;
   precision: string; note?: string; coords: [number, number][]; sources: Source[];
+  method: 'awmc-road' | 'awmc-wall' | 'sea';
+  segments: { kind: 'known' | 'approx' | 'gap'; coords: [number, number][] }[];
+  stations: { name: string; lat: number; lng: number }[];
+  stats: { km: number; known_pct?: number; approx_pct?: number; gap_km?: number; max_snap_km?: number };
 }
 export interface Framework {
   id: string; name: string; trigger_tags: string[]; summary: string;

@@ -16,17 +16,14 @@ const frameworks: any[] = readYaml('data/frameworks.yaml')?.frameworks ?? [];
 const raw = loadCards();
 const issues = checkCards(raw, loadContext(tagCats, routesRaw, frameworks));
 
-// ---- 路線：用 Pleiades 點位串成線（示意）----
+// ---- 路線：幾何由 npm run routes 預先算好（data/routes/routes.geojson）----
+const built: Record<string, any> = Object.fromEntries((exists('data/routes/routes.geojson') ? readJson('data/routes/routes.geojson').routes : []).map((r: any) => [r.id, r]));
 const routes = routesRaw.map((r) => {
-  const coords = (r.waypoints ?? []).map((w: any) => {
-    if (typeof w === 'string') {
-      const p = places[w];
-      if (!p) throw new Error(`路線 ${r.id} 的 Pleiades 點 ${w} 不在 data/places.json，請先執行 npm run places`);
-      return [p.lat, p.lng];
-    }
-    return [w.lat, w.lng];
-  });
-  return { ...r, coords, sources: (r.sources ?? []).map((s: any) => ({ ...s, accessed: dateStr(s.accessed) })) };
+  const g = built[r.id];
+  if (!g) throw new Error(`路線 ${r.id} 還沒有線條，請先執行 npm run routes`);
+  const { waypoints, ...meta } = r;
+  return { ...meta, coords: g.coords, segments: g.segments, stations: g.stations, stats: g.stats,
+    sources: (r.sources ?? []).map((s: any) => ({ ...s, accessed: dateStr(s.accessed) })) };
 });
 // 若有 Itiner-e 精細道路（npm run roads 產生），一併帶入
 const hasItinere = exists('data/routes/itinere-simplified.geojson');
@@ -78,6 +75,15 @@ fs.rmSync(pubData, { recursive: true, force: true });
 fs.mkdirSync(path.join(pubData, 'borders'), { recursive: true });
 const borders = readJson('data/borders/index.json');
 for (const s of borders.snapshots) fs.copyFileSync(path.join(ROOT, 'data/borders', s.file), path.join(pubData, 'borders', s.file));
+// AWMC 古代道路網（地圖底層，依時代顯示）：只留下時代、主次、確定與否三個欄位
+{
+  const gj = readJson('data/awmc/roads.geojson');
+  const r4 = (c: number[]) => [Math.round(c[0] * 1e4) / 1e4, Math.round(c[1] * 1e4) / 1e4];
+  const feats = gj.features.map((f: any) => ({ type: 'Feature',
+    properties: { t: f.properties.timeperiod ?? '', m: f.properties.Major_or_M === '1' ? 1 : 0, k: f.properties.Known_or_a === '1' ? 1 : 0, n: f.properties.Name ?? '' },
+    geometry: { type: 'MultiLineString', coordinates: (f.geometry.type === 'LineString' ? [f.geometry.coordinates] : f.geometry.coordinates).map((l: number[][]) => l.map(r4)) } }));
+  fs.writeFileSync(path.join(pubData, 'awmc-roads.geojson'), JSON.stringify({ type: 'FeatureCollection', features: feats }));
+}
 if (hasItinere) fs.copyFileSync(path.join(ROOT, 'data/routes/itinere-simplified.geojson'), path.join(pubData, 'itinere.geojson'));
 
 const index = {

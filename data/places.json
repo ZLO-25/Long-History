@@ -1,7 +1,7 @@
 {
  "source": "Pleiades gazetteer, https://pleiades.stoa.org（GitHub: isawnyu/pleiades.datasets）",
  "license": "CC BY 3.0",
- "fetched": "2026-10-24",
+ "fetched": "2026-10-25",
  "places": {
   "59837": {
    "title": "Hydaspes/Bidaspes (river)",
@@ -52,12 +52,61 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/98992"
   },
+  "147990": {
+   "title": "Ambrussum",
+   "lat": 43.71561,
+   "lng": 4.1496,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/147990"
+  },
+  "147993": {
+   "title": "Apta Iulia",
+   "lat": 43.87657,
+   "lng": 5.39368,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/147993"
+  },
+  "148027": {
+   "title": "Cabellio",
+   "lat": 43.82989,
+   "lng": 5.03417,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/148027"
+  },
+  "148056": {
+   "title": "Col. Baeterrae",
+   "lat": 43.34168,
+   "lng": 3.21794,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/148056"
+  },
+  "148081": {
+   "title": "Forum Domitii",
+   "lat": 43.51572,
+   "lng": 3.69231,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/148081"
+  },
+  "148093": {
+   "title": "Glanum",
+   "lat": 43.77347,
+   "lng": 4.83287,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/148093"
+  },
   "148142": {
    "title": "Nemausus",
    "lat": 43.84312,
    "lng": 4.35417,
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/148142"
+  },
+  "148223": {
+   "title": "Ugernum",
+   "lat": 43.81115,
+   "lng": 4.63556,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/148223"
   },
   "149496": {
    "title": "Pont du Gard",
@@ -66,12 +115,26 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/149496"
   },
+  "157925": {
+   "title": "Segustero",
+   "lat": 44.19704,
+   "lng": 5.94352,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/157925"
+  },
   "167691": {
    "title": "Brigantio",
    "lat": 44.89689,
    "lng": 6.63395,
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/167691"
+  },
+  "167750": {
+   "title": "Eburodunum",
+   "lat": 44.56399,
+   "lng": 6.49571,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/167750"
   },
   "246343": {
    "title": "Col. Barcino",
@@ -87,12 +150,54 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/246347"
   },
+  "246348": {
+   "title": "Col. Ruscino",
+   "lat": 42.70858,
+   "lng": 2.94516,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/246348"
+  },
   "246349": {
    "title": "Col. Tarraco",
    "lat": 41.11689,
    "lng": 1.25834,
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/246349"
+  },
+  "246369": {
+   "title": "Dertosa/Hibera Iulia Ilercavonia",
+   "lat": 40.811,
+   "lng": 0.52095,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/246369"
+  },
+  "246406": {
+   "title": "Gerunda",
+   "lat": 41.98735,
+   "lng": 2.82661,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/246406"
+  },
+  "255955": {
+   "title": "Ad Portum/Gaditanus Portus",
+   "lat": 36.59695,
+   "lng": -6.22753,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/255955"
+  },
+  "255996": {
+   "title": "Astigi/Col. Augusta Firma",
+   "lat": 37.54093,
+   "lng": -5.07995,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/255996"
+  },
+  "256058": {
+   "title": "Carmo",
+   "lat": 37.4703,
+   "lng": -5.64647,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/256058"
   },
   "256128": {
    "title": "Corduba/Col. Patricia",
@@ -129,6 +234,13 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/265855"
   },
+  "266018": {
+   "title": "Saetabis",
+   "lat": 38.98846,
+   "lng": -0.51781,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/266018"
+  },
   "266021": {
    "title": "Saguntum/Arse",
    "lat": 39.67813,
@@ -157,13 +269,6 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/315267"
   },
-  "383664": {
-   "title": "Genua",
-   "lat": 44.40623,
-   "lng": 8.93155,
-   "precision": "precise",
-   "uri": "https://pleiades.stoa.org/places/383664"
-  },
   "393379": {
    "title": "Ariminum",
    "lat": 44.05896,
@@ -185,19 +290,33 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/393484"
   },
-  "403235": {
-   "title": "Luna",
-   "lat": 44.06399,
-   "lng": 10.01679,
-   "precision": "precise",
-   "uri": "https://pleiades.stoa.org/places/403235"
-  },
   "403253": {
    "title": "Pisae",
    "lat": 43.71942,
    "lng": 10.40011,
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/403253"
+  },
+  "413058": {
+   "title": "Cales",
+   "lat": 43.5468,
+   "lng": 12.64853,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/413058"
+  },
+  "413065": {
+   "title": "Carsulae",
+   "lat": 42.6398,
+   "lng": 12.55681,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/413065"
+  },
+  "413076": {
+   "title": "Centum Cellae",
+   "lat": 42.09118,
+   "lng": 11.79681,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/413076"
   },
   "413129": {
    "title": "Fanum Fortunae",
@@ -206,6 +325,20 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/413129"
   },
+  "413147": {
+   "title": "Forum Flaminii",
+   "lat": 42.9843,
+   "lng": 12.72647,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/413147"
+  },
+  "413149": {
+   "title": "Forum Sempronii",
+   "lat": 43.69177,
+   "lng": 12.81378,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/413149"
+  },
   "413225": {
    "title": "Nequinum/Narnia",
    "lat": 42.51876,
@@ -213,12 +346,54 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/413225"
   },
+  "413227": {
+   "title": "Nuceria",
+   "lat": 43.11386,
+   "lng": 12.78835,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/413227"
+  },
+  "413231": {
+   "title": "Ocriculum",
+   "lat": 42.41275,
+   "lng": 12.46661,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/413231"
+  },
+  "413256": {
+   "title": "Pisaurum",
+   "lat": 43.91208,
+   "lng": 12.91577,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/413256"
+  },
   "413347": {
    "title": "Trasumennus (Lake)",
    "lat": 43.14119,
    "lng": 12.11417,
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/413347"
+  },
+  "422831": {
+   "title": "Alsium",
+   "lat": 41.93405,
+   "lng": 12.10126,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/422831"
+  },
+  "422844": {
+   "title": "Aricia",
+   "lat": 41.7214,
+   "lng": 12.67335,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/422844"
+  },
+  "422927": {
+   "title": "Forum Appii ",
+   "lat": 41.46639,
+   "lng": 12.9975,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/422927"
   },
   "422995": {
    "title": "Ostia",
@@ -276,12 +451,40 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/432754"
   },
+  "432773": {
+   "title": "Caudium",
+   "lat": 41.06255,
+   "lng": 14.63676,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/432773"
+  },
   "432815": {
    "title": "Dikaiarcheia/Puteoli",
    "lat": 40.82584,
    "lng": 14.12174,
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/432815"
+  },
+  "432839": {
+   "title": "Formiae",
+   "lat": 41.25604,
+   "lng": 13.60353,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/432839"
+  },
+  "432855": {
+   "title": "Fundi",
+   "lat": 41.35743,
+   "lng": 13.42792,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/432855"
+  },
+  "432940": {
+   "title": "Minturnae",
+   "lat": 41.24215,
+   "lng": 13.76842,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/432940"
   },
   "433052": {
    "title": "Privernum",
@@ -297,6 +500,13 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/433143"
   },
+  "442451": {
+   "title": "Aeclanum",
+   "lat": 41.0542,
+   "lng": 15.01045,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/442451"
+  },
   "442509": {
    "title": "Brundisium/Brentesion",
    "lat": 40.63866,
@@ -311,6 +521,20 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/442523"
   },
+  "442847": {
+   "title": "Venusia",
+   "lat": 40.9689,
+   "lng": 15.82727,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/442847"
+  },
+  "452416": {
+   "title": "Rhegion/Regium",
+   "lat": 38.10928,
+   "lng": 15.64393,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/452416"
+  },
   "462503": {
    "title": "Syracusae/Syrakousai",
    "lat": 37.07008,
@@ -324,6 +548,13 @@
    "lng": 19.44736,
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/481818"
+  },
+  "481861": {
+   "title": "Herakleia",
+   "lat": 41.011,
+   "lng": 21.342,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/481861"
   },
   "481900": {
    "title": "Lychnidos",
@@ -360,12 +591,40 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/501347"
   },
+  "501523": {
+   "title": "Neapolis (Kavalla)",
+   "lat": 40.93432,
+   "lng": 24.41404,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/501523"
+  },
+  "501564": {
+   "title": "Philippoi",
+   "lat": 41.02518,
+   "lng": 24.33451,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/501564"
+  },
   "501609": {
    "title": "Sestos",
    "lat": 40.2134,
    "lng": 26.38927,
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/501609"
+  },
+  "501649": {
+   "title": "Traianoupolis",
+   "lat": 40.85883,
+   "lng": 26.05725,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/501649"
+  },
+  "511357": {
+   "title": "Perinthus/Heraclea",
+   "lat": 40.97101,
+   "lng": 27.95297,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/511357"
   },
   "520985": {
    "title": "Byzantium",
@@ -451,12 +710,40 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/580101"
   },
+  "580108": {
+   "title": "Sounion (Attica: cape)",
+   "lat": 37.65011,
+   "lng": 24.02628,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/580108"
+  },
   "580119": {
    "title": "Thorikos",
    "lat": 37.73787,
    "lng": 24.05363,
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/580119"
+  },
+  "589834": {
+   "title": "Kaloi Limenes",
+   "lat": 34.93182,
+   "lng": 24.81228,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/589834"
+  },
+  "599575": {
+   "title": "Cnidus (Tekir)",
+   "lat": 36.68818,
+   "lng": 27.37284,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/599575"
+  },
+  "639005": {
+   "title": "Myra",
+   "lat": 36.25856,
+   "lng": 29.98545,
+   "precision": "precise",
+   "uri": "https://pleiades.stoa.org/places/639005"
   },
   "658490": {
    "title": "Issus/Nikopolis",
@@ -479,12 +766,12 @@
    "precision": "precise",
    "uri": "https://pleiades.stoa.org/places/727070"
   },
-  "854719": {
-   "title": "Pantikapaion/Bosp(h)orus",
-   "lat": 45.35098,
-   "lng": 36.46858,
+  "854743": {
+   "title": "Theodosia",
+   "lat": 45.04609,
+   "lng": 35.37877,
    "precision": "precise",
-   "uri": "https://pleiades.stoa.org/places/854719"
+   "uri": "https://pleiades.stoa.org/places/854743"
   },
   "874478": {
    "title": "Gaugamela",

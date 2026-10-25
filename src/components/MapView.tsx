@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import L from 'leaflet';
 import type { Index, Card } from '../types';
-import { activeAt, fmtYear, KIND_LABEL, TYPE_COLOR } from '../lib/format';
+import { activeAt, fmtYear, KIND_LABEL, METHOD_LABEL, SEG_LABEL, ERA_LABEL, eraOf, roadInEra, TYPE_COLOR } from '../lib/format';
 
 interface Props {
   index: Index; cards: Card[]; year: number;
@@ -20,7 +20,7 @@ const loadBorders = (file: string) => {
 export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map>();
-  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup }>();
+  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup }>();
   const cb = useRef({ onPlace, onRoute });
   cb.current = { onPlace, onRoute };
   const [snapLabel, setSnapLabel] = useState('');
@@ -29,11 +29,11 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     const m = L.map(el.current!, { zoomControl: true, worldCopyJump: true, preferCanvas: false }).setView(compact ? [38, 18] : [39, 20], compact ? 4 : 4);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 12,
-      attribution: '© OpenStreetMap contributors｜疆域：historical-basemaps (GPL-3.0)｜地名：Pleiades (CC BY)',
+      attribution: '© OpenStreetMap contributors｜疆域：historical-basemaps (GPL-3.0)｜古道：AWMC／Barrington Atlas (ODbL)｜地名：Pleiades (CC BY)',
     }).addTo(m);
     m.createPane('borders').style.zIndex = '350';
     layers.current = {
-      borders: L.layerGroup().addTo(m), itinere: L.layerGroup().addTo(m), routes: L.layerGroup().addTo(m),
+      borders: L.layerGroup().addTo(m), awmc: L.layerGroup().addTo(m), itinere: L.layerGroup().addTo(m), routes: L.layerGroup().addTo(m),
       places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m),
     };
     map.current = m;
@@ -78,7 +78,22 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     if (show && !m.hasLayer(g)) g.addTo(m); else if (!show && m.hasLayer(g)) m.removeLayer(g);
   }, [year]);
 
-  // 道路與航線
+  // AWMC 古代道路網（巴林頓地圖集）：依地圖集標註的時代顯示
+  const [awmc, setAwmc] = useState<any>(null);
+  useEffect(() => { fetch('/data/awmc-roads.geojson').then((r) => r.json()).then(setAwmc).catch(() => {}); }, []);
+  const era = eraOf(year);
+  useEffect(() => {
+    const g = layers.current?.awmc;
+    if (!g || !awmc) return;
+    g.clearLayers();
+    L.geoJSON(awmc, {
+      filter: (f) => roadInEra(f.properties.t, era),
+      style: (f) => ({ color: '#8b5a2b', weight: f?.properties.m ? 1.6 : 0.9, opacity: f?.properties.t ? 0.6 : 0.4, dashArray: f?.properties.k ? undefined : '4 3' }),
+      onEachFeature: (f, layer) => layer.bindTooltip(`${f.properties.n || '古道'}（巴林頓地圖集；${f.properties.k ? '路線確定' : '大致路線'}；${f.properties.t ? `時代 ${f.properties.t}` : '未標時代'}）`, { sticky: true }),
+    }).addTo(g);
+  }, [awmc, era]);
+
+  // 主要道路、航線與長城（沿古道網描線／依史料經停港計算）
   useEffect(() => {
     const g = layers.current?.routes;
     if (!g) return;
@@ -87,15 +102,20 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       const on = r.start <= year && year <= r.end;
       const hl = highlight.routes.includes(r.id);
       if (!on && !hl) continue;
-      const line = L.polyline(r.coords, {
-        color: r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513',
-        weight: hl ? 6 : r.kind === 'sea' ? 2.5 : r.kind === 'wall' ? 4.5 : 3.5,
-        opacity: on ? 0.9 : 0.45,
-        dashArray: r.kind === 'sea' ? '6 6' : undefined,
-      });
-      line.bindTooltip(`${r.name}（${KIND_LABEL[r.kind]}・示意）`, { sticky: true });
-      line.on('click', () => cb.current.onRoute(r.id));
-      line.addTo(g);
+      const color = r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513';
+      const base = hl ? 6 : r.kind === 'sea' ? 2.5 : r.kind === 'wall' ? 4.5 : 3.5;
+      const tip = `${r.name}（${KIND_LABEL[r.kind]}・${METHOD_LABEL[r.method]}）`;
+      for (const sg of r.segments) {
+        const line = L.polyline(sg.coords, {
+          color, opacity: on ? 0.9 : 0.45,
+          weight: sg.kind === 'gap' ? Math.max(2, base - 1.5) : base,
+          dashArray: r.kind === 'sea' ? '6 6' : sg.kind === 'approx' ? '8 4' : sg.kind === 'gap' ? '2 5' : undefined,
+        });
+        line.bindTooltip(`${tip}${r.kind === 'road' ? `：${SEG_LABEL[sg.kind]}` : ''}`, { sticky: true });
+        line.on('click', () => cb.current.onRoute(r.id));
+        line.addTo(g);
+      }
+      if (hl) for (const st of r.stations) L.circleMarker([st.lat, st.lng], { radius: 3, color, weight: 1, fillOpacity: 1 }).bindTooltip(st.name).addTo(g);
     }
   }, [index, year, highlight]);
 
@@ -155,7 +175,8 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       <div ref={el} className="map-canvas" />
       <div className="map-legend">
         <div>{snapLabel}</div>
-        <div><i className="lg road" />道路 <i className="lg sea" />航線 <i className="lg wall" />防線（皆為示意）</div>
+        <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城</div>
+        <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@
     "build:index": "tsx scripts/build-index.ts",
     "validate": "tsx scripts/validate.ts",
     "places": "tsx scripts/update-places.ts",
+    "routes": "tsx scripts/build-routes.ts",
     "roads": "tsx scripts/fetch-itinere.ts",
     "typecheck": "tsc -p tsconfig.json"
   },
@@ -36,9 +37,11 @@
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.7.0",
+    "topojson-client": "^3.1.0",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",
     "vite": "^6.4.5",
+    "world-atlas": "^2.0.2",
     "yaml": "^2.9.1"
   }
 }

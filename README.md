@@ -52,7 +52,8 @@ npm run dev
 | `npm run dev` | 啟動網頁（會先重建索引；改卡片會自動更新畫面） |
 | `npm run validate` | 檢查所有卡片格式、來源、標籤是否正確 |
 | `npm run places` | 新增了 Pleiades 地點後，重新抓座標 |
-| `npm run roads` | 下載 Itiner-e 羅馬道路細線（約 78 MB，只要做一次） |
+| `npm run routes` | 改了 `data/routes/routes.yaml` 之後，重新計算道路、航線、長城的線條 |
+| `npm run roads` | （選用）下載 Itiner-e 羅馬道路細線（約 78 MB，只要做一次） |
 | `npm run build` | 檢查＋打包成靜態網頁到 `dist/` |
 
 ## 三、用 Obsidian 編輯卡片
@@ -85,6 +86,8 @@ sources:
 |---|---|---|
 | 疆域（示意） | historical-basemaps（aourednik） | GPL-3.0 |
 | 古地名座標 | Pleiades | CC BY 3.0 |
+| 古代道路網與城牆 | AWMC geodata（依《巴林頓古典世界地圖集》） | ODbL 1.0 |
+| 海岸線（算海路用） | Natural Earth 1:10m（world-atlas 套件） | 公有領域 |
 | 羅馬道路細線（選用） | Itiner-e，Zenodo 10.5281/zenodo.17122148 | CC BY 4.0 |
 | 底圖 | OpenStreetMap | ODbL |
 

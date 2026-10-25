@@ -14,7 +14,7 @@ routes:
     precision: traced
     note: 前 312 年由監察官阿庇烏斯修築羅馬至卡普阿段，之後延伸到貝內文托與布林迪西。 線條依序經過下列各站，沿《巴林頓地圖集》古道網描出 [s9]，站點座標取自 Pleiades [s2]。
     method: awmc-road
-    waypoints: ['423025', '422844', '422927', '433143', '432855', '432839', '432940', { lat: 41.15, lng: 13.83, name: Sinuessa }, '432754', '432773', '432721', '442451', '442847', { lat: 40.47, lng: 17.24, name: Tarentum }, '442509']
+    waypoints: ['423025', '422844', '433143', '432855', '432839', '432940', '432754', '432721', '442451', '442847', { lat: 40.47, lng: 17.24, name: Tarentum }, '442509']
     sources:
       - { id: s1, title: Wikipedia「Appian Way」, url: 'https://en.wikipedia.org/wiki/Appian_Way', accessed: 2026-10-24 }
       - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }
@@ -70,7 +70,7 @@ routes:
     precision: traced
     note: 前 122 年戰勝阿洛布羅基人後由多米提烏斯下令修築（常記為前 118 年），由阿爾卑斯山口經尼姆、納博訥到庇里牛斯山。 線條依序經過下列各站，沿《巴林頓地圖集》古道網描出 [s9]，站點座標取自 Pleiades [s2]。
     method: awmc-road
-    waypoints: ['167691', '167750', { lat: 44.56, lng: 6.08, name: Vapincum }, '157925', '147993', '148027', '148093', '148223', '148142', '147990', '148081', '148056', '246347', '246348', { lat: 42.47, lng: 2.87, name: Summum Pyrenaeum }]
+    waypoints: ['167691', '167750', { lat: 44.56, lng: 6.08, name: Vapincum }, '157925', '147993', '148027', '148093', '148142', '147990', '148081', '148056', '246347', '246348', { lat: 42.47, lng: 2.87, name: Summum Pyrenaeum }]
     sources:
       - { id: s1, title: Wikipedia「Via Domitia」, url: 'https://en.wikipedia.org/wiki/Via_Domitia', accessed: 2026-10-24 }
       - { id: s2, title: Pleiades 地名資料庫, url: 'https://pleiades.stoa.org/', accessed: 2026-10-24 }

@@ -28,6 +28,8 @@ sources:
   - { id: s2, title: "Monte Testaccio — Wikipedia", url: "https://en.wikipedia.org/wiki/Monte_Testaccio", accessed: 2026-10-24 }
   - { id: s3, title: "Dressel 20 — Internet Archaeology（Tyers, Roman amphoras in Britain）", url: "https://intarch.ac.uk/journal/issue1/tyers/DR20.html", accessed: 2026-10-24 }
   - { id: s4, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
+  - { id: s5, title: "李彔《現代化十六講》之十一（現代化的本質和鐵律），虎嗅 2014", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25 }
+  - { id: s6, title: "Sapiens 金錢篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -64,11 +66,11 @@ Dressel 20 約在西元 260 年停產，由較小的 Dressel 23 接續到 4 世�
 
 ### 李彔
 
-李彔在公開講稿中提到，大帝國能形成統一的市場，貿易分工讓農業與手工業在不同地區優化資源配置；羅馬藉內海形成貿易帝國。[s4] 雙耳瓶的標準化與跨地中海流通，可視為這種「統一市場」的物證（此連結為本卡推論）。
+李彔在公開講稿中提到，貿易分工讓不同地區優化資源配置，羅馬藉內海形成貿易帝國 [s4]；他也指出市場越大效率越高，但農業時代的貿易收益受技術限制 [s5]。雙耳瓶的標準化與跨地中海流通，可視為這種「統一市場」的物證（此連結為本卡推論）。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談雙耳瓶貿易的內容。
+哈拉瑞未直接談雙耳瓶貿易。依公開摘要，他認為人們對貨幣價值的共同信任，讓不同文化併入同一個經濟體 [s6]。地中海各地用同一套價格與貨幣交易油和酒，可以這樣理解（此為本卡推論）。
 
 ## B9 今日對照鉤子
 

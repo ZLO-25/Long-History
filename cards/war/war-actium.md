@@ -24,8 +24,10 @@ links: [event-rubicon, event-augustan-principate, commodity-egypt-grain]
 sources:
   - { id: s1, title: "Battle of Actium — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Actium", accessed: 2026-10-24 }
   - { id: s2, title: "Jona Lendering, Actium (31 BCE) — Livius.org", url: "https://www.livius.org/articles/battle/actium-31-bce", accessed: 2026-10-24 }
+  - { id: s3, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s4, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 無直接論述
+lens_status: 依公開資料推論，未對照原書
 ---
 
 ## A1 交戰方與聯盟結構
@@ -71,11 +73,11 @@ lens_status: 無直接論述
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談亞克興海戰的內容。
+無直接論述：李彔沒有談亞克興海戰。間接相關：他說羅馬帝國是西方「高端政權」的代表，但這類政權的皇位仍靠血緣傳承，無法保證繼任者的能力 [s3]。亞克興之後羅馬走向一人統治，這個繼承難題也隨之出現（此為本卡推論）。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談亞克興海戰的內容。
+依讀書筆記，哈拉瑞在《連結》中認為，羅馬共和的制衡機制隨公民權擴大而失效，到西元前一世紀末由凱撒家族建立專制統治；問題出在帝國規模與當時的資訊技術，而不是某個人刻意破壞 [s4]。亞克興海戰正是這個轉變的軍事終點（此連結為本卡推論）。
 
 ## A11 今日對照鉤子
 

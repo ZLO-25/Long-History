@@ -5,7 +5,7 @@ import {
   SECTIONS, TYPE_LABEL, TYPE_PREFIX, FIELD_OPTIONS, VERIFICATION, LENS_STATUS, TIME_PRECISION,
   LOC_PRECISION, SCALES, TRACKS, type CardType,
 } from './fields.ts';
-import { ROOT, type RawCard } from './cards.ts';
+import { ROOT, refsOf, type RawCard } from './cards.ts';
 
 export interface Issue { level: 'error' | 'warning'; file: string; msg: string }
 
@@ -120,7 +120,7 @@ export function checkCards(
           else sub.refs.forEach((r) => usedRefs.add(r));
           if (PAGE_RE.test(sub.text)) warn(`${w}／${k} 出現章節或頁碼，請確認網路來源有明確寫出`);
         }
-        const allNone = LENS_KEYS.every((k) => sec!.sub?.[k]?.text.startsWith('無直接論述'));
+        const allNone = LENS_KEYS.every((k) => { const t = sec!.sub?.[k]?.text ?? ''; return t.startsWith('無直接論述') && refsOf(t).length === 0; });
         if (allNone && f.lens_status !== '無直接論述') warn('兩位作者都無直接論述，lens_status 應為「無直接論述」');
         if (!allNone && f.lens_status === '無直接論述') err('雙軌解讀有內容，lens_status 應為「依公開資料推論，未對照原書」');
         continue;

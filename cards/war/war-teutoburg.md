@@ -22,6 +22,7 @@ sources:
   - { id: s1, title: "Battle of the Teutoburg Forest — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_the_Teutoburg_Forest", accessed: 2026-10-24 }
   - { id: s2, title: "Karen Schousboe, Battle of Teutoburg Forest — World History Encyclopedia (2017)", url: "https://worldhistory.org/article/1010", accessed: 2026-10-24 }
   - { id: s3, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
+  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -69,11 +70,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談條頓堡森林戰役的內容。
+無直接論述：李彔沒有談條頓堡戰役。間接相關：他認為農耕社會與周邊流動人群之間的爭奪，是農業時代長期戰爭的主要原因之一 [s4]。條頓堡之後羅馬停在萊茵河一線，可視為這種農耕帝國與外圍人群之間的邊界（此為本卡推論；日耳曼部族並非李彔所說的草原游牧民）。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞指出羅馬人習慣打敗仗，帝國能承受打擊仍然存續。[s3] 這場慘敗沒有動搖帝國本身，卻改變了擴張的邊界（此為本卡推論）。
+依公開摘要，哈拉瑞指出羅馬人習慣打敗仗，帝國能承受打擊仍然存續 [s3]。這場慘敗沒有動搖帝國本身，卻改變了擴張的邊界（此為本卡推論）。
 
 ## A11 今日對照鉤子
 

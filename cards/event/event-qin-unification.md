@@ -27,6 +27,7 @@ sources:
   - { id: s4, title: "Xianyang — Wikipedia", url: "https://en.wikipedia.org/wiki/Xianyang", accessed: 2026-10-24 }
   - { id: s5, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
   - { id: s6, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
+  - { id: s7, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -51,11 +52,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在公開講稿中說，秦、漢開啟了中央集權的「高端政權」，形成跨區域的大帝國。[s5]
+李彔在公開講稿中說，秦、漢開啟了中央集權的「高端政權」，形成跨區域的大帝國，發展水平略低於同期的羅馬，但在東方居於領先 [s5]。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞把秦始皇建立的帝國當作「以普世統一為願景」的例子，與近代西方「各自獨立的民族國家」觀念不同。[s6]
+依公開摘要，哈拉瑞把秦始皇建立的帝國當作「以普世統一為願景」的例子 [s6]；依讀書筆記，他在《連結》中也把秦帝國稱為近代以前最有野心的極權實驗，後來漢朝改用儒家的道德忠誠取代法家式的監控，但仍是專制 [s7]。
 
 ## C9 今日對照鉤子
 

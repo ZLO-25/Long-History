@@ -25,8 +25,9 @@ sources:
   - { id: s1, title: "Zhang Qian — Wikipedia", url: "https://en.wikipedia.org/wiki/Zhang_Qian", accessed: 2026-10-24 }
   - { id: s2, title: "Zhang Qian — New World Encyclopedia", url: "https://www.newworldencyclopedia.org/entry/Zhang_Qian", accessed: 2026-10-24 }
   - { id: s3, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-24 }
+  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 無直接論述
+lens_status: 依公開資料推論，未對照原書
 ---
 
 ## C1 背景
@@ -49,11 +50,11 @@ lens_status: 無直接論述
 
 ### 李彔
 
-無直接論述。李彔公開講稿談到的「絲綢之路」是後來由伊斯蘭帝國控制的草原通道，並未談張騫。
+無直接論述：李彔沒有談張騫。間接相關：他說北方游牧民族活動在一條從東北、蒙古延伸到匈牙利的「草原高速公路」上，它既是衝突的來源，也把歐亞大陸連在一起；後來伊斯蘭帝國經草原通道與絲路跟東方形成貿易連結 [s4]。張騫的出使正是穿越這條通道（此為本卡推論）。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談張騫的內容。
+無直接論述：目前查到的公開摘要與書評，沒有哈拉瑞專門談張騫的內容。
 
 ## C9 今日對照鉤子
 

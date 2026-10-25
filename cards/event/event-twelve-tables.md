@@ -23,6 +23,7 @@ sources:
   - { id: s1, title: "Twelve Tables — Wikipedia", url: "https://en.wikipedia.org/wiki/Twelve_Tables", accessed: 2026-10-24 }
   - { id: s2, title: "Law of the Twelve Tables — Encyclopaedia Britannica", url: "https://www.britannica.com/print/article/610934", accessed: 2026-10-24 }
   - { id: s3, title: "Sapiens 想像的秩序篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-6-building-pyramids", accessed: 2026-10-24 }
+  - { id: s4, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -55,11 +56,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談《十二銅表法》或羅馬法的內容。
+無直接論述：李彔沒有談《十二銅表法》或羅馬法。間接相關：他認為大西洋經濟成功的條件，是有限政府保護私有財產與基本的市場規則 [s4]。把規則寫下來、公開讓人知道，是這類規則的早期形式（此為本卡推論）。
 
 ### 哈拉瑞
 
-哈拉瑞未直接談《十二銅表法》。依公開摘要，他以《漢摩拉比法典》為例，認為法典把社會階層包裝成神聖或自然的秩序，是靠人們相信才成立的「想像的秩序」。[s3] 以此推論，《十二銅表法》同時「公開了規則」也「固定了階級」。
+哈拉瑞未直接談《十二銅表法》。依公開摘要，他以《漢摩拉比法典》為例，認為法典把社會階層包裝成神聖或自然的秩序，是靠人們相信才成立的「想像的秩序」[s3]。以此推論，《十二銅表法》同時「公開了規則」也「固定了階級」。
 
 ## C9 今日對照鉤子
 

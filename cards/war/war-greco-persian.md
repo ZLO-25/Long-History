@@ -31,6 +31,7 @@ sources:
   - { id: s3, title: "Mark Cartwright, Themistocles — World History Encyclopedia (2016)", url: "https://worldhistory.org/Themistocles", accessed: 2026-10-24 }
   - { id: s4, title: "Themistocles summary — Encyclopaedia Britannica", url: "https://www.britannica.com/summary/Themistocles", accessed: 2026-10-24 }
   - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
+  - { id: s6, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -80,11 +81,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談波希戰爭的內容。
+李彔在公開講稿中把波斯帝國（以大流士為代表）與希臘城邦，列為西方走向「高端政權」的兩個階段，最後在羅馬帝國達到頂點 [s6]。他沒有細談這場戰爭本身。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞以波斯居魯士大帝為例，說明帝國常宣稱是「為了所有臣民的福祉」建立統一秩序，與「我們對他們」的族群思維相對。[s5] 這張卡的希臘一方則代表拒絕被納入這種普世帝國的城邦。
+依公開摘要，哈拉瑞以波斯居魯士大帝為例，說明帝國常宣稱是「為了所有臣民的福祉」建立統一秩序，與「我們對他們」的族群思維相對 [s5]。這張卡的希臘一方，則代表拒絕被納入這種普世帝國的城邦（此為本卡推論）。
 
 ## A11 今日對照鉤子
 

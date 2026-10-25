@@ -22,8 +22,9 @@ links: [commodity-roman-concrete, building-forum-romanum, building-pantheon]
 sources:
   - { id: s1, title: "Colosseum — Wikipedia", url: "https://en.wikipedia.org/wiki/Colosseum", accessed: 2026-10-24 }
   - { id: s2, title: "Mark Cartwright, Colosseum — World History Encyclopedia (2018)", url: "https://www.worldhistory.org/Colosseum/", accessed: 2026-10-24 }
+  - { id: s3, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 無直接論述
+lens_status: 依公開資料推論，未對照原書
 ---
 
 ## D1 功能與象徵
@@ -50,11 +51,11 @@ lens_status: 無直接論述
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談羅馬競技場的內容。
+無直接論述：目前查到的公開演講與文章，沒有李彔專門談羅馬競技場的內容。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談羅馬競技場的內容。
+哈拉瑞未直接談競技場。依讀書筆記，他在《連結》中指出羅馬的宣傳把皇帝塑造成神聖、不會犯錯，帝國也缺乏揭露皇帝錯誤的機制 [s3]。皇帝以戰利品出資、為大眾興建的表演場，可視為這種形象工程的一部分（此為本卡推論）。
 
 ## D7 今日對照鉤子
 

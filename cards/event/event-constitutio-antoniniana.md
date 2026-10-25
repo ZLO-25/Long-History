@@ -23,6 +23,8 @@ sources:
   - { id: s2, title: "Patrick Hurley, Caracalla — World History Encyclopedia (2011)", url: "https://www.worldhistory.org/caracalla/", accessed: 2026-10-24 }
   - { id: s3, title: "Denarius — Wikipedia", url: "https://en.wikipedia.org/wiki/Denarius", accessed: 2026-10-24 }
   - { id: s4, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
+  - { id: s5, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s6, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -55,11 +57,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談卡拉卡拉敕令的內容。
+無直接論述：李彔沒有談卡拉卡拉敕令。間接相關：他認為中國科舉最重要的地方，是不論出身、向各階層開放 [s5]。羅馬開放的是公民身分，中國開放的是做官的管道，兩者可以對照（此為本卡推論）。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞以一個羅馬治下的伊比利凱爾特人為例：他遵守一切規則，卻仍被當作外人，這種渴望被接納的壓力最終推動帝國改變、要求平等。[s4] 卡拉卡拉敕令可視為這個「同化—要求平等」過程的制度終點（此為本卡推論）。
+依讀書筆記，哈拉瑞在《連結》中把卡拉卡拉列為「並非由皇帝親手摧毀羅馬民主」的例子之一 [s6]；依公開摘要，他也以一個羅馬治下的伊比利凱爾特人為例，說明被統治者渴望被接納的壓力，最終推動帝國走向平等 [s4]。卡拉卡拉敕令可視為這個過程的制度終點（此為本卡推論）。
 
 ## C9 今日對照鉤子
 

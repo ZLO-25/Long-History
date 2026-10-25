@@ -24,6 +24,7 @@ sources:
   - { id: s1, title: "Trial of Socrates — Wikipedia", url: "https://en.wikipedia.org/wiki/Trial_of_Socrates", accessed: 2026-10-24 }
   - { id: s2, title: "Socrates — Encyclopaedia Britannica", url: "https://www.britannica.com/print/article/551948", accessed: 2026-10-24 }
   - { id: s3, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
+  - { id: s4, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -56,11 +57,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在公開講稿中提到，蘇格拉底在「民主的雅典」被判死刑，用來說明重要的思想家常常不被自己的時代接受；他也把希臘哲學「為知識而知識」的理性傳統視為現代科學的源頭之一。[s3]
+李彔在公開講稿中提到，蘇格拉底在「民主的雅典」被判死刑，用來說明軸心時代的思想家大多不被自己的時代接受；他也把希臘哲學「為知識而知識」的理性傳統，視為近代科學的源頭之一 [s3]。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談蘇格拉底審判的內容。
+依讀書筆記，哈拉瑞在《連結》中借用蘇格拉底「承認自己不知道」是智慧起點的想法，主張資訊系統（包括 AI）要能承認並修正自己的錯誤 [s4]。他談的是蘇格拉底的思想，不是這場審判本身。
 
 ## C9 今日對照鉤子
 

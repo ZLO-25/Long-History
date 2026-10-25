@@ -26,8 +26,9 @@ sources:
   - { id: s1, title: "Roman concrete — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_concrete", accessed: 2026-10-24 }
   - { id: s2, title: "Riddle solved: Why was Roman concrete so durable? — MIT News (2023-01-06)", url: "https://news.mit.edu/2023/roman-concrete-durability-lime-casts-0106", accessed: 2026-10-24 }
   - { id: s3, title: "Monte Testaccio — Wikipedia", url: "https://en.wikipedia.org/wiki/Monte_Testaccio", accessed: 2026-10-24 }
+  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 無直接論述
+lens_status: 依公開資料推論，未對照原書
 ---
 
 ## B1 物資與用途
@@ -62,11 +63,11 @@ lens_status: 無直接論述
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談羅馬混凝土的內容。
+無直接論述：李彔沒有談羅馬混凝土。間接相關：他認為農業時代的技術（輪作、鐵器、水車等）會隨貿易與分工擴散，但總能量仍受光合作用與土地面積限制 [s4]。混凝土讓羅馬能蓋出前所未有的大型建築，卻沒有突破這個能量上限（此為本卡推論）。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談羅馬混凝土的內容。
+無直接論述：目前查到的公開摘要與書評，沒有哈拉瑞專門談羅馬混凝土的內容。
 
 ## B9 今日對照鉤子
 

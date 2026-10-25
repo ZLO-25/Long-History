@@ -30,8 +30,10 @@ sources:
   - { id: s1, title: "Wars of Alexander the Great — Wikipedia", url: "https://en.wikipedia.org/wiki/Wars_of_Alexander_the_Great", accessed: 2026-10-24 }
   - { id: s2, title: "Donald L. Wasson, Death of Alexander the Great — World History Encyclopedia (2024)", url: "https://www.worldhistory.org/article/2366/death-of-alexander-the-great/", accessed: 2026-10-24 }
   - { id: s3, title: "Arrian, The Anabasis of Alexander（英譯本，Wikisource）", url: "https://en.wikisource.org/wiki/The_Anabasis_of_Alexander/Book_I/Chapter_XI", accessed: 2026-10-24 }
+  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 無直接論述
+lens_status: 依公開資料推論，未對照原書
 ---
 
 ## C1 背景
@@ -73,11 +75,11 @@ lens_status: 無直接論述
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談亞歷山大東征的內容。
+無直接論述：李彔沒有談亞歷山大。間接相關：他認為領先地區的技術與制度會透過殖民或模仿擴散，文明中心因此不斷轉移 [s4]。亞歷山大之後希臘文化傳到埃及與中亞，可視為這種擴散（此為本卡推論）。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談亞歷山大的內容。
+無直接論述：目前查到的公開摘要沒有哈拉瑞專門談亞歷山大。間接相關：他以居魯士為例，說明帝國常以「為所有臣民」的普世願景合理化統治 [s5]；亞歷山大接收的正是這個波斯帝國（此連結為本卡推論）。
 
 ## C9 今日對照鉤子
 

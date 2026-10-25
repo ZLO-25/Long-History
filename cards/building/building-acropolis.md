@@ -24,8 +24,9 @@ sources:
   - { id: s2, title: "Athens' rise to superpower — MoneyMuseum", url: "https://www.moneymuseum.com/en/archive/athens-rise-to-superpower--382?slbox=true", accessed: 2026-10-24 }
   - { id: s3, title: "Acropolis of Athens — New World Encyclopedia", url: "https://www.newworldencyclopedia.org/entry/Acropolis_of_Athens", accessed: 2026-10-24 }
   - { id: s4, title: "Acropolis, Athens — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/404/maps", accessed: 2026-10-24 }
+  - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 無直接論述
+lens_status: 依公開資料推論，未對照原書
 ---
 
 ## D1 功能與象徵
@@ -52,11 +53,11 @@ lens_status: 無直接論述
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談雅典衛城的內容。
+無直接論述：目前查到的公開演講與文章，沒有李彔專門談雅典衛城的內容。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談雅典衛城的內容。
+哈拉瑞未直接談衛城。依公開摘要，他把雅典帝國當作「起初是自願加入的同盟」的例子 [s5]。衛城的重建經費有一部分來自提洛同盟的貢金，正好顯示這個同盟後來如何變成盟主的財源（此為本卡推論）。
 
 ## D7 今日對照鉤子
 

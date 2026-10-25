@@ -23,8 +23,11 @@ sources:
   - { id: s1, title: "Shang Yang — Wikipedia", url: "https://en.wikipedia.org/wiki/Shang_Yang", accessed: 2026-10-24 }
   - { id: s2, title: "Sarah Schneewind, Shang Yang's Legalist Policies in Qin — LibreTexts（An Outline History of East Asia to 1200）", url: "https://human.libretexts.org/Bookshelves/History/World_History/An_Outline_History_of_East_Asia_to_1200_(Schneewind)/03:_From_Warring_States_Two_Empire_(480_BC_-207_BC)/3.04:_Shang_Yangs_Legalist_Policies_in_Qin", accessed: 2026-10-24 }
   - { id: s3, title: "Xianyang — Wikipedia", url: "https://en.wikipedia.org/wiki/Xianyang", accessed: 2026-10-24 }
+  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s5, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
+  - { id: s6, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 無直接論述
+lens_status: 依公開資料推論，未對照原書
 ---
 
 ## C1 背景
@@ -49,11 +52,11 @@ lens_status: 無直接論述
 
 ### 李彔
 
-無直接論述。目前查到的公開講稿未談商鞅變法；李彔談的是秦漢開啟中央集權的「高端政權」（見秦統一卡）。
+無直接論述：李彔沒有談商鞅。間接相關：他說秦、漢開啟了中央集權的跨區域大帝國 [s4]；又指出中國的強大國家長期無法退出經濟活動，商人常被當成國家財政的來源，游牧民族的持續壓力也推著國家深度介入經濟 [s5]。商鞅的重農抑商、編戶齊民，可視為這個傳統的起點（此為本卡推論）。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談商鞅的內容。
+依讀書筆記，哈拉瑞在《連結》中把秦帝國稱為近代以前最有野心的極權實驗：試圖以軍事方式組織數千萬人，嚴刑峻法、壓制地方菁英、重稅與徵兵，導致前 209 年起的叛亂；資訊技術有限，也讓它管不到遠方 [s6]。筆記未提到商鞅之名，商鞅變法是這套制度的設計起點（此連結為本卡推論）。
 
 ## C9 今日對照鉤子
 

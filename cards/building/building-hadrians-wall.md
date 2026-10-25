@@ -26,8 +26,9 @@ links: [war-teutoburg, event-fall-western-rome, building-via-appia]
 sources:
   - { id: s1, title: "Hadrian's Wall — Wikipedia", url: "https://en.wikipedia.org/wiki/Hadrian%27s_Wall", accessed: 2026-10-24 }
   - { id: s2, title: "History of Hadrian's Wall — English Heritage", url: "https://www.english-heritage.org.uk/visit/places/hadrians-wall/hadrians-wall-history-and-stories/history/", accessed: 2026-10-24 }
+  - { id: s3, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 無直接論述
+lens_status: 依公開資料推論，未對照原書
 ---
 
 ## D1 功能與象徵
@@ -54,11 +55,11 @@ lens_status: 無直接論述
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談哈德良長城的內容。
+無直接論述：李彔沒有談哈德良長城。間接相關：他認為農耕社會與周邊流動人群之間的爭奪，是農業時代長期戰爭的主要原因之一，游牧民族入侵也是羅馬最終失敗的原因之一 [s3]。長城就是農耕帝國對這種壓力的固定防線（此為本卡推論）。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談哈德良長城的內容。
+無直接論述：目前查到的公開摘要與書評，沒有哈拉瑞專門談哈德良長城的內容。
 
 ## D7 今日對照鉤子
 

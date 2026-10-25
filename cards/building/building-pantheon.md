@@ -23,8 +23,10 @@ sources:
   - { id: s1, title: "Pantheon, Rome — Wikipedia", url: "https://en.wikipedia.org/wiki/Pantheon,_Rome", accessed: 2026-10-24 }
   - { id: s2, title: "Riddle solved: Why was Roman concrete so durable? — MIT News (2023-01-06)", url: "https://news.mit.edu/2023/roman-concrete-durability-lime-casts-0106", accessed: 2026-10-24 }
   - { id: s3, title: "Roman concrete — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_concrete", accessed: 2026-10-24 }
+  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s5, title: "Sapiens 宗教篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-12-the-law-of-religion", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 無直接論述
+lens_status: 依公開資料推論，未對照原書
 ---
 
 ## D1 功能與象徵
@@ -51,11 +53,11 @@ lens_status: 無直接論述
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談萬神殿的內容。
+無直接論述：李彔沒有談萬神殿。間接相關：他說基督教後來成為羅馬國教並傳遍西方，這類第二波宗教著重靈魂安慰與來世 [s4]。萬神殿在 609 年改為教堂，可視為這個轉變的實物（此為本卡推論）。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談萬神殿的內容。
+哈拉瑞未直接談萬神殿。依公開摘要，他認為羅馬式的多神信仰比較開放，願意接納其他文化的神；一神教則較為排他 [s5]。一座供奉「眾神」的神殿，正好對應這種多神包容（此為本卡推論）。
 
 ## D7 今日對照鉤子
 

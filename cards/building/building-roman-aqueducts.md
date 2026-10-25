@@ -26,8 +26,9 @@ sources:
   - { id: s1, title: "Roman aqueduct — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_aqueduct", accessed: 2026-10-24 }
   - { id: s2, title: "Pont du Gard — Wikipedia", url: "https://en.wikipedia.org/wiki/Pont_du_Gard", accessed: 2026-10-24 }
   - { id: s3, title: "Pont du Gard (Roman Aqueduct) — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/344", accessed: 2026-10-24 }
+  - { id: s4, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 無直接論述
+lens_status: 依公開資料推論，未對照原書
 ---
 
 ## D1 功能與象徵
@@ -55,11 +56,11 @@ lens_status: 無直接論述
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談羅馬水道的內容。
+無直接論述：李彔沒有談羅馬水道。間接相關：他提到宋代都城人口達到約一百萬，超過羅馬昔日的盛況 [s4]。羅馬能撐起這種規模的城市，水道是必要條件之一（此為本卡推論）。
 
 ### 哈拉瑞
 
-無直接論述。目前查到的公開摘要，沒有哈拉瑞專門談羅馬水道的內容。
+無直接論述：目前查到的公開摘要與書評，沒有哈拉瑞專門談羅馬水道的內容。
 
 ## D7 今日對照鉤子
 

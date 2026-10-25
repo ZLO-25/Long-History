@@ -30,6 +30,8 @@ sources:
   - { id: s2, title: "Mark Cartwright, Peloponnesian War — World History Encyclopedia (2018)", url: "https://www.worldhistory.org/Peloponnesian_War/", accessed: 2026-10-24 }
   - { id: s3, title: "Peloponnesian War — Wikipedia", url: "https://en.wikipedia.org/wiki/Peloponnesian_War", accessed: 2026-10-24 }
   - { id: s4, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
+  - { id: s5, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s6, title: "李彔在哥倫比亞商學院第 36 屆格雷厄姆與多德論壇的談話（虎嗅整理，2026）", url: "https://www.huxiu.com/article/4896732.html", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -81,11 +83,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談伯羅奔尼撒戰爭的內容。
+無直接論述：李彔的公開講稿沒有談伯羅奔尼撒戰爭或「修昔底德陷阱」。間接相關：他認為農業文明的總能量有上限，社會長期處在「做餅與分餅」的矛盾中，爭奪人口與資源的戰爭因此反覆發生 [s5]；談今日中美時，他則強調全球共同市場與相互依賴會約束大國衝突 [s6]。把這兩點拿來對照這場戰爭，是本卡的推論。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞把雅典的霸權當作「帝國不一定靠征服形成」的例子：雅典帝國起初是自願加入的同盟。[s4] 這張卡的 A1 也顯示，自願同盟會逐步變成盟主收取貢金的控制體系。
+依公開摘要，哈拉瑞把雅典的霸權當作「帝國不一定靠征服形成」的例子：雅典帝國起初是自願加入的同盟 [s4]。這張卡的 A1 也顯示，自願同盟會逐步變成盟主收取貢金的控制體系（此連結為本卡推論）。
 
 ## A11 今日對照鉤子
 

@@ -31,6 +31,7 @@ sources:
   - { id: s3, title: "Second Punic War — Encyclopaedia Britannica", url: "https://www.britannica.com/print/article/483518", accessed: 2026-10-24 }
   - { id: s4, title: "Denarius — Wikipedia", url: "https://en.wikipedia.org/wiki/Denarius", accessed: 2026-10-24 }
   - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
+  - { id: s6, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -81,11 +82,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述。目前查到的公開演講與文章，沒有李彔專門談布匿戰爭的內容。
+無直接論述：李彔沒有談布匿戰爭。間接相關：他認為羅馬是靠地中海這片內海形成跨區域的貿易帝國，社會發展因此達到農業文明的第一個頂峰 [s6]。打贏迦太基、取得西地中海的控制權，是這個內海帝國成形的前提（此為本卡推論）。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞指出羅馬人「習慣打敗仗」，帝國之所以能長久，在於能承受打擊與損失仍然屹立。[s5] 這與羅馬在坎尼慘敗後仍能重新動員的過程相符（此為本卡推論）。
+依公開摘要，哈拉瑞指出羅馬人「習慣打敗仗」，帝國之所以能長久，在於能承受打擊與損失仍然屹立 [s5]。這與羅馬在坎尼慘敗後仍能重新動員的過程相符（此為本卡推論）。
 
 ## A11 今日對照鉤子
 

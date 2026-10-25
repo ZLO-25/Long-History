@@ -1,4 +1,4 @@
-# 歷史長河（第 5 期：延伸到現代）
+# 歷史長河（第 6 期：學習模式）
 
 個人用的「歷史思考工具」：用模糊搜尋或勾選結構條件，找到結構相似的歷史案例；每張卡片都有時間軸、地圖位置與可點的來源。
 
@@ -13,6 +13,16 @@
 第 4 期加入今日對照層：地圖右上角「◆ 今日對照層」會疊上 6 個當代咽喉要道（霍爾木茲、麻六甲、蘇伊士、曼德、土耳其海峽、巴拿馬）與 3 條今日供應鏈，每一項都標「資料截至」；歷史卡片頁會列出結構相似的今日咽喉。今天的數字會過時，更新方式見 `docs/today-layer.md`。
 
 第 5 期把時間軸從前 800 年延伸到今天：補上中世紀、近代、現代的中西對照卡；新增「技術」卡（造紙、火藥、印刷、蒸汽機、鐵路、電報、電網、內燃機、貨櫃、網路等），在時間軸下方另成一條技術軌，橫條從「發明」畫到「大規模普及」；新增「金融」卡（交子、梅迪奇銀行、阿姆斯特丹交易所、英格蘭銀行、紐約證交所、山西票號、大蕭條、布列敦森林、臺灣證交所、2008 金融危機），另成金融軌；時間軸上方可一鍵跳到「上古／中古／近代／現代」；篩選面板的「文明」改成「地區 > 文明／國家 > 朝代時期」三層樹（分類表在 `data/civilizations.yaml`）；地圖補上 600–2010 年的疆域快照（`npm run borders` 可重新下載）。細節見 `docs/phase5-report.md`。
+
+第 6 期加入給國高中生的**學習模式**（右上角「學習模式」，或網址 `?mode=learn`）。研究模式的畫面與網址參數不變。學習模式裡：
+
+```
+選一條「XX史」（臺灣、日本、中國、希臘羅馬、錢的歷史、世界通史…）
+   └─► 看「謎題」挑一個單元 ──► 一步一步做：讀卡片 → 讀史料 → 排因果鏈 → 比一比 → 你會怎麼選 → 今天能不能類比 → 小測驗 → 回顧
+   └─► 也可以直接讀卡片（故事／理解／深入三層）、玩 3 個金融模擬、看「我的歷史地圖」
+```
+
+只有「有學習區塊、而且通過獨立交叉查核」的卡片和單元才會出現在學習模式。單元怎麼寫見 `docs/learn-units.md`，細節見 `docs/phase6-report.md`。
 
 ---
 
@@ -63,6 +73,8 @@ npm run dev
 | `npm run routes` | 改了 `data/routes/routes.yaml` 之後，重新計算道路、航線、長城的線條 |
 | `npm run roads` | （選用）下載 Itiner-e 羅馬道路細線（約 78 MB，只要做一次） |
 | `npm run build` | 檢查＋打包成靜態網頁到 `dist/` |
+| `LEARN_DEV=1 npm run dev` | 開發時讓還沒通過查核的學習卡與單元也顯示（正式 build 不會用） |
+| `node scripts/qa/e2e.cjs http://localhost:4173/` | 先 `npm run build` 再 `npx vite preview`，然後自動走過 6 條歷史的每個單元每一步、3 個模擬；同資料夾還有 `research.cjs`（研究模式回歸）、`overlap.cjs`（時間軸標籤重疊）、`shot.cjs`（截圖）。需要 Playwright |
 
 ## 三、用 Obsidian 編輯卡片
 
@@ -89,6 +101,10 @@ sources:
 - `http://localhost:5173/?q=羅馬`：直接搜尋
 - `http://localhost:5173/?chain=chain-silk`：直接打開絲綢物資鏈
 - `http://localhost:5173/?today=today-hormuz`：直接打開今日對照層的霍爾木茲海峽
+- `http://localhost:5173/?mode=learn&history=taiwan`：學習模式的臺灣史
+- `http://localhost:5173/?mode=learn&unit=unit-ming-silver`：直接打開一個單元
+- `http://localhost:5173/?mode=learn&sim=bubble`：直接打開泡沫模擬（另有 `debase`、`bankrun`）
+- `http://localhost:5173/?mode=learn&view=mymap`：我的歷史地圖
 
 ## 五、資料來源與授權
 
@@ -120,3 +136,6 @@ sources:
 - `docs/today-layer.md`：今日對照層的資料格式與更新方式
 - `docs/card-fields.md`：卡片欄位規格
 - `docs/structure-tags.md`：結構標籤詞表
+- `docs/phase6-plan.md`、`docs/phase6-report.md`：第 6 期（學習模式）計畫與驗收回報
+- `docs/learn-units.md`：學習單元的寫法與檢查規則
+- `docs/screenshots/phase6/`：375 與 1280 寬的截圖

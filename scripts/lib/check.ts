@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   SECTIONS, TYPE_LABEL, TYPE_PREFIX, FIELD_OPTIONS, VERIFICATION, LENS_STATUS, TIME_PRECISION,
-  LOC_PRECISION, SCALES, TRACKS, type CardType,
+  LOC_PRECISION, SCALES, TRACKS, SOURCE_TIERS, type CardType,
 } from './fields.ts';
 import { ROOT, refsOf, type RawCard } from './cards.ts';
 
@@ -14,7 +14,7 @@ const PAGE_RE = /第\s*[一二三四五六七八九十百\d]+\s*章|第\s*\d+\s*
 
 export function checkCards(
   cards: RawCard[],
-  ctx: { tags: Set<string>; routes: Set<string>; frameworks: Set<string> },
+  ctx: { tags: Set<string>; routes: Set<string>; frameworks: Set<string>; histories?: Set<string> },
 ): Issue[] {
   const issues: Issue[] = [];
   const ids = new Map<string, string>();
@@ -28,8 +28,8 @@ export function checkCards(
 
     // ---- 核心欄位 ----
     const type = f.type as CardType;
-    if (!(type in TYPE_LABEL)) err(`type 必須是 war|commodity|event|building|tech|finance，目前是「${f.type}」`);
-    if (!/^(war|commodity|event|building|tech|finance)-[a-z0-9]+(-[a-z0-9]+)*$/.test(f.id ?? '')) err(`id 格式錯誤：「${f.id}」`);
+    if (!(type in TYPE_LABEL)) err(`type 必須是 ${Object.keys(TYPE_LABEL).join('|')}，目前是「${f.type}」`);
+    if (!/^(war|commodity|event|building|tech|finance|social)-[a-z0-9]+(-[a-z0-9]+)*$/.test(f.id ?? '')) err(`id 格式錯誤：「${f.id}」`);
     else if (!f.id.startsWith(type + '-')) err(`id 前綴應為「${type}-」`);
     if (f.id && path.basename(c.file, '.md') !== f.id) err(`檔名應為 ${f.id}.md`);
     if ([...cards].filter((x) => x.fm?.id === f.id).length > 1) err(`id 重複：${f.id}`);
@@ -48,6 +48,7 @@ export function checkCards(
       if (!s.title) err(`來源 ${s.id} 缺少 title`);
       if (!/^https?:\/\//.test(s.url ?? '')) err(`來源 ${s.id} 的 url 不是有效網址`);
       if (!s.accessed) err(`來源 ${s.id} 缺少 accessed（查閱日期）`);
+      if (s.tier !== undefined && !SOURCE_TIERS.includes(s.tier)) err(`來源 ${s.id} 的 tier 必須是 ${SOURCE_TIERS.join('|')}`);
     }
     const usedRefs = new Set<string>();
     const needRefs = (refs: string[] | undefined, where: string) => {
@@ -143,14 +144,58 @@ export function checkCards(
       if (sec!.unknown) sec!.refs.forEach((r) => usedRefs.add(r));
       else needRefs(sec!.refs, w);
     }
+    // ---- 第 6 期：學習模式欄位 ----
+    if (f.importance !== undefined && ![1, 2, 3].includes(f.importance)) err('importance 必須是 1、2、3');
+    if (f.learn !== undefined) {
+      const L = f.learn ?? {};
+      const w = (m: string) => err(`learn：${m}`);
+      if (!Array.isArray(L.histories) || !L.histories.length) w('histories 至少 1 個（見 data/histories.yaml）');
+      else for (const h of L.histories) if (!ctx.histories?.has(h)) w(`「${h}」不在 data/histories.yaml 的史名或 id 裡`);
+      if (!L.why_care) w('缺 why_care（一句話告訴學生為什麼值得知道）');
+      if (!L.story) w('缺 story（150–250 字故事版）');
+      else {
+        const n = String(L.story).replace(/\[s\d+\]/g, '').replace(/\s/g, '').length;
+        if (n < 120 || n > 320) warn(`learn.story 約 ${n} 字，建議 150–250 字`);
+        needRefs(refsOf(L.story), 'learn.story');
+      }
+      if (!Array.isArray(L.key_terms) || !L.key_terms.length) w('key_terms 至少 1 個');
+      else L.key_terms.forEach((k: any, i: number) => { if (!k?.term || !k?.plain || !k?.example) w(`key_terms[${i}] 需要 term、plain、example`); });
+      if (!Array.isArray(L.primary_source) || !L.primary_source.length) w('primary_source 至少 1 筆（短引原文或譯文）');
+      else L.primary_source.forEach((p: any, i: number) => {
+        if (!p?.text || !p?.from) w(`primary_source[${i}] 需要 text 與 from（書名＋篇章）`);
+        if (String(p?.text ?? '').length > 160) warn(`learn.primary_source[${i}] 超過 160 字，只能引短句`);
+        needRefs(p?.src ? [].concat(p.src) : [], `learn.primary_source[${i}]`);
+      });
+      if (!L.historiography) w('缺 historiography（史家怎麼吵，並列 2 種以上詮釋）');
+      else needRefs(refsOf(L.historiography), 'learn.historiography');
+      if (L.money_scale) needRefs(refsOf(L.money_scale), 'learn.money_scale');
+      if (type === 'finance' && !L.hindsight) w('金融卡要有 hindsight（事後看很清楚的陷阱：後見之明、倖存者偏差）');
+      for (const p of L.perspectives ?? []) {
+        if (!p?.history || !p?.text) w('perspectives 每筆需要 history 與 text');
+        else if (!ctx.histories?.has(p.history)) w(`perspectives 的「${p.history}」不在 data/histories.yaml`);
+      }
+      if (![1, 2, 3].includes(f.importance)) err('有 learn 區塊的卡要填 importance（1–3，背景軌只顯示 3）');
+      const tiers = (f.sources ?? []).map((s: any) => s.tier);
+      if (tiers.some((t: any) => t === undefined)) err('有 learn 區塊的卡，每筆來源都要標 tier（一手｜學術｜通論｜百科｜摘要）');
+      if (!tiers.some((t: any) => t === '一手' || t === '學術')) err('進入學習模式的卡至少要有 1 筆 tier 為「一手」或「學術」的來源');
+      const cc = f.crosscheck;
+      if (!cc) warn('還沒有交叉查核紀錄（crosscheck），不會出現在學習模式');
+      else {
+        if (!['通過', '不通過'].includes(cc.result)) err('crosscheck.result 必須是「通過」或「不通過」');
+        if (!cc.date || !cc.by) err('crosscheck 需要 date 與 by');
+        if (cc.result === '不通過') warn('交叉查核不通過，不會出現在學習模式');
+      }
+      if (f.verification === 'AI草稿') err('AI草稿（單一來源）的卡不能進入學習模式');
+    }
     for (const h of c.extraHeadings) warn(`段落「## ${h}」不在 ${TYPE_PREFIX[type]} 卡欄位規格內，不會顯示`);
     for (const s of srcIds) if (!usedRefs.has(s)) warn(`來源 ${s} 沒有被任何欄位引用`);
   }
   return issues;
 }
 
-export function loadContext(tagCats: { tags: { tag: string }[] }[], routes: any[], frameworks: any[]) {
+export function loadContext(tagCats: { tags: { tag: string }[] }[], routes: any[], frameworks: any[], histories: Set<string> = new Set()) {
   return {
+    histories,
     tags: new Set(tagCats.flatMap((c) => c.tags.map((t) => t.tag))),
     routes: new Set(routes.map((r) => r.id)),
     frameworks: new Set(frameworks.map((f) => f.id)),

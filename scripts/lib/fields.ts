@@ -1,5 +1,5 @@
 // 欄位規格：對應 docs/card-fields.md。改規格時兩邊一起改。
-export type CardType = 'war' | 'commodity' | 'event' | 'building' | 'tech' | 'finance';
+export type CardType = 'war' | 'commodity' | 'event' | 'building' | 'tech' | 'finance' | 'social';
 export type Level = 'core' | 'deep' | 'optional';
 
 export interface SectionDef {
@@ -16,9 +16,10 @@ export const TYPE_LABEL: Record<CardType, string> = {
   building: '建築',
   tech: '技術',
   finance: '金融',
+  social: '社會',
 };
 
-export const TYPE_PREFIX: Record<CardType, string> = { war: 'A', commodity: 'B', event: 'C', building: 'D', tech: 'T', finance: 'F' };
+export const TYPE_PREFIX: Record<CardType, string> = { war: 'A', commodity: 'B', event: 'C', building: 'D', tech: 'T', finance: 'F', social: 'E' };
 
 export const FIELD_OPTIONS = [
   '戰場', '宮廷／政治中心', '港口／海峽', '商路', '資源產地', '城市／都會',
@@ -30,7 +31,8 @@ export const LENS_STATUS = ['依公開資料推論，未對照原書', '無直�
 export const TIME_PRECISION = ['exact', 'approx', 'disputed'] as const;
 export const LOC_PRECISION = ['exact', 'schematic', 'disputed', 'unknown'] as const;
 export const SCALES = ['point', 'line', 'area'] as const;
-export const TRACKS = ['china', 'west', 'other'] as const;
+// east（第 6 期）：臺灣、日本、朝鮮半島、東南亞；研究模式時間軸與中國放在同一條「中國與東亞」軌
+export const TRACKS = ['china', 'west', 'east', 'other'] as const;
 
 // 「查不到」的標準寫法：段落以這些詞開頭時，可以沒有來源代號
 export const UNKNOWN_MARKERS = ['未知', '估計', '示意', '來源不足', '無直接論述', '無適當對照'];
@@ -106,7 +108,33 @@ export const SECTIONS: Record<CardType, SectionDef[]> = {
     { code: 'F7', title: '今日對照鉤子', level: 'deep', role: 'today_hook' },
     { code: 'F8', title: '不可類比的差異', level: 'deep', role: 'non_analogous' },
   ],
+  // 第 6 期：社會與日常卡（庶民、女性、勞動者、移民、原住民族的生活）
+  social: [
+    { code: 'E1', title: '誰的生活', level: 'deep' },
+    { code: 'E2', title: '一天怎麼過', level: 'deep' },
+    { code: 'E3', title: '他們面對的規則', level: 'deep' },
+    { code: 'E4', title: '改變與壓力', level: 'deep' },
+    { code: 'E5', title: '他們留下的證據', level: 'deep' },
+    { code: 'E6', title: '史家怎麼吵', level: 'deep' },
+    { code: 'E7', title: '今日對照鉤子', level: 'deep', role: 'today_hook' },
+    { code: 'E8', title: '不可類比的差異', level: 'deep', role: 'non_analogous' },
+  ],
 };
+
+// 第 6 期：學習模式「理解」層要顯示的段落（「故事」層是 learn.story；「深入」層是全部段落）
+export const UNDERSTAND: Record<CardType, string[]> = {
+  war: ['A2', 'A8', 'A9'],
+  commodity: ['B1', 'B6', 'B7'],
+  event: ['C1', 'C2', 'C6'],
+  building: ['D1', 'D2', 'D5'],
+  tech: ['T1', 'T5'],
+  finance: ['F1', 'F3', 'F5'],
+  social: ['E1', 'E2', 'E4'],
+};
+
+// 第 6 期：來源分級。進入學習模式的卡至少要有 1 筆「一手」或「學術」
+export const SOURCE_TIERS = ['一手', '學術', '通論', '百科', '摘要'] as const;
+export const CROSSCHECK_RESULT = ['通過', '不通過'] as const;
 
 // 核心欄位（frontmatter），用來算完整度
 export const CORE_KEYS = [

@@ -5,9 +5,9 @@ export const PRECISION_LABEL: Record<string, string> = {
   exact: '確切', approx: '約略', disputed: '有爭議', schematic: '示意', unknown: '未知',
 };
 export const TYPE_COLOR: Record<string, string> = {
-  war: '#c0392b', commodity: '#b7791f', event: '#2b6cb0', building: '#2f855a', tech: '#6b46c1', finance: '#0f766e',
+  war: '#c0392b', commodity: '#b7791f', event: '#2b6cb0', building: '#2f855a', tech: '#6b46c1', finance: '#0f766e', social: '#b83280',
 };
-export const TYPE_ICON: Record<string, string> = { war: '⚔', commodity: '⚖', event: '◆', building: '▲', tech: '⚙', finance: '¤' };
+export const TYPE_ICON: Record<string, string> = { war: '⚔', commodity: '⚖', event: '◆', building: '▲', tech: '⚙', finance: '¤', social: '☺' };
 export const KIND_LABEL: Record<string, string> = { road: '道路', sea: '航線', wall: '長城／防線' };
 
 // 卡片在某一年是否「存在」：建築完工後、技術發明後、金融制度出現後持續存在

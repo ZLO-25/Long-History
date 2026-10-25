@@ -15,9 +15,13 @@ regions:
         aliases: []
         periods: [匈奴, 金, 蒙古帝國]
       - name: 臺灣
-        periods: [荷西時期, 明鄭, 清治, 日治, 戰後]
+        aliases: [台灣]
+        periods: [史前與原住民族, 荷西時期, 明鄭, 清治, 日治, 戰後]
       - name: 日本
+        periods: [古代, 平安, 鎌倉, 室町, 戰國, 江戶, 明治, 近現代]
       - name: 朝鮮
+        aliases: [朝鮮半島, 韓國]
+        periods: [三國, 高麗, 朝鮮王朝, 近現代]
   - name: 中亞與西亞
     civs:
       - name: 中亞
@@ -31,6 +35,7 @@ regions:
     civs:
       - name: 印度
       - name: 東南亞
+        periods: [麻六甲, 菲律賓, 爪哇]
   - name: 地中海古代
     civs:
       - name: 古希臘

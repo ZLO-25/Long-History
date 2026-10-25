@@ -6,7 +6,8 @@ import { checkCards, loadContext, exists } from './lib/check.ts';
 import { loadEcon, loadChains, checkEcon, checkChains, buildEcon, buildChains } from './lib/econ.ts';
 import { loadToday, checkToday, buildToday } from './lib/today.ts';
 import { loadCivTaxonomy } from './lib/civ.ts';
-import { SECTIONS, CORE_KEYS, TYPE_LABEL, FIELD_OPTIONS, type CardType } from './lib/fields.ts';
+import { SECTIONS, CORE_KEYS, TYPE_LABEL, FIELD_OPTIONS, UNDERSTAND, type CardType } from './lib/fields.ts';
+import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits } from './lib/learn.ts';
 
 const get = (o: any, k: string) => k.split('.').reduce((a, p) => (a == null ? a : a[p]), o);
 const present = (v: any) => (Array.isArray(v) ? v.length > 0 : v !== undefined && v !== null && v !== '');
@@ -17,7 +18,19 @@ const places: Record<string, { title: string; lat: number; lng: number; precisio
 const routesRaw: any[] = readYaml('data/routes/routes.yaml')?.routes ?? [];
 const frameworks: any[] = readYaml('data/frameworks.yaml')?.frameworks ?? [];
 const raw = loadCards();
-const issues = checkCards(raw, loadContext(tagCats, routesRaw, frameworks));
+const histories = loadHistories();
+const issues = checkCards(raw, loadContext(tagCats, routesRaw, frameworks, historyKeys(histories)));
+// 學習模式可用：有 learn、交叉查核通過、沒有錯誤
+const eligible = new Set(raw.filter((c) => c.fm?.learn && c.fm?.crosscheck?.result === '通過' && !issues.some((i) => i.file === c.file && i.level === 'error')).map((c) => c.fm.id));
+// 沒標 tier 的舊來源依網域推測（只供顯示；學習卡一律要明標）
+const guessTier = (url: string) => {
+  const h = (() => { try { return new URL(url).hostname; } catch { return ''; } })();
+  if (/wikipedia|britannica|newworldencyclopedia|ebsco|baike|5000yan/.test(h)) return '百科';
+  if (/huxiu|litcharts|sameerbajaj|goodreads|quotepark|hk01|medium|substack|reason\.com/.test(h)) return '摘要';
+  if (/ctext|gutenberg|perseus|livius|avalon\.law|sacred-texts/.test(h)) return '一手';
+  if (/jstor|doi\.org|cambridge\.org|academic\.oup|sciencedirect|ihp\.sinica|nber|rug\.nl/.test(h)) return '學術';
+  return '通論';
+};
 const civ = loadCivTaxonomy();
 const civPathsOf = (list: string[]) => { const ps = [...new Set(list.flatMap((v) => civ.resolve(v)))]; return ps.length ? ps : ['其他']; };
 
@@ -61,8 +74,16 @@ const cards = raw.filter((c) => c.fm?.id).map((c) => {
     counterparts: Array.isArray(f.counterparts) ? f.counterparts.map((x: any) => ({ id: x.id, note: x.note, src: x.src ?? [] })) : [],
     counterparts_none: typeof f.counterparts === 'string' ? f.counterparts : '',
     counterpart_of: [] as string[],
-    sources: (f.sources ?? []).map((s: any) => ({ ...s, accessed: dateStr(s.accessed) })),
+    sources: (f.sources ?? []).map((s: any) => ({ ...s, accessed: dateStr(s.accessed), tier: s.tier ?? guessTier(s.url), tier_guess: !s.tier })),
     verification: f.verification, lens_status: f.lens_status,
+    importance: f.importance ?? 2,
+    learn: eligible.has(f.id) ? {
+      ...f.learn,
+      histories: [...new Set([...(f.learn.histories ?? []).map((h: string) => historyId(histories, h)), ...inferHistories(histories, civPathsOf(f.civilization ?? []), type)])].filter(Boolean),
+      track: learnTrack(civPathsOf(f.civilization ?? [])),
+      understand: UNDERSTAND[type] ?? [],
+      crosscheck: f.crosscheck,
+    } : null,
     sections, completeness,
     today_hook: byRole('today_hook')?.text ?? '',
     non_analogous: byRole('non_analogous')?.text ?? '',
@@ -112,7 +133,11 @@ const index = {
   econ: buildEcon(loadEcon()),
   chains: buildChains(loadChains(), raw, routes),
   today: buildToday(loadToday(), routes),
+  histories,
+  units: loadUnits().map((u) => u.unit),
 };
+const unitIssues = checkUnits(loadUnits(), raw, histories, eligible).filter((i) => i.level === 'error');
+if (unitIssues.length) console.warn(`注意：學習單元有 ${unitIssues.length} 個問題，請執行 npm run validate`);
 const econIssues = [...checkEcon(loadEcon()), ...checkChains(loadChains(), raw, new Set(routes.map((r: any) => r.id))),
   ...checkToday(loadToday(), raw, new Set(tagCats.flatMap((c: any) => c.tags.map((t: any) => t.tag))), new Set(routes.map((r: any) => r.id)))].filter((i) => i.level === 'error');
 if (econIssues.length) console.warn(`注意：經濟數列／物資鏈／今日對照層有 ${econIssues.length} 個問題，請執行 npm run validate`);

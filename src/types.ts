@@ -1,7 +1,7 @@
 // public/index.json 的型別（由 scripts/build-index.ts 產生）
-export type CardType = 'war' | 'commodity' | 'event' | 'building' | 'tech' | 'finance';
+export type CardType = 'war' | 'commodity' | 'event' | 'building' | 'tech' | 'finance' | 'social';
 
-export interface Source { id: string; title: string; url: string; accessed: string }
+export interface Source { id: string; title: string; url: string; accessed: string; tier?: string; tier_guess?: boolean }
 export interface Location {
   name_ancient: string; name_modern: string; lat: number; lng: number;
   pleiades_id?: string; precision: string; role?: string; key: string;
@@ -14,7 +14,7 @@ export interface Section {
 }
 export interface Card {
   id: string; type: CardType; typeLabel: string; name: string; aliases: string[];
-  civilization: string[]; civPaths: string[]; track: 'china' | 'west' | 'other';
+  civilization: string[]; civPaths: string[]; track: 'china' | 'west' | 'east' | 'other';
   time: { start: number; end: number; precision: string };
   summary_line: string;
   place: { primary_field: string; secondary_fields: string[]; locations: Location[]; scale: string };
@@ -27,6 +27,43 @@ export interface Card {
   unknownFields: string[]; file: string;
   issues: { level: 'error' | 'warning'; msg: string }[];
   backlinks: string[];
+  importance: 1 | 2 | 3;
+  learn: Learn | null;
+}
+
+// 第 6 期：學習模式
+export type LearnTrack = '臺灣' | '東亞' | '世界';
+export interface Learn {
+  histories: string[]; track: LearnTrack; understand: string[];
+  perspectives?: { history: string; text: string }[];
+  why_care: string; story: string;
+  key_terms: { term: string; plain: string; example: string }[];
+  primary_source: { text: string; from: string; src: string | string[] }[];
+  historiography: string; money_scale?: string; misconceptions?: string[]; hindsight?: string; exaggerated?: string;
+  crosscheck: { date: string; by: string; result: string; notes?: string };
+}
+export interface History {
+  id: string; name: string; track: '臺灣' | '東亞' | '世界' | '全部' | '專題';
+  civs?: string[]; theme?: CardType[]; all?: boolean; blurb?: string;
+}
+export type Step =
+  | { type: 'hook'; text: string }
+  | { type: 'card'; id: string; depth: 'story' | 'understand' | 'deep'; prompt?: string }
+  | { type: 'source'; card: string; idx?: number; question: string; options: string[]; answer: number; explain: string; hints: string[]; ref?: string }
+  | { type: 'chain'; prompt: string; items: string[]; explain: string; hints: string[]; ref?: string }
+  | { type: 'compare'; cards: [string, string]; prompt?: string; rows: { aspect: string; a: string; b: string }[]; question: string; model_answer: string; hints: string[] }
+  | { type: 'decision'; role: string; situation: string; options: { label: string; result: string }[]; actual: string; ref: string; note?: string }
+  | { type: 'today'; card: string; question: string; model_answer: string }
+  | { type: 'sim'; sim: 'debase' | 'bankrun' | 'bubble'; prompt?: string }
+  | { type: 'check'; items: CheckItem[] }
+  | { type: 'recap'; model_answer: string };
+export interface CheckItem {
+  kind: 'choice' | 'order' | 'short'; q: string; options?: string[]; answer?: number; items?: string[]; model?: string;
+  explain: string; hints: string[]; ref?: string;
+}
+export interface Unit {
+  id: string; title: string; histories: string[]; mystery: string; goals: string[]; minutes: number;
+  steps: Step[]; next: string[]; teaser?: string;
 }
 export interface Route {
   id: string; name: string; kind: 'road' | 'sea' | 'wall'; start: number; end: number;
@@ -40,7 +77,7 @@ export interface Framework {
   id: string; name: string; trigger_tags: string[]; summary: string;
   critiques: { text: string; src: string[] }[]; sources: Source[];
 }
-export interface TagCategory { name: string; tags: { tag: string; def: string }[] }
+export interface TagCategory { name: string; tags: { tag: string; def: string; plain?: string; example?: string }[] }
 export interface CivNode { name: string; path: string; children: CivNode[] }
 export interface Index {
   generated: string; cards: Card[]; tagCategories: TagCategory[]; fieldOptions: string[];
@@ -48,6 +85,7 @@ export interface Index {
   borders: { source: string; license: string; note: string; snapshots: { year: number; file: string }[] };
   itinere: boolean;
   econ: Econ; chains: Chain[]; today: Today;
+  histories: History[]; units: Unit[];
 }
 
 export interface Filters { types: CardType[]; fields: string[]; civs: string[] }

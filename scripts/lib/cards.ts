@@ -82,12 +82,16 @@ export function loadCards(): RawCard[] {
 // 解析 docs/structure-tags.md
 export function loadTagVocab() {
   const md = fs.readFileSync(path.join(ROOT, 'docs', 'structure-tags.md'), 'utf8');
-  const cats: { name: string; tags: { tag: string; def: string }[] }[] = [];
+  const cats: { name: string; tags: { tag: string; def: string; plain?: string; example?: string }[] }[] = [];
   for (const line of md.split(/\r?\n/)) {
     const h = line.match(/^##\s+(.+)$/);
     if (h) { cats.push({ name: h[1].trim(), tags: [] }); continue; }
     const t = line.match(/^-\s+\*\*(.+?)\*\*[：:]\s*(.+)$/);
-    if (t && cats.length) cats[cats.length - 1].tags.push({ tag: t[1].trim(), def: t[2].trim() });
+    if (t && cats.length) { cats[cats.length - 1].tags.push({ tag: t[1].trim(), def: t[2].trim() }); continue; }
+    // 第 6 期：標籤下一行「白話：…｜例子：…」
+    const pl = line.match(/^\s+白話[：:]\s*(.+?)\s*[｜|]\s*例子[：:]\s*(.+)$/);
+    const last = cats[cats.length - 1]?.tags.at(-1);
+    if (pl && last) { last.plain = pl[1].trim(); last.example = pl[2].trim(); }
   }
   return cats;
 }

@@ -69,7 +69,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
   const lanes = useMemo(() => {
     // 技術卡、金融卡不分中西，各自獨立一條軌
     const own = (c: Card) => c.type === 'tech' || c.type === 'finance';
-    const lane = (track: 'west' | 'china' | 'tech' | 'finance') => cards.filter((c) => (track === 'tech' || track === 'finance' ? c.type === track : !own(c) && (track === 'china' ? c.track === 'china' : c.track !== 'china')));
+    const lane = (track: 'west' | 'china' | 'tech' | 'finance') => cards.filter((c) => (track === 'tech' || track === 'finance' ? c.type === track : !own(c) && (track === 'china' ? c.track === 'china' || c.track === 'east' : c.track !== 'china' && c.track !== 'east')));
     return (['west', 'china', 'tech', 'finance'] as const).map((track) => {
       // 只排目前畫面內的卡：放大到某個時代時，軌道高度只依畫面內的卡數，技術軌與金融軌才不會被擠到下面看不到
       const items = lane(track).filter((c) => x(Math.max(c.time.end, c.time.start)) >= -200 && x(c.time.start) <= width + 10)
@@ -183,7 +183,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
                   </g>
                 );
               })}
-              <text x={4} y={12} className="lane-label">{{ china: '中國', west: '西方', tech: '技術（發明→普及）', finance: '金融' }[ln.track]}</text>
+              <text x={4} y={12} className="lane-label">{{ china: '中國與東亞', west: '西方', tech: '技術（發明→普及）', finance: '金融' }[ln.track]}</text>
             </g>
           );
         })}

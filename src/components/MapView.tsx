@@ -24,7 +24,7 @@ const TODAY_VIEW: [[number, number], [number, number]] = [[-5, -85], [55, 125]];
 const hue = (s: string) => { let h = 0; for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) % 360; return h; };
 const borderCache = new Map<string, Promise<any>>();
 const loadBorders = (file: string) => {
-  if (!borderCache.has(file)) borderCache.set(file, fetch(`/data/borders/${file}`).then((r) => r.json()));
+  if (!borderCache.has(file)) borderCache.set(file, fetch(`${import.meta.env.BASE_URL}data/borders/${file}`).then((r) => r.json()));
   return borderCache.get(file)!;
 };
 
@@ -80,7 +80,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   // Itiner-e 精細道路（若已用 npm run roads 下載）
   useEffect(() => {
     if (!index.itinere || !layers.current) return;
-    fetch('/data/itinere.geojson').then((r) => r.json()).then((gj) => {
+    fetch(`${import.meta.env.BASE_URL}data/itinere.geojson`).then((r) => r.json()).then((gj) => {
       L.geoJSON(gj, { style: { color: '#8b5a2b', weight: 1, opacity: 0.55 }, interactive: false }).addTo(layers.current!.itinere);
     });
   }, [index.itinere]);
@@ -93,7 +93,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
 
   // AWMC 古代道路網（巴林頓地圖集）：依地圖集標註的時代顯示
   const [awmc, setAwmc] = useState<any>(null);
-  useEffect(() => { fetch('/data/awmc-roads.geojson').then((r) => r.json()).then(setAwmc).catch(() => {}); }, []);
+  useEffect(() => { fetch(`${import.meta.env.BASE_URL}data/awmc-roads.geojson`).then((r) => r.json()).then(setAwmc).catch(() => {}); }, []);
   const era = eraOf(year);
   useEffect(() => {
     const g = layers.current?.awmc;

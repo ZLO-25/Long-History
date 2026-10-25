@@ -29,7 +29,7 @@ export default function App() {
   const [index, setIndex] = useState<Index | null>(null);
   const [error, setError] = useState('');
   useEffect(() => {
-    fetch('/index.json').then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+    fetch(`${import.meta.env.BASE_URL}index.json`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
       .then(setIndex).catch(() => setError('讀不到 public/index.json。請先執行 npm run build:index（npm run dev 會自動執行）。'));
   }, []);
   if (error) return <div className="fatal">{error}</div>;
@@ -136,6 +136,7 @@ function Main({ index }: { index: Index }) {
         <input className="search" type="search" value={query} onChange={(e) => onQuery(e.target.value)}
           placeholder="搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）" aria-label="搜尋" />
         {!isMobile && <button className={`btn ${panel.kind === 'match' ? 'on' : ''}`} onClick={() => open({ kind: 'match' })}>結構對照</button>}
+        <a className="btn credits" href={`${import.meta.env.BASE_URL}credits.html`} target="_blank" rel="noopener" title="資料來源與授權">出處</a>
       </header>
       <FilterBar index={index} filters={filters} setFilters={setFilters} />
       {isMobile ? (

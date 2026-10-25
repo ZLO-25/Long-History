@@ -30,6 +30,8 @@ function rebuildIndexOnChange(): Plugin {
 }
 
 export default defineConfig({
+  // GitHub Pages 會放在 /history-river/ 底下，由部署流程用 BASE_PATH 指定；本機開發維持 /
+  base: process.env.BASE_PATH || '/',
   plugins: [react(), rebuildIndexOnChange()],
   server: { port: 5173, open: !process.env.NO_OPEN },
   build: { chunkSizeWarningLimit: 2500 },

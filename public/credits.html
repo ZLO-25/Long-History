@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>歷史長河｜資料出處與授權</title>
+<style>
+  :root { --bg: #fafaf7; --fg: #222; --muted: #666; --line: #ddd; --accent: #2b6cb0; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #1b1c1e; --fg: #e8e8e6; --muted: #a0a0a0; --line: #3a3b3e; --accent: #7fb0e6; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.7 system-ui, "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  h2 { font-size: 17px; margin: 28px 0 8px; }
+  p, li { color: var(--fg); }
+  .muted { color: var(--muted); }
+  a { color: var(--accent); }
+  .table { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border-bottom: 1px solid var(--line); padding: 8px 6px; text-align: left; vertical-align: top; }
+  th { white-space: nowrap; }
+</style>
+</head>
+<body>
+<main>
+  <h1>資料出處與授權</h1>
+  <p class="muted"><a href="./">← 回到歷史長河</a></p>
+
+  <h2>地圖與數據資料</h2>
+  <div class="table">
+  <table>
+    <thead><tr><th>資料</th><th>來源</th><th>授權</th></tr></thead>
+    <tbody>
+      <tr><td>歷代疆域（示意）</td><td><a href="https://github.com/aourednik/historical-basemaps">historical-basemaps</a>（André Ourednik）</td><td>GPL-3.0</td></tr>
+      <tr><td>古代道路網與城牆</td><td><a href="https://github.com/AWMC/geodata">Ancient World Mapping Center geodata</a>（UNC），依《巴林頓古典世界地圖集》（Barrington Atlas of the Greek and Roman World）</td><td><a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL 1.0</a>；本站轉換後的道路資料同樣以 ODbL 1.0 提供</td></tr>
+      <tr><td>古地名座標</td><td><a href="https://pleiades.stoa.org/">Pleiades</a></td><td>CC BY 3.0</td></tr>
+      <tr><td>海岸線（計算海路用）</td><td><a href="https://www.naturalearthdata.com/">Natural Earth</a> 1:10m，經 <a href="https://github.com/topojson/world-atlas">world-atlas</a> 套件</td><td>公有領域</td></tr>
+      <tr><td>人口、人均 GDP（西元 1 年）</td><td>Bolt &amp; van Zanden，<a href="https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020">Maddison Project Database 2020</a>，經 <a href="https://github.com/owid/owid-datasets">Our World in Data</a> 取得</td><td>CC BY 4.0</td></tr>
+      <tr><td>羅馬道路細線（選用，本站公開版未收錄）</td><td>Itiner-e，Zenodo 10.5281/zenodo.17122148</td><td>CC BY 4.0</td></tr>
+      <tr><td>底圖圖磚</td><td>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</td><td>ODbL</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>卡片內容</h2>
+  <p>每張卡片的內文都逐段附上來源連結（例如 Wikipedia、Britannica、World History Encyclopedia、UNESCO 世界遺產、各學術與新聞網站），請在卡片中點選查看原文。今日對照層的每一項都標有「資料截至」日期。</p>
+
+  <h2>本站授權</h2>
+  <p>因為使用了 GPL-3.0 授權的疆域資料，本站程式碼與整體作品以 <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL 3.0</a> 授權釋出；其中各資料仍依上表各自的授權，使用時請保留原出處。</p>
+  <p class="muted">疆域與年代都是示意，不精確。本工具只是思考歷史結構的框架，不構成預測或投資建議。</p>
+</main>
+</body>
+</html>

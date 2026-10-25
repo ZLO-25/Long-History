@@ -102,6 +102,10 @@ sources:
 
 卡片內文每段都附來源連結；本工具只是思考框架，不構成預測或投資建議。
 
+**本專案授權**：因為使用了 GPL-3.0 的疆域資料，程式碼與整體作品以 GPL-3.0 釋出（見 `LICENSE`）；AWMC 道路資料維持 ODbL 1.0（見 `data/awmc/LICENSE.txt`）。網站上的「出處」頁（`public/credits.html`）列出完整來源。
+
+**線上版**：推到 GitHub 的 `main` 分支後，`.github/workflows/pages.yml` 會自動建置並發布到 GitHub Pages（網址 `https://zlo-25.github.io/history-river/`）。
+
 ## 六、文件
 
 - `docs/phase1-plan.md`：第 1 期計畫

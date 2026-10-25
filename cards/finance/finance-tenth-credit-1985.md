@@ -27,6 +27,7 @@ sources:
   - { id: s4, title: "疑案辦（文：申飛），〈台灣史上最大金融弊案「十信案」（一）〉— 關鍵評論網，2022-09-05", url: "https://www.thenewslens.com/article/172666", accessed: 2026-10-25, tier: 通論 }
   - { id: s5, title: "1985 in Taiwan — Wikipedia", url: "https://en.wikipedia.org/wiki/1985_in_Taiwan", accessed: 2026-10-25, tier: 百科 }
   - { id: s6, title: "行政院新聞，〈中央存款保險公司成立 40 週年茶會〉院長致詞，2025-09-10", url: "https://www.ey.gov.tw/Page/9277F759E41CCD91/ac2db7bc-2038-4e3c-8aaa-187b1d921f69", accessed: 2026-10-25, tier: 通論 }
+  - { id: s8, title: "Hsu Li-teh — Wikipedia（1984-05 至 1985-03 任經濟部長）", url: "https://en.wikipedia.org/wiki/Hsu_Li-teh", accessed: 2026-10-25, tier: 百科 }
   - { id: s7, title: "Tsai Chen-chou — Wikipedia", url: "https://en.wikipedia.org/wiki/Tsai_Chen-chou", accessed: 2026-10-25, tier: 百科 }
 importance: 2
 learn:
@@ -52,6 +53,7 @@ learn:
   perspectives:
     - { history: 臺灣史, text: 從臺灣看，這是解嚴前最大的金融弊案，讓民眾開始懷疑政府和金融機構。 }
     - { history: 錢的歷史, text: 從錢的歷史看，這是「信心一崩、大家搶著領錢」的擠兌典型。 }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) F5 引的 s1（中文維基）把職稱寫反了（寫「經濟部長陸潤康、財政部長徐立德」），s3 只提到財政部長陸潤康，沒有提徐立德與蔣彥士。卡片的職稱是對的，但建議補來源：英文維基 Hsu Li-teh（https://en.wikipedia.org/wiki/Hsu_Li-teh）或關鍵評論網 172668，並刪掉對 s1 職稱的依賴。2) story「多位部長和國民黨高層下臺，數千人的積蓄化為烏有。[s2][s3]」：s2 沒有提到官員下臺，s3 沒有寫「數千人」，兩句分別各只有一個來源支持，建議改成「…下臺 [s1][s3]，數千名存款人失去積蓄 [s2]」。3) F3「國泰信託…財政部" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
@@ -80,7 +82,7 @@ lens_status: 無直接論述
 
 ## F5 改變了什麼
 
-- 財政部長陸潤康、經濟部長徐立德、國民黨祕書長蔣彥士等人先後下臺。[s1][s3]
+- 財政部長陸潤康、經濟部長徐立德、國民黨祕書長蔣彥士等人先後下臺。[s1][s3][s8]
 - 民眾對金融機構和執政黨的信任大受打擊。[s1][s3]
 - 同年中央存款保險公司成立；行政院長在 40 週年時說，早年信用合作社擠兌的事件現在已不再發生。[s6]
 

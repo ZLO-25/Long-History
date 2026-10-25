@@ -30,13 +30,14 @@ sources:
   - { id: s5, title: "M. A. Jamilah, Industrialization, Female Labour Migration, and the Changing Pattern of Malay Women's Labour Force Participation — Southeast Asian Studies 19(4), 1982（京都大學）", url: "https://kyoto-seas.org/pdf/19/4/190403.pdf", accessed: 2026-10-25, tier: 學術 }
   - { id: s6, title: "Special economic zone — Wikipedia", url: "https://en.wikipedia.org/wiki/Special_economic_zone", accessed: 2026-10-25, tier: 百科 }
   - { id: s7, title: "Shannon Free Zone — Wikipedia", url: "https://en.wikipedia.org/wiki/Shannon_Free_Zone", accessed: 2026-10-25, tier: 百科 }
+  - { id: s9, title: "James E. Shapiro, Where the EPZ Are Called 'Utopia' for Business — Multinational Monitor 2(6)，1981 年 6 月", url: "https://multinationalmonitor.org/hyper/issues/1981/06/shapiro.html", accessed: 2026-10-25, tier: 一手 }
   - { id: s8, title: "Export zones renamed industrial parks — Taipei Times，2021-03-29", url: "https://www.taipeitimes.com/News/biz/archives/2021/03/29/2003754656", accessed: 2026-10-25, tier: 通論 }
 importance: 2
 learn:
   histories: [臺灣史]
   why_care: 臺灣從賣米賣糖，轉成替全世界組裝電子產品，第一步就是在高雄港邊圍出一塊「加工出口區」。
   story: |
-    1966 年，政府在高雄前鎮海埔新生地上設立加工出口區。[s1][s2] 規則很簡單：外國工廠來這裡設廠，原料進口免關稅、成品出口也免關稅，前五年還免稅。[s1] 美國、日本的電子公司紛紛來設廠，例如美商飛歌電子。[s2] 工廠需要大量手巧、工資低的作業員，於是成千上萬的年輕女孩國小一畢業就從農村來到加工區，有些甚至還沒到合法工作年齡。[s2] 到 1980 年，全臺三個加工區約有 8 萬名員工，出口額約 14 億美元。[s1]
+    1966 年，政府在高雄前鎮海埔新生地上設立加工出口區。[s1][s2] 規則很簡單：外國工廠來這裡設廠，原料進口免關稅、成品出口也免關稅，前五年還免稅。[s1] 美國、日本的電子公司紛紛來設廠，例如美商飛歌電子。[s2] 工廠需要大量手巧、工資低的作業員，於是成千上萬的年輕女孩國小一畢業就從農村來到加工區，有些甚至還沒到合法工作年齡。[s2] 1980 年前後，全臺三個加工區約有 7 萬到 8 萬名員工（各來源數字不一），一年出口約 14 億美元。[s1][s9]
   key_terms:
     - { term: 加工出口區, plain: 政府劃出的一塊工業區，外國公司在裡面設廠，原料進來、成品出去都不用繳關稅。, example: 像一間「免稅組裝工廠」，零件從國外寄來，組好再寄回國外。 }
     - { term: 關稅, plain: 貨物進出國境時要向政府繳的稅。, example: 網購國外商品超過一定金額要另外付的稅。 }
@@ -78,7 +79,7 @@ lens_status: 無直接論述
 
 ## C6 直接結果
 
-到 1980 年，三個加工區約有 8 萬名員工、投資約 3 億美元，前一年出口約 14 億美元；不過 13 年間高雄區也有 116 家工廠關閉。[s1] 1990 年代中期，加工區員工約 77% 是女性。[s4]
+1980 年前後，三個加工區約有 7 萬到 8 萬名員工（外國報導寫約 8 萬，政府數字 1981 年為 66,523 人，八成以上是女性）、投資約 3 億美元，前一年出口約 14 億美元；不過 13 年間高雄區也有 116 家工廠關閉。[s1][s9] 1990 年代一份勞工團體報告指出，加工區員工約 77% 是女性。[s4]
 
 ## C7 長期影響
 

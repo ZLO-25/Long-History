@@ -21,7 +21,7 @@ structure_tags: [投機泡沫與崩盤, 債務擴張, 臨界點, 突變事件]
 links: [finance-great-depression, finance-nyse, finance-bretton-woods]
 counterparts: "無適當對照：中國軌現有與計畫卡中沒有 2008 年前後的金融事件卡（改革開放卡只寫到 1992 年）；臺灣證交所卡（other 軌）談的是 1990 年泡沫，與次貸危機的機制不同，不硬湊。"
 sources:
-  - { id: s1, title: "2007–2008 financial crisis — Wikipedia", url: "https://en.wikipedia.org/wiki/2007%E2%80%932008_financial_crisis", accessed: 2026-10-25, tier: 百科 }
+  - { id: s1, title: "2008 financial crisis — Wikipedia", url: "https://en.wikipedia.org/wiki/2008_financial_crisis", accessed: 2026-10-25, tier: 百科 }
   - { id: s2, title: "The Great Recession — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/great-recession-of-200709", accessed: 2026-10-25, tier: 通論 }
   - { id: s3, title: "The Subprime Mortgage Crisis — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/subprime-mortgage-crisis", accessed: 2026-10-25, tier: 通論 }
   - { id: s4, title: "Bankruptcy of Lehman Brothers — Wikipedia", url: "https://en.wikipedia.org/wiki/Bankruptcy_of_Lehman_Brothers", accessed: 2026-10-25, tier: 百科 }
@@ -62,8 +62,8 @@ learn:
     - text: "We conclude this financial crisis was avoidable.（我們的結論是：這場金融危機本來是可以避免的。）"
       from: 美國金融危機調查委員會（FCIC）《結論》（The Financial Crisis Inquiry Report，2011）；中文為本站摘譯
       src: s8
-    - text: "the problems in the subprime market seems likely to be contained（次貸市場的問題看來很可能會被控制住）"
-      from: 聯準會主席柏南奇在國會聯合經濟委員會的證詞〈The economic outlook〉，2007 年 3 月 28 日（原句談的是對整體經濟和金融市場的影響），Federal Reserve Board 版；中文為本站摘譯
+    - text: "the impact on the broader economy and financial markets of the problems in the subprime market seems likely to be contained（次貸市場的問題對整體經濟和金融市場的影響，看來很可能會被控制住）"
+      from: 聯準會主席柏南奇在國會聯合經濟委員會的證詞〈The economic outlook〉，2007 年 3 月 28 日，Federal Reserve Board 版；中文為本站摘譯
       src: s12
   historiography: |
     **危機的主因是什麼？** FCIC 多數委員認為，這場危機本來可以避免：金融監管普遍失靈，大型金融機構的公司治理與風險管理嚴重失敗，家庭和華爾街都借太多、冒太多險，信評機構更是「金融毀滅之輪上不可少的齒輪」。[s8] 三位持不同意見的委員則認為，觸發點是「全球信用與房市泡沫的破裂」；因為泡沫是全球性的，不能只怪美國的房屋政策，他們也認為廢除格拉斯－斯蒂格爾法和危機沒有關係，並不同意「衍生性商品造成危機」的說法。[s9] 另一位委員 Wallison 也另外提出不同意見。[s9]

@@ -24,13 +24,46 @@ links: [tech-telegraph, tech-printing-press, tech-movable-type, tech-container-s
 counterparts:
   - { id: tech-movable-type, note: "相似：兩者都大幅降低複製與傳遞文字的成本，改變了誰能取得知識。不同：北宋畢昇約 1040 年發明的陶活字要大量印刷才划算，資訊仍是由少數印書者發出；網際網路讓每個連上網的人都能同時發送和接收，而且幾乎不必付複製成本。", src: [s4, s7] }
 sources:
-  - { id: s1, title: "ARPANET — Wikipedia", url: "https://en.wikipedia.org/wiki/ARPANET", accessed: 2026-10-25 }
-  - { id: s2, title: "Leiner，Cerf，Kahn 等，Brief History of the Internet — Internet Society", url: "https://www.internetsociety.org/internet/history-internet/brief-history-internet/", accessed: 2026-10-25 }
-  - { id: s3, title: "World Wide Web — Wikipedia", url: "https://en.wikipedia.org/wiki/World_Wide_Web", accessed: 2026-10-25 }
-  - { id: s4, title: "Internet — Wikipedia", url: "https://en.wikipedia.org/wiki/Internet", accessed: 2026-10-25 }
-  - { id: s5, title: "Nexus: A Brief History of Information Networks from the Stone Age to AI — Wikipedia", url: "https://en.wikipedia.org/wiki/Nexus:_A_Brief_History_of_Information_Networks_from_the_Stone_Age_to_AI", accessed: 2026-10-25 }
-  - { id: s6, title: "王雅〈從「李約瑟之問」到「李錄之答」〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25 }
-  - { id: s7, title: "Movable type — Wikipedia", url: "https://en.wikipedia.org/wiki/Movable_type", accessed: 2026-10-25 }
+  - { id: s1, title: "ARPANET — Wikipedia", url: "https://en.wikipedia.org/wiki/ARPANET", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Leiner，Cerf，Kahn 等，Brief History of the Internet — Internet Society", url: "https://www.internetsociety.org/internet/history-internet/brief-history-internet/", accessed: 2026-10-25, tier: 學術 }
+  - { id: s3, title: "World Wide Web — Wikipedia", url: "https://en.wikipedia.org/wiki/World_Wide_Web", accessed: 2026-10-25, tier: 百科 }
+  - { id: s4, title: "Internet — Wikipedia", url: "https://en.wikipedia.org/wiki/Internet", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "Nexus: A Brief History of Information Networks from the Stone Age to AI — Wikipedia", url: "https://en.wikipedia.org/wiki/Nexus:_A_Brief_History_of_Information_Networks_from_the_Stone_Age_to_AI", accessed: 2026-10-25, tier: 百科 }
+  - { id: s6, title: "王雅〈從「李約瑟之問」到「李錄之答」〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25, tier: 通論 }
+  - { id: s7, title: "Movable type — Wikipedia", url: "https://en.wikipedia.org/wiki/Movable_type", accessed: 2026-10-25, tier: 百科 }
+  - { id: s8, title: "Tim Berners-Lee, Information Management: A Proposal, CERN, 1989-03（1990-05 修訂）— W3C", url: "https://www.w3.org/History/1989/proposal.html", accessed: 2026-10-25, tier: 一手 }
+  - { id: s9, title: "Ina Fourie, Review of Janet Abbate, Inventing the Internet, Online Information Review 25(4), 2001", url: "https://www.emeraldinsight.com/insight/content/doi/10.1108/oir.2001.25.4.271.2/full/html", accessed: 2026-10-25, tier: 學術 }
+  - { id: s10, title: "Inventing the Internet（Janet Abbate）書評 — Publishers Weekly，1999-06-14", url: "https://publishersweekly.com/978-0-262-01172-3", accessed: 2026-10-25, tier: 摘要 }
+importance: 3
+learn:
+  histories: [科技史, 美洲史, 歐洲史, 世界通史]
+  why_care: 你每天用的網頁和 App，背後是一套 1960 年代為了讓研究人員共用電腦而設計的網路；它怎麼從實驗室變成全世界的基礎設施？[s1][s4]
+  story: |
+    1960 年代的電腦又大又貴，美國國防部出錢建立「阿帕網」，讓不同地方的研究人員共用電腦。[s1] 1969 年 10 月 29 日，加州大學洛杉磯分校向史丹佛研究院送出第一則訊息，原本要打 login，只傳出「lo」兩個字母。[s1][s2] 網路上的資料會被切成小封包，各自找路送到目的地再拼回來。[s1][s2] 1983 年阿帕網全面改用 TCP/IP 這套共同規則，不同的網路才接成「網路的網路」。[s1][s2] 1989 年，英國人柏納茲—李在歐洲核子研究組織提出用連結串起資訊的構想，後來發展成全球資訊網。[s3][s8] 1995 年美國網路完全商業化，從學術工具變成人人都用的平台。[s2][s4]
+  key_terms:
+    - { term: 封包交換, plain: 把資料切成很多小包，各自走不同路線送達，再按順序拼回來。, example: 搬家時把家具拆成很多箱，分好幾台車載，到新家再組裝。 }
+    - { term: TCP/IP, plain: 網路上大家共同遵守的傳送規則，任何電腦照著做就能互相連線。, example: 全世界郵局都看得懂同一種地址寫法，信才能寄到任何國家。 }
+    - { term: 全球資訊網（WWW）, plain: 架在網際網路上、用超連結把網頁串起來的系統；它不等於網際網路本身。, example: 網際網路像公路，全球資訊網像公路上跑的公車路線。 }
+    - { term: 超連結, plain: 點一下就能跳到另一份文件的連結。, example: 書上寫「見第 52 頁」，但你不用翻，點一下就到了。 }
+    - { term: 節點, plain: 網路上一台連線的電腦或轉接站。, example: 像公車路線上的一個站牌。 }
+  primary_source:
+    - text: "When two years is a typical length of stay, information is constantly being lost.（研究人員通常只待兩年，資訊就不斷流失。）"
+      from: Tim Berners-Lee〈Information Management - A Proposal〉，CERN，1989 年 3 月（1990 年 5 月修訂；中文為本站摘譯）
+      src: s8
+    - text: "a 'web' of notes with links (like references) between them is far more useful than a fixed hierarchical system（用連結把筆記串成一張「網」，比固定的層層分類有用得多。）"
+      from: 同一份 1989 年提案（中文為本站摘譯）
+      src: s8
+  historiography: |
+    **阿帕網是為了核戰而建的嗎？** 一種常見說法是：阿帕網在冷戰時建造，為的是讓軍事通訊在核攻擊後還能運作；《出版人週刊》1999 年介紹 Janet Abbate 的《發明網際網路》時也這樣寫。[s10] 但親身參與建網的 Leiner、Cerf、Kahn 等人在〈網際網路簡史〉中說，這是「錯誤的傳言」，只有另一項無關的蘭德公司研究考慮過核戰。[s2] 維基百科也記載，當時的主管說目的是連接研究用電腦。[s1]
+    **是誰發明了網際網路？** 一般介紹常把功勞記在幾位關鍵人物身上，例如提出封包交換的克萊因羅克、巴蘭、戴維斯，以及 TCP/IP 的瑟夫與卡恩。[s1][s2] 歷史學者 Abbate 則不認為有單一的發明時刻；書評指出，她把網際網路的歷史看成「許多參與者之間合作與衝突的故事」，使用者也主動改造了阿帕網和電子郵件。[s9]
+  misconceptions:
+    - 網際網路和全球資訊網不是同一件事：網頁只是架在網際網路上的一種服務。[s3]
+    - 「全世界都上網了」不正確：2025 年仍有約 22 億人沒有上網（估計）。[s4]
+    - 阿帕網不是為了在核戰中存活而設計的，這是參與者明確否認的傳言。[s1][s2]
+  perspectives:
+    - { history: 科技史, text: "從科技史看，這是「開放標準」讓技術爆炸擴散的例子：TCP/IP 和全球資訊網都是公開、免費的規則。[s2][s3]" }
+    - { history: 美洲史, text: "從美國看，網際網路由國防部和國家科學基金會出資的研究網路長出來，1995 年才完全交給市場。[s1][s2]" }
+    - { history: 歐洲史, text: "從歐洲看，全球資訊網誕生在日內瓦附近的歐洲核子研究組織，1993 年宣布技術免費開放給所有人。[s3]" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

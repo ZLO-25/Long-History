@@ -24,17 +24,49 @@ counterparts:
   - { id: finance-nyse, note: "相似：都把股票、債券集中到有規則的市場交易，也都經歷過借錢炒股後的大崩盤（紐約 1929 年、臺灣 1990 年）。不同：紐約證交所從 1792 年經紀人的民間約定長出來；臺灣證交所是政府為了處理土地改革發出的公營事業股票而規劃設立的公司。", src: [s2, s3, s9] }
   - { id: event-reform-and-opening, note: "相似：1990 年中國大陸在改革開放中重設上海證券交易所（11 月 26 日成立、12 月 19 日開業）。不同：同一年臺灣股市正從 12,682 點崩跌；臺灣證交所 1962 年就已開業，上海的交易所則是 1949 年關閉後重新設立，由中國證監會直接管理。", src: [s5, s6, s10] }
 sources:
-  - { id: s1, title: "臺灣證券交易所 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/臺灣證券交易所", accessed: 2026-10-25 }
-  - { id: s2, title: "Taiwan Stock Exchange — Wikipedia", url: "https://en.wikipedia.org/wiki/Taiwan_Stock_Exchange", accessed: 2026-10-25 }
-  - { id: s3, title: "開箱老照片》台灣證券交易所正式營業 — 中央社，2024-02-09", url: "https://www.cna.com.tw/news/ahel/202402075006.aspx", accessed: 2026-10-25 }
-  - { id: s4, title: "Taiwan Capitalization Weighted Stock Index — Wikipedia", url: "https://en.wikipedia.org/wiki/Taiwan_Capitalization_Weighted_Stock_Index", accessed: 2026-10-25 }
-  - { id: s5, title: "股市時光機：一張舊報紙回到「台灣錢淹腳目」的瘋狂年代 — Smart 自學網（商業周刊），2019-04-29", url: "https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?ID=38490", accessed: 2026-10-25 }
-  - { id: s6, title: "蔡明彰觀點：挑戰 12682 天價的危與機 — 鉅亨網，2020-07-23", url: "https://news.cnyes.com/news/id/4508251", accessed: 2026-10-25 }
-  - { id: s7, title: "劉泰英稱台股藏崩盤危機　謝金河：這 5 家公司貢獻 4 分之 3 漲幅 — 今周刊，2021-01-26", url: "https://www.businesstoday.com.tw/article/category/183008/post/202101260049/", accessed: 2026-10-25 }
-  - { id: s8, title: "李彔〈價值投資在中國的展望〉北京大學演講（2015-10-23，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/5f0936c4321954706fa9eca2_%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%B1%95%E6%9C%9B-%E6%9D%8E%E5%BD%952015-10-23%E5%8C%97%E5%A4%A7%E6%BC%94%E8%AE%B2.pdf", accessed: 2026-10-25 }
-  - { id: s9, title: "New York Stock Exchange — Wikipedia", url: "https://en.wikipedia.org/wiki/New_York_Stock_Exchange", accessed: 2026-10-25 }
-  - { id: s10, title: "Shanghai Stock Exchange — Wikipedia", url: "https://en.wikipedia.org/wiki/Shanghai_Stock_Exchange", accessed: 2026-10-25 }
-  - { id: s11, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25 }
+  - { id: s1, title: "臺灣證券交易所 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/臺灣證券交易所", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Taiwan Stock Exchange — Wikipedia", url: "https://en.wikipedia.org/wiki/Taiwan_Stock_Exchange", accessed: 2026-10-25, tier: 百科 }
+  - { id: s3, title: "開箱老照片》台灣證券交易所正式營業 — 中央社，2024-02-09", url: "https://www.cna.com.tw/news/ahel/202402075006.aspx", accessed: 2026-10-25, tier: 通論 }
+  - { id: s4, title: "Taiwan Capitalization Weighted Stock Index — Wikipedia", url: "https://en.wikipedia.org/wiki/Taiwan_Capitalization_Weighted_Stock_Index", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "股市時光機：一張舊報紙回到「台灣錢淹腳目」的瘋狂年代 — Smart 自學網（商業周刊），2019-04-29", url: "https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?ID=38490", accessed: 2026-10-25, tier: 通論 }
+  - { id: s6, title: "蔡明彰觀點：挑戰 12682 天價的危與機 — 鉅亨網，2020-07-23", url: "https://news.cnyes.com/news/id/4508251", accessed: 2026-10-25, tier: 通論 }
+  - { id: s7, title: "劉泰英稱台股藏崩盤危機　謝金河：這 5 家公司貢獻 4 分之 3 漲幅 — 今周刊，2021-01-26", url: "https://www.businesstoday.com.tw/article/category/183008/post/202101260049/", accessed: 2026-10-25, tier: 通論 }
+  - { id: s8, title: "李彔〈價值投資在中國的展望〉北京大學演講（2015-10-23，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/5f0936c4321954706fa9eca2_%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%B1%95%E6%9C%9B-%E6%9D%8E%E5%BD%952015-10-23%E5%8C%97%E5%A4%A7%E6%BC%94%E8%AE%B2.pdf", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s9, title: "New York Stock Exchange — Wikipedia", url: "https://en.wikipedia.org/wiki/New_York_Stock_Exchange", accessed: 2026-10-25, tier: 百科 }
+  - { id: s10, title: "Shanghai Stock Exchange — Wikipedia", url: "https://en.wikipedia.org/wiki/Shanghai_Stock_Exchange", accessed: 2026-10-25, tier: 百科 }
+  - { id: s11, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s12, title: "臺灣證券交易所，〈沿革與組織〉（第 1 章，證交所六十週年刊物，資料截至 2021-07-31）", url: "https://www.twse.com.tw/staticFiles/product/publication/twse60/P1.pdf", accessed: 2026-10-25, tier: 一手 }
+  - { id: s13, title: "陳南光，〈台灣的資產價格波動──1973~1992 股價與房地產價格的實證研究〉，行政院國家科學委員會專題研究計畫成果報告 NSC 87-2418-H-002-011，國立臺灣大學經濟學系，1998", url: "https://scholars.lib.ntu.edu.tw/bitstream/123456789/50980/1/872418H002011.pdf", accessed: 2026-10-25, tier: 學術 }
+importance: 2
+learn:
+  histories: [臺灣史, 錢的歷史]
+  why_care: 大人常講的「台股」從這裡開始；1990 年它從 12,682 點跌到 2,485 點，是很多臺灣家庭對「泡沫」最深的記憶。[s5][s6]
+  story: |
+    1953 年，政府推行「耕者有其田」，向地主徵收土地，付給他們土地債券和台泥等四大公營公司的股票。[s1][s3][s12] 這些股票需要地方買賣，但當時交易地點分散、很難管理、弊病很多，政府於是規劃成立集中交易的證券交易所。[s12] 1962 年 2 月 9 日，臺灣證券交易所在臺北開業，台泥是第一家上市公司。[s3][s12] 1980 年代後期，市場上熱錢多、可買的股票少，股價狂飆，人稱「台灣錢淹腳目」。[s5][s7] 1990 年 2 月加權指數衝上 12,682 點，約 8 個月後跌到 2,485 點，跌掉八成多；用融資借錢追高的人被迫賣出。[s5][s6]
+  key_terms:
+    - { term: 證券交易所, plain: 集中買賣股票和債券的市場，公開報價、統一規則。, example: 像學校跳蚤市場統一辦在操場，大家照同一套規則買賣。 }
+    - { term: 加權指數, plain: 把上市公司的股價依公司規模加權算成一個數字，用來看整體股市漲跌。, example: 像全班的加權平均成績，學分多的科目影響比較大。 }
+    - { term: 融資與斷頭, plain: 融資是向券商借錢買股票；股價跌太多時，券商會強制賣掉你的股票收回借款，這叫斷頭。, example: 借錢買限量球鞋想轉賣，結果鞋價大跌，債主逼你立刻賤賣還錢。 }
+    - { term: 泡沫, plain: 價格遠高於東西實際的價值，只靠大家相信「還會再漲」撐著。, example: 限量公仔被炒到原價十倍，熱潮一退就沒人要。 }
+    - { term: 本益比, plain: 股價是公司每股一年賺的錢的幾倍，數字越高代表越貴。, example: 一家每年賺 10 元的小店開價 1000 元，等於要 100 年才回本。 }
+  primary_source:
+    - text: "因其交易處所過於分散，管理不易，市場積弊甚多（股票買賣的地點太分散、很難管理，市場上的弊病很多。）"
+      from: 臺灣證券交易所六十週年刊物第 1 章〈沿革與組織〉，說明 1950 年代為何要設集中市場（白話為本站摘譯）
+      src: s12
+    - text: "政府於77年9月24日宣布自78年起恢復課徵證所稅，致股市連跌19天（1988 年政府宣布隔年恢復課徵證券交易所得稅，股市連跌 19 天。）"
+      from: 臺灣證券交易所六十週年刊物第 1 章〈沿革與組織〉（白話為本站摘譯）
+      src: s12
+  historiography: |
+    **股市為什麼大漲又大崩？** 臺大經濟系陳南光的國科會研究分析 1973–1992 年的股價和房價，發現銀行放款的影響比利率顯著得多，而且股價會帶動房價；他也指出，連「理性泡沫」理論都無法完全解釋 1988 年中到 1990 年初資產價格的加速上漲。[s13] 商業周刊的報導則強調主力、作手炒作，以及籌碼少、資金多。[s5]
+    **崩盤的導火線是什麼？** 鉅亨網的評論把崩盤歸於伊拉克入侵科威特、油價大漲引發的衰退恐慌，加上融資追高的人被迫斷頭。[s6] 謝金河則認為當時金融股、資產股的本益比超過 100 倍，價格早就太高。[s7] 各方說法不同，目前沒有單一定論。[s5][s6][s7]
+  hindsight: |
+    事後回看 12,682 點，大家都說「那時明顯是泡沫」；但身在 1990 年初的人，看到的是股價連年上漲、身邊的人都在賺錢，研究者也發現連理論都很難完全解釋當時的漲勢，這就是後見之明。[s5][s13] 另外，我們常聽到的多半是撐過崩盤、後來又賺回來的故事；指數要到約 30 年後的 2020 年才再突破 12,682 點，當年在高點借錢買進、被斷頭出場的人，很少留下紀錄（倖存者偏差）。[s6][s7] 本卡不構成投資建議。
+  misconceptions:
+    - 證交所的起點不是為了讓大家炒股，而是要替土地改革發出的公營事業股票和土地債券找一個集中、好管理的市場。[s1][s12]
+    - 1990 年崩盤後並沒有很快漲回來：指數要到 2020 年才再突破 12,682 點。[s7]
+  perspectives:
+    - { history: 臺灣史, text: "從臺灣看，證交所把土地改革、經濟起飛和 1980 年代的全民炒股串在一起。[s3][s5][s12]" }
+    - { history: 錢的歷史, text: "從錢的歷史看，1990 年台股和 1929 年紐約股市一樣，都是借錢買股、信心崩潰後的大崩盤（見「紐約證券交易所」卡）。[s6][s9]" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

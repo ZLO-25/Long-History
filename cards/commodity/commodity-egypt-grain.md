@@ -69,6 +69,7 @@ learn:
   perspectives:
     - { history: 希臘羅馬史, text: 從羅馬看，掌握埃及和北非的糧食，就等於掌握首都的穩定。 }
     - { history: 錢的歷史, text: 從錢的歷史看，糧食配給是羅馬國家長期的大筆支出，也是用物資換取政治支持的例子。 }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "首查：頂帆屬郵船非糧船、配給停止連到經濟分裂而非人口；已修正並複查通過" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

@@ -67,6 +67,7 @@ learn:
   perspectives:
     - { history: 希臘羅馬史, text: 從羅馬看，這是帝國西北角的邊界，也是哈德良「守住現有領土」政策的象徵。 }
     - { history: 歐洲史, text: 從英國看，這是羅馬統治不列顛最醒目的遺跡，1987 年列入世界遺產。 }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "首查：「約 14 座堡壘」無來源，改為十幾座；複查通過" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

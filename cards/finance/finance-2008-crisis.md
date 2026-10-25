@@ -77,6 +77,7 @@ learn:
   perspectives:
     - { history: 美洲史, text: 從美國看，這是二戰後最長的一次經濟衰退，之後通過陶德－法蘭克法案大改金融監管。 }
     - { history: 錢的歷史, text: 從錢的歷史看，擠兌換了形式：從存款人在銀行門口排隊，變成機構在電腦上抽走短期借款。 }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "首查：柏南奇引文刪去主詞改變意思、s1 網址失效；已修正並複查通過" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

@@ -20,7 +20,8 @@ place:
   scale: area
 structure_tags: [貨幣貶值, 惡性通膨, 貨幣體系轉換, 財政枯竭, 戰爭融資]
 links: [finance-taiwan-stock-exchange, finance-bretton-woods]
-counterparts: 無適當對照：本站西方軌目前還沒有同時代的惡性通膨卡（例如 1923 年德國）；之後補上威瑪德國卡再對照。
+counterparts:
+  - { id: finance-weimar-hyperinflation, note: "相似：政府都靠印鈔撐財政，物價失控後換新貨幣（四萬換一元、一兆換一元）。不同：臺灣的改革靠黃金準備與後來的美援才穩住，德國則靠以資產擔保的地租馬克。", src: [s3, s5] }
 sources:
   - { id: s1, title: "舊臺幣 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/%E8%88%8A%E8%87%BA%E5%B9%A3", accessed: 2026-10-25, tier: 百科 }
   - { id: s2, title: "New Taiwan dollar — Wikipedia", url: "https://en.wikipedia.org/wiki/New_Taiwan_dollar", accessed: 2026-10-25, tier: 百科 }

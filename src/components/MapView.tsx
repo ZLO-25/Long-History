@@ -1,13 +1,15 @@
 // Leaflet 地圖：歷代疆域（示意）＋道路／航線＋卡片地點；隨年代同步更新
 import { useEffect, useMemo, useRef, useState } from 'react';
 import L from 'leaflet';
-import type { Index, Card } from '../types';
+import type { Index, Card, Chain } from '../types';
+import { posAt } from '../lib/chain';
 import { activeAt, fmtYear, KIND_LABEL, METHOD_LABEL, SEG_LABEL, ERA_LABEL, eraOf, roadInEra, TYPE_COLOR } from '../lib/format';
 
 interface Props {
   index: Index; cards: Card[]; year: number;
   highlight: { keys: string[]; routes: string[] };
   onPlace: (key: string) => void; onRoute: (id: string) => void; compact?: boolean;
+  chain?: { chain: Chain; t: number } | null;
 }
 
 // 地圖視野：地中海／中國／歐亞
@@ -23,10 +25,10 @@ const loadBorders = (file: string) => {
   return borderCache.get(file)!;
 };
 
-export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact }: Props) {
+export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map>();
-  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup }>();
+  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup }>();
   const cb = useRef({ onPlace, onRoute });
   cb.current = { onPlace, onRoute };
   const [snapLabel, setSnapLabel] = useState('');
@@ -40,7 +42,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     m.createPane('borders').style.zIndex = '350';
     layers.current = {
       borders: L.layerGroup().addTo(m), awmc: L.layerGroup().addTo(m), itinere: L.layerGroup().addTo(m), routes: L.layerGroup().addTo(m),
-      places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m),
+      places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m), chain: L.layerGroup().addTo(m), mover: L.layerGroup().addTo(m),
     };
     map.current = m;
     return () => { m.remove(); };
@@ -174,6 +176,33 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     else if (pts.length > 1) m.flyToBounds(L.latLngBounds(pts).pad(0.3), { duration: 0.6, maxZoom: 7 });
   }, [highlight, places, index]);
 
+  // 物資鏈：沿路線的段落畫實線（橘），沒有路線或只知站點的段落畫點線；節點編號
+  const ch = chain?.chain;
+  useEffect(() => {
+    const g = layers.current?.chain, m = map.current;
+    if (!g || !m) return;
+    g.clearLayers();
+    if (!ch) return;
+    const pts: [number, number][] = [];
+    ch.legs.forEach((leg) => leg.parts.forEach((p) => {
+      pts.push(...p.coords);
+      L.polyline(p.coords, { color: '#dd6b20', weight: p.kind === 'route' ? 5 : 3, opacity: 0.9, dashArray: p.kind === 'route' ? undefined : '2 8', className: `chain-${p.kind}` })
+        .bindTooltip(p.kind === 'route' ? `${ch.name}：沿已畫路線` : `${ch.name}：路線示意（實際走法不詳）`, { sticky: true }).addTo(g);
+    }));
+    ch.steps.forEach((s, i) => {
+      L.marker([s.lat, s.lng], { icon: L.divIcon({ className: 'chain-step', html: `<span>${i + 1}</span>`, iconSize: [22, 22] }) })
+        .bindTooltip(`${i + 1}. ${s.name}（${s.role}）`).addTo(g);
+    });
+    m.flyToBounds(L.latLngBounds(pts).pad(0.2), { duration: 0.6, maxZoom: 8 });
+  }, [ch]);
+  useEffect(() => {
+    const g = layers.current?.mover;
+    if (!g) return;
+    g.clearLayers();
+    if (!chain) return;
+    L.circleMarker(posAt(chain.chain, chain.t), { radius: 8, color: '#fff', weight: 2, fillColor: '#c53030', fillOpacity: 1, className: 'chain-mover' }).addTo(g);
+  }, [chain]);
+
   useEffect(() => { setTimeout(() => map.current?.invalidateSize(), 50); });
 
   return (
@@ -186,6 +215,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         <div>{snapLabel}</div>
         <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
         <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>
+        {ch && <div><i className="lg chain" />物資鏈（實線＝沿已畫路線，點線＝路線示意）</div>}
       </div>
     </div>
   );

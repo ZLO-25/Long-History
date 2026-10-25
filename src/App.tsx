@@ -10,6 +10,8 @@ import { FilterBar } from './components/FilterBar';
 import { PlacePanel } from './components/PlacePanel';
 import { RoutePanel } from './components/RoutePanel';
 import { StructureMatch } from './components/StructureMatch';
+import { ChainPanel } from './components/ChainPanel';
+import { EconPanel } from './components/EconPanel';
 import { useIsMobile } from './lib/useIsMobile';
 
 export type Panel =
@@ -17,7 +19,9 @@ export type Panel =
   | { kind: 'card'; id: string }
   | { kind: 'place'; key: string }
   | { kind: 'route'; id: string }
-  | { kind: 'match'; tags?: string[] };
+  | { kind: 'match'; tags?: string[] }
+  | { kind: 'chain'; id: string }
+  | { kind: 'econ'; series: string; point: number };
 
 export default function App() {
   const [index, setIndex] = useState<Index | null>(null);
@@ -33,15 +37,23 @@ export default function App() {
 
 function Main({ index }: { index: Index }) {
   const isMobile = useIsMobile();
-  // 網址參數：?year=100 指定年份、?card=war-peloponnesian 直接開卡、?q=羅馬 預填搜尋
+  // 網址參數：?year=100 指定年份、?card=war-peloponnesian 直接開卡、?chain=chain-silk 直接播物資鏈、?q=羅馬 預填搜尋
   const params = useMemo(() => new URLSearchParams(location.search), []);
-  const [year, setYear] = useState(() => { const y = Number(params.get('year')); return Number.isFinite(y) && params.has('year') ? y : -490; });
+  const [year, setYear] = useState(() => {
+    const y = Number(params.get('year'));
+    if (Number.isFinite(y) && params.has('year')) return y;
+    const ch = index.chains.find((c) => c.id === params.get('chain'));
+    return ch ? ch.start : -490;
+  });
   const [query, setQuery] = useState(() => params.get('q') ?? '');
   const [filters, setFilters] = useState<Filters>({ types: [], fields: [], civs: [] });
   const [stack, setStack] = useState<Panel[]>(() => {
     const id = params.get('card');
+    const ch = params.get('chain');
+    if (ch && index.chains.some((c) => c.id === ch)) return [{ kind: 'list' }, { kind: 'chain', id: ch }];
     return id && index.cards.some((c) => c.id === id) ? [{ kind: 'list' }, { kind: 'card', id }] : [{ kind: 'list' }];
   });
+  const [chainT, setChainT] = useState(0);
   const [mobileTab, setMobileTab] = useState<'list' | 'map' | 'match'>('list');
   const panel = stack[stack.length - 1];
 
@@ -65,6 +77,16 @@ function Main({ index }: { index: Index }) {
     if (c && !activeAt(c, year)) setYear(c.time.start);
     open({ kind: 'card', id });
   }, [byId, year, open]);
+  const openChain = useCallback((id: string) => {
+    const ch = index.chains.find((c) => c.id === id);
+    if (ch && (year < ch.start || year > ch.end)) setYear(ch.start);
+    setChainT(0); open({ kind: 'chain', id });
+    if (isMobile) setMobileTab('map');
+  }, [index, year, open, isMobile]);
+  const openEcon = useCallback((series: string, point: number) => {
+    setStack((s) => (s[s.length - 1].kind === 'econ' ? [...s.slice(0, -1), { kind: 'econ', series, point }] : [...s, { kind: 'econ', series, point }]));
+  }, []);
+  const activeChain = panel.kind === 'chain' ? index.chains.find((c) => c.id === panel.id) ?? null : null;
   const back = () => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s));
   const home = () => setStack([{ kind: 'list' }]);
 
@@ -81,9 +103,11 @@ function Main({ index }: { index: Index }) {
   const side = (() => {
     switch (panel.kind) {
       case 'card': return selectedCard && <CardDetail card={selectedCard} index={index} byId={byId} onOpen={openCard}
-        onTag={(t) => open({ kind: 'match', tags: [t] })} onPlace={(key) => open({ kind: 'place', key })} onRoute={(id) => open({ kind: 'route', id })} />;
+        onTag={(t) => open({ kind: 'match', tags: [t] })} onPlace={(key) => open({ kind: 'place', key })} onRoute={(id) => open({ kind: 'route', id })} onChain={openChain} />;
       case 'place': return <PlacePanel placeKey={panel.key} cards={index.cards} onOpen={openCard} />;
       case 'route': return <RoutePanel route={index.routes.find((r) => r.id === panel.id)!} cards={index.cards} onOpen={openCard} />;
+      case 'chain': return activeChain && <ChainPanel chain={activeChain} card={byId.get(activeChain.card)} t={chainT} setT={setChainT} onOpen={openCard} />;
+      case 'econ': return <EconPanel econ={index.econ} seriesId={panel.series} point={panel.point} onPick={openEcon} />;
       case 'match': return <StructureMatch index={index} initialTags={panel.tags} onOpen={openCard} onPlace={(key) => open({ kind: 'place', key })} />;
       default: return <ResultList query={query} result={result} hits={hits} cards={visible} year={year} onOpen={openCard} />;
     }
@@ -91,7 +115,8 @@ function Main({ index }: { index: Index }) {
 
   const map = <MapView index={index} cards={visible} year={year} highlight={highlight}
     onPlace={(key) => { open({ kind: 'place', key }); if (isMobile) setMobileTab('list'); }}
-    onRoute={(id) => { open({ kind: 'route', id }); if (isMobile) setMobileTab('list'); }} compact={isMobile} />;
+    onRoute={(id) => { open({ kind: 'route', id }); if (isMobile) setMobileTab('list'); }} compact={isMobile}
+    chain={activeChain ? { chain: activeChain, t: chainT } : null} />;
 
   return (
     <div className={`app ${isMobile ? 'mobile' : 'desktop'}`}>
@@ -116,6 +141,7 @@ function Main({ index }: { index: Index }) {
               <div className="m-map">
                 <YearSlider year={year} setYear={setYear} />
                 {map}
+                {activeChain && <section className="panel m-chain">{side}</section>}
               </div>
             ) : (
               <section className="panel">
@@ -134,7 +160,8 @@ function Main({ index }: { index: Index }) {
           </section>
           <div className="timeline-wrap">
             <Timeline cards={visible} allCards={index.cards} year={year} setYear={setYear}
-              selectedId={selectedCard?.id ?? null} onOpen={openCard} />
+              selectedId={selectedCard?.id ?? null} onOpen={openCard}
+              econ={index.econ} onEcon={openEcon} econSel={panel.kind === 'econ' ? { series: panel.series, point: panel.point } : null} />
           </div>
         </main>
       )}

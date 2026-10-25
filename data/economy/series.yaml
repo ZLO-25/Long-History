@@ -1,0 +1,103 @@
+# 經濟曲線資料：只放有來源的點，不補線、不內插。
+# 欄位：start/end（年，前為負；單一年份可只寫 start）、value 或 low/high（範圍）、kind（估計｜登記｜實測）、verification、src、note
+# metric：population（人）｜gdp_pc（人均 GDP，2011 年國際元）｜silver（銀幣含銀率 %）
+sources:
+  - { id: m1, title: "Bolt & van Zanden, Maddison Project Database 2020 — Groningen Growth and Development Centre", url: "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020", accessed: 2026-10-25 }
+  - { id: m2, title: "Maddison Project Database 2020 CSV — Our World in Data（GitHub owid-datasets）", url: "https://raw.githubusercontent.com/owid/owid-datasets/master/datasets/Maddison%20Project%20Database%202020%20(Bolt%20and%20van%20Zanden%20(2020))/Maddison%20Project%20Database%202020%20(Bolt%20and%20van%20Zanden%20(2020)).csv", accessed: 2026-10-25 }
+  - { id: h1, title: "Han dynasty — Wikipedia", url: "https://en.wikipedia.org/wiki/Han_dynasty", accessed: 2026-10-25 }
+  - { id: h2, title: "Population history of China — Wikipedia", url: "https://en.wikipedia.org/wiki/Population_history_of_China", accessed: 2026-10-25 }
+  - { id: h3, title: "嚴耕望，A Comparison of Household Register Figures with the Actual Numbers — 中研院史語所集刊", url: "https://www.ihp.sinica.edu.tw/~bihp/67/67.1/yen.html", accessed: 2026-10-25 }
+  - { id: r1, title: "Augustus, Res Gestae（第 8 章普查）— Livius.org", url: "https://www.livius.org/sources/content/augustus-res-gestae", accessed: 2026-10-25 }
+  - { id: r2, title: "Demography of the Roman Empire — Wikipedia", url: "https://en.wikipedia.org/wiki/Demography_of_the_Roman_Empire", accessed: 2026-10-25 }
+  - { id: d1, title: "Denarius — Wikipedia", url: "https://en.wikipedia.org/wiki/Denarius", accessed: 2026-10-25 }
+  - { id: d2, title: "Fineness of Denarius, 64–192／Debasement 193–274 — University of Oregon（klio.uoregon.edu）", url: "https://klio.uoregon.edu/maps/re/debasement2.htm", accessed: 2026-10-25 }
+  - { id: d3, title: "David Vagi, NGC Ancients: The Decline of Roman Silver Coinage, Part I — NGC", url: "https://www.ngccoin.com/news/article/6842/ngc-ancient-coins/", accessed: 2026-10-25 }
+
+metrics:
+  - { id: population, name: 人口, unit: 人, scale: log }
+  - { id: gdp_pc, name: 人均 GDP, unit: 2011 年國際元, scale: linear }
+  - { id: silver, name: 銀幣含銀率, unit: "%", scale: linear }
+
+series:
+  - id: maddison-pop
+    metric: population
+    name: Maddison 人口估計（西元 1 年）
+    kind: 估計
+    verification: AI草稿
+    note: Maddison 2020 在本時間軸範圍內只有西元 1 年一個時間點（下一個點是 1000 年，超出範圍，寫在說明中）；國界是今日國家，不是古代政權。
+    points:
+      - { entity: 中國, start: 1, value: 59600000, src: [m1, m2], note: "1000 年為 5,900 萬" }
+      - { entity: 義大利, start: 1, value: 8000000, src: [m1, m2], note: "1000 年為 500 萬" }
+      - { entity: 土耳其, start: 1, value: 8000000, src: [m1, m2], note: "1000 年為 700 萬" }
+      - { entity: 埃及, start: 1, value: 4500000, src: [m1, m2], note: "1000 年為 500 萬" }
+      - { entity: 西班牙, start: 1, value: 3750000, src: [m1, m2], note: "1000 年為 400 萬" }
+      - { entity: 希臘, start: 1, value: 2000000, src: [m1, m2], note: "1000 年為 100 萬" }
+
+  - id: census
+    metric: population
+    name: 官方登記數字（戶口／公民普查）
+    kind: 登記
+    verification: 交叉確認
+    note: 這是政府「登記到的人數」，不等於實際人口。漢代戶口只算登記在冊的人（中央收到的數字常低於地方實際，見嚴耕望 [h3]）；羅馬普查只算羅馬公民，不含行省的非公民，而且奧古斯都的普查是否把婦女兒童算進去有爭議 [r2]。
+    points:
+      - { entity: 漢朝戶口, start: 2, low: 57671400, high: 59594979, verification: 爭議, src: [h1, h2], note: "元始二年的全國戶口統計。維基百科「漢朝」寫 57,671,400 人（12,366,470 戶）；「中國人口史」表格寫 59,594,979 人，標為西元 1 年。兩個來源數字不同，圖上以範圍表示。" }
+      - { entity: 漢朝戶口, start: 156, value: 50068856, verification: AI草稿, src: [h2], note: "東漢 156 年，16,070,906 戶；只找到一個來源。" }
+      - { entity: 羅馬公民普查, start: -70, end: -69, value: 910000, verification: AI草稿, src: [r2], note: "共和晚期最後一次普查之一；同盟者戰爭後擴大公民權，之後數字大幅增加。" }
+      - { entity: 羅馬公民普查, start: -28, value: 4063000, src: [r1, r2], note: "奧古斯都第一次普查（第六次任執政官時）。從 91 萬跳到 406 萬，學界爭論是公民權擴大，還是改成連婦女兒童一起算。" }
+      - { entity: 羅馬公民普查, start: -8, value: 4233000, src: [r1, r2] }
+      - { entity: 羅馬公民普查, start: 14, value: 4937000, src: [r1, r2], note: "與提比略一起主持。" }
+
+  - id: rome-estimates
+    metric: population
+    name: 羅馬帝國總人口（學者估計）
+    kind: 估計
+    verification: 爭議
+    note: 不同學者的估計差很多，圖上並列，不取平均。
+    points:
+      - { entity: 羅馬帝國估計, start: -27, end: 14, value: 54000000, src: [r2], note: "Beloch（1886）：奧古斯都時代約 5,400 萬（歐洲 2,300 萬、亞洲 1,950 萬、北非 1,150 萬）。" }
+      - { entity: 羅馬帝國估計, start: 14, value: 45500000, src: [r2], note: "Frier（2000）：西元 14 年約 4,550 萬。" }
+      - { entity: 羅馬帝國估計, start: -27, end: 14, value: 60000000, src: [r2], note: "Harper（2017）：奧古斯都時代約 6,000 萬，之後每年約成長 0.1%。" }
+      - { entity: 羅馬帝國估計, start: 1, end: 200, low: 59000000, high: 76000000, src: [r2], note: "Scheidel（2007）：1–2 世紀 5,900 萬到 7,600 萬，可能在安東尼瘟疫前達到高峰。" }
+      - { entity: 羅馬帝國估計, start: 164, value: 61400000, src: [r2], note: "Frier（2000）：西元 164 年約 6,140 萬。" }
+
+  - id: maddison-gdp
+    metric: gdp_pc
+    name: Maddison 人均 GDP（西元 1 年）
+    kind: 估計
+    verification: AI草稿
+    note: 西元 1 年的數字多是依少數研究推估的區域值，因此埃及、伊拉克、伊朗、突尼西亞都是同一個值 1,116；中國在 Maddison 2020 沒有西元 1 年的人均 GDP（最早是 1000 年的 1,225），所以圖上沒有中國的點。
+    points:
+      - { entity: 義大利, start: 1, value: 1407, src: [m1, m2] }
+      - { entity: 希臘, start: 1, value: 1275, src: [m1, m2] }
+      - { entity: 埃及, start: 1, value: 1116, src: [m1, m2], note: "730 年 1,164；1000 年 956" }
+      - { entity: 伊拉克, start: 1, value: 1116, src: [m1, m2], note: "730 年 1,466；1000 年 1,307" }
+      - { entity: 法國, start: 1, value: 956, src: [m1, m2] }
+      - { entity: 土耳其, start: 1, value: 897, src: [m1, m2], note: "1000 年 768" }
+      - { entity: 西班牙, start: 1, value: 886, src: [m1, m2] }
+
+  - id: denarius
+    metric: silver
+    name: 羅馬第納里烏斯／安東尼尼安努斯銀幣含銀率
+    kind: 實測
+    verification: 交叉確認
+    note: 錢幣的含銀率是後人對出土錢幣的化驗結果；同一時期各枚錢幣有差異，這裡是各來源列出的代表值。238 年後主力銀幣改為安東尼尼安努斯（雙第納里烏斯）。中國方面：查不到漢代五銖錢逐期的含銅量或重量實測序列，因此沒有對應的中國曲線。
+    points:
+      - { entity: 第納里烏斯, start: -211, end: 63, low: 95, high: 98, src: [d1, d3], note: "前 211 年推出時約 4.5 公克；奧古斯都到尼祿改革前維持約 98% 純銀。" }
+      - { entity: 第納里烏斯, start: 64, end: 68, value: 93.5, src: [d1, d2, d3], note: "尼祿 64 年改革，重量減到約 3.4 公克。" }
+      - { entity: 第納里烏斯, start: 70, end: 81, value: 90, src: [d2, d3], note: "維斯帕先時期，NGC 寫約 89%。" }
+      - { entity: 第納里烏斯, start: 82, end: 85, value: 98, src: [d2, d3], note: "圖密善一度恢復成色。" }
+      - { entity: 第納里烏斯, start: 85, end: 107, value: 93.5, src: [d1, d2, d3] }
+      - { entity: 第納里烏斯, start: 107, end: 148, value: 89, src: [d2, d3], note: "圖拉真 107 年降低。" }
+      - { entity: 第納里烏斯, start: 148, end: 161, value: 83.5, src: [d1, d2, d3] }
+      - { entity: 第納里烏斯, start: 161, end: 168, value: 79, src: [d2] , verification: AI草稿 }
+      - { entity: 第納里烏斯, start: 180, end: 185, value: 76, src: [d2], verification: AI草稿 }
+      - { entity: 第納里烏斯, start: 186, end: 192, value: 74, src: [d2, d3], note: "NGC 寫康茂德末年低到約 71%。" }
+      - { entity: 第納里烏斯, start: 196, end: 211, value: 56.5, src: [d2, d3], note: "塞維魯時期，NGC 寫約 57%。" }
+      - { entity: 第納里烏斯, start: 212, end: 217, value: 51.5, src: [d2], verification: AI草稿, note: "卡拉卡拉。" }
+      - { entity: 第納里烏斯, start: 222, end: 228, value: 43, src: [d2], verification: AI草稿, note: "亞歷山大．塞維魯。" }
+      - { entity: 第納里烏斯, start: 241, value: 48, src: [d1, d2], note: "戈爾迪安三世。" }
+      - { entity: 安東尼尼安努斯, start: 250, value: 41, src: [d2, d3], note: "德西烏斯。" }
+      - { entity: 安東尼尼安努斯, start: 255, end: 260, value: 19, src: [d2, d3], note: "瓦勒良，NGC 寫 260 年前低到約 15%。" }
+      - { entity: 安東尼尼安努斯, start: 267, end: 268, value: 6, src: [d2, d3], note: "加里恩努斯末年，NGC 寫約 2.5–5%。" }
+      - { entity: 安東尼尼安努斯, start: 269, value: 2, src: [d2], verification: AI草稿, note: "克勞狄二世。" }
+      - { entity: 安東尼尼安努斯, start: 274, value: 5, src: [d1, d2], note: "奧勒良改革。" }

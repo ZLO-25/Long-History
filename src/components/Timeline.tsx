@@ -2,7 +2,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { select } from 'd3-selection';
 import { zoom as d3zoom, zoomIdentity, type ZoomTransform } from 'd3-zoom';
-import type { Card } from '../types';
+import type { Card, Econ } from '../types';
+import { scaleLinear, scaleLog } from 'd3-scale';
+import { fmtEcon, ENTITY_COLORS } from '../lib/format';
 import { makeBaseScale, BREAKS } from '../lib/timeScale';
 import { fmtYear, TYPE_COLOR } from '../lib/format';
 
@@ -11,9 +13,12 @@ const AXIS_H = 26, ROW_H = 20, LANE_PAD = 6, LABEL_PX = 12.5;
 interface Props {
   cards: Card[]; allCards: Card[]; year: number; setYear: (y: number) => void;
   selectedId: string | null; onOpen: (id: string) => void;
+  econ?: Econ; onEcon?: (series: string, point: number) => void; econSel?: { series: string; point: number } | null;
 }
 
-export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }: Props) {
+export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, econ, onEcon, econSel }: Props) {
+  const [metric, setMetric] = useState<string | null>(null);
+  const ECON_H = metric ? 150 : 0, EPAD = 14;
   const wrap = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const [width, setWidth] = useState(800);
@@ -74,10 +79,21 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
   const focus = hover ?? selectedId;
   const pos = new Map<string, { x: number; y: number }>();
   lanes.forEach((ln, li) => ln.placed.forEach(({ c, x0, x1, row }) =>
-    pos.set(c.id, { x: (x0 + Math.max(x1, x0 + 6)) / 2, y: AXIS_H + (li === 0 ? 0 : westH) + LANE_PAD + row * ROW_H + 2 + (ROW_H - 6) / 2 })));
+    pos.set(c.id, { x: (x0 + Math.max(x1, x0 + 6)) / 2, y: AXIS_H + ECON_H + (li === 0 ? 0 : westH) + LANE_PAD + row * ROW_H + 2 + (ROW_H - 6) / 2 })));
   const fc = focus ? allCards.find((c) => c.id === focus) : undefined;
   const related = new Set(fc ? [...fc.counterparts.map((x) => x.id), ...fc.counterpart_of] : []);
-  const height = AXIS_H + westH + chinaH + 4;
+  // 經濟曲線帶：共用同一條 x 刻度；只畫有來源的點與期間，不連線、不內插
+  // 經濟帶放在刻度列正下方、兩條軌道之上，打開時一定看得到
+  const econTop = AXIS_H;
+  const m = econ?.metrics.find((x) => x.id === metric);
+  const eSeries = (econ?.series ?? []).filter((s) => s.metric === metric);
+  const eVals = eSeries.flatMap((s) => s.points.flatMap((p) => [p.value, p.low, p.high].filter((v): v is number => typeof v === 'number')));
+  const ey = m?.scale === 'log'
+    ? scaleLog().domain([Math.min(...eVals) * 0.7, Math.max(...eVals) * 1.4]).range([ECON_H - EPAD, EPAD])
+    : scaleLinear().domain([0, Math.max(...eVals, 1) * 1.1]).range([ECON_H - EPAD, EPAD]);
+  const entities = [...new Set(eSeries.flatMap((s) => s.points.map((p) => p.entity)))];
+  const ecolor = (e: string) => ENTITY_COLORS[entities.indexOf(e) % ENTITY_COLORS.length];
+  const height = AXIS_H + ECON_H + westH + chinaH + 4;
 
   // 刻度：縮放越大越細
   const span = base.invert(t.invertX(width)) - base.invert(t.invertX(0));
@@ -107,6 +123,10 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
         <span>時間軸（滾輪縮放、拖曳平移；拖動紅線或點刻度列改變年代）</span>
         <span className="tl-year">目前：{fmtYear(year)} 年</span>
         <button className="btn sm" onClick={() => (svgRef.current as any)?.__zoom_reset?.()}>重設縮放</button>
+        {econ && <span className="econ-toggle">經濟曲線：
+          {[{ id: null, name: '關' }, ...econ.metrics].map((x) => (
+            <button key={x.id ?? 'off'} className={`chip ${metric === x.id ? 'on' : ''}`} onClick={() => setMetric(x.id)}>{x.name}</button>))}
+        </span>}
       </div>
       <svg ref={svgRef} width={width} height={height} onPointerMove={onMove} onPointerUp={endDrag} onPointerLeave={endDrag}>
         <g className="axis" onClick={clickAxis}>
@@ -124,7 +144,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
           }); })()}
         </g>
         {lanes.map((ln, li) => {
-          const top = AXIS_H + (li === 0 ? 0 : westH);
+          const top = AXIS_H + ECON_H + (li === 0 ? 0 : westH);
           const h = li === 0 ? westH : chinaH;
           return (
             <g key={ln.track} transform={`translate(0,${top})`}>
@@ -152,6 +172,36 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
           if (!b) return null;
           return <line key={id} className="cp-link" x1={a.x} y1={a.y} x2={b.x} y2={b.y} />;
         })}
+        {m && (
+          <g className="econ" transform={`translate(0,${econTop})`}>
+            <rect x={0} y={0} width={width} height={ECON_H} className="lane lane-econ" />
+            <text x={4} y={12} className="lane-label">{m.name}（{m.unit}{m.scale === 'log' ? '，對數刻度' : ''}）</text>
+            {ey.ticks(4).map((v) => (
+              <g key={v} transform={`translate(0,${ey(v)})`}>
+                <line x1={22} x2={width} className="econ-grid" />
+                <text x={width - 4} y={-2} textAnchor="end" className="econ-tick">{fmtEcon(v, m.id)}</text>
+              </g>))}
+            {eSeries.map((s) => s.points.map((p, i) => {
+              const x0 = x(p.start), x1 = x(p.end);
+              if (x1 < -10 || x0 > width + 10) return null;
+              const c = ecolor(p.entity);
+              const sel = econSel?.series === s.id && econSel.point === i;
+              const val = p.value != null ? fmtEcon(p.value, m.id) : `${fmtEcon(p.low!, m.id)}–${fmtEcon(p.high!, m.id)}`;
+              const tip = `${p.entity}｜${p.start === p.end ? fmtYear(p.start) : `${fmtYear(p.start)}–${fmtYear(p.end)}`} 年｜${val}\n${s.name}（${s.kind}・${p.verification}）${p.note ? `\n${p.note}` : ''}\n點一下看來源`;
+              const span = x1 - x0 > 3;
+              return (
+                <g key={`${s.id}-${i}`} className={`epoint ${sel ? 'sel' : ''} kind-${s.kind}`} onClick={() => onEcon?.(s.id, i)}>
+                  <title>{tip}</title>
+                  {p.value != null
+                    ? (span ? <line x1={x0} x2={x1} y1={ey(p.value)} y2={ey(p.value)} stroke={c} strokeWidth={sel ? 6 : 4} />
+                            : <circle cx={x0} cy={ey(p.value)} r={sel ? 6 : 4.5} fill={s.kind === '登記' ? '#fff' : c} stroke={c} strokeWidth={2} />)
+                    : (span ? <rect x={x0} width={x1 - x0} y={ey(p.high!)} height={Math.max(2, ey(p.low!) - ey(p.high!))} fill={c} opacity={0.35} stroke={c} />
+                            : <line x1={x0} x2={x0} y1={ey(p.high!)} y2={ey(p.low!)} stroke={c} strokeWidth={sel ? 6 : 4} />)}
+                </g>
+              );
+            }))}
+          </g>
+        )}
         <g className="cursor" transform={`translate(${cx},0)`} onPointerDown={startDrag}>
           <line y1={0} y2={height} />
           <rect x={-7} y={0} width={14} height={height} className="cursor-hit" />
@@ -159,6 +209,10 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen }:
           <text y={AXIS_H + 10} textAnchor="middle">{fmtYear(year)}</text>
         </g>
       </svg>
+      {m && <div className="econ-legend">
+        {entities.map((e) => <span key={e}><i style={{ background: ecolor(e) }} />{e}</span>)}
+        <span className="muted">● 估計／實測　○ 官方登記　橫條＝一段期間　方塊或直條＝數值範圍。只畫有來源的點，不連線、不補中間年份。</span>
+      </div>}
     </div>
   );
 }

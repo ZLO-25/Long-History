@@ -46,6 +46,23 @@ export interface Index {
   frameworks: Framework[]; routes: Route[];
   borders: { source: string; license: string; note: string; snapshots: { year: number; file: string }[] };
   itinere: boolean;
+  econ: Econ; chains: Chain[];
 }
 
 export interface Filters { types: CardType[]; fields: string[]; civs: string[] }
+
+// 第 3 期：經濟曲線與物資鏈
+export interface EconPoint {
+  entity: string; start: number; end: number; value?: number; low?: number; high?: number;
+  src: string[]; note: string; verification: string;
+}
+export interface EconSeries {
+  id: string; metric: string; name: string; kind: string; verification: string; note: string;
+  points: EconPoint[]; sources: Source[];
+}
+export interface Econ { metrics: { id: string; name: string; unit: string; scale: 'log' | 'linear' }[]; series: EconSeries[] }
+export interface ChainStep { name: string; lat: number; lng: number; role: string; text: string; via?: string; src: string[]; sources: Source[] }
+export interface Chain {
+  id: string; card: string; name: string; start: number; end: number; steps: ChainStep[];
+  legs: { via: string | null; km: number; parts: { kind: 'route' | 'schematic'; coords: [number, number][] }[] }[];
+}

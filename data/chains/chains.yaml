@@ -1,0 +1,77 @@
+# 物資鏈：依順序排列的節點。src 先找本鏈的 sources，再找所屬物資卡（card）的 sources。
+# via：從上一個節點到這個節點時，沿哪一條已畫好的路線走；沒寫就是點線「路線示意」。
+# role：產地｜加工｜集散｜運輸｜消費｜決策
+chains:
+  - id: chain-laurion-silver
+    card: commodity-laurion-silver
+    name: 勞里昂白銀：礦坑 → 銀幣 → 艦隊
+    start: -483
+    end: -404
+    sources:
+      - { id: c1, title: "Peloponnesian War — Wikipedia（比雷埃夫斯座標同 Pleiades 580062）", url: "https://en.wikipedia.org/wiki/Peloponnesian_War", accessed: 2026-10-24 }
+    steps:
+      - { name: 勞里昂礦區, lat: 37.72429, lng: 23.98711, role: 產地, text: "國有礦山租給私人承包商，勞力幾乎全是奴隸；考古確認超過 2,000 個古代豎井與坑道。", src: [s1, s3] }
+      - { name: 雅典, lat: 37.97164, lng: 23.72395, role: 加工, text: "白銀鑄成正面雅典娜、背面貓頭鷹的四德拉克馬銀幣，在希臘世界廣泛流通。", src: [s2, s4] }
+      - { name: 比雷埃夫斯, lat: 37.93722, lng: 23.6446, role: 消費, text: "前 483/482 年發現新礦脈後，地米斯托克利說服公民不分錢，改造約 200 艘三列槳戰船；他也開發比雷埃夫斯成為希臘世界最大的海軍基地。", src: [s2, s5] }
+
+  - id: chain-egypt-grain
+    card: commodity-egypt-grain
+    name: 埃及穀物：亞歷山卓 → 羅馬配給
+    start: -30
+    end: 332
+    steps:
+      - { name: 亞歷山卓, lat: 31.20143, lng: 29.90977, role: 集散, text: "前 30 年埃及成為羅馬行省；埃及穀物從這裡出口。約瑟夫斯說埃及供應羅馬四個月的糧食，史家認為可能誇大。", src: [s1, s3] }
+      - { name: 普泰奧利, lat: 40.82583, lng: 14.12174, role: 運輸, via: sea-alexandria-rome, text: "政府雇用私人船隻運糧；塞內卡描述亞歷山卓運糧船隊抵達普泰奧利的情景。", src: [s1, s2] }
+      - { name: 波爾圖斯／奧斯提亞, lat: 41.77704, lng: 12.25632, role: 集散, text: "克勞狄興建、圖拉真擴建波爾圖斯港；奧斯提亞與波爾圖斯設有糧食管理處與糧倉。（普泰奧利到這裡的海路未畫，點線為示意。）", src: [s1] }
+      - { name: 羅馬, lat: 41.88997, lng: 12.49125, role: 消費, text: "穀物配給的對象：奧古斯都把領取人數定為 20 萬人，並設立糧食長官負責供應。", src: [s1] }
+
+  - id: chain-baetica-oil
+    card: commodity-amphora-trade
+    name: 貝提卡橄欖油：瓜達幾維河谷 → 泰斯塔西奧山
+    start: -27
+    end: 260
+    steps:
+      - { name: 科爾杜巴（產區上游）, lat: 37.88468, lng: -4.77917, role: 產地, text: "Dressel 20 是貝提卡（瓜達幾維河谷，哥多華與塞維亞之間）的典型橄欖油瓶，燒製前在把手頂端蓋作坊戳記。", src: [s1, s3] }
+      - { name: 希斯帕利斯（產區下游）, lat: 37.38266, lng: -5.99629, role: 集散, text: "產區下游的代表點；裝填後以墨書記下重量與內容。（河運細節本庫來源未寫，點線為示意。）", src: [s1, s3] }
+      - { name: 波爾圖斯（羅馬外港）, lat: 41.77704, lng: 12.25632, role: 運輸, via: sea-baetica-rome, text: "Dressel 20 大量經海路運到羅馬；油可能在港口卸貨時就倒進大型容器。", src: [s2, s3] }
+      - { name: 泰斯塔西奧山, lat: 41.87595, lng: 12.47551, role: 消費, text: "空瓶由驢騾背上山、就地打碎堆放，估計約 5,300 萬個；旁邊是存放國家橄欖油儲備的加爾巴倉庫。", src: [s2] }
+
+  - id: chain-silk
+    card: commodity-silk
+    name: 絲綢：長安 → 中亞 → 安息 → 羅馬（多段轉手）
+    start: -129
+    end: 220
+    sources:
+      - { id: c1, title: "Ctesiphon — Wikipedia", url: "https://en.wikipedia.org/wiki/Ctesiphon", accessed: 2026-10-25 }
+      - { id: c2, title: "Pleiades 893976 Ctesiphon（座標）", url: "https://pleiades.stoa.org/places/893976", accessed: 2026-10-25 }
+      - { id: c3, title: "Zhang Qian — Wikipedia", url: "https://en.wikipedia.org/wiki/Zhang_Qian", accessed: 2026-10-25 }
+      - { id: c4, title: "Pleiades 961886 Bactra/Zariaspa（座標）", url: "https://pleiades.stoa.org/places/961886", accessed: 2026-10-25 }
+    steps:
+      - { name: 長安, lat: 34.30833, lng: 108.85833, role: 集散, text: "漢朝以絲綢作俸給、賞賜與外交禮物，例如前 25 年一年送出 2 萬匹。", src: [s1, s2, s3] }
+      - { name: 大宛（貳師城）, lat: 40.2794, lng: 69.6319, role: 運輸, via: stations-zhang-qian, text: "沒有商人走完全程，絲綢經過一連串中間人轉手；商隊一次約 100–500 人。點線只連史料有記載的站點，不是實際路線。", src: [s1, s2] }
+      - { name: 大夏（巴克特拉）, lat: 36.76794, lng: 66.9011, role: 運輸, via: stations-zhang-qian, text: "張騫到過的大夏；中亞各段的實際路線不詳。", src: [c3, c4] }
+      - { name: 安息（泰西封）, lat: 33.0947, lng: 44.5812, role: 集散, text: "前 129 年安息征服兩河流域，掌握往中國的路線，再把絲綢轉賣給羅馬人。泰西封約前 58 年成為安息首都，這裡用它代表安息的轉運地。", src: [s1, s2, c1, c2] }
+      - { name: 羅馬, lat: 41.891775, lng: 12.486137, role: 消費, text: "元老院曾以經濟與道德理由想禁穿絲綢，但沒有成功；「黃金為絲綢流向東方」的抱怨，數字無從核實。", src: [s1, s2] }
+
+  - id: chain-salt-iron
+    card: commodity-salt-iron
+    name: 漢代鐵官：冶鐵場 → 國庫
+    start: -117
+    end: 88
+    sources:
+      - { id: c1, title: "Zhengzhou — Wikipedia（今鄭州市座標，作為古滎冶鐵遺址的示意位置）", url: "https://en.wikipedia.org/wiki/Zhengzhou", accessed: 2026-10-25 }
+    steps:
+      - { name: 古滎冶鐵遺址（河南，示意於今鄭州）, lat: 34.764, lng: 113.684, role: 產地, text: "已發掘最清楚的漢代官營冶鐵場之一：高爐平面約 3×4 公尺、估計高 4.5–6 公尺；技術工人接收自原私營冶鐵場，粗工來自刑徒。座標用今鄭州市，只是示意。", src: [s1, c1] }
+      - { name: 長安, lat: 34.30833, lng: 108.85833, role: 決策, text: "前 117 年鹽鐵收歸國營，主要目的是增加國庫收入、支付對匈奴的戰爭。鐵器怎麼運到各郡、賣給農民，來源不足，未畫。", src: [s1, s2, s3] }
+
+  - id: chain-ferghana-horse
+    card: commodity-ferghana-horse
+    name: 大宛馬：貳師城 → 敦煌 → 長安
+    start: -104
+    end: -101
+    sources:
+      - { id: c1, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-25 }
+    steps:
+      - { name: 大宛（貳師城）, lat: 40.2794, lng: 69.6319, role: 產地, text: "大宛培育「天馬」且不願出售；前 102 年漢軍圍城 40 天，大宛交出約 3 千匹馬。", src: [s1, s3] }
+      - { name: 敦煌, lat: 40.1411, lng: 94.6639, role: 運輸, text: "遠征必須穿越塔里木盆地的綠洲城邦；第一次遠征失敗後退回敦煌。", src: [s1, s4] }
+      - { name: 長安, lat: 34.30833, lng: 108.85833, role: 消費, text: "李廣利帶回可用的馬約 1 千匹；漢朝需要更強壯的馬來對抗匈奴騎兵。", src: [s1, s2, c1] }

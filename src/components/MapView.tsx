@@ -12,7 +12,7 @@ interface Props {
   chain?: { chain: Chain; t: number } | null;
   todayOn?: boolean; setTodayOn?: (v: boolean) => void; onToday?: (id: string) => void; todaySel?: string | null;
   // 第 6 期學習模式：其他史的卡淡化成背景小點；多一個「東亞」視野；圖例加上疆域示意的說明
-  bgCards?: Card[]; learn?: boolean;
+  bgCards?: Card[]; learn?: boolean; home?: [[number, number], [number, number]] | null;
 }
 
 // 地圖視野：地中海／中國／歐亞
@@ -31,7 +31,7 @@ const loadBorders = (file: string) => {
   return borderCache.get(file)!;
 };
 
-export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel, bgCards, learn }: Props) {
+export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel, bgCards, learn, home }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map>();
   const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup }>();
@@ -170,6 +170,15 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       mk.addTo(g);
     }
   }, [places, year, bgCards]);
+
+  // 學習模式：換一條史時，先框住這條史的範圍
+  const homeKey = home ? home.flat().join() : '';
+  useEffect(() => {
+    if (!home) return;
+    // 等版面排好（容器有大小）再框，否則 Leaflet 會算出整個世界
+    const id = setTimeout(() => { const m = map.current; if (!m) return; m.invalidateSize(); m.fitBounds(home, { padding: [24, 24], maxZoom: 6 }); }, 120);
+    return () => clearTimeout(id);
+  }, [homeKey]);
 
   // 高亮並移動視角
   useEffect(() => {

@@ -32,7 +32,7 @@ const { chromium } = require('playwright');
         await p.locator('.pdot').nth(s).click();
         await p.waitForTimeout(150);
         const txt = await p.textContent('.unit');
-        if (/找不到|undefined|NaN/.test(txt)) bad.push(`第 ${s + 1} 步有「找不到/undefined/NaN」`);
+        if (/找不到卡片|undefined|NaN/.test(txt)) bad.push(`第 ${s + 1} 步有「找不到卡片/undefined/NaN」`);
         // 選擇題、排序題：點第一個選項看看會不會出錯
         const opt = await p.$('.unit .opt, .unit .choice button');
         if (opt) await opt.click().catch(() => {});

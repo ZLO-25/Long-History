@@ -43,6 +43,20 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const [query, setQuery] = useState('');
   const all = useMemo(() => learnCards(index), [index]);
   const histCards = useMemo(() => all.filter((c) => inHistory(c, h)), [all, h]);
+  // 選了某一條史，地圖就先框住這條史的卡片所在範圍（世界通史維持原本視野）
+  const home = useMemo(() => {
+    if (!h || h.all || h.theme) return null;
+    type B = [[number, number], [number, number]];
+    // 臺灣、東亞用固定範圍：這些史的卡也會連到阿姆斯特丹、波托西等遠方，照卡片算會框成全世界
+    if (h.track === '臺灣') return [[21.5, 119], [25.8, 122.5]] as B;
+    if (h.track === '東亞') return [[0, 95], [45, 145]] as B;
+    // 其他史：用卡片主要地點，去掉兩端各 15% 的離群點
+    const ls = histCards.filter((c) => c.learn?.track === h.track).map((c) => c.place.locations[0]).filter(Boolean);
+    if (!ls.length) return null;
+    const cut = (v: number[]) => { const s = [...v].sort((a, b) => a - b), k = Math.floor(s.length * 0.15); return [s[k], s[s.length - 1 - k]]; };
+    const [la0, la1] = cut(ls.map((l) => l.lat)), [ln0, ln1] = cut(ls.map((l) => l.lng));
+    return [[la0, ln0], [la1, ln1]] as B;
+  }, [h, histCards]);
   const bgCards = useMemo(() => all.filter((c) => !inHistory(c, h)), [all, h]);
   const byId = useCallback((id: string) => index.cards.find((c) => c.id === id), [index]);
   const unit = view.kind === 'unit' ? index.units.find((u) => u.id === view.id) : undefined;
@@ -99,7 +113,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     return null;
   })();
 
-  const map = <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={isMobile}
+  const map = <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={isMobile} home={home}
     highlight={{ keys: selected?.place.locations.map((l) => l.key) ?? [], routes: selected?.routes ?? [] }}
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}} />;
   const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} />;

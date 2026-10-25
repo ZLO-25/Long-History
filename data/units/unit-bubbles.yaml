@@ -20,7 +20,7 @@ steps:
     prompt: 先動手玩玩看：價格是怎麼被「大家都覺得會漲」推上去的？又是怎麼摔下來的？
   - type: card
     id: finance-tulip-mania
-    depth: understand
+    depth: deep
     prompt: 最有名的泡沫故事。讀完特別注意「這個故事可能被誇大了」那一欄。
   - type: card
     id: finance-south-sea-bubble

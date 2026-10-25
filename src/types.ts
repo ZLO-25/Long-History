@@ -46,7 +46,7 @@ export interface Index {
   frameworks: Framework[]; routes: Route[];
   borders: { source: string; license: string; note: string; snapshots: { year: number; file: string }[] };
   itinere: boolean;
-  econ: Econ; chains: Chain[];
+  econ: Econ; chains: Chain[]; today: Today;
 }
 
 export interface Filters { types: CardType[]; fields: string[]; civs: string[] }
@@ -64,5 +64,17 @@ export interface Econ { metrics: { id: string; name: string; unit: string; scale
 export interface ChainStep { name: string; lat: number; lng: number; role: string; text: string; via?: string; src: string[]; sources: Source[] }
 export interface Chain {
   id: string; card: string; name: string; start: number; end: number; steps: ChainStep[];
+  today?: boolean; data_as_of?: string; stale?: boolean; counterparts?: string[]; chokepoints?: string[];
   legs: { via: string | null; km: number; parts: { kind: 'route' | 'schematic'; coords: [number, number][] }[] }[];
 }
+
+// 第 4 期：今日對照層
+export interface TodayPoint {
+  id: string; name: string; lat: number; lng: number; precision: string; data_as_of: string; stale: boolean;
+  verification: string; structure_tags: string[];
+  facts: { text: string; sources: Source[] }[];
+  events: { date: string; text: string; sources: Source[] }[];
+  counterparts: { id: string; note: string; sources: Source[] }[];
+  non_analogous: string;
+}
+export interface Today { stale_months: number; chokepoints: TodayPoint[]; chains: Chain[] }

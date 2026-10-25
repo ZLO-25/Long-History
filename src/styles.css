@@ -203,3 +203,20 @@ a { color: var(--accent); }
 .chain-step span { display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: #dd6b20; color: #fff; font-size: 12px; font-weight: 700; border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3); }
 .lg.chain { display: inline-block; width: 18px; height: 0; border-top: 4px solid #dd6b20; vertical-align: middle; margin: 0 4px; }
 .m-chain { max-height: 45vh; border-top: 1px solid var(--line); }
+
+/* 第 4 期：今日對照層 */
+.today-toggle.on { background: #553c9a !important; color: #fff !important; border-color: #553c9a !important; }
+.today-mk i { position: absolute; left: 1px; top: 1px; width: 12px; height: 12px; background: #553c9a; border: 2px solid #fff; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0,0,0,.4); }
+.today-mk span { position: absolute; left: 18px; top: -4px; white-space: nowrap; font-size: 11.5px; font-weight: 700; color: #322659; background: rgba(255,255,255,.85); padding: 0 4px; border-radius: 4px; line-height: 1.35; }
+.today-mk em { display: block; font-style: normal; font-weight: 400; font-size: 10px; color: #553c9a; }
+.today-mk.sel i { background: #e53e3e; width: 14px; height: 14px; }
+.today-mk.stale i { background: #a0aec0; } .today-mk.stale em { color: #718096; }
+.lg.today { display: inline-block; width: 9px; height: 9px; background: #553c9a; transform: rotate(45deg); margin: 0 6px 0 2px; }
+.asof { display: inline-block; font-size: 12px; background: #e9d8fd; color: #44337a; border-radius: 4px; padding: 0 6px; }
+.asof.stale { background: #edf2f7; color: #4a5568; }
+.today-kicker { font-size: 12px; color: #553c9a; font-weight: 700; margin: 0; }
+.today-facts, .today-events { padding-left: 18px; font-size: 13.5px; }
+.today-facts li, .today-events li { margin: 4px 0; }
+.today-refs { border-left: 3px solid #553c9a; padding-left: 10px; }
+.result.today .r-type { color: #553c9a; }
+.mrow.today { background: #faf5ff; }

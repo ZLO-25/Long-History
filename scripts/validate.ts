@@ -2,14 +2,17 @@
 import { loadCards, loadTagVocab, readYaml } from './lib/cards.ts';
 import { checkCards, loadContext } from './lib/check.ts';
 import { loadEcon, loadChains, checkEcon, checkChains } from './lib/econ.ts';
+import { loadToday, checkToday } from './lib/today.ts';
 
 const cards = loadCards();
+const tagVocab = loadTagVocab();
 const routes = readYaml('data/routes/routes.yaml')?.routes ?? [];
 const frameworks = readYaml('data/frameworks.yaml')?.frameworks ?? [];
 const issues = [
-  ...checkCards(cards, loadContext(loadTagVocab(), routes, frameworks)),
+  ...checkCards(cards, loadContext(tagVocab, routes, frameworks)),
   ...checkEcon(loadEcon()),
   ...checkChains(loadChains(), cards, new Set(routes.map((r: any) => r.id))),
+  ...checkToday(loadToday(), cards, new Set(tagVocab.flatMap((c: any) => c.tags.map((t: any) => t.tag))), new Set(routes.map((r: any) => r.id))),
 ];
 
 const byFile = new Map<string, typeof issues>();
@@ -21,5 +24,5 @@ for (const [file, list] of byFile) {
 const errors = issues.filter((i) => i.level === 'error').length;
 const warnings = issues.length - errors;
 const econ = loadEcon();
-console.log(`\n共 ${cards.length} 張卡、${econ.series?.length ?? 0} 條經濟數列、${loadChains().length} 條物資鏈：${errors} 個錯誤、${warnings} 個警告`);
+console.log(`\n共 ${cards.length} 張卡、${econ.series?.length ?? 0} 條經濟數列、${loadChains().length} 條物資鏈、${(loadToday().chokepoints ?? []).length} 個今日咽喉、${(loadToday().chains ?? []).length} 條今日供應鏈：${errors} 個錯誤、${warnings} 個警告`);
 process.exit(errors ? 1 : 0);

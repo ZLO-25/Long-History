@@ -1,0 +1,186 @@
+# 今日對照層：當代咽喉要道與供應鏈。今天的數字會過時，每一項都必須有 data_as_of（資料截至）。
+# 只寫已發生的事實與結構，不預測、不給投資建議。src 指向本檔 sources。
+# data_as_of＝本項引用的最新資料的日期。供應鏈節點的 path＝為了不穿過陸地而手動設定的海上轉折點（示意，不是實際航跡）；via＝沿用 routes.yaml 已算好的海路。
+sources:
+  - { id: t1, title: "EIA, World Oil Transit Chokepoints（2026-03-03 更新）", url: "https://www.eia.gov/beta/international/analysis_includes/special_topics/World_Oil_Transit_Chokepoints", accessed: 2026-10-25 }
+  - { id: t2, title: "EIA Today in Energy, Amid regional conflict, the Strait of Hormuz remains critical oil chokepoint（2025-06-16）", url: "https://eia.gov/todayinenergy/detail.php?id=65504", accessed: 2026-10-25 }
+  - { id: t3, title: "2026 Strait of Hormuz crisis — Wikipedia", url: "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis", accessed: 2026-10-25 }
+  - { id: t4, title: "Al Jazeera, Iran steps up Hormuz surveillance: Attacks soar, oil flows crash again（2026-10-14）", url: "https://www.aljazeera.com/news/2026/10/14/iran-steps-up-hormuz-surveillance-attacks-soar-oil-flows-crash-again", accessed: 2026-10-25 }
+  - { id: t5, title: "Lloyd's List Intelligence, Strait of Hormuz Brief: 22 October 2026", url: "https://www.lloydslistintelligence.com/resources/blog/strait-of-hormuz-brief-22-october-2026", accessed: 2026-10-25 }
+  - { id: t6, title: "Strait of Hormuz — Wikipedia", url: "https://en.wikipedia.org/wiki/Strait_of_Hormuz", accessed: 2026-10-25 }
+  - { id: t7, title: "Seatrade Maritime, Malacca Strait vessel traffic at record levels in 2025", url: "https://www.seatrade-maritime.com/tankers/malacca-strait-vessel-traffic-at-record-levels-in-2025", accessed: 2026-10-25 }
+  - { id: t8, title: "Strait of Malacca — Wikipedia", url: "https://en.wikipedia.org/wiki/Strait_of_Malacca", accessed: 2026-10-25 }
+  - { id: t9, title: "Suez Canal — Wikipedia", url: "https://en.wikipedia.org/wiki/Suez_Canal", accessed: 2026-10-25 }
+  - { id: t10, title: "AP／Arab News, Egypt's revenue from the Suez Canal plunged sharply in 2024（2025-04-16）", url: "https://www.arabnews.com/node/2597377", accessed: 2026-10-25 }
+  - { id: t11, title: "Hellenic Shipping News（轉 Euronews）, Egypt's Suez Canal revenue fell sharply in 2024（2025-04-23）", url: "https://www.hellenicshippingnews.com/egypts-suez-canal-revenue-fell-sharply-in-2024-on-regional-tensions/", accessed: 2026-10-25 }
+  - { id: t12, title: "Lloyd's List Intelligence, Red Sea Brief – 1 October 2026", url: "https://www.lloydslistintelligence.com/resources/blog/red-sea-brief-1-october-2026", accessed: 2026-10-25 }
+  - { id: t13, title: "Bab-el-Mandeb — Wikipedia", url: "https://en.wikipedia.org/wiki/Bab-el-Mandeb", accessed: 2026-10-25 }
+  - { id: t14, title: "Al Jazeera, Can the Suez save Asian oil consumers after Houthis shut Bab al-Mandeb?（2026-07-22）", url: "https://www.aljazeera.com/news/2026/7/22/can-the-suez-save-asian-oil-consumers-after-houthis-shut-bab-al-mandeb", accessed: 2026-10-25 }
+  - { id: t15, title: "Bosporus — Wikipedia", url: "https://en.wikipedia.org/wiki/Bosporus", accessed: 2026-10-25 }
+  - { id: t16, title: "UNN, Ukraine's grain exports have collapsed due to the situation in the Black Sea（2026-08-14）", url: "https://unn.ua/en/news/ukraines-grain-exports-have-collapsed-due-to-the-situation-in-the-black-sea-what-happened-to-the-maritime-corridor", accessed: 2026-10-25 }
+  - { id: t17, title: "Miller Magazine, Barva Invest warns Black Sea grain bottleneck could put 38 million tonnes of exports at risk（2026-10-01）", url: "https://millermagazine.com/blog/barva-nvest-warns-black-sea-grain-bottleneck-could-put-38-million-tonnes-of-exports-at-risk-7047", accessed: 2026-10-25 }
+  - { id: t18, title: "Ports Europe, Ukraine's Black Sea corridor now carries most grain exports, EU data shows（2026-09）", url: "https://www.portseurope.com/ukraines-black-sea-corridor-now-carries-most-grain-exports-eu-data-shows/", accessed: 2026-10-25 }
+  - { id: t19, title: "Panama Canal Authority, Panama Canal maintains operational and financial strength（2025-10-08）", url: "https://pancanal.com/en/panama-canal-maintains-operational-and-financial-strength/", accessed: 2026-10-25 }
+  - { id: t20, title: "Seatrade Maritime, Panama Canal transits in FY2025 bounce back from drought（2025-10-10）", url: "https://www.seatrade-maritime.com/maritime-transportation/panama-canal-transits-in-fy2025-bounce-back-from-drought", accessed: 2026-10-25 }
+  - { id: t21, title: "Panama Canal — Wikipedia", url: "https://en.wikipedia.org/wiki/Panama_Canal", accessed: 2026-10-25 }
+  - { id: t22, title: "BOFIT Weekly Review 32/2026（引 IEA Global Critical Minerals Outlook 2026）", url: "https://www.bofit.fi/en/monitoring/weekly/2026/vw202632_2/", accessed: 2026-10-25 }
+  - { id: t23, title: "Rare Earth Directory, China export controls: timeline and the Nov 10, 2026 deadline", url: "https://rareearthdirectory.com/policy/china-export-controls-timeline/", accessed: 2026-10-25 }
+  - { id: t24, title: "Global Trade Alert, China: Temporary suspension of additional export controls for rare earth-related technologies", url: "https://globaltradealert.org/state-act/95168-china-temporary-suspension-of-additional-export-controls-for-rare-earth-related-technologies/", accessed: 2026-10-25 }
+  - { id: t25, title: "Bayan Obo Mining District — Wikipedia", url: "https://en.wikipedia.org/wiki/Bayan_Obo_Mining_District", accessed: 2026-10-25 }
+  - { id: t26, title: "Port of Odesa — Wikipedia", url: "https://en.wikipedia.org/wiki/Port_of_Odesa", accessed: 2026-10-25 }
+  - { id: t27, title: "Ras Tanura — Wikipedia", url: "https://en.wikipedia.org/wiki/Ras_Tanura", accessed: 2026-10-25 }
+  - { id: t28, title: "Baotou — Wikipedia（包頭座標）", url: "https://en.wikipedia.org/wiki/Baotou", accessed: 2026-10-25 }
+
+chokepoints:
+  - id: today-hormuz
+    name: 霍爾木茲海峽
+    lat: 26.57
+    lng: 56.25
+    precision: schematic
+    data_as_of: 2026-10-22
+    verification: 交叉確認
+    structure_tags: [海峽封鎖, 單一港口依賴, 外部勢力介入, 突變事件]
+    facts:
+      - { text: "波斯灣通往外海唯一的海路，最窄處約 39 公里（24 英里）。", src: [t6] }
+      - { text: "2024 年每天約 2,000 萬桶石油通過，約占全球石油液體消費的五分之一；也承載全球約五分之一的液化天然氣貿易，主要來自卡達。", src: [t2, t3] }
+      - { text: "2025 上半年 EIA 估計每天 2,090 萬桶。", src: [t1] }
+      - { text: "2024 年經過這裡的原油有 84%、液化天然氣有 83% 運往亞洲。", src: [t2] }
+      - { text: "繞道管線（沙烏地東西管線、阿聯到富查伊拉）可用的剩餘運量，EIA 估計約每天 260 萬桶；維基百科寫兩條管線總運量約每天 900 萬桶，兩者口徑不同（剩餘可用量 vs. 總運量），都低於海峽平時的流量。", src: [t2, t3] }
+    events:
+      - { date: "2026-02-28", text: "美國與以色列空襲伊朗，伊朗革命衛隊隨即警告船隻不得通過；3 月 4 日伊朗宣布海峽「關閉」。", src: [t3, t4] }
+      - { date: "2026-03-08", text: "布蘭特原油自四年來首度突破每桶 100 美元，高點 126 美元；3 月 11 日國際能源署成員同意釋出 4 億桶緊急儲備。", src: [t3] }
+      - { date: "2026-05-05", text: "伊朗成立「波斯灣海峽管理局」審批通行；只讓部分國家的船通過。", src: [t3, t5] }
+      - { date: "2026-10-11", text: "通過的石油從 10 月 8 日約 2,080 萬桶降到 10 月 11 日的 290 萬桶；戰前平均每天約 1,710 萬桶（半島電視台引用的口徑）。10 月上半月至少 28 起攻擊或安全事件，是開戰以來單月最高。", src: [t4, t5] }
+    counterparts:
+      - { id: war-peloponnesian, note: "相似：一座依賴遠方能源／糧食的經濟體，補給必須經過一條狹窄海峽；對手掐住海峽就能逼對方讓步（羊河之役）。不同：今天受影響的是全球市場與許多國家，不是一座城；還有國際能源署的緊急儲備與繞道管線可以部分緩衝。", src: [t2, t3] }
+      - { id: war-greco-persian, note: "相似：狹窄水道讓防守方可以用小兵力對抗大艦隊（薩拉米斯），今天也是以水雷、小艇與無人機對抗大型商船與海軍。不同：古代是兩國艦隊的決戰；今天受攻擊的多半是第三國的商船，戰場與市場重疊。", src: [t3, t5] }
+    non_analogous: "今天的石油可以靠戰略儲備、管線與期貨市場部分轉移風險；海峽兩岸是國際法上的領海與國際海峽，通行規則（UNCLOS）也和古代完全不同。這裡只比較結構，不推測衝突走向。"
+
+  - id: today-malacca
+    name: 麻六甲海峽（含新加坡海峽）
+    lat: 2.5
+    lng: 101.4
+    precision: schematic
+    data_as_of: 2026-03-03
+    verification: 交叉確認
+    structure_tags: [海峽封鎖, 基礎建設網絡, 單一港口依賴]
+    facts:
+      - { text: "全長約 900 公里，新加坡南方的菲利普水道最窄處只有約 2.8 公里。", src: [t8] }
+      - { text: "2025 上半年每天約 2,320 萬桶石油通過，是全球石油流量最大的咽喉。", src: [t1] }
+      - { text: "2025 年麻六甲與新加坡海峽共有 102,525 艘次（300 總噸以上）通過，首次超過 10 萬，比 2024 年的 94,301 艘次多 8.7%（馬來西亞海事局資料）。", src: [t7] }
+    events:
+      - { date: "約 2004", text: "海盜事件頻繁的時期，國際壓力促成印尼、馬來西亞、新加坡協調巡邏。", src: [t7] }
+    counterparts:
+      - { id: commodity-silk, note: "相似：長距離貿易必須經過一連串中間人或中轉港，掌握中轉位置的一方就有籌碼（安息轉賣絲綢）。不同：麻六甲是多國共管、開放通行的國際海峽，沒有單一控制者向全程貨物抽成。", src: [t1, t7] }
+    non_analogous: "今日的海峽有分道航行制度、電子監控與多國巡邏；船舶規模與流量是古代無法比擬的。"
+
+  - id: today-suez
+    name: 蘇伊士運河
+    lat: 30.7
+    lng: 32.34
+    precision: schematic
+    data_as_of: 2026-09-27
+    verification: 交叉確認
+    structure_tags: [商路改道, 單一港口依賴, 基礎建設網絡, 突變事件]
+    facts:
+      - { text: "1869 年通航，全長約 193 公里，無船閘；連接地中海與紅海，省去繞行非洲。", src: [t9] }
+      - { text: "2025 上半年運河加上 SUMED 管線每天約 490 萬桶石油。", src: [t1] }
+      - { text: "2023 年通過超過 26,000 艘、收入創紀錄的 102.5 億美元；2024 年因紅海攻擊降到 13,213 艘、收入約 40 億美元。", src: [t10, t11] }
+      - { text: "2026 年 9 月下旬，四週平均每週約 287 艘次通過。", src: [t12] }
+    events:
+      - { date: "2021-03", text: "貨櫃船長賜輪（Ever Given）擱淺，運河堵塞約一週。", src: [t9] }
+      - { date: "1967-06", text: "六日戰爭後埃及關閉運河，到 1975 年才重開。", src: [t9] }
+    counterparts:
+      - { id: commodity-egypt-grain, note: "相似：一條連接埃及與地中海的運輸幹線，讓遠方的大城市（羅馬／今天的歐洲市場）依賴埃及這個節點；節點出事，物資就得繞遠路或斷供。不同：古代埃及是糧食產地；今天的蘇伊士主要是過路的通道，收入來自通行費。", src: [t9, t10] }
+    non_analogous: "今天的船可以改走好望角，只是時間與成本增加；古代的運糧船受季風與航海季節限制，沒有可替代的大型航線。"
+
+  - id: today-bab-el-mandeb
+    name: 曼德海峽
+    lat: 12.58
+    lng: 43.33
+    precision: schematic
+    data_as_of: 2026-09-27
+    verification: 交叉確認
+    structure_tags: [海峽封鎖, 代理人戰爭, 商路改道]
+    facts:
+      - { text: "連接紅海與亞丁灣，最窄處約 26 公里，被丕林島分成兩條水道。", src: [t13] }
+      - { text: "2025 上半年每天約 420 萬桶石油通過。", src: [t1] }
+      - { text: "2026 年 7 月，經曼德海峽往亞洲的原油約每天 600 萬桶（Kpler 數字，其中三分之二是沙烏地原油），反映沙烏地改從紅海岸的延布港出口以避開霍爾木茲。", src: [t14] }
+      - { text: "2026 年 9 月下旬四週平均約每週 280 艘次，高於波斯灣危機前的水準。", src: [t12] }
+    events:
+      - { date: "2023-10 起", text: "胡塞武裝攻擊紅海航運，引發多國護航行動；2025 年底停火。", src: [t13] }
+      - { date: "2026-07-20", text: "胡塞武裝宣布封鎖沙烏地港口；9 月 13 日一次攻擊讓延布原油出口暫停。", src: [t12, t14] }
+    counterparts:
+      - { id: commodity-silk, note: "相似：東西貿易的海上路線被沿岸勢力威脅時，商人改道或付出更高成本。不同：胡塞的攻擊是區域戰爭的一部分，目標是特定國家的船；古代安息轉賣絲綢是商業壟斷，不是封鎖。", src: [t13, t14] }
+    non_analogous: "今天有保險、護航與改道好望角的選項，也有衛星追蹤船隻；古代沒有這些緩衝。"
+
+  - id: today-turkish-straits
+    name: 土耳其海峽（博斯普魯斯／達達尼爾）
+    lat: 41.11944
+    lng: 29.07528
+    precision: exact
+    data_as_of: 2026-10-01
+    verification: 交叉確認
+    structure_tags: [海峽封鎖, 糧食進口依賴, 單一港口依賴]
+    facts:
+      - { text: "博斯普魯斯最窄處約 700–750 公尺；1936 年《蒙特勒公約》讓商船自由通行，土耳其可限制非黑海國家的軍艦。", src: [t15] }
+      - { text: "2025 上半年每天約 370 萬桶石油通過。", src: [t1] }
+      - { text: "黑海出口的穀物必須經過這兩個海峽才能進入地中海；維基百科也提到西元前 5 世紀雅典靠黑海穀物，2022 年起這條海峽的糧食角色再度受到注意。", src: [t15] }
+    events:
+      - { date: "2026-07", text: "2026 年 7 月俄羅斯對烏克蘭港口設施攻擊 67 次、對航道中的船攻擊 22 次，7 月底船隻幾乎停止進港（烏克蘭農業政策部長的說法）。", src: [t16] }
+      - { date: "2026-08", text: "大敖德薩港的商船到港數從 6 月的 240 艘降到 7 月 143 艘、8 月前 20 天只有 8 艘（烏克蘭海軍數字）。", src: [t17] }
+    counterparts:
+      - { id: war-peloponnesian, note: "相似：幾乎是同一條路線。雅典的進口糧食從黑海經赫勒斯滂（達達尼爾）運來，斯巴達在海峽邊的羊河摧毀雅典艦隊；今天黑海穀物出口同樣要經過這兩個海峽，戰爭發生在路線起點（港口）。不同：今天海峽本身由中立的土耳其依公約管理，被攻擊的是出口港與航道，而不是海峽。", src: [t15, t16] }
+    non_analogous: "雅典是一座城市依賴進口糧食；今天是烏克蘭與俄羅斯作為出口國，受影響的是遠方的進口國（例如中東、北非）。這裡只比較路線結構。"
+
+  - id: today-panama
+    name: 巴拿馬運河
+    lat: 9.27215
+    lng: -79.92266
+    precision: schematic
+    data_as_of: 2025-10-10
+    verification: 爭議
+    structure_tags: [基礎建設網絡, 慢變結構, 單一港口依賴]
+    facts:
+      - { text: "1914 年通航；船閘靠加通湖的淡水運作，正常每天可通過 36 艘。", src: [t21] }
+      - { text: "2023 年 12 月初因乾旱水位過低，每天通過數降到 22 艘，2024 年 1 月放寬到 24 艘。", src: [t21] }
+      - { text: "2025 會計年度（2024/10–2025/9）通過 13,404 艘次、4.891 億噸。前一年的數字兩個來源不一致：運河管理局寫 11,240 艘次，Seatrade 寫 9,936 艘次（比前年少 29%），可能是統計口徑不同。", src: [t19, t20] }
+      - { text: "2025 會計年度每天約 230 萬桶石油通過。", src: [t1] }
+    events:
+      - { date: "2023-12", text: "乾旱限航開始，每天可通過船數從 36 艘降到 22 艘。", src: [t21] }
+    counterparts:
+      - { id: building-dujiangyan, note: "相似：一項大型水利工程的運作完全依賴水源與降雨，氣候這種「慢變結構」決定它每年能發揮多少功能。不同：都江堰是灌溉與防洪；巴拿馬運河是用淡水抬升船隻，乾旱直接減少可通過的船數。", src: [t21] }
+    non_analogous: "巴拿馬運河的限航是氣候與水資源問題，不是戰爭封鎖；也有收費制度可以調節需求。"
+
+chains:
+  - id: today-chain-gulf-oil
+    name: 波斯灣石油：拉斯坦努拉 → 霍爾木茲 → 麻六甲 → 東亞
+    data_as_of: 2026-10-22
+    counterparts: [commodity-egypt-grain, war-peloponnesian]
+    chokepoints: [today-hormuz, today-malacca]
+    steps:
+      - { name: 拉斯坦努拉（沙烏地）, lat: 26.633, lng: 50.15, role: 產地, text: "維基百科稱它是全球最大的原油出口港之一，每年超過 2,000 艘油輪停靠。", src: [t27] }
+      - { name: 霍爾木茲海峽, lat: 26.57, lng: 56.25, role: 運輸, path: [[26.3, 52.5], [26.2, 55.0]], text: "波斯灣唯一出海口；2026 年 2 月底起被伊朗「實質關閉」，10 月流量仍大起大落。", src: [t3, t4] }
+      - { name: 麻六甲海峽, lat: 2.5, lng: 101.4, role: 運輸, path: [[25.0, 58.5], [14.0, 64.0], [5.7, 80.5], [6.2, 94.8], [4.5, 98.5]], text: "往東亞的油輪接著經過全球流量最大的石油咽喉。", src: [t1, t2] }
+      - { name: 東亞進口國（示意）, lat: 31.2, lng: 122.2, role: 消費, path: [[1.2, 104.0], [5.0, 106.5], [12.0, 111.5], [21.0, 116.5], [26.0, 121.0]], text: "2024 年經霍爾木茲的原油 84% 運往亞洲；終點畫在上海附近只是示意，不代表單一國家。", src: [t2] }
+
+  - id: today-chain-black-sea-grain
+    name: 黑海穀物：敖德薩 → 博斯普魯斯 → 達達尼爾 → 地中海
+    data_as_of: 2026-10-01
+    counterparts: [war-peloponnesian]
+    chokepoints: [today-turkish-straits]
+    steps:
+      - { name: 敖德薩港, lat: 46.50361, lng: 30.74444, role: 產地, text: "大敖德薩港處理烏克蘭約 90% 的農產品海運出口；2023 年 9 月起的海上走廊到 2026 年 7 月底累計運出約 1.241 億噸穀物。", src: [t16, t26] }
+      - { name: 博斯普魯斯海峽, lat: 41.11944, lng: 29.07528, role: 運輸, via: today-sea-black-sea-grain, text: "黑海貨物進入地中海的第一道海峽，最窄約 700–750 公尺。", src: [t15] }
+      - { name: 達達尼爾海峽（古稱赫勒斯滂）, lat: 40.2, lng: 26.4, role: 運輸, via: today-sea-black-sea-grain, text: "第二道海峽，也就是雅典糧食航線經過的赫勒斯滂（座標為示意）。打開歷史卡「伯羅奔尼撒戰爭」的赫勒斯滂糧食航線，可以看到是同一段海路。", src: [t15] }
+      - { name: 東地中海進口市場（示意）, lat: 34.5, lng: 30.0, role: 消費, via: today-sea-black-sea-grain, text: "2026 年 7 月起東地中海的到岸小麥價格上漲約 29%（Barva Invest 數字）；終點位置是示意。", src: [t17] }
+
+  - id: today-chain-rare-earth
+    name: 稀土：白雲鄂博 → 中國精煉 → 全球磁鐵用戶
+    data_as_of: 2026-10-01
+    counterparts: [commodity-salt-iron, commodity-laurion-silver]
+    chokepoints: []
+    steps:
+      - { name: 白雲鄂博礦區（內蒙古）, lat: 41.78278, lng: 109.97361, role: 產地, text: "維基百科：2005 年時這裡占全球稀土產量約 45%。IEA 2026 年報告：中國約占全球稀土開採的 59%。", src: [t25, t22] }
+      - { name: 中國精煉與出口管制（示意於包頭）, lat: 40.6213, lng: 109.9532, role: 決策, text: "中國約占磁鐵用稀土精煉的 84%（IEA 2026）。2025 年 4 月起 7 種稀土須出口許可，仍有效；2025 年 10 月擴大的管制在 11 月 7 日暫停，暫停到 2026 年 11 月 10 日。", src: [t22, t23, t24, t28] }
+      - { name: 全球磁鐵與製造業用戶（示意）, lat: 50.1, lng: 8.7, role: 消費, text: "下游用戶散布全球；終點畫在歐洲只是示意。出口管制是許可制，不是全面禁運。", src: [t23] }

@@ -18,9 +18,9 @@ interface Sheet {
 }
 const empty: Sheet = { situation: '', picked: [], checks: {}, cols: {}, decisive: '' };
 
-interface Props { index: Index; initialTags?: string[]; onOpen: (id: string) => void; onPlace: (key: string) => void }
+interface Props { index: Index; initialTags?: string[]; onOpen: (id: string) => void; onPlace: (key: string) => void; onToday?: (id: string) => void }
 
-export function StructureMatch({ index, initialTags, onOpen, onPlace }: Props) {
+export function StructureMatch({ index, initialTags, onOpen, onPlace, onToday }: Props) {
   const [fields, setFields] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>(initialTags ?? []);
   const [keyword, setKeyword] = useState('');
@@ -124,6 +124,23 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace }: Props) {
               <span className="small">{[...r.mf, ...r.mt, ...(r.mk ? [`關鍵字「${keyword}」`] : [])].join('、')}</span>
             </div>
           ))}
+          {(() => {
+            // 今日對照層：結構標籤相同的當代咽喉（只列出，不參與排序）
+            const td = index.today.chokepoints.map((p) => ({ p, mt: p.structure_tags.filter((t) => tags.includes(t)) })).filter((x) => x.mt.length);
+            return td.length > 0 && <>
+              <h3>今日對照（{td.length}）<span className="muted small">當代咽喉要道；數字會過時，請看資料截至日期</span></h3>
+              {td.map(({ p, mt }) => (
+                <div key={p.id} className="mrow today">
+                  <span>◆</span>
+                  <button className="link" onClick={() => onToday?.(p.id)}>{p.name}</button>
+                  <span className="tag-muted">今日</span>
+                  <span className={`asof ${p.stale ? 'stale' : ''}`}>資料截至 {p.data_as_of}</span>
+                  <span className="score">符合 {mt.length} 項</span>
+                  <span className="small">{mt.join('、')}</span>
+                </div>
+              ))}
+            </>;
+          })()}
         </>
       )}
 

@@ -187,3 +187,19 @@ routes:
       - { id: s3, title: "Xianyang — Wikipedia", url: 'https://en.wikipedia.org/wiki/Xianyang', accessed: 2026-10-24 }
       - { id: s4, title: "Ganquan County — Wikipedia", url: 'https://en.wikipedia.org/wiki/Ganquan_County', accessed: 2026-10-25 }
       - { id: s5, title: "Baotou — Wikipedia", url: 'https://en.wikipedia.org/wiki/Baotou', accessed: 2026-10-25 }
+
+  # ---------- 第 4 期：今日對照層用的海路（年份在時間軸範圍外，歷史地圖不會顯示） ----------
+  - id: today-sea-black-sea-grain
+    name: 今日黑海穀物海路（敖德薩—博斯普魯斯—達達尼爾—愛琴海）
+    kind: sea
+    start: 2023
+    end: 2026
+    precision: attested-ports
+    note: 今日對照層使用。起點敖德薩港 [s1]，經博斯普魯斯與達達尼爾兩海峽 [s2] 進入愛琴海；港間為不穿過陸地的最短海路 [s9]，不是實際航跡。
+    method: sea
+    waypoints: [{ lat: 46.50361, lng: 30.74444, name: 敖德薩港 }, { lat: 41.2, lng: 29.13, name: 博斯普魯斯北口 }, { lat: 40.02, lng: 26.18, name: 達達尼爾南口 }, { lat: 36.9, lng: 25.0, name: 愛琴海南部（示意） }]
+    sources:
+      - { id: s1, title: "Port of Odesa — Wikipedia", url: 'https://en.wikipedia.org/wiki/Port_of_Odesa', accessed: 2026-10-25 }
+      - { id: s2, title: "Bosporus — Wikipedia", url: 'https://en.wikipedia.org/wiki/Bosporus', accessed: 2026-10-25 }
+      - { id: s9, title: "Natural Earth 1:10m 陸地（world-atlas，公有領域；用來算港間不穿過陸地的海路）", url: 'https://www.naturalearthdata.com/', accessed: 2026-10-25 }
+

@@ -12,6 +12,7 @@ import { RoutePanel } from './components/RoutePanel';
 import { StructureMatch } from './components/StructureMatch';
 import { ChainPanel } from './components/ChainPanel';
 import { EconPanel } from './components/EconPanel';
+import { TodayPanel } from './components/TodayPanel';
 import { useIsMobile } from './lib/useIsMobile';
 
 export type Panel =
@@ -21,7 +22,8 @@ export type Panel =
   | { kind: 'route'; id: string }
   | { kind: 'match'; tags?: string[] }
   | { kind: 'chain'; id: string }
-  | { kind: 'econ'; series: string; point: number };
+  | { kind: 'econ'; series: string; point: number }
+  | { kind: 'today'; id: string };
 
 export default function App() {
   const [index, setIndex] = useState<Index | null>(null);
@@ -50,10 +52,14 @@ function Main({ index }: { index: Index }) {
   const [stack, setStack] = useState<Panel[]>(() => {
     const id = params.get('card');
     const ch = params.get('chain');
-    if (ch && index.chains.some((c) => c.id === ch)) return [{ kind: 'list' }, { kind: 'chain', id: ch }];
+    if (ch && [...index.chains, ...index.today.chains].some((c) => c.id === ch)) return [{ kind: 'list' }, { kind: 'chain', id: ch }];
+    const td = params.get('today');
+    if (td && index.today.chokepoints.some((c) => c.id === td)) return [{ kind: 'list' }, { kind: 'today', id: td }];
     return id && index.cards.some((c) => c.id === id) ? [{ kind: 'list' }, { kind: 'card', id }] : [{ kind: 'list' }];
   });
   const [chainT, setChainT] = useState(0);
+  // 今日對照層開關：網址帶 ?today= 或打開今日項目時自動打開
+  const [todayOn, setTodayOn] = useState(() => params.has('today') || (params.get('chain') ?? '').startsWith('today-'));
   const [mobileTab, setMobileTab] = useState<'list' | 'map' | 'match'>('list');
   const panel = stack[stack.length - 1];
 
@@ -78,15 +84,18 @@ function Main({ index }: { index: Index }) {
     open({ kind: 'card', id });
   }, [byId, year, open]);
   const openChain = useCallback((id: string) => {
-    const ch = index.chains.find((c) => c.id === id);
-    if (ch && (year < ch.start || year > ch.end)) setYear(ch.start);
+    const ch = [...index.chains, ...index.today.chains].find((c) => c.id === id);
+    if (ch && !ch.today && (year < ch.start || year > ch.end)) setYear(ch.start);
+    if (ch?.today) setTodayOn(true);
     setChainT(0); open({ kind: 'chain', id });
     if (isMobile) setMobileTab('map');
   }, [index, year, open, isMobile]);
   const openEcon = useCallback((series: string, point: number) => {
     setStack((s) => (s[s.length - 1].kind === 'econ' ? [...s.slice(0, -1), { kind: 'econ', series, point }] : [...s, { kind: 'econ', series, point }]));
   }, []);
-  const activeChain = panel.kind === 'chain' ? index.chains.find((c) => c.id === panel.id) ?? null : null;
+  const activeChain = panel.kind === 'chain' ? [...index.chains, ...index.today.chains].find((c) => c.id === panel.id) ?? null : null;
+  const openToday = useCallback((id: string) => { setTodayOn(true); open({ kind: 'today', id }); }, [open]);
+  const activeToday = panel.kind === 'today' ? index.today.chokepoints.find((c) => c.id === panel.id) ?? null : null;
   const back = () => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s));
   const home = () => setStack([{ kind: 'list' }]);
 
@@ -103,12 +112,13 @@ function Main({ index }: { index: Index }) {
   const side = (() => {
     switch (panel.kind) {
       case 'card': return selectedCard && <CardDetail card={selectedCard} index={index} byId={byId} onOpen={openCard}
-        onTag={(t) => open({ kind: 'match', tags: [t] })} onPlace={(key) => open({ kind: 'place', key })} onRoute={(id) => open({ kind: 'route', id })} onChain={openChain} />;
+        onTag={(t) => open({ kind: 'match', tags: [t] })} onPlace={(key) => open({ kind: 'place', key })} onRoute={(id) => open({ kind: 'route', id })} onChain={openChain} onToday={openToday} />;
       case 'place': return <PlacePanel placeKey={panel.key} cards={index.cards} onOpen={openCard} />;
       case 'route': return <RoutePanel route={index.routes.find((r) => r.id === panel.id)!} cards={index.cards} onOpen={openCard} />;
-      case 'chain': return activeChain && <ChainPanel chain={activeChain} card={byId.get(activeChain.card)} t={chainT} setT={setChainT} onOpen={openCard} />;
+      case 'chain': return activeChain && <ChainPanel chain={activeChain} card={byId.get(activeChain.card)} t={chainT} setT={setChainT} onOpen={openCard} byId={byId} />;
+      case 'today': return activeToday && <TodayPanel point={activeToday} index={index} byId={byId} onOpen={openCard} onTag={(t) => open({ kind: 'match', tags: [t] })} onChain={openChain} />;
       case 'econ': return <EconPanel econ={index.econ} seriesId={panel.series} point={panel.point} onPick={openEcon} />;
-      case 'match': return <StructureMatch index={index} initialTags={panel.tags} onOpen={openCard} onPlace={(key) => open({ kind: 'place', key })} />;
+      case 'match': return <StructureMatch index={index} initialTags={panel.tags} onOpen={openCard} onToday={openToday} onPlace={(key) => open({ kind: 'place', key })} />;
       default: return <ResultList query={query} result={result} hits={hits} cards={visible} year={year} onOpen={openCard} />;
     }
   })();
@@ -116,7 +126,8 @@ function Main({ index }: { index: Index }) {
   const map = <MapView index={index} cards={visible} year={year} highlight={highlight}
     onPlace={(key) => { open({ kind: 'place', key }); if (isMobile) setMobileTab('list'); }}
     onRoute={(id) => { open({ kind: 'route', id }); if (isMobile) setMobileTab('list'); }} compact={isMobile}
-    chain={activeChain ? { chain: activeChain, t: chainT } : null} />;
+    chain={activeChain ? { chain: activeChain, t: chainT } : null}
+    todayOn={todayOn} setTodayOn={setTodayOn} onToday={(id) => { openToday(id); if (isMobile) setMobileTab('list'); }} todaySel={activeToday?.id ?? null} />;
 
   return (
     <div className={`app ${isMobile ? 'mobile' : 'desktop'}`}>

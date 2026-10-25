@@ -2,16 +2,17 @@
 import type { Card, Index } from '../types';
 import { Markdown } from '../lib/markdown';
 import { Counterparts } from './Counterparts';
+import { TodayRefs } from './TodayPanel';
 import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 interface Props {
   card: Card; index: Index; byId: Map<string, Card>;
-  onOpen: (id: string) => void; onTag: (t: string) => void; onPlace: (key: string) => void; onRoute: (id: string) => void; onChain?: (id: string) => void;
+  onOpen: (id: string) => void; onTag: (t: string) => void; onPlace: (key: string) => void; onRoute: (id: string) => void; onChain?: (id: string) => void; onToday?: (id: string) => void;
 }
 const LEVEL = { core: '核心', deep: '深入', optional: '選填' };
 const VERIF_CLASS: Record<string, string> = { '交叉確認': 'ok', 'AI草稿': 'draft', '爭議': 'dispute' };
 
-export function CardDetail({ card: c, index, byId, onOpen, onTag, onPlace, onRoute, onChain }: Props) {
+export function CardDetail({ card: c, index, byId, onOpen, onTag, onPlace, onRoute, onChain, onToday }: Props) {
   const chains = (index.chains ?? []).filter((x) => x.card === c.id);
   const fws = index.frameworks.filter((f) => c.frameworks.includes(f.id));
   return (
@@ -77,6 +78,7 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onPlace, onRou
       ))}
 
       <Counterparts card={c} byId={byId} onOpen={onOpen} />
+      <TodayRefs card={c} index={index} onToday={(id) => onToday?.(id)} onChain={(id) => onChain?.(id)} />
 
       {fws.map((f) => (
         <section key={f.id} className="cd-sec framework">

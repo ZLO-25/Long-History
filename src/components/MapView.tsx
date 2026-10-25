@@ -10,6 +10,7 @@ interface Props {
   highlight: { keys: string[]; routes: string[] };
   onPlace: (key: string) => void; onRoute: (id: string) => void; compact?: boolean;
   chain?: { chain: Chain; t: number } | null;
+  todayOn?: boolean; setTodayOn?: (v: boolean) => void; onToday?: (id: string) => void; todaySel?: string | null;
 }
 
 // 地圖視野：地中海／中國／歐亞
@@ -18,6 +19,8 @@ const VIEWS: { label: string; bounds: [[number, number], [number, number]] }[] =
   { label: '中國', bounds: [[20, 95], [45, 125]] },
   { label: '歐亞', bounds: [[18, -10], [52, 125]] },
 ];
+// 今日對照層的視野：大致涵蓋巴拿馬到東亞
+const TODAY_VIEW: [[number, number], [number, number]] = [[-5, -85], [55, 125]];
 const hue = (s: string) => { let h = 0; for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) % 360; return h; };
 const borderCache = new Map<string, Promise<any>>();
 const loadBorders = (file: string) => {
@@ -25,12 +28,12 @@ const loadBorders = (file: string) => {
   return borderCache.get(file)!;
 };
 
-export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain }: Props) {
+export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map>();
-  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup }>();
-  const cb = useRef({ onPlace, onRoute });
-  cb.current = { onPlace, onRoute };
+  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup }>();
+  const cb = useRef({ onPlace, onRoute, onToday });
+  cb.current = { onPlace, onRoute, onToday };
   const [snapLabel, setSnapLabel] = useState('');
 
   useEffect(() => {
@@ -42,7 +45,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     m.createPane('borders').style.zIndex = '350';
     layers.current = {
       borders: L.layerGroup().addTo(m), awmc: L.layerGroup().addTo(m), itinere: L.layerGroup().addTo(m), routes: L.layerGroup().addTo(m),
-      places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m), chain: L.layerGroup().addTo(m), mover: L.layerGroup().addTo(m),
+      places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m), chain: L.layerGroup().addTo(m), mover: L.layerGroup().addTo(m), today: L.layerGroup().addTo(m),
     };
     map.current = m;
     return () => { m.remove(); };
@@ -55,6 +58,8 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   }, [index, year]);
   useEffect(() => {
     let cancelled = false;
+    // 今日對照層打開時，不畫古代疆域，避免把古代邊界誤認為今天的國界
+    if (todayOn) { layers.current?.borders.clearLayers(); setSnapLabel('今日對照層：已隱藏古代疆域'); return; }
     loadBorders(snap.file).then((gj) => {
       if (cancelled || !layers.current) return;
       const g = layers.current.borders;
@@ -70,7 +75,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       setSnapLabel(`疆域示意：${fmtYear(snap.year)} 年快照`);
     });
     return () => { cancelled = true; };
-  }, [snap]);
+  }, [snap, todayOn]);
 
   // Itiner-e 精細道路（若已用 npm run roads 下載）
   useEffect(() => {
@@ -202,9 +207,28 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     if (!g) return;
     if (!chain) { g.clearLayers(); mover.current = undefined; return; }
     const at = posAt(chain.chain, chain.t);
-    if (!mover.current) mover.current = L.circleMarker(at, { radius: 8, color: '#fff', weight: 2, fillColor: '#c53030', fillOpacity: 1, className: 'chain-mover' }).addTo(g);
+    // 開發模式下地圖會被重建一次，舊標記不在新圖層裡就重新建立
+    if (!mover.current || !g.hasLayer(mover.current)) mover.current = L.circleMarker(at, { radius: 8, color: '#fff', weight: 2, fillColor: '#c53030', fillOpacity: 1, className: 'chain-mover' }).addTo(g);
     else mover.current.setLatLng(at);
   }, [chain]);
+
+  // 今日對照層：菱形標記＋「資料截至」；與歷史年代無關，打開就一直顯示
+  useEffect(() => {
+    const g = layers.current?.today, m = map.current;
+    if (!g || !m) return;
+    g.clearLayers();
+    if (!todayOn) return;
+    for (const p of index.today.chokepoints) {
+      const sel = p.id === todaySel;
+      L.marker([p.lat, p.lng], { icon: L.divIcon({ className: `today-mk ${p.stale ? 'stale' : ''} ${sel ? 'sel' : ''}`, html: `<i></i><span>${p.name.replace(/（.*）/, '')}<em>截至 ${p.data_as_of}</em></span>`, iconSize: [16, 16], iconAnchor: [8, 8] }), zIndexOffset: 1000 })
+        .bindTooltip(`今日咽喉：${p.name}・資料截至 ${p.data_as_of}${p.stale ? '（可能過時）' : ''}`)
+        .on('click', () => cb.current.onToday?.(p.id)).addTo(g);
+    }
+  }, [todayOn, index, todaySel]);
+  useEffect(() => {
+    const m = map.current, p = index.today.chokepoints.find((x) => x.id === todaySel);
+    if (m && p) m.flyTo([p.lat, p.lng], Math.max(m.getZoom(), 5), { duration: 0.6 });
+  }, [todaySel]);
 
   useEffect(() => { setTimeout(() => map.current?.invalidateSize(), 50); });
 
@@ -213,11 +237,13 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       <div ref={el} className="map-canvas" />
       <div className="map-views">
         {VIEWS.map((v) => <button key={v.label} onClick={() => map.current?.flyToBounds(v.bounds, { duration: 0.6 })}>{v.label}</button>)}
+        {setTodayOn && <button className={`today-toggle ${todayOn ? 'on' : ''}`} onClick={() => { const v = !todayOn; setTodayOn(v); if (v) map.current?.flyToBounds(TODAY_VIEW, { duration: 0.6 }); }} title="疊上今天的咽喉要道（每筆都標資料截至）">◆ 今日對照層</button>}
       </div>
       <div className="map-legend">
         <div>{snapLabel}</div>
         <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
         <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>
+        {todayOn && <div><i className="lg today" />今日咽喉要道（灰色＝資料可能過時）</div>}
         {ch && <div><i className="lg chain" />物資鏈（實線＝沿已畫路線，點線＝路線示意）</div>}
       </div>
     </div>

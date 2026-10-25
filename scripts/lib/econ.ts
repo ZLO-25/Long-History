@@ -9,7 +9,7 @@ const MIN_YEAR = -800, MAX_YEAR = 500;
 
 export interface EconIssue { file: string; level: 'error' | 'warning'; msg: string }
 
-const fixSrc = (list: any[] = []) => list.map((s) => ({ ...s, accessed: dateStr(s.accessed) }));
+export const fixSrc = (list: any[] = []) => list.map((s) => ({ ...s, accessed: dateStr(s.accessed) }));
 
 export function loadEcon() {
   return exists('data/economy/series.yaml') ? readYaml('data/economy/series.yaml') : { sources: [], metrics: [], series: [] };
@@ -101,30 +101,36 @@ export function buildEcon(econ: any) {
 }
 
 // 每一段 leg：有 via 時取路線上離兩端最近的兩點之間那段（必要時反向），頭尾與節點之間若有距離就補點線
-export function buildChains(chains: any[], cards: RawCard[], routes: { id: string; method: string; coords: [number, number][] }[]) {
-  const byId = new Map(cards.map((c) => [c.fm.id, c]));
+type RouteGeo = { id: string; method: string; coords: [number, number][] };
+
+// 把依序的節點算成線段：有 via 時取路線上離兩端最近的那段，頭尾與節點之間若有距離就補點線
+export function buildLegs(steps: { lat: number; lng: number; via?: string; path?: [number, number][] }[], routes: RouteGeo[]) {
   const rById = new Map(routes.map((r) => [r.id, r]));
+  return steps.slice(1).map((to, i) => {
+    const from = steps[i];
+    const a: [number, number] = [from.lat, from.lng], b: [number, number] = [to.lat, to.lng];
+    const parts: { kind: 'route' | 'schematic'; coords: [number, number][] }[] = [];
+    const r = to.via ? rById.get(to.via) : undefined;
+    if (r) {
+      const ia = nearest(r.coords, a), ib = nearest(r.coords, b);
+      let seg = ia <= ib ? r.coords.slice(ia, ib + 1) : r.coords.slice(ib, ia + 1).reverse();
+      if (seg.length < 2) seg = [r.coords[ia], r.coords[ib]];
+      if (km(a, seg[0]) > 3) parts.push({ kind: 'schematic', coords: [a, seg[0]] });
+      // 只標站點的路線（張騫等）本身就不是實際走法，照樣畫成點線
+      parts.push({ kind: r.method === 'stations' ? 'schematic' : 'route', coords: seg });
+      if (km(seg[seg.length - 1], b) > 3) parts.push({ kind: 'schematic', coords: [seg[seg.length - 1], b] });
+    } else parts.push({ kind: 'schematic', coords: [a, ...(to.path ?? []), b] });
+    const length = parts.reduce((s, p) => s + p.coords.slice(1).reduce((t, c, j) => t + km(p.coords[j], c), 0), 0);
+    return { via: to.via ?? null, parts, km: Math.round(length) };
+  });
+}
+
+export function buildChains(chains: any[], cards: RawCard[], routes: RouteGeo[]) {
+  const byId = new Map(cards.map((c) => [c.fm.id, c]));
   return chains.map((ch) => {
     const card = byId.get(ch.card)!;
     const pool = new Map([...fixSrc(card?.fm.sources), ...fixSrc(ch.sources)].map((s: any) => [s.id, s]));
     const steps = ch.steps.map((st: any) => ({ ...st, sources: st.src.map((id: string) => pool.get(id)) }));
-    const legs = steps.slice(1).map((to: any, i: number) => {
-      const from = steps[i];
-      const a: [number, number] = [from.lat, from.lng], b: [number, number] = [to.lat, to.lng];
-      const parts: { kind: 'route' | 'schematic'; coords: [number, number][] }[] = [];
-      const r = to.via ? rById.get(to.via) : undefined;
-      if (r) {
-        const ia = nearest(r.coords, a), ib = nearest(r.coords, b);
-        let seg = ia <= ib ? r.coords.slice(ia, ib + 1) : r.coords.slice(ib, ia + 1).reverse();
-        if (seg.length < 2) seg = [r.coords[ia], r.coords[ib]];
-        if (km(a, seg[0]) > 3) parts.push({ kind: 'schematic', coords: [a, seg[0]] });
-        // 只標站點的路線（張騫等）本身就不是實際走法，照樣畫成點線
-        parts.push({ kind: r.method === 'stations' ? 'schematic' : 'route', coords: seg });
-        if (km(seg[seg.length - 1], b) > 3) parts.push({ kind: 'schematic', coords: [seg[seg.length - 1], b] });
-      } else parts.push({ kind: 'schematic', coords: [a, b] });
-      const length = parts.reduce((s, p) => s + p.coords.slice(1).reduce((t, c, j) => t + km(p.coords[j], c), 0), 0);
-      return { via: to.via ?? null, parts, km: Math.round(length) };
-    });
-    return { id: ch.id, card: ch.card, name: ch.name, start: ch.start, end: ch.end, steps, legs };
+    return { id: ch.id, card: ch.card, name: ch.name, start: ch.start, end: ch.end, steps, legs: buildLegs(steps, routes) };
   });
 }

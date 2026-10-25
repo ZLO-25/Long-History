@@ -4,6 +4,7 @@ import path from 'node:path';
 import { loadCards, loadTagVocab, readYaml, readJson, dateStr, ROOT, refsOf } from './lib/cards.ts';
 import { checkCards, loadContext, exists } from './lib/check.ts';
 import { loadEcon, loadChains, checkEcon, checkChains, buildEcon, buildChains } from './lib/econ.ts';
+import { loadToday, checkToday, buildToday } from './lib/today.ts';
 import { SECTIONS, CORE_KEYS, TYPE_LABEL, FIELD_OPTIONS, type CardType } from './lib/fields.ts';
 
 const get = (o: any, k: string) => k.split('.').reduce((a, p) => (a == null ? a : a[p]), o);
@@ -106,9 +107,11 @@ const index = {
   itinere: hasItinere,
   econ: buildEcon(loadEcon()),
   chains: buildChains(loadChains(), raw, routes),
+  today: buildToday(loadToday(), routes),
 };
-const econIssues = [...checkEcon(loadEcon()), ...checkChains(loadChains(), raw, new Set(routes.map((r: any) => r.id)))];
-if (econIssues.length) console.warn(`注意：經濟數列／物資鏈有 ${econIssues.length} 個問題，請執行 npm run validate`);
+const econIssues = [...checkEcon(loadEcon()), ...checkChains(loadChains(), raw, new Set(routes.map((r: any) => r.id))),
+  ...checkToday(loadToday(), raw, new Set(tagCats.flatMap((c: any) => c.tags.map((t: any) => t.tag))), new Set(routes.map((r: any) => r.id)))].filter((i) => i.level === 'error');
+if (econIssues.length) console.warn(`注意：經濟數列／物資鏈／今日對照層有 ${econIssues.length} 個問題，請執行 npm run validate`);
 fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify(index));
 const errs = issues.filter((i) => i.level === 'error').length;
 console.log(`build-index：${cards.length} 張卡、${routes.length} 條路線、${index.chains.length} 條物資鏈 → public/index.json${errs ? `（注意：有 ${errs} 個 validate 錯誤）` : ''}`);

@@ -86,6 +86,8 @@ export interface Index {
   itinere: boolean;
   econ: Econ; chains: Chain[]; today: Today;
   histories: History[]; units: Unit[];
+  // 地圖名稱中英對照（data/labels/names-en.yaml）
+  names?: { en: Record<string, string>; zh: Record<string, string> };
 }
 
 export interface Filters { types: CardType[]; fields: string[]; civs: string[] }

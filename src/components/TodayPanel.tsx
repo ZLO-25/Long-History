@@ -1,5 +1,6 @@
 // 今日對照層：一個當代咽喉要道的事實、事件、對應的歷史卡與不可類比的差異；每一項都標「資料截至」
 import type { Card, Index, Source, TodayPoint } from '../types';
+import { Bi } from './Bi';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 export const Refs = ({ list }: { list: Source[] }) => <>{list.map((s) => <a key={s.id} className="ref" href={s.url} target="_blank" rel="noreferrer" title={s.title}>[{s.id}]</a>)}</>;
@@ -19,7 +20,7 @@ export function TodayPanel({ point: p, index, byId, onOpen, onTag, onChain }: Pr
   return (
     <div className="results today-panel">
       <p className="today-kicker">今日對照層・當代咽喉要道</p>
-      <h2>{p.name}</h2>
+      <h2><Bi name={p.name} /></h2>
       <p><AsOf date={p.data_as_of} stale={p.stale} months={index.today.stale_months} /> <span className="tag-muted">{p.verification}</span>{p.precision === 'schematic' && <span className="muted small">　地圖位置為代表點</span>}</p>
       <div>{p.structure_tags.map((t) => <button key={t} className="chip tag" onClick={() => onTag(t)} title="用這個標籤做結構對照">{t}</button>)}</div>
       <h3>現況與數字</h3>

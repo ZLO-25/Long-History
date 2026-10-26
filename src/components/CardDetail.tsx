@@ -3,6 +3,7 @@ import type { Card, Index } from '../types';
 import { Markdown } from '../lib/markdown';
 import { Counterparts } from './Counterparts';
 import { TodayRefs } from './TodayPanel';
+import { Bi } from './Bi';
 import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 interface Props {
@@ -43,8 +44,8 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onPlace, onRou
             <ul className="locs">
               {c.place.locations.map((l) => (
                 <li key={l.key}>
-                  <button className="link" onClick={() => onPlace(l.key)}>{l.name_ancient}</button>
-                  <span className="muted">（今 {l.name_modern}）</span>
+                  <button className="link" onClick={() => onPlace(l.key)}><Bi name={l.name_ancient} /></button>
+                  <span className="muted">（今 <Bi name={l.name_modern} />）</span>
                   {l.role && <span> — {l.role}</span>}
                   {l.precision !== 'exact' && <span className="tag-muted">{PRECISION_LABEL[l.precision]}</span>}
                   {l.pleiades_id && <a className="muted small" href={`https://pleiades.stoa.org/places/${l.pleiades_id}`} target="_blank" rel="noreferrer"> Pleiades</a>}

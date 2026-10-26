@@ -1,4 +1,5 @@
 // 物資鏈：節點清單＋播放控制；地圖上的紅點跟著 t 移動
+import { Bi } from './Bi';
 import { useEffect, useRef, useState } from 'react';
 import type { Card, Chain } from '../types';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
@@ -27,7 +28,7 @@ export function ChainPanel({ chain, card, t, setT, onOpen, byId }: { chain: Chai
   const play = () => { if (t >= n) setT(0); setPlaying(true); };
   return (
     <div className="results chain-panel">
-      <h2>{chain.name}</h2>
+      <h2><Bi name={chain.name} /></h2>
       {chain.today
         ? <p><span className="today-kicker">今日對照層・今日供應鏈</span> <AsOf date={chain.data_as_of!} stale={chain.stale} /></p>
         : <p className="muted">物資鏈・{fmtRange(chain.start, chain.end)}{card && <> ・<button className="link" onClick={() => onOpen(card.id)}>{card.name}</button></>}</p>}

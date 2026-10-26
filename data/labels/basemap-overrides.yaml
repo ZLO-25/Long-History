@@ -1,0 +1,262 @@
+# 底圖地名的人工校訂（npm run labels 會讀這份檔）
+# names：英文名 → 臺灣慣用中文譯名（蓋過 Natural Earth 的 name_zht）
+# english：英文名 → 顯示用的英文（Natural Earth 原名不好讀或有誤時）
+# skip：不標的地名（太冷僻、在南極、或 Natural Earth 資料有誤）
+# min_zoom：英文名 → 從第幾級縮放開始顯示（歷史課常用的海、海峽提早出現）
+# rivers：主要河流（Natural Earth 河流沒有中文名）；ne 是 Natural Earth 裡的英文名
+# extra：Natural Earth 沒有、但歷史課常用的地名
+
+names:
+  # 國家：用臺灣教科書與新聞的慣用名
+  Taiwan: 臺灣
+  South Korea: 南韓
+  North Korea: 北韓
+  People's Republic of China: 中國
+  New Zealand: 紐西蘭
+  Rwanda: 盧安達
+  Croatia: 克羅埃西亞
+  Indonesia: 印尼
+  Guyana: 蓋亞那
+  Mali: 馬利
+  Czech Republic: 捷克
+  Ecuador: 厄瓜多
+  Australia: 澳洲
+  Mongolia: 蒙古
+  Palestine: 巴勒斯坦
+  Malta: 馬爾他
+  Uganda: 烏干達
+  Turkish Republic of Northern Cyprus: 北賽普勒斯
+  United States of America: 美國
+  # 海洋、海峽
+  Caspian Sea: 裏海
+  Mozambique Channel: 莫三比克海峽
+  Strait of Malacca: 麻六甲海峽
+  Gulf of Honduras: 宏都拉斯灣
+  Hudson Bay: 哈德遜灣
+  Florida Strait: 佛羅里達海峽
+  Gulf of Kutch: 卡奇灣
+  Chesapeake Bay: 乞沙比克灣
+  Bristol Channel: 布里斯托海峽
+  Tikahtnu Inlet: 庫克灣
+  Gulf of Tonkin: 北部灣（東京灣）
+  # 地形區
+  Gobi Desert: 戈壁
+  Enugu Nigeria: 尼日河三角洲
+  Indo-Gangetic Plain: 印度河—恆河平原
+  Punjab: 旁遮普
+  Mainland Tasmania: 塔斯馬尼亞島
+  Alaska: 阿拉斯加
+  Florida: 佛羅里達半島
+  Sahel: 薩赫爾
+  Atlantic coastal plain: 大西洋海岸平原
+  Ahag: 阿哈加爾高原
+  Caspian Depression: 裏海低地
+  Micronesia: 密克羅尼西亞
+  Mainland Southeast Asia: 中南半島
+  Canadian Shield: 加拿大地盾
+  Siwalik Hills: 西瓦利克山
+  Elburz Mountains: 厄爾布爾士山脈
+  Pyrenees: 庇里牛斯山脈
+  Pontic Mountains: 本都山脈
+  Dinaric Alps: 狄那里克阿爾卑斯山脈
+  Hamgyong Mountains: 咸鏡山脈
+  Cape Cà Mau: 金甌角
+  Lena Delta: 勒拿河三角洲
+  Western Plateau: 西澳高原
+  Alps: 阿爾卑斯山脈
+  Corsica: 科西嘉島
+  Sicily: 西西里島
+  Sardinia: 薩丁尼亞島
+  Pamir mountains: 帕米爾高原
+  Zagros Mountains: 札格羅斯山脈
+  Fergana Valley: 費爾干納盆地
+  Sakhalin: 庫頁島
+  Balkans: 巴爾幹半島
+  Mesopotamia: 美索不達米亞
+  Anatolia: 安納托利亞
+  Haida Gwaii: 海達瓜伊群島
+  # 城市：Natural Earth 譯名不合臺灣用法或有誤的
+  Washington: 華盛頓
+  Reykjavík: 雷克雅維克
+  Dakar: 達喀爾
+  Dubai: 杜拜
+  Riga: 里加
+  Frankfurt: 法蘭克福
+  Brussels: 布魯塞爾
+  Auckland: 奧克蘭
+  Kampala: 坎帕拉
+  Sevastopol: 塞瓦斯托波爾
+  Sanaa: 沙那
+  Ahmedabad: 阿默達巴德
+  Shiraz: 設拉子
+  Nottingham: 諾丁漢
+  Broome: 布魯姆
+  Port Hedland: 黑德蘭港
+  Dubbo: 達博
+  Gaza City: 加薩市
+  Hanoi: 河內
+  Haiphong: 海防
+  Da Nang: 峴港
+  Nur-Sultan: 阿斯塔納
+  Georgetown: 喬治城
+  Yakutsk: 雅庫次克
+  Odessa: 敖德薩
+  Kharkiv: 哈爾科夫
+  Donetsk: 頓內次克
+  Dnipro: 聶伯城
+  Thessaloniki: 塞薩洛尼基
+  Naples: 拿坡里
+  Florence: 佛羅倫斯
+  Venice: 威尼斯
+  Genoa: 熱那亞
+  Turin: 杜林
+  Seville: 塞維亞
+  Córdoba: 哥多華
+  Valencia: 瓦倫西亞
+  Cádiz: 加的斯
+  Alexandria: 亞歷山卓
+  Giza: 吉薩
+  Luxor: 路克索
+  Aswan: 亞斯文
+  Yizhou: 哈密
+  Hailar: 海拉爾
+  Xianyang: 咸陽
+  Kashgar City: 喀什
+  Changdu: 昌都
+  Nyingchi: 林芝
+  Gyêgu: 結古（玉樹）
+  Mary: 馬雷（梅爾夫附近）
+  Ganja: 占賈
+  Macau: 澳門
+  Little Rock: 小岩城
+  Sydney: 雪梨
+  Saint Paul: 聖保羅（明尼蘇達）
+
+english:
+  Enugu Nigeria: Niger Delta
+  People's Republic of China: China
+  United States of America: United States
+  Mainland Tasmania: Tasmania
+  Pamir mountains: Pamir Mountains
+  horn of Africa: Horn of Africa
+  Congo basin: Congo Basin
+  Amazon basin: Amazon Basin
+  Ahag: Ahaggar Mountains
+  Elburz Mountains: Alborz Mountains
+  Tikahtnu Inlet: Cook Inlet
+  Nur-Sultan: Astana
+  Yizhou: Hami
+  Gyêgu: Gyêgu (Yushu)
+  Kashgar City: Kashgar
+  Al Wajh governorate: Al Wajh
+
+skip:
+  - Knud Ramussen Land
+  - Bolshezemelskaya Tundra
+  - Crystal Mountain
+  - Kuhrud Mountains
+  - Grande Sertão Veredas National Park
+  - Columbia Kootenay Mountain
+  - Sredinny Range
+  - Cordillera Occidental
+  - Cordillera Oriental
+  - Riverina
+  - Laurentides
+  - Hawaii
+  - Appennino Ligure
+  - Bay of Plenty
+  - Selva
+  - Yungas
+  # Natural Earth 這幾筆的中文和英文對不上（中文其實是別的城市）
+  - Juarez
+  - Ciudad Madero Tamaulipas
+  - Taza
+  - Karma
+  - Pochinki
+  - Ponta Delgada
+  - Lianshan
+  - Bethel
+  - Fulin
+
+min_zoom:
+  Aegean Sea: 4
+  Adriatic Sea: 4
+  Tyrrhenian Sea: 4
+  Ionian Sea: 4
+  Strait of Gibraltar: 5
+  Gulf of Aden: 4
+  Gulf of Oman: 4
+  Bohai Sea: 4
+  Taiwan Strait: 4
+  Korea Strait: 5
+  Strait of Malacca: 4
+  English Channel: 4
+  Balearic Sea: 5
+  Hexi Corridor: 4
+  Loess Plateau: 4
+  Qinling: 4
+  Taklamakan: 4
+  Korean Peninsula: 4
+
+rivers:
+  nile: { zh: 尼羅河, en: Nile, z: 3, ne: [Nile] }
+  euphrates: { zh: 幼發拉底河, en: Euphrates, z: 4, ne: [Euphrates] }
+  tigris: { zh: 底格里斯河, en: Tigris, z: 4, ne: [Tigris] }
+  danube: { zh: 多瑙河, en: Danube, z: 4, ne: [Danube] }
+  rhine: { zh: 萊茵河, en: Rhine, z: 4, ne: [Rhine] }
+  rhone: { zh: 隆河, en: Rhône, z: 5, ne: [Rhône] }
+  po: { zh: 波河, en: Po, z: 5, ne: [Po] }
+  tiber: { zh: 台伯河, en: Tiber, z: 6, ne: [Tiber] }
+  thames: { zh: 泰晤士河, en: Thames, z: 6, ne: [Thames] }
+  seine: { zh: 塞納河, en: Seine, z: 5, ne: [Seine] }
+  loire: { zh: 羅亞爾河, en: Loire, z: 5, ne: [Loire] }
+  elbe: { zh: 易北河, en: Elbe, z: 5, ne: [Elbe] }
+  oder: { zh: 奧得河, en: Oder, z: 5, ne: [Oder] }
+  vistula: { zh: 維斯瓦河, en: Vistula, z: 5, ne: [Vistula] }
+  dnieper: { zh: 聶伯河, en: Dnieper, z: 4, ne: [Dnieper] }
+  don: { zh: 頓河, en: Don, z: 4, ne: [Don] }
+  volga: { zh: 窩瓦河, en: Volga, z: 3, ne: [Volga] }
+  syr: { zh: 錫爾河, en: Syr Darya, z: 4, ne: [Syr  Darya] }
+  amu: { zh: 阿姆河, en: Amu Darya, z: 4, ne: [Amu  Darya] }
+  indus: { zh: 印度河, en: Indus, z: 3, ne: [Indus] }
+  jhelum: { zh: 傑赫勒姆河（希達斯皮斯河）, en: Jhelum (Hydaspes), z: 6, ne: [Jhelum] }
+  ganges: { zh: 恆河, en: Ganges, z: 3, ne: [Ganges] }
+  brahmaputra: { zh: 布拉馬普特拉河, en: Brahmaputra, z: 4, ne: [Brahmaputra] }
+  huang: { zh: 黃河, en: Yellow River, z: 3, ne: [Huang, Yellow] }
+  yangtze: { zh: 長江, en: Yangtze, z: 3, ne: [Yangtze] }
+  wei: { zh: 渭河, en: Wei River, z: 5, ne: [Wei] }
+  huai: { zh: 淮河, en: Huai River, z: 5, ne: [Huai] }
+  pearl: { zh: 珠江（西江）, en: Pearl River (Xi), z: 5, ne: [Xi, Pearl] }
+  mekong: { zh: 湄公河, en: Mekong, z: 4, ne: [Mekong] }
+  amur: { zh: 黑龍江, en: Amur, z: 4, ne: [Amur] }
+  liao: { zh: 遼河, en: Liao River, z: 5, ne: [Liao] }
+  yalu: { zh: 鴨綠江, en: Yalu, z: 5, ne: [Yalu] }
+  irrawaddy: { zh: 伊洛瓦底江, en: Irrawaddy, z: 4, ne: [Irrawaddy] }
+  chaophraya: { zh: 昭披耶河, en: Chao Phraya, z: 5, ne: [Chao Phraya] }
+  jordan: { zh: 約旦河, en: Jordan, z: 6, ne: [Jordan] }
+  ebro: { zh: 厄波羅河, en: Ebro, z: 5, ne: [Ebro] }
+  guadalquivir: { zh: 瓜達幾維河, en: Guadalquivir, z: 5, ne: [Guadalquivir] }
+  tagus: { zh: 太加斯河, en: Tagus, z: 5, ne: [Tagus, Tajo] }
+  niger: { zh: 尼日河, en: Niger, z: 4, ne: [Niger] }
+  congo: { zh: 剛果河, en: Congo, z: 4, ne: [Congo] }
+  zambezi: { zh: 尚比西河, en: Zambezi, z: 4, ne: [Zambezi] }
+  ob: { zh: 鄂畢河, en: Ob, z: 3, ne: [Ob] }
+  lena: { zh: 勒拿河, en: Lena, z: 3, ne: [Lena] }
+  mississippi: { zh: 密西西比河, en: Mississippi, z: 4, ne: [Mississippi] }
+  stlawrence: { zh: 聖羅倫斯河, en: St. Lawrence, z: 4, ne: [St. Lawrence] }
+  hudson: { zh: 哈德遜河, en: Hudson, z: 6, ne: [Hudson] }
+  amazon: { zh: 亞馬遜河, en: Amazon, z: 3, ne: [Amazonas] }
+
+extra:
+  - { t: r, zh: 黎凡特, en: Levant, lat: 33.6, lng: 36.2, z: 5 }
+  - { t: r, zh: 關中平原, en: Guanzhong Plain, lat: 34.45, lng: 108.6, z: 6 }
+  - { t: r, zh: 中原, en: Central Plains, lat: 34.6, lng: 113.9, z: 5 }
+  - { t: r, zh: 伯羅奔尼撒半島, en: Peloponnese, lat: 37.5, lng: 22.3, z: 5 }
+  - { t: r, zh: 西奈半島, en: Sinai Peninsula, lat: 29.6, lng: 33.8, z: 5 }
+  - { t: r, zh: 亞平寧山脈, en: Apennines, lat: 42.6, lng: 13.2, z: 5 }
+  - { t: r, zh: 色雷斯, en: Thrace, lat: 41.5, lng: 26.3, z: 6 }
+  - { t: o, zh: 博斯普魯斯海峽, en: Bosphorus, lat: 41.12, lng: 29.07, z: 7 }
+  - { t: o, zh: 達達尼爾海峽, en: Dardanelles, lat: 40.2, lng: 26.4, z: 7 }
+  - { t: o, zh: 霍爾木茲海峽, en: Strait of Hormuz, lat: 26.55, lng: 56.4, z: 6 }
+  - { t: o, zh: 曼德海峽, en: Bab-el-Mandeb, lat: 12.6, lng: 43.35, z: 6 }
+  - { t: o, zh: 墨西拿海峽, en: Strait of Messina, lat: 38.2, lng: 15.62, z: 7 }

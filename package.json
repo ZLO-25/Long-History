@@ -13,17 +13,20 @@
     "routes": "tsx scripts/build-routes.ts",
     "roads": "tsx scripts/fetch-itinere.ts",
     "borders": "tsx scripts/fetch-borders.ts",
+    "labels": "tsx scripts/build-labels.ts",
     "typecheck": "tsc -p tsconfig.json"
   },
   "engines": {
     "node": ">=20.11"
   },
   "dependencies": {
+    "@maplibre/maplibre-gl-leaflet": "0.1.4",
     "d3-scale": "^4.0.2",
     "d3-selection": "^3.0.0",
     "d3-zoom": "^3.0.0",
     "fuse.js": "^7.5.0",
     "leaflet": "1.9",
+    "maplibre-gl": "6.12.0",
     "opencc-js": "^1.4.2",
     "pinyin-pro": "^3.29.5",
     "react": "^18.3.1",
@@ -38,6 +41,7 @@
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.7.0",
+    "polylabel": "2.0.1",
     "topojson-client": "^3.1.0",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",

@@ -72,9 +72,11 @@ npm run dev
 | `npm run places` | 新增了 Pleiades 地點後，重新抓座標 |
 | `npm run routes` | 改了 `data/routes/routes.yaml` 之後，重新計算道路、航線、長城的線條 |
 | `npm run roads` | （選用）下載 Itiner-e 羅馬道路細線（約 78 MB，只要做一次） |
+| `npm run labels` | 重新產生地圖上的繁中＋英文地名（`data/labels/basemap-labels.json`）；改譯名請改 `data/labels/basemap-overrides.yaml` |
 | `npm run build` | 檢查＋打包成靜態網頁到 `dist/` |
 | `LEARN_DEV=1 npm run dev` | 開發時讓還沒通過查核的學習卡與單元也顯示（正式 build 不會用） |
 | `node scripts/qa/e2e.cjs http://localhost:4173/` | 先 `npm run build` 再 `npx vite preview`，然後自動走過 6 條歷史的每個單元每一步、3 個模擬；同資料夾還有 `research.cjs`（研究模式回歸）、`overlap.cjs`（時間軸標籤重疊）、`shot.cjs`（截圖）。需要 Playwright |
+| `node scripts/qa/labels.cjs http://localhost:4173/` | 地圖名稱都是繁中＋英文：底圖地名、案例地點、疆域、今日咽喉（說明見 docs/map-names.md） |
 | `node scripts/qa/layout.cjs http://localhost:4173/` | 桌機版可拖曳分隔線：拖曳、重整後記住、收起時間軸、鍵盤、「⟲ 版面」重設、小視窗、手機無分隔線（說明見 docs/layout-report.md） |
 
 ## 三、用 Obsidian 編輯卡片
@@ -120,7 +122,8 @@ sources:
 | 實質工資（一天工資買幾籃生活必需品，1820–2008） | Clio Infra，de Zwart, van Leeuwen & van Leeuwen-Li（2015）Labourers Real Wage | CC0 |
 | 臺灣名目月薪（1980–2025）、物價指數（1981–2025）；實質月薪為本站計算 | 行政院主計總處，經政府資料開放平臺取得 | 政府資料開放授權條款第 1 版 |
 | 英格蘭名目日薪、英國物價、英國實質工資（1209–2016） | 英格蘭銀行 A millennium of macroeconomic data 3.1 版（工資為 Clark 2009） | Open Government Licence（第三方資料版權屬原作者） |
-| 底圖 | OpenStreetMap | ODbL |
+| 底圖（不含文字） | OpenFreeMap 向量圖磚 © OpenMapTiles，資料 © OpenStreetMap；樣式改自 OpenFreeMap Liberty（`docs/licenses/`） | 資料 ODbL；樣式 MIT／BSD-3 |
+| 地圖地名（繁中＋英文） | Natural Earth 國家、城市、海洋、地形區、河流；中文經 OpenCC 轉臺灣用字並人工校訂 | 公有領域 |
 
 卡片內文每段都附來源連結；本工具只是思考框架，不構成預測或投資建議。
 
@@ -143,3 +146,4 @@ sources:
 - `docs/phase6-plan.md`、`docs/phase6-report.md`：第 6 期（學習模式）計畫與驗收回報
 - `docs/learn-units.md`：學習單元的寫法與檢查規則
 - `docs/screenshots/phase6/`：375 與 1280 寬的截圖
+- `docs/map-names.md`：地圖名稱改成繁中＋英文的做法、資料檔與怎麼改譯名（截圖在 `docs/screenshots/map-names/`）

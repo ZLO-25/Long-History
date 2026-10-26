@@ -1,0 +1,764 @@
+# 本站自己的地名（卡片地點、路線、站點、物資鏈、今日對照層）的中英對照
+# 地圖上的提示框一律顯示「中文 English」。
+# en：中文 → 英文（卡片的古代地名、今日地名、路線名等）
+# zh：英文／拉丁文 → 中文（路線站點多半直接用 Pleiades 的拉丁地名）
+# 新增卡片時若地名沒有列在這裡，npm run build:index 會提醒「缺英文」，地圖上先只顯示中文。
+en:
+  # ── 希臘、羅馬 ──
+  雅典衛城: Acropolis of Athens
+  雅典（希臘）: Athens, Greece
+  弗拉維圓形劇場: Flavian Amphitheatre (Colosseum)
+  羅馬（義大利）: Rome, Italy
+  羅馬廣場: Roman Forum
+  哈德良長城（中段）: Hadrian's Wall (central section)
+  諾森伯蘭（英國）: Northumberland, UK
+  塞格杜努姆: Segedunum
+  沃爾森德（英國）: Wallsend, UK
+  文德蘭達: Vindolanda
+  盧古瓦利烏姆: Luguvalium
+  卡萊爾（英國）: Carlisle, UK
+  萬神殿: Pantheon
+  加爾橋: Pont du Gard
+  韋爾-蓬迪加爾（法國）: Vers-Pont-du-Gard, France
+  內毛蘇斯: Nemausus
+  尼姆（法國）: Nîmes, France
+  阿庇亞水道: Aqua Appia
+  克勞狄亞水道: Aqua Claudia
+  酒神劇場: Theatre of Dionysus
+  羅馬: Rome
+  卡普阿: Capua
+  聖瑪麗亞卡普阿韋泰雷（義大利）: Santa Maria Capua Vetere, Italy
+  貝內文圖姆: Beneventum
+  貝內文托（義大利）: Benevento, Italy
+  布林迪西姆: Brundisium
+  布林迪西（義大利）: Brindisi, Italy
+  泰斯塔西奧山: Monte Testaccio
+  羅馬河港（Emporium）: Emporium (river port of Rome)
+  希斯帕利斯: Hispalis
+  塞維亞（西班牙）: Seville, Spain
+  科爾杜巴: Corduba
+  哥多華（西班牙）: Córdoba, Spain
+  亞歷山卓: Alexandria
+  亞歷山大港（埃及）: Alexandria, Egypt
+  普泰奧利: Puteoli
+  波佐利（義大利）: Pozzuoli, Italy
+  波爾圖斯: Portus
+  菲烏米奇諾附近（義大利）: near Fiumicino, Italy
+  奧斯提亞: Ostia
+  奧斯蒂亞安蒂卡（義大利）: Ostia Antica, Italy
+  勞里昂: Laurion
+  拉夫里奧（希臘）: Lavrio, Greece
+  托里科斯: Thorikos
+  托里科斯（希臘）: Thorikos, Greece
+  雅典: Athens
+  巴亞: Baiae
+  巴亞（義大利）: Baia, Italy
+  普里韋爾努姆: Privernum
+  普里韋爾諾附近（義大利）: near Priverno, Italy
+  佩拉: Pella
+  佩拉（希臘）: Pella, Greece
+  伊蘇斯: Issus
+  伊斯肯德倫灣附近（土耳其）: near the Gulf of İskenderun, Turkey
+  推羅: Tyre
+  蘇爾（黎巴嫩）: Sour (Tyre), Lebanon
+  高加米拉: Gaugamela
+  摩蘇爾附近（伊拉克）: near Mosul, Iraq
+  波斯波利斯: Persepolis
+  設拉子附近（伊朗）: near Shiraz, Iran
+  希達斯皮斯河: Hydaspes River
+  傑赫勒姆河（巴基斯坦）: Jhelum River, Pakistan
+  巴比倫: Babylon
+  希拉附近（伊拉克）: near Hillah, Iraq
+  羅馬（舊聖彼得大教堂）: Rome (Old St. Peter's Basilica)
+  羅馬梵蒂岡（義大利／梵蒂岡）: Vatican, Rome (Italy / Vatican City)
+  普尼克斯山（公民大會會場）: Pnyx (assembly hill)
+  雅典廣場: Agora of Athens
+  拉文納: Ravenna
+  拉文納（義大利）: Ravenna, Italy
+  迦太基: Carthage
+  突尼斯（突尼西亞）: Tunis, Tunisia
+  君士坦丁堡: Constantinople
+  伊斯坦堡（土耳其）: Istanbul, Turkey
+  盧比孔河: Rubicon River
+  盧比孔河（義大利，確切河道有爭議）: Rubicon, Italy (exact course disputed)
+  阿里米努姆: Ariminum
+  里米尼（義大利）: Rimini, Italy
+  亞克興: Actium
+  普雷韋扎附近（希臘）: near Preveza, Greece
+  尼科波利斯: Nicopolis
+  普雷韋扎北方（希臘）: north of Preveza, Greece
+  薩拉米斯海峽: Strait of Salamis
+  薩拉米納島（希臘）: Salamina Island, Greece
+  馬拉松: Marathon
+  馬拉松（希臘）: Marathon, Greece
+  溫泉關: Thermopylae
+  溫泉關（希臘）: Thermopylae, Greece
+  普拉提亞: Plataea
+  普拉蒂亞（希臘）: Plataies, Greece
+  拜占庭: Byzantium
+  斯巴達: Sparta
+  斯巴達（希臘）: Sparta, Greece
+  比雷埃夫斯: Piraeus
+  比雷埃夫斯（希臘）: Piraeus, Greece
+  敘拉古: Syracuse
+  錫拉庫薩（義大利西西里）: Syracuse, Sicily, Italy
+  羊河（埃戈斯波塔米）: Aegospotami
+  達達尼爾海峽北岸（土耳其）: north shore of the Dardanelles, Turkey
+  薩貢托: Saguntum
+  薩貢托（西班牙）: Sagunto, Spain
+  新迦太基: Carthago Nova
+  卡塔赫納（西班牙）: Cartagena, Spain
+  特拉西梅諾湖: Lake Trasimene
+  特拉西梅諾湖（義大利）: Lake Trasimeno, Italy
+  坎尼: Cannae
+  坎尼（義大利）: Canne della Battaglia, Italy
+  札馬: Zama
+  突尼西亞西北部: northwestern Tunisia
+  卡爾克里澤: Kalkriese
+  下薩克森邦奧斯納布呂克附近（德國）: near Osnabrück, Lower Saxony, Germany
+  # ── 中國 ──
+  都江堰（湔堰）: Dujiangyan
+  都江堰市（中國四川）: Dujiangyan City, Sichuan, China
+  洛陽（東都）: Luoyang (Eastern Capital)
+  洛陽（中國河南）: Luoyang, Henan, China
+  江都（揚州）: Jiangdu (Yangzhou)
+  揚州（中國江蘇）: Yangzhou, Jiangsu, China
+  餘杭: Yuhang
+  杭州（中國浙江）: Hangzhou, Zhejiang, China
+  涿郡: Zhuo Commandery
+  北京一帶（中國）: Beijing area, China
+  長安: Chang'an
+  西安西北（中國陝西）: northwest of Xi'an, Shaanxi, China
+  靈渠: Lingqu Canal
+  興安縣（中國廣西）: Xing'an County, Guangxi, China
+  玉門關: Yumen Pass
+  甘肅敦煌西北: northwest of Dunhuang, Gansu
+  九原: Jiuyuan
+  包頭（中國內蒙古）: Baotou, Inner Mongolia, China
+  直道遺址（方家河村）: Qin Straight Road site (Fangjiahe)
+  甘泉縣（中國陝西）: Ganquan County, Shaanxi, China
+  驪山（秦始皇陵）: Mount Li (Mausoleum of Qin Shi Huang)
+  西安市臨潼區（中國陝西）: Lintong, Xi'an, Shaanxi, China
+  武州山石窟: Wuzhoushan Grottoes (Yungang)
+  大同市西約 16 公里（中國山西）: 16 km west of Datong, Shanxi, China
+  貳師城: Ershi (Nisaya), Dayuan
+  苦盞（塔吉克）: Khujand, Tajikistan
+  敦煌: Dunhuang
+  敦煌（中國甘肅）: Dunhuang, Gansu, China
+  月港（漳州）: Yuegang (Zhangzhou)
+  福建省漳州市海澄（中國）: Haicheng, Zhangzhou, Fujian, China
+  西安（中國陝西）: Xi'an, Shaanxi, China
+  長安（上林苑）: Chang'an (Shanglin Park)
+  咸陽: Xianyang
+  咸陽（中國陝西）: Xianyang, Shaanxi, China
+  大澤鄉（蘄縣）: Dazexiang (Qi County)
+  安徽宿州劉村附近: near Liucun, Suzhou, Anhui
+  魯國陬邑（曲阜）: Zouyi, State of Lu (Qufu)
+  曲阜（中國山東）: Qufu, Shandong, China
+  臨淄: Linzi
+  淄博市臨淄區（中國山東）: Linzi, Zibo, Shandong, China
+  晉陽: Jinyang
+  太原（中國山西）: Taiyuan, Shanxi, China
+  鎬京: Haojing
+  西安西南長安區（中國陝西）: Chang'an District, southwest Xi'an, Shaanxi, China
+  洛邑（成周／王城）: Luoyi (Chengzhou / Wangcheng)
+  北京: Beijing
+  北京（中國）: Beijing, China
+  小崗村: Xiaogang Village
+  安徽鳳陽縣小崗村（中國）: Xiaogang, Fengyang, Anhui, China
+  深圳: Shenzhen
+  深圳（中國廣東）: Shenzhen, Guangdong, China
+  珠海: Zhuhai
+  珠海（中國廣東）: Zhuhai, Guangdong, China
+  汕頭: Shantou
+  汕頭（中國廣東）: Shantou, Guangdong, China
+  廈門: Xiamen
+  廈門（中國福建）: Xiamen, Fujian, China
+  廈門、金門: Xiamen and Kinmen
+  福建省廈門市、金門縣: Xiamen, Fujian and Kinmen County
+  江南製造局: Jiangnan Arsenal
+  上海（中國）: Shanghai, China
+  福州船政局: Foochow Navy Yard
+  福州馬尾（中國）: Mawei, Fuzhou, China
+  東京（汴京）: Dongjing (Bianjing, Kaifeng)
+  開封（中國河南）: Kaifeng, Henan, China
+  平城: Pingcheng
+  大同（中國山西）: Datong, Shanxi, China
+  洛陽: Luoyang
+  武昌: Wuchang
+  武漢市武昌區（中國湖北）: Wuchang, Wuhan, Hubei, China
+  成都: Chengdu
+  成都（中國四川）: Chengdu, Sichuan, China
+  南京: Nanjing
+  南京（中國江蘇）: Nanjing, Jiangsu, China
+  鉅鹿郡: Julu Commandery
+  河北平鄉縣一帶: around Pingxiang County, Hebei
+  大夏（巴克特拉）: Daxia (Bactra)
+  巴爾赫（阿富汗）: Balkh, Afghanistan
+  南京（龍江寶船廠）: Nanjing (Longjiang Treasure Shipyard)
+  太倉劉家港: Liujiagang, Taicang
+  太倉（中國江蘇）: Taicang, Jiangsu, China
+  滿剌加: Malacca
+  麻六甲（馬來西亞）: Malacca, Malaysia
+  古里: Calicut
+  忽魯謨斯: Hormuz
+  荷姆茲（伊朗）: Hormuz, Iran
+  麻林地: Malindi
+  上海: Shanghai
+  上海市（中國）: Shanghai, China
+  南京市（中國）: Nanjing, China
+  益州（成都）: Yizhou (Chengdu)
+  南京（應天府）: Nanjing (Yingtian)
+  江蘇省南京市（中國）: Nanjing, Jiangsu, China
+  北京（順天府）: Beijing (Shuntian)
+  北京市（中國）: Beijing, China
+  平遙: Pingyao
+  平遙（中國山西）: Pingyao, Shanxi, China
+  漢口: Hankou
+  武漢漢口（中國湖北）: Hankou, Wuhan, Hubei, China
+  廣州: Guangzhou
+  廣州（中國廣東）: Guangzhou, Guangdong, China
+  上海港: Port of Shanghai
+  豫章: Yuzhang
+  南昌（中國江西）: Nanchang, Jiangxi, China
+  蘄州（畢昇墓碑出土地）: Qizhou (where Bi Sheng's tombstone was found)
+  湖北黃岡英山一帶（中國湖北）: Yingshan, Huanggang, Hubei, China
+  放馬灘: Fangmatan
+  天水（中國甘肅）: Tianshui, Gansu, China
+  吳淞: Wusong
+  上海吳淞（中國）: Wusong, Shanghai, China
+  范陽: Fanyang
+  潼關: Tongguan
+  潼關（中國陝西）: Tongguan, Shaanxi, China
+  睢陽: Suiyang
+  商丘（中國河南）: Shangqiu, Henan, China
+  長平: Changping
+  高平（中國山西）西北: northwest of Gaoping, Shanxi, China
+  城濮: Chengpu
+  今河南陳留一帶或山東鄄城西南（兩說）: Chenliu, Henan, or southwest of Juancheng, Shandong (two theories)
+  垓下: Gaixia
+  安徽靈璧縣東南: southeast of Lingbi County, Anhui
+  淝水: Fei River
+  今安徽六安一帶（河道已不存在）: around Lu'an, Anhui (river course no longer exists)
+  漠北: Mobei (north of the Gobi)
+  蒙古國鄂爾渾河谷一帶: Orkhon Valley, Mongolia
+  汴京（東京開封府）: Bianjing (Kaifeng)
+  太原: Taiyuan
+  會寧府（金上京）: Huining (Upper Capital of Jin)
+  哈爾濱阿城（中國黑龍江）: Acheng, Harbin, Heilongjiang, China
+  應天府: Yingtian
+  臨安: Lin'an (Hangzhou)
+  虎門: Humen
+  東莞虎門（中國廣東）: Humen, Dongguan, Guangdong, China
+  定海: Dinghai
+  舟山定海（中國浙江）: Dinghai, Zhoushan, Zhejiang, China
+  鎮江: Zhenjiang
+  鎮江（中國江蘇）: Zhenjiang, Jiangsu, China
+  江寧（南京）: Jiangning (Nanjing)
+  香港島: Hong Kong Island
+  香港（中國）: Hong Kong, China
+  赤壁: Red Cliffs
+  長江中游，武漢西南或岳陽東北（確切位置未定）: middle Yangtze, SW of Wuhan or NE of Yueyang (exact site uncertain)
+  奉天（瀋陽）: Fengtian (Shenyang)
+  瀋陽（中國遼寧）: Shenyang, Liaoning, China
+  宛平・盧溝橋: Wanping / Marco Polo Bridge
+  北京豐台區（中國）: Fengtai, Beijing, China
+  花園口: Huayuankou
+  鄭州北郊（中國河南）: northern Zhengzhou, Henan, China
+  重慶: Chongqing
+  重慶（中國）: Chongqing, China
+  青島（德國租借地）: Qingdao (German leased territory)
+  青島（中國山東）: Qingdao, Shandong, China
+  # ── 臺灣 ──
+  中國鋼鐵公司（高雄小港）: China Steel Corporation (Xiaogang, Kaohsiung)
+  高雄市小港區（臺灣）: Xiaogang, Kaohsiung, Taiwan
+  臺中港: Port of Taichung
+  臺中市梧棲區（臺灣）: Wuqi, Taichung, Taiwan
+  蘇澳港: Port of Su'ao
+  宜蘭縣蘇澳鎮（臺灣）: Su'ao, Yilan, Taiwan
+  中正國際機場: Chiang Kai-shek International Airport (now Taoyuan)
+  桃園市大園區（臺灣）: Dayuan, Taoyuan, Taiwan
+  第一核能發電廠: Chinshan Nuclear Power Plant
+  新北市石門區（臺灣）: Shimen, New Taipei, Taiwan
+  新竹科學園區: Hsinchu Science Park
+  新竹市（臺灣）: Hsinchu, Taiwan
+  新竹科學工業園區: Hsinchu Science Park
+  新竹市東區（臺灣）: East District, Hsinchu, Taiwan
+  工業技術研究院: Industrial Technology Research Institute (ITRI)
+  新竹縣竹東鎮（臺灣）: Zhudong, Hsinchu County, Taiwan
+  大員（熱蘭遮城）: Tayouan (Fort Zeelandia)
+  臺南市安平區（臺灣）: Anping, Tainan, Taiwan
+  澎湖（媽宮）: Penghu (Makung)
+  澎湖縣馬公市（臺灣）: Magong, Penghu, Taiwan
+  新港社: Sinkan
+  臺南市新市區（臺灣）: Xinshi, Tainan, Taiwan
+  高雄加工出口區（前鎮）: Kaohsiung Export Processing Zone (Qianzhen)
+  高雄市前鎮區（臺灣）: Qianzhen, Kaohsiung, Taiwan
+  楠梓加工出口區: Nanzih Export Processing Zone
+  高雄市楠梓區（臺灣）: Nanzi, Kaohsiung, Taiwan
+  承天府（赤崁）: Chengtian Prefecture (Saccam)
+  臺南市中西區（臺灣）: West Central District, Tainan, Taiwan
+  熱蘭遮城（安平鎮）: Fort Zeelandia (Anping)
+  澎湖: Penghu
+  澎湖縣（臺灣）: Penghu County, Taiwan
+  雞籠社寮島（聖薩爾瓦多城）: Kelang Island (Fort San Salvador)
+  基隆市和平島（臺灣）: Heping Island, Keelung, Taiwan
+  滬尾（聖多明哥城）: Hobe (Fort Santo Domingo)
+  新北市淡水區紅毛城一帶（臺灣）: Fort San Domingo area, Tamsui, New Taipei, Taiwan
+  大員: Tayouan
+  臺南安平（臺灣）: Anping, Tainan, Taiwan
+  臺灣銀行（臺北）: Bank of Taiwan (Taipei)
+  臺北市中正區（臺灣）: Zhongzheng, Taipei, Taiwan
+  臺灣證券交易所（臺北）: Taiwan Stock Exchange (Taipei)
+  臺北市（臺灣）: Taipei, Taiwan
+  臺北懷寧街工礦大樓: Industrial and Mining Building, Huaining St., Taipei
+  臺北 101: Taipei 101
+  臺北市信義區（臺灣）: Xinyi, Taipei, Taiwan
+  臺北市第十信用合作社: Tenth Credit Cooperative of Taipei
+  麻豆社: Mattau
+  臺南市麻豆區（臺灣）: Madou, Tainan, Taiwan
+  蕭壠社: Soulang
+  臺南市佳里區（臺灣）: Jiali, Tainan, Taiwan
+  基隆: Keelung
+  基隆（臺灣）: Keelung, Taiwan
+  臺灣府城: Taiwan Prefectural City (Tainan)
+  臺南（臺灣）: Tainan, Taiwan
+  臺北（台北州）: Taipei (Taihoku Prefecture)
+  台北（台灣）: Taipei, Taiwan
+  # ── 日本、朝鮮 ──
+  石見銀山（大森）: Iwami Ginzan Silver Mine (Ōmori)
+  島根縣大田市大森町（日本）: Ōmori, Ōda, Shimane, Japan
+  溫泉津港: Port of Yunotsu
+  島根縣大田市溫泉津町（日本）: Yunotsu, Ōda, Shimane, Japan
+  石見銀山: Iwami Ginzan Silver Mine
+  島根縣大田市（日本）: Ōda, Shimane, Japan
+  浦賀: Uraga
+  橫須賀浦賀（日本神奈川縣）: Uraga, Yokosuka, Kanagawa, Japan
+  神奈川（橫濱村）: Kanagawa (Yokohama village)
+  橫濱（日本）: Yokohama, Japan
+  京都御所: Kyoto Imperial Palace
+  京都（日本）: Kyoto, Japan
+  江戶（東京）: Edo (Tokyo)
+  東京（日本）: Tokyo, Japan
+  長崎出島: Dejima, Nagasaki
+  長崎（日本）: Nagasaki, Japan
+  對馬: Tsushima
+  對馬（日本長崎縣）: Tsushima, Nagasaki, Japan
+  松前: Matsumae
+  松前（日本北海道）: Matsumae, Hokkaido, Japan
+  薩摩: Satsuma
+  鹿兒島（日本）: Kagoshima, Japan
+  大坂城: Osaka Castle
+  大阪（日本）: Osaka, Japan
+  小田原城: Odawara Castle
+  小田原（日本神奈川縣）: Odawara, Kanagawa, Japan
+  廣島: Hiroshima
+  廣島（日本）: Hiroshima, Japan
+  漢城（漢陽）: Hanseong (Hanyang)
+  首爾（韓國）: Seoul, South Korea
+  漢城: Hanseong (Seoul)
+  清州興德寺: Heungdeoksa Temple, Cheongju
+  清州（韓國）: Cheongju, South Korea
+  全羅左水營（麗水）: Jeolla Left Naval Command (Yeosu)
+  全羅南道麗水市（韓國）: Yeosu, South Jeolla, South Korea
+  泗川: Sacheon
+  慶尚南道泗川市（韓國）: Sacheon, South Gyeongsang, South Korea
+  釜山: Busan
+  釜山（韓國）: Busan, South Korea
+  平壤: Pyongyang
+  平壤（北韓）: Pyongyang, North Korea
+  鳴梁海峽: Myeongnyang Strait
+  全羅南道珍島與海南之間（韓國）: between Jindo and Haenam, South Jeolla, South Korea
+  # ── 歐洲中世紀到近代 ──
+  卡法: Caffa
+  費奧多西亞（克里米亞）: Feodosia, Crimea
+  墨西拿（西西里）: Messina (Sicily)
+  墨西拿（義大利西西里島）: Messina, Sicily, Italy
+  佛羅倫斯: Florence
+  佛羅倫斯（義大利）: Florence, Italy
+  多塞特: Dorset
+  多塞特郡（英國英格蘭）: Dorset, England, UK
+  帕德博恩: Paderborn
+  帕德博恩（德國）: Paderborn, Germany
+  亞琛: Aachen
+  亞琛（德國）: Aachen, Germany
+  柏林: Berlin
+  柏林（德國）: Berlin, Germany
+  華沙: Warsaw
+  華沙（波蘭）: Warsaw, Poland
+  瓦萊塔（馬爾他）: Valletta, Malta
+  莫斯科: Moscow
+  莫斯科（俄羅斯）: Moscow, Russia
+  別洛韋日森林: Belovezha Forest
+  白俄羅斯布列斯特州（白俄羅斯）: Brest Region, Belarus
+  巴黎: Paris
+  巴黎（法國）: Paris, France
+  凡爾賽: Versailles
+  凡爾賽（法國）: Versailles, France
+  蘭尼米德: Runnymede
+  蘭尼米德（英國英格蘭薩里郡）: Runnymede, Surrey, England, UK
+  倫敦: London
+  倫敦（英國）: London, UK
+  倫敦市（英國）: City of London, UK
+  威登堡: Wittenberg
+  維滕貝格（德國）: Wittenberg, Germany
+  沃木斯: Worms
+  沃爾姆斯（德國）: Worms, Germany
+  奧格斯堡: Augsburg
+  奧格斯堡（德國）: Augsburg, Germany
+  里斯本: Lisbon
+  里斯本（葡萄牙）: Lisbon, Portugal
+  阿姆斯特丹: Amsterdam
+  阿姆斯特丹（荷蘭）: Amsterdam, Netherlands
+  布魯日: Bruges
+  布魯日（比利時）: Bruges, Belgium
+  威尼斯: Venice
+  威尼斯（義大利）: Venice, Italy
+  哈倫: Haarlem
+  哈倫（荷蘭）: Haarlem, Netherlands
+  阿爾克馬爾: Alkmaar
+  阿爾克馬爾（荷蘭）: Alkmaar, Netherlands
+  柏林（德國中央銀行）: Berlin (Reichsbank)
+  魯爾區: Ruhr
+  埃森一帶（德國）: Essen area, Germany
+  卡斯蒂永: Castillon
+  卡斯蒂永拉巴塔耶（法國）: Castillon-la-Bataille, France
+  科隆（道依茨）: Cologne (Deutz)
+  科隆（德國）: Cologne, Germany
+  曼海姆: Mannheim
+  曼海姆（德國）: Mannheim, Germany
+  普福爾茨海姆: Pforzheim
+  普福爾茨海姆（德國）: Pforzheim, Germany
+  歐洲核子研究組織: CERN
+  日內瓦近郊（瑞士）: near Geneva, Switzerland
+  美因茲: Mainz
+  美因茲（德國）: Mainz, Germany
+  斯托克頓: Stockton
+  斯托克頓（英國英格蘭）: Stockton-on-Tees, England, UK
+  達靈頓: Darlington
+  達靈頓（英國英格蘭）: Darlington, England, UK
+  利物浦: Liverpool
+  利物浦（英國英格蘭）: Liverpool, England, UK
+  曼徹斯特: Manchester
+  曼徹斯特（英國英格蘭）: Manchester, England, UK
+  康尼格里煤礦（蒂普頓）: Coneygree Coal Works (Tipton)
+  蒂普頓（英國英格蘭）: Tipton, England, UK
+  卡倫鐵工廠: Carron Ironworks
+  福爾柯克附近（英國蘇格蘭）: near Falkirk, Scotland, UK
+  倫敦帕丁頓: Paddington, London
+  克萊蒙: Clermont
+  克萊蒙費朗（法國）: Clermont-Ferrand, France
+  塞拉耶佛: Sarajevo
+  塞拉耶佛（波士尼亞與赫塞哥維納）: Sarajevo, Bosnia and Herzegovina
+  凡爾登: Verdun
+  凡爾登（法國）: Verdun, France
+  加里波利: Gallipoli
+  蓋利博盧（土耳其）: Gelibolu, Turkey
+  史達林格勒: Stalingrad
+  伏爾加格勒（俄羅斯）: Volgograd, Russia
+  諾曼第: Normandy
+  卡昂一帶（法國）: Caen area, France
+  # ── 中東、非洲、印度洋 ──
+  開羅: Cairo
+  開羅（埃及）: Cairo, Egypt
+  耶路撒冷: Jerusalem
+  阿卡: Acre
+  阿卡（以色列）: Acre, Israel
+  安條克: Antioch
+  安塔基亞（土耳其）: Antakya, Turkey
+  巴格達: Baghdad
+  巴格達（伊拉克）: Baghdad, Iraq
+  好望角: Cape of Good Hope
+  好望角（南非）: Cape of Good Hope, South Africa
+  馬林迪: Malindi
+  馬林迪（肯亞）: Malindi, Kenya
+  卡利卡特（古里）: Calicut
+  科澤科德（印度喀拉拉邦）: Kozhikode, Kerala, India
+  蘇伊士運河: Suez Canal
+  蘇伊士運河（埃及）: Suez Canal, Egypt
+  # ── 美洲 ──
+  馬尼拉: Manila
+  馬尼拉（菲律賓）: Manila, Philippines
+  阿卡普爾科: Acapulco
+  阿卡普爾科（墨西哥）: Acapulco, Mexico
+  波托西（里科山）: Potosí (Cerro Rico)
+  波托西（玻利維亞）: Potosí, Bolivia
+  美國（晶片設計）: United States (chip design)
+  美國加州矽谷一帶（示意）: Silicon Valley, California, USA (approximate)
+  紐約華爾街: Wall Street, New York
+  紐約曼哈頓（美國）: Manhattan, New York, USA
+  布列敦森林（華盛頓山飯店）: Bretton Woods (Mount Washington Hotel)
+  美國新罕布夏州卡羅爾鎮布列敦森林: Bretton Woods, Carroll, New Hampshire, USA
+  紐瓦克港: Port Newark
+  紐瓦克（美國紐澤西州）: Newark, New Jersey, USA
+  休士頓: Houston
+  休士頓（美國德州）: Houston, Texas, USA
+  紐約珍珠街: Pearl Street, New York
+  紐約曼哈頓下城（美國）: Lower Manhattan, New York, USA
+  芝加哥: Chicago
+  芝加哥（美國伊利諾州）: Chicago, Illinois, USA
+  尼加拉瀑布: Niagara Falls
+  尼加拉瀑布市（美國紐約州）: Niagara Falls, New York, USA
+  水牛城: Buffalo
+  水牛城（美國紐約州）: Buffalo, New York, USA
+  底特律高地公園: Highland Park, Detroit
+  高地公園（美國密西根州）: Highland Park, Michigan, USA
+  加州大學洛杉磯分校: UCLA
+  洛杉磯（美國加州）: Los Angeles, California, USA
+  史丹佛研究院: Stanford Research Institute
+  門洛帕克（美國加州）: Menlo Park, California, USA
+  普瑞蒙特里峰: Promontory Summit
+  普瑞蒙特里峰（美國猶他州）: Promontory Summit, Utah, USA
+  華盛頓: Washington
+  華盛頓特區（美國）: Washington, D.C., USA
+  巴爾的摩: Baltimore
+  巴爾的摩（美國馬里蘭州）: Baltimore, Maryland, USA
+  哈茨康坦特: Heart's Content
+  哈茨康坦特（加拿大紐芬蘭）: Heart's Content, Newfoundland, Canada
+  珍珠港: Pearl Harbor
+  檀香山（美國夏威夷）: Honolulu, Hawaii, USA
+  中途島: Midway Atoll
+  中途島（美國）: Midway Atoll, USA
+  # ── 路線、物資鏈、今日對照層 ──
+  黑海—赫勒斯滂—雅典 糧食航線: Black Sea–Hellespont–Athens grain route
+  亞歷山卓—羅馬 運糧航線: Alexandria–Rome grain route
+  貝提卡—羅馬 橄欖油航線: Baetica–Rome olive-oil route
+  瓜達幾維河口（Baetis 河口）: Mouth of the Guadalquivir (Baetis)
+  直布羅陀海峽: Strait of Gibraltar
+  卡布雷拉島（Cabrera，沉船所在）: Cabrera Island (shipwreck site)
+  博尼法喬海峽（Lavezzi 沉船群）: Strait of Bonifacio (Lavezzi wrecks)
+  張騫出使西域（站點）: Zhang Qian's mission to the Western Regions (stations)
+  大宛（貳師城，今苦盞）: Dayuan (Ershi, today Khujand)
+  秦直道（站點）: Qin Straight Road (stations)
+  甘泉縣（方家河直道遺址）: Ganquan County (Fangjiahe road site)
+  九原（今包頭）: Jiuyuan (today Baotou)
+  今日黑海穀物海路（敖德薩—博斯普魯斯—達達尼爾—愛琴海）: Today's Black Sea grain route (Odesa–Bosphorus–Dardanelles–Aegean)
+  敖德薩港: Port of Odesa
+  博斯普魯斯北口: northern entrance of the Bosphorus
+  達達尼爾南口: southern entrance of the Dardanelles
+  愛琴海南部（示意）: southern Aegean (approximate)
+  勞里昂白銀：礦坑 → 銀幣 → 艦隊: Laurion silver — mine → coins → fleet
+  勞里昂礦區: Laurion mining district
+  埃及穀物：亞歷山卓 → 羅馬配給: Egyptian grain — Alexandria → Rome's grain dole
+  波爾圖斯／奧斯提亞: Portus / Ostia
+  貝提卡橄欖油：瓜達幾維河谷 → 泰斯塔西奧山: Baetican olive oil — Guadalquivir valley → Monte Testaccio
+  科爾杜巴（產區上游）: Corduba (upstream producing area)
+  希斯帕利斯（產區下游）: Hispalis (downstream producing area)
+  波爾圖斯（羅馬外港）: Portus (Rome's harbour)
+  絲綢：長安 → 中亞 → 安息 → 羅馬（多段轉手）: Silk — Chang'an → Central Asia → Parthia → Rome (many middlemen)
+  大宛（貳師城）: Dayuan (Ershi)
+  安息（泰西封）: Parthia (Ctesiphon)
+  漢代鐵官：冶鐵場 → 國庫: Han iron offices — ironworks → treasury
+  古滎冶鐵遺址（河南，示意於今鄭州）: Guxing ironworks site (Henan; shown at Zhengzhou)
+  大宛馬：貳師城 → 敦煌 → 長安: Ferghana horses — Ershi → Dunhuang → Chang'an
+  霍爾木茲海峽: Strait of Hormuz
+  麻六甲海峽（含新加坡海峽）: Strait of Malacca (incl. Singapore Strait)
+  曼德海峽: Bab-el-Mandeb
+  土耳其海峽（博斯普魯斯／達達尼爾）: Turkish Straits (Bosphorus / Dardanelles)
+  巴拿馬運河: Panama Canal
+  波斯灣石油：拉斯坦努拉 → 霍爾木茲 → 麻六甲 → 東亞: Gulf oil — Ras Tanura → Hormuz → Malacca → East Asia
+  拉斯坦努拉（沙烏地）: Ras Tanura, Saudi Arabia
+  麻六甲海峽: Strait of Malacca
+  東亞進口國（示意）: East Asian importers (approximate)
+  黑海穀物：敖德薩 → 博斯普魯斯 → 達達尼爾 → 地中海: Black Sea grain — Odesa → Bosphorus → Dardanelles → Mediterranean
+  博斯普魯斯海峽: Bosphorus
+  達達尼爾海峽（古稱赫勒斯滂）: Dardanelles (ancient Hellespont)
+  東地中海進口市場（示意）: Eastern Mediterranean markets (approximate)
+  稀土：白雲鄂博 → 中國精煉 → 全球磁鐵用戶: Rare earths — Bayan Obo → refining in China → magnet users worldwide
+  白雲鄂博礦區（內蒙古）: Bayan Obo mine (Inner Mongolia)
+  中國精煉與出口管制（示意於包頭）: refining and export controls in China (shown at Baotou)
+  全球磁鐵與製造業用戶（示意）: magnet and manufacturing users worldwide (approximate)
+  # ── 卡片名稱（地圖上「其他史」背景小點的提示框用；沒列的用卡片別名裡第一個英文名）──
+  石見銀山：日本白銀流向中國（1527–1923）: Iwami Ginzan silver to China (1527–1923)
+  馬尼拉大帆船：白銀換絲綢的太平洋航線（1565–1815）: "Manila galleons: silver for silk across the Pacific (1565–1815)"
+  羅馬混凝土（火山灰）: Roman concrete (pozzolana)
+  葡萄酒與橄欖油雙耳瓶貿易: Wine and olive-oil amphora trade
+  埃及穀物輸羅馬: Egyptian grain to Rome
+  鹽與鐵（漢代鹽鐵官營）: Han salt and iron monopolies
+  絲綢: Silk
+  白銀的全球流動：美洲與日本的銀流向明朝中國（約 1550–1650）: Global silver flows to Ming China (c. 1550–1650)
+  臺灣的半導體（晶片）: Taiwan's semiconductors (chips)
+  五銖錢: Wuzhu coin
+  漢武帝獨尊儒術: Emperor Wu of Han makes Confucianism orthodox
+  克里斯提尼改革: Reforms of Cleisthenes
+  孔子與儒家形成: Confucius and the rise of Confucianism
+  管仲改革（齊國）: Guan Zhong's reforms (State of Qi)
+  漢承秦制（劉邦建漢）: Han inherits the Qin system (Liu Bang founds Han)
+  商鞅變法: Shang Yang's reforms
+  王莽改制: Wang Mang's reforms
+  北魏孝文帝改革: Emperor Xiaowen's reforms (Northern Wei)
+  張騫通西域: Zhang Qian opens the Western Regions
+  新竹科學園區與台積電的誕生（1974–1987）: Hsinchu Science Park and the birth of TSMC (1974–1987)
+  鄭成功攻臺與明鄭時期（東寧）: Koxinga and the Kingdom of Tungning
+  2008 全球金融危機: 2008 global financial crisis
+  山西票號: Shanxi banks (piaohao)
+  金圓券改革與崩潰（1948–1949）: Gold yuan reform and collapse (1948–1949)
+  大明寶鈔的崩壞與白銀登場（1375–1567）: Collapse of Ming paper money and the rise of silver (1375–1567)
+  戰後臺灣惡性通膨與 1949 年幣制改革（舊臺幣四萬換新臺幣一元）: Postwar Taiwan hyperinflation and the 1949 currency reform
+  臺灣錢淹腳目：1986–1990 年股市與房市泡沫: Taiwan's 1986–1990 stock and property bubble
+  十信案與 1985 年擠兌風暴: Tenth Credit Cooperative scandal and the 1985 bank run
+  鹿皮貿易時代的西拉雅人: The Siraya in the deerskin-trade era
+  龜船（龜甲船）: Turtle ship
+  朝鮮王朝（1392–1897）概覽: Joseon dynasty (1392–1897)
+  十大建設（1974–1979）: Ten Major Construction Projects (1974–1979)
+  雕版與活字印刷: Woodblock and movable-type printing
+  古騰堡印刷機: Gutenberg printing press
+  大宛馬（天馬）: Ferghana horses ("heavenly horses")
+  平王東遷: King Ping moves the capital east
+  冷戰結束與蘇聯解體: End of the Cold War and dissolution of the USSR
+  羅馬水道（含加爾橋）: Roman aqueducts (incl. Pont du Gard)
+  亞壁古道與羅馬道路網: Via Appia and the Roman road network
+  勞里昂銀礦: Laurion silver mines
+  漢長安城: Han Chang'an
+  秦漢長城: Qin–Han Great Wall
+  黑船來航與日本開國（1853–1854）: Black Ships and the opening of Japan (1853–1854)
+  # ── 地圖介面用語 ──
+  古道: Ancient road
+  # ── 巴林頓地圖集古道名 ──
+
+zh:
+  # 路線站點（Pleiades 拉丁地名 → 中文）
+  Roma: 羅馬
+  Aricia: 阿里奇亞
+  Tarracina(e)/Anxur: 塔拉奇納
+  Fundi: 豐迪
+  Formiae: 福爾米亞
+  Minturnae: 明圖爾奈
+  Capua: 卡普阿
+  Beneventum/Maleventum: 貝內文圖姆
+  Aeclanum: 埃克拉努姆
+  Venusia: 維努西亞
+  Tarentum: 塔倫圖姆
+  Brundisium/Brentesion: 布林迪西姆
+  Dyrr(h)achium/Epidamnos: 狄拉奇烏姆（都拉斯）
+  Lychnidos: 利赫尼多斯（奧赫里德）
+  Herakleia: 赫拉克萊亞（林塞斯提斯）
+  Edessa (Macedonia): 埃德薩（馬其頓）
+  Pella/Diokletianoupolis: 佩拉
+  Thessalonica: 帖撒羅尼迦
+  Amphipolis: 安菲波利斯
+  Philippoi: 腓立比
+  Neapolis (Kavalla): 尼阿波利斯（卡瓦拉）
+  Traianoupolis: 圖拉真諾波利斯
+  Perinthus/Heraclea: 佩林索斯
+  Byzantium: 拜占庭
+  Ocriculum: 奧克里庫倫
+  Nequinum/Narnia: 納爾尼亞
+  Carsulae: 卡蘇萊
+  Forum Flaminii: 弗拉米尼烏斯廣場
+  Nuceria: 努切里亞
+  Cales: 卡萊斯
+  Forum Sempronii: 森普羅尼烏斯廣場
+  Fanum Fortunae: 法努姆（法諾）
+  Pisaurum: 皮薩烏魯姆（佩薩羅）
+  Ariminum: 阿里米努姆
+  Alsium: 阿爾西烏姆
+  Centum Cellae: 森圖姆切萊（奇維塔韋基亞）
+  Cosa: 科薩
+  Pisae: 比薩
+  Brigantio: 布里甘提奧
+  Eburodunum: 埃布羅杜努姆
+  Vapincum: 瓦平庫姆（加普）
+  Segustero: 塞古斯特羅（西斯特龍）
+  Apta Iulia: 阿普塔（阿普特）
+  Cabellio: 卡貝利奧（卡瓦永）
+  Glanum: 格拉農
+  Nemausus: 內毛蘇斯（尼姆）
+  Ambrussum: 安布魯蘇姆
+  Forum Domitii: 多米提烏斯廣場
+  Col. Baeterrae: 拜特雷（貝濟耶）
+  Col. Narbo Martius: 納爾博（納博訥）
+  Col. Ruscino: 魯西諾
+  Summum Pyrenaeum: 庇里牛斯山口
+  Gerunda: 格倫達（赫羅納）
+  Col. Barcino: 巴爾奇諾（巴塞隆納）
+  Col. Tarraco: 塔拉科（塔拉戈納）
+  Dertosa/Hibera Iulia Ilercavonia: 德爾托薩（托爾托薩）
+  Saguntum/Arse: 薩貢圖姆
+  Valentia: 瓦倫提亞（瓦倫西亞）
+  Saetabis: 塞塔比斯（哈蒂瓦）
+  Castulo: 卡斯圖洛
+  Corduba/Col. Patricia: 科爾杜巴（哥多華）
+  Astigi/Col. Augusta Firma: 阿斯提吉（埃西哈）
+  Carmo: 卡爾莫（卡莫納）
+  Hispalis/Col. Romula: 希斯帕利斯（塞維亞）
+  Ad Portum/Gaditanus Portus: 加地斯港
+  Gadeira/Gades/Col. Augusta Gaditana: 加德斯（加的斯）
+  Segedunum: 塞格杜努姆
+  Maia: 邁亞
+  Theodosia: 狄奧多西亞
+  Sestos: 塞斯托斯
+  "Sounion (Attica: cape)": 蘇尼翁角
+  Peiraieus/Piraeus: 比雷埃夫斯
+  Alexandria: 亞歷山卓
+  Myra: 米拉
+  Cnidus (Tekir): 尼多斯
+  Kaloi Limenes: 美港（克里特）
+  Syracusae: 敘拉古
+  Rhegion/Regium: 雷吉翁
+  Dikaiarcheia/Puteoli: 普泰奧利
+  Portus: 波爾圖斯
+  Bactra/Zariaspa: 巴克特拉（巴爾赫）
+  # 巴林頓地圖集古道名
+  Via Hadriana: 哈德良大道
+  Strata Diocletiana: 戴克里先大道
+  Via Nova Traiana: 新圖拉真大道
+  Via Traiana Nova: 新圖拉真大道
+  Via Aurelia: 奧雷利亞大道
+  Via Sebaste: 塞巴斯特大道
+  Via Tauri: 托魯斯大道
+  Via Severiana: 塞維魯大道
+  Via Popillia: 波皮利亞大道
+  Hodos Berenikes: 貝雷尼基之路
+  Via Cornelia: 科爾內利亞大道
+  Via Salaria: 鹽路（薩拉里亞大道）
+  Via Salaria Vetus: 舊鹽路
+  Via Clodia: 克洛狄亞大道
+  Via Egnatia: 艾格納提亞大道
+  Via Minucia / Traiana: 米努齊亞／圖拉真大道
+  Via Flaminia: 弗拉米尼亞大道
+  Via Claudia Augusta: 克勞狄亞奧古斯塔大道
+  Via Appia: 阿庇亞大道
+  Via Campana: 坎帕納大道
+  Via Ostiensis: 奧斯提亞大道
+  Via Laurentina: 勞倫提納大道
+  Via Cassia: 卡西亞大道
+  Via Tiburtina: 提布爾提納大道
+  Via Valeria: 瓦萊里亞大道
+  Via Nomentana: 諾門塔納大道
+  Via Ardeatina: 阿爾代亞提納大道
+  Via Portuensis: 波爾圖斯大道
+  Via Claudia Nova: 新克勞狄亞大道
+  Via Caecilia: 凱奇利亞大道
+  Via Amerina: 阿梅里納大道
+  Via Herculia: 赫丘利亞大道
+  Via Aurelis Aeclanensis: 埃克拉努姆大道
+  Via Aemilia: 艾米利亞大道
+  Via Postumia: 波斯圖米亞大道
+  Via Annia: 安尼亞大道
+  Via Ciminia: 奇米尼亞大道
+  Via Caminia: 卡米尼亞大道
+  Via Traiana: 圖拉真大道
+  Via Pompeia: 龐培亞大道
+  Iter Praeter Caput Saxi: 繞岬角路
+  Dedris: 德德里斯路
+  Baracum: 巴拉庫姆路
+  Via Claudia Valeria: 克勞狄亞瓦萊里亞大道
+  Via per Alpes Numidicas: 努米底亞山路
+  Via Domitia: 多米提亞大道
+  Via Herdonitana: 赫爾多尼亞大道
+  Via Iulia Augusta: 尤利亞奧古斯塔大道
+  Via Postumia/Via Iulia Augusta: 波斯圖米亞／尤利亞奧古斯塔大道
+  Via Aemilia Scauri/Via Iulia Augusta: 艾米利亞斯考魯斯／尤利亞奧古斯塔大道
+  Via Aemilia Scauri: 艾米利亞斯考魯斯大道
+  Via Aemilia Scauri/ Via Aurelia: 艾米利亞斯考魯斯／奧雷利亞大道
+  Via Augusta: 奧古斯塔大道
+  Hodos Myos Hormou/Mysormitike: 米奧斯荷莫斯之路
+  Via Quinctia: 昆克提亞大道
+  Via Praenestina: 普雷內斯提納大道
+  Via Latina: 拉丁大道
+  Via Flavia: 弗拉維亞大道
+  Via Curia: 庫里亞大道
+  Via Labicana: 拉比卡納大道
+  Via Triumphalis: 凱旋大道
+  Via Collatina: 科拉提納大道

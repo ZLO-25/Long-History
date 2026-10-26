@@ -1,5 +1,6 @@
 // 點地圖上的地點：列出地點在此的卡片，以及同一座城市內（約 5 公里內）的其他卡片
 import type { Card, Location } from '../types';
+import { Bi } from './Bi';
 import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 const NEAR_DEG = 0.06; // 約 5–7 公里：雅典衛城／劇場、羅馬廣場／競技場算同一區
@@ -33,8 +34,8 @@ export function PlacePanel({ placeKey, cards, onOpen }: { placeKey: string; card
   );
   return (
     <div className="results">
-      <h2>{center.name_ancient}</h2>
-      <p className="muted">今 {center.name_modern}・座標 {center.lat.toFixed(3)}, {center.lng.toFixed(3)}（{PRECISION_LABEL[center.precision]}）
+      <h2><Bi name={center.name_ancient} /></h2>
+      <p className="muted">今 <Bi name={center.name_modern} />・座標 {center.lat.toFixed(3)}, {center.lng.toFixed(3)}（{PRECISION_LABEL[center.precision]}）
         {center.pleiades_id && <> ・<a href={`https://pleiades.stoa.org/places/${center.pleiades_id}`} target="_blank" rel="noreferrer">Pleiades {center.pleiades_id}</a></>}
       </p>
       <h3>地點在這裡的卡片（{here.length}）</h3>

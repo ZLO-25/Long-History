@@ -1,5 +1,6 @@
 // 點地圖上的路線：說明與使用此路線的卡片
 import type { Card, Route } from '../types';
+import { Bi } from './Bi';
 import { fmtRange, KIND_LABEL, METHOD_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import { Markdown } from '../lib/markdown';
 
@@ -8,7 +9,7 @@ export function RoutePanel({ route, cards, onOpen }: { route: Route; cards: Card
   const used = cards.filter((c) => c.routes.includes(route.id));
   return (
     <div className="results">
-      <h2>{route.name}</h2>
+      <h2><Bi name={route.name} /></h2>
       <p className="muted">{KIND_LABEL[route.kind]}・地圖顯示期間 {fmtRange(route.start, route.end)}・{route.method === 'stations' ? '站點間直線合計' : '約'} {route.stats.km.toLocaleString()} 公里</p>
       <p className="small"><b>線條怎麼來的：</b>{METHOD_LABEL[route.method]}。
         {route.method === 'awmc-road' && <>其中 {route.stats.known_pct}% 是地圖集標「路線確定」的路段（實線）、{route.stats.approx_pct}% 標「大致路線」（虛線），另有約 {route.stats.gap_km} 公里是兩段古道之間的缺口，由程式接上（點線）。</>}

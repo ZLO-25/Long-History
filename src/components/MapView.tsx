@@ -3,6 +3,9 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import L from 'leaflet';
 import type { Index, Card, Chain } from '../types';
 import { posAt } from '../lib/chain';
+import { addBasemap } from '../lib/basemap';
+import { labelLayer } from '../lib/labelLayer';
+import { biHtml, biParts, cardEn, setNameTable } from '../lib/bilingual';
 import { activeAt, fmtYear, KIND_LABEL, METHOD_LABEL, SEG_LABEL, ERA_LABEL, eraOf, roadInEra, TYPE_COLOR } from '../lib/format';
 
 interface Props {
@@ -38,13 +41,16 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   const cb = useRef({ onPlace, onRoute, onToday });
   cb.current = { onPlace, onRoute, onToday };
   const [snapLabel, setSnapLabel] = useState('');
+  // 地圖上的名稱一律「繁中＋英文」：先載入對照表
+  useMemo(() => setNameTable(index.names), [index]);
 
   useEffect(() => {
     const m = L.map(el.current!, { zoomControl: true, worldCopyJump: true, preferCanvas: false }).setView(compact ? [38, 18] : [39, 20], compact ? 4 : 4);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 12,
-      attribution: '© OpenStreetMap contributors｜疆域：historical-basemaps (GPL-3.0)｜古道：AWMC／Barrington Atlas (ODbL)｜地名：Pleiades (CC BY)',
-    }).addTo(m);
+    m.setMaxZoom(12);
+    // 底圖不帶文字，地名由 labelLayer 畫成繁中＋英文（見 lib/basemap.ts、lib/labelLayer.ts）
+    m.attributionControl.setPrefix(false).addAttribution('疆域 historical-basemaps｜古道 AWMC／Barrington Atlas｜古地名 Pleiades');
+    addBasemap(m);
+    labelLayer().addTo(m);
     m.createPane('borders').style.zIndex = '350';
     layers.current = {
       borders: L.layerGroup().addTo(m), awmc: L.layerGroup().addTo(m), itinere: L.layerGroup().addTo(m), routes: L.layerGroup().addTo(m),
@@ -76,7 +82,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
           const h = hue(f?.properties?.name ?? '');
           return { color: `hsl(${h},45%,40%)`, weight: 1, fillColor: `hsl(${h},60%,55%)`, fillOpacity: 0.16, dashArray: '3 3' };
         },
-        onEachFeature: (f, layer) => layer.bindTooltip(`${f.properties.name}（疆界示意）`, { sticky: true }),
+        onEachFeature: (f, layer) => layer.bindTooltip(`${f.properties.zh ?? ''} <span class="en">${f.properties.name}</span>（疆界示意）`, { sticky: true }),
       }).addTo(g);
       setSnapLabel(`疆域示意：${fmtYear(snap.year)} 年快照`);
     });
@@ -108,7 +114,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     L.geoJSON(awmc, {
       filter: (f) => roadInEra(f.properties.t, era),
       style: (f) => ({ color: '#8b5a2b', weight: f?.properties.m ? 1.6 : 0.9, opacity: f?.properties.t ? 0.6 : 0.4, dashArray: f?.properties.k ? undefined : '4 3' }),
-      onEachFeature: (f, layer) => layer.bindTooltip(`${f.properties.n || '古道'}（巴林頓地圖集；${f.properties.k ? '路線確定' : '大致路線'}；${f.properties.t ? `時代 ${f.properties.t}` : '未標時代'}）`, { sticky: true }),
+      onEachFeature: (f, layer) => layer.bindTooltip(`${biHtml(f.properties.n || '古道')}（巴林頓地圖集；${f.properties.k ? '路線確定' : '大致路線'}；${f.properties.t ? `時代 ${f.properties.t}` : '未標時代'}）`, { sticky: true }),
     }).addTo(g);
   }, [awmc, era]);
 
@@ -123,7 +129,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       if (!on && !hl) continue;
       const color = r.method === 'stations' ? '#555' : r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513';
       const base = hl ? 6 : r.kind === 'sea' ? 2.5 : r.kind === 'wall' ? 4.5 : 3.5;
-      const tip = `${r.name}（${KIND_LABEL[r.kind]}・${METHOD_LABEL[r.method]}）`;
+      const tip = `${biHtml(r.name)}（${KIND_LABEL[r.kind]}・${METHOD_LABEL[r.method]}）`;
       for (const sg of r.segments) {
         const line = L.polyline(sg.coords, {
           color, opacity: on ? 0.9 : 0.45,
@@ -134,7 +140,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         line.on('click', () => cb.current.onRoute(r.id));
         line.addTo(g);
       }
-      if (hl || r.method === 'stations') for (const st of r.stations) L.circleMarker([st.lat, st.lng], { radius: 3, color, weight: 1, fillOpacity: 1 }).bindTooltip(st.name).addTo(g);
+      if (hl || r.method === 'stations') for (const st of r.stations) L.circleMarker([st.lat, st.lng], { radius: 3, color, weight: 1, fillOpacity: 1 }).bindTooltip(biHtml(st.name)).addTo(g);
     }
   }, [index, year, highlight]);
 
@@ -157,7 +163,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     for (const c of bgCards ?? []) for (const l of c.place.locations) {
       if (own.has(l.key)) continue;
       L.circleMarker([l.lat, l.lng], { radius: 3, color: '#999', weight: 1, fillColor: '#bbb', fillOpacity: 0.6, interactive: true })
-        .bindTooltip(`${c.name}（其他史）`).addTo(g);
+        .bindTooltip(`${c.name} <span class="en">${cardEn(c)}</span>（其他史）`).addTo(g);
     }
     for (const p of places) {
       const act = p.cards.filter((c) => activeAt(c, year));
@@ -168,7 +174,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         color: '#fff', weight: 1.5, fillColor: TYPE_COLOR[main], fillOpacity: on ? 0.95 : 0.35,
         dashArray: p.precision === 'schematic' ? '2 2' : undefined,
       });
-      mk.bindTooltip(`${p.name}（今 ${p.modern}）・${p.cards.length} 張卡${p.precision === 'schematic' ? '・位置示意' : ''}`);
+      mk.bindTooltip(`${biHtml(p.name)}（今 ${biHtml(p.modern)}）・${p.cards.length} 張卡${p.precision === 'schematic' ? '・位置示意' : ''}`);
       mk.on('click', () => cb.current.onPlace(p.key));
       mk.addTo(g);
     }
@@ -214,11 +220,11 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     ch.legs.forEach((leg) => leg.parts.forEach((p) => {
       pts.push(...p.coords);
       L.polyline(p.coords, { color: '#dd6b20', weight: p.kind === 'route' ? 5 : 3, opacity: 0.9, dashArray: p.kind === 'route' ? undefined : '2 8', className: `chain-${p.kind}` })
-        .bindTooltip(p.kind === 'route' ? `${ch.name}：沿已畫路線` : `${ch.name}：路線示意（實際走法不詳）`, { sticky: true }).addTo(g);
+        .bindTooltip(p.kind === 'route' ? `${biHtml(ch.name)}：沿已畫路線` : `${biHtml(ch.name)}：路線示意（實際走法不詳）`, { sticky: true }).addTo(g);
     }));
     ch.steps.forEach((s, i) => {
       L.marker([s.lat, s.lng], { icon: L.divIcon({ className: 'chain-step', html: `<span>${i + 1}</span>`, iconSize: [22, 22] }) })
-        .bindTooltip(`${i + 1}. ${s.name}（${s.role}）`).addTo(g);
+        .bindTooltip(`${i + 1}. ${biHtml(s.name)}（${s.role}）`).addTo(g);
     });
     m.flyToBounds(L.latLngBounds(pts).pad(0.2), { duration: 0.6, maxZoom: 8 });
   }, [ch]);
@@ -242,8 +248,8 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     if (!todayOn) return;
     for (const p of index.today.chokepoints) {
       const sel = p.id === todaySel;
-      L.marker([p.lat, p.lng], { icon: L.divIcon({ className: `today-mk ${p.stale ? 'stale' : ''} ${sel ? 'sel' : ''}`, html: `<i></i><span>${p.name.replace(/（.*）/, '')}<em>截至 ${p.data_as_of}</em></span>`, iconSize: [16, 16], iconAnchor: [8, 8] }), zIndexOffset: 1000 })
-        .bindTooltip(`今日咽喉：${p.name}・資料截至 ${p.data_as_of}${p.stale ? '（可能過時）' : ''}`)
+      L.marker([p.lat, p.lng], { icon: L.divIcon({ className: `today-mk ${p.stale ? 'stale' : ''} ${sel ? 'sel' : ''}`, html: `<i></i><span>${p.name.replace(/（.*）/, '')} <small class="en">${biParts(p.name).en.replace(/\s*\(.*\)$/, '')}</small><em>截至 ${p.data_as_of}</em></span>`, iconSize: [16, 16], iconAnchor: [8, 8] }), zIndexOffset: 1000 })
+        .bindTooltip(`今日咽喉：${biHtml(p.name)}・資料截至 ${p.data_as_of}${p.stale ? '（可能過時）' : ''}`)
         .on('click', () => cb.current.onToday?.(p.id)).addTo(g);
     }
   }, [todayOn, index, todaySel]);
@@ -264,6 +270,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       </div>
       <div className="map-legend">
         <div>{snapLabel}</div>
+        <div className="map-names-note">地名：中文＋英文（灰字＝今天的國家、城市）</div>
         {learn && <div className="learn-map-note">疆域都是示意：古代國界不像今天是一條清楚的線，很多地方是勢力越往外越淡，或好幾方都說是自己的。</div>}
         <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
         {era !== 'M' && <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>}

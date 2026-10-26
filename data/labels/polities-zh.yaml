@@ -1,0 +1,1230 @@
+# 古代疆域（historical-basemaps）政權／族群名稱的中文譯名：英文原名 → 中文
+# build-index 會把中文寫進疆域檔，地圖上滑過疆域時顯示「中文 English」。
+# 沒有列在這裡的名稱（多半是澳洲、北美的小族群，沒有通用中文譯名），
+# 會依位置自動標成「澳洲原住民族群」「北美原住民族群」等，英文原名照樣顯示。
+"?": 名稱不詳
+# ── 帝國、王朝、古代國家 ──
+Abbasid Caliphate: 阿拔斯王朝
+Abdelouadides: 扎亞尼德王朝
+Abyssinia: 阿比西尼亞（衣索比亞）
+Achaemenid Empire: 阿契美尼德波斯帝國
+Adal: 阿達爾蘇丹國
+Aghlabid Emirate: 阿格拉布王朝
+Ahmadnagar: 艾哈邁德訥格爾蘇丹國
+Air: 阿伊爾蘇丹國
+Akan: 阿坎人諸國
+Akatziri: 阿卡齊里人
+Alamans: 阿勒曼尼人
+Alans: 阿蘭人
+Almohad Caliphate: 穆瓦希德王朝
+Alwa: 阿勒瓦王國
+Angevin Empire: 安茹帝國
+Anglo-Saxons: 盎格魯－撒克遜人
+Annam: 安南
+Arabia: 阿拉伯
+Arabia (Nejd): 阿拉伯（內志）
+Arabian pastoral nomads: 阿拉伯遊牧民
+Arabs: 阿拉伯人
+Aragón: 亞拉岡王國
+Arakan: 阿拉干（若開）
+Arakan (Indian princely state): 阿拉干（印度土邦）
+Arameans: 亞蘭人
+Armenia: 亞美尼亞
+Armorica: 阿莫里卡
+Arran: 阿蘭（高加索阿爾巴尼亞）
+Asante: 阿散蒂帝國
+Assyria: 亞述
+Asturias: 阿斯圖里亞斯王國
+Ato trading confederacy: 阿托貿易聯盟
+Atropatene: 阿特羅帕特尼
+Ava: 阿瓦王國
+Avanti: 阿槃底
+Avars: 阿瓦爾人
+Awsa: 奧薩蘇丹國
+Axum: 阿克蘇姆王國
+Ayutthaya: 大城王朝（阿瑜陀耶）
+Aztec Empire: 阿茲特克帝國
+Babylonia: 巴比倫尼亞
+Bactria: 大夏（巴克特里亞）
+Bagan: 蒲甘王朝
+Bagirmi: 巴吉爾米蘇丹國
+Bahawalpur: 巴哈瓦爾布爾
+Bahmani Kingdom: 巴赫曼尼蘇丹國
+Baltic tribes: 波羅的部族
+Bantu peoples: 班圖民族
+Barotse: 巴羅策
+Bashkirs: 巴什基爾人
+Basques: 巴斯克人
+Basutoland: 巴蘇托蘭
+Batavian Republic: 巴達維亞共和國
+Bavaria: 巴伐利亞
+Bell-shaped burials culture: 鐘形墓文化
+Bengal: 孟加拉
+Benin: 貝南／貝寧王國
+Berber Tribes: 柏柏爾部族
+Berbers: 柏柏爾人
+Beylik of Aydin: 艾登侯國
+Bidar: 比德爾蘇丹國
+Bijapur: 比賈布爾蘇丹國
+Bithynia: 比提尼亞
+Blemmyes: 布萊米人
+Blue Horde: 藍帳汗國
+Boihaenum: 波希米亞（波伊人之地）
+Boii: 波伊人
+Bokhara Khanate: 布哈拉汗國
+Borgu States: 博爾古諸國
+Bosnia: 波士尼亞
+Bosporan Kingdom: 博斯普魯斯王國
+Bosporian Kingdom: 博斯普魯斯王國
+Bremen: 不來梅
+Britany: 布列塔尼
+British East Africa: 英屬東非
+British Guiana: 英屬圭亞那
+British Protectorate: 英國保護地
+British Raj: 英屬印度
+British Somaliland: 英屬索馬利蘭
+Broërec: 布羅埃雷克
+Brunswick: 不倫瑞克
+Brushed Pottery culture: 刷紋陶文化
+Buganda: 布干達王國
+Bulgar Khanate: 保加爾汗國
+Bulgars: 保加爾人
+Bundelkhand: 本德爾肯德
+Bunyoro: 布尼奧羅王國
+Burgandy: 勃艮第
+Burgundians: 勃艮第人
+Burma: 緬甸
+Burmese: 緬人
+Burmese kingdoms: 緬甸諸王國
+Buwayhid Emirates: 布韋希王朝
+Buyid Emirate: 布韋希王朝
+Buyid dynasty: 布韋希王朝
+Byelarus: 白俄羅斯
+Byzantine Empire: 拜占庭帝國
+Calabar: 卡拉巴爾
+Caliphate of Córdoba: 哥多華哈里發國
+Cantia: 肯特（坎提亞）
+Cape Colony: 開普殖民地
+Cappadocia: 卡帕多奇亞
+Carnatic: 卡納提克
+Carolingian Empire: 卡洛林帝國
+Carthage: 迦太基
+Carthaginian Empire: 迦太基帝國
+Castile: 卡斯提亞王國
+Castilla: 卡斯提亞王國
+Castille: 卡斯提亞王國
+Caucasian Alans: 高加索阿蘭人
+Celtiberians: 凱爾特伊比利亞人
+Celtic kingdoms: 凱爾特諸王國
+Celts: 凱爾特人
+Ceylon: 錫蘭
+Ceylon (Dutch): 錫蘭（荷蘭）
+Chagatai Khanate: 察合台汗國
+Chalukya Empire: 遮婁其王朝
+Chalukyas: 遮婁其王朝
+Champa: 占婆
+Champa City States: 占婆諸城邦
+Chauhans: 喬漢王朝
+Chen-La: 真臘
+Chernoles culture: 切爾諾列斯文化
+Cheras: 哲羅王朝
+China: 中國
+Chinese warlords: 中國軍閥
+Chola: 朱羅王朝
+Chola Empire: 朱羅帝國
+Cholas: 朱羅王朝
+Chuds: 楚德人
+Chukchi: 楚科奇人
+Chūzan: 中山國（琉球）
+Cimerians: 辛梅里安人
+Circars: 北塞卡斯
+Cochin: 柯欽
+Cochin China: 交趾支那
+Colchis: 科爾基斯
+Comté de Toulouse: 土魯斯伯國
+Corsica: 科西嘉
+Couture Complex: 庫蒂爾文化群
+Crete: 克里特
+Crimean Khanate: 克里米亞汗國
+Cuman Khanates: 庫曼諸汗國
+Curonians: 庫爾蘭人
+Cuxhaven: 庫克斯港
+Cyraneica (UK Lybia): 昔蘭尼加（英管利比亞）
+Cyrenaica: 昔蘭尼加
+Czechs: 捷克人
+Dacia: 達契亞
+Dacians: 達契亞人
+Dahomey: 達荷美王國
+Damot: 達莫特王國
+Danes: 丹麥人
+Dardania: 達爾達尼亞
+Darfur: 達佛蘇丹國
+Delagoa Bay: 德拉瓜灣
+Dendi Kingdom: 丹迪王國
+Denmark-Norway: 丹麥－挪威
+Desert hunter-gatherers: 沙漠狩獵採集者
+Donghu tribes: 東胡部族
+Dravidians: 達羅毗荼人
+Duchy of Benevento: 貝內文托公國
+Duchy of Swabia: 士瓦本公國
+Dumnonia: 杜姆諾尼亞
+Dumonii: 杜姆諾尼人
+Dutch Brazil: 荷屬巴西
+Dutch East Indies: 荷屬東印度
+Dutch Formosa: 荷蘭福爾摩沙（荷治臺灣）
+Dutch Guiana: 荷屬圭亞那
+Dutch Guinea: 荷屬幾內亞（黃金海岸）
+Dutch Republic: 荷蘭共和國
+Dutch settlements: 荷蘭據點
+Dvaravati: 墮羅缽底
+East Germany: 東德
+East Java: 東爪哇
+Eastern Masurian culture: 東馬祖里文化
+Eastern Roman Empire: 東羅馬帝國
+Elam: 埃蘭
+Emirate of Bin Shal'an: 本沙蘭酋長國
+Emirate of Córdoba: 哥多華酋長國
+Emirate of Sicily: 西西里酋長國
+Emirate of the White Sheep Turks: 白羊王朝
+Empire of Alexander: 亞歷山大帝國
+Empire of Ghana: 迦納帝國
+Empire of Japan: 大日本帝國
+Enets: 埃涅茨人
+England: 英格蘭
+England and Ireland: 英格蘭與愛爾蘭
+English territory: 英格蘭領地
+Eritrea (Italy): 厄利垂亞（義屬）
+Essequibo: 埃塞奎博
+Essex: 艾塞克斯
+Ests: 愛沙尼亞人
+Ethiopia (Italy): 衣索比亞（義大利占領）
+Ethiopian highland farmers: 衣索比亞高原農民
+Etrurians: 伊特拉斯坎人
+Fatimid Caliphate: 法蒂瑪王朝
+Fezzan (Frech Lybia): 費贊（法管利比亞）
+Finnmark: 芬馬克
+Finno-Ugric taiga hunter-gatherers: 芬－烏戈爾森林狩獵採集者
+Finns: 芬蘭人
+Fivizzano: 菲維扎諾
+Florence: 佛羅倫斯
+Florida: 佛羅里達
+Franche-Comté: 法蘭琪－康堤
+Frankish Kingdom: 法蘭克王國
+Franks: 法蘭克人
+French Cameroons: 法屬喀麥隆
+French Equatorial Africa: 法屬赤道非洲
+French Guiana: 法屬圭亞那
+French Indo-China: 法屬印度支那
+French Indochina: 法屬印度支那
+French Somaliland: 法屬索馬利蘭
+French West Africa: 法屬西非
+Frisians: 弗里斯蘭人
+Funan: 扶南
+Funj: 豐吉蘇丹國
+Futa Jalon: 富塔賈隆
+Futa Toro: 富塔托羅
+Gandhāra: 犍陀羅
+Gaya: 伽倻
+Geats: 耶阿特人
+Geneva: 日內瓦
+Genoa: 熱那亞共和國
+Gepids: 格皮德人
+German E. Africa (Tanganyika): 德屬東非（坦干伊喀）
+German Empire: 德意志帝國
+German South-West Africa: 德屬西南非
+Germanic tribes: 日耳曼部族
+Germany (France): 德國（法國占領區）
+Germany (Soviet): 德國（蘇聯占領區）
+Germany (UK): 德國（英國占領區）
+Germany (USA): 德國（美國占領區）
+Ghaznavid Emirate: 伽色尼王朝
+Gilbert and Ellice Islands: 吉爾伯特和埃利斯群島
+Goa: 果亞
+Gojoseon: 古朝鮮
+Gold Coast: 黃金海岸
+Gold Coast (GB): 黃金海岸（英屬）
+Golden Horde: 金帳汗國
+Golkonda: 戈爾康達蘇丹國
+Gooty: 古蒂
+Goryeo: 高麗
+Granada: 格拉納達王國
+Grand Duchy of Moscow: 莫斯科大公國
+Great Khanate: 大汗國（元）
+Great Zimbabwe: 大辛巴威
+Greek city-states: 希臘城邦
+Greek colonies: 希臘殖民城邦
+Griqualand West: 西格里夸蘭
+Guanches: 關切人
+Gupta Empire: 笈多帝國
+Gurjara Pratihara: 瞿折羅－普臘蒂哈臘王朝
+Göktürks: 突厥
+Habsburg Netherlands: 哈布斯堡尼德蘭
+Hadramaut: 哈德拉毛
+Hafsid Caliphate: 哈夫斯王朝
+Hail: 哈伊勒（拉希德酋長國）
+Hainan: 海南
+Hallstatt culture: 哈爾施塔特文化
+Hamburg: 漢堡
+Han: 漢
+Han Empire: 漢帝國
+Han Zhao: 漢趙
+Hanover: 漢諾威
+Harapunchai: 哈里奔猜
+Harer (Egypt): 哈勒爾（埃及）
+Haripunjaya: 哈里奔猜
+Hausa States: 豪薩諸邦
+Hejaz: 漢志
+Helvetic Republic: 赫爾維蒂共和國
+Heruli: 赫魯利人
+Himyarite Kingdom: 希木葉爾王國
+Hindu kingdoms: 印度教諸王國
+Hindu kingdoms and republics: 印度教諸王國與共和國
+Hindu states: 印度教諸邦
+Hispaniola (Spain): 伊斯帕尼奧拉（西屬）
+Hittites: 西臺
+Hohenzollern: 霍亨索倫
+Hokuzan: 北山國（琉球）
+Holstein: 霍爾斯坦
+Holy Roman Empire: 神聖羅馬帝國
+Huari Empire: 瓦里帝國
+Hunnic Empire: 匈人帝國
+Hövsgöl Nuur: 庫蘇古爾湖
+Ibadan: 伊巴丹
+Ibadites: 伊巴德派
+Icelandic Commonwealth: 冰島聯邦
+Idrisid Caliphate: 伊德里斯王朝
+Ifat: 伊法特蘇丹國
+Ilkhanate: 伊兒汗國
+Illyrians: 伊利里亞人
+Imerina: 伊默里納王國
+Imperial Hungary: 帝國匈牙利（哈布斯堡）
+Imperial Japan: 日本
+Imperial Japan (Fujiwara): 日本（藤原時代）
+Inca Empire: 印加帝國
+Iranian pastoralists: 伊朗系遊牧民
+Irlanda: 愛爾蘭
+Iron Age chieftainships: 鐵器時代酋邦
+Iron Age megalith cultures: 鐵器時代巨石文化
+Islamic and Hindu states: 伊斯蘭與印度教諸邦
+Islamic city-states: 伊斯蘭城邦
+Islamic states: 伊斯蘭諸國
+Italian Somaliland: 義屬索馬利蘭
+Itelmen: 伊捷爾緬人
+Jamaica (UK): 牙買加（英屬）
+Japan (USA): 日本（美國占領）
+Japan (Warring States): 日本（戰國時代）
+Jin: 晉
+Jin Empire: 金
+Judea: 猶太
+Jukun: 朱昆王國
+Kaarta: 卡阿爾塔王國
+Kadambas: 卡丹巴王朝
+Kalinga: 羯陵伽
+Kalmar Union: 卡爾馬聯合
+Kamarupa: 迦摩縷波
+Kamerun: 德屬喀麥隆
+Kanara: 卡納拉
+Kanauj: 曲女城
+Kandy: 康提王國
+Kanem: 加涅姆帝國
+Kanem-Bornu: 加涅姆－博爾努
+Kara Khitai Khaganate: 西遼（喀喇契丹）
+Karasuk culture: 卡拉蘇克文化
+Karelians: 卡累利阿人
+Kashmir and Ladakh: 喀什米爾與拉達克
+Kasi: 迦尸
+Kediri: 諫義里王國
+Kent: 肯特
+Khanate of Sibir: 西伯利亞汗國
+Khanate of the Golden Horde: 金帳汗國
+Khazars: 可薩汗國
+Khiva Khanate: 希瓦汗國
+Khmer Empire: 高棉帝國（吳哥）
+Khoisan: 科伊桑人
+Khwarazmian dynasty: 花剌子模王朝
+Kimek-Kipchak khaganate: 基馬克－欽察汗國
+Kingdom of Antigonus: 安提柯王國
+Kingdom of Brazil: 巴西王國
+Kingdom of David and Solomon: 大衛與所羅門王國（以色列聯合王國）
+Kingdom of France: 法蘭西王國
+Kingdom of Gala: 加拉王國
+Kingdom of Georgia: 喬治亞王國
+Kingdom of Hawaii: 夏威夷王國
+Kingdom of Hungary: 匈牙利王國
+Kingdom of Ireland: 愛爾蘭王國
+Kingdom of Italy: 義大利王國
+Kingdom of Kassander: 卡山德王國
+Kingdom of Lysimachus: 利西馬科斯王國
+Kingdom of Pagan: 蒲甘王國
+Kingdom of Sardinia: 薩丁尼亞王國
+Kingdom of Syphax: 西法克斯王國（努米底亞）
+Kingdom of the Two Sicilies: 兩西西里王國
+Koguryo: 高句麗
+Kong Empire: 孔帝國
+Korea: 朝鮮／韓國
+Korea (USA): 朝鮮半島南部（美國占領）
+Korea (USSR): 朝鮮半島北部（蘇聯占領）
+"Korea, Democratic People's Republic of": 北韓
+"Korea, Republic of": 南韓
+Koryaks: 科里亞克人
+Kosala: 憍薩羅
+Kuba: 庫巴王國
+Kuril Islands: 千島群島
+Kurs: 庫爾蘭人
+Kuru: 俱盧
+Kurykans: 骨利幹
+Kush: 庫施
+Kushan Empire: 貴霜帝國
+Kushan Principalities: 貴霜諸侯國
+Kyivan Rus: 基輔羅斯
+La Tène culture: 拉坦諾文化
+Lagos: 拉哥斯
+Lan Na: 蘭納王國
+Laotian states: 寮國諸邦
+Late Jomon culture: 繩文時代晚期
+Lavo: 羅斛國
+León: 雷昂王國
+Liao: 遼
+Lippe-Detmold: 利珀－代特莫爾德
+Lombard duchies: 倫巴底諸公國
+Lombard principalities: 倫巴底諸公國
+Lombardy: 倫巴底
+Lozi: 洛齊王國
+Luba: 盧巴王國
+Lucca: 盧卡
+Luisiana: 路易斯安那
+Lunda: 隆達王國
+Lusatian culture: 盧薩蒂亞文化
+Lübeck: 呂貝克
+Maan: 馬安
+Macedon and Hellenic League: 馬其頓與希臘聯盟
+Macedonia: 馬其頓
+Madagascar (France): 馬達加斯加（法屬）
+Madras: 馬德拉斯
+Magadha: 摩揭陀
+Magyars: 馬札爾人
+Mahra: 馬赫拉蘇丹國
+Makkura: 馬庫里亞王國
+Malabar: 馬拉巴爾
+Malacca: 麻六甲蘇丹國
+Malagasy: 馬達加斯加人
+Malay: 馬來
+Malaya: 馬來亞
+Malays: 馬來人
+Malaysian Islamic states: 馬來伊斯蘭諸邦
+Malla: 末羅
+Mamluke Sultanate: 馬木路克蘇丹國
+Manchu Empire: 清帝國
+Manchuria: 滿洲
+Mandatory Palestine (GB): 英屬巴勒斯坦託管地
+Maori: 毛利人
+Maoris: 毛利人
+Māori: 毛利人
+Maratha Confederacy: 馬拉塔聯盟
+Martinique (France): 馬丁尼克（法屬）
+Mascat: 馬斯喀特
+Massa: 馬薩
+Massachusetts Bay: 麻薩諸塞灣殖民地
+Mataram: 馬打藍
+Mauretania: 茅利塔尼亞（古王國）
+Mauryan Empire: 孔雀帝國
+Maya: 馬雅
+Maya chiefdoms and states: 馬雅酋邦與國家
+Maya city-states: 馬雅城邦
+Maya states: 馬雅諸國
+Mayas: 馬雅人
+Mazun: 馬尊（阿曼）
+Mbailundu: 姆拜倫杜王國
+Mecklenburg-Schwerin: 梅克倫堡－什未林
+Mecklenburg-Strelitz: 梅克倫堡－施特雷利茨
+Mercia: 麥西亞
+Merina Kingdom: 梅里納王國
+Merinides: 馬林王朝
+Meroe: 麥羅埃
+Mesoamerican city-states and chiefdoms: 中美洲城邦與酋邦
+Mesopotamia (GB): 美索不達米亞（英國託管）
+Middag Kingdom: 中部王國
+Milan: 米蘭
+Milograd culture: 米洛格勒文化
+Min-Yue: 閩越
+Ming Chinese Empire: 明
+Mirambo Unyanyembe Ukimbu: 米蘭博的尼揚韋齊王國
+Mixtec Empire: 米斯特克
+Mixtecs: 米斯特克人
+Moche: 莫切文化
+Modena: 摩德納
+Mon state: 孟人國家
+Mon-Khmer: 孟－高棉人
+Mongol Empire: 蒙古帝國
+Monte Albán: 阿爾班山
+Mordvinians: 莫爾多瓦人
+Morocco (France): 摩洛哥（法國保護國）
+Mossi States: 莫西諸王國
+Mozambique (Portugal): 莫三比克（葡屬）
+Mughal Empire: 蒙兀兒帝國
+Muscat: 馬斯喀特
+Muscat and Oman: 馬斯喀特和阿曼
+Mwenemutapa: 莫諾莫塔帕王國
+Mysore: 邁索爾王國
+N. European Bronze Age cultures: 北歐青銅時代文化
+Nabatean Kingdom: 納巴泰王國
+Nan Chao: 南詔
+Nan-Yue: 南越
+Nanzan: 南山國（琉球）
+Naples: 拿坡里王國
+Natal: 納塔爾
+Navarre: 納瓦拉王國
+Nazca: 納斯卡文化
+Ndebele: 恩德貝萊王國
+Ndongo: 恩東戈王國
+Nejd: 內志
+Netherlands Antilles: 荷屬安地列斯
+Netherlands Indies: 荷屬東印度
+Neustria: 紐斯特里亞
+New Amsterdam: 新阿姆斯特丹
+New France: 新法蘭西
+New Hebrides: 新赫布里底
+New South Wales (UK): 新南威爾斯（英屬）
+Nguni: 恩古尼人
+Nizam's Dominions: 海德拉巴土邦
+Nobatia: 諾巴蒂亞
+Nogai Horde: 諾蓋汗國
+Norsemen: 諾斯人（維京人）
+Northern Liang: 北涼
+Northern Rhodesia: 北羅德西亞
+Northern Territory (UK): 北領地（英屬）
+Northmen: 諾斯人（維京人）
+Northumbria: 諾森布里亞
+Novgorod: 諾夫哥羅德
+Novgorod-Seversky: 北諾夫哥羅德
+Numidia: 努米底亞
+Nyasaland: 尼亞薩蘭
+Odrysian Kingdom: 奧德里西亞王國（色雷斯）
+Oirat Confederation: 瓦剌
+Oldenburg: 奧登堡
+Olmec: 奧爾梅克
+Oman (British Raj): 阿曼（英印）
+Opobo: 奧波博
+Orange Free State: 奧蘭治自由邦
+Orissa: 奧里薩
+Oromo: 奧羅莫人
+Ostrogoths: 東哥德人
+Other Rus Principalities: 其他羅斯諸公國
+Otomies: 奧托米人
+Ottoman Empire: 鄂圖曼帝國
+Oudh: 奧德
+Ovimbundu: 奧文本杜人
+Oyo: 奧約帝國
+Paekche: 百濟
+Pagan: 蒲甘
+Palas: 波羅王朝
+Paleo-Inuit: 古因紐特人
+Paleo-Koreans: 古朝鮮人
+Paleo-Siberian hunter-gatherers: 古西伯利亞狩獵採集者
+Pallava state: 帕拉瓦王朝
+Pallavas: 帕拉瓦王朝
+Pampas cultures: 彭巴文化
+Pancala: 般遮羅
+Pandya state: 潘地亞王朝
+Pandyas: 潘地亞王朝
+Papal States: 教宗國
+Papuan: 巴布亞人
+Papuan neolithic farmers: 巴布亞新石器時代農民
+Papuans: 巴布亞人
+Paracas: 帕拉卡斯文化
+Parhae: 渤海國
+Parma: 帕爾馬
+Parthia: 安息（帕提亞）
+Parthian Empire: 安息帝國（帕提亞）
+Patagonian shellfish and marine mammal hunters: 巴塔哥尼亞貝類與海獸獵人
+Pegu: 勃固
+Pergamon: 帕加馬
+Permians: 彼爾姆人
+Persia: 波斯
+Phrygians: 弗里吉亞人
+Picts: 皮克特人
+Pisones: 皮索內斯
+Plain bison hunters: 平原野牛獵人
+Plain-Pottery culture: 素面陶文化
+Plateau fichers and hunter gatherers: 高原漁獵採集者
+Point Peninsula: 波因特半島文化
+Poland-Lithuania: 波蘭－立陶宛
+Polish–Lithuanian Commonwealth: 波蘭－立陶宛聯邦
+Polynesians: 玻里尼西亞人
+Pomerania: 波美拉尼亞
+"Pomeranian culture ": 波美拉尼亞文化
+Pontremoli: 蓬特雷莫利
+Portuguese Brazil: 葡屬巴西
+Portuguese East Africa: 葡屬東非
+Portuguese Guinea: 葡屬幾內亞
+Post-Ming Warlords: 明末清初割據勢力
+Poverty point culture: 波弗蒂角文化
+Pratiharas: 普臘蒂哈臘王朝
+Principality of Galicia-Volhynia: 加利西亞－沃里尼亞公國
+Principality of Kyiv: 基輔公國
+Principality of Novgorod: 諾夫哥羅德公國
+Principality of Vladimir-Suzdal: 弗拉基米爾－蘇茲達爾公國
+Principality of Wallachia: 瓦拉幾亞公國
+Proto-Altaic pastoralists: 原始阿爾泰遊牧民
+Proto-Scythian culture: 原始斯基泰文化
+Proto-Thai cultures: 原始泰人文化
+Proto-Tibetan cultures: 原始藏人文化
+Prussia: 普魯士
+Prussians: 普魯士人（古普魯士人）
+Pskov: 普斯科夫
+Ptolemaic Kingdom: 托勒密王國
+Pyu state: 驃國
+Qataban: 卡塔班王國
+Qin: 秦
+Qing Empire: 清
+Quazaq Khanate: 哈薩克汗國
+Quebec: 魁北克
+Queensland (UK): 昆士蘭（英屬）
+Rabih az-Zubayr: 拉比赫政權
+Rajastan: 拉賈斯坦
+Rajput Clans and Small States: 拉傑普特氏族與小邦
+Rajput kingdoms: 拉傑普特諸王國
+Rajputana: 拉傑普塔納
+Rajputs: 拉傑普特人
+Rapa Nui: 拉帕努伊（復活節島）
+Rashtrakuta state: 拉什特拉庫塔王朝
+Rattanakosin Kingdom: 拉達那哥欣王朝（曼谷王朝）
+Republic of the Seven Zenden: 七區共和國（瓦萊）
+Rhodesia: 羅德西亞
+Rift Valley States: 裂谷諸國
+Rio De Oro: 里奧德奧羅
+Roman Empire: 羅馬帝國
+Roman Republic: 羅馬共和國
+Rome: 羅馬
+Rome (Constantinus): 羅馬（君士坦提烏斯轄區）
+Rome (Diocletianus): 羅馬（戴克里先轄區）
+Rome (Galerius): 羅馬（伽列里烏斯轄區）
+Rome (Maximian): 羅馬（馬克西米安轄區）
+Rozwi: 羅茲維帝國
+Ruanruan: 柔然
+Rupert's Land: 魯珀特地
+Rus' Khaganate: 羅斯汗國
+Russian Empire: 俄羅斯帝國
+Rwanda (Belgium): 盧安達（比屬）
+Ryazan: 梁贊公國
+Saami: 薩米人
+Saar Protectorate: 薩爾保護領
+Saba: 示巴王國
+Sabines: 薩賓人
+Sabini: 薩賓人
+Saces: 塞種人
+Safavid Empire: 薩法維帝國
+Saharan pastoral nomads: 撒哈拉遊牧民
+Saka Kingdom: 塞種王國
+Sakhalin (RU): 庫頁島（俄屬）
+Sambian-Nothangian culture: 桑比亞文化
+Samis: 薩米人
+Samnites: 薩莫奈人
+Sardinia: 薩丁尼亞
+Sardinia-Piedmont: 薩丁尼亞－皮埃蒙特
+Sarmates: 薩爾馬提亞人
+Sasanian Empire: 薩珊帝國
+Sasanian dependencies: 薩珊屬國
+Satavahanihara: 百乘王朝
+Savanna hunter-gatherers: 莽原狩獵採集者
+Savoy: 薩伏依
+Saxons: 撒克遜人
+Saxony: 薩克森
+Saylan: 錫蘭
+Schaumburg-Lippe: 紹姆堡－利珀
+Scotland: 蘇格蘭
+Scots: 蘇格蘭人
+Scythians: 斯基泰人
+Segu: 塞古帝國
+Seleucid Kingdom: 塞琉古王國
+Seljuk Caliphate: 塞爾柱帝國
+Senas: 犀那王朝
+Senegal (FR): 塞內加爾（法屬）
+Shan states: 撣邦諸國
+Shellfish gatherers: 貝類採集者
+Shirvan: 希爾萬
+Shoa: 紹阿
+Shogun Japan (Kamakura): 日本（鎌倉幕府）
+Shona: 紹納人
+Siam: 暹羅
+Siberians: 西伯利亞民族
+Sicily: 西西里
+Sikhs: 錫克帝國
+Silla: 新羅
+Simhala: 僧伽羅
+Sindh: 信德
+Sinhalese kingdom: 僧伽羅王國
+Sinhalese kingdoms: 僧伽羅諸王國
+Sinic: 華夏
+Sixteen Kingdoms: 十六國
+Skirii: 斯基里人
+Slavonic tribes: 斯拉夫部族
+Slavs: 斯拉夫人
+Sokoto Caliphate: 索科托哈里發國
+Song Empire: 宋
+Songhai: 桑海帝國
+Sotho: 索托人
+South Australia (UK): 南澳（英屬）
+South Carolina: 南卡羅來納
+Southern Cameroon: 南喀麥隆
+Southern Rhodesia: 南羅德西亞
+Southern Xiongnu: 南匈奴
+Spanish Guinea: 西屬幾內亞
+Spanish Morocco: 西屬摩洛哥
+Spanish Sahara: 西屬撒哈拉
+Srivijaya Empire: 室利佛逝
+Subarctic forest hunter-gatherers: 亞北極森林狩獵採集者
+Suebi: 蘇維匯人
+Sui Empire: 隋
+Sukhothai: 素可泰王朝
+Sultanate of Damagaram: 達馬加拉姆蘇丹國
+Sultanate of Delhi: 德里蘇丹國
+Sultanate of Utetera: 烏特特拉蘇丹國
+Sultanate of Zanzibar: 尚吉巴蘇丹國
+Suomi: 芬蘭
+Surasena: 蘇剌森那
+Suren Kingdom: 蘇倫王國（印度－帕提亞）
+Surinam: 蘇利南
+Swabia: 士瓦本
+Swaziland: 史瓦濟蘭
+Sweden–Norway: 瑞典－挪威
+Swedes: 瑞典人
+Swedes and Goths: 瑞典人與哥德人
+Swiss Confederation: 瑞士邦聯
+Syria (France): 敘利亞（法國託管）
+Sámi: 薩米人
+Taiwanese Tribes: 臺灣原住民族
+Takrur: 塔克魯爾王國
+Tang Empire: 唐
+Tasmanian hunter-gatherers: 塔斯馬尼亞狩獵採集者
+Aboriginal Tasmanians: 塔斯馬尼亞原住民
+Australian aboriginal hunter-gatherers: 澳洲原住民狩獵採集者
+Teke: 特凱王國
+Teotihuacan: 特奧蒂瓦坎
+Teutonic Knights: 條頓騎士團國
+Thai: 泰人
+Thai Kingdoms: 泰人諸王國
+Thrace: 色雷斯
+Thule: 圖勒文化
+Thuringia: 圖林根
+Tiahuanaco Empire: 蒂瓦納庫
+Tibet: 西藏
+Tibetan Empire: 吐蕃
+Tibetans: 藏人
+Timurid Emirates: 帖木兒諸侯國
+Timurid Empire: 帖木兒帝國
+Toba Wei: 北魏（拓跋）
+Togoland: 多哥蘭
+Tokugawa shogunate: 江戶幕府（德川）
+Toltec Empire: 托爾特克
+Tonkin: 東京（北越）
+Touareg: 圖阿雷格人
+Transvaal: 川斯瓦
+Travancore: 特拉凡哥爾
+Trebizond: 特拉比松帝國
+Trinidad: 千里達
+Tripolitana (UK Lybia): 的黎波里塔尼亞（英管利比亞）
+Tripolitania: 的黎波里塔尼亞
+Trucial Oman: 特魯西爾阿曼（休戰諸國）
+Tsardom of Muscovy: 俄羅斯沙皇國
+Tuareg Nomadic Tribes: 圖阿雷格遊牧部族
+Tukular Caliphate: 圖庫勒帝國
+Tungus: 通古斯人
+Tungusic Tribes: 通古斯部族
+Tunis: 突尼斯
+Tupis: 圖皮人
+Turcik tribes: 突厥部族
+Turingians: 圖林根人
+Turkish Cypriot-administered area: 土耳其裔賽普勒斯管轄區
+Tuscany: 托斯卡尼
+Tuʻi Tonga Empire: 東加帝國
+USSR: 蘇聯
+Union of South Africa: 南非聯邦
+United Kingdom of Great Britain and Ireland: 大不列顛及愛爾蘭聯合王國
+United States: 美國
+Urartu: 烏拉爾圖
+Urnfield cultures: 甕棺墓地文化
+Uyghurs: 回鶻
+Vakataka: 伐迦陀迦王朝
+Vallabhi: 伐臘毗
+Vandals: 汪達爾人
+Vasconia: 瓦斯科尼亞
+Vatsa: 跋蹉
+Vazimba: 瓦津巴人
+Vedic Aryans: 吠陀雅利安人
+Venetia: 威尼托
+Venice: 威尼斯共和國
+Veps: 維普斯人
+Veracruz civilization: 韋拉克魯斯文明
+Viceroyalty of Brazil: 巴西總督轄區
+Viceroyalty of New Granada: 新格拉納達總督轄區
+Viceroyalty of New Spain: 新西班牙總督轄區
+Viceroyalty of Peru: 秘魯總督轄區
+Viceroyalty of the Río de la Plata: 拉普拉塔總督轄區
+Victoria (UK): 維多利亞（英屬）
+Vijayanagara: 毗奢耶那伽羅帝國
+Virginia: 維吉尼亞
+Vishnu-Kundins: 毗濕奴昆丁王朝
+Visigothic Kingdom: 西哥德王國
+Visigoths: 西哥德人
+Volga Bulgars: 伏爾加保加爾
+Wadai: 瓦達伊蘇丹國
+Wadai Empire: 瓦達伊帝國
+Walbis Bay: 華維斯灣
+Waldeck: 瓦爾德克
+Wassoulou Empire: 瓦蘇魯帝國
+Watassid Morocco: 瓦塔斯王朝摩洛哥
+Wattasid Caliphate: 瓦塔斯王朝
+Welsh: 威爾斯人
+Wessex: 威塞克斯
+West African cereal farmers: 西非穀物農民
+West Germany: 西德
+Western Australia (UK): 西澳（英屬）
+Western Gangas: 西恆伽王朝
+Western Masurian culture: 西馬祖里文化
+Western Roman Empire: 西羅馬帝國
+White Horde: 白帳汗國
+Wu: 吳
+Württemberg: 符騰堡
+Xhosa: 科薩人
+Xinjiang: 新疆
+Xiongnu: 匈奴
+Xixia: 西夏
+Yamato: 大和
+Yayoi: 彌生文化
+Yeke: 耶克王國
+Yemen (UK): 葉門（英屬亞丁）
+Yue: 越
+Yueban: 悅般
+Yuezhi: 月氏
+Yugoslavia: 南斯拉夫
+Yukagir: 尤卡吉爾人
+Zaire: 薩伊
+Zanzibar: 尚吉巴
+Zapotec: 薩波特克
+Zapotec Empire: 薩波特克
+Zayyanid Caliphate: 扎亞尼德王朝
+Zhangzhung Kingdom: 象雄
+Zhoa: 趙
+Zhou states: 周代諸國
+Zulu: 祖魯王國
+Zululand: 祖魯蘭
+central Asian khanates: 中亞諸汗國
+minor Hindu and Buddhist kingdoms: 印度教與佛教小王國
+minor Hindu and Buddhist states: 印度教與佛教小邦
+minor Hindu kingdoms: 印度教小王國
+minor states: 小邦
+minor states under Indian influence: 受印度影響的小邦
+state societies and Aramaean kingdoms: 城邦社會與亞蘭諸王國
+Đại Việt: 大越
+Austro-Asiatic rice cultures: 南亞語系稻作文化
+Austronesians: 南島語族
+Iron Age: 鐵器時代
+Arctic marine mammal hunters: 北極海獸獵人
+Caribbean hunter-gatherers: 加勒比狩獵採集者
+Eastern North American hunter-gatherers: 北美東部狩獵採集者
+North American Pacific foraging, hunting and fishing peoples: 北美太平洋岸漁獵採集民族
+Amazon hunter-gatherers: 亞馬遜狩獵採集者
+Andean hunter-gatherers: 安地斯狩獵採集者
+Andean states and chiefdoms: 安地斯諸國與酋邦
+Manioc farmers: 木薯農民
+Maize farmers: 玉米農民
+Chavin: 查文文化
+Chimú Empire: 奇穆王國
+Chinchoros: 新克羅文化
+Chorrera: 喬雷拉文化
+El Paraiso: 帕拉伊索文化
+Aymara kingdoms: 艾馬拉諸王國
+Wankarani: 萬卡拉尼文化
+Shuar: 舒阿爾人
+Arawaks: 阿拉瓦克人
+Taino: 泰諾人
+Ciboney: 西沃涅人
+Guanahatabeyes: 瓜納哈塔貝伊人
+Kalinago: 卡利納戈人（加勒比人）
+# ── 北美原住民與考古文化 ──
+Adena Culture: 阿德納文化
+Anasazi: 阿納薩齊（古普韋布洛）
+Hopewell Culture: 霍普韋爾文化
+Mogollon: 莫戈隆文化
+Fourche Maline Culture: 富爾什馬林文化
+Glades Culture: 格萊茲文化
+Marksville Culture: 馬克斯維爾文化
+Mill Creek Culture: 米爾溪文化
+Swift Creek Culture: 斯威夫特溪文化
+Caloosahatchee culture: 卡盧薩哈奇文化
+Copena: 科佩納文化
+Laurel complex: 勞瑞爾文化
+Saugeen Complex: 索金文化
+Dorset: 多塞特文化
+Apache: 阿帕契人
+Apalachee: 阿帕拉契人
+Arapaho: 阿拉帕霍人
+Arikara: 阿里卡拉人
+Assiniboin: 阿西尼博因人
+Athabascan: 阿薩巴斯卡人
+Athabaskan: 阿薩巴斯卡人
+Atakapa: 阿塔卡帕人
+Abnaki: 阿布納基人
+Algonquin: 阿爾岡昆人
+Aaniiih: 阿阿尼尼人
+Beothuk: 貝奧圖克人
+Boethuk: 貝奧圖克人
+Biloxi: 比洛克西人
+Blackfoot: 黑腳人
+Caddo: 卡多人
+Calusa: 卡盧薩人
+Catawba: 卡托巴人
+Cayuse: 卡尤斯人
+Cherokee: 切羅基人
+Cheyenne: 夏延人
+Chickasaw: 契卡索人
+Chiricahua: 奇里卡瓦阿帕契人
+Choctaw: 喬克托人
+Chumash: 丘馬什人
+Comanche: 科曼奇人
+Cree: 克里人
+Crow: 克勞人
+Delaware: 德拉瓦人（萊納佩人）
+Erie: 伊利人
+Eyaq: 埃亞克人
+Flathead: 平頭族（薩利什人）
+Fox: 福克斯人（梅斯卡基人）
+Gros Ventre: 格羅文特人
+Havasupai: 哈瓦蘇派人
+Hitchiti: 希奇蒂人
+Hopi: 霍皮人
+Hopie: 霍皮人
+Houma: 胡瑪人
+Huron: 休倫人
+Illinois: 伊利諾人
+Innu: 因努人
+Inupiaq: 伊努皮雅特人
+Iowa: 愛荷華人
+Iroquois: 易洛魁人
+Jicarilla: 希卡里亞阿帕契人
+Kalapuya: 卡拉普亞人
+Kalispel: 卡利斯佩爾人
+Kansa: 坎薩人
+Karankawa: 卡蘭卡瓦人
+Kiowa: 基奧瓦人
+Kwakwaka'wakw: 夸夸嘉夸人
+Lipan: 利潘阿帕契人
+Luiseno: 盧伊塞諾人
+Mahican: 莫希干人
+Mandan: 曼丹人
+Massachusett: 麻薩諸塞人
+Menomini: 梅諾米尼人
+Mescalero: 梅斯卡勒羅阿帕契人
+Mi'kma'ki: 米克馬克人
+Miami: 邁阿密人
+Missouri: 密蘇里人
+Miwok: 米沃克人
+Modoc: 莫多克人
+Montagnais Innu: 蒙塔格奈因努人
+Muskogee: 馬斯科吉人（克里克人）
+Naskapi Innu: 納斯卡皮因努人
+Natchez: 納奇茲人
+Navaho: 納瓦荷人
+Navajo: 納瓦荷人
+Nez Perce: 內茲珀斯人
+Northern Paiute: 北派尤特人
+Omaha: 奧馬哈人
+Osage: 歐塞奇人
+Oto: 奧托人
+Papago: 帕帕戈人
+Patwin: 帕特溫人
+Pawnee: 波尼人
+Pennacook: 佩納庫克人
+Pima: 皮馬人
+Pocumtuk: 波康塔克人
+Pomo: 波莫人
+Ponca: 龐卡人
+Potawatomi: 波塔瓦托米人
+Quapaw: 夸帕人
+Santee: 桑提蘇族
+Shawnee: 肖尼人
+Shoshoni: 肖松尼人
+Southern Paiute: 南派尤特人
+Spokane: 斯波坎人
+Susquehanna: 薩斯奎哈納人
+Teton: 提頓蘇族（拉科塔）
+Thompson: 湯普森人（恩拉卡帕穆克斯）
+Tlinoit: 特林吉特人
+Tonkawa: 通卡瓦人
+Tunica: 圖尼卡人
+Tutelo: 圖特洛人
+Umatilla: 尤馬蒂拉人
+Ute: 猶特人
+Walapai: 瓦拉派人
+Wappynger: 瓦平格人
+Wichita: 威奇托人
+Winebago: 溫尼貝戈人
+Yakima: 雅基馬人
+Yankton: 揚克頓蘇族
+Yavapai: 亞瓦派人
+Yokuts: 約庫特人
+Yuchi: 尤奇人
+Yuma: 尤馬人
+Yup'ik & Cup'ik: 尤皮克人
+Zuni: 祖尼人
+Conoy: 科諾伊人
+Cusabo: 庫薩博人
+Timucua: 提姆夸人
+Chatot: 查托人
+Chtimacha: 奇蒂馬查人
+Coahuiltec: 科阿韋爾特克人
+Costanoan: 科斯塔諾人
+Cahulia: 卡惠亞人
+Serano: 塞拉諾人
+Sahtu: 薩圖人
+T'atsaot'ine: 塔佐提內人
+# ── 墨西哥北部原住民 ──
+Acaxea: 阿卡謝人
+Cahitas: 卡伊塔人
+Caxcane: 卡斯坎人
+Cochimí: 科奇米人
+Guachichiles: 瓜奇奇爾人
+Guachimis: 瓜奇米人
+Guamar / Pecchichitane: 瓜馬雷人
+Irritilas: 伊里蒂拉人
+Janabres: 哈納布雷人
+Lagunero: 拉古內羅人
+Nayarit: 納亞里特人
+Tecuexe: 特庫埃謝人
+Tepehuane: 特佩瓦內人
+Toboso: 托博索人
+Zacatecs: 薩卡特克人
+Tamalipueca: 塔毛利帕斯人
+Xecora: 謝科拉人
+Chisos: 奇索斯人
+Maratines: 馬拉蒂內人
+# ── 其他地區族群 ──
+Ainu: 阿伊努人
+Ainus: 阿伊努人
+Bantu: 班圖人
+Hindu: 印度教徒
+Itelmen people: 伊捷爾緬人
+Nganasan: 恩加納桑人
+Komi: 科米人
+Mari: 馬里人
+Meru: 梅魯人
+Pewa: 佩瓦
+Sotho-Tswana: 索托－茨瓦納人
+Ngwato: 恩瓦托人
+Lozi people: 洛齊人
+Mbara: 姆巴拉
+Ibos: 伊博人
+Kaurna Pangkarra: 卡爾納人
+# ── 現代與近代國家、殖民地 ──
+Acadian Peninsula (UK): 阿卡迪亞半島（英屬）
+Afghanistan: 阿富汗
+Africa: 非洲
+Alabama: 阿拉巴馬
+Albania: 阿爾巴尼亞
+Algeria: 阿爾及利亞
+Algeria (FR): 阿爾及利亞（法屬）
+Algeria (France): 阿爾及利亞（法屬）
+Algiers: 阿爾及爾攝政國
+American Samoa: 美屬薩摩亞
+Andorra: 安道爾
+Anglo-Egyptian Sudan: 英埃蘇丹
+Angola: 安哥拉
+Angola (Portugal): 安哥拉（葡屬）
+Anguilla: 安吉拉
+Anhalt: 安哈爾特
+Antarctica: 南極洲
+Antigua and Barbuda: 安地卡及巴布達
+Argentina: 阿根廷
+Australia: 澳洲
+Austria: 奧地利
+Austria Hungary: 奧匈帝國
+Austrian Empire: 奧地利帝國
+Austrian Netherlands: 奧屬尼德蘭
+Austro-Hungarian Empire: 奧匈帝國
+Azerbaijan: 亞塞拜然
+Bahamas: 巴哈馬
+Bangladesh: 孟加拉
+Barbados: 巴貝多
+Belgian Congo: 比屬剛果
+Belgium: 比利時
+Belize: 貝里斯
+Bhutan: 不丹
+Bolivia: 玻利維亞
+Bosnia and Herzegovina: 波士尼亞與赫塞哥維納
+Bosnia-Herzegovina: 波士尼亞與赫塞哥維納
+Botswana: 波札那
+Brazil: 巴西
+Brunei: 汶萊
+Bulgaria: 保加利亞
+Burkina Faso: 布吉納法索
+Burundi: 蒲隆地
+Cambodia: 柬埔寨
+Cameroon: 喀麥隆
+Canada: 加拿大
+Cayenne: 卡宴（法屬圭亞那）
+Central African Republic: 中非共和國
+Chad: 查德
+Chile: 智利
+Colombia: 哥倫比亞
+Congo: 剛果
+Congo (France): 剛果（法屬）
+Costa Rica: 哥斯大黎加
+Cotonou: 科托努
+Croatia: 克羅埃西亞
+Cuba: 古巴
+Cuba (Spain): 古巴（西屬）
+Cyprus: 賽普勒斯
+Czech Republic: 捷克
+Czechoslovakia: 捷克斯洛伐克
+Denmark: 丹麥
+Djibouti: 吉布地
+Dominica: 多米尼克
+Dominican Republic: 多明尼加
+Dominion of Newfoundland: 紐芬蘭自治領
+Ecuador: 厄瓜多
+Egypt: 埃及
+El Salvador: 薩爾瓦多
+Equatorial Guinea: 赤道幾內亞
+Eritrea: 厄利垂亞
+Estonia: 愛沙尼亞
+Ethiopia: 衣索比亞
+Fiji: 斐濟
+Finland: 芬蘭
+France: 法國
+Gabon: 加彭
+Gambia: 甘比亞
+Gambia, The: 甘比亞
+Georgia: 喬治亞
+Germany: 德國
+Ghana: 迦納
+Greece: 希臘
+Greenland: 格陵蘭
+Grenada: 格瑞那達
+Guadeloupe: 瓜地洛普
+Guam: 關島
+Guatemala: 瓜地馬拉
+Guinea: 幾內亞
+Guinea-Bissau: 幾內亞比索
+Guinea-Bissau (Portugal): 幾內亞比索（葡屬）
+Guyana: 蓋亞那
+Haiti: 海地
+Honduras: 宏都拉斯
+Hong Kong: 香港
+Hungary: 匈牙利
+Iceland: 冰島
+India: 印度
+Indonesia: 印尼
+Iran: 伊朗
+Iraq: 伊拉克
+Ireland: 愛爾蘭
+Israel: 以色列
+Italy: 義大利
+Ivory Coast: 象牙海岸
+Jamaica: 牙買加
+Japan: 日本
+Jordan: 約旦
+Kazakhstan: 哈薩克
+Kenya: 肯亞
+Kuwait: 科威特
+Kyrgyzstan: 吉爾吉斯
+Laos: 寮國
+Latvia: 拉脫維亞
+Lebanon: 黎巴嫩
+Lesotho: 賴索托
+Liberia: 賴比瑞亞
+Libya: 利比亞
+Liechtenstein: 列支敦斯登
+Lithuania: 立陶宛
+Luxembourg: 盧森堡
+Madagascar: 馬達加斯加
+Malawi: 馬拉威
+Malaysia: 馬來西亞
+Mali: 馬利
+Malta: 馬爾他
+Martinique: 馬丁尼克
+Mauritania: 茅利塔尼亞
+Mexico: 墨西哥
+Moldova: 摩爾多瓦
+Mongolia: 蒙古
+Montana: 蒙大拿
+Montenegro: 蒙特內哥羅
+Montserrat: 蒙哲臘
+Morocco: 摩洛哥
+Mozambique: 莫三比克
+Namibia: 納米比亞
+Nepal: 尼泊爾
+Netherlands: 荷蘭
+New Caledonia: 新喀里多尼亞
+New Zealand: 紐西蘭
+Nicaragua: 尼加拉瓜
+Niger: 尼日
+Nigeria: 奈及利亞
+Niue: 紐埃
+Norway: 挪威
+Oman: 阿曼
+Pakistan: 巴基斯坦
+Panama: 巴拿馬
+Papua New Guinea: 巴布亞紐幾內亞
+Paraguay: 巴拉圭
+Peru: 秘魯
+Philippines: 菲律賓
+Poland: 波蘭
+Portugal: 葡萄牙
+Puerto Rico: 波多黎各
+Qatar: 卡達
+Romania: 羅馬尼亞
+Russia: 俄羅斯
+Rwanda: 盧安達
+Saint Barthelemy: 聖巴瑟米
+Saint Kitts and Nevis: 聖克里斯多福及尼維斯
+Saint Lucia: 聖露西亞
+Saint Martin: 聖馬丁
+Saint Vincent and the Grenadines: 聖文森及格瑞那丁
+Saipan: 塞班島
+Samoa: 薩摩亞
+Saudi Arabia: 沙烏地阿拉伯
+Senegal: 塞內加爾
+Serbia: 塞爾維亞
+Sierra Leone: 獅子山
+Slovakia: 斯洛伐克
+Slovenia: 斯洛維尼亞
+Somalia: 索馬利亞
+South Africa: 南非
+Spain: 西班牙
+Sri Lanka: 斯里蘭卡
+Sudan: 蘇丹
+Suriname: 蘇利南
+Sweden: 瑞典
+Switzerland: 瑞士
+Syria: 敘利亞
+Taiwan: 臺灣
+Tajikistan: 塔吉克
+"Tanzania, United Republic of": 坦尚尼亞
+Thailand: 泰國
+Togo: 多哥
+Tonga: 東加
+Tunisia: 突尼西亞
+Turkey: 土耳其
+Turkmenistan: 土庫曼
+Turks and Caicos Islands: 土克凱可群島
+Uganda: 烏干達
+Ukraine: 烏克蘭
+United Arab Emirates: 阿拉伯聯合大公國
+United Kingdom: 英國
+United States Virgin Islands: 美屬維京群島
+United States of America: 美國
+Uruguay: 烏拉圭
+Uzbekistan: 烏茲別克
+Venezuela: 委內瑞拉
+Vietnam: 越南
+Wallis and Futuna Islands: 瓦利斯和富圖納群島
+Western Sahara: 西撒哈拉
+Yemen: 葉門
+Zambia: 尚比亞
+Zimbabwe: 辛巴威
+Aceh: 亞齊蘇丹國
+Baden: 巴登
+Yaka: 亞卡王國
+Tano: 塔諾人
+Kamia: 卡米亞人

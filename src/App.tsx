@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, useCallback } from 'react';
+import { setNameTable } from './lib/bilingual';
 import type { Index, Card, Filters } from './types';
 import { createSearch } from './lib/search';
 import { activeAt } from './lib/format';
@@ -35,7 +36,7 @@ export default function App() {
   const [error, setError] = useState('');
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}index.json`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
-      .then(setIndex).catch(() => setError('讀不到 public/index.json。請先執行 npm run build:index（npm run dev 會自動執行）。'));
+      .then((ix) => { setNameTable(ix.names); setIndex(ix); }).catch(() => setError('讀不到 public/index.json。請先執行 npm run build:index（npm run dev 會自動執行）。'));
   }, []);
   if (error) return <div className="fatal">{error}</div>;
   if (!index) return <div className="fatal">載入中…</div>;

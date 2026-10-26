@@ -7,6 +7,7 @@ import { loadEcon, loadChains, checkEcon, checkChains, buildEcon, buildChains } 
 import { loadToday, checkToday, buildToday } from './lib/today.ts';
 import { loadCivTaxonomy } from './lib/civ.ts';
 import { SECTIONS, CORE_KEYS, TYPE_LABEL, FIELD_OPTIONS, UNDERSTAND, type CardType } from './lib/fields.ts';
+import { loadNameTable, polityZh } from './lib/labels.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits } from './lib/learn.ts';
 
 const get = (o: any, k: string) => k.split('.').reduce((a, p) => (a == null ? a : a[p]), o);
@@ -110,13 +111,20 @@ const pubData = path.join(ROOT, 'public', 'data');
 fs.rmSync(pubData, { recursive: true, force: true });
 fs.mkdirSync(path.join(pubData, 'borders'), { recursive: true });
 const borders = readJson('data/borders/index.json');
-for (const s of borders.snapshots) fs.copyFileSync(path.join(ROOT, 'data/borders', s.file), path.join(pubData, 'borders', s.file));
+// 疆域：每個政權補上中文名（zh），地圖上滑過時顯示「中文 English」
+for (const s of borders.snapshots) {
+  const gj = readJson(`data/borders/${s.file}`);
+  for (const f of gj.features) f.properties.zh = polityZh(f.properties.name, f.geometry);
+  fs.writeFileSync(path.join(pubData, 'borders', s.file), JSON.stringify(gj));
+}
+// 底圖地名（繁中＋英文，由 npm run labels 產生）
+fs.copyFileSync(path.join(ROOT, 'data/labels/basemap-labels.json'), path.join(pubData, 'labels.json'));
 // AWMC 古代道路網（地圖底層，依時代顯示）：只留下時代、主次、確定與否三個欄位
 {
   const gj = readJson('data/awmc/roads.geojson');
   const r4 = (c: number[]) => [Math.round(c[0] * 1e4) / 1e4, Math.round(c[1] * 1e4) / 1e4];
   const feats = gj.features.map((f: any) => ({ type: 'Feature',
-    properties: { t: f.properties.timeperiod ?? '', m: f.properties.Major_or_M === '1' ? 1 : 0, k: f.properties.Known_or_a === '1' ? 1 : 0, n: f.properties.Name ?? '' },
+    properties: { t: f.properties.timeperiod ?? '', m: f.properties.Major_or_M === '1' ? 1 : 0, k: f.properties.Known_or_a === '1' ? 1 : 0, n: f.properties.Name === 'delete_name' ? '' : f.properties.Name ?? '' },
     geometry: { type: 'MultiLineString', coordinates: (f.geometry.type === 'LineString' ? [f.geometry.coordinates] : f.geometry.coordinates).map((l: number[][]) => l.map(r4)) } }));
   fs.writeFileSync(path.join(pubData, 'awmc-roads.geojson'), JSON.stringify({ type: 'FeatureCollection', features: feats }));
 }
@@ -137,7 +145,26 @@ const index = {
   today: buildToday(loadToday(), routes),
   histories,
   units: loadUnits().map((u) => u.unit).filter((u) => DEV || u.crosscheck?.result === '通過'),
+  names: loadNameTable(),
 };
+// 地圖上的名稱要中英並列：列出還沒有英文（或中文）對照的地名
+{
+  const CJK = /[\u3400-\u9fff]/, LATIN = /[A-Za-z]/;
+  const norm = (x: string) => x.replace(/_/g, ' ').replace(/\?/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+  const zhKeys = new Set(Object.keys(index.names.zh).map(norm));
+  const missing = new Set<string>();
+  const need = (x?: string) => {
+    if (!x) return;
+    if (CJK.test(x) && LATIN.test(x)) return;
+    if (CJK.test(x) ? !index.names.en[x] : !zhKeys.has(norm(x))) missing.add(x);
+  };
+  for (const c of cards) for (const l of c.place.locations) { need(l.name_ancient); need(l.name_modern); }
+  for (const r of routes) { need(r.name); r.stations.forEach((x: any) => need(x.name)); }
+  for (const ch of index.chains) { need(ch.name); ch.steps.forEach((x: any) => need(x.name)); }
+  for (const p of index.today.chokepoints) need(p.name);
+  for (const ch of index.today.chains) { need(ch.name); ch.steps.forEach((x: any) => need(x.name)); }
+  if (missing.size) console.warn(`注意：${missing.size} 個地名還沒有中英對照（地圖上先只顯示一種語言），請補到 data/labels/names-en.yaml：${[...missing].slice(0, 12).join('、')}${missing.size > 12 ? '…' : ''}`);
+}
 const unitIssues = checkUnits(loadUnits(), raw, histories, eligible).filter((i) => i.level === 'error');
 if (unitIssues.length) console.warn(`注意：學習單元有 ${unitIssues.length} 個問題，請執行 npm run validate`);
 const econIssues = [...checkEcon(loadEcon()), ...checkChains(loadChains(), raw, new Set(routes.map((r: any) => r.id))),

@@ -265,3 +265,22 @@ body.dragging-col .map-canvas, body.dragging-row .map-canvas, body.dragging-col 
 .tl-toggle { position: absolute; right: 10px; top: 3px; z-index: 5; border: 1px solid var(--line); background: #fff; border-radius: 6px; font-size: 12px; padding: 2px 8px; color: var(--muted); }
 .btn.layout-reset { white-space: nowrap; }
 .d-main .timeline .tl-head { padding-right: 120px; }
+
+/* 底圖地名（繁中＋英文，labelLayer.ts）：灰褐色、白色描邊，讓本站的彩色案例圓點與路線比較突出 */
+.bm-labels { position: absolute; left: 0; top: 0; pointer-events: none; }
+.bm-l { position: absolute; left: 0; top: 0; width: 0; height: 0; white-space: nowrap; }
+.bm-in { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%); text-align: center; line-height: 1.12;
+  text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px rgba(255,255,255,.9); }
+.bm-in b { display: block; font-weight: 600; }
+.bm-in small { display: block; font-weight: 400; letter-spacing: .01em; opacity: .9; }
+.bm-c .bm-in { color: #5c4b3b; } .bm-c .bm-in b { font-weight: 700; letter-spacing: .12em; } .bm-c .bm-in small { text-transform: uppercase; letter-spacing: .08em; }
+.bm-o .bm-in, .bm-v .bm-in { color: #2b6496; font-style: italic; } .bm-o .bm-in b, .bm-v .bm-in b { font-style: normal; font-weight: 500; }
+.bm-r .bm-in { color: #7a5c2e; } .bm-r .bm-in b { font-weight: 500; letter-spacing: .06em; }
+.bm-t .bm-in, .bm-T .bm-in { transform: translate(-3px, -50%); text-align: left; padding-left: 8px; color: #3d3d3d; }
+.bm-t .bm-in b { font-weight: 500; }
+.bm-in i { position: absolute; left: 0; top: 50%; width: 5px; height: 5px; margin-top: -2.5px; border-radius: 50%; background: #fff; border: 1px solid #555; box-sizing: border-box; }
+.bm-T .bm-in i { width: 7px; height: 7px; margin-top: -3.5px; left: -1px; border: 2px solid #444; background: #fff; border-radius: 1px; }
+/* 本站的提示框：英文小一號 */
+.leaflet-tooltip .en, .today-mk .en { font-size: .88em; color: #666; font-weight: 400; }
+.map-names-note { color: #555; }
+h2 .en, .muted .en, .link .en { font-size: .78em; color: #777; font-weight: 400; }

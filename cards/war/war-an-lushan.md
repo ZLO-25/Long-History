@@ -22,7 +22,7 @@ place:
     - { name_ancient: 睢陽, name_modern: 商丘（中國河南）, lat: 34.414, lng: 115.656, precision: schematic, role: "756 年守城擋住叛軍南下（座標為今商丘市區）", src: [s1] }
   scale: area
 structure_tags: [雇傭兵與蠻族化軍隊, 精英內鬥, 外部勢力介入, 臨界點, 戰爭融資]
-links: [building-grand-canal]
+links: [building-grand-canal, war-jingkang, event-wang-anshi-reform]
 counterparts:
   - { id: event-rubicon, note: "相似：掌握邊疆大軍的將領，帶著只效忠自己的軍隊回頭攻向首都。不同：凱撒打贏了，羅馬共和由此走向帝制；安祿山的燕政權在內鬨中瓦解，唐朝保住了皇位，卻從此陷入地方節度使割據。", src: [s1, s3] }
 sources:

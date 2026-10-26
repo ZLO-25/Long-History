@@ -19,7 +19,7 @@ place:
     - { name_ancient: 江戶（東京）, name_modern: 東京（日本）, lat: 35.6852, lng: 139.7528, precision: schematic, role: 幕府所在地，後成為新首都, src: [s1] }
   scale: area
 structure_tags: [合法性危機, 精英內鬥, 技術擴散, 擴大稅基, 制度包裝延續]
-links: [event-black-ships, event-self-strengthening, event-sakoku]
+links: [event-black-ships, event-self-strengthening, event-sakoku, event-1895-cession]
 counterparts: 無適當對照：西方軌沒有一張「非西方國家在二十年內全面改造國家制度」的卡。
 sources:
   - { id: s1, title: "Meiji Restoration — Wikipedia", url: "https://en.wikipedia.org/wiki/Meiji_Restoration", accessed: 2026-10-25, tier: 百科 }

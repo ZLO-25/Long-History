@@ -19,7 +19,7 @@ place:
     - { name_ancient: 上海, name_modern: 上海市（中國）, lat: 31.2304, lng: 121.4737, precision: schematic, role: 早期舊臺幣在此印製；1948 年金融危機與熱錢來源, src: [s1, s5] }
   scale: area
 structure_tags: [貨幣貶值, 惡性通膨, 貨幣體系轉換, 財政枯竭, 戰爭融資]
-links: [finance-taiwan-stock-exchange, finance-bretton-woods]
+links: [finance-taiwan-stock-exchange, finance-bretton-woods, finance-gold-yuan-1948, event-228-incident]
 counterparts:
   - { id: finance-weimar-hyperinflation, note: "相似：政府都靠印鈔撐財政，物價失控後換新貨幣（四萬換一元、一兆換一元）。不同：臺灣在改革時撥入黃金準備，但物價要到後來美援進來才穩住；德國則靠以資產擔保的地租馬克（德國的部分見威瑪卡）。", src: [s3, s5] }
 sources:

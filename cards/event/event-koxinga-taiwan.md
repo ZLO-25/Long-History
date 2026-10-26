@@ -21,7 +21,7 @@ place:
     - { name_ancient: 廈門、金門, name_modern: 福建省廈門市、金門縣, lat: 24.45, lng: 118.2, precision: schematic, role: 鄭軍出發地, src: [s1, s2] }
   scale: area
 structure_tags: [外部勢力介入, 擴大稅基, 商路改道]
-links: [event-dutch-formosa, social-siraya-deer, event-spanish-north-taiwan]
+links: [event-dutch-formosa, social-siraya-deer, event-spanish-north-taiwan, event-qing-taiwan-frontier]
 counterparts: 無適當對照：目前本站西方軌沒有「流亡政權退到海島、靠海上貿易撐住」的同時期卡片，之後補卡再對照。
 sources:
   - { id: s1, title: "Kingdom of Tungning — Wikipedia", url: "https://en.wikipedia.org/wiki/Kingdom_of_Tungning", accessed: 2026-10-25, tier: 百科 }

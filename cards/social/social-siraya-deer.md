@@ -20,7 +20,7 @@ place:
     - { name_ancient: 蕭壠社, name_modern: 臺南市佳里區（臺灣）, lat: 23.1652, lng: 120.1774, precision: schematic, role: 西拉雅大社之一, src: [s1] }
   scale: area
 structure_tags: [關鍵原料壟斷, 外部勢力介入, 慢變結構, 重新設計基本單位]
-links: [event-dutch-formosa]
+links: [event-dutch-formosa, event-koxinga-taiwan, event-spanish-north-taiwan, event-qing-taiwan-frontier]
 counterparts: 無適當對照：本站目前沒有同時代其他地區原住民族日常生活的卡片，之後補 E 卡時再對照。
 sources:
   - { id: s1, title: "Siraya people — Wikipedia", url: "https://en.wikipedia.org/wiki/Siraya_people", accessed: 2026-10-25, tier: 百科 }

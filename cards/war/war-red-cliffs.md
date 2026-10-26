@@ -18,7 +18,7 @@ place:
     - { name_ancient: 赤壁, name_modern: 長江中游，武漢西南或岳陽東北（確切位置未定）, lat: 29.717, lng: 113.9, precision: disputed, role: 戰場；座標為今湖北赤壁市（1998 年才由蒲圻改名，學者多認為不一定是原址）, src: [s1, s3] }
   scale: area
 structure_tags: [霸權挑戰, 補給線過長, 外部勢力介入, 突變事件, 地形險阻]
-links: [event-yellow-turban]
+links: [event-yellow-turban, war-feishui, war-chu-han]
 counterparts:
   - { id: war-greco-persian, note: "相似：兵力佔優的入侵者在水戰中被較小的聯軍擊敗，主力隨即撤退，戰後格局被固定下來。不同：波斯帝國戰後依然強大；曹操是在東漢崩解後想重新統一，赤壁讓中國分裂成三國。", src: [s1, s2] }
 sources:

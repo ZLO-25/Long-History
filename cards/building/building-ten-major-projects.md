@@ -22,7 +22,7 @@ place:
     - { name_ancient: 第一核能發電廠, name_modern: 新北市石門區（臺灣）, lat: 25.2860, lng: 121.5860, precision: schematic, role: 臺灣第一座核電廠, src: [s1, s2] }
   scale: area
 structure_tags: [公共工程支出, 基礎建設網絡, 能源轉換, 快速擴張]
-links: [event-kaohsiung-epz]
+links: [event-kaohsiung-epz, event-hsinchu-park-tsmc, tech-railway]
 counterparts: 無適當對照：本站西方軌目前沒有 1970 年代國家主導大型公共工程的卡片（例如石油危機後各國的建設計畫），之後補卡再對照。
 sources:
   - { id: s1, title: "Ten Major Construction Projects — Wikipedia", url: "https://en.wikipedia.org/wiki/Ten_Major_Construction_Projects", accessed: 2026-10-25, tier: 百科 }

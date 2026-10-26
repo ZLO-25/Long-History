@@ -18,7 +18,7 @@ place:
     - { name_ancient: 城濮, name_modern: 今河南陳留一帶或山東鄄城西南（兩說）, lat: 34.6711, lng: 114.5289, precision: disputed, role: 戰場；維基百科座標取陳留一說, src: [s1] }
   scale: point
 structure_tags: [霸權挑戰, 聯盟破裂, 外部勢力介入, 突變事件]
-links: []
+links: [event-partition-of-jin, event-guan-zhong-reform, war-changping]
 counterparts:
   - { id: war-peloponnesian, note: "相似：北方與南方兩大集團各帶一批盟國對抗，勝方成為「盟主」主持諸國會盟。不同：城濮是一天定勝負的會戰，伯羅奔尼撒戰爭打了 27 年；春秋霸主名義上仍尊周王。", src: [s1] }
 sources:

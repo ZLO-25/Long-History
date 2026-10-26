@@ -18,7 +18,7 @@ place:
     - { name_ancient: 武州山石窟, name_modern: 大同市西約 16 公里（中國山西）, lat: 40.1106, lng: 113.1258, precision: exact, role: 石窟所在（維基百科座標）, src: [s1] }
   scale: point
 structure_tags: [宗教／意識形態動員, 政治宣傳工程, 技術擴散]
-links: [event-xiaowen-reform]
+links: [event-xiaowen-reform, war-feishui, building-grand-canal]
 counterparts:
   - { id: building-pantheon, note: "相似：由國家出資、規模宏大的宗教建築，也是統治者展示權力與正統的地方。不同：萬神殿供奉羅馬自己的眾神；雲岡石窟供奉從南亞、中亞傳來的佛教，風格融合外來與中國傳統。", src: [s1, s2] }
 sources:

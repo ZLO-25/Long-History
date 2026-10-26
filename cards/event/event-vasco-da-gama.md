@@ -21,7 +21,7 @@ place:
     - { name_ancient: 卡利卡特（古里）, name_modern: 科澤科德（印度喀拉拉邦）, lat: 11.26, lng: 75.78, precision: schematic, role: 1498 年 5 月抵達的目的地，印度西南岸香料港（座標為今科澤科德市）, src: [s1, s2] }
   scale: line
 structure_tags: [商路改道, 技術代差, 快速擴張]
-links: [event-zheng-he-voyages]
+links: [event-zheng-he-voyages, commodity-manila-galleon, event-dutch-formosa, finance-amsterdam-exchange]
 counterparts:
   - { id: event-zheng-he-voyages, note: "相似：都是國家出資、橫越印度洋到達印度西南岸古里（卡利卡特）的遠航。不同：達伽馬只有 4 艘船、約 170 人，目標是香料貿易，之後葡萄牙一再派船、用武力建堡壘；鄭和船隊規模大得多，目的是朝貢與國威，結束後明朝停止遠航。", src: [s1, s2, s5] }
 sources:

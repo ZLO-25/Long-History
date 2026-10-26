@@ -18,7 +18,7 @@ place:
     - { name_ancient: 東京（汴京）, name_modern: 開封（中國河南）, lat: 34.795, lng: 114.345, precision: schematic, role: 北宋首都，新法在此由朝廷制定頒布（座標為今開封市）, src: [s3] }
   scale: point
 structure_tags: [擴大稅基, 財政枯竭, 精英內鬥]
-links: [event-single-whip-reform]
+links: [event-single-whip-reform, finance-jiaozi, event-shang-yang-reform, war-jingkang]
 counterparts:
   - { id: event-magna-carta, note: "相似：兩者都是因為國家打仗缺錢、要向更多人收錢而引發的大衝突。不同：大憲章是貴族逼國王承諾「收稅要先問過大家」，限制了國王；王安石變法是朝廷主動擴大收錢的範圍，反對派只能靠皇帝換人來翻盤，並沒有建立限制君權的規則。", src: [s1, s2, s5] }
 sources:

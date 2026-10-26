@@ -22,6 +22,7 @@ place:
     - { name_ancient: 開羅, name_modern: 開羅（埃及）, lat: 30.04, lng: 31.24, precision: schematic, role: 1348 年夏末受災，約 60 萬居民中估計超過三分之一死亡（座標為今開羅市）, src: [s1] }
   scale: area
 structure_tags: [疫病衝擊, 突變事件, 臨界點]
+links: [war-crusades, finance-medici-bank, commodity-silk]
 counterparts: "無適當對照：計畫卡中沒有中國的疫病卡；且 14 世紀中國是否也爆發同一波鼠疫，史料證據薄弱（World History Encyclopedia），不宜硬配。"
 sources:
   - { id: s1, title: "Black Death — Wikipedia", url: "https://en.wikipedia.org/wiki/Black_Death", accessed: 2026-10-25 }

@@ -21,7 +21,7 @@ place:
     - { name_ancient: 北京, name_modern: 北京（中國）, lat: 39.9042, lng: 116.4074, precision: schematic, role: 清廷所在，1912 年 2 月 12 日頒布退位詔書（座標為今市中心）, src: [s1, s2] }
   scale: area
 structure_tags: [革命與政權更替, 合法性危機, 臨界點, 強人繞過制度]
-links: [war-opium-war, event-french-revolution, war-sino-japanese-1937]
+links: [war-opium-war, event-french-revolution, war-sino-japanese-1937, event-taiwan-cultural-association]
 counterparts:
   - { id: event-french-revolution, note: "相似：都推翻延續很久的君主制、建立共和，之後都出現強人（袁世凱、拿破崙）甚至恢復帝制。不同：辛亥革命由地方新軍起義引發，以清帝和平退位、袁世凱接任收場；法國大革命從首都群眾起事開始，處死國王並經歷恐怖統治。", src: [s1, s2] }
 sources:

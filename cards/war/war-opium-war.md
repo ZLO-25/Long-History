@@ -23,7 +23,7 @@ place:
     - { name_ancient: 香港島, name_modern: 香港（中國）, lat: 22.2783, lng: 114.1747, precision: schematic, role: 割讓給英國（座標為今中環）, src: [s1, s2] }
   scale: line
 structure_tags: [技術代差, 海權對陸權, 海峽封鎖, 合法性危機]
-links: [event-single-whip-reform, event-xinhai-revolution, tech-steam-engine]
+links: [event-single-whip-reform, event-xinhai-revolution, tech-steam-engine, commodity-taiwan-tea-camphor, event-mudan-incident]
 counterparts: "無適當對照：計畫卡中沒有同時期由西方國家被迫開港、簽不平等條約的事件；以「工業化海權打敗農業帝國」來看，結構上屬於全球帝國擴張的一環，不宜硬配單一西方事件。"
 sources:
   - { id: s1, title: "First Opium War — Wikipedia", url: "https://en.wikipedia.org/wiki/First_Opium_War", accessed: 2026-10-25, tier: 百科 }

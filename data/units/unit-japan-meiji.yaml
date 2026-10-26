@@ -129,5 +129,5 @@ steps:
         ref: event-black-ships#C7
   - type: recap
     model_answer: 一個重要差別是改革的深度：日本在黑船來航後推翻幕府，由新的中央政府全面改造政治、軍事、社會制度；清朝的自強運動主要由地方大員引進技術，朝廷制度大致不變。但「日本成功、中國失敗」不能只看結局倒著推：1880 年代以前，清朝的造船廠和艦隊並不比日本差。歷史的結果，常常是許多選擇和偶然一起造成的。
-next: [unit-imjin-war, unit-chip-island]
+next: [unit-taiwan-colony, unit-imjin-war, unit-chip-island]
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "複查通過；選擇性建議已採用" }

@@ -18,7 +18,7 @@ place:
     - { name_ancient: 臺北市第十信用合作社, name_modern: 臺北市（臺灣）, lat: 25.0478, lng: 121.5319, precision: schematic, role: 發生擠兌的信用合作社（座標為臺北市區示意）, src: [s1] }
   scale: point
 structure_tags: [銀行擠兌, 精英內鬥, 債務擴張, 合法性危機]
-links: [finance-taiwan-stock-exchange, finance-taiwan-1949-currency]
+links: [finance-taiwan-stock-exchange, finance-taiwan-1949-currency, event-taiwan-martial-law]
 counterparts: 無適當對照：本站同時代的西方軌沒有單一金融機構擠兌的卡片；擠兌結構可對照「大蕭條」與「2008 金融危機」卡，但時代差太多，不列為同期對照。
 sources:
   - { id: s1, title: "十信案 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/%E5%8D%81%E4%BF%A1%E6%A1%88", accessed: 2026-10-25, tier: 百科 }

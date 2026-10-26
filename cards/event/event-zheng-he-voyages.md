@@ -23,7 +23,7 @@ place:
     - { name_ancient: 麻林地, name_modern: 馬林迪（肯亞）, lat: -3.22, lng: 40.12, precision: schematic, role: 東非斯瓦希里海岸，長頸鹿由此取得（座標為今馬林迪市）, src: [s1, s2] }
   scale: line
 structure_tags: [政治宣傳工程, 公共工程支出, 邊疆防線]
-links: [event-vasco-da-gama]
+links: [event-vasco-da-gama, finance-ming-baochao, commodity-silver-flow]
 counterparts:
   - { id: event-vasco-da-gama, note: "相似：都是 15 世紀國家出資、穿越印度洋到達印度西南岸古里（科澤科德）的遠洋船隊。不同：鄭和船隊龐大（首航約 317 艘），主要目的是宣揚國威、建立朝貢關係，結束後朝廷停止遠航；達伽馬只有 4 艘船、約 170 人，目的是取得香料貿易，之後葡萄牙持續用武力建立據點。", src: [s1, s2, s5] }
 sources:

@@ -18,7 +18,7 @@ place:
     - { name_ancient: 倫敦, name_modern: 倫敦（英國）, lat: 51.507, lng: -0.128, precision: schematic, role: 1215 年 5 月叛亂貴族佔領倫敦，逼國王談判（座標為今倫敦市中心）, src: [s1] }
   scale: area
 structure_tags: [法律成文化, 合法性危機, 戰爭融資]
-links: [event-french-revolution]
+links: [event-french-revolution, finance-bank-of-england, event-twelve-tables]
 counterparts:
   - { id: event-wang-anshi-reform, note: "相似：都起於國家打仗缺錢、要向更多人收錢。不同：英格蘭貴族用武力逼國王寫下「收稅要經過全國共同商議」；北宋是朝廷主動擴大稅收，反對的官員沒有能限制皇帝的制度工具。", src: [s1, s4, s7] }
 sources:

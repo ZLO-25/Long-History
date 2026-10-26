@@ -22,7 +22,7 @@ place:
     - { name_ancient: 安條克, name_modern: 安塔基亞（土耳其）, lat: 36.2021, lng: 36.1600, precision: schematic, role: "1098 年被第一次十字軍攻下，後成為安條克公國（座標為今市區）", src: [s1, s2] }
   scale: area
 structure_tags: [宗教／意識形態動員, 戰爭融資, 補給線過長, 聯盟破裂]
-links: [event-charlemagne-coronation]
+links: [event-charlemagne-coronation, event-black-death, finance-medici-bank, commodity-silk]
 counterparts:
   - { id: war-jingkang, note: "相似：都在 12 世紀，都是長期的跨文明戰爭，都發生了大城市被攻陷、洗劫、居民被殺或被擄走的慘劇（1099 耶路撒冷、1204 君士坦丁堡；1127 開封）。不同：十字軍是以宗教號召、千里遠征他方；靖康是新興的金國南下攻滅北宋，宋是被攻擊的防守方。", src: [s1, s2] }
 sources:

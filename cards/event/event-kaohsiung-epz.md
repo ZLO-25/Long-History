@@ -19,7 +19,7 @@ place:
     - { name_ancient: 楠梓加工出口區, name_modern: 高雄市楠梓區（臺灣）, lat: 22.7247, lng: 120.3075, precision: schematic, role: 1969 年設立的第二批加工區, src: [s2, s4] }
   scale: area
 structure_tags: [快速擴張, 技術擴散, 基礎建設網絡, 擴大稅基]
-links: [finance-taiwan-stock-1990]
+links: [finance-taiwan-stock-1990, building-ten-major-projects, event-hsinchu-park-tsmc, tech-container-shipping, event-taiwan-land-reform]
 counterparts:
   - { id: event-reform-and-opening, note: "相似：都用一塊劃出來的特別區域、給外資減稅與免關稅，吸引工廠來做出口（臺灣 1966 年加工區、中國 1980 年代深圳經濟特區）。不同：深圳特區是整個國家從計畫經濟轉向市場的試點，範圍和政治意義大得多；高雄加工區是在已經有市場經濟的臺灣多開一條出口管道。", src: [s1, s6] }
 sources:

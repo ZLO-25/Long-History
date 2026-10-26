@@ -112,5 +112,5 @@ steps:
         ref: finance-gold-yuan-1948#F5
   - type: recap
     model_answer: 因為政府長期花的比收的多，叫銀行印鈔票來補，鈔票越來越多，物價就越漲越快；大家一旦不相信這種錢，就只能換新貨幣、拿掉後面的零。但換新貨幣不是魔法：大陸的金圓券換了卻繼續濫印，很快崩潰；臺灣的新臺幣要靠限量發行、黃金準備，再加上後來美援讓赤字縮小，才慢慢穩定下來。事後看「印太多錢會出事」很清楚，但當時的人面對內戰和軍費，選擇很少；而被記住的多半是撐過來的人，當年積蓄化為烏有的家庭很少留下紀錄。
-next: [unit-bubbles, unit-chip-island]
+next: [unit-taiwan-democracy, unit-chip-island, unit-bubbles]
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "首次查核 1 項必改（模擬題敘述與銀幣模擬不對應），已逐字採用查核者提供的修正文字；其餘建議亦已採用" }

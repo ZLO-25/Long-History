@@ -19,7 +19,7 @@ place:
     - { name_ancient: 福州船政局, name_modern: 福州馬尾（中國）, lat: 25.9930, lng: 119.4530, precision: schematic, role: 1866 年左宗棠奏請設立的造船廠與船政學堂, src: [s1, s2] }
   scale: area
 structure_tags: [技術擴散, 技術代差, 制度包裝延續, 外部勢力介入, 精英內鬥]
-links: [war-opium-war, event-meiji-restoration, event-black-ships]
+links: [war-opium-war, event-meiji-restoration, event-black-ships, event-mudan-incident, event-1895-cession]
 counterparts: 無適當對照：西方軌沒有一張「戰敗後只引進技術、保留舊制度」的對應卡。
 sources:
   - { id: s1, title: "Self-Strengthening Movement — Wikipedia", url: "https://en.wikipedia.org/wiki/Self-Strengthening_Movement", accessed: 2026-10-25, tier: 百科 }

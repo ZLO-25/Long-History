@@ -24,7 +24,7 @@ place:
     - { name_ancient: 臺北（台北州）, name_modern: 台北（台灣）, lat: 25.033, lng: 121.5654, precision: schematic, role: 日本統治下的台灣總督府所在地（座標為今台北市）, src: [s5] }
   scale: area
 structure_tags: [霸權挑戰, 補給線過長, 外部勢力介入, 全面戰爭, 宗教／意識形態動員, 地形險阻]
-links: [war-world-war-two, war-world-war-one, event-xinhai-revolution]
+links: [war-world-war-two, war-world-war-one, event-xinhai-revolution, event-taiwan-kominka]
 counterparts:
   - { id: war-world-war-two, note: "相似：同一場世界大戰的亞洲與歐洲戰場，侵略方（日本／德國）都在 1945 年被同盟國擊敗，戰後都被占領並審判戰犯。不同：中國從 1937 年（東北從 1931 年）就開始抵抗，到 1941 年底前幾乎獨自作戰；1941 年 12 月以後才與英美並肩，併入世界大戰。", src: [s1, s10] }
 sources:

@@ -16,6 +16,9 @@ import { TodayPanel } from './components/TodayPanel';
 import { useIsMobile } from './lib/useIsMobile';
 import { MIN_YEAR, MAX_YEAR } from './lib/timeScale';
 import { LearnApp } from './learn/LearnApp';
+import { Splitter } from './components/Splitter';
+import { useLayout, colSize, rowSize } from './lib/layout';
+import { useRef } from 'react';
 
 export type Panel =
   | { kind: 'list' }
@@ -84,6 +87,13 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const [todayOn, setTodayOn] = useState(() => params.has('today') || (params.get('chain') ?? '').startsWith('today-'));
   const [mobileTab, setMobileTab] = useState<'list' | 'map' | 'match'>('list');
   const panel = stack[stack.length - 1];
+  // 各區塊大小可拖曳調整（右欄寬、時間軸高、時間軸收合），記在這台瀏覽器；「⟲ 版面」恢復預設
+  const { layout, set: setLayout, reset: resetLayout } = useLayout();
+  const mainRef = useRef<HTMLElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
+  const tlRef = useRef<HTMLDivElement>(null);
+  const tlOpen = layout.rTlOpen ?? true;
+  const customized = layout.rPanel != null || layout.rTl != null;
 
   const byId = useMemo(() => new Map(index.cards.map((c) => [c.id, c])), [index]);
   const search = useMemo(() => createSearch(index.cards), [index]);
@@ -158,6 +168,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
         <input className="search" type="search" value={query} onChange={(e) => onQuery(e.target.value)}
           placeholder={isMobile ? '搜尋卡片（可打錯字、簡體、英文）' : '搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）'} aria-label="搜尋" />
         {!isMobile && <button className={`btn ${panel.kind === 'match' ? 'on' : ''}`} onClick={() => open({ kind: 'match' })}>結構對照</button>}
+        {!isMobile && customized && <button className="btn layout-reset" onClick={() => resetLayout(['rPanel', 'rTl'])} title="把地圖、卡片欄、時間軸的大小恢復預設">⟲ 版面</button>}
         <button className="btn learn-btn" onClick={onLearn} title="給國高中生的自主學習模式">學習模式</button>
         <a className="btn credits" href={`${import.meta.env.BASE_URL}credits.html`} target="_blank" rel="noopener" title="資料來源與授權">出處</a>
       </header>
@@ -187,16 +198,22 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
           </main>
         </>
       ) : (
-        <main className="d-main">
+        <main ref={mainRef} className={`d-main ${layout.rTl ? 'tl-sized' : ''} ${tlOpen ? '' : 'tl-closed'}`}
+          style={{ gridTemplateColumns: `minmax(0, 1fr) 6px ${colSize(layout.rPanel, 'minmax(360px, 34%)')}`, gridTemplateRows: `minmax(0, 1fr) 6px ${tlOpen ? rowSize(layout.rTl, 'auto') : 'auto'}` }}>
           <div className="map-wrap">{map}</div>
-          <section className="panel">
+          <Splitter dir="col" grow="neg" label="調整卡片欄寬度" min={280} max={() => (mainRef.current?.clientWidth ?? 1200) * 0.65}
+            measure={() => panelRef.current?.getBoundingClientRect().width ?? 400} onChange={(px) => setLayout({ rPanel: px })} onReset={() => resetLayout(['rPanel'])} />
+          <section ref={panelRef} className="panel">
             {stack.length > 1 && <div className="panel-nav"><button className="back" onClick={back}>← 返回</button><button className="back" onClick={home}>清單</button></div>}
             {side}
           </section>
-          <div className="timeline-wrap">
-            <Timeline cards={visible} allCards={index.cards} year={year} setYear={setYear}
+          <Splitter dir="row" grow="neg" label="調整時間軸高度" min={60} max={() => (mainRef.current?.clientHeight ?? 800) * 0.55}
+            measure={() => tlRef.current?.getBoundingClientRect().height ?? 200} onChange={(px) => setLayout({ rTl: px })} onReset={() => resetLayout(['rTl'])} />
+          <div ref={tlRef} className="timeline-wrap">
+            <button className="tl-toggle" onClick={() => setLayout({ rTlOpen: !tlOpen })} aria-expanded={tlOpen}>{tlOpen ? '▾ 收起時間軸' : '▸ 展開時間軸'}</button>
+            {tlOpen && <Timeline cards={visible} allCards={index.cards} year={year} setYear={setYear}
               selectedId={selectedCard?.id ?? null} onOpen={openCard}
-              econ={index.econ} onEcon={openEcon} econSel={panel.kind === 'econ' ? { series: panel.series, point: panel.point } : null} />
+              econ={index.econ} onEcon={openEcon} econSel={panel.kind === 'econ' ? { series: panel.series, point: panel.point } : null} />}
           </div>
         </main>
       )}

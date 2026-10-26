@@ -215,8 +215,16 @@
 .danger-zone { margin-top: 24px; } .danger-zone summary { cursor: pointer; color: var(--muted); font-size: .9em; }
 .btn.danger { border-color: #e53e3e; color: #c53030; }
 @media print {
-  .learn .ltop, .learn .ld-map, .learn .ld-tl, .learn .ltabs, .learn .back, .no-print { display: none !important; }
+  .learn .ltop, .learn .ld-map, .learn .ld-tl, .learn .ltabs, .learn .back, .learn .splitter, .no-print { display: none !important; }
   .learn, .learn .ld-main, .learn .lm-main, .learn .lcontent { display: block !important; height: auto !important; overflow: visible !important; border: 0 !important; }
   html, body, #root { height: auto !important; }
   .rec-w { break-inside: avoid; }
 }
+/* ── 學習模式桌機版：文字欄｜分隔線｜地圖；下方 分隔線＋時間軸（大小可拖曳，記在瀏覽器） ── */
+.ld-main { grid-template-columns: minmax(0, 1.15fr) 6px minmax(0, 0.85fr); grid-template-rows: minmax(0, 1fr) 6px auto; }
+.ld-main > .splitter.col { grid-column: 2; grid-row: 1; }
+.ld-main > .ld-map { grid-column: 3; }
+.ld-main > .splitter.row { grid-column: 1 / 4; grid-row: 2; }
+.ld-main > .ld-tl { grid-column: 1 / 4; grid-row: 3; }
+.ld-main.tl-sized > .ld-tl { max-height: none; height: 100%; min-height: 0; }
+.learn.tl-closed .ld-main > .splitter.row { display: none; }

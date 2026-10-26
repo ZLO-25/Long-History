@@ -51,7 +51,10 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m), chain: L.layerGroup().addTo(m), mover: L.layerGroup().addTo(m), today: L.layerGroup().addTo(m),
     };
     map.current = m;
-    return () => { m.remove(); };
+    // 區塊被拖曳改大小時，馬上讓 Leaflet 重新量容器，地圖才不會留白或偏掉
+    const ro = new ResizeObserver(() => m.invalidateSize({ animate: false }));
+    ro.observe(el.current!);
+    return () => { ro.disconnect(); m.remove(); };
   }, []);
 
   // 疆域：選「不晚於目前年代」的最近快照

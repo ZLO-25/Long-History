@@ -239,3 +239,29 @@ a { color: var(--accent); }
 .mobile .civ-region { flex-direction: column; }
 .lane-tech { fill: #f4f0fb; }
 .lane-finance { fill: #eef8f6; }
+
+/* ── 可拖曳分隔線（各區塊大小可自行調整；記在這台瀏覽器） ── */
+.splitter { position: relative; background: var(--line); touch-action: none; user-select: none; z-index: 20; outline: none; }
+.splitter.col { cursor: col-resize; width: 6px; }
+.splitter.row { cursor: row-resize; height: 6px; }
+.splitter:hover, .splitter:focus-visible { background: #c9b98f; }
+.splitter:focus-visible { box-shadow: 0 0 0 2px #f6ad55; }
+.splitter .grip { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #a09a8c; border-radius: 2px; }
+.splitter.col .grip { width: 2px; height: 36px; }
+.splitter.row .grip { width: 36px; height: 2px; }
+/* 拖曳中：整頁用同一種游標，並讓地圖不吃滑鼠事件，拖起來才順 */
+body.dragging-col { cursor: col-resize; } body.dragging-row { cursor: row-resize; }
+body.dragging-col *, body.dragging-row * { user-select: none !important; }
+body.dragging-col .map-canvas, body.dragging-row .map-canvas, body.dragging-col iframe, body.dragging-row iframe { pointer-events: none; }
+/* 研究模式桌機版：地圖｜分隔線｜右欄；下方 分隔線＋時間軸。大小由 .d-main 的 inline style 決定 */
+.d-main { grid-template-columns: minmax(0, 1fr) 6px minmax(360px, 34%); grid-template-rows: minmax(0, 1fr) 6px auto; }
+.d-main > .splitter.col { grid-column: 2; grid-row: 1; }
+.d-main > .panel { grid-column: 3; }
+.d-main > .splitter.row { grid-column: 1 / 4; grid-row: 2; }
+.d-main > .timeline-wrap { grid-column: 1 / 4; grid-row: 3; position: relative; }
+.d-main.tl-sized > .timeline-wrap { max-height: none; height: 100%; min-height: 0; }
+.d-main.tl-closed > .timeline-wrap { max-height: none; min-height: 28px; padding: 4px 0; }
+.d-main.tl-closed > .splitter.row { display: none; }
+.tl-toggle { position: absolute; right: 10px; top: 3px; z-index: 5; border: 1px solid var(--line); background: #fff; border-radius: 6px; font-size: 12px; padding: 2px 8px; color: var(--muted); }
+.btn.layout-reset { white-space: nowrap; }
+.d-main .timeline .tl-head { padding-right: 120px; }

@@ -75,6 +75,7 @@ npm run dev
 | `npm run build` | 檢查＋打包成靜態網頁到 `dist/` |
 | `LEARN_DEV=1 npm run dev` | 開發時讓還沒通過查核的學習卡與單元也顯示（正式 build 不會用） |
 | `node scripts/qa/e2e.cjs http://localhost:4173/` | 先 `npm run build` 再 `npx vite preview`，然後自動走過 6 條歷史的每個單元每一步、3 個模擬；同資料夾還有 `research.cjs`（研究模式回歸）、`overlap.cjs`（時間軸標籤重疊）、`shot.cjs`（截圖）。需要 Playwright |
+| `node scripts/qa/layout.cjs http://localhost:4173/` | 桌機版可拖曳分隔線：拖曳、重整後記住、收起時間軸、鍵盤、「⟲ 版面」重設、小視窗、手機無分隔線（說明見 docs/layout-report.md） |
 
 ## 三、用 Obsidian 編輯卡片
 

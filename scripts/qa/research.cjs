@@ -6,7 +6,9 @@ const { chromium } = require('playwright');
   let errs = []; p.on('pageerror', (e) => errs.push(String(e)));
   p.on('console', (m) => { if (m.type() === 'error' && !/ERR_TUNNEL|ERR_NAME|ERR_PROXY|tile/.test(m.text())) errs.push(m.text()); });
   const cases = [
-    ['首頁', '', async () => (await p.$$('svg .lane-label')).length > 0 && (await p.$('.map-canvas')) != null],
+    // 2026-10-25 起沒帶參數的首頁會進學習模式，研究模式首頁改用 ?mode=research 測
+    ['首頁（?mode=research）', '?mode=research', async () => (await p.$$('svg .lane-label')).length > 0 && (await p.$('.map-canvas')) != null],
+    ['無參數首頁 → 學習模式', '', async () => { await p.evaluate(() => localStorage.clear()); await p.goto(base, { waitUntil: 'networkidle' }); return (await p.$('.learn')) != null; }],
     ['?year=100', '?year=100', async () => (await p.textContent('body')).includes('100')],
     ['?card=war-peloponnesian', '?card=war-peloponnesian', async () => (await p.textContent('body')).includes('伯羅奔尼撒')],
     [`?chain=${chain}`, `?chain=${chain}`, async () => true],

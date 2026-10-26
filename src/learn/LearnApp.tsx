@@ -1,6 +1,8 @@
 // 第 6 期：自主學習模式。和研究模式共用同一批卡片資料，只是呈現方式不同
 // 網址：?mode=learn&history=japan&unit=unit-xxx&card=war-xxx&sim=bubble&view=mymap
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Splitter } from '../components/Splitter';
+import { useLayout, colSize, rowSize } from '../lib/layout';
 import type { Card, Index } from '../types';
 import { MapView } from '../components/MapView';
 import { createSearch } from '../lib/search';
@@ -68,6 +70,12 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const fs = p.fontScale ?? 1;
   // 桌機的時間軸可以收起來，讀單元時留更多空間給文字；記在瀏覽器
   const tlOpen = p.timelineOpen ?? true;
+  // 文字欄寬、時間軸高可拖曳調整，記在瀏覽器；「⟲ 版面」恢復預設
+  const { layout, set: setLayout, reset: resetLayout } = useLayout();
+  const mainRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLElement>(null);
+  const tlRef = useRef<HTMLDivElement>(null);
+  const customized = layout.lContent != null || layout.lTl != null;
   const toggleTl = () => update((o) => ({ ...o, timelineOpen: !(o.timelineOpen ?? true) }));
   // 字級：手機上用一顆按鈕循環（標準 → 大 → 特大 → 標準）
   const cycleFs = () => update((o) => { const cur = o.fontScale ?? 1; return { ...o, fontScale: cur >= 1.35 ? 1 : cur >= 1.15 ? 1.4 : 1.2 }; });
@@ -157,6 +165,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
           <button className="btn sm" onClick={() => update((o) => ({ ...o, fontScale: Math.min(1.5, (o.fontScale ?? 1) + 0.1) }))} aria-label="字變大">A＋</button>
         </div>
       )}
+      {!isMobile && customized && <button className="btn sm layout-reset" onClick={() => resetLayout(['lContent', 'lTl'])} title="把文字欄、地圖、時間軸的大小恢復預設">⟲ 版面</button>}
       <button className="btn sm" onClick={() => { update((o) => ({ ...o, seenIntro: false })); setStack([{ kind: 'home' }]); setQuery(''); }} title="怎麼使用這個網站" aria-label="使用說明">？</button>
     </header>
   );
@@ -179,10 +188,15 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   return (
     <div className={`learn desktop ${tlOpen ? '' : 'tl-closed'}`} style={{ ['--fs' as any]: fs }}>
       {header}
-      <main className="ld-main">
-        <section className="lcontent">{stack.length > 1 && <button className="back" onClick={back}>← 返回</button>}{content}</section>
+      <main ref={mainRef} className={`ld-main ${layout.lTl ? 'tl-sized' : ''}`}
+        style={{ gridTemplateColumns: `${colSize(layout.lContent, 'minmax(0, 1.15fr)', 320, 75)} 6px minmax(0, 1fr)`, gridTemplateRows: `minmax(0, 1fr) 6px ${tlOpen ? rowSize(layout.lTl, 'auto') : 'auto'}` }}>
+        <section ref={contentRef} className="lcontent">{stack.length > 1 && <button className="back" onClick={back}>← 返回</button>}{content}</section>
+        <Splitter dir="col" grow="pos" label="調整文字欄寬度" min={320} max={() => (mainRef.current?.clientWidth ?? 1200) * 0.75}
+          measure={() => contentRef.current?.getBoundingClientRect().width ?? 600} onChange={(px) => setLayout({ lContent: px })} onReset={() => resetLayout(['lContent'])} />
         <div className="ld-map">{map}</div>
-        <div className="ld-tl">
+        <Splitter dir="row" grow="neg" label="調整時間軸高度" min={60} max={() => (mainRef.current?.clientHeight ?? 800) * 0.55}
+          measure={() => tlRef.current?.getBoundingClientRect().height ?? 200} onChange={(px) => setLayout({ lTl: px })} onReset={() => resetLayout(['lTl'])} />
+        <div ref={tlRef} className="ld-tl">
           <button className="tl-toggle" onClick={toggleTl} aria-expanded={tlOpen}>{tlOpen ? '▾ 收起時間軸' : '▸ 展開時間軸'}</button>
           {tlOpen && timeline}
         </div>

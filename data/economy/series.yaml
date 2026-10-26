@@ -19,6 +19,8 @@ sources:
   - { id: w2, title: "de Zwart, van Leeuwen & van Leeuwen-Li (2014), Real wages since 1820 — OECD, How Was Life? 第 4 章", url: "https://pure.knaw.nl/ws/files/1067837/3014041ec008_1_.pdf", accessed: 2026-10-25 }
   - { id: b1, title: "Bank of England, A millennium of macroeconomic data（第 3.1 版，A47 工資與物價、A48 實質工資）", url: "https://www.bankofengland.co.uk/statistics/research-datasets", accessed: 2026-10-25 }
   - { id: b2, title: "Clark, G. (2009) 英格蘭建築工人日薪，收錄於英格蘭銀行千年資料 A47 表（AC 欄）", url: "https://www.bankofengland.co.uk/-/media/boe/files/statistics/research-datasets/a-millennium-of-macroeconomic-data-for-the-uk.xlsx", accessed: 2026-10-25 }
+  - { id: g1, title: "行政院主計總處，歷年受僱員工每人每月總薪資（取「工業及服務業」欄，XML）— 政府資料開放平臺（政府資料開放授權條款第 1 版）", url: "https://data.gov.tw/dataset/9634", accessed: 2026-10-26 }
+  - { id: g2, title: "行政院主計總處，消費者物價基本分類指數（總指數，月資料，指數基期民國 110 年＝100，XML）— 政府資料開放平臺（政府資料開放授權條款第 1 版）", url: "https://data.gov.tw/dataset/6019", accessed: 2026-10-26 }
 
 metrics:
   - { id: population, name: 人口, unit: 人, scale: log }
@@ -28,6 +30,9 @@ metrics:
   - { id: eng_wage, name: 英格蘭名目日薪, unit: 便士, scale: log }
   - { id: uk_cpi, name: 英國物價, unit: 指數，2015 年＝100, scale: log }
   - { id: uk_real, name: 英國實質工資, unit: 指數，1900 年＝100, scale: log }
+  - { id: tw_wage, name: 臺灣名目月薪, unit: 新臺幣元／月, scale: linear }
+  - { id: tw_cpi, name: 臺灣物價, unit: 指數，民國 110 年（2021）＝100, scale: linear }
+  - { id: tw_real_wage, name: 臺灣實質月薪, unit: 新臺幣元／月（以 2021 年物價計）, scale: linear }
 
 series:
   - id: maddison-pop
@@ -763,3 +768,163 @@ series:
       - { entity: 英國實質工資, start: 1990, end: 1999, low: 454, high: 528, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
       - { entity: 英國實質工資, start: 2000, end: 2009, low: 546, high: 652, src: [b1], note: "這十年有 10 年的資料，畫的是最低到最高。" }
       - { entity: 英國實質工資, start: 2010, end: 2016, low: 600, high: 631, src: [b1], note: "這十年有 7 年的資料，畫的是最低到最高。" }
+
+  - id: dgbas-tw-wage
+    metric: tw_wage
+    name: 臺灣受僱員工每人每月總薪資（名目）
+    kind: 實測
+    verification: AI草稿
+    note: 主計總處的調查，工業及服務業全體受僱員工的平均月薪，含加班費、獎金等「總薪資」，是名目金額，沒有扣掉物價上漲。所以 1980 年的 8,843 元和 2025 年的 63,383 元不能直接比誰過得好，要等加上物價（實質薪資）才知道。數字可能和當年新聞稿略有不同，因為官方事後會修訂；這裡用的是下載當時的最新數字。2026 年只有初步、半年的資料，沒有放。
+    points:
+      - { entity: 臺灣, start: 1980, value: 8843, src: [g1] }
+      - { entity: 臺灣, start: 1981, value: 10677, src: [g1] }
+      - { entity: 臺灣, start: 1982, value: 11473, src: [g1] }
+      - { entity: 臺灣, start: 1983, value: 12122, src: [g1] }
+      - { entity: 臺灣, start: 1984, value: 13410, src: [g1] }
+      - { entity: 臺灣, start: 1985, value: 13981, src: [g1] }
+      - { entity: 臺灣, start: 1986, value: 15119, src: [g1] }
+      - { entity: 臺灣, start: 1987, value: 16497, src: [g1] }
+      - { entity: 臺灣, start: 1988, value: 18400, src: [g1] }
+      - { entity: 臺灣, start: 1989, value: 21247, src: [g1] }
+      - { entity: 臺灣, start: 1990, value: 24315, src: [g1] }
+      - { entity: 臺灣, start: 1991, value: 26875, src: [g1] }
+      - { entity: 臺灣, start: 1992, value: 29436, src: [g1] }
+      - { entity: 臺灣, start: 1993, value: 31689, src: [g1] }
+      - { entity: 臺灣, start: 1994, value: 33637, src: [g1] }
+      - { entity: 臺灣, start: 1995, value: 35355, src: [g1] }
+      - { entity: 臺灣, start: 1996, value: 36655, src: [g1] }
+      - { entity: 臺灣, start: 1997, value: 38435, src: [g1] }
+      - { entity: 臺灣, start: 1998, value: 39603, src: [g1] }
+      - { entity: 臺灣, start: 1999, value: 40781, src: [g1] }
+      - { entity: 臺灣, start: 2000, value: 41831, src: [g1] }
+      - { entity: 臺灣, start: 2001, value: 41952, src: [g1] }
+      - { entity: 臺灣, start: 2002, value: 41533, src: [g1], note: "名目月薪比前一年少。這段期間景氣較差（2001 年前後網路泡沫破滅），可能是原因之一，但薪資變動還受獎金、加班、工時等許多因素影響。" }
+      - { entity: 臺灣, start: 2003, value: 42068, src: [g1] }
+      - { entity: 臺灣, start: 2004, value: 42684, src: [g1] }
+      - { entity: 臺灣, start: 2005, value: 43162, src: [g1] }
+      - { entity: 臺灣, start: 2006, value: 43492, src: [g1] }
+      - { entity: 臺灣, start: 2007, value: 44411, src: [g1] }
+      - { entity: 臺灣, start: 2008, value: 44419, src: [g1] }
+      - { entity: 臺灣, start: 2009, value: 42300, src: [g1], note: "名目月薪比前一年少。2008 年金融海嘯後景氣轉差，可能是原因之一，但薪資變動還受獎金、加班、工時等許多因素影響。" }
+      - { entity: 臺灣, start: 2010, value: 44647, src: [g1] }
+      - { entity: 臺灣, start: 2011, value: 45963, src: [g1] }
+      - { entity: 臺灣, start: 2012, value: 46075, src: [g1] }
+      - { entity: 臺灣, start: 2013, value: 46087, src: [g1] }
+      - { entity: 臺灣, start: 2014, value: 47744, src: [g1] }
+      - { entity: 臺灣, start: 2015, value: 48956, src: [g1] }
+      - { entity: 臺灣, start: 2016, value: 49257, src: [g1] }
+      - { entity: 臺灣, start: 2017, value: 50634, src: [g1] }
+      - { entity: 臺灣, start: 2018, value: 52468, src: [g1] }
+      - { entity: 臺灣, start: 2019, value: 53551, src: [g1] }
+      - { entity: 臺灣, start: 2020, value: 54278, src: [g1] }
+      - { entity: 臺灣, start: 2021, value: 56127, src: [g1] }
+      - { entity: 臺灣, start: 2022, value: 58042, src: [g1] }
+      - { entity: 臺灣, start: 2023, value: 58420, src: [g1] }
+      - { entity: 臺灣, start: 2024, value: 61002, src: [g1] }
+      - { entity: 臺灣, start: 2025, value: 63383, src: [g1] }
+
+  - id: dgbas-tw-cpi
+    metric: tw_cpi
+    name: 臺灣消費者物價指數（總指數，全年平均）
+    kind: 實測
+    verification: AI草稿
+    note: 主計總處每月調查日常買的東西（食物、房租、交通、醫療…）的價格，編成指數；民國 110 年（2021 年）定為 100，所以 1981 年的 54.7，表示當時的物價水準大約是 2021 年的 55%（一半多一點）。這裡取每年 12 個月的平均，只放有完整 12 個月的 1981–2025 年。
+    points:
+      - { entity: 臺灣, start: 1981, value: 54.70, src: [g2] }
+      - { entity: 臺灣, start: 1982, value: 56.31, src: [g2] }
+      - { entity: 臺灣, start: 1983, value: 57.09, src: [g2] }
+      - { entity: 臺灣, start: 1984, value: 57.07, src: [g2] }
+      - { entity: 臺灣, start: 1985, value: 56.98, src: [g2] }
+      - { entity: 臺灣, start: 1986, value: 57.38, src: [g2] }
+      - { entity: 臺灣, start: 1987, value: 57.67, src: [g2] }
+      - { entity: 臺灣, start: 1988, value: 58.41, src: [g2] }
+      - { entity: 臺灣, start: 1989, value: 60.99, src: [g2] }
+      - { entity: 臺灣, start: 1990, value: 63.51, src: [g2] }
+      - { entity: 臺灣, start: 1991, value: 65.81, src: [g2] }
+      - { entity: 臺灣, start: 1992, value: 68.75, src: [g2] }
+      - { entity: 臺灣, start: 1993, value: 70.77, src: [g2] }
+      - { entity: 臺灣, start: 1994, value: 73.67, src: [g2] }
+      - { entity: 臺灣, start: 1995, value: 76.37, src: [g2] }
+      - { entity: 臺灣, start: 1996, value: 78.72, src: [g2] }
+      - { entity: 臺灣, start: 1997, value: 79.43, src: [g2] }
+      - { entity: 臺灣, start: 1998, value: 80.77, src: [g2] }
+      - { entity: 臺灣, start: 1999, value: 80.91, src: [g2] }
+      - { entity: 臺灣, start: 2000, value: 81.92, src: [g2] }
+      - { entity: 臺灣, start: 2001, value: 81.92, src: [g2] }
+      - { entity: 臺灣, start: 2002, value: 81.76, src: [g2] }
+      - { entity: 臺灣, start: 2003, value: 81.53, src: [g2] }
+      - { entity: 臺灣, start: 2004, value: 82.84, src: [g2] }
+      - { entity: 臺灣, start: 2005, value: 84.75, src: [g2] }
+      - { entity: 臺灣, start: 2006, value: 85.26, src: [g2] }
+      - { entity: 臺灣, start: 2007, value: 86.79, src: [g2] }
+      - { entity: 臺灣, start: 2008, value: 89.86, src: [g2] }
+      - { entity: 臺灣, start: 2009, value: 89.07, src: [g2] }
+      - { entity: 臺灣, start: 2010, value: 89.93, src: [g2] }
+      - { entity: 臺灣, start: 2011, value: 91.21, src: [g2] }
+      - { entity: 臺灣, start: 2012, value: 92.97, src: [g2] }
+      - { entity: 臺灣, start: 2013, value: 93.71, src: [g2] }
+      - { entity: 臺灣, start: 2014, value: 94.83, src: [g2] }
+      - { entity: 臺灣, start: 2015, value: 94.54, src: [g2] }
+      - { entity: 臺灣, start: 2016, value: 95.86, src: [g2] }
+      - { entity: 臺灣, start: 2017, value: 96.45, src: [g2] }
+      - { entity: 臺灣, start: 2018, value: 97.75, src: [g2] }
+      - { entity: 臺灣, start: 2019, value: 98.30, src: [g2] }
+      - { entity: 臺灣, start: 2020, value: 98.07, src: [g2] }
+      - { entity: 臺灣, start: 2021, value: 100.00, src: [g2] }
+      - { entity: 臺灣, start: 2022, value: 102.95, src: [g2] }
+      - { entity: 臺灣, start: 2023, value: 105.51, src: [g2] }
+      - { entity: 臺灣, start: 2024, value: 107.81, src: [g2] }
+      - { entity: 臺灣, start: 2025, value: 109.60, src: [g2] }
+
+  - id: tw-real-wage
+    metric: tw_real_wage
+    name: 臺灣實質月薪（本站自行計算）
+    kind: 估計
+    verification: AI草稿
+    note: 實質月薪＝名目月薪（主計總處 g1）÷ 物價指數（主計總處 g2）× 100，意思是「換算成 2021 年的物價，這份薪水買得到多少」。這是本站用兩份官方資料自己算的，不是主計總處直接發布的「實質總薪資」，做法可能與官方略有差異。名目薪資是工業及服務業的平均，物價用全國總指數。1981 年起才有，因為物價資料從 1981 年開始。計算時物價指數用未四捨五入的全年平均，所以用表上的指數自己算，可能差 1～2 元。
+    points:
+      - { entity: 臺灣, start: 1981, value: 19519, src: [g1, g2], note: "當年名目月薪 10,677 元 ÷ 物價指數 54.70 × 100。" }
+      - { entity: 臺灣, start: 1982, value: 20373, src: [g1, g2] }
+      - { entity: 臺灣, start: 1983, value: 21234, src: [g1, g2] }
+      - { entity: 臺灣, start: 1984, value: 23498, src: [g1, g2] }
+      - { entity: 臺灣, start: 1985, value: 24538, src: [g1, g2] }
+      - { entity: 臺灣, start: 1986, value: 26351, src: [g1, g2] }
+      - { entity: 臺灣, start: 1987, value: 28607, src: [g1, g2] }
+      - { entity: 臺灣, start: 1988, value: 31501, src: [g1, g2] }
+      - { entity: 臺灣, start: 1989, value: 34837, src: [g1, g2] }
+      - { entity: 臺灣, start: 1990, value: 38286, src: [g1, g2] }
+      - { entity: 臺灣, start: 1991, value: 40838, src: [g1, g2] }
+      - { entity: 臺灣, start: 1992, value: 42819, src: [g1, g2] }
+      - { entity: 臺灣, start: 1993, value: 44777, src: [g1, g2] }
+      - { entity: 臺灣, start: 1994, value: 45659, src: [g1, g2] }
+      - { entity: 臺灣, start: 1995, value: 46294, src: [g1, g2] }
+      - { entity: 臺灣, start: 1996, value: 46563, src: [g1, g2] }
+      - { entity: 臺灣, start: 1997, value: 48386, src: [g1, g2] }
+      - { entity: 臺灣, start: 1998, value: 49031, src: [g1, g2] }
+      - { entity: 臺灣, start: 1999, value: 50401, src: [g1, g2] }
+      - { entity: 臺灣, start: 2000, value: 51062, src: [g1, g2], note: "當年名目月薪 41,831 元 ÷ 物價指數 81.92 × 100。" }
+      - { entity: 臺灣, start: 2001, value: 51211, src: [g1, g2] }
+      - { entity: 臺灣, start: 2002, value: 50799, src: [g1, g2] }
+      - { entity: 臺灣, start: 2003, value: 51599, src: [g1, g2] }
+      - { entity: 臺灣, start: 2004, value: 51526, src: [g1, g2] }
+      - { entity: 臺灣, start: 2005, value: 50927, src: [g1, g2] }
+      - { entity: 臺灣, start: 2006, value: 51011, src: [g1, g2] }
+      - { entity: 臺灣, start: 2007, value: 51169, src: [g1, g2] }
+      - { entity: 臺灣, start: 2008, value: 49433, src: [g1, g2], note: "當年名目月薪 44,419 元 ÷ 物價指數 89.86 × 100。" }
+      - { entity: 臺灣, start: 2009, value: 47490, src: [g1, g2] }
+      - { entity: 臺灣, start: 2010, value: 49646, src: [g1, g2] }
+      - { entity: 臺灣, start: 2011, value: 50393, src: [g1, g2] }
+      - { entity: 臺灣, start: 2012, value: 49557, src: [g1, g2] }
+      - { entity: 臺灣, start: 2013, value: 49180, src: [g1, g2] }
+      - { entity: 臺灣, start: 2014, value: 50347, src: [g1, g2] }
+      - { entity: 臺灣, start: 2015, value: 51783, src: [g1, g2] }
+      - { entity: 臺灣, start: 2016, value: 51386, src: [g1, g2] }
+      - { entity: 臺灣, start: 2017, value: 52496, src: [g1, g2] }
+      - { entity: 臺灣, start: 2018, value: 53673, src: [g1, g2] }
+      - { entity: 臺灣, start: 2019, value: 54476, src: [g1, g2] }
+      - { entity: 臺灣, start: 2020, value: 55348, src: [g1, g2] }
+      - { entity: 臺灣, start: 2021, value: 56127, src: [g1, g2], note: "當年名目月薪 56,127 元 ÷ 物價指數 100.00 × 100。" }
+      - { entity: 臺灣, start: 2022, value: 56381, src: [g1, g2] }
+      - { entity: 臺灣, start: 2023, value: 55368, src: [g1, g2] }
+      - { entity: 臺灣, start: 2024, value: 56581, src: [g1, g2] }
+      - { entity: 臺灣, start: 2025, value: 57831, src: [g1, g2], note: "當年名目月薪 63,383 元 ÷ 物價指數 109.60 × 100。" }

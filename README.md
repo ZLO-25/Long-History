@@ -118,6 +118,7 @@ sources:
 | 羅馬道路細線（選用） | Itiner-e，Zenodo 10.5281/zenodo.17122148 | CC BY 4.0 |
 | 人口、人均 GDP（西元 1–2022 年） | Maddison Project Database 2023（Bolt & van Zanden 2024）；各國原始研究列在資料點說明 | CC BY 4.0 |
 | 實質工資（一天工資買幾籃生活必需品，1820–2008） | Clio Infra，de Zwart, van Leeuwen & van Leeuwen-Li（2015）Labourers Real Wage | CC0 |
+| 臺灣名目月薪（1980–2025）、物價指數（1981–2025）；實質月薪為本站計算 | 行政院主計總處，經政府資料開放平臺取得 | 政府資料開放授權條款第 1 版 |
 | 英格蘭名目日薪、英國物價、英國實質工資（1209–2016） | 英格蘭銀行 A millennium of macroeconomic data 3.1 版（工資為 Clark 2009） | Open Government Licence（第三方資料版權屬原作者） |
 | 底圖 | OpenStreetMap | ODbL |
 

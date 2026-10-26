@@ -7,8 +7,8 @@ const GROUPS: [string, (h: History) => boolean][] = [
   ['臺灣', (h) => h.track === '臺灣'], ['東亞', (h) => h.track === '東亞'], ['世界', (h) => h.track === '世界' || h.track === '全部'], ['專題（跨地區）', (h) => h.track === '專題'],
 ];
 
-export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen }: {
-  index: Index; p: Progress; onHistory: (id: string) => void; onUnit: (id: string) => void; onRandom: () => void; onIntroSeen: () => void;
+export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, onRecord }: {
+  index: Index; p: Progress; onHistory: (id: string) => void; onUnit: (id: string) => void; onRandom: () => void; onIntroSeen: () => void; onRecord?: () => void;
 }) {
   const cards = learnCards(index);
   // 上次做到一半的單元：放在最上面，一鍵接著做
@@ -22,7 +22,7 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen }
           <button className="btn primary" onClick={() => onUnit(resume[0].id)}>接著做 →</button>
         </section>
       )}
-      {doneN > 0 && !resume && <p className="muted small">你已完成 {doneN}／{index.units.length} 個單元。</p>}
+      {(doneN > 0 || resume) && <p className="muted small">你已完成 {doneN}／{index.units.length} 個單元。{onRecord && <button className="link" onClick={onRecord}>看學習紀錄 →</button>}</p>}
       {!p.seenIntro && (
         <section className="intro">
           <h2>歡迎來到「歷史長河」自主學習模式</h2>

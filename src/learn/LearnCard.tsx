@@ -6,7 +6,9 @@ import { LearnText, SourceList, TermPop, type Term } from './LearnText';
 import { tierOrder } from './util';
 
 export type Depth = 'story' | 'understand' | 'deep';
-const DEPTHS: [Depth, string, string][] = [['story', '故事', '3 分鐘'], ['understand', '理解', '10 分鐘'], ['deep', '深入', '全部段落']];
+// 國中讀到「理解」就夠；「深入」是史家爭論與完整段落，標成高中選讀
+const DEPTHS: [Depth, string, string][] = [['story', '故事', '3 分鐘・國中'], ['understand', '理解', '10 分鐘・國中'], ['deep', '深入', '高中選讀']];
+const textLen = (t?: string) => (t ?? '').replace(/\[s\d+\]|\*\*/g, '').length;
 
 interface Props {
   card: Card; index: Index; history: History | null; depth?: Depth; onDepth?: (d: Depth) => void;
@@ -32,6 +34,9 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
   const nonAn = c.sections.find((s) => s.role === 'non_analogous');
   const lens = c.sections.find((s) => s.role === 'lens');
   const isFin = c.type === 'finance';
+  // 「深入」層多出來的字數（給學生判斷要不要讀）
+  const deepChars = useMemo(() => textLen(L.historiography) + textLen(L.exaggerated)
+    + c.sections.filter((x) => x.text && !L.understand.includes(x.code) && x.role !== 'lens' && x.role !== 'today_hook' && x.role !== 'non_analogous').reduce((n, x) => n + textLen(x.text), 0), [c, L]);
   const T = (t: string) => <LearnText text={t} sources={c.sources} terms={terms} onTerm={setTerm} />;
 
   return (
@@ -58,6 +63,9 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
         ))}
       </div>
 
+      {depth === 'deep' && (
+        <p className="deep-note">🎓 <b>高中選讀</b>：這一層收錄完整段落和史家的爭論，約 {Math.max(1, Math.round(deepChars / 400))} 分鐘（{deepChars.toLocaleString()} 字）。國中生讀完「理解」就夠了；想挑戰再往下讀。</p>
+      )}
       <section className="lc-sec story">{T(L.story)}</section>
 
       {depth !== 'story' && <>

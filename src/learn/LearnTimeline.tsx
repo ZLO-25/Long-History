@@ -114,6 +114,7 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
         {ERAS.map(([n, a, b]) => <button key={n} className="btn sm" onClick={() => zoomTo(a, b)}>{n}</button>)}
       </div>
       <svg ref={svgRef} width={width} height={height} role="img" aria-label="三軌時間軸">
+        <defs><pattern id="era-empty" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f7f5f0" /><line x1="0" y1="0" x2="0" y2="8" stroke="#ebe5d8" strokeWidth="3" /></pattern></defs>
         <rect x={0} y={0} width={width} height={AXIS_H} className="axis-bg" onClick={(e) => {
           const r = svgRef.current!.getBoundingClientRect(); const y = Math.round(base.invert(t.invertX(e.clientX - r.left - LEFT)));
           setYear(Math.max(MIN_YEAR, Math.min(MAX_YEAR, y || 1)));
@@ -145,6 +146,20 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
               <rect x={0} width={width} height={mainH - AXIS_H} className="main-lane-bg" />
               {ERAS.map(([n, a, b, col]) => { const x0 = Math.max(LEFT, x(a)), x1 = Math.min(width, x(b)); if (x1 <= x0) return null;
                 const cnt = mainCards.filter((c) => c.time.start >= a && c.time.start < b).length;
+                // 這條軌在這個時代還沒有卡：不要只寫「0 張」讓人以為壞掉，改成說明，並指向有卡的另一條軌
+                if (cnt === 0) {
+                  const alt = lanes.filter((l2) => l2 !== main && l2 !== '專題').map((l2) => [l2, cards.filter((c) => inHistory(c) && laneOf(c) === l2 && c.time.start >= a && c.time.start < b).length] as const)
+                    .sort((p, q) => q[1] - p[1])[0];
+                  const go = alt && alt[1] > 0 ? () => { setMain(alt[0]); zoomTo(a, b); } : undefined;
+                  const room = x1 - x0 - 8;
+                  const lines = [`${n}：這條線還沒有卡片`, go ? `點這裡看${alt![0]}（${alt![1]} 張）` : '內容還在補'];
+                  const fit = lines.every((t2) => t2.length * CH_W <= room);
+                  const short = `${n}・還沒有卡片`;
+                  return <g key={n} className={`era empty ${go ? '' : 'none'}`} onClick={go}><title>{lines.join('；')}</title>
+                    <rect x={x0} y={4} width={x1 - x0} height={mainH - AXIS_H - 8} fill="url(#era-empty)" stroke="#d6cfc0" strokeDasharray="4 3" opacity={overview ? 1 : 0.5} />
+                    {overview && (fit ? lines.map((t2, i) => <text key={i} x={(x0 + x1) / 2} y={(mainH - AXIS_H) / 2 - 4 + i * 17} textAnchor="middle" className={i ? 'era-alt' : 'era-t muted-t'}>{t2}</text>)
+                      : short.length * CH_W <= room ? <text x={(x0 + x1) / 2} y={(mainH - AXIS_H) / 2 + 4} textAnchor="middle" className="era-t muted-t">{short}</text> : null)}</g>;
+                }
                 return <g key={n} className="era" onClick={() => zoomTo(a, b)}><rect x={x0} y={4} width={x1 - x0} height={mainH - AXIS_H - 8} fill={col} opacity={overview ? 0.9 : 0.35} />
                   {overview && (() => { // 色塊太窄時先改成只寫張數，再不行就不寫（點色塊仍可放大）
                     const room = x1 - x0 - 8, full = `${n}・${cnt} 張`, short = `${cnt} 張`;

@@ -11,13 +11,14 @@ import { UnitPlayer } from './UnitPlayer';
 import { LearnCard } from './LearnCard';
 import { LearnTimeline } from './LearnTimeline';
 import { MyMap } from './MyMap';
+import { LearnRecord } from './LearnRecord';
 import { SimView } from './sims/SimView';
 import { useProgress } from './progress';
 import { historyOf, inHistory, learnCards } from './util';
 import './learn.css';
 
 type View = { kind: 'home' } | { kind: 'history' } | { kind: 'unit'; id: string } | { kind: 'card'; id: string; section?: string }
-  | { kind: 'mymap' } | { kind: 'sim'; id: string } | { kind: 'search' };
+  | { kind: 'mymap' } | { kind: 'record' } | { kind: 'sim'; id: string } | { kind: 'search' };
 type Tab = 'main' | 'card' | 'map' | 'timeline';
 
 function initialView(q: URLSearchParams): View {
@@ -25,6 +26,7 @@ function initialView(q: URLSearchParams): View {
   if (q.get('card')) return { kind: 'card', id: q.get('card')! };
   if (q.get('sim')) return { kind: 'sim', id: q.get('sim')! };
   if (q.get('view') === 'mymap') return { kind: 'mymap' };
+  if (q.get('view') === 'record') return { kind: 'record' };
   if (q.get('history')) return { kind: 'history' };
   return { kind: 'home' };
 }
@@ -32,7 +34,7 @@ function initialView(q: URLSearchParams): View {
 export function LearnApp({ index, onResearch }: { index: Index; onResearch: () => void }) {
   const isMobile = useIsMobile();
   const params = useMemo(() => new URLSearchParams(location.search), []);
-  const { p, update, markCard, setUnit } = useProgress();
+  const { p, update, markCard, setUnit, reset } = useProgress();
   const [hid, setHid] = useState<string | null>(() => params.get('history') ?? p.history ?? null);
   const h = historyOf(index, hid);
   const [stack, setStack] = useState<View[]>(() => { const v = initialView(params); return v.kind === 'home' ? [v] : [{ kind: 'home' }, v]; });
@@ -73,7 +75,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
 
   // 分頁標題跟著目前在看的東西走，瀏覽器歷史與書籤才看得出是哪一課
   useEffect(() => {
-    const t = view.kind === 'unit' ? unit?.title : view.kind === 'card' ? byId(view.id)?.name : view.kind === 'history' ? h?.name : view.kind === 'mymap' ? '我的歷史地圖' : null;
+    const t = view.kind === 'unit' ? unit?.title : view.kind === 'card' ? byId(view.id)?.name : view.kind === 'history' ? h?.name : view.kind === 'mymap' ? '我的歷史地圖' : view.kind === 'record' ? '我的學習紀錄' : null;
     document.title = t ? `${t}｜歷史長河` : '歷史長河：國高中生的歷史學習';
   }, [view, unit, h]);
 
@@ -85,6 +87,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     if (view.kind === 'card') q.set('card', view.id);
     if (view.kind === 'sim') q.set('sim', view.id);
     if (view.kind === 'mymap') q.set('view', 'mymap');
+    if (view.kind === 'record') q.set('view', 'record');
     history.replaceState(null, '', `${location.pathname}?${q}`);
   }, [hid, view]);
 
@@ -113,13 +116,14 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
       </div>
     );
     switch (view.kind) {
-      case 'home': return <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => update((o) => ({ ...o, seenIntro: true }))} />;
+      case 'home': return <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => update((o) => ({ ...o, seenIntro: true }))} onRecord={() => push({ kind: 'record' })} />;
       case 'history': return h ? <HistoryPage index={index} h={h} cards={histCards} p={p} onUnit={openUnit} onCard={openCard} onHistory={chooseHistory} onSim={(id) => push({ kind: 'sim', id })} />
         : <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => {}} />;
       case 'unit': return unit ? <UnitPlayer key={unit.id} unit={unit} index={index} prog={p.units[unit.id]} setProg={(x) => setUnit(unit.id, x)}
-        onCard={openCard} onUnit={openUnit} onSim={(id) => push({ kind: 'sim', id })} onFocus={setFocus} /> : <p>找不到這個單元（可能還在查核中）。</p>;
+        onCard={openCard} onUnit={openUnit} onSim={(id) => push({ kind: 'sim', id })} onFocus={setFocus} onHome={() => setStack([{ kind: 'home' }])} /> : <p>找不到這個單元（可能還在查核中）。</p>;
       case 'card': { const c = byId(view.id); return c?.learn ? <LearnCard key={c.id} card={c} index={index} history={h} depth={view.section ? 'deep' : 'story'} onOpen={openCard} onHistory={(id) => setHid(id)} /> : <p>這張卡還不在學習模式裡（需要通過交叉查核）。</p>; }
-      case 'mymap': return <MyMap index={index} cards={all} p={p} onCard={openCard} onUnit={openUnit} />;
+      case 'mymap': return <MyMap index={index} cards={all} p={p} onCard={openCard} onUnit={openUnit} onRecord={() => push({ kind: 'record' })} />;
+      case 'record': return <LearnRecord index={index} p={p} onUnit={openUnit} onReset={() => { reset(); setStack([{ kind: 'home' }]); }} />;
       case 'sim': return <SimView id={view.id} index={index} onCard={openCard} />;
     }
     return null;
@@ -142,10 +146,11 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="想知道什麼？例：羅馬為什麼滅亡" aria-label="搜尋學習內容" />
         {!query && !isMobile && index.units.length > 0 && <div className="suggest">試試：{index.units.slice(0, 3).map((u) => <button key={u.id} className="link" onClick={() => openUnit(u.id)}>{u.mystery}</button>)}</div>}
       </div>
-      <button className="btn sm" onClick={random} title="隨機一個謎題" aria-label="隨機一個謎題">🎲</button>
+      {!isMobile && <button className="btn sm" onClick={random} title="隨機一個謎題" aria-label="隨機一個謎題">🎲</button>}
       <button className="btn sm" onClick={() => push({ kind: 'mymap' })} title="我的歷史地圖">🗺{!isMobile && ' 我的地圖'}</button>
+      <button className="btn sm" onClick={() => push({ kind: 'record' })} title="我的學習紀錄：進度、答對率、寫過的回答">📒{!isMobile && ' 紀錄'}</button>
       {isMobile ? (
-        <button className="btn sm" onClick={cycleFs} title="切換字級" aria-label={`字級：${fsLabel}，按一下切換`}>Aa {fsLabel}</button>
+        <button className="btn sm" onClick={cycleFs} title="切換字級" aria-label={`字級：${fsLabel}，按一下切換`}>Aa{fs >= 1.15 ? '+' : ''}</button>
       ) : (
         <div className="fs" role="group" aria-label="字級">
           <button className="btn sm" onClick={() => update((o) => ({ ...o, fontScale: Math.max(0.85, (o.fontScale ?? 1) - 0.1) }))} aria-label="字變小">A−</button>

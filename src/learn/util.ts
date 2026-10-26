@@ -18,3 +18,14 @@ export const historyOf = (index: Index, key: string | null) => index.histories.f
 
 export const ERA_BINS: [string, number, number][] = [['上古', -9999, 500], ['中古', 500, 1500], ['近代早期', 1500, 1800], ['近現代', 1800, 9999]];
 export const eraOfYear = (y: number) => ERA_BINS.find(([, a, b]) => y >= a && y < b)?.[0] ?? '近現代';
+
+// 長單元分成上下兩半，一節課做一半：前半段的步數（13 步 → 7）
+export const unitHalf = (u: Unit) => Math.ceil(u.steps.length / 2);
+// 自我檢查的成績：答案存在 answers 的 c{步}_{題}（true/false）
+export function unitScore(u: Unit, answers: Record<string, unknown> | undefined) {
+  let total = 0, right = 0, answered = 0;
+  u.steps.forEach((s, si) => { if (s.type !== 'check') return; s.items.forEach((q, qi) => {
+    if (q.kind === 'short') return; total++; const v = answers?.[`c${si}_${qi}`];
+    if (typeof v === 'boolean') { answered++; if (v) right++; } }); });
+  return { total, right, answered };
+}

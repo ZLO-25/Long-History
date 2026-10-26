@@ -14,13 +14,13 @@ const REGIONS: [string, (c: Card) => boolean][] = [
   ['美洲與非洲', (c) => c.civPaths.some((p) => p.startsWith('美洲') || p.startsWith('非洲'))],
 ];
 
-export function MyMap({ index, cards, p, onCard, onUnit }: { index: Index; cards: Card[]; p: Progress; onCard: (id: string) => void; onUnit: (id: string) => void }) {
+export function MyMap({ index, cards, p, onCard, onUnit, onRecord }: { index: Index; cards: Card[]; p: Progress; onCard: (id: string) => void; onUnit: (id: string) => void; onRecord?: () => void }) {
   const doneCards = new Set([...Object.keys(p.cards), ...index.units.filter((u) => p.units[u.id]?.done).flatMap(unitCards)]);
   const doneUnits = index.units.filter((u) => p.units[u.id]?.done);
   return (
     <div className="mymap">
       <h2>🗺 我的歷史地圖</h2>
-      <p className="muted">讀過的卡片、完成的單元會點亮對應的地區和年代。顏色越深，去過越多次。只存在這台瀏覽器。</p>
+      <p className="muted">讀過的卡片、完成的單元會點亮對應的地區和年代。顏色越深，去過越多次。只存在這台瀏覽器。{onRecord && <> 想看每一課的進度和答對率？<button className="link" onClick={onRecord}>📒 看學習紀錄</button></>}</p>
       <p>已完成單元：{doneUnits.length ? doneUnits.map((u) => <span key={u.id} className="badge-mini">🏅 {u.title}</span>) : '還沒有，挑一個謎題開始吧！'}</p>
       <div className="table-scroll">
         <table className="mm">

@@ -1,5 +1,5 @@
 // 單元裡的各種活動：史料判讀、因果鏈排序、觀點比較、決策情境、今日對照、自我檢查、回顧
-import { useMemo, useState, type ReactNode } from 'react';
+import { useMemo, useRef, useState, type ReactNode } from 'react';
 import type { Card, CheckItem, Index } from '../types';
 import { LearnText } from './LearnText';
 
@@ -65,36 +65,98 @@ export function Choice({ q, options, answer, explain, hints, after, onDone, save
   );
 }
 
+// 因果鏈排序：點選（點下面的項目放進第一個空格、點格子裡的拿回來）或拖曳（滑鼠直接拖、手機按住 ⠿ 拖）都可以；
+// 放好之後可以用 ↑↓ 微調；對答案後可以「只重排錯的」，排對的留在原位
+type From = { slot: number } | { pool: true };
 export function Order({ prompt, items, explain, hints, seed, after, onDone }: {
   prompt: ReactNode; items: string[]; explain: string; hints: string[]; seed: string; after?: ReactNode; onDone?: (ok: boolean) => void;
 }) {
   const pool = useMemo(() => shuffled(items, seed), [items, seed]);
-  const [seq, setSeq] = useState<string[]>([]);
+  const [seq, setSeq] = useState<(string | null)[]>(() => items.map(() => null));
   const [checked, setChecked] = useState(false);
-  const full = seq.length === items.length;
+  const [drag, setDrag] = useState<{ x: string; from: From; px: number; py: number; over: number | 'pool' | null } | null>(null);
+  const justDragged = useRef(false);
+  const start = useRef<{ x: string; from: From; sx: number; sy: number; moved: boolean; id: number } | null>(null);
+  const full = seq.every(Boolean);
   const right = seq.filter((x, i) => x === items[i]).length;
+  const inPool = pool.filter((x) => !seq.includes(x));
+
+  const put = (x: string, from: From, to: number | 'pool') => setSeq((s0) => {
+    const s = [...s0];
+    if ('slot' in from) s[from.slot] = null;
+    if (to === 'pool') return s;
+    const old = s[to];
+    s[to] = x;
+    if (old && old !== x) { if ('slot' in from) s[from.slot] = old; } // 目標格有東西：兩個交換（從下面拖上來的，原本那個回到下面）
+    return s;
+  });
+  const tapPool = (x: string) => { const i = seq.indexOf(null); if (i >= 0) put(x, { pool: true }, i); };
+  const move = (i: number, d: number) => setSeq((s0) => { const s = [...s0]; const j = i + d; if (j < 0 || j >= s.length) return s0; [s[i], s[j]] = [s[j], s[i]]; return s; });
+
+  const hit = (cx: number, cy: number): number | 'pool' | null => {
+    const el = document.elementFromPoint(cx, cy) as HTMLElement | null;
+    const sl = el?.closest('[data-slot]') as HTMLElement | null;
+    if (sl) return Number(sl.dataset.slot);
+    return el?.closest('[data-pool]') ? 'pool' : null;
+  };
+  const down = (e: React.PointerEvent, x: string, from: From) => {
+    if (checked) return;
+    // 手機只有按住 ⠿ 才拖（避免擋住捲動），滑鼠整顆都可以拖
+    if (e.pointerType !== 'mouse' && !(e.target as HTMLElement).closest('.grip')) return;
+    start.current = { x, from, sx: e.clientX, sy: e.clientY, moved: false, id: e.pointerId };
+    const mv = (ev: PointerEvent) => {
+      const st = start.current; if (!st || ev.pointerId !== st.id) return;
+      if (!st.moved && Math.hypot(ev.clientX - st.sx, ev.clientY - st.sy) < 6) return;
+      st.moved = true; ev.preventDefault();
+      setDrag({ x: st.x, from: st.from, px: ev.clientX, py: ev.clientY, over: hit(ev.clientX, ev.clientY) });
+    };
+    const up = (ev: PointerEvent) => {
+      window.removeEventListener('pointermove', mv); window.removeEventListener('pointerup', up); window.removeEventListener('pointercancel', up);
+      const st = start.current; start.current = null;
+      if (st?.moved) { justDragged.current = true; setTimeout(() => { justDragged.current = false; }, 0); }
+      if (st?.moved && ev.type === 'pointerup') { const to = hit(ev.clientX, ev.clientY); if (to !== null) put(st.x, st.from, to); }
+      setDrag(null);
+    };
+    window.addEventListener('pointermove', mv, { passive: false }); window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
+  };
+  // 拖曳結束時瀏覽器還會送一次 click：拖過就不要再當成點選
+  const clickGuard = (f: () => void) => () => { if (!justDragged.current) f(); };
+
   return (
-    <div className="activity">
+    <div className="activity order">
       <div className="q">{prompt}</div>
-      <p className="muted small">依序點選下面的項目，排到上面的框框裡；點框框裡的項目可以拿回來。</p>
+      <p className="muted small">點下面的項目放進空格；也可以<b>拖曳</b>（手機按住 ⠿ 拖）。放好後用 ↑↓ 調整，點格子裡的項目可以拿回來。</p>
       <ol className="seq">
         {items.map((_, i) => {
           const x = seq[i];
-          return <li key={i} className={`slot ${checked ? (x === items[i] ? 'right' : 'wrong') : ''}`}>
-            {x ? <button className="opt" disabled={checked} onClick={() => setSeq(seq.filter((y) => y !== x))}>{x}</button> : <span className="muted">（第 {i + 1} 個）</span>}
+          return <li key={i} data-slot={i} className={`slot ${checked ? (x === items[i] ? 'right' : 'wrong') : ''} ${drag?.over === i ? 'over' : ''}`}>
+            {x ? <div className={`placed ${drag?.x === x ? 'dragging' : ''}`} onPointerDown={(e) => down(e, x, { slot: i })}>
+              {!checked && <span className="grip" aria-hidden>⠿</span>}
+              <button className="opt" disabled={checked} onClick={clickGuard(() => put(x, { slot: i }, 'pool'))} title="點一下拿回去">{x}</button>
+              {!checked && <span className="nudge">
+                <button className="btn sm" disabled={i === 0} onClick={() => move(i, -1)} aria-label={`把「${x}」往前移`}>↑</button>
+                <button className="btn sm" disabled={i === items.length - 1} onClick={() => move(i, 1)} aria-label={`把「${x}」往後移`}>↓</button>
+              </span>}
+            </div> : <span className="muted">（第 {i + 1} 個）{drag ? '放這裡' : ''}</span>}
           </li>;
         })}
       </ol>
-      <div className="pool">
-        {pool.filter((x) => !seq.includes(x)).map((x) => <button key={x} className="opt" onClick={() => setSeq([...seq, x])}>{x}</button>)}
-      </div>
+      {!checked && <div className={`pool ${drag?.over === 'pool' ? 'over' : ''}`} data-pool>
+        {inPool.map((x) => <div key={x} className={`pitem ${drag?.x === x ? 'dragging' : ''}`} onPointerDown={(e) => down(e, x, { pool: true })}>
+          <span className="grip" aria-hidden>⠿</span><button className="opt" onClick={clickGuard(() => tapPool(x))}>{x}</button></div>)}
+        {!inPool.length && <span className="muted small">全部放好了，按「對答案」。</span>}
+      </div>}
+      {drag && <div className="drag-ghost" style={{ left: drag.px, top: drag.py }}>{drag.x}</div>}
       {!checked && <div className="row"><button className="btn primary" disabled={!full} onClick={() => { setChecked(true); onDone?.(right === items.length); }}>對答案</button><Hints hints={hints} /></div>}
       {checked && (
         <div className={`feedback ${right === items.length ? 'ok' : 'no'}`}>
-          <b>{right === items.length ? '✔ 全部排對！' : `排對 ${right}／${items.length} 個。`}</b>
+          <b>{right === items.length ? '✔ 全部排對！' : `排對 ${right}／${items.length} 個（綠色的是對的）。`}</b>
           {right !== items.length && <p>正確順序：{items.map((x, i) => `${i + 1}. ${x}`).join('　')}</p>}
           <p>{explain}</p>{after}
-          <button className="btn sm" onClick={() => { setChecked(false); setSeq([]); }}>重排一次</button>
+          <div className="row">
+            {right !== items.length && <button className="btn sm" onClick={() => { setChecked(false); setSeq(seq.map((x, i) => (x === items[i] ? x : null))); }}>只重排錯的</button>}
+            <button className="btn sm" onClick={() => { setChecked(false); setSeq(items.map(() => null)); }}>全部重排</button>
+          </div>
         </div>
       )}
     </div>

@@ -20,7 +20,7 @@ place:
     - { name_ancient: 巴黎, name_modern: 巴黎（法國）, lat: 48.8566, lng: 2.3522, precision: schematic, role: 1763 年 2 月簽訂《巴黎條約》處, src: [s10] }
   scale: area
 structure_tags: [憲政分權, 慢變結構, 戰爭融資, 合法性危機]
-links: [event-declaration-of-independence, war-american-revolution, event-us-constitution, event-magna-carta, event-westward-expansion]
+links: [event-declaration-of-independence, war-american-revolution, event-us-constitution, event-magna-carta, event-westward-expansion, event-american-founding-philosophy]
 counterparts: "無適當對照：中國與東亞軌沒有「海外移民殖民地發展出自己的議會、並與母國爭論課稅權」的同類事件；臺灣的移墾社會（見清領前期卡）雖也是移民社會，但沒有代議機構，不硬湊。"
 sources:
   - { id: s1, title: "Thirteen Colonies — Wikipedia", url: "https://en.wikipedia.org/wiki/Thirteen_Colonies", accessed: 2026-10-31, tier: 百科 }

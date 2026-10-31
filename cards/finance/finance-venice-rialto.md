@@ -19,7 +19,7 @@ place:
     - { name_ancient: 君士坦丁堡, name_modern: 伊斯坦堡（土耳其）, lat: 41.0082, lng: 28.9784, precision: schematic, role: 1171 年拜占庭帝國扣押威尼斯人、引發威尼斯緊急籌款之地, src: [s4] }
   scale: area
 structure_tags: [債務擴張, 戰爭融資, 金融制度創新, 商路改道, 長期衰退]
-links: [event-vasco-da-gama, war-crusades, finance-champagne-fairs, finance-bruges-bourse, finance-medici-bank, finance-antwerp-bourse, event-black-death]
+links: [event-vasco-da-gama, war-crusades, finance-champagne-fairs, finance-bruges-bourse, finance-medici-bank, finance-antwerp-bourse, event-black-death, finance-casa-di-san-giorgio, finance-byzantine-solidus, finance-abbasid-sakk-hawala]
 counterparts:
   - { id: finance-jiaozi, note: "宋代交子是政府承認並管理的紙幣，威尼斯公債則是付利息的強制貸款；兩者都是國家為了財政需要發明的信用工具，但一個靠紙幣流通，一個靠債權人收利息。", src: [s6] }
 sources:

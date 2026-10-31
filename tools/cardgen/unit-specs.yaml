@@ -2,10 +2,17 @@
 - id: unit-financial-centers
   title: 金融中心為什麼會搬家？從布魯日、安特衛普到阿姆斯特丹、倫敦、紐約
   histories: [錢的歷史, 歐洲史, 美國史, 世界通史]
-  cards: [finance-champagne-fairs, finance-bruges-bourse, finance-antwerp-bourse, war-fall-of-antwerp, finance-amsterdam-wisselbank, finance-amsterdam-decline, finance-london-rise, finance-new-york-overtakes-london]
+  cards: [finance-champagne-fairs, finance-bruges-bourse, finance-antwerp-bourse, war-fall-of-antwerp, finance-age-of-genoese, finance-casa-di-san-giorgio, finance-amsterdam-wisselbank, finance-amsterdam-decline, finance-london-rise, finance-new-york-overtakes-london]
   brief: 用「錢會往哪裡跑」串起中世紀市集、布魯日、安特衛普的興衰（河口淤積、西班牙之怒、1585 圍城與斯海爾德河封鎖）、商人北遷造就阿姆斯特丹、匯兌銀行，再到阿姆斯特丹衰落、倫敦崛起、一戰後紐約超車。要讓學生比較兩次中心轉移（例如安特衛普→阿姆斯特丹 對 倫敦→紐約），並思考「今天有沒有下一個金融中心」時哪裡不能類比。談錢，要提醒後見之明與倖存者偏差、不構成投資建議。
+  revise: 在安特衛普（1557 西班牙停付、1585 陷落）與阿姆斯特丹之間加入熱那亞這一環：新增 finance-age-of-genoese 與 finance-casa-di-san-giorgio 的 card 步驟，chain 排序題要放進「1557 停付後熱那亞銀行家接手、皮亞琴察市集、1627 停付」，compare 或 check 至少一題問熱那亞（例如為何熱那亞沒有成為像阿姆斯特丹那樣的實體貿易中心，或聖喬治銀行如何管理國債），hook／recap 的鏈條改成「香檳→布魯日→安特衛普→熱那亞→阿姆斯特丹→倫敦→紐約」。next 改成 [unit-money-origins, unit-america-rise, unit-bubbles]。其餘步驟盡量保留。
 - id: unit-america-rise
   title: 美國為什麼這麼強？從十三個殖民地到美元霸權
   histories: [美國史, 美洲史, 錢的歷史, 世界通史]
-  cards: [event-thirteen-colonies, event-declaration-of-independence, event-us-constitution, finance-hamilton-financial-plan, event-westward-expansion, event-gilded-age-industrialization, event-marshall-plan, finance-dollar-reserve-currency]
+  cards: [event-thirteen-colonies, event-american-founding-philosophy, event-declaration-of-independence, event-us-constitution, finance-hamilton-financial-plan, event-westward-expansion, event-gilded-age-industrialization, event-marshall-plan, finance-dollar-reserve-currency]
   brief: 從殖民地自治傳統、獨立宣言的理念、憲法分權、漢彌爾頓的國債與信用，到領土擴張（也要講原住民被迫遷徙與奴隸制的代價）、鍍金時代工業化、二戰後馬歇爾計畫與美元成為儲備貨幣。謎題是「美國為什麼強大」，要呈現多種解釋並列（制度、地理資源、時機、美元），不要單一定論；也要讓學生看到強大的代價與爭議。
+  revise: 在殖民地與《獨立宣言》之間加入 event-american-founding-philosophy 的 card 步驟（洛克自然權利、孟德斯鳩分權、社會契約、共和主義、《聯邦黨人文集》），並把它用進 chain 或 check 至少一題（例如把洛克→獨立宣言→孟德斯鳩→憲法→聯邦黨人文集的思想傳遞排序，或問『野心對抗野心』的意思）；若該卡有 primary_source，可加一個 source 步驟。要保留學界對洛克影響大小與自由／共和主義之爭的提醒。其餘步驟盡量保留，next 維持。
+- id: unit-money-origins
+  title: 錢是怎麼發明的？從神廟借據、第一枚硬幣到巴格達的支票
+  histories: [錢的歷史, 世界通史, 歐洲史, 中國史]
+  cards: [finance-mesopotamia-credit, finance-lydian-coinage, commodity-laurion-silver, finance-athens-trapezitai, finance-roman-argentarii, commodity-wuzhu-coin, finance-byzantine-solidus, finance-abbasid-sakk-hawala, finance-jiaozi]
+  brief: 金融中心鏈的前傳（12 世紀以前）。用「信用比硬幣更早」這個謎題開場：美索不達米亞泥板借據與漢摩拉比的利率與債務規定、國王免債；呂底亞第一批鑄幣；雅典勞里昂銀礦、貓頭鷹銀幣與 trapezitai 銀行家、海上借貸；羅馬第納里烏斯、argentarii 與西元 33 年信用危機、減銀；同時代漢朝五銖錢對照；拜占庭索利都斯七百年穩定；阿拔斯巴格達的 sakk、hawala 與拉唐商人；北宋交子。讓學生比較「東西方獨立發展出的貨幣」（呂底亞／五銖），以及「為什麼有的貨幣穩定幾百年、有的被減值」（索利都斯 vs 第納里烏斯）。today 要先說不能類比。談錢要提醒後見之明與倖存者偏差、不構成投資建議。next 寫 [unit-financial-centers, unit-ming-silver, unit-athens-sparta]，最後引導到香檳市集與金融中心鏈。

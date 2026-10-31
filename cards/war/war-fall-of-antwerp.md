@@ -20,7 +20,7 @@ place:
     - { name_ancient: 弗利辛恩（弗拉辛）, name_modern: 弗利辛恩（荷蘭澤蘭省）, lat: 51.4426, lng: 3.5714, precision: exact, role: "位於斯海爾德河口（西斯海爾德）北岸瓦爾赫倫島上的城市，與南岸的澤蘭法蘭德斯隔河相對，北方控制河口地帶的據點之一（座標為今市中心）", src: [s5] }
   scale: line
 structure_tags: [海峽封鎖, 金融中心轉移, 財政枯竭, 宗教／意識形態動員, 海權對陸權]
-links: [finance-antwerp-bourse, finance-bruges-bourse, finance-amsterdam-exchange, finance-amsterdam-wisselbank, finance-amsterdam-decline, event-reformation, event-vasco-da-gama, event-french-revolution]
+links: [finance-antwerp-bourse, finance-bruges-bourse, finance-amsterdam-exchange, finance-amsterdam-wisselbank, finance-amsterdam-decline, event-reformation, event-vasco-da-gama, event-french-revolution, finance-age-of-genoese]
 counterparts:
   - { id: war-jingkang, note: "兩者都是一座富庶的商業大城陷落後，人口與資本往另一個地區遷移；差別在於宋室帶著國家南遷，安特衛普的商人卻是投向敵對的北方國家。", src: [s11] }
 sources:

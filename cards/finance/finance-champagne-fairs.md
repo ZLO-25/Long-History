@@ -21,7 +21,7 @@ place:
     - { name_ancient: 巴爾, name_modern: 奧布河畔巴爾（法國）, lat: 48.2331, lng: 4.7106, precision: schematic, role: 市集所在城鎮之一（座標為今市中心）, src: [s1] }
   scale: area
 structure_tags: [商路改道, 金融制度創新, 金融中心轉移, 慢變結構]
-links: [finance-venice-rialto, finance-bruges-bourse, finance-medici-bank, finance-antwerp-bourse, war-crusades]
+links: [finance-venice-rialto, finance-bruges-bourse, finance-medici-bank, finance-antwerp-bourse, war-crusades, finance-abbasid-sakk-hawala, finance-age-of-genoese]
 counterparts: "無適當對照：中國軌的山西票號是常設商號網絡做異地匯兌，與香檳市集「定期集會、集中結算」的結構不同，且本卡來源未涵蓋票號，不硬湊。"
 sources:
   - { id: s1, title: "Champagne fairs — Wikipedia", url: "https://en.wikipedia.org/wiki/Champagne_fairs", accessed: 2026-10-31, tier: 百科 }

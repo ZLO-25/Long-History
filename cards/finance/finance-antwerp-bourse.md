@@ -20,7 +20,7 @@ place:
     - { name_ancient: 奧格斯堡, name_modern: 奧格斯堡（德國）, lat: 48.3705, lng: 10.8978, precision: schematic, role: 富格爾家族的總部（座標為今市中心）, src: [s4, s5] }
   scale: area
 structure_tags: [金融中心轉移, 金融制度創新, 商路改道, 債務擴張, 戰爭融資, 主權違約]
-links: [event-vasco-da-gama, finance-medici-bank, finance-amsterdam-exchange]
+links: [event-vasco-da-gama, finance-medici-bank, finance-amsterdam-exchange, finance-age-of-genoese]
 counterparts: "無適當對照：中國軌沒有同時期以專屬交易所建築、國際匯票與君主借款為核心的金融中心；山西票號（1823 年起）晚了三個多世紀，性質是匯兌網絡，不硬配。"
 sources:
   - { id: s1, title: "Antwerp — Wikipedia", url: "https://en.wikipedia.org/wiki/Antwerp", accessed: 2026-10-31, tier: 百科 }

@@ -18,7 +18,7 @@ place:
     - { name_ancient: 倫敦, name_modern: 倫敦（英國）, lat: 51.5142, lng: -0.0885, precision: schematic, role: 1694 年在倫敦城開業，1734 年起位於針線街（座標為今針線街總部）, src: [s1, s2] }
   scale: point
 structure_tags: [金融制度創新, 戰爭融資, 債務擴張]
-links: [finance-amsterdam-exchange, finance-medici-bank, finance-jiaozi, finance-bretton-woods, finance-great-depression, finance-2008-crisis]
+links: [finance-amsterdam-exchange, finance-medici-bank, finance-jiaozi, finance-bretton-woods, finance-great-depression, finance-2008-crisis, finance-casa-di-san-giorgio]
 counterparts:
   - { id: finance-jiaozi, note: "相似：都是政府財政吃緊時出現的紙上信用，一張紙能代表金屬貨幣（交子代表鐵錢，英格蘭銀行券可兌換金幣）。不同：交子由朝廷的交子務直接發行，發多少由朝廷決定；英格蘭銀行是私人股東出錢借給政府，利息由國會通過的稅收支付，還債有國會背書。", src: [s1, s3, s7] }
   - { id: finance-shanxi-piaohao, note: "相似：政府都倚賴民間金融機構替國家調度錢（清廷靠票號匯解稅款與軍費）。不同：英格蘭銀行一路變成管理國債、發行鈔票的中央銀行；票號始終是民間商號，清朝滅亡後隨之沒落。", src: [s1, s8] }

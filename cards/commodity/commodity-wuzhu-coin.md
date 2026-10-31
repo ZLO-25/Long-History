@@ -18,7 +18,7 @@ place:
     - { name_ancient: 長安（上林苑）, name_modern: 西安（中國陝西）, lat: 34.30833, lng: 108.85833, precision: schematic, role: 前 113 年起鑄幣權收歸上林三官（座標為今西安）, src: [s1, s3] }
   scale: area
 structure_tags: [標準化量產, 貨幣貶值, 關鍵原料壟斷, 慢變結構]
-links: [commodity-salt-iron, event-wang-mang-reform, event-qin-unification]
+links: [commodity-salt-iron, event-wang-mang-reform, event-qin-unification, finance-lydian-coinage, finance-roman-argentarii]
 counterparts:
   - { id: commodity-laurion-silver, note: "相似：由單一權力統一發行、規格穩定的錢幣，因為大家信任而長期、大範圍流通。不同：雅典銀幣靠白銀本身的價值；五銖是銅錢，價值靠國家壟斷鑄造與官定比價（一斤黃金兌一萬錢）維持。", src: [s1] }
 sources:

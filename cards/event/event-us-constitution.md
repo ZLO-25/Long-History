@@ -19,7 +19,7 @@ place:
     - { name_ancient: 紐約市（聯邦廳）, name_modern: 美國紐約州紐約市, lat: 40.7074, lng: -74.0102, precision: schematic, role: 1789 年第一屆國會開會地，國會在此通過權利法案草案（座標為今聯邦廳）, src: [s8] }
   scale: area
 structure_tags: [憲政分權, 法律成文化, 精英內鬥, 臨界點]
-links: [event-magna-carta, event-french-revolution]
+links: [event-magna-carta, event-french-revolution, event-american-founding-philosophy]
 counterparts:
   - { id: event-han-inherits-qin, note: "兩者都是前一套體制崩潰後，重新設計中央與地方的權力分配；漢初採郡縣與封國並行並逐步削藩，美國則用成文憲法把權力同時分給聯邦與各州。[s10]", src: [s10] }
 sources:

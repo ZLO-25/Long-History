@@ -1,4 +1,4 @@
-# 歷史長河（第 7 期：美國史與金融中心的轉移）
+# 歷史長河（第 8 期：美國史、金融中心的轉移與錢的起源）
 
 個人用的「歷史思考工具」：用模糊搜尋或勾選結構條件，找到結構相似的歷史案例；每張卡片都有時間軸、地圖位置與可點的來源。
 
@@ -29,6 +29,13 @@
 - 美國史（22 張）：十三殖民地、《獨立宣言》與啟蒙思想、獨立戰爭、憲法與聯邦制、漢彌爾頓財政計畫、西進擴張、門羅主義、南北戰爭、鍍金時代、美西戰爭、聯準會、「美國世紀」、馬歇爾計畫、圍堵與北約、韓戰、越戰、尼克森訪華、石油美元、廣場協議、美元儲備貨幣地位、反恐戰爭、美中貿易戰。學習模式多了一條「美國史」（`?mode=learn&history=usa`）。
 - 金融中心的轉移（15 張）：香檳市集 → 威尼斯 → 布魯日 → 安特衛普的興衰（含 1585 年陷落與斯海爾德河封鎖）→ 阿姆斯特丹匯兌銀行與它的衰落 → 倫敦崛起、金本位 → 紐約取代倫敦 → 歐洲美元與倫敦「大爆炸」、東京泡沫、亞洲金融風暴、歐元；另有密西西比泡沫。
 - 新單元：`unit-america-rise`（美國為什麼這麼強？）、`unit-financial-centers`（金融中心為什麼會搬家？）。
+
+第 8 期（2026-10-31）再補 9 張新卡、1 個新單元：
+
+- 美國立國哲學獨立成卡（洛克、孟德斯鳩、自然權利、社會契約、分權、《聯邦黨人文集》、共和主義），《獨立宣言》、憲法卡與「美國崛起」單元都連過去。
+- 熱那亞獨立成卡：聖喬治銀行、「熱那亞人的世紀」（1557–1627，熱那亞銀行家融資哈布斯堡西班牙），接進金融中心鏈（安特衛普 → 熱那亞 → 阿姆斯特丹）。
+- 12 世紀以前的金融史：美索不達米亞神廟借貸與《漢摩拉比法典》、呂底亞鑄幣、雅典 trapezitai、羅馬 argentarii、拜占庭索利都斯、阿拔斯 sakk／hawala 與拉唐商人，加上既有的北宋交子；新前傳單元 `unit-money-origins`（錢是怎麼發明的？）。
+- 美中貿易戰卡更新到 2026 年 10 月（日內瓦休戰、釜山會晤、最高法院判 IEEPA 關稅違法、北京峰會、第八輪磋商與休戰延到 2027-01-10）。
 - 文明分類新增「法蘭德斯與比利時」，美國分成 5 個時期；結構標籤新增「金融中心轉移」「儲備貨幣地位」「憲政分權」「經濟施壓與制裁」。
 - 卡片由 `tools/cardgen/gen.ts` 呼叫 Claude Sonnet（`claude-sonnet-5-5`）起草，再經 `npm run validate`、網址檢查、另一次獨立呼叫比對來源原文的交叉查核。細節與還沒做的事見 `docs/phase7-report.md`。改版前的版本保留在 tag `v1-before-us-finance` 與分支 `backup/original`。
 
@@ -85,7 +92,7 @@ npm run dev
 | `LEARN_DEV=1 npm run dev` | 開發時讓還沒通過查核的學習卡與單元也顯示（正式 build 不會用） |
 | `node scripts/qa/e2e.cjs http://localhost:4173/` | 先 `npm run build` 再 `npx vite preview`，然後自動走過 7 條歷史的每個單元每一步、3 個模擬；同資料夾還有 `research.cjs`（研究模式回歸）、`overlap.cjs`（時間軸標籤重疊）、`shot.cjs`（截圖）。需要 Playwright |
 | `node scripts/qa/labels.cjs http://localhost:4173/` | 地圖名稱都是繁中＋英文：底圖地名、案例地點、疆域、今日咽喉（說明見 docs/map-names.md） |
-| `npx tsx tools/cardgen/gen.ts draft\|fix\|urls\|check\|unit\|unitcheck [id ...]` | 第 7 期的卡片生成器：用 Claude Sonnet 起草、依 validate 修正、檢查網址、獨立查核（需要環境變數 `ANTHROPIC_API_KEY`；任務書在 `tools/cardgen/specs.yaml`、`unit-specs.yaml`；中間檔在 `tools/cardgen/.out/`，不進 git） |
+| `npx tsx tools/cardgen/gen.ts draft\|revise\|fix\|urls\|check\|unit\|unitrevise\|unitcheck [id ...]` | 第 7、8 期的卡片生成器（`revise`／`unitrevise` 依任務書的 `revise` 欄位改寫既有卡片或單元）：用 Claude Sonnet 起草、依 validate 修正、檢查網址、獨立查核（需要環境變數 `ANTHROPIC_API_KEY`；任務書在 `tools/cardgen/specs.yaml`、`unit-specs.yaml`；中間檔在 `tools/cardgen/.out/`，不進 git） |
 | `node scripts/qa/layout.cjs http://localhost:4173/` | 桌機版可拖曳分隔線：拖曳、重整後記住、收起時間軸、鍵盤、「⟲ 版面」重設、小視窗、手機無分隔線（說明見 docs/layout-report.md） |
 
 ## 三、用 Obsidian 編輯卡片
@@ -116,6 +123,7 @@ sources:
 - `http://localhost:5173/?mode=learn&history=taiwan`：學習模式的臺灣史
 - `http://localhost:5173/?mode=learn&history=usa`：學習模式的美國史
 - `http://localhost:5173/?mode=learn&unit=unit-financial-centers`：金融中心為什麼會搬家？
+- `http://localhost:5173/?mode=learn&unit=unit-money-origins`：錢是怎麼發明的？
 - `http://localhost:5173/?mode=learn&unit=unit-ming-silver`：直接打開一個單元
 - `http://localhost:5173/?mode=learn&sim=bubble`：直接打開泡沫模擬（另有 `debase`、`bankrun`）
 - `http://localhost:5173/?mode=learn&view=mymap`：我的歷史地圖
@@ -157,5 +165,5 @@ sources:
 - `docs/phase6-plan.md`、`docs/phase6-report.md`：第 6 期（學習模式）計畫與驗收回報
 - `docs/learn-units.md`：學習單元的寫法與檢查規則
 - `docs/screenshots/phase6/`：375 與 1280 寬的截圖
-- `docs/phase7-report.md`：第 7 期（美國史與金融中心的轉移）驗收回報、生成流程與判斷
+- `docs/phase7-report.md`：第 7 期（美國史與金融中心的轉移）與第 8 期補充的驗收回報、生成流程與判斷
 - `docs/map-names.md`：地圖名稱改成繁中＋英文的做法、資料檔與怎麼改譯名（截圖在 `docs/screenshots/map-names/`）

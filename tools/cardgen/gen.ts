@@ -111,6 +111,19 @@ async function draft(ids: string[]) {
   });
 }
 
+// ---------- 改寫既有卡（任務書的 revise 欄位） ----------
+async function revise(ids: string[]) {
+  const sys = systemPrompt();
+  const todo = pick(ids).filter((s) => s.revise && fs.existsSync(cardPath(s)));
+  await pool(todo, 6, async (s) => {
+    const user = `請依下列更新任務改寫這張既有卡片，輸出完整卡片（沒有提到的段落盡量保留原文；刪掉舊的 crosscheck 欄位，由查核者重填）：\n${s.revise}\n\n<card>\n${fs.readFileSync(cardPath(s), 'utf8')}\n</card>`;
+    const t = await claude(sys, user);
+    fs.writeFileSync(path.join(OUT, `${s.id}.revise.txt`), t);
+    fs.writeFileSync(cardPath(s), extract(t).replace(/^crosscheck:.*\n/m, ''));
+    console.log('✓ revise', s.id);
+  });
+}
+
 // ---------- 依 validate 結果修正 ----------
 function yamlError(file: string): string | null {
   const m = fs.readFileSync(file, 'utf8').match(/^---\n([\s\S]*?)\n---/);
@@ -262,6 +275,15 @@ async function unit(ids: string[]) {
     }
   }
 }
+// 既有單元依任務書的 revise 欄位改寫（例如加入新卡）
+async function unitrevise(ids: string[]) {
+  const sys = unitSys();
+  for (const u of unitSpecs.filter((x) => x.revise && fs.existsSync(unitPath(x)) && (!ids.length || ids.includes(x.id)))) {
+    const t = await claude(sys, `請依下列更新任務改寫這個既有單元，輸出完整 YAML（沒提到的步驟盡量保留；刪掉舊的 crosscheck，由查核者重填）：\n${u.revise}\n\n<unit>\n${fs.readFileSync(unitPath(u), 'utf8')}\n</unit>\n\n可用卡片（只能用這些卡）：\n${unitCards(u)}`);
+    fs.writeFileSync(path.join(OUT, `${u.id}.revise.txt`), t); fs.writeFileSync(unitPath(u), extractUnit(t).replace(/^crosscheck:.*\n?/m, '')); console.log('✓ unit revise', u.id);
+  }
+  await unit(ids.length ? ids : unitSpecs.filter((x) => x.revise).map((x) => x.id));
+}
 const UCHECK_SYS = `你是獨立的學習單元查核者，沒有參與寫作。你會拿到一個學習單元 YAML 與它用到的卡片全文。請依 docs/learn-units.md 的寫作規則逐條檢查：每句史實是否都在卡片裡、數字年份是否一致、ref 段落是否支持題目、選擇題答案與排序是否正確、card 步驟深度是否讓學生看得到被問的段落、decision 未發生選項是否標「推測」、today 是否先說不能類比、談錢單元是否提醒後見之明與倖存者偏差並寫不構成投資建議。
 有明確錯誤 → 不通過；只有小建議 → 通過。只輸出 JSON：{"result":"通過"或"不通過","notes":"繁體中文 ≤200 字","problems":[{"where":"","issue":"","fix":"建議修正文字"}]}`;
 async function unitcheck(ids: string[]) {
@@ -282,6 +304,6 @@ async function unitcheck(ids: string[]) {
 }
 
 const [cmd, ...ids] = process.argv.slice(2);
-const fns: Record<string, (ids: string[]) => Promise<void>> = { draft, fix, urls, check, unit, unitcheck };
-if (!fns[cmd]) { console.log('用法：gen.ts draft|fix|urls|check|unit|unitcheck [id ...]'); process.exit(1); }
+const fns: Record<string, (ids: string[]) => Promise<void>> = { draft, revise, fix, urls, check, unit, unitrevise, unitcheck };
+if (!fns[cmd]) { console.log('用法：gen.ts draft|revise|fix|urls|check|unit|unitrevise|unitcheck [id ...]'); process.exit(1); }
 await fns[cmd](ids);

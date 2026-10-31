@@ -10,10 +10,11 @@ histories:
   - { id: china, name: 中國史, track: 東亞, civs: [中國, 北方草原], blurb: 一個大帝國反覆統一、分裂，又和草原、海洋打交道。 }
   - { id: sea, name: 東南亞史, track: 東亞, civs: [東南亞], blurb: 季風和海峽讓這裡成為全世界商人的十字路口。 }
   - { id: greco-roman, name: 希臘羅馬史, track: 世界, civs: [古希臘, 古羅馬, 迦太基, 埃及], blurb: 民主、共和、帝國，很多今天的政治詞彙從這裡來。 }
-  - { id: europe, name: 歐洲史, track: 世界, civs: [日耳曼與法蘭克, 拜占庭帝國, 英國, 法國, 伊比利半島, 奧地利與哈布斯堡, 荷蘭, 義大利, 俄羅斯與蘇聯], blurb: 一群互相競爭的小國，怎麼走向全世界。 }
+  - { id: europe, name: 歐洲史, track: 世界, civs: [日耳曼與法蘭克, 拜占庭帝國, 英國, 法國, 伊比利半島, 奧地利與哈布斯堡, 荷蘭, 法蘭德斯與比利時, 義大利, 俄羅斯與蘇聯], blurb: 一群互相競爭的小國，怎麼走向全世界。 }
   - { id: islam, name: 伊斯蘭世界史, track: 世界, civs: [伊斯蘭世界, 波斯], blurb: 連接歐洲、非洲、亞洲的帝國與商路。 }
   - { id: india, name: 印度史, track: 世界, civs: [印度], blurb: 宗教、香料與棉布的大國。 }
   - { id: americas, name: 美洲史, track: 世界, civs: [美國, 拉丁美洲], blurb: 原住民文明、白銀，以及後來的超級強權。 }
+  - { id: usa, name: 美國史, track: 世界, civs: [美國], blurb: 從十三個殖民地到超級強權：一套建國理念、一塊大陸和美元，怎麼改變世界。 }
   - { id: world, name: 世界通史, track: 全部, all: true, blurb: 不分地區，看全世界同一時間發生了什麼。 }
   # 專題史（跨地區）
   - { id: money, name: 錢的歷史, track: 專題, theme: [finance, commodity], blurb: 錢、白銀、銀行和泡沫：錢怎麼改變歷史。 }

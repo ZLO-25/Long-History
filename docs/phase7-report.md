@@ -105,3 +105,9 @@ unit / unitcheck ──► 單元同樣流程：起草 → validate → 獨立�
 5. **2025 年以後的事**：美中貿易戰卡以 2025 年為終點，之後的發展標「未知」。
 6. 「哲學」部分放在《獨立宣言》與啟蒙思想、憲法與《聯邦黨人文集》兩張卡，沒有另開哲學專卡。
 7. 舊單元的 `next` 沒有改；新單元互相指向，也指向既有的泡沫、白銀單元。
+
+## 七、端到端測試發現並修正的問題
+
+- `scripts/qa/e2e.cjs` 第一次跑時，`unit-financial-centers` 第 12 步與 `unit-america-rise` 第 8 步畫面崩潰（`(e ?? "").replace is not a function`）。原因是 4 張新卡（containment-nato、hamilton-financial-plan、london-rise、plaza-accord）的 `learn.exaggerated` 被生成成清單或物件，不是字串。
+- 已把這 4 張卡改成一段文字，並在 `scripts/lib/check.ts` 加上檢查：`why_care`、`story`、`historiography`、`exaggerated`、`hindsight`、`money_scale` 必須是字串，以後 validate 就會擋下來。
+- 修正後 e2e（7 條歷史、14 個單元每一步、3 個模擬、研究模式）與 overlap（1280 寬）都全部通過。

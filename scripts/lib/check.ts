@@ -166,6 +166,7 @@ export function checkCards(
         if (String(p?.text ?? '').length > 160) warn(`learn.primary_source[${i}] 超過 160 字，只能引短句`);
         needRefs(p?.src ? [].concat(p.src) : [], `learn.primary_source[${i}]`);
       });
+      for (const k of ['why_care', 'story', 'historiography', 'exaggerated', 'hindsight', 'money_scale']) if (L[k] != null && typeof L[k] !== 'string') w(`${k} 必須是一段文字（字串），不能是清單或物件`);
       if (!L.historiography) w('缺 historiography（史家怎麼吵，並列 2 種以上詮釋）');
       else needRefs(refsOf(L.historiography), 'learn.historiography');
       if (L.money_scale) needRefs(refsOf(L.money_scale), 'learn.money_scale');

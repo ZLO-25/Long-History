@@ -2,7 +2,7 @@
 const { chromium } = require('playwright');
 (async () => {
   const [base, w = '1280'] = process.argv.slice(2);
-  const ids = ['taiwan', 'japan', 'korea', 'china', 'sea', 'greco-roman', 'europe', 'islam', 'india', 'americas', 'world', 'money', 'tech'];
+  const ids = ['taiwan', 'japan', 'korea', 'china', 'sea', 'greco-roman', 'europe', 'islam', 'india', 'americas', 'usa', 'world', 'money', 'tech'];
   const b = await chromium.launch();
   const p = await b.newPage({ viewport: { width: +w, height: 900 } });
   const errs = [];

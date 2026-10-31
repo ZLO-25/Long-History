@@ -22,7 +22,7 @@ place:
     - { name_ancient: 威尼斯, name_modern: 威尼斯（義大利）, lat: 45.4408, lng: 12.3155, precision: schematic, role: 威尼斯分行，1402 年開設（座標為今威尼斯市中心）, src: [s1] }
   scale: area
 structure_tags: [金融制度創新, 債務擴張, 長期衰退]
-links: [finance-amsterdam-exchange, finance-bank-of-england, finance-shanxi-piaohao]
+links: [finance-amsterdam-exchange, finance-bank-of-england, finance-shanxi-piaohao, finance-casa-di-san-giorgio]
 counterparts:
   - { id: finance-shanxi-piaohao, note: "相似：都用「總行＋各地分號」的網路和匯票，讓商人不必扛著現金長途跋涉就能把錢送到遠方。不同：梅迪奇在歐洲各國之間做跨國、跨幣種匯兌，大客戶是教廷；山西票號在同一個清帝國內匯兌，後期大客戶是清政府的稅款與軍費。兩者都隨著靠山的政權倒台而沒落（1494 年梅迪奇失勢、1911 年清朝滅亡）。", src: [s1, s4] }
 sources:

@@ -18,7 +18,7 @@ place:
     - { name_ancient: 益州（成都）, name_modern: 成都（中國四川）, lat: 30.657, lng: 104.066, precision: schematic, role: 私交子出現地與益州交子務所在（座標為今成都市區）, src: [s1, s2] }
   scale: point
 structure_tags: [金融制度創新, 貨幣貶值, 慢變結構]
-links: [event-wang-anshi-reform, tech-paper, tech-movable-type, finance-bank-of-england, finance-shanxi-piaohao]
+links: [event-wang-anshi-reform, tech-paper, tech-movable-type, finance-bank-of-england, finance-shanxi-piaohao, finance-abbasid-sakk-hawala]
 counterparts:
   - { id: finance-bank-of-england, note: "相似：都是政府財政吃緊時出現的紙上信用，一張紙能代表金屬貨幣（交子代表鐵錢，英格蘭銀行券可兌換金幣），也都先由民間開始、再和國家財政綁在一起。不同：官交子由朝廷的交子務直接發行，發多少由朝廷決定，後來為了籌錢增發而貶值；英格蘭銀行由私人股東出資借錢給政府，利息由國會通過的稅收支付，紙鈔起初可兌換金幣。", src: [s1, s2, s6, s7] }
 sources:

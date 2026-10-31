@@ -5,3 +5,6 @@ public/data/
 .DS_Store
 .obsidian/workspace*.json
 data/routes/itinere-simplified.geojson
+
+# 第 7 期卡片產生器的原始回應（可能很大，不進版控）
+tools/cardgen/.out/

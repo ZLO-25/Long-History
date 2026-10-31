@@ -134,7 +134,7 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
                 <text x={6} y={BG_H / 2 + 4} className="lane-name">{label}</text>
                 {big.map((c) => {
                   const px = x(c.time.start); if (px < LEFT || px > width) return null;
-                  const show = px > lastEnd && px + c.name.length * 11 + 14 < width; if (show) lastEnd = px + c.name.length * 11 + 14;
+                  const show = px > lastEnd && px + c.name.length * CH_W + 14 < width; if (show) lastEnd = px + c.name.length * CH_W + 14;
                   return <g key={c.id} className="lnode bg" onClick={() => onOpen(c.id)}><title>{c.name}（{fmtYear(c.time.start)}）</title>
                     <circle cx={px} cy={BG_H / 2} r={4} fill={TYPE_COLOR[c.type]} />{show && <text x={px + 6} y={BG_H / 2 - 3} className="bg-label">{c.name}</text>}</g>;
                 })}

@@ -1,4 +1,4 @@
-// node e2e.cjs baseUrl → 6 條歷史端到端：歷史頁有單元、每個單元每一步都能打開、沒有錯誤；3 個模擬能操作；研究模式基本回歸
+// node e2e.cjs baseUrl → 7 條歷史端到端：歷史頁有單元、每個單元每一步都能打開、沒有錯誤；3 個模擬能操作；研究模式基本回歸
 const { chromium } = require('playwright');
 (async () => {
   const base = process.argv[2];
@@ -9,7 +9,7 @@ const { chromium } = require('playwright');
   p.on('console', (m) => { if (m.type() === 'error' && !/tile|favicon|ERR_TUNNEL|ERR_NAME|ERR_PROXY/.test(m.text())) errs.push(m.text()); });
   const fails = [];
   const seen = new Set();
-  for (const h of ['taiwan', 'japan', 'china', 'greco-roman', 'money', 'world']) {
+  for (const h of ['taiwan', 'japan', 'china', 'greco-roman', 'money', 'world', 'usa']) {
     errs = [];
     await p.goto(`${base}?mode=learn&history=${h}`, { waitUntil: 'networkidle' });
     await p.waitForTimeout(500);

@@ -27,7 +27,7 @@ sources:
   - { id: s2, title: "Marshall Plan, 1948 — Office of the Historian, U.S. Department of State", url: "https://history.state.gov/milestones/1945-1952/marshall-plan", accessed: 2026-10-31, tier: 通論 }
   - { id: s3, title: "J. Bradford DeLong and Barry Eichengreen, The Marshall Plan: History's Most Successful Structural Adjustment Program, NBER Working Paper No. 3899, 1991", url: "https://www.nber.org/papers/w3899", accessed: 2026-10-31, tier: 學術 }
   - { id: s4, title: "Organisation for European Economic Co-operation — Wikipedia", url: "https://en.wikipedia.org/wiki/Organisation_for_European_Economic_Co-operation", accessed: 2026-10-31, tier: 百科 }
-  - { id: s5, title: "The Marshall Plan Speech（George C. Marshall, 1947-06-05 哈佛大學演說全文）— Avalon Project, Yale Law School", url: "https://avalon.law.yale.edu/20th_century/marshall.asp", accessed: 2026-10-31, tier: 一手 }
+  - { id: s5, title: "The Marshall Plan Speech（George C. Marshall, 1947-06-05 哈佛大學演說全文）— Wikisource", url: "https://en.wikisource.org/wiki/Marshall_Plan_Speech", accessed: 2026-10-31, tier: 一手 }
 importance: 3
 learn:
   histories: [美國史, 歐洲史, 世界通史, 錢的歷史]

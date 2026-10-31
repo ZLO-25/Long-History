@@ -26,7 +26,7 @@ counterparts: "無適當對照：中國軌的山西票號是常設商號網絡�
 sources:
   - { id: s1, title: "Champagne fairs — Wikipedia", url: "https://en.wikipedia.org/wiki/Champagne_fairs", accessed: 2026-10-31, tier: 百科 }
   - { id: s2, title: "County of Champagne — Wikipedia", url: "https://en.wikipedia.org/wiki/County_of_Champagne", accessed: 2026-10-31, tier: 百科 }
-  - { id: s3, title: "Paul R. Milgrom, Douglass C. North, Barry R. Weingast, The Role of Institutions in the Revival of Trade: The Law Merchant, Private Judges, and the Champagne Fairs, Economics & Politics 2(1), 1990, pp. 1–23（RePEc 摘要頁）", url: "https://ideas.repec.org/a/bla/ecpoli/v2y1990i1p1-23.html", accessed: 2026-10-31, tier: 學術 }
+  - { id: s3, title: "Paul R. Milgrom, Douglass C. North, Barry R. Weingast, The Role of Institutions in the Revival of Trade: The Law Merchant, Private Judges, and the Champagne Fairs, Economics & Politics 2(1), 1990, pp. 1–23（RePEc 摘要頁）", url: "https://ideas.repec.org/a/bla/ecopol/v2y1990i1p1-23.html", accessed: 2026-10-31, tier: 學術 }
   - { id: s4, title: "Bill of exchange — Wikipedia", url: "https://en.wikipedia.org/wiki/Bill_of_exchange", accessed: 2026-10-31, tier: 百科 }
   - { id: s5, title: "Philip IV of France — Wikipedia", url: "https://en.wikipedia.org/wiki/Philip_IV_of_France", accessed: 2026-10-31, tier: 百科 }
   - { id: s6, title: "Bruges — Wikipedia", url: "https://en.wikipedia.org/wiki/Bruges", accessed: 2026-10-31, tier: 百科 }

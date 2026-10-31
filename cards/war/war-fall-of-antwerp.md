@@ -36,7 +36,7 @@ sources:
   - { id: s10, title: "The Dutch Revolt — Leiden University（萊頓大學荷蘭起義網站）", url: "https://dutchrevolt.leidenuniv.nl/", accessed: 2026-10-31, tier: 學術 }
   - { id: s11, title: "Jingkang incident — Wikipedia", url: "https://en.wikipedia.org/wiki/Jingkang_incident", accessed: 2026-10-31, tier: 百科 }
   - { id: s12, title: "Act of Abjuration — Wikipedia", url: "https://en.wikipedia.org/wiki/Act_of_Abjuration", accessed: 2026-10-31, tier: 百科 }
-  - { id: s13, title: "Plakkaat van Verlatinge（《廢除效忠宣言》，1581 年 7 月 26 日）— 荷蘭文維基文庫", url: "https://nl.wikisource.org/wiki/Plakkaat_van_Verlatinge", accessed: 2026-10-31, tier: 一手 }
+  - { id: s13, title: "Plakkaat van Verlatinge（《廢除效忠宣言》，1581 年 7 月 26 日）— 荷蘭文維基文庫", url: "https://nl.wikisource.org/wiki/Plakkaat_van_Verlatinghe", accessed: 2026-10-31, tier: 一手 }
 importance: 3
 learn:
   histories: [歐洲史, 錢的歷史, 世界通史]

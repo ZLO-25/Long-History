@@ -17,7 +17,7 @@ place:
   locations:
     - { name_ancient: 列星頓, name_modern: 美國麻薩諸塞州列星頓, lat: 42.4473, lng: -71.2245, precision: schematic, role: 1775 年 4 月 19 日首次交火處（座標為鎮中心）, src: [s11] }
     - { name_ancient: 康科德, name_modern: 美國麻薩諸塞州康科德, lat: 42.4604, lng: -71.3489, precision: schematic, role: 英軍搜查民兵軍火的目的地（座標為鎮中心）, src: [s11] }
-    - { name_ancient: 薩拉托加, name_modern: 美國紐約州薩拉托加（今國家歷史公園一帶）, lat: 42.9970, lng: -73.6330, precision: schematic, role: 1777 年 10 月英軍伯戈因部投降處, src: [s8] }
+    - { name_ancient: 薩拉托加, name_modern: 美國紐約州薩拉托加（今國家歷史公園一帶）, lat: 42.9970, lng: -73.6330, precision: schematic, role: 1777 年 10 月薩拉托加戰役戰場（伯戈因部在北方約 12 公里處投降，座標取戰場）, src: [s8] }
     - { name_ancient: 費城, name_modern: 美國賓夕法尼亞州費城, lat: 39.9526, lng: -75.1652, precision: schematic, role: 大陸會議所在地、1777 年被英軍占領, src: [s1] }
     - { name_ancient: 查爾斯頓, name_modern: 美國南卡羅來納州查爾斯頓, lat: 32.7765, lng: -79.9311, precision: schematic, role: 1780 年 5 月被英軍攻陷（座標為市中心）, src: [s1] }
     - { name_ancient: 約克鎮, name_modern: 美國維吉尼亞州約克鎮, lat: 37.2388, lng: -76.5097, precision: exact, role: 1781 年 10 月 19 日康瓦利斯投降處, src: [s7] }

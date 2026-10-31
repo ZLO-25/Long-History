@@ -129,6 +129,11 @@ export function checkUnits(units: { file: string; unit: any }[], cards: RawCard[
     const cc = u.crosscheck;
     if (!cc) warn('還沒有交叉查核紀錄（crosscheck），不會出現在學習模式');
     else if (cc.result !== '通過') warn('交叉查核不通過，不會出現在學習模式');
+    // 上下兩半的長單元：companion 指向另一半，完整步驟（史料、因果鏈、比較、決策、今日對照…）只要兩半合起來齊全即可
+    const comp = u.companion ? units.find((x) => x.unit?.id === u.companion)?.unit : null;
+    if (u.companion && !comp) err(`companion 指向不存在的單元：${u.companion}`);
+    if (comp && comp.companion !== u.id) err(`companion 要互相指向：${u.companion} 沒有指回 ${u.id}`);
+    for (const x of comp?.steps ?? []) seen.add(x.type);
     for (const t of REQUIRED_STEPS) if (!seen.has(t)) err(`單元缺少「${t}」步驟（每個單元都要有史料判讀、因果鏈、觀點比較、決策、今日對照、自我檢查、回顧）`);
   }
   return out;

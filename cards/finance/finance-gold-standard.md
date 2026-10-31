@@ -23,7 +23,7 @@ structure_tags: [貨幣體系轉換, 金融制度創新, 儲備貨幣地位, 慢
 links: [finance-bank-of-england, finance-london-rise, finance-new-york-overtakes-london, finance-bretton-woods, finance-great-depression, finance-federal-reserve, finance-dollar-reserve-currency, war-world-war-one, event-gilded-age-industrialization, commodity-silver-flow, war-opium-war]
 counterparts:
   - id: finance-shanxi-piaohao
-    note: "同一時期（1823–1914）山西票號在銀本位的中國辦理遠距匯兌，和倫敦匯票網路一樣是靠信用網絡跨地區清算；但中國以白銀計價，金銀比價下跌時處境和金本位國家相反（本卡推論）。[s3]"
+    note: "同一時期（1823 年日昇昌創立至 1910 年代，票號到民國初年才大量倒閉）山西票號在銀本位的中國辦理遠距匯兌，和倫敦匯票網路一樣是靠信用網絡跨地區清算；但中國以白銀計價，金銀比價下跌時處境和金本位國家相反（本卡推論）。[s3]"
     src: [s3]
 sources:
   - { id: s1, title: "Gold standard — Wikipedia", url: "https://en.wikipedia.org/wiki/Gold_standard", accessed: 2026-10-31, tier: 百科 }

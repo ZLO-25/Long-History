@@ -32,7 +32,7 @@ sources:
   - { id: s7, title: "The Great Inflation — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/great-inflation", accessed: 2026-10-31, tier: 通論 }
   - { id: s8, title: "Latin American Debt Crisis of the 1980s — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/latin-american-debt-crisis", accessed: 2026-10-31, tier: 通論 }
   - { id: s9, title: "James D. Hamilton, Historical Oil Shocks, NBER Working Paper No. 16790, 2011", url: "https://www.nber.org/papers/w16790", accessed: 2026-10-31, tier: 學術 }
-  - { id: s10, title: "Richard Nixon, Address to the Nation About National Energy Policy（1973 年 11 月 7 日）— The American Presidency Project, UC Santa Barbara", url: "https://www.presidency.ucsb.edu/documents/address-the-nation-about-national-energy-policy", accessed: 2026-10-31, tier: 一手 }
+  - { id: s10, title: "Richard Nixon, Address to the Nation About Policies To Deal With the Energy Shortages（1973 年 11 月 7 日）— The American Presidency Project, UC Santa Barbara", url: "https://www.presidency.ucsb.edu/documents/address-the-nation-about-policies-deal-with-the-energy-shortages", accessed: 2026-10-31, tier: 一手 }
 importance: 2
 learn:
   histories: [美國史, 錢的歷史, 世界通史, 伊斯蘭世界史]
@@ -48,7 +48,7 @@ learn:
     - { term: 歐洲美元, plain: 存在美國以外銀行的美元存款，不受美國銀行法規直接管轄。, example: 你把美金放在日本的銀行帳戶，而不是美國的銀行。 }
   primary_source:
     - text: "meet our own energy needs without depending on any foreign energy sources（滿足自身能源需求，而不依賴任何外國能源。）"
-      from: 美國總統尼克森〈就國家能源政策向全國演說〉，1973 年 11 月 7 日（The American Presidency Project 英文原文節錄；中文為本站摘譯）
+      from: 美國總統尼克森〈就因應能源短缺的政策向全國演說〉（Address to the Nation About Policies To Deal With the Energy Shortages），1973 年 11 月 7 日（The American Presidency Project 英文原文節錄；中文為本站摘譯）
       src: s10
   historiography: |
     **回流是誰安排的？** 一種看法強調美國與沙國的政治安排：彭博依文件報導，1974 年的美沙合作中包含沙國可以在公開標售之外購買美國公債，且持有量不公開。[s6] 另一種看法強調市場自己運作：產油國把美元存進西方銀行與歐洲美元市場，銀行再貸給赤字國家，這是一個多管道、很大程度由民間銀行完成的過程。[s1][s8] 兩種說法並不互相排斥；但「有一份條約規定石油只能用美元」並不在這些來源裡，來源不足。[s1][s6]
@@ -65,6 +65,7 @@ learn:
     - { history: 美國史, text: "從美國看，油價衝擊加深了停滯性通膨，美國也透過經濟合作與公債管道和沙烏地阿拉伯建立新的金融聯繫。[s5][s6]" }
     - { history: 伊斯蘭世界史, text: "從阿拉伯產油國看，禁運是把石油當政治工具的一次嘗試，油價上漲帶來大量外匯收入，需要找地方運用。[s3][s1]" }
     - { history: 錢的歷史, text: "從錢的歷史看，布列敦森林體系解體後，美元靠政府信用而非黃金，石油收入的回流成為美元資產需求的來源之一。[s4][s1]" }
+crosscheck: { date: 2026-10-31, by: 獨立查核（claude-sonnet-5-5 另一次呼叫，未參與寫作，比對抓取的來源原文）, result: 通過, notes: "主要事實與來源或公認史實相符。尼克森 1971 年 8 月 15 日暫停美元兌金；1973 年 10 月 OAPEC 禁運；油價約 3 美元升至近 12 美元（s2）；禁運 1974 年 3 月解除（s2、s3、s5）；1973 年 11 月 7 日宣布獨立計畫（s3）；墨西哥 1982 年 8 月宣布無力還債（s8）；1980 年前後通膨約 14%（s7）。一手引文「meet our own energy needs without depending on any foreign energy sources」可在 s10 原文逐字找到。座標大致正確。「只收美元條約」一事標示為來源不足，處理得當。s6 彭博全文未抓取成功，沙國購買公債的安排、1974 年 6 月成立經濟合作委員會、2016 年公布約 1,168 億美元，無法逐字核對，但與公認報導一致。F8 中「石油貿易以產油國政府與國際石油公司為主」一句掛 s2，來源支持較弱，屬措辭層面。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
@@ -78,7 +79,7 @@ lens_status: 無直接論述
 - **1971 年 8 月 15 日**：尼克森宣布暫停美元兌換黃金，布列敦森林體系走向結束。[s4]
 - **1973 年 10 月**：中東戰爭爆發後，阿拉伯石油輸出國組織（OAPEC）對支持以色列的國家實施減產與禁運，美國是主要對象之一。[s2][s3]
 - **油價**：約從每桶 3 美元升到近 12 美元（約三到四倍，各來源說法略有差異）。[s2][s5]
-- **美國的政策回應**：1973 年 11 月 7 日，尼克森發表全國演說，提出到該十年結束時具備不依賴外國能源、滿足自身需求的潛力這個目標。[s10]
+- **美國的政策回應**：1973 年 11 月 7 日，尼克森政府宣布「獨立計畫」（Project Independence）以推動國內能源自主；尼克森當天的全國演說提出，到該十年結束時具備不依賴外國能源、滿足自身需求的潛力這個目標。[s3][s10]
 - **禁運結束**：1974 年 3 月前後陸續解除，但油價沒有跌回原來水準。[s2][s3]
 - **美國的處境**：油價衝擊加上高通膨，美國進入停滯性通膨的 1970 年代。[s5][s7]
 

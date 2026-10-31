@@ -1,0 +1,11 @@
+# 第 7 期學習單元的寫作任務書（gen.ts unit / unitcheck 使用）
+- id: unit-financial-centers
+  title: 金融中心為什麼會搬家？從布魯日、安特衛普到阿姆斯特丹、倫敦、紐約
+  histories: [錢的歷史, 歐洲史, 美國史, 世界通史]
+  cards: [finance-champagne-fairs, finance-bruges-bourse, finance-antwerp-bourse, war-fall-of-antwerp, finance-amsterdam-wisselbank, finance-amsterdam-decline, finance-london-rise, finance-new-york-overtakes-london]
+  brief: 用「錢會往哪裡跑」串起中世紀市集、布魯日、安特衛普的興衰（河口淤積、西班牙之怒、1585 圍城與斯海爾德河封鎖）、商人北遷造就阿姆斯特丹、匯兌銀行，再到阿姆斯特丹衰落、倫敦崛起、一戰後紐約超車。要讓學生比較兩次中心轉移（例如安特衛普→阿姆斯特丹 對 倫敦→紐約），並思考「今天有沒有下一個金融中心」時哪裡不能類比。談錢，要提醒後見之明與倖存者偏差、不構成投資建議。
+- id: unit-america-rise
+  title: 美國為什麼這麼強？從十三個殖民地到美元霸權
+  histories: [美國史, 美洲史, 錢的歷史, 世界通史]
+  cards: [event-thirteen-colonies, event-declaration-of-independence, event-us-constitution, finance-hamilton-financial-plan, event-westward-expansion, event-gilded-age-industrialization, event-marshall-plan, finance-dollar-reserve-currency]
+  brief: 從殖民地自治傳統、獨立宣言的理念、憲法分權、漢彌爾頓的國債與信用，到領土擴張（也要講原住民被迫遷徙與奴隸制的代價）、鍍金時代工業化、二戰後馬歇爾計畫與美元成為儲備貨幣。謎題是「美國為什麼強大」，要呈現多種解釋並列（制度、地理資源、時機、美元），不要單一定論；也要讓學生看到強大的代價與爭議。

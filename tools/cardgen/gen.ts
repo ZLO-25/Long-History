@@ -219,7 +219,69 @@ async function check(ids: string[]) {
   });
 }
 
+
+// ---------- 學習單元 ----------
+const unitSpecs: any[] = YAML.parse(rd('tools/cardgen/unit-specs.yaml'));
+const unitPath = (u: any) => path.join(ROOT, 'data', 'units', `${u.id}.yaml`);
+const cardFile = (id: string) => { for (const t of fs.readdirSync(path.join(ROOT, 'cards'))) { const f = path.join(ROOT, 'cards', t, `${id}.md`); if (fs.existsSync(f)) return f; } throw new Error(`找不到卡 ${id}`); };
+const unitCards = (u: any) => u.cards.map((id: string) => `=== ${id} ===\n${fs.readFileSync(cardFile(id), 'utf8')}`).join('\n\n');
+const unitIds = () => fs.readdirSync(path.join(ROOT, 'data', 'units')).map((f) => f.replace(/\.yaml$/, '')).join('、');
+const extractUnit = (t: string) => { const m = t.match(/<unit>\s*([\s\S]*?)\s*<\/unit>/); if (!m) throw new Error('回應裡沒有 <unit>'); return m[1].trim() + '\n'; };
+function unitSys() {
+  return `你是「歷史長河」學習模式的單元作者，對象是臺灣國高中生，全部用臺灣繁體中文。單元不放新史實：每一句都必須能在提供的卡片裡找到。
+# 規格 docs/learn-units.md
+${rd('docs/learn-units.md')}
+# 範例單元 data/units/unit-bubbles.yaml
+${rd('data/units/unit-bubbles.yaml')}
+# 硬性規則
+- 必須有 source、chain、compare、decision、today、check、recap 步驟；可以有 hook、card、sim。
+- source 的 idx 是該卡 learn.primary_source 的索引（從 0 起），該卡必須真的有那一筆。
+- ref 寫 卡片id 或 卡片id#段落代號（代號要真的存在於該卡），或 卡片id#story。
+- today 的 card 要有「不可類比的差異」段落（C9／F8／A11 之類，請看卡片）。
+- hints 每題 2–3 段。next 寫 2–3 個已存在或本期的單元 id：${unitIds()}、${unitSpecs.map((u) => u.id).join('、')}。
+- 不要寫 crosscheck。只輸出 YAML 全文，放在 <unit></unit> 之間。`;
+}
+function unitIssues(u: any): string[] {
+  let out = '';
+  try { out = execSync('npx tsx scripts/validate.ts', { cwd: ROOT, encoding: 'utf8' }); } catch (e: any) { out = e.stdout ?? ''; }
+  const res: string[] = []; let cur = '';
+  for (const l of out.split('\n')) { if (/^\S/.test(l)) cur = l.trim(); else if (cur.includes(u.id) && /^\s+(✗|!)/.test(l) && !l.includes('crosscheck')) res.push(l.trim()); }
+  return res;
+}
+async function unit(ids: string[]) {
+  const sys = unitSys();
+  for (const u of unitSpecs.filter((x) => !ids.length || ids.includes(x.id))) {
+    if (!fs.existsSync(unitPath(u))) {
+      const t = await claude(sys, `請寫單元 ${u.id}\n標題方向：${u.title}\nhistories：${u.histories.join('、')}\n重點：${u.brief}\n可用卡片（只能用這些卡）：\n${unitCards(u)}`);
+      fs.writeFileSync(path.join(OUT, `${u.id}.draft.txt`), t); fs.writeFileSync(unitPath(u), extractUnit(t)); console.log('✓ unit draft', u.id);
+    }
+    for (let r = 0; r < 3; r++) {
+      const iss = unitIssues(u); if (!iss.length) break;
+      const t = await claude(sys, `這個單元跑 validate 出現以下問題，請修正後輸出完整 YAML：\n${iss.join('\n')}\n\n<unit>\n${fs.readFileSync(unitPath(u), 'utf8')}\n</unit>\n\n可用卡片：\n${unitCards(u)}`);
+      fs.writeFileSync(unitPath(u), extractUnit(t)); console.log('✓ unit fix', r + 1, u.id, iss.length);
+    }
+  }
+}
+const UCHECK_SYS = `你是獨立的學習單元查核者，沒有參與寫作。你會拿到一個學習單元 YAML 與它用到的卡片全文。請依 docs/learn-units.md 的寫作規則逐條檢查：每句史實是否都在卡片裡、數字年份是否一致、ref 段落是否支持題目、選擇題答案與排序是否正確、card 步驟深度是否讓學生看得到被問的段落、decision 未發生選項是否標「推測」、today 是否先說不能類比、談錢單元是否提醒後見之明與倖存者偏差並寫不構成投資建議。
+有明確錯誤 → 不通過；只有小建議 → 通過。只輸出 JSON：{"result":"通過"或"不通過","notes":"繁體中文 ≤200 字","problems":[{"where":"","issue":"","fix":"建議修正文字"}]}`;
+async function unitcheck(ids: string[]) {
+  const sys = unitSys();
+  for (const u of unitSpecs.filter((x) => !ids.length || ids.includes(x.id))) {
+    const run = async () => { const t = await claude(UCHECK_SYS, `<unit>\n${fs.readFileSync(unitPath(u), 'utf8')}\n</unit>\n\n# 卡片\n${unitCards(u)}`, 16000); const j = JSON.parse(t.slice(t.indexOf('{'), t.lastIndexOf('}') + 1)); fs.writeFileSync(path.join(OUT, `${u.id}.check.json`), JSON.stringify(j, null, 2)); return j; };
+    let j = await run(); let fixed = false;
+    for (let r = 0; r < 2 && (j.result !== '通過' || (j.problems ?? []).length) && !fixed; r++) {
+      const wasPass = j.result === '通過';
+      const t = await claude(sys, `獨立查核者${wasPass ? '判定通過，但提出小建議' : '判定不通過'}。請逐項採用建議修正（只改這些地方），輸出完整 YAML：\n${JSON.stringify(j.problems, null, 1)}\n\n<unit>\n${fs.readFileSync(unitPath(u), 'utf8')}\n</unit>\n\n可用卡片：\n${unitCards(u)}`);
+      fs.writeFileSync(unitPath(u), extractUnit(t));
+      if (wasPass) { j.notes = `${j.notes} 建議已採用。`; fixed = true; } else j = await run();
+    }
+    const y = fs.readFileSync(unitPath(u), 'utf8').replace(/^crosscheck:.*\n?/m, '').trimEnd();
+    fs.writeFileSync(unitPath(u), `${y}\ncrosscheck: { date: ${TODAY}, by: 獨立查核（${MODEL} 另一次呼叫，未參與寫作）, result: ${j.result}, notes: "${String(j.notes).replace(/"/g, '「').replace(/\n/g, ' ')}" }\n`);
+    console.log(j.result === '通過' ? '✓' : '✗', 'unitcheck', u.id, j.notes);
+  }
+}
+
 const [cmd, ...ids] = process.argv.slice(2);
-const fns: Record<string, (ids: string[]) => Promise<void>> = { draft, fix, urls, check };
-if (!fns[cmd]) { console.log('用法：gen.ts draft|fix|urls|check [id ...]'); process.exit(1); }
+const fns: Record<string, (ids: string[]) => Promise<void>> = { draft, fix, urls, check, unit, unitcheck };
+if (!fns[cmd]) { console.log('用法：gen.ts draft|fix|urls|check|unit|unitcheck [id ...]'); process.exit(1); }
 await fns[cmd](ids);

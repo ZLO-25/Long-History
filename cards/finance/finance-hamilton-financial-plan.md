@@ -15,7 +15,7 @@ place:
   primary_field: 金融中心
   secondary_fields: [宮廷／政治中心]
   locations:
-    - { name_ancient: 紐約（聯邦聖殿所在地）, name_modern: 紐約（美國紐約州）, lat: 40.7074, lng: -74.0102, precision: schematic, role: "1790 年初首都所在，漢彌爾頓遞交《公共信用報告》；1792 年梧桐樹協議簽於華爾街（座標為聯邦聖殿，約略位置）", src: [s1, s5, s10] }
+    - { name_ancient: 紐約（聯邦廳所在地）, name_modern: 紐約（美國紐約州）, lat: 40.7074, lng: -74.0102, precision: schematic, role: "1790 年初首都所在，漢彌爾頓遞交《公共信用報告》；1792 年梧桐樹協議簽於華爾街（座標為聯邦廳，約略位置）", src: [s1, s5, s10] }
     - { name_ancient: 費城, name_modern: 費城（美國賓州）, lat: 39.9526, lng: -75.1652, precision: schematic, role: "美國第一銀行總行與鑄幣局所在地，1790 年底起為臨時首都（座標為市中心，約略位置）", src: [s2, s3] }
   scale: area
 structure_tags: [金融制度創新, 戰爭融資, 債務擴張, 擴大稅基, 投機泡沫與崩盤]

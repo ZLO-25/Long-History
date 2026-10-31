@@ -2,7 +2,7 @@
 id: finance-champagne-fairs
 type: finance
 name: 香檳市集與中世紀匯票
-aliases: [香檳集市, 香檳市集, 香檳大市集, Champagne fairs, Fairs of Champagne, 特魯瓦市集, 普羅萬市集, 拉尼市集, 巴爾叟奧布市集, Troyes, Provins, Lagny, Bar-sur-Aube, 市集信, 匯票, bill of exchange, 商人法, law merchant, 香檳伯爵]
+aliases: [香檳集市, 香檳市集, 香檳大市集, Champagne fairs, Fairs of Champagne, 特魯瓦市集, 普羅萬市集, 拉尼市集, 奧布河畔巴爾市集, Troyes, Provins, Lagny, Bar-sur-Aube, 市集信, 匯票, bill of exchange, 商人法, law merchant, 香檳伯爵]
 civilization: [法國, 義大利]
 track: west
 time:

@@ -29,7 +29,7 @@ sources:
   - { id: s5, title: "Robert S. Lopez, The Dollar of the Middle Ages, The Journal of Economic History 11(3), 1951, pp. 209–234（JSTOR）", url: "https://www.jstor.org/stable/2113986", accessed: 2026-10-31, tier: 學術 }
   - { id: s6, title: "Ducat — Wikipedia", url: "https://en.wikipedia.org/wiki/Ducat", accessed: 2026-10-31, tier: 百科 }
   - { id: s7, title: "Battle of Manzikert — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Manzikert", accessed: 2026-10-31, tier: 百科 }
-  - { id: s8, title: "Cosmas Indicopleustes, Christian Topography（6 世紀，第十一卷論羅馬金幣；英譯本 McCrindle, 1897）— 條目介紹頁：Christian Topography, Wikipedia", url: "https://en.wikipedia.org/wiki/Christian_Topography", accessed: 2026-10-31, tier: 一手 }
+  - { id: s8, title: "Cosmas Indicopleustes, Christian Topography（6 世紀，第二卷論羅馬金幣；英譯本 McCrindle, 1897）— 條目介紹頁：Christian Topography, Wikipedia", url: "https://en.wikipedia.org/wiki/Christian_Topography", accessed: 2026-10-31, tier: 一手 }
 importance: 3
 learn:
   histories: [世界通史, 錢的歷史, 歐洲史, 希臘羅馬史]
@@ -43,8 +43,8 @@ learn:
     - { term: 儲備貨幣, plain: 別的國家與商人也願意拿來存、拿來付帳的外國貨幣。, example: 全班都願意用某一種點數交換東西，不管是不是自己班發的。 }
     - { term: 第納爾, plain: 伊斯蘭世界的金幣，名稱來自羅馬銀幣 denarius。, example: 在中世紀市集上，它與拜占庭金幣是兩大主流金幣。 }
   primary_source:
-    - text: "Every nation trades in it, and it is acceptable in every place from one end of the earth to the other.（每個民族都用它做買賣，從地球的這一頭到那一頭，處處都肯收。）"
-      from: 科斯馬斯（Cosmas Indicopleustes）《基督教世界風土記》（Christian Topography）第十一卷，6 世紀，論羅馬帝國金幣（McCrindle 1897 英譯；中文為本站摘譯，措辭以原書為準）
+    - text: "（大意）所有民族都用羅馬的錢幣做買賣，從地球的這一頭到那一頭，處處都肯收。"
+      from: 科斯馬斯（Cosmas Indicopleustes）《基督教世界風土記》（Christian Topography）第二卷，6 世紀，論羅馬帝國的錢幣（依 McCrindle 1897 英譯 p.73 轉述，非逐字引文；措辭以原書為準）
       src: s8
   historiography: |
     **它真的是「中世紀的美元」嗎？** 羅伯特·羅培茲（Robert Lopez）1951 年在《經濟史期刊》發表〈The Dollar of the Middle Ages〉，標題就把這種拜占庭金幣比作中世紀的國際主導貨幣。[s5] 這個比喻強調它在地中海世界的信用與通用程度，但「像美元」只是類比，不是說制度相同。[s5]（本卡未逐頁核對該文論證細節。）

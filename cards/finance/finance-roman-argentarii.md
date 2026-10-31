@@ -44,7 +44,7 @@ learn:
     - { term: 包稅人（publicani）, plain: 向國家承包收稅或公共工程的私人公司，由多位出資人合夥。, example: 學校把福利社的經營權包給外面的公司，公司再向同學收錢賺取利潤。 }
     - { term: 含銀量, plain: 一枚銀幣裡真正有多少銀；含銀量降低，同樣面額的錢就變得不那麼值錢。, example: 同樣叫「一杯果汁」，但果汁越兌越多水。 }
   primary_source:
-    - text: "sine usuris per trienium, si debitor populo in duplum praediis cavisset（三年免息，只要借款人以雙倍價值的田產向人民〔國庫〕提供擔保）"
+    - text: "sine usuris per triennium, si debitor populo in duplum praediis cavisset（三年免息，只要借款人以雙倍價值的田產向人民〔國庫〕提供擔保）"
       from: 塔西佗《編年史》6.17，記載提比略西元 33 年的救市措施（Perseus 拉丁文本；中文為本站摘譯，拉丁拼寫以 Perseus 文本為準）
       src: s4
   historiography: |

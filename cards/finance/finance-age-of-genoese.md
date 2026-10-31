@@ -49,8 +49,8 @@ learn:
     - { term: 停止付款, plain: "國王宣布暫時不照原約定還債，之後再和債權人重新談條件。", example: "同學說這個月先不還你，下個月再分期談。" }
     - { term: 積累體系週期, plain: "學者阿瑞吉的說法：資本主義在歷史上依序由不同的城市或國家主導，每一個週期都有自己的中心。", example: "像接力賽，熱那亞先跑，後來換荷蘭、英國、美國。" }
   primary_source:
-    - text: "Es ist bekannt und liegt am Tage, dass Eure Kaiserliche Majestät die römische Krone ohne mich nicht hätte erlangen können.（眾所周知、顯而易見：沒有我，陛下就無法取得羅馬王冠。）"
-      from: 雅各布·富格爾致神聖羅馬皇帝查理五世的信（1523 年，向皇帝討還貸款；德文為流傳的通行寫法，中文為本站摘譯，細節以條目引述為準）
+    - text: "… daß Eure Kaiserliche Majestät die Römische Kron ohne mein Hilf nicht hätten erlangen mögen.（……沒有我的幫助，陛下就無法取得羅馬王冠。）"
+      from: 雅各布·富格爾致神聖羅馬皇帝查理五世的信（1523 年，向皇帝討還貸款；德文為傳記常引的早期新高地德文原句節錄，中文為本站摘譯，細節以條目引述為準）
       src: s12
   historiography: |
     **熱那亞人是西班牙的主人，還是僕人？** 布勞岱爾把 1557 至 1627 年稱為「熱那亞人的世紀」，強調熱那亞銀行家掌握歐洲的金融樞紐。[s10] 阿瑞吉把熱那亞放在資本主義第一個「積累體系週期」，後面依序是荷蘭、英國、美國。[s9] 這些是以長時段看世界經濟的說法，也有人批評它把一座城市的銀行家家族說得過度有主導權。（批評者與細節：來源不足。）

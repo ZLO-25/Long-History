@@ -126,6 +126,10 @@ export function checkUnits(units: { file: string; unit: any }[], cards: RawCard[
       }
       for (const k of ['text', 'situation', 'explain', 'actual']) if (s[k] && refsOf(String(s[k])).length) warn(`${w}：單元文字不要用 [s1] 代號，請用 ref 連回卡片`);
     });
+    if (u.reflect !== undefined) {
+      if (typeof u.reflect !== 'string' || !u.reflect.trim()) err('reflect 要是一句反思題（字串）');
+      else if (refsOf(u.reflect).length) warn('reflect 不要用 [s1] 代號：反思題不放新史實');
+    } else warn('建議加 reflect：回顧後「回到自己」的反思題（見 docs/lu-method.md）');
     const cc = u.crosscheck;
     if (!cc) warn('還沒有交叉查核紀錄（crosscheck），不會出現在學習模式');
     else if (cc.result !== '通過') warn('交叉查核不通過，不會出現在學習模式');

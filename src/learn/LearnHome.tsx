@@ -34,6 +34,16 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
           <button className="btn primary" onClick={onIntroSeen}>知道了</button>
         </section>
       )}
+      <details className="method-box">
+        <summary>📜 為什麼要學歷史？這裡的單元怎麼帶你讀</summary>
+        <ol className="steps3">
+          <li><b>先有問題</b><span>每個單元從一個謎題開始。不是先背年代，而是先好奇「為什麼會這樣」。</span></li>
+          <li><b>把自己放進去</b><span>做決定的那一步，先別看選項，寫下「如果我是他，只知道這些，我會怎麼做」。</span></li>
+          <li><b>看成敗，也看代價</b><span>再看他實際怎麼做、後來怎樣、代價由誰付。盛的時候找衰的種子，衰的時候找轉機。</span></li>
+          <li><b>回到自己</b><span>最後問：這段經驗，對我自己的選擇有什麼用？沒有標準答案。</span></li>
+        </ol>
+        <p className="muted small">這四步參考臺大歷史系呂世浩老師公開談過的讀史方法：「古人的歷史是拿來用的」（<a href="http://tedxtaipei.com/talks/2014-shih-hao-lu/" target="_blank" rel="noreferrer">TEDxTaipei 演講介紹</a>）；讀史要「觀史如身在其中……必掩卷自思，使我遇此等事，當作何處之」（他引宋代呂祖謙，<a href="https://www.5070.com.tw/i5070/userfiles/evtrpt/3cp/201406112.pdf" target="_blank" rel="noreferrer">〈《史記》中的智慧〉文稿</a>）；他也提醒思辨根本沒有「標準答案」，「不要把老師的答案當成是『標準答案』」（<a href="https://www.coursera.org/learn/qin-shi-huang" target="_blank" rel="noreferrer">Coursera 秦始皇課程介紹</a>）。把這些話整理成四個步驟，是本站自己的設計，不代表呂老師本人的課程安排。</p>
+      </details>
       <section>
         <h2>1. 你想學哪一種歷史？</h2>
         {GROUPS.map(([g, f]) => {

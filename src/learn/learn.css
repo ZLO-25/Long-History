@@ -228,3 +228,14 @@
 .ld-main > .ld-tl { grid-column: 1 / 4; grid-row: 3; }
 .ld-main.tl-sized > .ld-tl { max-height: none; height: 100%; min-height: 0; }
 .learn.tl-closed .ld-main > .splitter.row { display: none; }
+
+/* 讀史方法：決策前先想、決策後對照、回顧後回到自己 */
+.decision .think-first { background: var(--bg); border-left: 4px solid var(--accent); padding: 10px 12px; border-radius: 6px; margin: 10px 0; }
+.decision .think-first textarea, .activity.reflect textarea { width: 100%; box-sizing: border-box; }
+.decision .think-first .row { display: flex; gap: 12px; align-items: center; margin-top: 6px; }
+.decision .mirror { margin: 10px 0; padding: 8px 12px; border: 1px dashed currentColor; border-radius: 6px; }
+.decision .mirror ul { margin: 4px 0 0; padding-left: 1.2em; }
+.activity.reflect { margin-top: 18px; }
+.activity.reflect h3 { margin: 0 0 6px; }
+.method-box { margin: 12px 0 18px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+.method-box summary { cursor: pointer; font-weight: 600; }

@@ -199,16 +199,28 @@ export function CompareTable({ a, b, rows }: { a: Card; b: Card; rows: { aspect:
   );
 }
 
-export function Decision({ role, situation, options, actual, note, after }: { role: string; situation: string; options: { label: string; result: string }[]; actual: string; note?: string; after?: ReactNode }) {
+// 決策：先「掩卷自思」寫下自己的想法，再看選項與結果（讀史方法見 docs/lu-method.md）
+export function Decision({ role, situation, options, actual, note, after, saved, onSave }: { role: string; situation: string; options: { label: string; result: string }[]; actual: string; note?: string; after?: ReactNode; saved?: string; onSave?: (t: string) => void }) {
   const [pick, setPick] = useState<number | null>(null);
+  const [thought, setThought] = useState(saved ?? '');
+  const [open, setOpen] = useState(!!saved);
   return (
     <div className="activity decision">
       <p className="role">🎭 {role}</p>
       <LearnText text={situation} sources={[]} />
-      <p><b>你的決定是？</b></p>
-      <div className="options">
-        {options.map((o, i) => <button key={i} className={`opt ${pick === i ? 'picked' : ''}`} disabled={pick !== null} onClick={() => setPick(i)}><span className="opt-key">{'ABCD'[i]}</span>{o.label}</button>)}
-      </div>
+      {!open ? (
+        <div className="think-first">
+          <p><b>先別看選項。</b>把自己放進這個處境：你知道的只有上面這些，不知道後來會怎樣。你會怎麼做？為什麼？</p>
+          <textarea value={thought} onChange={(e) => { setThought(e.target.value); onSave?.(e.target.value); }} placeholder="寫一兩句就好（只存在你的瀏覽器）" rows={3} />
+          <div className="row"><button className="btn primary" onClick={() => setOpen(true)}>想好了，看選項</button><button className="link" onClick={() => setOpen(true)}>先跳過</button></div>
+        </div>
+      ) : (<>
+        {thought && <p className="muted small">你一開始的想法：「{thought}」</p>}
+        <p><b>你的決定是？</b></p>
+        <div className="options">
+          {options.map((o, i) => <button key={i} className={`opt ${pick === i ? 'picked' : ''}`} disabled={pick !== null} onClick={() => setPick(i)}><span className="opt-key">{'ABCD'[i]}</span>{o.label}</button>)}
+        </div>
+      </>)}
       {pick !== null && (
         <div className="feedback model">
           <p><b>你選了：{options[pick].label}</b></p>
@@ -216,10 +228,32 @@ export function Decision({ role, situation, options, actual, note, after }: { ro
           <details open><summary>其他選項會怎樣？</summary>{options.map((o, i) => i !== pick && <p key={i}><b>{o.label}：</b>{o.result}</p>)}</details>
           <p className="actual"><b>歷史上實際發生的：</b>{actual}</p>
           {note && <p className="muted small">{note}</p>}
+          <div className="mirror">
+            <b>對照一下</b>
+            <ul>
+              <li>當時的人手上有哪些資訊、哪些壓力，讓他這樣選？</li>
+              <li>你一開始的直覺，和他實際的做法，差在哪裡？誰想得比較遠？</li>
+              <li>這個選擇的代價，最後是誰付的？</li>
+            </ul>
+          </div>
           {after}
           <button className="btn sm" onClick={() => setPick(null)}>重新選</button>
         </div>
       )}
+    </div>
+  );
+}
+
+// 回到自己：讀完一段歷史，把它和自己的生活連起來（讀史方法見 docs/lu-method.md）
+export const LU_LECTURE_URL = 'https://www.5070.com.tw/i5070/userfiles/evtrpt/3cp/201406112.pdf';
+export function Reflect({ q, saved, onSave }: { q?: string; saved?: string; onSave?: (t: string) => void }) {
+  const [txt, setTxt] = useState(saved ?? '');
+  return (
+    <div className="activity reflect">
+      <h3>🪞 回到自己</h3>
+      <div className="q">{q ?? '這段歷史裡，哪一個人的哪一個選擇最讓你有感？如果將來你遇到很像的處境，你想記得什麼？'}</div>
+      <textarea value={txt} onChange={(e) => { setTxt(e.target.value); onSave?.(e.target.value); }} placeholder="沒有標準答案，寫給自己看就好（只存在你的瀏覽器）" rows={3} />
+      <p className="muted small">讀歷史不只是知道發生了什麼，也是借別人的經驗想想自己會怎麼做。臺大歷史系呂世浩老師在〈《史記》中的智慧〉一文中引宋代呂祖謙的話：讀史要「如身在其中」，看到事情的利害禍患時，「必掩卷自思，使我遇此等事，當作何處之」。<a href={LU_LECTURE_URL} target="_blank" rel="noreferrer">原文 PDF</a></p>
     </div>
   );
 }

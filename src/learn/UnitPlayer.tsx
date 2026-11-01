@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { Index, Step, Unit } from '../types';
 import { LearnCard, type Depth } from './LearnCard';
 import { LearnText } from './LearnText';
-import { Choice, CheckQ, CompareTable, Decision, Hints, Order, RefLink, Short } from './Steps';
+import { Choice, CheckQ, CompareTable, Decision, Hints, Order, RefLink, Reflect, Short } from './Steps';
 import { SimView } from './sims/SimView';
 import type { UnitProgress } from './progress';
 import { unitHalf } from './util';
@@ -123,7 +123,8 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
           <Short key={step} q={s.question} model={s.model_answer} hints={s.hints} saved={prog?.answers?.[`s${step}`] as string | undefined} onSave={(t) => save(`s${step}`, t)} />
         </>;
       }
-      case 'decision': return <Decision key={step} role={s.role} situation={s.situation} options={s.options} actual={s.actual} note={s.note} after={ref(s.ref)} />;
+      case 'decision': return <Decision key={step} role={s.role} situation={s.situation} options={s.options} actual={s.actual} note={s.note} after={ref(s.ref)}
+        saved={prog?.answers?.[`d${step}`] as string | undefined} onSave={(t) => save(`d${step}`, t)} />;
       case 'today': {
         const c = byId(s.card)!;
         const hook = c.sections.find((x) => x.role === 'today_hook'), no = c.sections.find((x) => x.role === 'non_analogous');
@@ -149,6 +150,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
           <p className="mystery-big">❓ {u.mystery}</p>
           <Short key={step} q="現在，用你自己的話回答一開始的謎題：" model={s.model_answer} label="寫好了，看參考說法"
             saved={prog?.recap} onSave={(t) => setProg({ recap: t })} />
+          <Reflect key={`r${step}`} q={u.reflect} saved={prog?.answers?.reflect as string | undefined} onSave={(t) => save('reflect', t)} />
           {!prog?.done ? <button className="btn primary big" onClick={() => setProg({ done: true, doneAt: new Date().toISOString().slice(0, 10) })}>完成這個單元 🏅</button>
             : <p className="badge-earned">🏅 你完成了「{u.title}」！它已經點亮在「我的歷史地圖」上。</p>}
           <h3>接下來可以挖</h3>

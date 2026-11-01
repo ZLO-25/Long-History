@@ -64,6 +64,8 @@ export interface CheckItem {
 export interface Unit {
   id: string; title: string; histories: string[]; mystery: string; goals: string[]; minutes: number;
   steps: Step[]; next: string[]; teaser?: string;
+  /** 回顧後的「回到自己」反思題：把這段歷史的選擇連到學生自己的生活（不放新史實） */
+  reflect?: string;
 }
 export interface Route {
   id: string; name: string; kind: 'road' | 'sea' | 'wall'; start: number; end: number;

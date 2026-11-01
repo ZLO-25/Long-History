@@ -21,12 +21,41 @@ structure_tags: [附庸反叛, 合法性危機, 臨界點, 突變事件]
 links: [event-burning-books, war-chu-han, event-qin-unification]
 counterparts: "無適當對照：目前的西方卡沒有「被徵調的下層士兵起事、引發全國反叛並推翻帝國」的例子；結構最接近的羅馬斯巴達克斯奴隸起義（前 73 年）沒有卡，而且最後被鎮壓，沒有推翻政權。"
 sources:
-  - { id: s1, title: "Dazexiang uprising — Wikipedia", url: "https://en.wikipedia.org/wiki/Dazexiang_uprising", accessed: 2026-10-25 }
-  - { id: s2, title: "Chen Sheng — New World Encyclopedia", url: "https://www.newworldencyclopedia.org/entry/Chen_Sheng", accessed: 2026-10-25 }
-  - { id: s3, title: "Dazexiang Uprising — 5000yan 中華上下五千年英文版", url: "https://en.5000yan.com/history-of-china/qin-dynasty/dazexiang-uprising.html", accessed: 2026-10-25 }
-  - { id: s4, title: "Suzhou, Anhui — Wikipedia", url: "https://en.wikipedia.org/wiki/Suzhou,_Anhui", accessed: 2026-10-25 }
-  - { id: s5, title: "華迪威〈陳勝的知識世界〉，澎湃新聞（中國作家網轉載，2025-06-24）", url: "https://www.chinawriter.com.cn/n1/2025/0624/c442005-40507778.html", accessed: 2026-10-25 }
-  - { id: s6, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
+  - { id: s1, title: "Dazexiang uprising — Wikipedia", url: "https://en.wikipedia.org/wiki/Dazexiang_uprising", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Chen Sheng — New World Encyclopedia", url: "https://www.newworldencyclopedia.org/entry/Chen_Sheng", accessed: 2026-10-25, tier: 百科 }
+  - { id: s3, title: "Dazexiang Uprising — 5000yan 中華上下五千年英文版", url: "https://en.5000yan.com/history-of-china/qin-dynasty/dazexiang-uprising.html", accessed: 2026-10-25, tier: 通論 }
+  - { id: s4, title: "Suzhou, Anhui — Wikipedia", url: "https://en.wikipedia.org/wiki/Suzhou,_Anhui", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "華迪威〈陳勝的知識世界〉，澎湃新聞（中國作家網轉載，2025-06-24）", url: "https://www.chinawriter.com.cn/n1/2025/0624/c442005-40507778.html", accessed: 2026-10-25, tier: 通論 }
+  - { id: s6, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s7, title: "司馬遷《史記．陳涉世家》原文 — 中國哲學書電子化計劃（ctext.org；本環境連線被擋（proxy 403）未能開啟，不作唯一依據；引句經 s5 轉引核對）", url: "https://ctext.org/shiji/chen-she-shi-jia/zh", accessed: 2026-11-01, tier: 一手 }
+  - { id: s8, title: "孟彥弘〈《史記》「閭左」發覆〉，《文史哲》2016 年第 6 期 — 愛思想轉載（引〈陳涉世家〉「二世元年七月，發閭左適戍漁陽九百人，屯大澤鄉」）", url: "https://www.aisixiang.com/data/115008.html", accessed: 2026-11-01, tier: 學術 }
+importance: 2
+learn:
+  histories: [中國史]
+  why_care: 九百個趕不上期限的戍卒，揭開了推翻中國第一個帝國的序幕；陳勝那句「王侯將相寧有種乎」，質疑地位是不是天生注定。[s1][s2]
+  story: |
+    前 209 年七月，秦朝徵調九百人去守漁陽（今北京密雲）。陳勝、吳廣是帶隊的屯長，走到大澤鄉碰上大雨，道路不通，算一算已經趕不上期限。[s1][s3][s5][s8] 依《史記》，誤期依法要斬首，兩人商量：逃走是死，起事也是死，不如為國而死。[s5] 他們把寫著「陳勝王」的帛書塞進魚肚子，又讓吳廣夜裡學狐狸叫「大楚興，陳勝王」，讓大家以為是天意。[s5] 接著殺了押隊的軍官，喊出「王侯將相寧有種乎」。[s1][s5] 陳勝在陳縣稱王，國號「張楚」。[s3] 幾個月後他就被自己的車夫殺害，但各地反秦勢力接連而起，秦朝不久滅亡。[s1][s3]
+  key_terms:
+    - { term: 戍卒, plain: 被國家徵調去邊疆守衛的士兵，多半是農民。, example: 像被抽籤分發到外島服役。 }
+    - { term: 失期, plain: 沒在規定的期限內抵達。, example: 報告遲交，規定不論理由一律零分。 }
+    - { term: 屯長, plain: 帶領一小隊戍卒的小頭目。, example: 校外教學時被指派帶隊的小組長。 }
+    - { term: 張楚, plain: 陳勝稱王後的國號，意思是「張大楚國」，打著恢復楚國的旗號。, example: 用老字號的招牌重新開店，吸引老顧客。 }
+  primary_source:
+    - text: "會天大雨，道不通，度已失期。失期，法皆斬。（剛好碰上大雨，道路不通，估計已經趕不上期限；誤了期限，依法都要斬首。）"
+      from: 司馬遷《史記》〈陳涉世家〉（中文翻譯為本站摘譯）
+      src: [s7, s5]
+    - text: "王侯將相寧有種乎！（封王封侯、當將軍宰相的，難道是天生的種嗎？）"
+      from: 司馬遷《史記》〈陳涉世家〉，陳勝對戍卒說的話（中文翻譯為本站摘譯）
+      src: [s7, s5]
+  historiography: |
+    **「失期當斬」是真的嗎？** 于敬民根據睡虎地秦簡《徭律》「水雨，除興」（遇大雨可免除徵發），認為秦法未必誤期就斬，這可能是陳勝鼓動戍卒的說法；王子今則認為徭役和戍邊性質不同，軍事行動誤期向來重罰。[s5]
+    **農民英雄還是野心家？** 新世界百科整理指出，中華人民共和國的史家常把陳勝理想化為反抗秦朝的偉大農民領袖；該條目自己的看法則是，陳勝推翻秦朝的動機看來出於自身利益與自我膨脹，並引宋代司馬光《資治通鑑》的記載，說他稱王後疏遠舊識、猜忌將領，最後失去部下的支持。[s2]
+  misconceptions:
+    - 陳勝、吳廣自己並沒有推翻秦朝：起義幾個月就失敗，兩人都被自己人殺害；後來滅秦的是劉邦、項羽等接著起兵的人。[s1][s2]
+    - 「失期當斬」不一定是秦法的明文規定，學者還在爭論；不過戍卒對重罰的恐懼是真實的。[s5]
+  perspectives:
+    - { history: 中國史, text: "從中國史看，這是秦始皇死後第一場反秦起事，打破了秦朝不可挑戰的局面，劉邦、項羽隨後起兵。[s1][s2]" }
+crosscheck: { date: 2026-11-01, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "ctext 打不開。兩段一手引文經 s5 華迪威文（標明《史記》卷 48〈陳涉世家〉）逐字核對；補 s8 孟彥弘《文史哲》2016 論文（學術，可開啟），核對「二世元年七月，發閭左適戍漁陽九百人，屯大澤鄉」與屯長。修正：原稱「司馬光把陳勝描寫成為自身利益起事」與 s2 不符——該說是新世界百科自己的評語，司馬光《資治通鑑》被引來說明陳勝稱王後疏遠舊識、猜忌將領而失敗，已改寫。車夫莊賈見 s1 註腳「其御莊賈」。王子今區分「徭」與「興戍」經 s5 核對。保留：s2 為百科，詮釋性語句較弱。" }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 ---

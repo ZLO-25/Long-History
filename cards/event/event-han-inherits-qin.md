@@ -21,11 +21,43 @@ links: [war-chu-han, event-qin-unification, event-confucian-orthodoxy, building-
 counterparts:
   - { id: event-augustan-principate, note: "相似：新統治者實際上沿用前一個體制的權力機器，卻刻意包裝成與「名聲不好的前任」不同（漢朝說自己寬厚、與暴秦不同；奧古斯都說自己恢復了共和）。不同：漢朝延續的是秦的皇帝集權體制；奧古斯都延續的是共和的名義與官職，實質上建立了君主制。", src: [s1, s2] }
 sources:
-  - { id: s1, title: "Han dynasty — Wikipedia", url: "https://en.wikipedia.org/wiki/Han_dynasty", accessed: 2026-10-25 }
-  - { id: s2, title: "Denis C. Twitchett, China: Prelude to the Han — Encyclopaedia Britannica", url: "https://www.britannica.com/place/China/Prelude-to-the-Han", accessed: 2026-10-25 }
-  - { id: s3, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-24 }
-  - { id: s4, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
-  - { id: s5, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
+  - { id: s1, title: "Han dynasty — Wikipedia", url: "https://en.wikipedia.org/wiki/Han_dynasty", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Denis C. Twitchett, China: Prelude to the Han — Encyclopaedia Britannica", url: "https://www.britannica.com/place/China/Prelude-to-the-Han", accessed: 2026-10-25, tier: 百科 }
+  - { id: s3, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-24, tier: 百科 }
+  - { id: s4, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s5, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s6, title: "司馬遷《史記．蕭相國世家》原文 — 中國哲學書電子化計劃（ctext.org；本環境連線被擋（proxy 403）未能開啟，不作唯一依據；引句經 s7、s13 轉引核對）", url: "https://ctext.org/shiji/xiao-xiang-guo-shi-jia/zh", accessed: 2026-11-01, tier: 一手 }
+  - { id: s7, title: "〈「圖書」一詞是怎來的？古書也有圖嗎？〉，當代中國（中國文化研究院），2024-07-29", url: "https://www.ourchinastory.com/cn/amp/12468", accessed: 2026-11-01, tier: 通論 }
+  - { id: s8, title: "Nine Chapter Law — Wikipedia", url: "https://en.wikipedia.org/wiki/Nine_Chapter_Law", accessed: 2026-11-01, tier: 百科 }
+  - { id: s9, title: "Xiao He — Wikipedia", url: "https://en.wikipedia.org/wiki/Xiao_He", accessed: 2026-11-01, tier: 百科 }
+  - { id: s10, title: "約法三章 — 中文維基百科", url: "https://zh.wikipedia.org/wiki/约法三章", accessed: 2026-11-01, tier: 百科 }
+  - { id: s11, title: "賀海仁〈如何理解漢承秦制——反秦承秦　為法立經〉，《甘肅社會科學》2023 年第 1 期 — 愛思想轉載", url: "https://www.aisixiang.com/data/140352.html", accessed: 2026-11-01, tier: 學術 }
+  - { id: s12, title: "Qin Shi Huang — Encyclopaedia Britannica", url: "https://www.britannica.com/biography/Qin-Shi-Huang", accessed: 2026-11-01, tier: 百科 }
+  - { id: s13, title: "舒嬅〈蕭何與漢代皇家圖書館〉，原載《學習時報》— 中國作家網轉載（引《史記．蕭相國世家》）", url: "https://www.chinawriter.com.cn/n1/2024/0506/c442005-40229569.html", accessed: 2026-11-01, tier: 通論 }
+importance: 3
+learn:
+  histories: [中國史]
+  why_care: 漢朝嘴上和「暴秦」劃清界線，實際上接收了秦的政府機構和法律；這套秦開創、漢延續的中央集權體制，成為後來中國王朝的基本架構。[s1][s2][s12]
+  story: |
+    秦始皇一死，秦朝很快崩潰。劉邦在楚漢相爭中打敗項羽，前 202 年稱帝，以長安為都，國號「漢」來自項羽封給他的漢中。[s1] 早在攻進秦都咸陽時，劉邦和多數部下忙著搶財寶，蕭何卻先趕到丞相府，把秦朝的官方檔案收起來。[s6][s9][s13] 漢朝建立後，蕭何編定漢律；出土竹簡顯示，許多條文都是從秦律來的。[s1] 漢初君臣不想被說成「用一個暴政換掉另一個暴政」，在形象上強調寬厚，實際上卻沿用了秦的政府機構。[s2] 地方上，漢初西部設郡直轄、東部封給諸侯王；經過前 154 年的七國之亂，王國的權力才一步步收回中央。[s1]
+  key_terms:
+    - { term: 漢承秦制, plain: 漢朝繼承秦朝的皇帝制度、官僚機構和法律，再做調整。, example: 新校長上任說要大改革，結果校規和行政流程大多照用前任的。 }
+    - { term: 郡國並行, plain: 一部分地方設郡由中央直接管，一部分封給諸侯王半自治。, example: 有些社團由學務處直接管，有些交給學長姐自己經營。 }
+    - { term: 律令, plain: 國家正式公布的法律條文和命令。, example: 學校的校規手冊和公告。 }
+    - { term: 七國之亂, plain: 前 154 年七個諸侯王國聯合起兵反抗中央，是漢初最大的王國叛亂。, example: 幾個社團聯合抗議學校收回社辦。 }
+  primary_source:
+    - text: "何獨先入收秦丞相御史律令圖書藏之。（〔劉邦進咸陽時，〕只有蕭何搶先進去，把秦朝丞相、御史府的法令和圖籍檔案收藏起來。）"
+      from: 司馬遷《史記》〈蕭相國世家〉（中文翻譯為本站摘譯）
+      src: [s6, s7, s13]
+  historiography: |
+    **漢朝真的比秦朝寬厚嗎？** 漢代學者賈誼把秦描寫成殘暴的政權。[s1] Denis Twitchett 在《大英百科》中則認為，高祖的政府「不得不採用」名聲不好的前朝的政府機構，可能還有許多做法；他也提醒，後世史家筆下秦朝的嚴刑峻法，可能受到後來政治偏見的影響。[s2] 維基百科整理的出土竹簡研究也顯示，蕭何編的漢律許多條文源自秦律。[s1]
+    **繼承了什麼、改了什麼？** 維基百科整理認為，漢朝照搬秦的中央集權行政，但更強調任用賢能與德行。[s1] 《漢書．刑法志》則記載，「三章之法」不足以管住壞人，蕭何於是從秦法中挑選合用的條文，重新制定律令。[s8][s11] 法學者賀海仁把這稱為「秦法悖論」：漢朝在法律與政體上延續秦制，話語上卻以批判秦朝為主；漢朝後來「引經入法」，把儒家經義放進法律，形成儒法共治。[s11]
+  misconceptions:
+    - 劉邦入咸陽時「約法三章」、宣布廢除秦法，但漢朝建立後的法律其實大量沿用秦律。[s1][s8][s10]
+    - 漢初並沒有全部照搬秦的郡縣：東部三分之二是半自治的王國，前 145 年後王國才失去自行任命官員的權力。[s1]
+  perspectives:
+    - { history: 中國史, text: "從中國史看，漢朝接收了秦的政府機構與法律，再慢慢收回諸侯王國的權力，讓秦開創的中央集權帝國穩定下來。[s1][s2]" }
+crosscheck: { date: 2026-11-01, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "ctext 打不開。蕭何引文經 s7、s13 核對出自〈蕭相國世家〉；補 s11 賀海仁《甘肅社會科學》2023 論文（學術，可開啟），核對《漢書．刑法志》「三章之法不足以禦姦……作律九章」與「漢承秦制」詮釋，並加入 historiography 作為第三種看法。s1、s2、s8、s9、s10 已開啟：漢中得名、13 郡／10 國、前 196、前 154、前 145、張家山秦律淵源、西元 2 年首次普查人數均相符；大英「避免被說成以暴易暴」「不得不採用前朝機構」相符。修正：C7 與 why_care 的「兩千年基本架構」s1、s2 都沒寫，改引大英〈秦始皇〉條「後世各朝的基礎」（s12）。" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -58,7 +90,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ## C7 長期影響
 
-秦開創、漢延續的中央集權體制成為之後兩千年中國王朝的基本架構。[s1][s2] 西元 2 年的全國普查記錄 57,671,400 人、12,366,470 戶，是中國史上第一次全國人口普查。[s1]
+秦建立的官僚與行政架構成為後來中國各朝的基礎，漢朝的延續讓這套體制穩定下來。[s1][s11][s12] 西元 2 年的全國普查記錄 57,671,400 人、12,366,470 戶，是中國史上第一次全國人口普查。[s1]
 
 ## C8 雙軌解讀
 

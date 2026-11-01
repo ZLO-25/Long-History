@@ -21,13 +21,45 @@ links: [event-qin-unification, event-cleisthenes-reform, event-twelve-tables, ev
 counterparts:
   - { id: event-cleisthenes-reform, note: "相似：都「重新設計社會的基本單位」，把人口依新的規則登記、分組，打破舊貴族以血緣為基礎的控制。不同：克里斯提尼的改革讓更多公民參與政治；商鞅的改革讓國家更能動員人力去種田與打仗，平民的上升管道是軍功而非投票。", src: [s1, s2, s7] }
 sources:
-  - { id: s1, title: "Shang Yang — Wikipedia", url: "https://en.wikipedia.org/wiki/Shang_Yang", accessed: 2026-10-24 }
-  - { id: s2, title: "Sarah Schneewind, Shang Yang's Legalist Policies in Qin — LibreTexts（An Outline History of East Asia to 1200）", url: "https://human.libretexts.org/Bookshelves/History/World_History/An_Outline_History_of_East_Asia_to_1200_(Schneewind)/03:_From_Warring_States_Two_Empire_(480_BC_-207_BC)/3.04:_Shang_Yangs_Legalist_Policies_in_Qin", accessed: 2026-10-24 }
-  - { id: s3, title: "Xianyang — Wikipedia", url: "https://en.wikipedia.org/wiki/Xianyang", accessed: 2026-10-24 }
-  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
-  - { id: s5, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
-  - { id: s6, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
-  - { id: s7, title: "Shang Yang — Encyclopaedia Britannica", url: "https://www.britannica.com/biography/Shang-Yang", accessed: 2026-10-25 }
+  - { id: s1, title: "Shang Yang — Wikipedia", url: "https://en.wikipedia.org/wiki/Shang_Yang", accessed: 2026-10-24, tier: 百科 }
+  - { id: s2, title: "Sarah Schneewind, Shang Yang's Legalist Policies in Qin — LibreTexts（An Outline History of East Asia to 1200）", url: "https://human.libretexts.org/Bookshelves/History/World_History/An_Outline_History_of_East_Asia_to_1200_(Schneewind)/03:_From_Warring_States_Two_Empire_(480_BC_-207_BC)/3.04:_Shang_Yangs_Legalist_Policies_in_Qin", accessed: 2026-10-24, tier: 通論 }
+  - { id: s3, title: "Xianyang — Wikipedia", url: "https://en.wikipedia.org/wiki/Xianyang", accessed: 2026-10-24, tier: 百科 }
+  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s5, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s6, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s7, title: "Shang Yang — Encyclopaedia Britannica", url: "https://www.britannica.com/biography/Shang-Yang", accessed: 2026-10-25, tier: 百科 }
+  - { id: s8, title: "司馬遷《史記．商君列傳》原文 — 中國哲學書電子化計劃（ctext.org；本環境連線被擋（proxy 403）未能開啟，不作唯一依據；引句經 s11 學者論文轉引逐字核對）", url: "https://ctext.org/shiji/shang-jun-lie-zhuan/zh", accessed: 2026-11-01, tier: 一手 }
+  - { id: s9, title: "商鞅 — 中文維基百科（含《史記．商君列傳》引文與歷代評價）", url: "https://zh.wikipedia.org/wiki/商鞅", accessed: 2026-11-01, tier: 百科 }
+  - { id: s10, title: "呂世浩，中國古代歷史與人物：秦始皇（Qin Shi Huang），國立臺灣大學 — Coursera 課程頁（單元 7〈始皇的祖先－秦的興亡傳奇（下）〉的單元介紹文字，非呂世浩署名論述）", url: "https://www.coursera.org/learn/qin-shi-huang", accessed: 2026-11-01, tier: 通論 }
+  - { id: s11, title: "朱維錚〈重考商鞅變法〉— 愛思想（逐句引用《史記．商君列傳》原文）", url: "https://www.aisixiang.com/data/34246.html", accessed: 2026-11-01, tier: 學術 }
+importance: 2
+learn:
+  histories: [中國史]
+  why_care: 秦能統一天下，制度的起點就在商鞅變法；它把國家的收入與人力收歸國君，還成為後來東亞治理的範本。[s1][s2]
+  story: |
+    前 359 年，原本是衛國公族的商鞅來到秦國，得到秦孝公信任。[s1][s7] 據《史記》，新法公布前，他在都城南門立了一根三丈長的木頭，說誰能把它搬到北門就賞十金；大家覺得奇怪不敢搬，他把賞金加到五十金，終於有人搬了，立刻領到賞金，百姓從此相信新法說到做到。[s9][s11] 前 356 年和前 350 年，他兩次推行變法：把百姓編成小組互相監督，知情不報的一起受罰；打仗立功就升爵、分田；努力耕作的受賞。[s1][s7][s11] 秦國從此強大，前 341 年打敗魏國，但貴族恨透了他。[s1][s7] 孝公死後，商鞅被車裂處死，他的新法卻被保留下來。[s1][s7]
+  key_terms:
+    - { term: 變法, plain: 國君主導，把國家的法律和制度大幅改掉重來。, example: 學校把整套段考、加分和獎懲規則全部重新訂過。 }
+    - { term: 連坐, plain: 一個人犯法，同組的人知情不報也要一起受罰。, example: 分組作業有人抄襲，知道卻不說的組員也一起扣分。 }
+    - { term: 軍功爵, plain: 依打仗立的功勞授與爵位和田地，不看出身；秦國的爵位分成二十等。, example: 球隊誰先發不看年級，只看比賽表現。 }
+    - { term: 耕戰, plain: 國家只獎勵種田和打仗這兩種「本業」，壓抑經商。, example: 學校規定課後只能讀書或練球，擺攤賣東西不但沒有加分還會被罰。 }
+  primary_source:
+    - text: "令民為什伍，而相牧司連坐。不告姦者腰斬，告姦者與斬敵首同賞（把百姓編成什、伍，互相監督、一人犯罪同組連坐；不告發壞人的腰斬，告發的人和在戰場砍下敵人首級得一樣的賞。）"
+      from: 司馬遷《史記》〈商君列傳〉（中文翻譯為本站摘譯）
+      src: [s8, s11, s9]
+    - text: "立三丈之木於國都市南門，募民有能徙置北門者予十金。民怪之，莫敢徙。（在都城市場南門立一根三丈長的木頭，招募能把它搬到北門的人，賞十金。百姓覺得奇怪，沒人敢搬。）"
+      from: 司馬遷《史記》〈商君列傳〉（中文翻譯為本站摘譯）
+      src: [s8, s11]
+  historiography: |
+    **功臣還是酷吏？** 司馬遷在〈商君列傳〉末的評語中認為商鞅天性刻薄、少恩；但他在〈太史公自序〉也肯定商鞅讓秦孝公強大、後世遵行他的法。[s9] 漢代董仲舒批評商鞅廢除井田，造成富人田地相連、窮人無地可耕。[s9] 宋代王安石則寫詩認為不該非議商鞅，因為他讓政令真正被執行；梁啟超把他列為中國史上最偉大的政治家之一。[s9]
+    **影響有多大？** Sarah Schneewind 認為商鞅的政策打破了周代封建貴族，讓平民經營自己的小農地，並成為後來東亞治理的範本。[s2] 呂世浩在臺大 Coursera 課程「中國古代歷史與人物：秦始皇」中，把商鞅列為單元〈始皇的祖先－秦的興亡傳奇（下）〉的主題之一；課程頁的單元介紹文字稱之為「改變秦國甚至中國運勢」的歷史時刻（這是課程介紹，不是呂世浩署名的論點）。[s10] 英文維基百科（引 Yuri Pines 等人的研究）則提醒，後人認識商鞅主要靠《史記》，《史記》比《商君書》本身更有名、更有影響力。[s1]
+    **怎麼評價才公平？** 史學家朱維錚主張跳出歷來對商鞅「忽褒忽貶」的循環，回到史料重新考察：變法成功靠秦孝公的權力支持與「徙木立信」，商鞅倒台則因為他的權力完全依附國君，孝公一死就失去靠山。[s11]
+  misconceptions:
+    - 商鞅被處死，不代表變法失敗：殺他的秦惠文王保留了他的改革。[s1][s7]
+    - 商鞅的「不看出身」不是現代的平等：平民往上爬的管道主要是軍功，目的是讓國家更能動員人去種田和打仗。[s1][s7]
+  perspectives:
+    - { history: 中國史, text: "從中國史看，商鞅變法把秦國改造成能動員全國人力種田、打仗的國家，被視為秦後來滅六國、統一中國的基礎。[s1][s7]" }
+crosscheck: { date: 2026-11-01, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "ctext 在本環境打不開，改以 s11 朱維錚〈重考商鞅變法〉（學術，可開啟）逐句核對兩段一手引文，都出自〈商君列傳〉；s1、s2、s7、s9、s10 均已開啟。修正：C2／C9／C10 客舍拒宿改為〈商君列傳〉原文（「舍人無驗者坐之」），並註明英文維基歸於《戰國策》；C4「兩個以上成年兒子」改為原文「二男以上不分異者，倍其賦」並並列維基說法；度量衡補〈商君列傳〉「平斗桶權衡丈尺」；「全民兵役」改「強制兵役」（大英原文）；呂世浩改寫為課程單元介紹文字、非其論點；Pines 一句改為維基引其研究的說法；historiography 補朱維錚觀點。保留：s8 ctext 只作輔助。" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -38,7 +70,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ## C2 經過
 
-分兩次推行變法：前 356 年與前 350 年。[s1] 前 341 年秦擊敗魏，魏割讓黃河以西的土地，商鞅受封商地十五邑。[s1] 前 338 年秦孝公死後，商鞅失勢；依《戰國策》，他逃亡時想投宿客棧，卻因自己制定的「住客須有憑證」法令被拒。[s1] 最後被車裂處死、全家被誅，但秦惠文王保留了他的改革。[s1][s7]
+分兩次推行變法：前 356 年與前 350 年。[s1] 前 341 年秦擊敗魏，魏割讓黃河以西的土地，商鞅受封商地十五邑。[s1] 前 338 年秦孝公死後，商鞅失勢；據《史記．商君列傳》，他逃到邊關想投宿客舍，店主不知道他是誰，說「商君之法，舍人無驗者坐之」（收留沒有憑證的客人要連帶受罰），拒絕讓他住。[s11] 英文維基百科則把這個故事歸於《戰國策》。[s1] 最後被車裂處死、全家被誅，但秦惠文王保留了他的改革。[s1][s7]
 
 ## C3 關鍵人物與群體
 
@@ -47,10 +79,10 @@ lens_status: 依公開資料推論，未對照原書
 ## C4 制度或機制變化
 
 - **法律與連坐**：施行李悝的法典，並加上「知情不報者與犯罪者同罪」；《大英百科》說他建立了百姓互相監視的制度。[s1][s7]
-- **軍功爵**：以軍功授田，軍隊分為二十等爵；不願作戰的貴族失去土地。[s1] 實行全民兵役。[s7]
+- **軍功爵**：以軍功授田，軍隊分為二十等爵；不願作戰的貴族失去土地。[s1] 實行強制兵役。[s7]
 - **耕戰**：超過收成定額的農民受賞，達不到的淪為奴隸；要求百姓從事農耕或當兵等「本業」，不從事商業。[s1][s7]
-- **家庭與稅**：家中有兩個以上成年兒子同住的，加倍課稅；部分廢除長子繼承；鼓勵移民入秦。[s1]
-- **行政與度量衡**：以中央任命的官員取代封建分封；統一長度、容量與重量的單位；新的土地劃分與稅制。[s1][s7]
+- **家庭與稅**：《史記》原文是「民有二男以上不分異者，倍其賦」：家中有兩個以上男丁卻不分家的，加倍徵收賦稅，用意是把大家族拆成小家庭，確保稅收與兵源。[s11] 英文維基百科寫成「家中有一個以上兒子同住」者加倍課稅。[s1] 另有部分廢除長子繼承、鼓勵移民入秦。[s1]
+- **行政與度量衡**：以中央任命的官員取代封建分封，把小鄉邑合併為縣、設縣令縣丞；新的土地劃分與稅制。[s1][s7][s11] 統一長度、容量與重量的單位（《史記》「平斗桶權衡丈尺」，屬第二次變法；朱維錚以前 344 年的商鞅方升為佐證）。[s7][s11]
 - **遷都咸陽**，以削弱舊貴族的影響。[s1]
 - Schneewind 的概括：把國君的收入與人力控制收歸中央，打破周代封建貴族，讓平民經營自己的小農地，並以能力與功勞取代出身。[s2]
 
@@ -78,8 +110,8 @@ lens_status: 依公開資料推論，未對照原書
 
 ## C9 今日對照鉤子
 
-「國家用獎懲重新設計人的行為」：把升遷管道綁在種田與打仗上，再用連坐讓人互相監督，短期內動員力極強。[s1][s7] 也可思考：制度設計者自己被制度困住（客棧拒絕他投宿）的諷刺。[s1]
+「國家用獎懲重新設計人的行為」：把升遷管道綁在種田與打仗上，再用連坐讓人互相監督，短期內動員力極強。[s1][s7] 也可思考：制度設計者自己被制度困住（客舍拒絕他投宿）的諷刺。[s11]
 
 ## C10 不可類比的差異
 
-商鞅的「平等」是在國君之下以軍功重新排序，不是現代意義的平等或人權；許多細節（什伍的戶數、設縣的數量）各來源說法不一或沒有提到，本卡不寫入。[s1][s7] 「客棧拒宿」出自《戰國策》，屬於故事性記載。[s1]
+商鞅的「平等」是在國君之下以軍功重新排序，不是現代意義的平等或人權；許多細節（什伍的戶數、設縣的數量）各來源說法不一或沒有提到，本卡不寫入。[s1][s7] 「客舍拒宿」見於《史記．商君列傳》（英文維基百科說出自《戰國策》），屬於故事性記載，沒有其他史料可以核對。[s1][s11]

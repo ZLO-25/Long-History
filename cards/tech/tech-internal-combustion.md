@@ -26,7 +26,6 @@ links: [tech-steam-engine, tech-electric-grid, war-world-war-one, war-world-war-
 causes:
   - { id: tech-steam-engine, rel: 背景, why: 蒸汽機已用氣體推活塞產生動力；內燃機把燃燒從鍋爐搬進汽缸裡，機器變小變輕，才裝得進汽車。, src: [s2] }
 effects:
-  - { id: war-world-war-one, rel: 背景, why: 內燃機讓坦克成為可能，1916 年英國坦克在索姆河首次上陣，想打破壕溝戰的僵局。, src: [s7] }
   - { name: 汽車社會與郊區擴張（20 世紀）, rel: 促成, why: 流水線讓汽車便宜到一般家庭買得起，城市越來越依賴汽車卡車，郊區也跟著向外擴張。, src: [s4, s5, s8] }
 counterparts:
   - { id: tech-gunpowder, note: "相似：兩者都是利用燃燒瞬間產生的氣體膨脹力；1680 年荷蘭科學家惠更斯就設計過用火藥推動的引擎，被歸為一種內燃機。不同：火藥主要用於爆破與射擊，每次燃燒都是一次性的；內燃機讓燃料在汽缸裡每分鐘受控燃燒上百次，把熱變成連續轉動。", src: [s2, s6] }

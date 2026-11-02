@@ -30,7 +30,7 @@ causes:
   - { name: 羅馬城糧食配給制度（前123年起）, rel: 背景, why: 格拉古讓公民低價買糧、後來改為免費發放，國家必須長期取得大量小麥，海外糧倉越來越重要。, src: [s1, s8] }
 effects:
   - { id: event-augustan-principate, rel: 促成, why: 掌握埃及的財富與糧食，讓奧古斯都能發糧給首都居民、維持恩庇網絡，鞏固他的地位。, src: [s1, "event-augustan-principate:s1"] }
-  - { id: event-fall-western-rome, rel: 促成, why: 羅馬城高度依賴海外運糧；約 439 年汪達爾人奪下北非，西羅馬失去大部分糧源與稅收，加速崩潰。, src: [s1, s4] }
+  - { id: event-fall-western-rome, rel: 背景, why: 羅馬城長期靠埃及、北非等海外運來的糧食過活，失去糧倉就很脆弱；約 439 年汪達爾人奪下北非，西羅馬失去大部分糧源與稅收，加速崩潰。, src: [s1, s4] }
 counterparts:
   - { id: commodity-salt-iron, note: "相似：國家掌握一種戰略物資的供應，並因此產生依賴與政治爭議。不同：埃及穀物主要是實物稅、運去餵養首都；漢朝鹽鐵官營是國家自己生產並賣給百姓以增加財政收入。", src: [s1, s6] }
 sources:

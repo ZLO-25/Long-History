@@ -59,7 +59,7 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
           {c.verification === '爭議' && <span className="badge dispute" title="不同來源說法不一，內文並列各方說法">有爭議</span>}
           {L.crosscheck?.result === '通過' ? <span className="badge ok" title={`${L.crosscheck.date} 由${L.crosscheck.by}查核`}>✓ 已交叉查核</span> : <span className="badge dispute">開發中：尚未查核</span>}
         </div>
-        <p className="why">💡 {L.why_care}</p>
+        <p className="why">💡 {L.why_care.replace(/\[s\d+\]/g, '')}</p>
         {onTopic && <TopicChips card={c} index={index} onTopic={onTopic} count={topicCount} />}
         {views.length > 1 && (
           <div className="persp-switch">也可以從

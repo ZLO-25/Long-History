@@ -23,7 +23,7 @@ structure_tags: [商路改道, 外部勢力介入, 補給線過長, 宗教／意
 topics: [殖民統治, 原住民族]
 links: [event-dutch-formosa, commodity-manila-galleon]
 causes:
-  - { id: event-dutch-formosa, rel: 促成, why: 荷蘭人 1624 年占了大員，可能攔截從福建開往馬尼拉的中國商船，西班牙人因此北上搶占北臺灣。, src: [s1, s2] }
+  - { id: event-dutch-formosa, rel: 回應, why: 荷蘭人 1624 年占了大員，可能攔截從福建開往馬尼拉的中國商船，西班牙人因此北上搶占北臺灣。, src: [s1, s2] }
   - { id: commodity-manila-galleon, rel: 背景, why: 馬尼拉靠中國商船運來絲綢瓷器、交換美洲白銀，這條商路對西班牙很重要，所以不能讓荷蘭人卡住。, src: [s1] }
   - { name: 日本禁止天主教（17 世紀初）, rel: 背景, why: 日本正在迫害天主教，西班牙傳教士想把臺灣當跳板，把人送進日本，也找一條不經澳門進入中國的路。, src: [s2] }
 effects:

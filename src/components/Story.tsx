@@ -48,7 +48,7 @@ function Sources({ list }: { list: CauseSource[] }) {
 }
 
 export function RelChip({ rel }: { rel: CauseRel }) {
-  return <span className={`rel-chip ${REL_CLASS[rel] ?? ''}`} title={REL_HELP[rel]}>{rel}</span>;
+  return <span className={`rel-chip ${REL_CLASS[rel] ?? ''}`} title={REL_HELP[rel]} aria-label={`${rel}：${REL_HELP[rel]}`}>{rel}</span>;
 }
 
 /** 從哪裡來／往哪裡去 */
@@ -66,15 +66,18 @@ export function CauseList({ card, side, index, onOpen, canOpen, researchHref, co
         {sorted.map((x, i) => (
           <li key={i}>
             <div className="ce-line">
-              {isCause ? <><CardRef id={x.id} name={x.name} index={index} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} /><span className="ce-arrow" aria-hidden>─</span><RelChip rel={x.rel} /><span className="ce-arrow" aria-hidden>▶ 本卡</span></>
-                : <><span className="ce-arrow" aria-hidden>本卡 ─</span><RelChip rel={x.rel} /><span className="ce-arrow" aria-hidden>▶</span><CardRef id={x.id} name={x.name} index={index} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} /></>}
+              {isCause ? <><CardRef id={x.id} name={x.name} index={index} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} /><span className="ce-rel"><RelChip rel={x.rel} /><span className="ce-arrow" aria-hidden>→ 本卡</span></span></>
+                : <><span className="ce-rel"><span className="ce-arrow" aria-hidden>本卡 →</span><RelChip rel={x.rel} /></span><CardRef id={x.id} name={x.name} index={index} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} /></>}
               {x.disputed && <span className="badge dispute" title="史家對這個因果看法不一">史家看法不一</span>}
             </div>
             <p className="ce-why">{x.why}<Sources list={x.sources} /></p>
           </li>
         ))}
       </ul>
-      {!compact && <p className="ce-help muted small">關係由強到弱：直接引發 ＞ 促成 ＞ 背景；「回應」是對前一件事的反應。一件大事通常不只一個原因。</p>}
+      <details className="ce-help small"><summary>四種關係是什麼意思？</summary>
+        <ul>{(Object.keys(REL_HELP) as CauseRel[]).map((r) => <li key={r}><RelChip rel={r} /> {REL_HELP[r]}</li>)}</ul>
+        <p className="muted">由強到弱：直接引發 ＞ 促成 ＞ 背景；「回應」是對前一件事的反應。一件大事通常不只一個原因，這裡只列最重要的幾個。</p>
+      </details>
     </section>
   );
 }
@@ -116,22 +119,33 @@ export function PathNav({ card, index, onOpen, canOpen, researchHref, onUnit, un
     if (canOpen && !canOpen(c)) return researchHref ? <a className={`pn-step ${dir}`} href={researchHref(id)}>{label}</a> : null;
     return <button className={`pn-step ${dir}`} onClick={() => onOpen(id)}>{label}</button>;
   };
+  // 學習單元和故事線的上一站／下一站常常一樣：一樣的只畫一組按鈕，手機上才不會又高又重複
+  const groups: { key: string; hits: PathHit[] }[] = [];
+  for (const h of hits) {
+    const key = `${h.prev ?? ''}|${h.next ?? ''}`;
+    const g = groups.find((x) => x.key === key);
+    if (g) g.hits.push(h); else groups.push({ key, hits: [h] });
+  }
   return (
     <nav className="path-nav" aria-label="這張卡在哪些故事裡">
       <div className="pn-label">這張卡在這些故事裡</div>
-      {hits.map((h) => (
-        <div key={h.kind + h.id} className={`pn-row ${h.kind}`}>
-          <div className="pn-title">
-            <span className="pn-kind">{h.kind === 'unit' ? '學習單元' : '故事線'}</span>
-            {h.kind === 'story' ? <button className="link" onClick={() => onStory(h.id)}>《{h.title}》</button>
-              : onUnit ? <button className="link" onClick={() => onUnit(h.id)}>《{h.title}》</button>
-              : unitHref ? <a className="link" href={unitHref(h.id)}>《{h.title}》</a> : <span>《{h.title}》</span>}
-            <span className="pn-dots" aria-label={`第 ${h.pos} 站，共 ${h.total} 站`}>
-              {Array.from({ length: h.total }, (_, i) => <i key={i} className={i + 1 === h.pos ? 'on' : i + 1 < h.pos ? 'past' : ''} />)}
-            </span>
-            <span className="pn-pos">第 {h.pos}／{h.total} 站</span>
-          </div>
-          <div className="pn-steps">{step(h.prev, 'prev')}{step(h.next, 'next')}</div>
+      {groups.map((g) => (
+        <div key={g.key} className="pn-group">
+          {g.hits.map((h) => (
+            <div key={h.kind + h.id} className={`pn-row ${h.kind}`}>
+              <span className="pn-kind">{h.kind === 'unit' ? '學習單元' : '故事線'}</span>
+              {h.kind === 'story' ? <button className="link pn-name" onClick={() => onStory(h.id)}>《{h.title}》</button>
+                : onUnit ? <button className="link pn-name" onClick={() => onUnit(h.id)}>《{h.title}》</button>
+                : unitHref ? <a className="link pn-name" href={unitHref(h.id)}>《{h.title}》</a> : <span className="pn-name">《{h.title}》</span>}
+              <span className="pn-where">
+                <span className="pn-dots" aria-hidden>
+                  {Array.from({ length: h.total }, (_, i) => <i key={i} className={i + 1 === h.pos ? 'on' : i + 1 < h.pos ? 'past' : ''} />)}
+                </span>
+                <span className="pn-pos">第 {h.pos}／{h.total} 站</span>
+              </span>
+            </div>
+          ))}
+          <div className="pn-steps">{step(g.hits[0].prev, 'prev')}{step(g.hits[0].next, 'next')}</div>
         </div>
       ))}
     </nav>
@@ -178,7 +192,7 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
                 <span className="sv-dot" style={{ borderColor: TYPE_COLOR[c.type] }}>{i + 1}</span>
                 <div className="sv-card">
                   <CardRef id={c.id} index={index} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} />
-                  {c.learn?.why_care && <p className="sv-why muted small">{c.learn.why_care}</p>}
+                  {c.learn?.why_care && <p className="sv-why muted small">{c.learn.why_care.replace(/\[s\d+\]/g, '')}</p>}
                 </div>
               </div>
               {x.bridge && (

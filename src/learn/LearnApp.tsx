@@ -186,7 +186,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         {!query && !isMobile && index.units.length > 0 && <div className="suggest">試試：{index.units.slice(0, 3).map((u) => <button key={u.id} className="link" onClick={() => openUnit(u.id)}>{u.mystery}</button>)}</div>}
       </div>
       {!isMobile && <button className="btn sm" onClick={random} title="隨機一個謎題" aria-label="隨機一個謎題">🎲</button>}
-      {(index.storylines ?? []).length > 0 && <button className={`btn sm ${view.kind === 'story' || view.kind === 'stories' ? 'on' : ''}`} onClick={() => { setQuery(''); push({ kind: 'stories' }); }} title="故事線：沿著前因 → 後果，把不同時代的事件接成一條路" aria-label="故事線">〰{!isMobile && ' 故事線'}</button>}
+      {(index.storylines ?? []).length > 0 && <button className={`btn sm ${view.kind === 'story' || view.kind === 'stories' ? 'on' : ''}`} onClick={() => { setQuery(''); push({ kind: 'stories' }); }} title="故事線：沿著前因 → 後果，把不同時代的事件接成一條路" aria-label="故事線">{isMobile ? '故事線' : '〰 故事線'}</button>}
       <button className={`btn sm ${view.kind === 'topic' || view.kind === 'topics' ? 'on' : ''}`} onClick={() => { setQuery(''); push({ kind: 'topics' }); }} title="主題標籤：把同一個主題的卡片依年代串成歷史路徑" aria-label="主題標籤">#{!isMobile && ' 主題標籤'}</button>
       <button className="btn sm" onClick={() => push({ kind: 'mymap' })} title="我的歷史地圖">🗺{!isMobile && ' 我的地圖'}</button>
       <button className="btn sm" onClick={() => push({ kind: 'record' })} title="我的學習紀錄：進度、答對率、寫過的回答">📒{!isMobile && ' 紀錄'}</button>

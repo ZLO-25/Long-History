@@ -44,8 +44,8 @@ const fs = require('fs');
   ok(!!(await p.$('.card-detail .path-nav .pn-row.unit')), '研究模式卡片顯示所在學習單元');
   ok(/第 \d+／\d+ 站/.test(await p.textContent('.card-detail .path-nav')), '顯示「第 n／m 站」');
   const c228 = byId.get('event-228-incident');
-  ok((await p.$$('.card-detail .cause-list.causes li')).length === c228.causes.length, `「從哪裡來」列出 ${c228.causes.length} 條`);
-  ok((await p.$$('.card-detail .cause-list.effects li')).length === c228.effects.length, `「往哪裡去」列出 ${c228.effects.length} 條`);
+  ok((await p.$$('.card-detail .cause-list.causes > ul > li')).length === c228.causes.length, `「從哪裡來」列出 ${c228.causes.length} 條`);
+  ok((await p.$$('.card-detail .cause-list.effects > ul > li')).length === c228.effects.length, `「往哪裡去」列出 ${c228.effects.length} 條`);
   ok((await p.$$('.card-detail .cause-list .rel-chip')).length > 0 && (await p.$$('.card-detail .cause-list .ce-src a')).length > 0, '每條有關係標籤與來源連結');
   await p.screenshot({ path: `${out}/research-card-1280.png` });
   // 上一站

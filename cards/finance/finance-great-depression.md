@@ -25,7 +25,7 @@ causes:
   - { id: finance-federal-reserve, rel: 促成, why: 聯準會 1929 年升息想壓投機，金本位下各國被迫跟進；之後又沒擋住銀行擠兌，貨幣大減，衰退變成大蕭條。, src: [s3, s4] }
 effects:
   - { name: 羅斯福新政（1933–1939）, rel: 回應, why: 為了止住銀行倒閉，羅斯福推出銀行法、存款保險公司和證券交易委員會，替金融立下新規則。, src: [s2, s4, s5] }
-  - { id: war-world-war-two, rel: 背景, why: 有學者認為，經濟危機讓德、日相信政府比市場更能解決問題，兩種模式之爭最後走向世界大戰。, src: [war-world-war-two:s8], disputed: true }
+  - { id: war-world-war-two, rel: 背景, why: 大蕭條讓德國失業暴增、許多人對民主失去信心，納粹上台後靠軍備支出消化失業；日本經濟重創，軍部激進派趁機推動對外擴張。史家對經濟危機有多重要仍有爭論。, src: [s14, war-world-war-two:s8], disputed: true }
 counterparts:
   - { id: finance-taiwan-stock-exchange, note: "相似：都是借錢炒股把指數推到高點後崩跌——道瓊指數從 1929 年 381 點跌到 1932 年 41 點（約 89%），台股從 1990 年 2 月 12,682 點跌到 10 月 2,485 點（約 80%）。不同：美國股災之後接著銀行倒閉潮與全球大蕭條；台股崩盤的資料主要談股市本身，沒有演變成類似規模的經濟大蕭條（來源未提及）。", src: [s1, s3, s9, s10] }
 sources:
@@ -42,6 +42,7 @@ sources:
   - { id: s11, title: "李彔〈價值投資在中國的展望〉北京大學演講（2015-10-23，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/5f0936c4321954706fa9eca2_%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%B1%95%E6%9C%9B-%E6%9D%8E%E5%BD%952015-10-23%E5%8C%97%E5%A4%A7%E6%BC%94%E8%AE%B2.pdf", accessed: 2026-10-25, tier: 摘要 }
   - { id: s12, title: "Franklin D. Roosevelt, Fireside Chat on Banking, March 12, 1933 — The American Presidency Project（UC Santa Barbara）", url: "https://www.presidency.ucsb.edu/documents/fireside-chat-banking", accessed: 2026-10-25, tier: 一手 }
   - { id: s13, title: "Gary Richardson, Banking Panics of 1930-31 — Federal Reserve History, 2013-11-22", url: "https://www.federalreservehistory.org/essays/banking-panics-1930-31", accessed: 2026-10-25, tier: 通論 }
+  - { id: s14, title: "Causes of World War II — Wikipedia（大蕭條與德、日走向戰爭；Mason 與 Overy 的爭論）", url: "https://en.wikipedia.org/wiki/Causes_of_World_War_II", accessed: 2026-11-02, tier: 百科 }
 importance: 3
 learn:
   histories: [美洲史, 錢的歷史, 世界通史]

@@ -24,7 +24,6 @@ links: [commodity-laurion-silver, finance-lydian-coinage, finance-athens-trapezi
 causes:
   - { name: 楔形文字的發明（約前 3300–前 3000 年）, rel: 背景, why: 烏魯克一帶的人開始在泥板上刻字記帳，借糧、借銀的約定才能寫下來，留作日後討債和還債的憑證。, src: [s4] }
 effects:
-  - { id: finance-athens-trapezitai, rel: 背景, why: 用白銀計價、立契約、收利息的借貸做法早已在兩河流域成形，成為後來希臘銀行業發展的背景之一。, src: [s1] }
   - { name: 《聖經》的禧年觀念（約前 1 千紀）, rel: 背景, why: 有學者認為，兩河國王定期下詔免債、釋放債奴的傳統，影響了後來「禧年」免除債務的觀念。, src: [s6], disputed: true }
 counterparts:
   - { id: event-wang-anshi-reform, note: "相似：兩者都是官方把糧食或錢貸給農民並收約兩成利息，王安石的青苗法又有壓制民間高利貸的目的[s8]；不同：古巴比倫是神廟、宮廷與私人商人並行放貸，國王另以詔令不定期免債[s5]，北宋則是常態化的官營貸款加官僚追收[s8]。", src: [s8] }

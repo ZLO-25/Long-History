@@ -33,7 +33,7 @@ causes:
 effects:
   - { name: 鐵路標準時間（1840–1880）, rel: 直接引發, why: 各地原本用自己的地方時間，為了排火車時刻表，英國鐵路公司改用格林威治時間，1880 年成為法定標準時間。, src: [s8] }
   - { id: event-gilded-age-industrialization, rel: 促成, why: 1869 年橫貫鐵路接通後，鐵路把原料、工廠與市場串成一張網，鋼鐵、石油等產業長出巨型公司。, src: [s5, event-gilded-age-industrialization:s3, event-gilded-age-industrialization:s4] }
-  - { id: war-american-civil-war, rel: 促成, why: 北方鐵路里程約為南方兩倍多，能把兵員和軍需運往前線，南方補給則越來越吃緊。, src: [war-american-civil-war:s1] }
+  - { id: war-american-civil-war, rel: 背景, why: 北方鐵路里程約為南方兩倍多，能把兵員和軍需運往前線，南方補給越來越吃緊；鐵路影響的是戰局，不是開戰的原因。, src: [war-american-civil-war:s1] }
 counterparts:
   - { id: building-grand-canal, note: "相似：都把遠方的產地和大城市連成一條運輸網，讓糧食、煤這類又重又便宜的大宗貨物可以長距離移動。不同：大運河是隋朝政府徵調大量勞力開鑿、主要供應首都與軍隊；早期英國鐵路是民間公司集資興建、靠收運費賺錢並發股利給投資人。", src: [s1, s3, s11] }
 sources:

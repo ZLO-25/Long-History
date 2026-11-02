@@ -25,7 +25,7 @@ causes:
   - { name: 羅馬貨幣混亂（3–4世紀）, rel: 回應, why: 舊金幣的重量和成色不穩，交易時不知道錢值多少，君士坦丁推出重量成色固定的索利都斯來解決。, src: [s1] }
   - { name: 曼齊克特之戰（1071年）, rel: 促成, why: 戰敗後帝國失去安納托利亞大片土地，財政與軍事壓力加重，金幣加速貶值，最後在 1092 年被新幣取代。, src: [s1, s7] }
 effects:
-  - { name: 伊斯蘭金第納爾（7世紀末）, rel: 促成, why: 倭馬亞哈里發改革幣制時，金第納爾的造型與重量參考了索利都斯，成為它的競爭對手。, src: [s4, "finance-abbasid-sakk-hawala:s8"] }
+  - { name: 伊斯蘭金第納爾（7世紀末）, rel: 回應, why: 倭馬亞哈里發先仿造索利都斯，再推出自己的金第納爾，重量依當時流通的索利都斯訂定，從此與拜占庭金幣分庭抗禮。, src: [s4, s9, "finance-abbasid-sakk-hawala:s8"] }
 counterparts: "無適當對照：中國軌沒有以黃金為本位、跨國通行的國際硬幣；五銖錢是銅錢，主要在帝國內部流通，兩者性質不同，不硬湊。"
 sources:
   - { id: s1, title: "Solidus (coin) — Wikipedia", url: "https://en.wikipedia.org/wiki/Solidus_(coin)", accessed: 2026-10-31, tier: 百科 }
@@ -36,6 +36,7 @@ sources:
   - { id: s6, title: "Ducat — Wikipedia", url: "https://en.wikipedia.org/wiki/Ducat", accessed: 2026-10-31, tier: 百科 }
   - { id: s7, title: "Battle of Manzikert — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Manzikert", accessed: 2026-10-31, tier: 百科 }
   - { id: s8, title: "Cosmas Indicopleustes, Christian Topography（6 世紀，第二卷論羅馬金幣；英譯本 McCrindle, 1897）— 條目介紹頁：Christian Topography, Wikipedia", url: "https://en.wikipedia.org/wiki/Christian_Topography", accessed: 2026-10-31, tier: 一手 }
+  - { id: s9, title: "Gold dinar — Wikipedia（阿布杜勒·馬利克的第納爾先仿索利都斯、重量依流通中的索利都斯而定）", url: "https://en.wikipedia.org/wiki/Gold_dinar", accessed: 2026-11-02, tier: 百科 }
 importance: 3
 learn:
   histories: [世界通史, 錢的歷史, 歐洲史, 希臘羅馬史]

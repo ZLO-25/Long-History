@@ -11,7 +11,7 @@ storylines:
 
   - id: story-greece
     title: 錢幣、銀礦與雅典：一座城邦的興衰
-    question: 一座小小的銀礦，怎麼讓雅典打贏波斯帝國，又一路走到審判蘇格拉底？
+    question: 一座銀礦的收入，怎麼幫雅典打贏波斯、變成霸主，最後又為什麼走到審判蘇格拉底？
     blurb: 這條線從「錢」開始，看財富怎麼變成海軍、變成霸權，最後在戰爭裡把城邦拖垮。
     stops: [finance-lydian-coinage, commodity-laurion-silver, war-greco-persian, war-peloponnesian, event-death-of-socrates]
 
@@ -57,8 +57,14 @@ storylines:
     blurb: 這條線看戰爭、制度和貨幣規則怎麼讓「錢的中心」一再搬家，一直到今天美元的地位。
     stops: [finance-amsterdam-decline, finance-london-rise, finance-gold-standard, finance-new-york-overtakes-london, finance-bretton-woods, finance-petrodollar]
 
+  - id: story-western-impact
+    title: 西力東漸：從蒸汽機到辛亥革命
+    question: 英國的一台抽水機器，怎麼會在一百多年後讓清朝打了敗仗？戰敗之後，中國為什麼先學技術、再改制度，最後連皇帝都沒了？
+    blurb: 這條線從工業革命的技術走到中國的政治變革：看外來的衝擊怎麼一層層往裡推，從武器、工廠到政治制度。
+    stops: [tech-steam-engine, war-opium-war, event-self-strengthening, event-xinhai-revolution]
+
   - id: story-cold-war
     title: 冷戰在亞洲：從二戰結束到尼克森訪華
-    question: 二次大戰才剛結束，為什麼美國和蘇聯又在朝鮮、越南打了起來？最後美國又為什麼轉身和中國握手？
+    question: 二次大戰才剛結束，美國為什麼又在朝鮮、越南打起仗來？打了二十年之後，又為什麼轉身和中國握手？
     blurb: 這條線看「圍堵」的想法怎麼一步步把美國帶進亞洲的戰爭，又怎麼在越戰之後轉了彎。
     stops: [war-world-war-two, event-containment-nato, war-korean-war, war-vietnam-war, event-nixon-china]

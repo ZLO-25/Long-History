@@ -30,7 +30,7 @@ causes:
 effects:
   - { name: 德國統一（1990）, rel: 直接引發, why: 1989 年柏林圍牆開放後，東德共產政權失去控制，東西德在 1990 年 10 月 3 日統一。, src: [s4] }
   - { name: 俄羅斯經濟崩跌（1991–1998）, rel: 促成, why: 轉向市場經濟時生活水準大跌、國產被低價賣給寡頭；有學者歸咎休克療法，也有學者認為是法治崩潰。, src: [s5, s6], disputed: true }
-  - { id: event-reform-and-opening, rel: 背景, why: 東歐劇變與蘇聯解體後，中共保守派更反對市場改革；鄧小平 1992 年南巡，才讓改革重新加速。, src: [event-reform-and-opening:s6] }
+  - { id: event-reform-and-opening, rel: 背景, why: 改革開放 1978 年就開始；東歐劇變與蘇聯解體讓中共保守派更反對市場化，改革一度放慢，鄧小平 1992 年南巡才讓它重新加速。, src: [event-reform-and-opening:s6] }
 counterparts:
   - { id: event-reform-and-opening, note: "相似：中蘇兩大共產國家在 1980 年代都面對計畫經濟停滯，都嘗試改革。不同：蘇聯在戈巴契夫下同時放寬政治與言論，最後聯盟瓦解；中國只改經濟、維持共產黨統治，1989 年鎮壓天安門抗議，1992 年後加速市場化。", src: [s1, s3, s11] }
 sources:

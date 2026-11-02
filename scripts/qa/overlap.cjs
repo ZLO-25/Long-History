@@ -19,7 +19,7 @@ const { chromium } = require('playwright');
     for (const v of views) {
       const lane = v && v[1];
       if (v && v[0] === 'lane') await p.click(`.ltimeline .tl-head button.chip:text-is("${lane}")`).catch(() => {});
-      if (v && v[0] === 'era') { await p.click(`.ltimeline .btn.sm:text-is("${lane}")`).catch(() => {}); await p.waitForTimeout(700); }
+      if (v && v[0] === 'era') { await p.click(`.ltimeline .era-seg button:text-is("${lane}")`).catch(() => {}); await p.waitForTimeout(700); }
       await p.waitForTimeout(250);
       const res = await p.evaluate(() => {
         const svg = document.querySelector('svg[aria-label="三軌時間軸"]');

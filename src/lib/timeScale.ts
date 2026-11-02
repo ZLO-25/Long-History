@@ -18,3 +18,12 @@ export function makeBaseScale(cards: Card[], width: number) {
   const range = [0, ...weights.map((w) => (acc += (w / total) * width))];
   return scaleLinear().domain(BREAKS).range(range).clamp(true);
 }
+
+// 時代分期：研究模式、學習模式、歷史頁、我的地圖共用同一套，名稱與起訖年一致，教的時候才不會兩邊對不上
+export const ERAS: { name: string; a: number; b: number; color: string }[] = [
+  { name: '上古', a: MIN_YEAR, b: 500, color: '#efe6d2' },
+  { name: '中古', a: 500, b: 1500, color: '#e3ecdf' },
+  { name: '近代早期', a: 1500, b: 1800, color: '#e2e8f3' },
+  { name: '近現代', a: 1800, b: MAX_YEAR, color: '#f1e3ea' },
+];
+export const eraOf = (y: number) => (ERAS.find((e) => y >= e.a && y < e.b) ?? ERAS[ERAS.length - 1]).name;

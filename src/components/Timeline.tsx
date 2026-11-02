@@ -5,11 +5,10 @@ import { zoom as d3zoom, zoomIdentity, type ZoomTransform } from 'd3-zoom';
 import type { Card, Econ } from '../types';
 import { scaleLinear, scaleLog } from 'd3-scale';
 import { fmtEcon, ENTITY_COLORS } from '../lib/format';
-import { makeBaseScale, BREAKS, MIN_YEAR, MAX_YEAR } from '../lib/timeScale';
+import { makeBaseScale, BREAKS, MIN_YEAR, MAX_YEAR, eraOf } from '../lib/timeScale';
 import { fmtYear, TYPE_COLOR } from '../lib/format';
+import { EraBar } from './EraBar';
 
-// 時代快速跳轉（大致依課本分期）
-const ERAS: [string, number, number][] = [['上古', MIN_YEAR, 500], ['中古', 500, 1500], ['近代', 1500, 1900], ['現代', 1900, MAX_YEAR]];
 const AXIS_H = 26, ROW_H = 20, LANE_PAD = 6, LABEL_PX = 12.5;
 
 interface Props {
@@ -30,6 +29,9 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
   const dragging = useRef(false);
   // 目前選的時代；畫面寬度改變時重新套用，使用者自己縮放平移就取消
   const era = useRef<[number, number] | null>(null);
+  // 切換列上亮哪一顆：'all'＝全部、時代名稱、null＝自己縮放過
+  const [eraSel, setEraSel] = useState<string | null>('all');
+  const lastT = useRef<ZoomTransform>(zoomIdentity);
   const [hover, setHover] = useState<string | null>(null);
 
   useEffect(() => {
@@ -52,9 +54,14 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
       .translateExtent([[0, 0], [width, 0]])
       .extent([[0, 0], [width, 0]])
       .filter((ev: any) => !dragging.current && (ev.type === 'wheel' || ev.type.startsWith('touch') || (ev.type === 'mousedown' && !(ev.target as Element).closest('.cursor, .node'))))
-      .on('zoom', (ev) => { if (ev.sourceEvent) era.current = null; setT(ev.transform); });
+      .on('zoom', (ev) => {
+        // 使用者真的移動或縮放了畫面才算「自訂範圍」；只是點一下、或已在邊界上再拖，不取消目前時代
+        const p = lastT.current, n = ev.transform;
+        if (ev.sourceEvent && (Math.abs(n.k - p.k) > 1e-3 || Math.abs(n.x - p.x) > 1)) { era.current = null; setEraSel(null); }
+        lastT.current = n; setT(n);
+      });
     svg.call(z).on('dblclick.zoom', null);
-    (svg.node() as any).__zoom_reset = () => { era.current = null; svg.call(z.transform, zoomIdentity); };
+    (svg.node() as any).__zoom_reset = () => { era.current = null; setEraSel('all'); svg.call(z.transform, zoomIdentity); };
     // 跳到某個時代：讓 [a, b] 剛好填滿畫面
     const zoomTo = (svg.node() as any).__zoom_to = (a: number, b: number) => {
       era.current = [a, b];
@@ -62,7 +69,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
       svg.call(z.transform, zoomIdentity.translate(-base(a) * k, 0).scale(k));
     };
     // 寬度或刻度變了：有選時代就重新對準，否則回到全覽，避免畫面跑到別的年代
-    if (era.current) zoomTo(...era.current); else svg.call(z.transform, zoomIdentity);
+    if (era.current) zoomTo(...era.current); else { setEraSel('all'); svg.call(z.transform, zoomIdentity); }
     return () => { svg.on('.zoom', null); };
   }, [width, base]);
 
@@ -80,10 +87,12 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
       const placed = items.map((c) => {
         const x0 = x(c.time.start), x1 = Math.max(x(c.time.end), x0 + 6);
         const label = showFull ? c.summary_line : c.name;
-        const end = x1 + 4 + label.length * LABEL_PX + 8;
+        // 橫條從畫面左邊外面開始時，文字改貼在畫面左緣，不要被切掉一半
+        const lx = Math.max(x1 + 4, 4);
+        const end = lx + label.length * LABEL_PX + 8;
         let row = rowEnds.findIndex((e) => e <= x0);
         if (row === -1) { row = rowEnds.length; rowEnds.push(end); } else rowEnds[row] = end;
-        return { c, x0, x1, row, label };
+        return { c, x0, x1, row, label, lx };
       });
       return { track, placed, rows: Math.max(1, rowEnds.length) };
     });
@@ -144,13 +153,18 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
   };
 
   const cx = x(year);
+  // 畫面左右兩端是哪一年（給「正在看」那行字用）
+  const viewA = Math.round(base.invert(t.invertX(0))), viewB = Math.round(base.invert(t.invertX(width - 50)));
+  // 紅線在畫面外時，年份標籤貼在邊緣並加箭頭，提醒「目前年代在左邊／右邊」
+  const curOff = cx < 22 ? 'left' : cx > width - 4 ? 'right' : null;
+  const badgeX = Math.max(30, Math.min(width - 30, cx));
+  const goEra = (name: string, a: number, b: number) => { (svgRef.current as any)?.__zoom_to?.(a, b); setEraSel(name); if (year < a || year > b) setYear(a); };
   return (
     <div className="timeline" ref={wrap}>
       <div className="tl-head">
-        <span>時間軸（滾輪縮放、拖曳平移；拖動紅線或點刻度列改變年代）</span>
-        <span className="tl-year">目前：{fmtYear(year)} 年</span>
-        <button className="btn sm" onClick={() => (svgRef.current as any)?.__zoom_reset?.()}>全部</button>
-        {ERAS.map(([l, a, b]) => <button key={l} className="btn sm" title={`${fmtYear(a)}–${fmtYear(b)} 年`} onClick={() => { (svgRef.current as any)?.__zoom_to?.(a, b); if (year < a || year > b) setYear(a); }}>{l}</button>)}
+        <span className="tl-year" title="地圖與清單顯示的年代（紅線）">紅線：{fmtYear(year)} 年・{eraOf(year)}</span>
+        <EraBar active={eraSel} range={[viewA, viewB]} onAll={() => (svgRef.current as any)?.__zoom_reset?.()} onEra={goEra} />
+        <span className="tl-hint" title="滾輪縮放、拖曳平移；拖動紅線或點刻度列改變年代">ⓘ 怎麼操作</span>
         {econ && <span className="econ-toggle">經濟曲線：
           {[{ id: null, name: '關' }, ...econ.metrics].map((x) => (
             <button key={x.id ?? 'off'} className={`chip ${metric === x.id ? 'on' : ''}`} onClick={() => setMetric(x.id)}>{x.name}</button>))}
@@ -177,7 +191,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
           return (
             <g key={ln.track} transform={`translate(0,${top})`}>
               <rect x={0} y={0} width={width} height={h} className={`lane lane-${ln.track}`} />
-              {ln.placed.map(({ c, x0, x1, row, label }) => {
+              {ln.placed.map(({ c, x0, x1, row, label, lx }) => {
                 if (x1 < -200 || x0 > width + 10) return null;
                 const y = LANE_PAD + row * ROW_H + 2;
                 const sel = c.id === selectedId;
@@ -187,7 +201,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
                     onMouseEnter={() => setHover(c.id)} onMouseLeave={() => setHover(null)} transform={`translate(${x0},${y})`}>
                     <title>{`${c.summary_line}\n${fmtYear(c.time.start)}–${fmtYear(c.time.end)}`}</title>
                     <rect width={x1 - x0} height={ROW_H - 6} rx={3} fill={TYPE_COLOR[c.type]} opacity={sel ? 1 : 0.85} />
-                    <text x={Math.max(x1 - x0, 6) + 4} y={ROW_H - 9}>{label}</text>
+                    <text x={Math.max(Math.max(x1 - x0, 6) + 4, lx - x0)} y={ROW_H - 9}>{label}</text>
                   </g>
                 );
               })}
@@ -233,8 +247,12 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
         <g className="cursor" transform={`translate(${cx},0)`} onPointerDown={startDrag}>
           <line y1={0} y2={height} />
           <rect x={-7} y={0} width={14} height={height} className="cursor-hit" />
-          <rect x={-24} y={AXIS_H - 2} width={48} height={16} rx={8} className="cursor-badge" />
-          <text y={AXIS_H + 10} textAnchor="middle">{fmtYear(year)}</text>
+        </g>
+        <g className={`cursor-tag ${curOff ? 'off' : ''}`} transform={`translate(${badgeX},0)`}
+          onPointerDown={curOff ? undefined : startDrag} onClick={curOff ? () => { const a = Math.max(MIN_YEAR, year - 50), b = Math.min(MAX_YEAR, year + 50); (svgRef.current as any)?.__zoom_to?.(a, b); setEraSel(null); } : undefined}>
+          {curOff && <title>目前年代不在畫面上，點一下移過去</title>}
+          <rect x={-28} y={AXIS_H - 2} width={56} height={16} rx={8} className="cursor-badge" />
+          <text y={AXIS_H + 10} textAnchor="middle">{curOff === 'left' ? '◀ ' : ''}{fmtYear(year)}{curOff === 'right' ? ' ▶' : ''}</text>
         </g>
       </svg>
       {m && <div className="econ-legend">

@@ -239,3 +239,10 @@
 .activity.reflect h3 { margin: 0 0 6px; }
 .method-box { margin: 12px 0 18px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
 .method-box summary { cursor: pointer; font-weight: 600; }
+/* 時間軸：橫條內的名稱、紅線年份標籤 */
+.lnode text.in { fill: #fff; font-weight: 600; pointer-events: none; }
+.lcursor-tag rect { fill: var(--red); } .lcursor-tag text { fill: #fff; font-size: 11px; font-weight: 700; pointer-events: none; }
+.lcursor-tag { pointer-events: none; } .lcursor-tag.off { pointer-events: auto; cursor: pointer; } .lcursor-tag.off rect { fill: #b83232; stroke: #fff; stroke-width: 1.5; }
+.ltimeline .tl-year { color: var(--red); font-weight: 700; font-size: 12.5px; white-space: nowrap; }
+.learn.mobile .era-seg button { padding: 5px 8px; }
+.learn.mobile .era-range { white-space: normal; }

@@ -16,7 +16,7 @@ import { ChainPanel } from './components/ChainPanel';
 import { EconPanel } from './components/EconPanel';
 import { TodayPanel } from './components/TodayPanel';
 import { useIsMobile } from './lib/useIsMobile';
-import { MIN_YEAR, MAX_YEAR } from './lib/timeScale';
+import { MIN_YEAR, MAX_YEAR, ERAS, eraOf } from './lib/timeScale';
 import { LearnApp } from './learn/LearnApp';
 import { Splitter } from './components/Splitter';
 import { useLayout, colSize, rowSize } from './lib/layout';
@@ -255,10 +255,17 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
 }
 
 function YearSlider({ year, setYear }: { year: number; setYear: (y: number) => void }) {
+  // 手機沒有時間軸：滑桿下方放時代按鈕，目前年代落在哪個時代就亮哪一顆，點一下跳到該時代開頭
+  const cur = eraOf(year);
   return (
-    <label className="year-slider">
-      <span>年代 {year < 0 ? `前${-year}` : year}</span>
-      <input type="range" min={MIN_YEAR} max={MAX_YEAR} step={1} value={year} onChange={(e) => setYear(Number(e.target.value) || 1)} />
-    </label>
+    <div className="year-slider-wrap">
+      <label className="year-slider">
+        <span>年代 <b>{year < 0 ? `前${-year}` : year}</b></span>
+        <input type="range" min={MIN_YEAR} max={MAX_YEAR} step={1} value={year} onChange={(e) => setYear(Number(e.target.value) || 1)} />
+      </label>
+      <div className="era-seg m-era" role="group" aria-label="跳到時代">
+        {ERAS.map((e) => <button key={e.name} className={cur === e.name ? 'on' : ''} aria-pressed={cur === e.name} onClick={() => setYear(e.a === 0 ? 1 : e.a)}>{e.name}</button>)}
+      </div>
+    </div>
   );
 }

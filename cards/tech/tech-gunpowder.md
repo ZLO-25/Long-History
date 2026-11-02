@@ -20,6 +20,7 @@ place:
     - { name_ancient: 卡斯蒂永, name_modern: 卡斯蒂永拉巴塔耶（法國）, lat: 44.855, lng: -0.043, precision: schematic, role: 1453 年法軍以大量野戰砲擊敗英軍，百年戰爭結束（座標為今小鎮中心）, src: [s3] }
   scale: line
 structure_tags: [技術擴散, 技術代差, 慢變結構]
+topics: [火藥與武器]
 links: [war-jingkang, tech-compass, tech-movable-type]
 counterparts: "無適當對照：西方軌道沒有獨立起源的同類技術；歐洲的火藥與火砲是 13 世紀後由中國經伊斯蘭世界傳入再改良的同一技術，放在本卡 T3 說明，不另立對照。"
 sources:

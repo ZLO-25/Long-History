@@ -20,6 +20,7 @@ place:
     - { name_ancient: 羅馬, name_modern: 羅馬（義大利）, lat: 41.88997, lng: 12.49125, pleiades_id: "423025", precision: exact, role: 元老院與龐培撤離的首都 }
   scale: line
 structure_tags: [強人繞過制度, 精英內鬥, 臨界點, 合法性危機, 突變事件]
+topics: [內戰]
 links: [event-augustan-principate, war-actium, building-forum-romanum, building-via-appia]
 counterparts:
   - { id: event-partition-of-jin, note: "相似：國家的實權落到幾個掌握私人力量的權貴手中，他們先聯手、再互鬥。不同：羅馬的權貴之爭最後由一人勝出，國家沒有分裂；晉國被三家永久分成三國，周王還出面承認。", src: [s1, s6] }

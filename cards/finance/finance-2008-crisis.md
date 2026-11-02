@@ -18,6 +18,7 @@ place:
     - { name_ancient: 紐約華爾街, name_modern: 紐約曼哈頓（美國）, lat: 40.7069, lng: -74.0111, precision: schematic, role: 雷曼兄弟、貝爾斯登等投資銀行所在的美國金融中心（座標為紐約證券交易所大樓，示意）, src: [s1, s4] }
   scale: area
 structure_tags: [投機泡沫與崩盤, 債務擴張, 臨界點, 突變事件]
+topics: [銀行與借貸, 泡沫與金融危機, 中央銀行]
 links: [finance-great-depression, finance-nyse, finance-bretton-woods]
 counterparts: "無適當對照：中國軌現有與計畫卡中沒有 2008 年前後的金融事件卡（改革開放卡只寫到 1992 年）；臺灣證交所卡（other 軌）談的是 1990 年泡沫，與次貸危機的機制不同，不硬湊。"
 sources:

@@ -18,6 +18,7 @@ place:
     - { name_ancient: 長安, name_modern: 西安（中國陝西）, lat: 34.30833, lng: 108.85833, precision: schematic, role: 新朝首都；23 年王莽在未央宮被殺（座標為今西安）, src: [s1, s3] }
   scale: area
 structure_tags: [貨幣貶值, 合法性危機, 制度包裝延續, 關鍵原料壟斷, 臨界點]
+topics: [鑄幣, 國家專賣, 變法與改革, 儒家, 土地制度, 奴隸制]
 links: [commodity-wuzhu-coin, commodity-salt-iron, event-han-inherits-qin, event-yellow-turban]
 counterparts:
   - { id: event-augustan-principate, note: "相似：一位朝廷內部的權臣，以「恢復理想古制」為號召取得最高權力（王莽託古於周制；奧古斯都號稱恢復共和）。不同：奧古斯都保留舊制度的外殼、實際改變不大，政權延續數百年；王莽大刀闊斧改變土地、奴婢與貨幣制度，14 年就覆亡。", src: [s1, s2] }

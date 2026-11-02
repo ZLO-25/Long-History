@@ -19,6 +19,7 @@ place:
     - { name_ancient: 美國（晶片設計）, name_modern: 美國加州矽谷一帶（示意）, lat: 37.3875, lng: -122.0575, precision: schematic, role: 全球約七成 IC 設計營收在美國（2023）, src: [s2] }
   scale: area
 structure_tags: [關鍵原料壟斷, 單一港口依賴, 技術代差, 標準化量產]
+topics: [臺灣出口品, 出口區與科學園區, 半導體與網路]
 links: [event-hsinchu-park-tsmc, tech-internet]
 counterparts: 無適當對照：西方軌沒有「一個地方掌握全球關鍵工業品」的同時代物資卡；結構上可參考「霍爾木茲海峽」等今日咽喉。
 sources:

@@ -19,6 +19,7 @@ place:
     - { name_ancient: 工業技術研究院, name_modern: 新竹縣竹東鎮（臺灣）, lat: 24.7740, lng: 121.0450, precision: schematic, role: 示範工廠、聯電與台積電的源頭, src: [s2, s4] }
   scale: point
 structure_tags: [技術擴散, 默會知識外流, 快速擴張, 標準化量產]
+topics: [出口區與科學園區, 半導體與網路]
 links: [event-kaohsiung-epz, building-ten-major-projects, commodity-taiwan-semiconductor, tech-internet, event-taiwan-martial-law]
 counterparts: 無適當對照：西方軌的「網際網路」卡時代相近，但講的是通訊技術，不是國家培育產業；之後補美國矽谷或日本半導體卡再對照。
 sources:

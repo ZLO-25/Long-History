@@ -20,6 +20,7 @@ place:
     - { name_ancient: 歐洲核子研究組織, name_modern: 日內瓦近郊（瑞士）, lat: 46.233, lng: 6.0557, precision: schematic, role: 1989–1991 年全球資訊網在此誕生（座標為示意）, src: [s3] }
   scale: area
 structure_tags: [資訊傳播革命, 基礎建設網絡, 快速擴張, 技術擴散]
+topics: [冷戰, 印刷與通訊, 半導體與網路]
 links: [tech-telegraph, tech-printing-press, tech-movable-type, tech-container-shipping, event-end-of-cold-war]
 counterparts:
   - { id: tech-movable-type, note: "相似：兩者都大幅降低複製與傳遞文字的成本，改變了誰能取得知識。不同：北宋畢昇約 1040 年發明的陶活字要大量印刷才划算，資訊仍是由少數印書者發出；網際網路讓每個連上網的人都能同時發送和接收，而且幾乎不必付複製成本。", src: [s4, s7] }

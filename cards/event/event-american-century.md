@@ -21,6 +21,7 @@ place:
     - { name_ancient: 甘迺迪太空中心, name_modern: 美國佛羅里達州梅里特島, lat: 28.5729, lng: -80.6490, precision: schematic, role: "阿波羅 11 號 1969 年 7 月發射地", src: [s11] }
   scale: area
 structure_tags: [快速擴張, 標準化量產, 儲備貨幣地位, 貨幣體系轉換, 金融中心轉移, 技術代差, 霸權挑戰, 慢變結構]
+topics: [冷戰, 世界大戰]
 links: [war-world-war-two, finance-bretton-woods, event-marshall-plan, event-containment-nato, war-korean-war, war-vietnam-war, event-nixon-china, finance-petrodollar, finance-dollar-reserve-currency, finance-new-york-overtakes-london, event-end-of-cold-war, event-monroe-doctrine]
 counterparts: "無適當對照：中國軌與東亞軌現有卡片中，沒有「單一國家在戰後主導全球貨幣、安全與科技規則」的對應事件；漢代朝貢體系的規模與性質不同，不硬湊。"
 sources:

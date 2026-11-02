@@ -18,6 +18,7 @@ place:
     - { name_ancient: 費城賓夕法尼亞州議會大廈（今獨立廳）, name_modern: 費城獨立廳（美國賓夕法尼亞州）, lat: 39.9489, lng: -75.1500, precision: exact, role: "第二屆大陸會議開會處，1776 年 7 月 4 日通過宣言", src: [s1, s8] }
   scale: point
 structure_tags: [合法性危機, 革命與政權更替, 宗教／意識形態動員, 政治宣傳工程, 臨界點]
+topics: [法律與憲法, 革命, 啟蒙與人權, 奴隸制]
 links: [event-thirteen-colonies, war-american-revolution, event-us-constitution, event-magna-carta, event-french-revolution, war-american-civil-war, event-american-founding-philosophy]
 counterparts: "無適當對照：中國軌沒有一份以「天賦權利」與「被統治者同意」為論述、並用書面宣告脫離宗主的事件；辛亥革命雖推翻皇帝、建立共和，但論述與背景不同，不硬湊。"
 sources:

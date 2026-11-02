@@ -20,6 +20,7 @@ place:
     - { name_ancient: 倫敦, name_modern: 倫敦（英國）, lat: 51.5074, lng: -0.1278, precision: schematic, role: 歐洲美元市場的中心，油國存款經由銀行體系再貸放出去的場所之一（座標為今市中心）, src: [s1] }
   scale: area
 structure_tags: [經濟施壓與制裁, 意外財源, 儲備貨幣地位, 債務擴張, 臨界點]
+topics: [通貨膨脹, 國際貨幣, 能源]
 links: [finance-bretton-woods, finance-dollar-reserve-currency, finance-eurodollar-big-bang, finance-plaza-accord]
 counterparts: "無適當對照：中國與東亞軌現有的卡中沒有「資源出口國把巨額外匯盈餘回流到強勢貨幣國的金融市場」的同類卡；白銀流動卡是金屬貨幣流入中國，機制與規模都不同，不硬湊。"
 sources:

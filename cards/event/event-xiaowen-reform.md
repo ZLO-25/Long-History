@@ -18,6 +18,7 @@ place:
     - { name_ancient: 洛陽, name_modern: 洛陽（中國河南）, lat: 34.6197, lng: 112.4539, precision: schematic, role: 494 年遷都至此（座標為今洛陽市政府）, src: [s1, s4] }
   scale: line
 structure_tags: [重新設計基本單位, 擴大稅基, 精英內鬥, 公民身分擴張]
+topics: [變法與改革, 游牧民族與邊疆, 土地制度, 首都與都城]
 links: [war-feishui, building-yungang]
 counterparts:
   - { id: event-constitutio-antoniniana, note: "相似：統治者以一道命令改寫全國人的身分（卡拉卡拉讓帝國境內自由人都成為羅馬公民；孝文帝要鮮卑人改穿漢服、說漢語、改漢姓）。不同：卡拉卡拉是把統治者的身分「擴大」給被統治者；孝文帝是讓統治族群「改採」被統治者的語言與姓氏。", src: [s1, s2] }

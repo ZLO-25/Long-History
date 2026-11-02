@@ -21,6 +21,7 @@ place:
     - { name_ancient: 薩摩, name_modern: 鹿兒島（日本）, lat: 31.5966, lng: 130.5571, precision: schematic, role: 對琉球的窗口, src: [s1] }
   scale: area
 structure_tags: [單一港口依賴, 宗教／意識形態動員, 慢變結構, 外部勢力介入]
+topics: [開港與鎖國, 宗教, 海上貿易]
 links: [event-toyotomi-unification, event-black-ships, commodity-iwami-silver, event-dutch-formosa]
 counterparts: 無適當對照：西方軌沒有一張「國家主動收緊對外往來兩百多年」的卡。
 sources:

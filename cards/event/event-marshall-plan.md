@@ -20,6 +20,7 @@ place:
     - { name_ancient: 華盛頓, name_modern: 華盛頓特區（美國）, lat: 38.8977, lng: -77.0365, precision: schematic, role: 美國國會與總統通過並執行《經濟合作法》（座標為白宮）, src: [s1, s2] }
   scale: area
 structure_tags: [外部勢力介入, 聯盟破裂, 金融制度創新, 糧食進口依賴]
+topics: [冷戰, 世界大戰]
 links: [event-containment-nato, event-american-century, finance-bretton-woods, war-world-war-two, finance-dollar-reserve-currency]
 counterparts: "無適當對照：中國軌與東亞軌現有卡片中沒有類似的戰後大規模對外經濟重建援助計畫；美國對日本、臺灣的戰後援助本卡未查證，不硬湊。"
 sources:

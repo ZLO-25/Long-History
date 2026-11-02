@@ -18,6 +18,7 @@ place:
     - { name_ancient: 布列敦森林（華盛頓山飯店）, name_modern: 美國新罕布夏州卡羅爾鎮布列敦森林, lat: 44.25722, lng: -71.43944, precision: schematic, role: 1944 年 7 月 1–22 日會議地點（座標為華盛頓山飯店）, src: [s1, s5] }
   scale: point
 structure_tags: [金融制度創新, 貨幣貶值, 臨界點]
+topics: [國際貨幣, 世界大戰]
 links: [finance-great-depression, finance-2008-crisis, war-world-war-two]
 counterparts: "無適當對照：中國軌現有與計畫卡中沒有「國際貨幣制度」的卡；中華民國雖是 1944 年與會的 44 國之一，但本卡未查證其角色，不硬湊。"
 sources:

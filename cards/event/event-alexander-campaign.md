@@ -25,6 +25,7 @@ place:
     - { name_ancient: 巴比倫, name_modern: 希拉附近（伊拉克）, lat: 32.53729, lng: 44.42497, pleiades_id: "893951", precision: exact, role: 前 323 年亞歷山大去世 }
   scale: line
 structure_tags: [快速擴張, 補給線過長, 戰爭融資, 突變事件, 地形險阻]
+topics: [對外擴張]
 links: [war-greco-persian, building-acropolis]
 counterparts:
   - { id: event-qin-unification, note: "相似：十年左右的連續征戰，把多個國家併成一個大帝國。不同：亞歷山大死後帝國被部將瓜分；秦朝本身只存在 15 年，但制度被漢朝接收延續。", src: [s1, s6] }

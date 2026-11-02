@@ -20,6 +20,7 @@ place:
     - { name_ancient: 八卦山（彰化）, name_modern: 彰化縣彰化市（臺灣）, lat: 24.0800, lng: 120.5500, precision: schematic, role: 1895 年 8 月底乙未之役最大的正面會戰, src: [s3, s4] }
   scale: area
 structure_tags: [突變事件, 合法性危機, 外部勢力介入, 附庸反叛, 法律成文化]
+topics: [殖民統治, 民變與抗爭]
 links: [event-mudan-incident, event-meiji-restoration, war-opium-war, event-xinhai-revolution, commodity-taiwan-tea-camphor]
 counterparts:
   - { id: war-opium-war, note: "相似：都是清朝戰敗後用條約割讓土地給戰勝國，1842 年割香港島、1895 年割臺灣澎湖。不同：香港當時是人口很少的港口，臺灣是幾百萬人的全島，而且臺灣官民自組「民主國」武裝抵抗了半年，日本要靠軍隊一路打到臺南才接收。", src: [s1, s3] }

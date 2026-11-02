@@ -21,6 +21,7 @@ place:
     - { name_ancient: 克勞狄亞水道, name_modern: 羅馬（義大利）, lat: 41.86615, lng: 12.53965, pleiades_id: "423563", precision: exact, role: 羅馬四大水道之一 }
   scale: line
 structure_tags: [基礎建設網絡, 公共工程支出, 技術代差, 單一港口依賴]
+topics: [運河與水利, 古代建築]
 links: [building-via-appia, commodity-roman-concrete, building-colosseum]
 counterparts:
   - { id: building-dujiangyan, note: "相似：國家投入的大型水利工程，靠重力與精確的地形判斷運作，長期持續維護。不同：羅馬水道把水送進城市；都江堰不築壩，把岷江分流灌溉整個成都平原，至今仍在使用。", src: [s1, s5] }

@@ -17,6 +17,7 @@ place:
     - { name_ancient: 咸陽, name_modern: 咸陽（中國陝西）, lat: 34.3299, lng: 108.7088, precision: schematic, role: 商鞅遷都於此（座標為今咸陽市政府，古城在渭河北岸）, src: [s3] }
   scale: point
 structure_tags: [重新設計基本單位, 擴大稅基, 公民身分擴張, 慢變結構]
+topics: [糧食與農業, 變法與改革, 統一與中央集權, 法律與憲法, 稅收, 諸侯爭霸, 土地制度]
 links: [event-qin-unification, event-cleisthenes-reform, event-twelve-tables, event-guan-zhong-reform, war-changping]
 counterparts:
   - { id: event-cleisthenes-reform, note: "相似：都「重新設計社會的基本單位」，把人口依新的規則登記、分組，打破舊貴族以血緣為基礎的控制。不同：克里斯提尼的改革讓更多公民參與政治；商鞅的改革讓國家更能動員人力去種田與打仗，平民的上升管道是軍功而非投票。", src: [s1, s2, s7] }

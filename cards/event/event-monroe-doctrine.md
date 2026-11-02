@@ -19,6 +19,7 @@ place:
     - { name_ancient: 聖多明哥, name_modern: 聖多明哥（多明尼加共和國）, lat: 18.4861, lng: -69.9312, precision: schematic, role: "1904 年羅斯福推論之後，美國介入加勒比海債務問題的例子（1905 年接管海關）", src: [s5, s6] }
   scale: area
 structure_tags: [外部勢力介入, 海權對陸權, 附庸反叛, 慢變結構]
+topics: [對外擴張]
 links: [event-westward-expansion, war-american-civil-war, war-spanish-american, event-american-century, event-containment-nato]
 counterparts: "無適當對照：中國與東亞軌的現有卡片中沒有「某區域大國宣告排除域外強權」的同類事件，不硬湊。"
 sources:

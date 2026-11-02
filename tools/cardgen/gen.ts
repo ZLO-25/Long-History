@@ -51,6 +51,7 @@ function existingList() {
   }
   return out.join('\n');
 }
+function topicList() { return YAML.parse(rd('data/topics.yaml')).layers.map((l: any) => `## ${l.name}\n` + l.topics.map((t: any) => `  ${t.name}：${t.plain}`).join('\n')).join('\n'); }
 function tagList() { return rd('docs/structure-tags.md').split('\n').filter((l) => /^## |^- \*\*/.test(l)).map((l) => l.replace(/^- \*\*(.+?)\*\*.*/, '  $1')).join('\n'); }
 function systemPrompt() {
   const hist = YAML.parse(rd('data/histories.yaml')).histories.map((h: any) => h.name).join('、');
@@ -64,7 +65,7 @@ function systemPrompt() {
 4. 雙軌解讀段（李彔／哈拉瑞）：本期一律寫「無直接論述：查不到李彔（哈拉瑞）公開講稿談○○。」，lens_status 寫「無直接論述」。
 5. verification 寫「交叉確認」（來源至少來自 2 個不同網域）。不要寫 crosscheck 欄位（由另一位查核者填）。
 6. 要寫 importance（1–3）與 learn 區塊（histories 只能用：${hist}；美國相關卡請放「美國史」）。finance 卡的 learn 必須有 hindsight。primary_source 的 text 必須是真實、可查的原文短句（≤160 字，可附中譯），來源要是 sources 裡的一手來源；沒把握就不要寫 primary_source。
-7. structure_tags 只能用下列詞表中的詞（一字不差）；links 只能用「既有卡片／本期新卡」清單中的 id；counterparts 要指向「另一條 track」的卡，並寫 ≥10 字的 note 與 src，找不到就寫「無適當對照：原因」。
+7. structure_tags 只能用下列詞表中的詞（一字不差）；topics（主題標籤，寫在 structure_tags 下一行）只能用主題標籤詞表中的名稱；links 只能用「既有卡片／本期新卡」清單中的 id；counterparts 要指向「另一條 track」的卡，並寫 ≥10 字的 note 與 src，找不到就寫「無適當對照：原因」。
 8. 文明（civilization）照任務書寫法；地點要有正確的 lat/lng（小數 4 位）與 src。
 9. 數字、日期要保守、可在你引用的來源中查到；有爭議就寫出爭議。不要寫你沒把握的細節。
 10. YAML 語法：flow 寫法 { ... } 或 [ ... ] 裡的字串若含有 [ ] { } , : # 「」等符號（例如 [s1]），整個值一定要用雙引號包起來；多行文字用 | 區塊。
@@ -75,6 +76,9 @@ ${rd('docs/card-fields.md')}
 
 # 結構標籤詞表（只能用這些詞）
 ${tagList()}
+
+# 主題標籤詞表 data/topics.yaml（topics 欄位只能用這些名稱；卡片內文要真的談到該主題，通常 1–5 個）
+${topicList()}
 
 # 文明分類 data/civilizations.yaml
 ${rd('data/civilizations.yaml')}

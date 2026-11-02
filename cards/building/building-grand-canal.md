@@ -21,6 +21,7 @@ place:
     - { name_ancient: 涿郡, name_modern: 北京一帶（中國）, lat: 39.904, lng: 116.407, precision: schematic, role: "永濟渠北端，征高句麗的集結地（座標為今北京市區，示意）", src: [s2, s4] }
   scale: line
 structure_tags: [基礎建設網絡, 公共工程支出, 糧食進口依賴, 合法性危機]
+topics: [糧食與農業, 運河與水利]
 links: [war-an-lushan, war-jingkang]
 counterparts:
   - { id: commodity-egypt-grain, note: "相似：都是為了把遠方產糧區的糧食大量運到首都與軍隊。不同：羅馬靠地中海海運把埃及穀物送進羅馬；隋唐是開挖內陸水道，把長江流域與黃河流域接成一個水運網。", src: [s1, s3] }

@@ -20,6 +20,7 @@ place:
     - { name_ancient: 紐約市, name_modern: 紐約（美國紐約州）, lat: 40.7128, lng: -74.0060, precision: schematic, role: "《聯邦黨人文集》在紐約報紙首度刊出，為說服紐約批准憲法（座標為今市中心）", src: [s14] }
   scale: area
 structure_tags: [憲政分權, 合法性危機, 革命與政權更替, 慢變結構]
+topics: [啟蒙與人權]
 links: [event-declaration-of-independence, event-us-constitution, event-thirteen-colonies, war-american-revolution, event-french-revolution, event-magna-carta, event-reformation, event-augustan-principate]
 counterparts:
   - { id: event-confucius, note: "兩者都是為政權正當性提供思想基礎；儒家後繼者孟子有暴君可被推翻的主張，結構上近似洛克的反抗權，但依據是天命與德行，而不是個人自然權利與同意，也沒有制度化的憲政制衡。", src: [s16] }

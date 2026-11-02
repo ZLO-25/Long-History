@@ -5,7 +5,7 @@ import {
   SECTIONS, TYPE_LABEL, TYPE_PREFIX, FIELD_OPTIONS, VERIFICATION, LENS_STATUS, TIME_PRECISION,
   LOC_PRECISION, SCALES, TRACKS, SOURCE_TIERS, type CardType,
 } from './fields.ts';
-import { ROOT, refsOf, type RawCard } from './cards.ts';
+import { ROOT, refsOf, loadTopicVocab, type RawCard } from './cards.ts';
 
 export interface Issue { level: 'error' | 'warning'; file: string; msg: string }
 
@@ -14,7 +14,7 @@ const PAGE_RE = /第\s*[一二三四五六七八九十百\d]+\s*章|第\s*\d+\s*
 
 export function checkCards(
   cards: RawCard[],
-  ctx: { tags: Set<string>; routes: Set<string>; frameworks: Set<string>; histories?: Set<string> },
+  ctx: { tags: Set<string>; routes: Set<string>; frameworks: Set<string>; histories?: Set<string>; topics?: Set<string> },
 ): Issue[] {
   const issues: Issue[] = [];
   const ids = new Map<string, string>();
@@ -92,6 +92,12 @@ export function checkCards(
 
     if (!Array.isArray(f.structure_tags) || !f.structure_tags.length) err('structure_tags 至少要有 1 個');
     for (const tag of f.structure_tags ?? []) if (!ctx.tags.has(tag)) err(`結構標籤「${tag}」不在 docs/structure-tags.md 詞表內`);
+    // 主題標籤（data/topics.yaml）：把同一件事物的卡串成路徑
+    if (ctx.topics) {
+      if (!Array.isArray(f.topics) || !f.topics.length) warn('topics（主題標籤）至少要有 1 個，詞表見 data/topics.yaml');
+      for (const t of f.topics ?? []) if (!ctx.topics.has(t)) err(`主題標籤「${t}」不在 data/topics.yaml 詞表內`);
+      if (new Set(f.topics ?? []).size !== (f.topics ?? []).length) warn('topics 有重複的主題');
+    }
     for (const l of f.links ?? []) if (!ids.has(l)) err(`links 指向不存在的卡片：${l}`); else if (l === f.id) err('不可連結自己');
     for (const r of f.routes ?? []) if (!ctx.routes.has(r)) err(`routes 指向不存在的路線：${r}`);
     for (const fw of f.frameworks ?? []) if (!ctx.frameworks.has(fw)) err(`frameworks 指向不存在的框架：${fw}`);
@@ -201,7 +207,26 @@ export function loadContext(tagCats: { tags: { tag: string }[] }[], routes: any[
     tags: new Set(tagCats.flatMap((c) => c.tags.map((t) => t.tag))),
     routes: new Set(routes.map((r) => r.id)),
     frameworks: new Set(frameworks.map((f) => f.id)),
+    topics: new Set(loadTopicVocab().flatMap((l) => l.topics.map((t) => t.name))),
   };
+}
+
+// 主題標籤詞表本身：每個主題要有白話與路徑說明、至少 2 張卡、「也看看」要指向存在的主題
+export function checkTopics(cards: RawCard[]): Issue[] {
+  const issues: Issue[] = [];
+  const file = 'data/topics.yaml';
+  const layers = loadTopicVocab();
+  const names = layers.flatMap((l) => l.topics.map((t) => t.name));
+  const dup = names.filter((n, i) => names.indexOf(n) !== i);
+  for (const n of new Set(dup)) issues.push({ level: 'error', file, msg: `主題「${n}」重複出現` });
+  for (const l of layers) for (const t of l.topics) {
+    if (!t.plain) issues.push({ level: 'warning', file, msg: `主題「${t.name}」缺 plain（白話定義）` });
+    if (!t.path) issues.push({ level: 'warning', file, msg: `主題「${t.name}」缺 path（路徑說明）` });
+    for (const s of t.see ?? []) if (!names.includes(s)) issues.push({ level: 'error', file, msg: `主題「${t.name}」的 see 指向不存在的主題「${s}」` });
+    const n = cards.filter((c) => (c.fm?.topics ?? []).includes(t.name)).length;
+    if (n < 2) issues.push({ level: 'warning', file, msg: `主題「${t.name}」只有 ${n} 張卡，串不成路徑（至少 2 張）` });
+  }
+  return issues;
 }
 
 export const exists = (rel: string) => fs.existsSync(path.join(ROOT, rel));

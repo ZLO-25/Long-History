@@ -20,6 +20,7 @@ place:
     - { name_ancient: 科西嘉島, name_modern: 科西嘉島（法國）, lat: 42.7028, lng: 9.4500, precision: schematic, role: 熱那亞統治的島嶼，一度委由聖喬治之家管理（座標取巴斯蒂亞，示意）, src: [s1, s2] }
   scale: area
 structure_tags: [金融制度創新, 債務擴張, 慢變結構]
+topics: [銀行與借貸, 國債與公債]
 links: [finance-venice-rialto, finance-medici-bank, finance-age-of-genoese, finance-bank-of-england, finance-amsterdam-wisselbank]
 counterparts: "無適當對照：中國軌現有與計畫卡中沒有由債權人團體集體接管稅收、管理公債的機構；交子、票號都不是這種結構，不硬湊。"
 sources:

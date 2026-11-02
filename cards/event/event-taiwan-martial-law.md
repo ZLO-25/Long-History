@@ -20,6 +20,7 @@ place:
     - { name_ancient: 綠島（火燒島）新生訓導處／綠洲山莊, name_modern: 臺東縣綠島鄉（臺灣）, lat: 22.6617, lng: 121.4917, precision: exact, role: 1951–1965 年新生訓導處、1972–1987 年國防部綠島感訓監獄關押政治犯的地方, src: [s12] }
   scale: area
 structure_tags: [合法性危機, 思想異見與審判, 公民身分擴張, 制度包裝延續, 臨界點]
+topics: [民主與參政, 言論與思想管制]
 links: [event-228-incident, event-taiwan-land-reform, building-ten-major-projects, finance-taiwan-stock-1990, event-end-of-cold-war]
 counterparts:
   - { id: event-end-of-cold-war, note: "相似：都發生在 1980 年代末到 1990 年代初的「民主化浪潮」裡，威權政府在內外壓力下和平放手，沒有爆發內戰（臺灣 1987 解嚴、1991 終止動員戡亂、1996 直選；東歐 1989 年起政權更替）。不同：臺灣是執政黨自己主導、分十年逐步改革，國民黨改革後仍繼續執政；東歐多是共產黨在數月內垮台、政權整個換人。", src: [s1, s10] }

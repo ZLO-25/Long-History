@@ -19,6 +19,7 @@ place:
     - { name_ancient: 大夏（巴克特拉）, name_modern: 巴爾赫（阿富汗）, lat: 36.76794, lng: 66.90109, pleiades_id: "961886", precision: schematic, role: 張騫到訪的大夏地區代表點 }
   scale: line
 structure_tags: [商路改道, 外部勢力介入, 技術擴散]
+topics: [絲綢與絲路, 游牧民族與邊疆]
 links: [event-qin-unification, event-alexander-campaign, war-han-xiongnu, commodity-ferghana-horse, commodity-silk]
 routes: [stations-zhang-qian]
 counterparts:

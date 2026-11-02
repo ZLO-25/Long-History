@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState, useCallback } from 'react';
 import { setNameTable } from './lib/bilingual';
 import type { Index, Card, Filters } from './types';
-import { createSearch } from './lib/search';
+import { createSearch, matchTopics } from './lib/search';
+import { TopicView, TopicIndex, topicMarks, findTopic } from './components/Topics';
 import { activeAt } from './lib/format';
 import { Timeline } from './components/Timeline';
 import { MapView } from './components/MapView';
@@ -29,7 +30,9 @@ export type Panel =
   | { kind: 'match'; tags?: string[] }
   | { kind: 'chain'; id: string }
   | { kind: 'econ'; series: string; point: number }
-  | { kind: 'today'; id: string };
+  | { kind: 'today'; id: string }
+  | { kind: 'topic'; name: string }
+  | { kind: 'topics' };
 
 export default function App() {
   const [index, setIndex] = useState<Index | null>(null);
@@ -71,7 +74,11 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     if (ch) return ch.start;
     // ?card= 直接開卡時，年代跳到該卡開始的年份
     const cd = index.cards.find((c) => c.id === params.get('card'));
-    return cd ? cd.time.start : -490;
+    if (cd) return cd.time.start;
+    // ?topic= 打開主題路徑時，年代跳到路徑第一張卡
+    const tp = findTopic(index, params.get('topic') ?? '')?.topic.cards[0];
+    const tc = tp ? index.cards.find((c) => c.id === tp) : undefined;
+    return tc ? tc.time.start : -490;
   });
   const [query, setQuery] = useState(() => params.get('q') ?? '');
   const [filters, setFilters] = useState<Filters>({ types: [], fields: [], civs: [] });
@@ -79,6 +86,9 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     const id = params.get('card');
     const ch = params.get('chain');
     if (ch && [...index.chains, ...index.today.chains].some((c) => c.id === ch)) return [{ kind: 'list' }, { kind: 'chain', id: ch }];
+    // ?topic=交易所 直接打開主題路徑
+    const tp = params.get('topic');
+    if (tp && findTopic(index, tp)) return [{ kind: 'list' }, { kind: 'topic', name: tp }];
     const td = params.get('today');
     if (td && index.today.chokepoints.some((c) => c.id === td)) return [{ kind: 'list' }, { kind: 'today', id: td }];
     return id && index.cards.some((c) => c.id === id) ? [{ kind: 'list' }, { kind: 'card', id }] : [{ kind: 'list' }];
@@ -86,7 +96,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const [chainT, setChainT] = useState(0);
   // 今日對照層開關：網址帶 ?today= 或打開今日項目時自動打開
   const [todayOn, setTodayOn] = useState(() => params.has('today') || (params.get('chain') ?? '').startsWith('today-'));
-  const [mobileTab, setMobileTab] = useState<'list' | 'map' | 'match'>('list');
+  const [mobileTab, setMobileTab] = useState<'list' | 'map' | 'match' | 'topics'>('list');
   const panel = stack[stack.length - 1];
   // 各區塊大小可拖曳調整（右欄寬、時間軸高、時間軸收合），記在這台瀏覽器；「⟲ 版面」恢復預設
   const { layout, set: setLayout, reset: resetLayout } = useLayout();
@@ -109,9 +119,12 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const open = useCallback((p: Panel) => {
     setStack((s) => (s[s.length - 1].kind === p.kind && JSON.stringify(s[s.length - 1]) === JSON.stringify(p) ? s : [...s, p]));
     if (p.kind === 'match') setMobileTab('match');
+    else if (isMobile && (p.kind === 'topic' || p.kind === 'topics')) setMobileTab('topics');
     else if (isMobile && p.kind !== 'place') setMobileTab('list');
   }, [isMobile]);
+  const [lastOpened, setLastOpened] = useState<string | null>(() => params.get('card'));
   const openCard = useCallback((id: string) => {
+    setLastOpened(id);
     const c = byId.get(id);
     if (c && !activeAt(c, year)) setYear(c.time.start);
     open({ kind: 'card', id });
@@ -137,22 +150,35 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     if (selectedCard) return { keys: selectedCard.place.locations.map((l) => l.key), routes: selectedCard.routes };
     if (panel.kind === 'place') return { keys: [panel.key], routes: [] };
     if (panel.kind === 'route') return { keys: [], routes: [panel.id] };
+    if (panel.kind === 'topic') return { keys: [], routes: [], marks: topicMarks(index, panel.name) };
     return { keys: [], routes: [] };
-  }, [selectedCard, panel]);
+  }, [selectedCard, panel, index]);
+  const openTopic = useCallback((name: string) => open({ kind: 'topic', name }), [open]);
+  const topicNames = useMemo(() => (index.topicLayers ?? []).flatMap((l) => l.topics.map((t) => ({ name: t.name, n: t.cards.length }))), [index]);
+  const topicHits = useMemo(() => { const m = matchTopics(topicNames.map((t) => t.name), query); return topicNames.filter((t) => m.includes(t.name)); }, [topicNames, query]);
+  // 打開卡片或主題路徑時，網址跟著變（?card= / ?topic=），可以直接複製分享
+  useEffect(() => {
+    if (panel.kind !== 'card' && panel.kind !== 'topic') return;
+    const q = new URLSearchParams({ mode: 'research' });
+    if (panel.kind === 'card') q.set('card', panel.id); else q.set('topic', panel.name);
+    history.replaceState(null, '', `${location.pathname}?${q}`);
+  }, [panel]);
 
   const onQuery = (q: string) => { setQuery(q); if (panel.kind !== 'list') home(); if (isMobile) setMobileTab('list'); };
 
   const side = (() => {
     switch (panel.kind) {
       case 'card': return selectedCard && <CardDetail card={selectedCard} index={index} byId={byId} onOpen={openCard}
-        onTag={(t) => open({ kind: 'match', tags: [t] })} onPlace={(key) => open({ kind: 'place', key })} onRoute={(id) => open({ kind: 'route', id })} onChain={openChain} onToday={openToday} />;
+        onTag={(t) => open({ kind: 'match', tags: [t] })} onTopic={openTopic} onPlace={(key) => open({ kind: 'place', key })} onRoute={(id) => open({ kind: 'route', id })} onChain={openChain} onToday={openToday} />;
       case 'place': return <PlacePanel placeKey={panel.key} cards={index.cards} onOpen={openCard} />;
       case 'route': return <RoutePanel route={index.routes.find((r) => r.id === panel.id)!} cards={index.cards} onOpen={openCard} />;
       case 'chain': return activeChain && <ChainPanel chain={activeChain} card={byId.get(activeChain.card)} t={chainT} setT={setChainT} onOpen={openCard} byId={byId} />;
       case 'today': return activeToday && <TodayPanel point={activeToday} index={index} byId={byId} onOpen={openCard} onTag={(t) => open({ kind: 'match', tags: [t] })} onChain={openChain} />;
       case 'econ': return <EconPanel econ={index.econ} seriesId={panel.series} point={panel.point} onPick={openEcon} />;
       case 'match': return <StructureMatch index={index} initialTags={panel.tags} onOpen={openCard} onToday={openToday} onPlace={(key) => open({ kind: 'place', key })} />;
-      default: return <ResultList query={query} result={result} hits={hits} cards={visible} year={year} onOpen={openCard} />;
+      case 'topic': return <TopicView key={panel.name} index={index} name={panel.name} currentId={lastOpened} onOpen={openCard} onTopic={openTopic} onAll={() => open({ kind: 'topics' })} onMap={isMobile ? () => setMobileTab('map') : undefined} />;
+      case 'topics': return <TopicIndex index={index} onTopic={openTopic} />;
+      default: return <ResultList query={query} result={result} hits={hits} cards={visible} year={year} onOpen={openCard} topics={topicHits} onTopic={openTopic} />;
     }
   })();
 
@@ -168,6 +194,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
         <button className="brand" onClick={() => { home(); setQuery(''); }} title="回到首頁">歷史長河</button>
         <input className="search" type="search" value={query} onChange={(e) => onQuery(e.target.value)}
           placeholder={isMobile ? '搜尋卡片（可打錯字、簡體、英文）' : '搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）'} aria-label="搜尋" />
+        {!isMobile && <button className={`btn ${panel.kind === 'topic' || panel.kind === 'topics' ? 'on' : ''}`} onClick={() => open({ kind: 'topics' })} title="依主題把卡片串成歷史路徑，例如 #交易所">主題標籤</button>}
         {!isMobile && <button className={`btn ${panel.kind === 'match' ? 'on' : ''}`} onClick={() => open({ kind: 'match' })}>結構對照</button>}
         {!isMobile && customized && <button className="btn layout-reset" onClick={() => resetLayout(['rPanel', 'rTl'])} title="把地圖、卡片欄、時間軸的大小恢復預設">⟲ 版面</button>}
         <button className="btn learn-btn" onClick={onLearn} title="給國高中生的自主學習模式">學習模式</button>
@@ -177,9 +204,14 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
       {isMobile ? (
         <>
           <nav className="tabs">
-            {(['list', 'map', 'match'] as const).map((t) => (
-              <button key={t} className={mobileTab === t ? 'on' : ''} onClick={() => { setMobileTab(t); if (t === 'match' && panel.kind !== 'match') open({ kind: 'match' }); if (t === 'list' && panel.kind === 'match') back(); }}>
-                {{ list: '清單', map: '地圖', match: '結構對照' }[t]}
+            {(['list', 'map', 'topics', 'match'] as const).map((t) => (
+              <button key={t} className={mobileTab === t ? 'on' : ''} onClick={() => {
+                setMobileTab(t);
+                if (t === 'match' && panel.kind !== 'match') open({ kind: 'match' });
+                if (t === 'topics' && panel.kind !== 'topics' && panel.kind !== 'topic') open({ kind: 'topics' });
+                if (t === 'list' && ['match', 'topics', 'topic'].includes(panel.kind)) home();
+              }}>
+                {{ list: '清單', map: '地圖', topics: '主題標籤', match: '結構對照' }[t]}
               </button>
             ))}
           </nav>
@@ -213,7 +245,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
           <div ref={tlRef} className="timeline-wrap">
             <button className="tl-toggle" onClick={() => setLayout({ rTlOpen: !tlOpen })} aria-expanded={tlOpen}>{tlOpen ? '▾ 收起時間軸' : '▸ 展開時間軸'}</button>
             {tlOpen && <Timeline cards={visible} allCards={index.cards} year={year} setYear={setYear}
-              selectedId={selectedCard?.id ?? null} onOpen={openCard}
+              selectedId={selectedCard?.id ?? null} onOpen={openCard} focusIds={panel.kind === 'topic' ? findTopic(index, panel.name)?.topic.cards ?? null : null}
               econ={index.econ} onEcon={openEcon} econSel={panel.kind === 'econ' ? { series: panel.series, point: panel.point } : null} />}
           </div>
         </main>

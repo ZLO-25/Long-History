@@ -20,6 +20,7 @@ place:
   scale: line
 routes: [stations-zhang-qian]
 structure_tags: [關鍵原料壟斷, 補給線過長, 技術擴散, 快速擴張]
+topics: [游牧民族與邊疆]
 links: [event-zhang-qian-west, war-han-xiongnu, commodity-silk, event-alexander-campaign]
 counterparts: "無適當對照：西方卡中沒有一種國家為了軍事需要、遠征數千公里去強取的牲畜或物資；亞歷山大在同一地區建立的「極遠的亞歷山大城」（今苦盞）只是地理上的巧合，結構不同。"
 sources:

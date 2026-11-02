@@ -19,6 +19,7 @@ place:
     - { name_ancient: 雅典廣場, name_modern: 雅典（希臘）, lat: 37.9755, lng: 23.72264, pleiades_id: "807514119", precision: schematic, role: 雅典公共生活中心（審判確切地點未定） }
   scale: point
 structure_tags: [思想異見與審判, 合法性危機, 精英內鬥]
+topics: [民主與參政, 言論與思想管制]
 links: [war-peloponnesian, event-cleisthenes-reform, building-theatre-dionysus]
 counterparts:
   - { id: event-confucius, note: "相似：一位沒有留下著作的老師，學說靠弟子記錄流傳，日後成為整個文明的思想基礎。不同：蘇格拉底被雅典民主處死；孔子周遊列國求官未果，晚年回鄉教書而終。", src: [s1, s5] }

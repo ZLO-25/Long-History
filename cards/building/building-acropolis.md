@@ -18,6 +18,7 @@ place:
     - { name_ancient: 雅典衛城, name_modern: 雅典（希臘）, lat: 37.97164, lng: 23.72643, pleiades_id: "638356144", precision: exact, role: 帕德嫩神廟所在地 }
   scale: point
 structure_tags: [政治宣傳工程, 盟主剝削盟友, 公共工程支出, 宗教／意識形態動員]
+topics: [古代建築, 宗教]
 links: [war-greco-persian, war-peloponnesian, building-theatre-dionysus, commodity-laurion-silver]
 counterparts:
   - { id: building-han-changan, note: "相似：都城的大型建設展示權力，花的錢也成為問題（伯里克利挪用提洛同盟貢金；蕭何因花費過多受責備）。不同：衛城以神殿為中心；漢長安城以皇帝宮殿為中心。", src: [s2, s6] }

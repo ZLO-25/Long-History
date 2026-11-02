@@ -19,6 +19,7 @@ place:
     - { name_ancient: 倫敦, name_modern: 倫敦（英國）, lat: 51.5074, lng: -0.1278, precision: schematic, role: "1794 年前後荷蘭銀行家出走的目的地之一（座標為今市中心）", src: [s4] }
   scale: area
 structure_tags: [金融中心轉移, 長期衰退, 外部勢力介入, 債務擴張, 資本外逃]
+topics: [金融中心, 東印度公司]
 links: [finance-amsterdam-wisselbank, finance-amsterdam-exchange, finance-london-rise, finance-mississippi-bubble, finance-hamilton-financial-plan, finance-bank-of-england, war-american-revolution, event-westward-expansion, event-french-revolution]
 counterparts: "無適當對照：中國與東亞軌現有的卡中，沒有「金融中心因戰爭與外國占領而被迫轉移」的對應事件；山西票號、日本泡沫等卡的機制不同，不硬湊。"
 sources:

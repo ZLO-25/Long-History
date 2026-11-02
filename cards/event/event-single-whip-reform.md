@@ -19,6 +19,7 @@ place:
     - { name_ancient: 馬尼拉, name_modern: 馬尼拉（菲律賓）, lat: 14.5995, lng: 120.9842, precision: schematic, role: 西班牙殖民地，美洲白銀經此流入中國（座標為今市中心）, src: [s3] }
   scale: area
 structure_tags: [擴大稅基, 意外財源, 慢變結構]
+topics: [白銀, 變法與改革, 稅收]
 links: [event-wang-anshi-reform, event-zheng-he-voyages, war-opium-war]
 counterparts: "無適當對照：計畫卡中沒有同時期西方的稅制改革卡；一條鞭法與美洲白銀、歐洲貿易緊密相連，但那是全球白銀流動的一環，不是另一條軌道上結構相似的單一事件。"
 sources:

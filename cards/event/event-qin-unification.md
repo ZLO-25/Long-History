@@ -18,6 +18,7 @@ place:
     - { name_ancient: 咸陽, name_modern: 咸陽（中國陝西）, lat: 34.3299, lng: 108.7088, precision: schematic, role: 秦帝國首都（座標為今咸陽市政府）, src: [s4] }
   scale: area
 structure_tags: [快速擴張, 標準化量產, 基礎建設網絡, 邊疆防線, 思想異見與審判]
+topics: [鑄幣, 統一與中央集權, 諸侯爭霸]
 links: [event-shang-yang-reform, event-zhang-qian-west, event-alexander-campaign, event-augustan-principate, war-changping, event-burning-books, event-chen-sheng-wu-guang, building-qin-straight-road, building-terracotta-army]
 counterparts:
   - { id: event-alexander-campaign, note: "相似：十年左右的連續征戰，把原本分立的多個國家併成一個大帝國。不同：亞歷山大死後帝國立刻被部將瓜分；秦朝本身只存在 15 年，但它的郡縣、文字與度量衡被漢朝接收，延續了兩千年。", src: [s1, s3] }

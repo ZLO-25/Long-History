@@ -18,6 +18,7 @@ place:
     - { name_ancient: 紐約華爾街, name_modern: 紐約曼哈頓（美國）, lat: 40.7069, lng: -74.0111, precision: schematic, role: 1929 年 10 月股災發生的紐約證券交易所（座標為今交易所大樓）, src: [s1, s3] }
   scale: area
 structure_tags: [投機泡沫與崩盤, 債務擴張, 臨界點, 公共工程支出]
+topics: [銀行與借貸, 交易所, 股票與公司, 泡沫與金融危機, 中央銀行, 關稅與貿易戰]
 links: [finance-nyse, finance-bretton-woods, finance-2008-crisis, war-world-war-two]
 counterparts:
   - { id: finance-taiwan-stock-exchange, note: "相似：都是借錢炒股把指數推到高點後崩跌——道瓊指數從 1929 年 381 點跌到 1932 年 41 點（約 89%），台股從 1990 年 2 月 12,682 點跌到 10 月 2,485 點（約 80%）。不同：美國股災之後接著銀行倒閉潮與全球大蕭條；台股崩盤的資料主要談股市本身，沒有演變成類似規模的經濟大蕭條（來源未提及）。", src: [s1, s3, s9, s10] }

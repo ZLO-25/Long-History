@@ -18,6 +18,7 @@ place:
     - { name_ancient: 玉門關, name_modern: 甘肅敦煌西北, lat: 40.3535, lng: 93.864, precision: exact, role: 漢代長城防線的西端關口之一，約前 121 年後設立, src: [s1, s2] }
   scale: line
 structure_tags: [邊疆防線, 公共工程支出, 基礎建設網絡, 慢變結構]
+topics: [游牧民族與邊疆, 古代建築]
 links: [event-qin-unification, war-han-xiongnu, building-qin-straight-road, event-zhang-qian-west]
 counterparts:
   - { id: building-hadrians-wall, note: "相似：農業帝國在北方邊疆築牆，管理與遊牧或部落民族之間的邊界，牆邊有駐軍與關口。不同：哈德良長城是一道約 117 公里、規格一致的石牆；秦漢長城是用各地材料（山區用石、平原用夯土）拼接、延伸數千公里的防線網絡，而且秦代的部分幾乎沒有留下來。", src: [s1, s3] }

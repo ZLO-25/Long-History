@@ -20,6 +20,7 @@ place:
     - { name_ancient: 月港（漳州）, name_modern: 福建省漳州市海澄（中國）, lat: 24.38, lng: 117.83, precision: schematic, role: 運貨到馬尼拉的福建港口之一, src: [s1] }
   scale: line
 structure_tags: [商路改道, 關鍵原料壟斷, 單一港口依賴, 外部勢力介入]
+topics: [白銀, 絲綢與絲路, 海上貿易, 航海]
 links: [finance-ming-baochao, commodity-silver-flow, commodity-silk, event-spanish-north-taiwan]
 counterparts:
   - { id: commodity-silk, note: "相似：都是中國絲綢往外流、換回別人的貴重物品。不同：漢代絲路走陸路、經過許多中間商；大帆船是 16 世紀起橫跨太平洋的直接海路，換回的是美洲白銀。", src: [s1, s2] }

@@ -20,6 +20,7 @@ place:
     - { name_ancient: 艋舺, name_modern: 臺北市萬華區（臺灣）, lat: 25.0370, lng: 121.4990, precision: schematic, role: 嘉慶以後興起的北部河港，「三艋舺」, src: [s3] }
   scale: area
 structure_tags: [邊疆防線, 擴大稅基, 慢變結構, 合法性危機, 基礎建設網絡]
+topics: [糧食與農業, 民變與抗爭, 運河與水利, 移民與移墾, 原住民族, 土地制度]
 links: [event-koxinga-taiwan, event-dutch-formosa, social-siraya-deer, commodity-taiwan-tea-camphor, event-mudan-incident]
 counterparts:
   - { id: building-hadrians-wall, note: "相似：帝國都在邊疆用一條線來管人群進出，羅馬是哈德良長城，清朝在臺灣是土牛溝與番界，紅線、綠線一再往山裡推。不同：長城是對外防禦工事；土牛溝是帝國「內部」把漢人和原住民隔開的界線，而且官府管不住越界開墾，線一直在動。", src: [s5] }

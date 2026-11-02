@@ -24,6 +24,7 @@ place:
     - { name_ancient: 迦太基, name_modern: 突尼斯（突尼西亞）, lat: 36.85305, lng: 10.32305, pleiades_id: "314921", precision: exact, role: 迦太基首都 }
   scale: area
 structure_tags: [海權對陸權, 補給線過長, 聯盟破裂, 附庸反叛, 關鍵原料壟斷, 地形險阻, 霸權挑戰]
+topics: [對外擴張]
 links: [event-twelve-tables, war-actium, commodity-amphora-trade]
 counterparts:
   - { id: war-changping, note: "相似：守方先採取避免決戰、拖垮對手的戰略，後來換上主張出擊的將領，主力被包圍殲滅（坎尼；長平）。不同：羅馬在坎尼之後仍能重新動員並最終獲勝；趙國的兵源在長平之後再也沒有恢復。", src: [s1, s7] }

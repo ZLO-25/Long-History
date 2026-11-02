@@ -18,6 +18,7 @@ place:
     - { name_ancient: 長安, name_modern: 西安（中國陝西）, lat: 34.30833, lng: 108.85833, precision: schematic, role: 朝廷與太學所在（座標為今西安）, src: [s1, s4] }
   scale: point
 structure_tags: [宗教／意識形態動員, 制度包裝延續, 慢變結構]
+topics: [言論與思想管制, 儒家, 科舉與教育]
 links: [event-confucius, event-burning-books, event-han-inherits-qin, event-salt-iron-debate]
 counterparts: "無適當對照：目前的西方卡沒有「國家選定一套學說作為官方意識形態，並以它來選拔官員」的例子；結構最接近的是 4 世紀羅馬帝國以基督教為國教，本期沒有這張卡，而且宗教與「以學問選官」並不相同。"
 sources:

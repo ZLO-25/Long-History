@@ -20,6 +20,7 @@ place:
     - { name_ancient: 亞琛, name_modern: 亞琛（德國）, lat: 50.7753, lng: 6.0839, precision: schematic, role: "查理曼的都城，814 年死於此並葬於宮廷禮拜堂（座標為今市區）", src: [s1] }
   scale: point
 structure_tags: [制度包裝延續, 宗教／意識形態動員, 政治宣傳工程, 快速擴張]
+topics: [宗教]
 links: [event-fall-western-rome, war-crusades]
 counterparts:
   - { id: event-xiaowen-reform, note: "相似：原本被視為「外族」的統治者（法蘭克人、鮮卑人）主動接上舊帝國的正統，用羅馬皇帝頭銜或漢人的語言姓氏來強化統治。不同：查理曼是由教宗加冕、借宗教權威取得頭銜；孝文帝是皇帝自己下令改變整個統治族群的語言、服飾與姓氏。", src: [s1, s2] }

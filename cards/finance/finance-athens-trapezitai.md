@@ -20,6 +20,7 @@ place:
     - { name_ancient: 勞里昂（Laurion）銀礦區, name_modern: 拉夫里奧（希臘阿提卡）, lat: 37.7140, lng: 24.0560, precision: schematic, role: 供應雅典銀幣的銀礦（座標為今拉夫里奧鎮）, src: [s3] }
   scale: area
 structure_tags: [金融制度創新, 意外財源, 單一港口依賴, 海權對陸權]
+topics: [鑄幣, 銀行與借貸, 海上貿易, 奴隸制]
 links: [commodity-laurion-silver, finance-lydian-coinage, finance-roman-argentarii, war-peloponnesian]
 counterparts: "無適當對照：中國軌現有卡中沒有同時期（前 5–前 4 世紀）私人經營的存款與放款業；戰國時期的貨幣與信貸史料，本卡未查證，不硬湊。"
 sources:

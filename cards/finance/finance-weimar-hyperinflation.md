@@ -19,6 +19,7 @@ place:
     - { name_ancient: 魯爾區, name_modern: 埃森一帶（德國）, lat: 51.4556, lng: 7.0116, precision: schematic, role: 1923 年 1 月被法、比軍隊占領的工業區, src: [s1, s2] }
   scale: area
 structure_tags: [貨幣貶值, 惡性通膨, 貨幣體系轉換, 財政枯竭, 戰爭融資, 外部勢力介入]
+topics: [紙幣, 國債與公債, 通貨膨脹, 世界大戰]
 links: [finance-gold-yuan-1948, finance-taiwan-1949-currency, finance-great-depression]
 counterparts:
   - { id: finance-gold-yuan-1948, note: "相似：政府都靠印鈔票撐財政，最後換新貨幣重建信用。不同：德國是戰後賠款與魯爾被占領，換成地租馬克後物價很快穩定；中國是內戰進行中，換成金圓券反而更快崩潰。", src: [s1, s2] }

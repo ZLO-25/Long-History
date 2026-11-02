@@ -23,6 +23,7 @@ place:
     - { name_ancient: 巴格達, name_modern: 巴格達（伊拉克）, lat: 33.3152, lng: 44.3661, precision: schematic, role: 2003 年 4 月海珊政權垮臺的首都（座標為今市中心）, src: [s7] }
   scale: area
 structure_tags: [突變事件, 外部勢力介入, 合法性危機, 戰爭融資, 債務擴張]
+topics: [軍事同盟]
 links: [event-end-of-cold-war, event-american-century, finance-dollar-reserve-currency, finance-2008-crisis, finance-petrodollar, war-vietnam-war, event-us-china-trade-war]
 counterparts:
   - id: war-vietnam-war

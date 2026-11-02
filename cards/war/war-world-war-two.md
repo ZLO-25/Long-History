@@ -23,6 +23,7 @@ place:
     - { name_ancient: 廣島, name_modern: 廣島（日本）, lat: 34.3853, lng: 132.4553, precision: schematic, role: 1945 年 8 月 6 日原子彈轟炸（座標為今市中心）, src: [s1] }
   scale: area
 structure_tags: [全面戰爭, 霸權挑戰, 宗教／意識形態動員, 戰爭融資, 技術代差, 外部勢力介入, 聯盟破裂]
+topics: [海戰與水戰, 軍事同盟, 世界大戰]
 links: [war-world-war-one, war-sino-japanese-1937, event-end-of-cold-war, tech-internal-combustion]
 counterparts:
   - { id: war-sino-japanese-1937, note: "相似：同一場世界大戰的兩個戰場，都是擴張型軸心國（德國／日本）侵略鄰國，最後在 1945 年被同盟國擊敗。不同：歐洲戰場以德國入侵波蘭（1939）為起點，中國戰場從 1937 年（甚至 1931 年）就開打，比歐洲早兩年以上，且中國到 1941 年底前幾乎是獨自抵抗。", src: [s1, s7] }

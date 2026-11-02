@@ -20,6 +20,7 @@ place:
     - { name_ancient: 高雄（戲獅甲工業區、軍港）, name_modern: 高雄市前鎮區／左營區（臺灣）, lat: 22.6010, lng: 120.3100, precision: schematic, role: 1930 年代中期起日本財閥在此設鋁工廠等耗電工業；戰時為南進的軍港與工業基地（座標為前鎮日本鋁株式會社高雄工場舊址一帶示意）, src: [s6, s7, s11] }
   scale: area
 structure_tags: [全面戰爭, 宗教／意識形態動員, 政治宣傳工程, 能源轉換, 公共工程支出]
+topics: [殖民統治, 言論與思想管制, 世界大戰, 宗教, 原住民族, 科舉與教育]
 links: [event-taiwan-cultural-association, event-wushe-incident, event-228-incident, event-kaohsiung-epz, war-sino-japanese-1937]
 counterparts:
   - { id: war-world-war-two, note: "相似：都是總體戰——政府把語言、宗教、姓名、配給和兵役全部拉進戰爭動員。不同：歐美各國動員的是本國公民；臺灣人是殖民地人民，先被要求「變成日本人」，到 1945 年才適用徵兵，戰後補償也和日本人不同。", src: [s1, s3] }

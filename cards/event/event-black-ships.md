@@ -19,6 +19,7 @@ place:
     - { name_ancient: 神奈川（橫濱村）, name_modern: 橫濱（日本）, lat: 35.4437, lng: 139.6380, precision: schematic, role: 1854 年簽訂《神奈川條約》, src: [s1] }
   scale: area
 structure_tags: [技術代差, 外部勢力介入, 海權對陸權, 臨界點, 合法性危機]
+topics: [開港與鎖國, 航海]
 links: [event-sakoku, event-meiji-restoration, war-opium-war]
 counterparts: 無適當對照：西方軌是派出艦隊的一方，沒有一張「被蒸汽艦隊叩關而開國」的對應卡。
 sources:

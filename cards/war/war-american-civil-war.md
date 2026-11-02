@@ -23,6 +23,7 @@ place:
     - { name_ancient: 阿波馬托克斯縣府, name_modern: 美國維吉尼亞州阿波馬托克斯, lat: 37.3823, lng: -78.7978, precision: schematic, role: 1865 年 4 月 9 日李將軍向格蘭特投降, src: [s1] }
   scale: area
 structure_tags: [聯盟破裂, 全面戰爭, 經濟施壓與制裁, 戰爭融資, 金融制度創新, 基礎建設網絡, 公民身分擴張, 憲政分權]
+topics: [紙幣, 通貨膨脹, 內戰, 奴隸制]
 links: [event-us-constitution, event-declaration-of-independence, event-westward-expansion, finance-hamilton-financial-plan, tech-railway, tech-telegraph, event-gilded-age-industrialization, finance-federal-reserve, finance-gold-standard]
 counterparts: "無適當對照：中國軌現有卡片中沒有同時期（19 世紀中葉）因統一與分裂問題而爆發的內戰卡；同期的太平天國尚未建卡，不硬湊。"
 sources:

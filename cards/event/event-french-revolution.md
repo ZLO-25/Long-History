@@ -19,6 +19,7 @@ place:
     - { name_ancient: 凡爾賽, name_modern: 凡爾賽（法國）, lat: 48.8049, lng: 2.1204, precision: schematic, role: 1789 年三級會議召開地、王室宮廷（座標為今市中心）, src: [s2] }
   scale: area
 structure_tags: [革命與政權更替, 財政枯竭, 合法性危機, 公民身分擴張, 強人繞過制度]
+topics: [民主與參政, 法律與憲法, 稅收, 革命, 啟蒙與人權]
 links: [event-reformation, event-xinhai-revolution, war-world-war-one]
 counterparts:
   - { id: event-xinhai-revolution, note: "相似：都推翻延續很久的君主制、建立共和，之後又出現強人掌權（拿破崙、袁世凱稱帝）。不同：法國革命從財政危機與首都群眾起事開始，並經歷處死國王與恐怖統治；辛亥革命由地方新軍起義引發，以清帝和平退位收場。", src: [s1, s2] }

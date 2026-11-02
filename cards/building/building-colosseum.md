@@ -18,6 +18,7 @@ place:
     - { name_ancient: 弗拉維圓形劇場, name_modern: 羅馬（義大利）, lat: 41.89025, lng: 12.49234, pleiades_id: "285857974", precision: exact, role: 建於尼祿金宮人工湖原址 }
   scale: point
 structure_tags: [政治宣傳工程, 公共工程支出, 戰爭融資, 合法性危機]
+topics: [古代建築]
 links: [commodity-roman-concrete, building-forum-romanum, building-pantheon]
 counterparts: "無適當對照：中國卡沒有為群眾娛樂而建的大型公共建築；秦漢的大型工程多是宮殿、陵墓、水利與邊防，結構不同。"
 sources:

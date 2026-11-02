@@ -24,6 +24,7 @@ place:
     - { name_ancient: 巴黎, name_modern: 巴黎（法國）, lat: 48.8566, lng: 2.3522, precision: schematic, role: "1898 年 12 月 10 日簽訂《巴黎條約》處（座標為今市中心）", src: [s4] }
   scale: area
 structure_tags: [海權對陸權, 快速擴張, 外部勢力介入, 政治宣傳工程, 附庸反叛]
+topics: [殖民統治, 海戰與水戰, 對外擴張]
 links: [event-monroe-doctrine, event-westward-expansion, event-gilded-age-industrialization, war-american-civil-war, event-american-century, war-opium-war, event-1895-cession, commodity-manila-galleon, war-world-war-two]
 counterparts:
   - id: event-1895-cession

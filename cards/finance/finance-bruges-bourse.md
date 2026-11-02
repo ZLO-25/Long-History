@@ -20,6 +20,7 @@ place:
     - { name_ancient: 安特衛普, name_modern: 安特衛普（比利時）, lat: 51.2194, lng: 4.4025, precision: schematic, role: 布魯日衰落後，外國商人轉往的新中心（座標為今市中心）, src: [s6] }
   scale: area
 structure_tags: [金融制度創新, 金融中心轉移, 單一港口依賴, 商路改道, 慢變結構]
+topics: [匯票與遠距付款, 交易所, 金融中心]
 links: [finance-medici-bank, finance-champagne-fairs, finance-venice-rialto, finance-antwerp-bourse, war-fall-of-antwerp, finance-amsterdam-wisselbank]
 counterparts: "無適當對照：中國與東亞軌現有卡片中沒有「外國商人群聚、在固定場所買賣匯票與換錢」的市場卡，不硬湊。"
 sources:

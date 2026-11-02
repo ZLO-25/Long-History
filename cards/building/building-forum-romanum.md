@@ -18,6 +18,7 @@ place:
     - { name_ancient: 羅馬廣場, name_modern: 羅馬（義大利）, lat: 41.89161, lng: 12.48719, pleiades_id: "502866838", precision: exact, role: 帕拉蒂尼山與卡比托利歐山之間的谷地 }
   scale: point
 structure_tags: [政治宣傳工程, 公共工程支出, 制度包裝延續, 慢變結構]
+topics: [古代建築, 首都與都城]
 links: [event-twelve-tables, event-augustan-principate, event-rubicon, building-colosseum]
 counterparts:
   - { id: building-han-changan, note: "相似：帝國首都的權力與商業中心，也是遠距貿易的一端。不同：羅馬廣場是開放的公共空間，元老院、法庭與神殿集中；漢長安城以高牆圍起的宮殿為主體，市場也有圍牆管理。", src: [s1, s4] }

@@ -18,6 +18,7 @@ place:
     - { name_ancient: 美因茲, name_modern: 美因茲（德國）, lat: 49.9929, lng: 8.2473, precision: schematic, role: 古騰堡約 1450 年在此建成可運作的印刷機，1455 年印出聖經（座標為今美因茲市區）, src: [s1, s3] }
   scale: area
 structure_tags: [資訊傳播革命, 標準化量產, 技術擴散, 快速擴張, 宗教／意識形態動員]
+topics: [印刷與通訊]
 links: [event-reformation, tech-movable-type, tech-paper]
 counterparts:
   - { id: tech-movable-type, note: "相似：都用可重複使用的單字字模排版印刷。不同：古騰堡用鉛錫銻合金鑄字、油性墨與螺旋壓印機，拉丁字母數量少，活字五十年內傳遍歐洲；畢昇的泥活字面對數萬漢字，在中國始終比不過雕版。", src: [s1, s5] }

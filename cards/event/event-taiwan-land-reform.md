@@ -19,6 +19,7 @@ place:
     - { name_ancient: 嘉南平原, name_modern: 嘉義縣、臺南市一帶（臺灣）, lat: 23.25, lng: 120.30, precision: schematic, role: 水田與佃農最集中的地區之一，土地改革主要影響區（示意）, src: [s3] }
   scale: area
 structure_tags: [重新設計基本單位, 外部勢力介入, 擴大稅基, 慢變結構]
+topics: [股票與公司, 糧食與農業, 變法與改革, 土地制度]
 links: [event-228-incident, finance-taiwan-1949-currency, event-kaohsiung-epz, event-taiwan-martial-law]
 counterparts:
   - { id: event-reform-and-opening, note: "相似：都是政府用一紙命令把土地的使用權或所有權交到耕種者手上，農業產量和農民所得都明顯增加（臺灣 1949–1953 年土改；中國 1978 年後包產到戶）。不同：臺灣是把私人地主的土地「有償徵收」再賣給佃農，地主拿到債券和股票；中國是把集體所有的土地承包給農戶，所有權仍不屬於農民。", src: [s1, s3] }

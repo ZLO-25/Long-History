@@ -20,6 +20,7 @@ place:
     - { name_ancient: 高雄, name_modern: 高雄市（臺灣）, lat: 22.6273, lng: 120.3014, precision: schematic, role: 3 月 8 日增援部隊登陸、鎮壓嚴重的城市之一（座標為市區示意）, src: [s1, s2] }
   scale: area
 structure_tags: [合法性危機, 突變事件, 惡性通膨, 思想異見與審判]
+topics: [通貨膨脹, 國家專賣, 民變與抗爭]
 links: [finance-taiwan-1949-currency, finance-gold-yuan-1948, event-taiwan-martial-law, event-taiwan-land-reform]
 counterparts: "無適當對照：現有西方或其他軌道的卡片中，沒有「戰後接收政府與當地居民因經濟管制與統治方式衝突、演變為軍隊鎮壓」的事件可以對照；法國大革命與冷戰結束的結構差異太大，不硬湊。"
 sources:

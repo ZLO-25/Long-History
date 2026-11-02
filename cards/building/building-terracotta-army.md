@@ -18,6 +18,7 @@ place:
     - { name_ancient: 驪山（秦始皇陵）, name_modern: 西安市臨潼區（中國陝西）, lat: 34.385, lng: 109.2731, precision: exact, role: 兵馬俑坑（維基百科座標），在封土東方約 1.5 公里, src: [s1] }
   scale: area
 structure_tags: [標準化量產, 政治宣傳工程, 公共工程支出]
+topics: [古代建築]
 links: [event-qin-unification, event-chen-sheng-wu-guang]
 counterparts:
   - { id: commodity-amphora-trade, note: "相似：大量、分件、規格化的陶製品，各作坊在產品上留下名號以便追查品質。不同：雙耳瓶是給市場與運輸用的容器；兵馬俑是國家動員工匠為皇帝陵墓製作、埋入地下的陪葬品。", src: [s1] }

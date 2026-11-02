@@ -1,7 +1,7 @@
 // npm run build:index：把 cards/ 與 data/ 編譯成 public/index.json，並複製地圖資料到 public/data/
 import fs from 'node:fs';
 import path from 'node:path';
-import { loadCards, loadTagVocab, readYaml, readJson, dateStr, ROOT, refsOf } from './lib/cards.ts';
+import { loadCards, loadTagVocab, loadTopicVocab, readYaml, readJson, dateStr, ROOT, refsOf } from './lib/cards.ts';
 import { checkCards, loadContext, exists } from './lib/check.ts';
 import { loadEcon, loadChains, checkEcon, checkChains, buildEcon, buildChains } from './lib/econ.ts';
 import { loadToday, checkToday, buildToday } from './lib/today.ts';
@@ -72,7 +72,7 @@ const cards = raw.filter((c) => c.fm?.id).map((c) => {
       secondary_fields: f.place?.secondary_fields ?? [],
       locations: (f.place?.locations ?? []).map((l: any) => ({ ...l, key: l.pleiades_id ? `p${l.pleiades_id}` : `${l.lat.toFixed(2)},${l.lng.toFixed(2)}` })),
     },
-    routes: f.routes ?? [], structure_tags: f.structure_tags ?? [], links: f.links ?? [],
+    routes: f.routes ?? [], structure_tags: f.structure_tags ?? [], topics: (f.topics ?? []).map(String), links: f.links ?? [],
     frameworks: f.frameworks ?? [], summary_card: !!f.summary_card,
     counterparts: Array.isArray(f.counterparts) ? f.counterparts.map((x: any) => ({ id: x.id, note: x.note, src: x.src ?? [] })) : [],
     counterparts_none: typeof f.counterparts === 'string' ? f.counterparts : '',
@@ -134,6 +134,11 @@ const index = {
   generated: new Date().toISOString(),
   cards,
   tagCategories: tagCats,
+  // 主題標籤：層面 → 主題；每個主題的卡片依開始年份排好，就是一條歷史路徑
+  topicLayers: loadTopicVocab().map((l) => ({ name: l.name, icon: l.icon, topics: l.topics.map((t) => ({
+    name: t.name, plain: t.plain ?? '', path: t.path ?? '', see: t.see ?? [],
+    cards: cards.filter((c) => c.topics.includes(t.name)).sort((a, b) => a.time.start - b.time.start || a.time.end - b.time.end).map((c) => c.id),
+  })) })),
   fieldOptions: FIELD_OPTIONS,
   civTree: [...civ.tree, { name: '其他', path: '其他', children: [] }],
   frameworks: frameworks.map((f) => ({ ...f, sources: (f.sources ?? []).map((s: any) => ({ ...s, accessed: dateStr(s.accessed) })) })),

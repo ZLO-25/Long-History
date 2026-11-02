@@ -19,6 +19,7 @@ place:
     - { name_ancient: 清州興德寺, name_modern: 清州（韓國）, lat: 36.6424, lng: 127.489, precision: schematic, role: 1377 年用金屬活字印出《直指》（座標為今清州市區）, src: [s4] }
   scale: area
 structure_tags: [資訊傳播革命, 技術擴散, 標準化量產]
+topics: [印刷與通訊]
 links: [tech-paper, tech-printing-press, tech-gunpowder, tech-compass]
 counterparts:
   - { id: tech-printing-press, note: "相似：都是把文字拆成一個個可重複使用的字模，排版、印刷後再拆開重排。不同：畢昇用燒過的泥字、手工刷印，漢字數量龐大，雕版仍是主流；古騰堡用金屬鑄字加螺旋壓印機，拉丁字母只有幾十個，活字很快成為歐洲主流。", src: [s1, s2, s6] }

@@ -18,6 +18,7 @@ place:
     - { name_ancient: 萬神殿, name_modern: 羅馬（義大利）, lat: 41.8986, lng: 12.47682, pleiades_id: "128044615", precision: exact, role: 戰神廣場 }
   scale: point
 structure_tags: [技術代差, 政治宣傳工程, 制度包裝延續, 宗教／意識形態動員]
+topics: [古代建築, 宗教]
 links: [commodity-roman-concrete, event-augustan-principate, building-colosseum]
 counterparts:
   - { id: building-yungang, note: "相似：由統治者出資、規模宏大的宗教建築，也是展示權力與正統的地方。不同：萬神殿供奉羅馬的眾神；雲岡石窟供奉從南亞、中亞傳來的佛教。", src: [s1, s6] }

@@ -19,6 +19,7 @@ place:
     - { name_ancient: 臺北 101, name_modern: 臺北市信義區（臺灣）, lat: 25.0340, lng: 121.5645, precision: schematic, role: 今日證交所所在地（座標為臺北 101）, src: [s1, s2] }
   scale: point
 structure_tags: [金融制度創新, 投機泡沫與崩盤, 快速擴張]
+topics: [交易所, 股票與公司]
 links: [finance-nyse, finance-great-depression, event-reform-and-opening]
 counterparts:
   - { id: finance-nyse, note: "相似：都把股票、債券集中到有規則的市場交易，也都經歷過借錢炒股後的大崩盤（紐約 1929 年、臺灣 1990 年）。不同：紐約證交所從 1792 年經紀人的民間約定長出來；臺灣證交所是政府為了處理土地改革發出的公營事業股票而規劃設立的公司。", src: [s2, s3, s9] }

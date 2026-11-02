@@ -18,6 +18,7 @@ place:
     - { name_ancient: 長安, name_modern: 西安（中國陝西）, lat: 34.30833, lng: 108.85833, precision: schematic, role: 決策與鹽鐵會議所在（座標為今西安）；已發掘的鐵官遺址多在今河南, src: [s1, s4] }
   scale: area
 structure_tags: [關鍵原料壟斷, 戰爭融資, 標準化量產, 財政枯竭, 擴大稅基]
+topics: [國家專賣]
 links: [war-han-xiongnu, event-salt-iron-debate, event-wang-mang-reform, commodity-wuzhu-coin]
 counterparts:
   - { id: commodity-laurion-silver, note: "相似：國家把關鍵礦產收歸公有，收入直接支撐戰爭（雅典艦隊；漢對匈奴）。不同：雅典把銀礦開採權租給私人經營、收租金；漢朝由官府直接設鐵官生產與販賣，民間被禁止。", src: [s1, s2] }

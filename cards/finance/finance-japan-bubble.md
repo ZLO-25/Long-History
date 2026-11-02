@@ -20,6 +20,7 @@ place:
     - { name_ancient: 日本銀行本店, name_modern: 東京中央區日本橋本石町（日本）, lat: 35.6866, lng: 139.7714, precision: schematic, role: 決定貼現率（官定利率）的央行所在地（座標為本店附近）, src: [s1, s6] }
   scale: area
 structure_tags: [投機泡沫與崩盤, 債務擴張, 金融中心轉移, 長期衰退, 臨界點]
+topics: [股票與公司, 泡沫與金融危機, 金融中心]
 links: [finance-plaza-accord, finance-dollar-reserve-currency, finance-eurodollar-big-bang, finance-new-york-overtakes-london, finance-asian-financial-crisis, finance-2008-crisis, finance-south-sea-bubble, finance-taiwan-stock-1990]
 counterparts:
   - { id: finance-2008-crisis, note: "兩者都是不動產與信用擴張造成的泡沫，破裂後銀行資產負債表受損、經濟長期疲弱；不同的是 2008 年的震央在證券化與影子銀行，日本的銀行問題則拖到 1997–98 年才集中爆發。", src: [s1, s7, s8] }

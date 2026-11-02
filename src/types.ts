@@ -18,7 +18,7 @@ export interface Card {
   time: { start: number; end: number; precision: string };
   summary_line: string;
   place: { primary_field: string; secondary_fields: string[]; locations: Location[]; scale: string };
-  routes: string[]; structure_tags: string[]; links: string[]; frameworks: string[];
+  routes: string[]; structure_tags: string[]; topics: string[]; links: string[]; frameworks: string[];
   summary_card: boolean;
   counterparts: { id: string; note: string; src: string[] }[]; counterparts_none: string; counterpart_of: string[];
   sources: Source[]; verification: string; lens_status: string;
@@ -80,9 +80,12 @@ export interface Framework {
   critiques: { text: string; src: string[] }[]; sources: Source[];
 }
 export interface TagCategory { name: string; tags: { tag: string; def: string; plain?: string; example?: string }[] }
+// 主題標籤（data/topics.yaml）：cards 已依開始年份排好，就是這個主題的歷史路徑
+export interface Topic { name: string; plain: string; path: string; see: string[]; cards: string[] }
+export interface TopicLayer { name: string; icon: string; topics: Topic[] }
 export interface CivNode { name: string; path: string; children: CivNode[] }
 export interface Index {
-  generated: string; cards: Card[]; tagCategories: TagCategory[]; fieldOptions: string[];
+  generated: string; cards: Card[]; tagCategories: TagCategory[]; topicLayers: TopicLayer[]; fieldOptions: string[];
   civTree: CivNode[]; frameworks: Framework[]; routes: Route[];
   borders: { source: string; license: string; note: string; snapshots: { year: number; file: string }[] };
   itinere: boolean;

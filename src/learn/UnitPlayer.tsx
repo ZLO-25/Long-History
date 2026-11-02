@@ -16,10 +16,11 @@ const STEP_LABEL: Record<Step['type'], string> = {
 interface Props {
   unit: Unit; index: Index; prog: UnitProgress | undefined; setProg: (p: Partial<UnitProgress>) => void;
   onCard: (id: string, section?: string) => void; onUnit: (id: string) => void; onSim: (id: string) => void;
+  onTopic?: (name: string) => void; topicCount?: (t: { cards: string[] }) => number;
   onFocus?: (cardId: string | null) => void; onHome?: () => void;
 }
 
-export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFocus, onHome }: Props) {
+export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFocus, onHome, onTopic, topicCount }: Props) {
   const step = Math.min(prog?.step ?? -1, u.steps.length - 1);
   const top = useRef<HTMLDivElement>(null);
   const n = u.steps.length, half = unitHalf(u), long = n >= 8;
@@ -101,7 +102,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
       case 'hook': return <div className="hook-step"><LearnText text={s.text} sources={[]} /></div>;
       case 'card': {
         const c = byId(s.id);
-        return c?.learn ? <>{s.prompt && <p className="prompt">👉 {s.prompt}</p>}<LearnCard key={c.id} card={c} index={index} history={null} depth={s.depth as Depth} onOpen={(id) => onCard(id)} compact /></> : <p>找不到卡片 {s.id}</p>;
+        return c?.learn ? <>{s.prompt && <p className="prompt">👉 {s.prompt}</p>}<LearnCard key={c.id} card={c} index={index} history={null} depth={s.depth as Depth} onOpen={(id) => onCard(id)} onTopic={onTopic} topicCount={topicCount} compact /></> : <p>找不到卡片 {s.id}</p>;
       }
       case 'source': {
         const c = byId(s.card)!;

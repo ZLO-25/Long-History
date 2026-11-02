@@ -19,6 +19,7 @@ place:
     - { name_ancient: 南京, name_modern: 南京市（中國）, lat: 32.0603, lng: 118.7969, precision: schematic, role: 國民政府所在地，1948 年 8 月 19 日宣布幣制改革, src: [s1, s6] }
   scale: area
 structure_tags: [貨幣貶值, 惡性通膨, 貨幣體系轉換, 財政枯竭, 戰爭融資, 合法性危機]
+topics: [紙幣, 通貨膨脹, 內戰]
 links: [finance-taiwan-1949-currency, finance-weimar-hyperinflation]
 counterparts:
   - { id: finance-weimar-hyperinflation, note: "相似：政府都靠印鈔票撐財政，最後換新貨幣重建信用。不同：時代背景不同（德國的部分見威瑪卡）；中國是在內戰進行中，金圓券崩潰後國民政府也失去了大陸。", src: [s1, s2] }

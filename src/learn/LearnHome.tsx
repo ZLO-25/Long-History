@@ -3,12 +3,16 @@ import type { History, Index, Unit } from '../types';
 import type { Progress } from './progress';
 import { learnCards, unitsOf } from './util';
 
+// 首頁推薦的主題標籤：橫跨古今、國高中課本常見
+const FEATURED = ['交易所', '紙幣', '白銀', '殖民統治', '民主與參政', '工業化', '原住民族', '疫病'];
+
 const GROUPS: [string, (h: History) => boolean][] = [
   ['臺灣', (h) => h.track === '臺灣'], ['東亞', (h) => h.track === '東亞'], ['世界', (h) => h.track === '世界' || h.track === '全部'], ['專題（跨地區）', (h) => h.track === '專題'],
 ];
 
-export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, onRecord }: {
+export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, onRecord, onTopic, onTopics }: {
   index: Index; p: Progress; onHistory: (id: string) => void; onUnit: (id: string) => void; onRandom: () => void; onIntroSeen: () => void; onRecord?: () => void;
+  onTopic?: (name: string) => void; onTopics?: () => void;
 }) {
   const cards = learnCards(index);
   // 上次做到一半的單元：放在最上面，一鍵接著做
@@ -71,8 +75,18 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
           <p>時間軸分成「臺灣／東亞／世界」三條，也只是為了方便閱讀，不代表它們彼此無關。</p>
         </details>
       </section>
+      {onTopic && onTopics && (
+        <section className="home-topics">
+          <h2>2. 或者，順著一個主題往下走</h2>
+          <p className="muted">每張卡都有「主題標籤」。點一個標籤，就能看到同一件事物從古到今的歷史路徑。</p>
+          <div className="chips">
+            {FEATURED.map((n) => { const t = (index.topicLayers ?? []).flatMap((l) => l.topics).find((x) => x.name === n); return t ? <button key={n} className="chip topic big" onClick={() => onTopic(n)}>#{n}<small>{t.cards.filter((id) => cards.some((c) => c.id === id)).length}</small></button> : null; })}
+            <button className="btn sm" onClick={onTopics}>看全部 {(index.topicLayers ?? []).reduce((k, l) => k + l.topics.length, 0)} 個標籤 →</button>
+          </div>
+        </section>
+      )}
       <section>
-        <h2>2. 或者，直接挑一個謎題</h2>
+        <h2>3. 或者，直接挑一個謎題</h2>
         <button className="btn primary" onClick={onRandom}>🎲 隨機一個謎題</button>
         <MysteryList units={index.units} p={p} onUnit={onUnit} />
       </section>

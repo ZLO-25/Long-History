@@ -18,6 +18,7 @@ place:
     - { name_ancient: 臺灣證券交易所（臺北）, name_modern: 臺北市（臺灣）, lat: 25.0437, lng: 121.5135, precision: schematic, role: 股市泡沫的中心（座標為當年證交所一帶示意）, src: [s1] }
   scale: area
 structure_tags: [投機泡沫與崩盤, 快速擴張, 臨界點, 債務擴張]
+topics: [交易所, 股票與公司, 泡沫與金融危機]
 links: [finance-taiwan-stock-exchange, finance-tenth-credit-1985]
 counterparts: 無適當對照：同時期日本也有資產泡沫（1980 年代後期），但本站目前沒有日本泡沫的卡片；之後補卡再對照。
 sources:

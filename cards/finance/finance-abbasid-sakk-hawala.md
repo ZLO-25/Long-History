@@ -19,6 +19,7 @@ place:
     - { name_ancient: 福斯塔特, name_modern: 開羅舊城（埃及）, lat: 30.0444, lng: 31.2357, precision: schematic, role: 開羅經冢文書的出土地，記錄地中海與印度洋商人的契約與書信（座標為今開羅市中心）, src: [s5, s9] }
   scale: area
 structure_tags: [金融制度創新, 基礎建設網絡, 技術擴散, 慢變結構]
+topics: [銀行與借貸, 匯票與遠距付款, 金融中心, 香料貿易]
 links: [finance-byzantine-solidus, finance-jiaozi, finance-champagne-fairs, finance-venice-rialto, commodity-silk, war-crusades]
 counterparts:
   - { id: finance-jiaozi, note: "同為 9 至 11 世紀的支付創新：阿拔斯的 sakk 與匯兌偏向商人之間的私人信用，北宋交子則由民間票據走向官方發行的紙幣。", src: [s2, s11] }

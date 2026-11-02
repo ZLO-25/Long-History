@@ -20,6 +20,7 @@ place:
     - { name_ancient: 馬尼拉, name_modern: 馬尼拉（菲律賓）, lat: 14.5995, lng: 120.9842, precision: exact, role: 西班牙在亞洲的總部, src: [s1] }
   scale: area
 structure_tags: [商路改道, 外部勢力介入, 補給線過長, 宗教／意識形態動員]
+topics: [殖民統治, 原住民族]
 links: [event-dutch-formosa, commodity-manila-galleon]
 counterparts:
   - { id: event-reformation, note: "相似：天主教的西班牙傳教士與新教的荷蘭人在臺灣南北對峙，是歐洲宗教分裂延伸到亞洲的一角。不同：在臺灣，雙方更在意的是貿易據點，不是宗教戰爭本身。", src: [s1, s2] }

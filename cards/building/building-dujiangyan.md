@@ -18,6 +18,7 @@ place:
     - { name_ancient: 都江堰（湔堰）, name_modern: 都江堰市（中國四川）, lat: 31.0017, lng: 103.6053, precision: exact, role: 魚嘴分水處（維基百科座標）, src: [s1] }
   scale: point
 structure_tags: [基礎建設網絡, 公共工程支出, 技術代差, 慢變結構]
+topics: [糧食與農業, 運河與水利]
 links: [event-shang-yang-reform, event-qin-unification, building-lingqu]
 counterparts:
   - { id: building-roman-aqueducts, note: "相似：國家投入的大型水利工程，靠重力與精確的地形判斷運作，數百年持續維護。不同：羅馬水道主要把水送進城市供飲用與浴場；都江堰是不築壩、把岷江分流去灌溉整個成都平原的農田，至今仍在使用。", src: [s1, s2] }

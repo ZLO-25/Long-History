@@ -19,6 +19,7 @@ place:
     - { name_ancient: 普尼克斯山（公民大會會場）, name_modern: 雅典（希臘）, lat: 37.97143, lng: 23.71946, pleiades_id: "205264674", precision: exact, role: 古典時期公民大會集會處 }
   scale: point
 structure_tags: [重新設計基本單位, 公民身分擴張, 外部勢力介入, 精英內鬥]
+topics: [變法與改革, 民主與參政, 公民身分]
 links: [war-greco-persian, building-theatre-dionysus, event-death-of-socrates]
 counterparts:
   - { id: event-shang-yang-reform, note: "相似：重新設計社會的基本單位，打破舊貴族以血緣為基礎的控制。不同：克里斯提尼擴大公民參與；商鞅強化國家動員，平民的上升管道是軍功而非投票。", src: [s1, s6] }

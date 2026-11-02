@@ -19,6 +19,7 @@ place:
     - { name_ancient: 小田原城, name_modern: 小田原（日本神奈川縣）, lat: 35.2510, lng: 139.1535, precision: exact, role: 1590 年小田原之戰，完成統一, src: [s1] }
   scale: area
 structure_tags: [快速擴張, 精英內鬥, 合法性危機, 宗教／意識形態動員]
+topics: [統一與中央集權, 對外擴張, 宗教]
 links: [war-imjin, event-sakoku]
 counterparts: 無適當對照：西方軌在 16 世紀末沒有一張「由下層武士出身統一全國」的卡可以對應。
 sources:

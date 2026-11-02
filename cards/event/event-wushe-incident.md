@@ -19,6 +19,7 @@ place:
     - { name_ancient: 川中島, name_modern: 南投縣仁愛鄉互助村清流部落（臺灣）, lat: 24.0500, lng: 121.0280, precision: schematic, role: 1931 年 5 月倖存者被強制遷到這裡（座標為北港溪畔示意）, src: [s2, s3] }
   scale: area
 structure_tags: [附庸反叛, 地形險阻, 技術代差, 邊疆防線, 突變事件]
+topics: [殖民統治, 民變與抗爭, 原住民族]
 links: [event-taiwan-cultural-association, event-taiwan-kominka, social-siraya-deer, event-228-incident]
 counterparts:
   - { id: war-teutoburg, note: "相似：都是被帝國統治的部族趁對方放鬆時發動突襲，利用山林地形讓帝國軍隊吃虧。不同：條頓堡森林的日耳曼人擋住了羅馬擴張；霧社的賽德克族面對飛機、山砲與毒氣彈，不到兩個月就被鎮壓。", src: [s1, s5] }

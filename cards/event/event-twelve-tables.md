@@ -18,6 +18,7 @@ place:
     - { name_ancient: 羅馬廣場, name_modern: 羅馬（義大利）, lat: 41.89161, lng: 12.48719, pleiades_id: "502866838", precision: exact, role: 法條公開張貼處 }
   scale: point
 structure_tags: [法律成文化, 精英內鬥, 債務擴張, 慢變結構]
+topics: [法律與憲法]
 links: [building-forum-romanum, event-constitutio-antoniniana, event-cleisthenes-reform]
 counterparts:
   - { id: event-shang-yang-reform, note: "相似：把法律統一並公開施行，讓規則不再只由貴族掌握。不同：《十二銅表法》是平民爭取來的成文法；商鞅的法律由國君推行，重點在連坐與獎懲以動員人民。", src: [s1, s5] }

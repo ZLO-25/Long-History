@@ -10,7 +10,8 @@ import { activeAt, fmtYear, KIND_LABEL, METHOD_LABEL, SEG_LABEL, ERA_LABEL, eraO
 
 interface Props {
   index: Index; cards: Card[]; year: number;
-  highlight: { keys: string[]; routes: string[] };
+  /** marks：主題路徑的編號（依年代排的第幾張卡），畫在該地點上 */
+  highlight: { keys: string[]; routes: string[]; marks?: { key: string; n: number; name: string }[] };
   onPlace: (key: string) => void; onRoute: (id: string) => void; compact?: boolean;
   chain?: { chain: Chain; t: number } | null;
   todayOn?: boolean; setTodayOn?: (v: boolean) => void; onToday?: (id: string) => void; todaySel?: string | null;
@@ -37,7 +38,8 @@ const loadBorders = (file: string) => {
 export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel, bgCards, learn, home }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map>();
-  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup }>();
+  const topicZoom = useRef<() => void>(() => {});
+  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; topic: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup }>();
   const cb = useRef({ onPlace, onRoute, onToday });
   cb.current = { onPlace, onRoute, onToday };
   const [snapLabel, setSnapLabel] = useState('');
@@ -54,13 +56,13 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     m.createPane('borders').style.zIndex = '350';
     layers.current = {
       borders: L.layerGroup().addTo(m), awmc: L.layerGroup().addTo(m), itinere: L.layerGroup().addTo(m), routes: L.layerGroup().addTo(m),
-      places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m), chain: L.layerGroup().addTo(m), mover: L.layerGroup().addTo(m), today: L.layerGroup().addTo(m),
+      places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m), topic: L.layerGroup().addTo(m), chain: L.layerGroup().addTo(m), mover: L.layerGroup().addTo(m), today: L.layerGroup().addTo(m),
     };
     map.current = m;
     // 區塊被拖曳改大小時，馬上讓 Leaflet 重新量容器，地圖才不會留白或偏掉
     const ro = new ResizeObserver(() => m.invalidateSize({ animate: false }));
     ro.observe(el.current!);
-    return () => { ro.disconnect(); m.remove(); };
+    return () => { ro.disconnect(); m.off('zoomend', topicZoom.current); m.remove(); };
   }, []);
 
   // 疆域：選「不晚於目前年代」的最近快照
@@ -205,6 +207,32 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       const r = index.routes.find((x) => x.id === id);
       if (r) pts.push(...r.coords);
     }
+    // 主題路徑：編號標在地圖上；靠得太近的點（例如布魯日、安特衛普、阿姆斯特丹）合併成「1・2・3」，縮放時重新合併
+    const marks = (highlight.marks ?? []).map((mk) => {
+      const p = places.find((x) => x.key === mk.key) ?? index.cards.flatMap((c) => c.place.locations).find((l) => l.key === mk.key);
+      return p ? { ...mk, ll: L.latLng(p.lat, p.lng) } : null;
+    }).filter((x): x is NonNullable<typeof x> => !!x);
+    for (const mk of marks) pts.push(mk.ll);
+    const drawMarks = () => {
+      const tg = layers.current?.topic; if (!tg) return;
+      tg.clearLayers();
+      const groups: { pt: L.Point; ll: L.LatLng; items: typeof marks }[] = [];
+      for (const mk of marks) {
+        const pt = m.latLngToLayerPoint(mk.ll);
+        const g0 = groups.find((g) => g.pt.distanceTo(pt) < 26);
+        if (g0) g0.items.push(mk); else groups.push({ pt, ll: mk.ll, items: [mk] });
+      }
+      for (const g of groups) {
+        const ns = [...new Set(g.items.map((x) => x.n))].sort((a, b) => a - b);
+        const label = ns.length > 4 ? `${ns[0]}…${ns[ns.length - 1]}` : ns.join('・');
+        const w = Math.max(22, label.length * 8 + 10);
+        L.marker(g.ll, { icon: L.divIcon({ className: 'topic-mark', html: label, iconSize: [w, 22], iconAnchor: [w / 2, 11] }), keyboard: false, zIndexOffset: 500 })
+          .bindTooltip(g.items.map((x) => `${x.n}. ${x.name}`.replace(/[&<>]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch]!))).join('<br>'))
+          .addTo(tg);
+      }
+    };
+    drawMarks();
+    m.off('zoomend', topicZoom.current); topicZoom.current = drawMarks; if (marks.length) m.on('zoomend', drawMarks); else layers.current?.topic.clearLayers();
     if (pts.length === 1) m.flyTo(pts[0], Math.max(m.getZoom(), 6), { duration: 0.6 });
     else if (pts.length > 1) m.flyToBounds(L.latLngBounds(pts).pad(0.3), { duration: 0.6, maxZoom: 7 });
   }, [highlight, places, index]);

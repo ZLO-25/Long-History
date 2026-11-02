@@ -22,6 +22,7 @@ place:
     - { name_ancient: 傷膝澗, name_modern: 傷膝（美國南達科他州）, lat: 43.1436, lng: -102.3667, precision: schematic, role: 1890 年 12 月 29 日傷膝大屠殺發生地（座標為大略位置）, src: [s13] }
   scale: area
 structure_tags: [快速擴張, 宗教／意識形態動員, 意外財源, 債務擴張]
+topics: [對外擴張, 移民與移墾, 原住民族]
 links: [event-thirteen-colonies, event-us-constitution, finance-hamilton-financial-plan, event-monroe-doctrine, war-american-civil-war, event-gilded-age-industrialization, war-spanish-american, finance-london-rise]
 counterparts:
   - { id: event-qing-taiwan-frontier, note: "兩者都是政權與移民向原住民居住地推進的邊疆開發；差別是美國以購地、條約與立法大規模取得並分配土地，清朝在前期則以渡臺禁令限制移墾。", src: [s1, s15] }

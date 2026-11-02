@@ -22,6 +22,7 @@ place:
   scale: line
 routes: [sea-baetica-rome]
 structure_tags: [標準化量產, 商路改道, 單一港口依賴, 基礎建設網絡, 慢變結構]
+topics: [海上貿易]
 links: [commodity-egypt-grain, commodity-roman-concrete, building-via-appia]
 counterparts:
   - { id: building-terracotta-army, note: "相似：大量、規格化的陶製品，作坊在產品上留下戳記或名號，可以追查來源與品質。不同：雙耳瓶是市場與運輸用的容器；兵馬俑是國家為皇帝陵墓製作、埋入地下的陪葬品。", src: [s1, s7] }

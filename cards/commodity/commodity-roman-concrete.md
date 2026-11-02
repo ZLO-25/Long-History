@@ -21,6 +21,7 @@ place:
     - { name_ancient: 萬神殿, name_modern: 羅馬（義大利）, lat: 41.8986, lng: 12.47682, pleiades_id: "128044615", precision: exact, role: 最大的無鋼筋混凝土穹頂 }
   scale: area
 structure_tags: [技術代差, 默會知識外流, 標準化量產, 基礎建設網絡]
+topics: [古代建築]
 links: [building-pantheon, building-colosseum, building-roman-aqueducts, commodity-amphora-trade]
 counterparts: "無適當對照：中國卡沒有專門談建材技術的卡；秦漢長城與秦直道使用的夯土是另一種工法，但沒有獨立成卡，硬配會失準。"
 sources:

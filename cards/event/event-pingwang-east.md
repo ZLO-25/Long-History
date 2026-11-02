@@ -18,6 +18,7 @@ place:
     - { name_ancient: 洛邑（成周／王城）, name_modern: 洛陽（中國河南）, lat: 34.6197, lng: 112.4539, precision: schematic, role: 東遷後的都城（座標為今洛陽市政府）, src: [s2, s4] }
   scale: line
 structure_tags: [合法性危機, 外部勢力介入, 精英內鬥, 長期衰退]
+topics: [帝國的衰亡, 諸侯爭霸, 首都與都城]
 links: [war-chengpu, event-guan-zhong-reform]
 counterparts:
   - { id: event-fall-western-rome, note: "相似：最高統治者在外族壓力與內部繼承之爭中失去實權，名號還在，實際權力分散到各地強權手中。不同：周王作為名義共主又延續了約五百年；西羅馬皇帝的位置在 476 年就不再設立。", src: [s1, s2] }

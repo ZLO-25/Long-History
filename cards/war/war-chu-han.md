@@ -19,6 +19,7 @@ place:
     - { name_ancient: 咸陽, name_modern: 咸陽（中國陝西）, lat: 34.3299, lng: 108.7088, precision: schematic, role: 劉邦前 207 年入咸陽；關中是漢軍後方, src: [s1, s5] }
   scale: area
 structure_tags: [精英內鬥, 補給線過長, 聯盟破裂, 合法性危機, 臨界點]
+topics: [內戰]
 links: [event-chen-sheng-wu-guang, event-han-inherits-qin, event-qin-unification]
 counterparts:
   - { id: war-actium, note: "相似：舊秩序瓦解後兩個強人爭天下，勝者建立延續數百年的新政體（漢朝；元首制）。不同：楚漢是秦帝國崩潰、各地起兵後的群雄混戰；亞克興是羅馬共和制度內部兩派的內戰。", src: [s1, s2] }

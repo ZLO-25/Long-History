@@ -22,6 +22,7 @@ place:
     - { name_ancient: 柏林, name_modern: 柏林（德國）, lat: 52.5200, lng: 13.4050, precision: schematic, role: 1948–1949 年西柏林被封鎖、盟軍空運（座標為市中心）, src: [s7] }
   scale: area
 structure_tags: [霸權挑戰, 外部勢力介入, 經濟施壓與制裁, 宗教／意識形態動員, 臨界點]
+topics: [冷戰, 軍事同盟]
 links: [event-end-of-cold-war, event-marshall-plan, war-world-war-two, event-american-century, war-korean-war, event-nixon-china, war-war-on-terror, finance-bretton-woods]
 counterparts:
   - { id: war-korean-war, note: "圍堵從歐洲延伸到東亞的第一場熱戰：同樣是阻止共產勢力擴張，歐洲以援助與聯盟為主，朝鮮半島則演變成實際交戰。", src: [s1] }

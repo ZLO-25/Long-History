@@ -20,6 +20,7 @@ place:
     - { name_ancient: 奧格斯堡, name_modern: 奧格斯堡（德國）, lat: 48.3705, lng: 10.8978, precision: schematic, role: 1555 年簽訂《奧格斯堡和約》（座標為今市中心）, src: [s1, s2] }
   scale: area
 structure_tags: [資訊傳播革命, 宗教／意識形態動員, 合法性危機, 思想異見與審判]
+topics: [印刷與通訊, 宗教]
 links: [tech-printing-press, event-black-death, event-french-revolution]
 counterparts: "無適當對照：同時期中國沒有一個由下而上挑戰官方宗教權威、並讓宗教分裂成多個教派的運動；硬配儒學或佛教事件會誤導。"
 sources:

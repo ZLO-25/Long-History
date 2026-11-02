@@ -19,6 +19,7 @@ place:
     - { name_ancient: 費城, name_modern: 費城（美國賓州）, lat: 39.9526, lng: -75.1652, precision: schematic, role: "美國第一銀行總行與鑄幣局所在地，1790 年底起為臨時首都（座標為市中心，約略位置）", src: [s2, s3] }
   scale: area
 structure_tags: [金融制度創新, 戰爭融資, 債務擴張, 擴大稅基, 投機泡沫與崩盤]
+topics: [銀行與借貸, 國債與公債, 中央銀行, 關稅與貿易戰, 稅收]
 links: [war-american-revolution, event-us-constitution, finance-bank-of-england, finance-nyse, finance-federal-reserve, finance-dollar-reserve-currency, event-westward-expansion]
 counterparts: "無適當對照：中國軌與東亞軌現有卡片中，沒有「新國家承認舊債、發行新公債並設立特許銀行與統一貨幣單位」這種組合；宋代交子、明代寶鈔是發行紙幣，山西票號是民間匯兌，性質不同，不硬湊。"
 sources:

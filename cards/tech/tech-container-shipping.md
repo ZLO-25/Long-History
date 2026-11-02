@@ -21,6 +21,7 @@ place:
     - { name_ancient: 上海港, name_modern: 上海（中國）, lat: 31.2304, lng: 121.4737, precision: schematic, role: 2010 年起世界最繁忙的貨櫃港（座標為今市中心）, src: [s5] }
   scale: line
 structure_tags: [標準化量產, 基礎建設網絡, 商路改道, 單一港口依賴, 海峽封鎖]
+topics: [海上貿易, 航海]
 links: [event-reform-and-opening, tech-railway, tech-internet]
 counterparts:
   - { id: event-reform-and-opening, note: "相似：兩者都在 20 世紀後半把生產和世界市場接起來——貨櫃讓長途海運便宜到值得把工廠設在遠方，1978 年起的改革開放向外資開放、設立經濟特區、2001 年加入世界貿易組織，讓中國加入這個全球分工。不同：貨櫃是一項民間發明加國際標準；改革開放是一個國家的政策轉向；今天上海已是世界最繁忙的貨櫃港，兩者在港口上交會。", src: [s3, s5, s8] }

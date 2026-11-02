@@ -19,6 +19,7 @@ place:
     - { name_ancient: 以弗所阿提米絲神廟（Artemision of Ephesus）, name_modern: 以弗所遺址（土耳其伊茲密爾省）, lat: 37.9497, lng: 27.3639, precision: exact, role: "神廟遺址出土早期琥珀金幣，常被當作最早鑄幣的證據", src: [s2, s8] }
   scale: area
 structure_tags: [金融制度創新, 標準化量產, 技術擴散]
+topics: [鑄幣]
 links: [commodity-laurion-silver, finance-athens-trapezitai, finance-mesopotamia-credit, commodity-wuzhu-coin]
 counterparts:
   - { id: commodity-wuzhu-coin, note: "兩地都出現金屬鑄幣，但中國有自己的布幣、刀幣傳統，後來才走向漢代五銖錢；未查到與呂底亞直接傳播的證據，一般視為獨立發展。", src: [s7] }

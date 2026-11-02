@@ -23,6 +23,7 @@ place:
     - { name_ancient: 廈門, name_modern: 廈門（中國福建）, lat: 24.4798, lng: 118.0894, precision: schematic, role: 第一批經濟特區之一（座標為今市中心）, src: [s2, s4] }
   scale: area
 structure_tags: [重新設計基本單位, 臨界點, 快速擴張, 制度包裝延續, 強人繞過制度, 技術擴散]
+topics: [開港與鎖國, 出口區與科學園區, 變法與改革, 土地制度]
 links: [event-end-of-cold-war, tech-container-shipping, tech-internet]
 counterparts:
   - { id: event-end-of-cold-war, note: "相似：1980 年代中國與蘇聯都面對計畫經濟停滯，都推動改革。不同：中國先改經濟、保留共產黨一黨統治，1989 年後一度放緩，1992 年南巡後重新加速；蘇聯在戈巴契夫下同時放寬政治，1991 年解體。蘇聯解體也讓中國黨內保守派一度更反對市場改革。", src: [s1, s6] }

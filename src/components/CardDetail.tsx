@@ -4,16 +4,17 @@ import { Markdown } from '../lib/markdown';
 import { Counterparts } from './Counterparts';
 import { TodayRefs } from './TodayPanel';
 import { Bi } from './Bi';
+import { TopicChips } from './Topics';
 import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 interface Props {
   card: Card; index: Index; byId: Map<string, Card>;
-  onOpen: (id: string) => void; onTag: (t: string) => void; onPlace: (key: string) => void; onRoute: (id: string) => void; onChain?: (id: string) => void; onToday?: (id: string) => void;
+  onOpen: (id: string) => void; onTag: (t: string) => void; onTopic?: (name: string) => void; onPlace: (key: string) => void; onRoute: (id: string) => void; onChain?: (id: string) => void; onToday?: (id: string) => void;
 }
 const LEVEL = { core: '核心', deep: '深入', optional: '選填' };
 const VERIF_CLASS: Record<string, string> = { '交叉確認': 'ok', 'AI草稿': 'draft', '爭議': 'dispute' };
 
-export function CardDetail({ card: c, index, byId, onOpen, onTag, onPlace, onRoute, onChain, onToday }: Props) {
+export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPlace, onRoute, onChain, onToday }: Props) {
   const chains = (index.chains ?? []).filter((x) => x.card === c.id);
   const fws = index.frameworks.filter((f) => c.frameworks.includes(f.id));
   return (
@@ -31,6 +32,7 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onPlace, onRou
           <span>完整度 {c.completeness}%</span>
         </div>
         <div className="summary-line">{c.summary_line}</div>
+        {onTopic && <TopicChips card={c} index={index} onTopic={onTopic} />}
       </div>
 
       <section className="cd-sec">
@@ -59,7 +61,7 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onPlace, onRou
           })}</dd></>}
           {chains.length > 0 && <><dt>物資鏈</dt><dd>{chains.map((x) =>
             <button key={x.id} className="btn sm primary chain-btn" onClick={() => onChain?.(x.id)}>▶ 播放物資鏈：{x.name}</button>)}</dd></>}
-          <dt>結構標籤</dt>
+          <dt title="發生了什麼樣的模式；點了做跨時代的結構對照">結構標籤</dt>
           <dd>{c.structure_tags.map((t) => <button key={t} className="chip tag" onClick={() => onTag(t)} title="用這個標籤做結構對照">{t}</button>)}</dd>
         </dl>
       </section>

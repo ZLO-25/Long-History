@@ -4,6 +4,7 @@ import type { Card, History, Index } from '../types';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import { LearnText, SourceList, TermPop, type Term } from './LearnText';
 import { tierOrder } from './util';
+import { TopicChips } from '../components/Topics';
 
 export type Depth = 'story' | 'understand' | 'deep';
 // 國中讀到「理解」就夠；「深入」是史家爭論與完整段落，標成高中選讀
@@ -13,9 +14,10 @@ const textLen = (t?: string) => (t ?? '').replace(/\[s\d+\]|\*\*/g, '').length;
 interface Props {
   card: Card; index: Index; history: History | null; depth?: Depth; onDepth?: (d: Depth) => void;
   onOpen: (id: string) => void; onHistory?: (id: string) => void; compact?: boolean;
+  onTopic?: (name: string) => void; topicCount?: (t: { cards: string[] }) => number;
 }
 
-export function LearnCard({ card: c, index, history, depth: depth0 = 'story', onDepth, onOpen, onHistory, compact }: Props) {
+export function LearnCard({ card: c, index, history, depth: depth0 = 'story', onDepth, onOpen, onHistory, compact, onTopic, topicCount }: Props) {
   const [depth, setDepth] = useState<Depth>(depth0);
   useEffect(() => setDepth(depth0), [depth0, c.id]);
   const [term, setTerm] = useState<Term | null>(null);
@@ -27,7 +29,8 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
   const persp = (L.perspectives ?? []).find((p) => p.history === viewId || index.histories.find((h) => h.id === viewId)?.name === p.history);
   const tagTerms: Term[] = useMemo(() => index.tagCategories.flatMap((cat) => cat.tags).filter((t) => c.structure_tags.includes(t.tag) && t.plain)
     .map((t) => ({ term: t.tag, plain: t.plain!, example: t.example! })), [index, c]);
-  const terms = [...L.key_terms, ...tagTerms];
+  // 名詞小抄：結構標籤的白話解釋和卡片自己的名詞重複時（例如「主權違約」），只留卡片的
+  const terms = [...L.key_terms, ...tagTerms.filter((t) => !L.key_terms.some((k) => k.term === t.term))];
   const set = (d: Depth) => { setDepth(d); onDepth?.(d); };
   const sec = (code: string) => c.sections.find((s) => s.code === code);
   const today = c.sections.find((s) => s.role === 'today_hook');
@@ -49,6 +52,7 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
           {L.crosscheck?.result === '通過' ? <span className="badge ok" title={`${L.crosscheck.date} 由${L.crosscheck.by}查核`}>✓ 已交叉查核</span> : <span className="badge dispute">開發中：尚未查核</span>}
         </div>
         <p className="why">💡 {L.why_care}</p>
+        {onTopic && <TopicChips card={c} index={index} onTopic={onTopic} count={topicCount} />}
         {views.length > 1 && (
           <div className="persp-switch">也可以從
             {views.map((h) => <button key={h.id} className={`chip ${viewId === h.id ? 'on' : ''}`} onClick={() => { setView(h.id); onHistory?.(h.id); }}>{h.name}</button>)}

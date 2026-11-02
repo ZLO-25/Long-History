@@ -20,6 +20,7 @@ place:
     - { name_ancient: 東京, name_modern: 東京（日本）, lat: 35.6762, lng: 139.6503, precision: schematic, role: 日圓大幅升值、後來出現資產泡沫的主要地點（座標為今市中心）, src: [s1, s6] }
   scale: area
 structure_tags: [貨幣貶值, 儲備貨幣地位, 臨界點]
+topics: [國際貨幣, 關稅與貿易戰]
 links: [finance-bretton-woods, finance-dollar-reserve-currency, finance-petrodollar, finance-japan-bubble, finance-taiwan-stock-1990, finance-asian-financial-crisis, finance-eurodollar-big-bang, event-us-china-trade-war]
 counterparts:
   - { id: finance-japan-bubble, note: 日圓升值後日本放寬貨幣政策，常被連到泡沫形成，但因果比例有爭議；兩卡一個看國際協調，一個看日本國內後果。, src: [s5, s6] }

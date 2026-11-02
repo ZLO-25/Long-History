@@ -19,6 +19,7 @@ place:
     - { name_ancient: 巴比倫, name_modern: 巴比倫遺址（伊拉克）, lat: 32.5364, lng: 44.4208, precision: exact, role: 古巴比倫王國首都、漢摩拉比頒布法典之地（法典石碑後來在蘇薩出土）, src: [s2] }
   scale: area
 structure_tags: [金融制度創新, 法律成文化, 債務擴張, 慢變結構]
+topics: [銀行與借貸, 法律與憲法]
 links: [commodity-laurion-silver, finance-lydian-coinage, finance-athens-trapezitai, finance-roman-argentarii]
 counterparts:
   - { id: event-wang-anshi-reform, note: "相似：兩者都是官方把糧食或錢貸給農民並收約兩成利息，王安石的青苗法又有壓制民間高利貸的目的[s8]；不同：古巴比倫是神廟、宮廷與私人商人並行放貸，國王另以詔令不定期免債[s5]，北宋則是常態化的官營貸款加官僚追收[s8]。", src: [s8] }

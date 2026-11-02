@@ -25,6 +25,7 @@ place:
     - { name_ancient: 臺灣海峽, name_modern: 臺灣海峽（臺灣與中國福建之間）, lat: 24.5000, lng: 119.5000, precision: schematic, role: "1950 年 6 月美國第七艦隊進入巡防處（座標為海峽中部示意）", src: [s1, s2] }
   scale: area
 structure_tags: [代理人戰爭, 外部勢力介入, 霸權挑戰, 補給線過長, 突變事件]
+topics: [冷戰, 內戰, 軍事同盟]
 links: [war-world-war-two, event-containment-nato, event-american-century, war-vietnam-war, event-nixon-china, event-taiwan-martial-law, event-taiwan-land-reform]
 counterparts: "無適當對照：中國軌與西方軌都沒有「兩大陣營在第三方領土上打有限戰爭、並因核武威嚇而刻意不擴大」的卡；伯羅奔尼撒戰爭雖有雙盟主對峙，但當時沒有核武與聯合國機制，不硬湊。"
 sources:

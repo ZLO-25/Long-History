@@ -18,6 +18,7 @@ place:
     - { name_ancient: 酒神劇場, name_modern: 雅典（希臘）, lat: 37.97043, lng: 23.72774, pleiades_id: "649966335", precision: exact, role: 衛城南坡 }
   scale: point
 structure_tags: [宗教／意識形態動員, 公共工程支出, 慢變結構]
+topics: [古代建築, 宗教]
 links: [building-acropolis, event-cleisthenes-reform, event-death-of-socrates]
 counterparts: "無適當對照：中國卡沒有公民集體觀賞戲劇、同時是城邦公共生活的場所；春秋戰國到漢代的史料與卡片都沒有可比的建築。"
 sources:

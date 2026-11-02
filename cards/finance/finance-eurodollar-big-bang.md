@@ -19,6 +19,7 @@ place:
     - { name_ancient: 華盛頓特區, name_modern: 華盛頓特區（美國）, lat: 38.9072, lng: -77.0369, precision: schematic, role: 制定 Q 條例等美國金融管制的政策中心（座標為市中心）, src: [s2] }
   scale: area
 structure_tags: [金融制度創新, 儲備貨幣地位, 金融中心轉移, 經濟施壓與制裁, 慢變結構]
+topics: [交易所, 國際貨幣, 金融中心]
 links: [finance-bretton-woods, finance-new-york-overtakes-london, finance-petrodollar, finance-dollar-reserve-currency, finance-london-rise, event-containment-nato, finance-plaza-accord]
 counterparts: "無適當對照：東亞軌（china／east）現有卡中沒有討論離岸貨幣市場的；日本泡沫經濟卡與本卡的終點同為 1986 年，但本卡未查證兩者的因果關聯，不硬湊。"
 sources:

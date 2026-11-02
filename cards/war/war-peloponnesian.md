@@ -23,6 +23,7 @@ place:
   scale: area
 routes: [sea-hellespont-grain]
 structure_tags: [霸權挑戰, 海權對陸權, 聯盟破裂, 盟主剝削盟友, 海峽封鎖, 糧食進口依賴, 外部勢力介入, 補給線過長]
+topics: [海戰與水戰, 軍事同盟, 疫病]
 links: [commodity-laurion-silver, building-acropolis, war-greco-persian, event-death-of-socrates]
 frameworks: [thucydides-trap]
 counterparts:

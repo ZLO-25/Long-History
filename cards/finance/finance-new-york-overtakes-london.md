@@ -19,6 +19,7 @@ place:
     - { name_ancient: 倫敦金融城, name_modern: 英國倫敦, lat: 51.5141, lng: -0.0885, precision: schematic, role: 戰前世界金融中心與英格蘭銀行所在地（座標為英格蘭銀行附近）, src: [s1, s2] }
   scale: area
 structure_tags: [金融中心轉移, 儲備貨幣地位, 債務擴張, 戰爭融資, 貨幣體系轉換, 臨界點]
+topics: [匯票與遠距付款, 國際貨幣, 金融中心, 世界大戰]
 links: [war-world-war-one, finance-federal-reserve, finance-gold-standard, finance-london-rise, finance-great-depression, finance-weimar-hyperinflation, finance-bretton-woods, finance-dollar-reserve-currency, finance-eurodollar-big-bang]
 counterparts: "無適當對照：中國軌與東亞軌現有卡片中沒有「國際金融中心與國際儲備貨幣易手」這類事件，不硬湊。"
 sources:

@@ -22,6 +22,7 @@ place:
     - { name_ancient: 華爾街, name_modern: 紐約市曼哈頓下城（美國）, lat: 40.7069, lng: -74.0113, precision: schematic, role: 企業合併與融資的金融中心（座標為華爾街一帶）, src: [s1] }
   scale: area
 structure_tags: [基礎建設網絡, 標準化量產, 快速擴張, 關鍵原料壟斷, 投機泡沫與崩盤]
+topics: [道路與鐵路, 工業化, 移民與移墾]
 links: [war-american-civil-war, event-westward-expansion, tech-railway, tech-telegraph, tech-electric-grid, war-spanish-american, finance-federal-reserve, event-american-century]
 counterparts:
   - { id: event-self-strengthening, note: "同一時期，清朝的自強運動由官員主導設立兵工廠與船廠，美國的鋼鐵與石油則主要是民間私人大公司推動，兩者的推動者不同。", src: [s11, s1] }

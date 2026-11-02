@@ -18,6 +18,7 @@ place:
     - { name_ancient: 臨淄, name_modern: 淄博市臨淄區（中國山東）, lat: 36.8138, lng: 118.055, precision: schematic, role: 齊國都城；座標為今淄博市政府，故城在臨淄區, src: [s3, s4] }
   scale: area
 structure_tags: [重新設計基本單位, 關鍵原料壟斷, 擴大稅基, 霸權挑戰]
+topics: [國家專賣, 變法與改革, 諸侯爭霸]
 links: [event-pingwang-east, commodity-salt-iron, event-shang-yang-reform]
 counterparts:
   - { id: event-cleisthenes-reform, note: "相似：把全國人口重新劃分成新的行政單位，同一套單位同時用來編組軍隊與徵稅（管仲的鄉、里；克里斯提尼的部落與村社）。不同：克里斯提尼的改革擴大公民參與；管仲的改革把權力從世襲貴族移到國君任命的官僚，並由國家專營鹽鐵。", src: [s1, s2] }

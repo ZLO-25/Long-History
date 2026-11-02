@@ -19,6 +19,7 @@ place:
     - { name_ancient: 大員, name_modern: 臺南安平（臺灣）, lat: 23.0016, lng: 120.1606, precision: schematic, role: 荷蘭東印度公司 1624–1662 年在臺灣的據點（座標為今安平區）, src: [s3] }
   scale: area
 structure_tags: [金融制度創新, 投機泡沫與崩盤, 快速擴張]
+topics: [交易所, 股票與公司, 金融中心, 香料貿易, 東印度公司]
 links: [finance-medici-bank, finance-bank-of-england, finance-nyse, finance-taiwan-stock-exchange, event-vasco-da-gama]
 counterparts:
   - { id: finance-shanxi-piaohao, note: "相似：都是商人把資本湊在一起做遠距離生意（日昇昌由東家出資、按股分紅）。不同：荷蘭東印度公司的股票可以在交易所自由買賣、資本永久存在、還有國家授予的開戰與殖民特權；山西票號的股份不公開買賣，股東負無限責任，只做國內匯兌。", src: [s2, s10, s11] }

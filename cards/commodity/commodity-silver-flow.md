@@ -21,6 +21,7 @@ place:
     - { name_ancient: 月港（漳州）, name_modern: 福建省漳州市海澄（中國）, lat: 24.38, lng: 117.83, precision: schematic, role: 1567 年開海後民間出洋貿易的港口, src: [s6] }
   scale: line
 structure_tags: [商路改道, 意外財源, 貨幣體系轉換, 慢變結構]
+topics: [白銀, 絲綢與絲路]
 links: [finance-ming-baochao, commodity-manila-galleon, commodity-iwami-silver, event-single-whip-reform, finance-age-of-genoese]
 counterparts: 無適當對照：這張卡本身就跨東西兩軌（美洲、歐洲、日本、中國）；同時期西方軌與它最接近的是阿姆斯特丹交易所，但那是金融制度而不是物資流動。
 sources:

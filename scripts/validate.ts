@@ -1,6 +1,6 @@
 // npm run validate：檢查必填欄位、斷掉的連結、缺來源的欄位
 import { loadCards, loadTagVocab, readYaml } from './lib/cards.ts';
-import { checkCards, loadContext } from './lib/check.ts';
+import { checkCards, loadContext, checkTopics } from './lib/check.ts';
 import { loadEcon, loadChains, checkEcon, checkChains } from './lib/econ.ts';
 import { loadToday, checkToday } from './lib/today.ts';
 import { loadCivTaxonomy } from './lib/civ.ts';
@@ -18,6 +18,7 @@ const units = loadUnits();
 const issues = [
   ...cardIssues,
   ...checkUnits(units, cards, histories, eligible),
+  ...checkTopics(cards),
   ...checkEcon(loadEcon()),
   ...checkChains(loadChains(), cards, new Set(routes.map((r: any) => r.id))),
   ...checkToday(loadToday(), cards, new Set(tagVocab.flatMap((c: any) => c.tags.map((t: any) => t.tag))), new Set(routes.map((r: any) => r.id))),

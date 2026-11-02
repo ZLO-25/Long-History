@@ -19,6 +19,7 @@ place:
     - { name_ancient: 東京（帝國議會）, name_modern: 東京都千代田區（日本）, lat: 35.6759, lng: 139.7447, precision: schematic, role: 15 次請願書都送到這裡的帝國議會；期成同盟會也改在東京成立, src: [s2, s4] }
   scale: area
 structure_tags: [公民身分擴張, 合法性危機, 思想異見與審判, 資訊傳播革命, 聯盟破裂]
+topics: [民主與參政, 殖民統治, 印刷與通訊]
 links: [event-wushe-incident, event-taiwan-kominka, event-228-incident, event-meiji-restoration]
 counterparts:
   - { id: event-magna-carta, note: "相似：都是被統治的一方要求「不經我們的代表同意，不能隨便立法、課稅」。不同：大憲章是英國貴族拿武力逼國王簽字；臺灣議會請願是殖民地人民用合法的簽名與請願書，連請 15 次都沒有成功。", src: [s2, s4] }

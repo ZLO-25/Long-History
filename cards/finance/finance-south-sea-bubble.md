@@ -18,6 +18,7 @@ place:
     - { name_ancient: 倫敦交易巷（Exchange Alley）, name_modern: 倫敦市（英國）, lat: 51.5129, lng: -0.0858, precision: schematic, role: 股票買賣集中的地方（座標示意）, src: [s1] }
   scale: area
 structure_tags: [投機泡沫與崩盤, 債務擴張, 精英內鬥, 臨界點]
+topics: [股票與公司, 國債與公債, 泡沫與金融危機]
 links: [finance-tulip-mania, finance-amsterdam-exchange]
 counterparts: 無適當對照：東方軌目前沒有十八世紀的股票泡沫卡。
 sources:

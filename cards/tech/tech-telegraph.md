@@ -22,6 +22,7 @@ place:
     - { name_ancient: 臺灣府城, name_modern: 臺南（臺灣）, lat: 22.9997, lng: 120.227, precision: schematic, role: 1877 年臺灣府城通往安平、旗後的電報線起點（座標為今臺南市中心）, src: [s5] }
   scale: line
 structure_tags: [資訊傳播革命, 基礎建設網絡, 技術擴散, 快速擴張]
+topics: [印刷與通訊]
 links: [tech-railway, tech-internet, tech-printing-press]
 counterparts: "無適當對照：計畫中的中國軌卡沒有通訊類題材；清代驛傳、烽火沒有獨立卡片，而活字印刷是「大量複製」資訊，不是「遠距即時傳送」，結構不同，不硬湊。"
 sources:

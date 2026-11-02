@@ -18,6 +18,7 @@ place:
     - { name_ancient: 靈渠, name_modern: 興安縣（中國廣西）, lat: 25.6028, lng: 110.6861, precision: exact, role: 渠首（UNESCO 預備名單座標）, src: [s2] }
   scale: line
 structure_tags: [基礎建設網絡, 補給線過長, 快速擴張, 技術代差]
+topics: [運河與水利]
 links: [event-qin-unification, building-dujiangyan, building-qin-straight-road]
 counterparts:
   - { id: building-via-appia, note: "相似：為了把兵員與糧食送到新征服的地區而修的國家級交通工程，之後轉為長期的經濟動脈。不同：阿庇亞大道是陸路；靈渠是把長江水系（湘江）與珠江水系（漓江）接起來的運河，只有 36.4 公里卻連通了兩大流域。", src: [s1, s2] }

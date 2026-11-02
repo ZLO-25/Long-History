@@ -20,6 +20,7 @@ place:
     - { name_ancient: 華盛頓, name_modern: 華盛頓特區（美國）, lat: 38.8977, lng: -77.0365, precision: schematic, role: 1873 年鑄幣法與 1900 年金本位法的立法地, src: [s4, s9] }
   scale: area
 structure_tags: [貨幣體系轉換, 金融制度創新, 儲備貨幣地位, 慢變結構]
+topics: [匯票與遠距付款, 國際貨幣]
 links: [finance-bank-of-england, finance-london-rise, finance-new-york-overtakes-london, finance-bretton-woods, finance-great-depression, finance-federal-reserve, finance-dollar-reserve-currency, war-world-war-one, event-gilded-age-industrialization, commodity-silver-flow, war-opium-war]
 counterparts:
   - id: finance-shanxi-piaohao

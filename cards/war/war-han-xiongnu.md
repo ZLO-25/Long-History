@@ -19,6 +19,7 @@ place:
     - { name_ancient: 長安, name_modern: 西安（中國陝西）, lat: 34.30833, lng: 108.85833, precision: schematic, role: 漢武帝朝廷（座標為今西安）, src: [s5] }
   scale: area
 structure_tags: [邊疆防線, 補給線過長, 財政枯竭, 快速擴張, 戰爭融資]
+topics: [游牧民族與邊疆, 對外擴張]
 links: [event-zhang-qian-west, commodity-ferghana-horse, commodity-salt-iron, building-qin-han-great-wall]
 counterparts:
   - { id: war-teutoburg, note: "相似：農業帝國與邊疆外「沒有城市、可以移動」的對手作戰，戰爭最後決定了帝國邊界畫在哪裡。不同：漢軍深入草原打贏多場大戰，但佔領不了草原；羅馬在條頓堡森林失去三個軍團後就退守萊茵河。", src: [s1, s2] }

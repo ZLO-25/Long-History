@@ -20,6 +20,7 @@ place:
     - { name_ancient: 拉于爾普（SWIFT 總部）, name_modern: 比利時瓦隆布拉班特省拉于爾普, lat: 50.7300, lng: 4.4800, precision: schematic, role: 國際銀行間訊息系統 SWIFT 的總部所在地（座標為市鎮中心附近）, src: [s11] }
   scale: area
 structure_tags: [儲備貨幣地位, 貨幣體系轉換, 經濟施壓與制裁, 慢變結構, 霸權挑戰]
+topics: [國際貨幣]
 links: [finance-bretton-woods, finance-petrodollar, finance-plaza-accord, finance-eurodollar-big-bang, finance-new-york-overtakes-london, finance-gold-standard, finance-2008-crisis, finance-euro, event-us-china-trade-war, event-american-century]
 counterparts:
   - { id: finance-asian-financial-crisis, note: "相似處是兩者都顯示美元體系的外圍國家難以自主：1997 年泰銖放棄與美元為主的貨幣籃掛鉤後危機擴散；不同處是亞洲危機是外圍國家的貨幣危機，本卡談的是中心貨幣為何能維持地位。[s16]", src: [s16] }

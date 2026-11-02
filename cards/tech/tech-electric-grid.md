@@ -21,6 +21,7 @@ place:
     - { name_ancient: 水牛城, name_modern: 水牛城（美國紐約州）, lat: 42.8864, lng: -78.8784, precision: schematic, role: 1896 年起接收尼加拉瀑布的交流電（座標為今市中心）, src: [s4, s5] }
   scale: area
 structure_tags: [能源轉換, 基礎建設網絡, 標準化量產, 技術代差]
+topics: [工業化, 能源]
 links: [tech-steam-engine, tech-internal-combustion, tech-internet]
 counterparts: "無適當對照：計畫中的中國軌卡沒有能源或動力網絡的題材；都江堰、大運河雖然是網絡化工程，但輸送的是水與糧食，不提供動力，結構不同。"
 sources:

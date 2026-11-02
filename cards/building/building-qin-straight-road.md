@@ -20,6 +20,7 @@ place:
   scale: line
 routes: [stations-qin-zhidao]
 structure_tags: [基礎建設網絡, 邊疆防線, 公共工程支出, 快速擴張]
+topics: [游牧民族與邊疆, 道路與鐵路]
 links: [event-qin-unification, building-qin-han-great-wall, war-han-xiongnu, building-lingqu]
 counterparts:
   - { id: building-via-appia, note: "相似：國家為了讓軍隊快速移動而修的筆直大道，同時成為長期的交通幹線。不同：阿庇亞大道向南連接新征服的義大利城市；秦直道向北直通對付匈奴的邊疆，而且約一半路段走在山脊上；各來源連總長都說法不一。", src: [s1, s2] }

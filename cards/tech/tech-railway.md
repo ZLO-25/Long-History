@@ -24,6 +24,7 @@ place:
     - { name_ancient: 基隆, name_modern: 基隆（臺灣）, lat: 25.128, lng: 121.739, precision: schematic, role: 清代臺灣鐵路起點（座標為今基隆市中心）, src: [s7] }
   scale: line
 structure_tags: [基礎建設網絡, 能源轉換, 標準化量產, 技術擴散, 快速擴張]
+topics: [道路與鐵路, 工業化]
 links: [tech-steam-engine, tech-telegraph, tech-container-shipping, building-grand-canal]
 counterparts:
   - { id: building-grand-canal, note: "相似：都把遠方的產地和大城市連成一條運輸網，讓糧食、煤這類又重又便宜的大宗貨物可以長距離移動。不同：大運河是隋朝政府徵調大量勞力開鑿、主要供應首都與軍隊；早期英國鐵路是民間公司集資興建、靠收運費賺錢並發股利給投資人。", src: [s1, s3, s11] }

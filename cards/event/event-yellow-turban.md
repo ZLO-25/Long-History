@@ -18,6 +18,7 @@ place:
     - { name_ancient: 鉅鹿郡, name_modern: 河北平鄉縣一帶, lat: 37.063, lng: 115.03, precision: schematic, role: 張角的根據地；座標為今平鄉縣, src: [s1, s3] }
   scale: area
 structure_tags: [宗教／意識形態動員, 合法性危機, 財政枯竭, 附庸反叛, 長期衰退]
+topics: [民變與抗爭, 宗教, 疫病]
 links: [war-red-cliffs, event-wang-mang-reform]
 counterparts: "無適當對照：目前的西方卡沒有「以宗教號召的大規模民變，平亂的將領因此坐大、最後瓜分帝國」的例子；羅馬帝國也經歷過軍人擁兵自重的「三世紀危機」，但本期沒有這張卡，而且那不是由宗教民變引發。"
 sources:

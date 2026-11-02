@@ -6,6 +6,7 @@ import { activeAt, fmtRange, fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/forma
 interface Props {
   query: string; result: { converted: string; year: number | null }; hits: Hit[];
   cards: Card[]; year: number; onOpen: (id: string) => void;
+  topics?: { name: string; n: number }[]; onTopic?: (name: string) => void;
 }
 
 function Mark({ value, ranges }: { value: string; ranges?: readonly [number, number][] }) {
@@ -19,10 +20,16 @@ function Mark({ value, ranges }: { value: string; ranges?: readonly [number, num
   return <>{out}</>;
 }
 
-export function ResultList({ query, result, hits, cards, year, onOpen }: Props) {
+export function ResultList({ query, result, hits, cards, year, onOpen, topics, onTopic }: Props) {
   if (query.trim()) {
     return (
       <div className="results">
+        {!!topics?.length && (
+          <div className="topic-suggest">
+            <span className="muted small">看整條歷史路徑：</span>
+            {topics.map((t) => <button key={t.name} className="chip topic big" onClick={() => onTopic?.(t.name)}>#{t.name}<small>{t.n}</small></button>)}
+          </div>
+        )}
         <p className="muted small">
           {result.converted !== query.trim() && <>已轉為繁體「{result.converted}」・</>}
           {result.year !== null && <>年份搜尋：{fmtYear(result.year)} 年・</>}

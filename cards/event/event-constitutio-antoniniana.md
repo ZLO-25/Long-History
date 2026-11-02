@@ -17,6 +17,7 @@ place:
     - { name_ancient: 羅馬, name_modern: 羅馬（義大利）, lat: 41.88997, lng: 12.49125, pleiades_id: "423025", precision: schematic, role: 皇帝頒布敕令（適用帝國全境） }
   scale: area
 structure_tags: [公民身分擴張, 擴大稅基, 財政枯竭, 貨幣貶值]
+topics: [稅收, 公民身分]
 links: [event-twelve-tables, event-augustan-principate, event-fall-western-rome]
 counterparts:
   - { id: event-xiaowen-reform, note: "相似：統治者以一道命令改寫全國人的身分（羅馬公民權；漢服、漢語、漢姓）。不同：卡拉卡拉把統治者的身分擴大給被統治者；孝文帝讓統治族群改採被統治者的語言與姓氏。", src: [s1, s7] }

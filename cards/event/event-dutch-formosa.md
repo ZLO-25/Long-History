@@ -20,6 +20,7 @@ place:
     - { name_ancient: 新港社, name_modern: 臺南市新市區（臺灣）, lat: 23.0785, lng: 120.2953, precision: schematic, role: 最早與荷蘭結盟的西拉雅聚落, src: [s1] }
   scale: area
 structure_tags: [商路改道, 單一港口依賴, 擴大稅基, 外部勢力介入, 技術擴散]
+topics: [股票與公司, 絲綢與絲路, 東印度公司, 海上貿易, 臺灣出口品, 殖民統治, 移民與移墾, 原住民族]
 links: [finance-amsterdam-exchange, social-siraya-deer, event-spanish-north-taiwan, event-koxinga-taiwan]
 counterparts:
   - { id: finance-amsterdam-exchange, note: "相似：大員商館就是阿姆斯特丹股東出錢的 VOC 在亞洲的一個據點，賺的錢最後變成股息。不同：交易所講的是歐洲怎麼集資，大員講的是錢在亞洲當地怎麼從鹿皮、蔗糖和人頭稅裡賺回來。", src: [s1, s3] }

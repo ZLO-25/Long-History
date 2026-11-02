@@ -20,6 +20,7 @@ place:
     - { name_ancient: 三角湧（大嵙崁一帶）, name_modern: 新北市三峽區（臺灣）, lat: 24.9330, lng: 121.3670, precision: schematic, role: 北部樟腦產地與集散地之一，漢人與泰雅族衝突前線, src: [s4] }
   scale: area
 structure_tags: [商路改道, 關鍵原料壟斷, 單一港口依賴, 外部勢力介入, 技術擴散]
+topics: [海上貿易, 國家專賣, 開港與鎖國, 臺灣出口品, 原住民族]
 links: [event-qing-taiwan-frontier, event-mudan-incident, war-opium-war, event-self-strengthening, commodity-taiwan-semiconductor]
 counterparts:
   - { id: commodity-silver-flow, note: "相似：都是「一種物資把一個地方接上全球市場」，美洲與日本的白銀流進明朝，臺灣的茶和樟腦流向美國與歐洲，當地社會跟著改變。不同：白銀是貨幣、由大帝國與大商人推動；茶和樟腦是農產與山產，靠洋行、買辦和小農一層層串起來，而且是戰敗後被迫開港才開始。", src: [s1, s2] }

@@ -20,6 +20,7 @@ place:
     - { name_ancient: 路易斯安那（法屬）, name_modern: 紐奧良（美國路易斯安那州）, lat: 29.9511, lng: -90.0715, precision: schematic, role: 密西西比公司取得貿易壟斷的法屬殖民地（紐奧良 1718 年起建；座標為今市中心）, src: [s1, s3] }
   scale: area
 structure_tags: [債務擴張, 金融制度創新, 投機泡沫與崩盤, 貨幣貶值, 銀行擠兌]
+topics: [紙幣, 股票與公司, 國債與公債, 泡沫與金融危機]
 links: [finance-south-sea-bubble, finance-bank-of-england, finance-amsterdam-wisselbank, finance-amsterdam-decline, finance-london-rise]
 counterparts:
   - { id: finance-ming-baochao, note: "同樣是政府大量發行紙幣後失去信用；不同的是寶鈔是朝廷直接發行的法定紙幣，沒有搭配公司股票與債轉股的投機循環。", src: [s1, s7] }

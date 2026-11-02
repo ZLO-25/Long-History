@@ -24,6 +24,7 @@ place:
   scale: area
 routes: [sea-hellespont-grain]
 structure_tags: [海權對陸權, 地形險阻, 海峽封鎖, 補給線過長, 意外財源, 附庸反叛, 突變事件]
+topics: [海戰與水戰, 軍事同盟]
 links: [commodity-laurion-silver, building-acropolis, war-peloponnesian, event-cleisthenes-reform]
 counterparts:
   - { id: war-red-cliffs, note: "相似：兵力佔優的入侵者在水戰中被較小的聯軍擊敗，主力隨即撤退（薩拉米斯；赤壁）。不同：波斯帝國戰後依然強大；赤壁之後中國分裂成三國。", src: [s1, s7] }

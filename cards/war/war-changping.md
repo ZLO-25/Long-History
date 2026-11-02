@@ -18,6 +18,7 @@ place:
     - { name_ancient: 長平, name_modern: 高平（中國山西）西北, lat: 35.798, lng: 112.924, precision: schematic, role: 戰場；座標為今高平市，戰場在其西北, src: [s1, s3] }
   scale: area
 structure_tags: [補給線過長, 地形險阻, 精英內鬥, 財政枯竭, 臨界點]
+topics: [諸侯爭霸]
 links: [event-shang-yang-reform, event-qin-unification]
 counterparts:
   - { id: war-second-punic, note: "相似：守方先用「不決戰、拖垮對手補給」的戰略（廉頗守丹河；法比烏斯拖延），後來換上主張出擊的將領，結果大軍被包圍殲滅（長平；坎尼）。不同：羅馬在坎尼之後仍能重新動員並最終獲勝，趙國的兵源從此沒有恢復。", src: [s1] }

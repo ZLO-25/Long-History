@@ -15,10 +15,12 @@ const AXIS_H = 26, ROW_H = 20, LANE_PAD = 6, LABEL_PX = 12.5;
 interface Props {
   cards: Card[]; allCards: Card[]; year: number; setYear: (y: number) => void;
   selectedId: string | null; onOpen: (id: string) => void;
+  /** 主題路徑：只亮這些卡，其餘變淡 */
+  focusIds?: string[] | null;
   econ?: Econ; onEcon?: (series: string, point: number) => void; econSel?: { series: string; point: number } | null;
 }
 
-export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, econ, onEcon, econSel }: Props) {
+export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, econ, onEcon, econSel, focusIds }: Props) {
   const [metric, setMetric] = useState<string | null>(null);
   const ECON_H = metric ? 150 : 0, EPAD = 14;
   const wrap = useRef<HTMLDivElement>(null);
@@ -181,7 +183,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
                 const sel = c.id === selectedId;
                 const rel = related.has(c.id);
                 return (
-                  <g key={c.id} className={`node ${sel ? 'sel' : ''} ${rel ? 'rel' : ''} ${fc && !sel && !rel && c.id !== focus ? 'dim' : ''}`} onClick={() => onOpen(c.id)}
+                  <g key={c.id} className={`node ${sel ? 'sel' : ''} ${rel ? 'rel' : ''} ${fc ? (!sel && !rel && c.id !== focus ? 'dim' : '') : focusIds && !focusIds.includes(c.id) ? 'dim' : focusIds ? 'rel' : ''}`} onClick={() => onOpen(c.id)}
                     onMouseEnter={() => setHover(c.id)} onMouseLeave={() => setHover(null)} transform={`translate(${x0},${y})`}>
                     <title>{`${c.summary_line}\n${fmtYear(c.time.start)}–${fmtYear(c.time.end)}`}</title>
                     <rect width={x1 - x0} height={ROW_H - 6} rx={3} fill={TYPE_COLOR[c.type]} opacity={sel ? 1 : 0.85} />

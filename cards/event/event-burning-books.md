@@ -18,6 +18,7 @@ place:
     - { name_ancient: 咸陽, name_modern: 咸陽（中國陝西）, lat: 34.3299, lng: 108.7088, precision: schematic, role: 秦都；《史記》說四百六十餘人在此被處死（座標為今咸陽市政府）, src: [s1, s3] }
   scale: point
 structure_tags: [思想異見與審判, 合法性危機, 政治宣傳工程]
+topics: [言論與思想管制, 儒家]
 links: [event-qin-unification, event-confucius, event-confucian-orthodoxy, event-chen-sheng-wu-guang]
 counterparts:
   - { id: event-death-of-socrates, note: "相似：國家以法律手段處理被認為「以古非今、動搖人心」的知識人。不同：蘇格拉底是由公民陪審團依法審判一個人；秦朝是由皇帝下令大規模禁書與處死，而且「坑儒」的規模與對象在學界有很大爭議。", src: [s1] }

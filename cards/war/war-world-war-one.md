@@ -22,6 +22,7 @@ place:
     - { name_ancient: 凡爾賽, name_modern: 凡爾賽（法國）, lat: 48.8049, lng: 2.1204, precision: schematic, role: 1919 年簽訂《凡爾賽條約》（座標為今凡爾賽宮）, src: [s1, s2] }
   scale: area
 structure_tags: [全面戰爭, 聯盟破裂, 霸權挑戰, 戰爭融資, 技術代差, 臨界點, 革命與政權更替]
+topics: [國債與公債, 火藥與武器, 軍事同盟, 世界大戰]
 links: [war-world-war-two, war-sino-japanese-1937, event-xinhai-revolution, tech-railway, tech-telegraph, tech-internal-combustion]
 counterparts:
   - { id: event-xinhai-revolution, note: "相似：都是古老帝國在短時間內崩解——一戰後俄、德、奧匈、鄂圖曼帝國瓦解；1912 年清帝退位、中華民國成立。不同：歐洲帝國是被一場大規模國際戰爭拖垮；清朝是被國內的起義與政治談判結束，沒有經過世界大戰。", src: [s1, s2, s9] }

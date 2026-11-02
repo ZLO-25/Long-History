@@ -18,6 +18,7 @@ place:
     - { name_ancient: 長安, name_modern: 西安西北（中國陝西）, lat: 34.30833, lng: 108.85833, precision: schematic, role: 漢長安城（維基百科座標；漢城在明清西安城西北約 5 公里）, src: [s1] }
   scale: area
 structure_tags: [政治宣傳工程, 公共工程支出, 基礎建設網絡]
+topics: [首都與都城, 古代建築]
 links: [event-han-inherits-qin, event-wang-mang-reform, commodity-silk, event-zhang-qian-west]
 counterparts:
   - { id: building-forum-romanum, note: "相似：帝國首都的權力與商業中心，也是遠距貿易（絲路）兩端的終點之一。不同：羅馬廣場是開放的公共空間，元老院、法庭與神殿集中在一起；漢長安城以高牆圍起的宮殿為主體，未央宮建在俯視全城的台地上。", src: [s1, s2] }

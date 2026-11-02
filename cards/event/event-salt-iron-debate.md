@@ -18,6 +18,7 @@ place:
     - { name_ancient: 長安, name_modern: 西安（中國陝西）, lat: 34.30833, lng: 108.85833, precision: schematic, role: 會議在長安朝廷舉行（座標為今西安）, src: [s1, s3] }
   scale: point
 structure_tags: [關鍵原料壟斷, 財政枯竭, 精英內鬥, 戰爭融資]
+topics: [國家專賣, 游牧民族與邊疆, 儒家]
 links: [commodity-salt-iron, war-han-xiongnu, event-confucian-orthodoxy]
 counterparts: "無適當對照：目前的西方卡沒有「朝廷召集各地學者，公開辯論國家該不該經營產業，並把辯論寫成書」的例子；羅馬共和晚期也有土地與糧食政策之爭（如格拉古兄弟），但本期沒有這張卡，形式也是公民大會的立法鬥爭而非朝廷辯論。"
 sources:

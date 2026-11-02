@@ -20,6 +20,7 @@ place:
     - { name_ancient: 滑鐵盧, name_modern: 滑鐵盧（比利時）, lat: 50.6800, lng: 4.4120, precision: schematic, role: 1815 年 6 月 18 日戰役地點，拿破崙戰爭的終點, src: [s7] }
   scale: area
 structure_tags: [戰爭融資, 債務擴張, 擴大稅基, 金融中心轉移, 經濟施壓與制裁]
+topics: [國債與公債, 金融中心]
 links: [finance-bank-of-england, finance-amsterdam-decline, finance-amsterdam-exchange, finance-gold-standard, event-french-revolution, event-westward-expansion, finance-new-york-overtakes-london]
 counterparts: "無適當對照：中國軌在 1793–1815 年間沒有「靠國債與中央銀行信用支撐長期戰爭、並使金融中心易手」的對應卡；山西票號（1823 年起）時間較晚、性質也不同，不硬湊。"
 sources:

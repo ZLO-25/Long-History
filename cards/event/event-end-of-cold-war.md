@@ -22,6 +22,7 @@ place:
     - { name_ancient: 別洛韋日森林, name_modern: 白俄羅斯布列斯特州（白俄羅斯）, lat: 52.0976, lng: 23.7341, precision: schematic, role: 1991 年 12 月 8 日俄、烏、白簽署協議成立獨立國協（座標為布列斯特市，實際簽約地在其北方的森林別墅）, src: [s1, s2] }
   scale: area
 structure_tags: [革命與政權更替, 合法性危機, 臨界點, 聯盟破裂, 財政枯竭, 突變事件]
+topics: [革命, 帝國的衰亡, 冷戰]
 links: [war-world-war-two, event-reform-and-opening, tech-internet]
 counterparts:
   - { id: event-reform-and-opening, note: "相似：中蘇兩大共產國家在 1980 年代都面對計畫經濟停滯，都嘗試改革。不同：蘇聯在戈巴契夫下同時放寬政治與言論，最後聯盟瓦解；中國只改經濟、維持共產黨統治，1989 年鎮壓天安門抗議，1992 年後加速市場化。", src: [s1, s3, s11] }

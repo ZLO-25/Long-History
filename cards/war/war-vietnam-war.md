@@ -24,6 +24,7 @@ place:
     - { name_ancient: 巴黎, name_modern: 巴黎（法國）, lat: 48.8566, lng: 2.3522, precision: schematic, role: 1973 年 1 月 27 日簽訂和平協定處（座標為市中心）, src: [s7] }
   scale: area
 structure_tags: [代理人戰爭, 外部勢力介入, 補給線過長, 地形險阻, 戰爭融資, 合法性危機, 臨界點]
+topics: [冷戰]
 links: [war-korean-war, event-containment-nato, event-nixon-china, finance-bretton-woods, finance-petrodollar, event-american-century, event-end-of-cold-war, finance-dollar-reserve-currency]
 counterparts: "無適當對照：中國軌與西方軌都沒有一張「大國介入他國內戰，最後因國內民意與財政壓力撤出」的對應卡；韓戰卡雖同屬冷戰代理人戰爭，但與本卡同在東亞軌，不算跨軌對照。"
 sources:

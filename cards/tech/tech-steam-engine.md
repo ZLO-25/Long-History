@@ -19,6 +19,7 @@ place:
     - { name_ancient: 卡倫鐵工廠, name_modern: 福爾柯克附近（英國蘇格蘭）, lat: 56.024, lng: -3.778, precision: schematic, role: 1776 年第一批商用瓦特蒸汽機的買家之一（座標為今卡倫村示意）, src: [s2] }
   scale: area
 structure_tags: [能源轉換, 技術擴散, 臨界點]
+topics: [工業化, 能源]
 links: [tech-railway, tech-electric-grid, tech-internal-combustion, war-opium-war]
 counterparts: "無適當對照：中國軌道沒有同時期、同性質的動力機械卡；李彔提到「為什麼中國沒有出現蒸汽機」正是一個「沒有發生」的問題，不是可對照的事件，寫在 T6。"
 sources:

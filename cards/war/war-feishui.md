@@ -17,6 +17,7 @@ place:
     - { name_ancient: 淝水, name_modern: 今安徽六安一帶（河道已不存在）, lat: 31.736, lng: 116.52, precision: disputed, role: 戰場；座標為今六安市政府，只是示意, src: [s1, s3] }
   scale: point
 structure_tags: [雇傭兵與蠻族化軍隊, 突變事件, 臨界點, 聯盟破裂]
+topics: [游牧民族與邊疆]
 links: [war-red-cliffs, event-xiaowen-reform]
 counterparts:
   - { id: war-greco-persian, note: "相似：一支由許多被征服民族拼成、數量龐大的入侵大軍，被人數少、訓練精良的守方擊敗。不同：波斯帝國戰後依然存續；前秦在淝水之後兩年內各族反叛、迅速瓦解。", src: [s1] }

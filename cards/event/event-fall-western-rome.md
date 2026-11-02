@@ -21,6 +21,7 @@ place:
     - { name_ancient: 君士坦丁堡, name_modern: 伊斯坦堡（土耳其）, lat: 41.00659, lng: 28.96563, pleiades_id: "520998", precision: exact, role: 東羅馬首都，接收西羅馬皇帝徽章 }
   scale: area
 structure_tags: [長期衰退, 雇傭兵與蠻族化軍隊, 財政枯竭, 糧食進口依賴, 精英內鬥, 合法性危機, 慢變結構]
+topics: [鑄幣, 帝國的衰亡, 游牧民族與邊疆, 移民與移墾, 疫病]
 links: [event-constitutio-antoniniana, commodity-egypt-grain, building-hadrians-wall, war-teutoburg]
 counterparts:
   - { id: event-pingwang-east, note: "相似：最高統治者在外族壓力與內部繼承之爭中失去實權，權力分散到各地強權手中。不同：西羅馬皇帝的位置在 476 年後就不再設立；周王作為名義共主又延續了約五百年。", src: [s1, s6] }

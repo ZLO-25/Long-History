@@ -21,6 +21,7 @@ place:
     - { name_ancient: 鳴梁海峽, name_modern: 全羅南道珍島與海南之間（韓國）, lat: 34.5700, lng: 126.3080, precision: schematic, role: 1597 年李舜臣以 13 艘船擊退日軍, src: [s3, s4] }
   scale: area
 structure_tags: [霸權挑戰, 外部勢力介入, 補給線過長, 海權對陸權, 財政枯竭]
+topics: [海戰與水戰, 對外擴張, 火藥與武器]
 links: [tech-turtle-ship, event-toyotomi-unification, event-joseon-dynasty, commodity-iwami-silver]
 counterparts: 無適當對照：同時代西方軌最接近的是 1588 年西班牙無敵艦隊，但本站還沒有這張卡；之後補卡再對照。
 sources:

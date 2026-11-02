@@ -22,6 +22,7 @@ place:
     - { name_ancient: 臨安, name_modern: 杭州（中國浙江）, lat: 30.274, lng: 120.155, precision: schematic, role: "南宋後來定都之地（座標為今杭州市區）", src: [s1, s4] }
   scale: area
 structure_tags: [聯盟破裂, 霸權挑戰, 精英內鬥, 突變事件]
+topics: [帝國的衰亡, 游牧民族與邊疆]
 links: [building-grand-canal, war-an-lushan]
 counterparts:
   - { id: war-crusades, note: "相似：同在 12 世紀，都有大城市被攻陷、洗劫，居民被殺或被擄走（1127 開封；1099 耶路撒冷、1204 君士坦丁堡）。不同：宋是被新興鄰國攻擊的防守方，失去北方後在南方延續；十字軍是以宗教號召、遠征千里之外的進攻方。", src: [s1, s3] }

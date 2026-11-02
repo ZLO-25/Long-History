@@ -96,6 +96,14 @@ export function loadTagVocab() {
   return cats;
 }
 
+// 主題標籤詞表 data/topics.yaml（層面 → 主題）
+export interface TopicDef { name: string; plain: string; path: string; see?: string[] }
+export function loadTopicVocab(): { name: string; icon: string; topics: TopicDef[] }[] {
+  const p = path.join(ROOT, 'data', 'topics.yaml');
+  if (!fs.existsSync(p)) return [];
+  return (YAML.parse(fs.readFileSync(p, 'utf8'))?.layers ?? []).map((l: any) => ({ name: l.name, icon: l.icon ?? '', topics: l.topics ?? [] }));
+}
+
 export const readYaml = (rel: string) => YAML.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 export const readJson = (rel: string) => JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 export const dateStr = (d: string | Date) => (d instanceof Date ? d.toISOString().slice(0, 10) : String(d));

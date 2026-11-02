@@ -17,6 +17,7 @@ place:
     - { name_ancient: 長安, name_modern: 西安（中國陝西）, lat: 34.30833, lng: 108.85833, precision: schematic, role: 西漢首都（座標為今西安）, src: [s1, s3] }
   scale: area
 structure_tags: [制度包裝延續, 合法性危機, 慢變結構, 精英內鬥]
+topics: [統一與中央集權, 儒家]
 links: [war-chu-han, event-qin-unification, event-confucian-orthodoxy, building-han-changan]
 counterparts:
   - { id: event-augustan-principate, note: "相似：新統治者實際上沿用前一個體制的權力機器，卻刻意包裝成與「名聲不好的前任」不同（漢朝說自己寬厚、與暴秦不同；奧古斯都說自己恢復了共和）。不同：漢朝延續的是秦的皇帝集權體制；奧古斯都延續的是共和的名義與官職，實質上建立了君主制。", src: [s1, s2] }

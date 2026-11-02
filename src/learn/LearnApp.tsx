@@ -5,7 +5,8 @@ import { Splitter } from '../components/Splitter';
 import { useLayout, colSize, rowSize } from '../lib/layout';
 import type { Card, Index } from '../types';
 import { MapView } from '../components/MapView';
-import { createSearch } from '../lib/search';
+import { createSearch, matchTopics } from '../lib/search';
+import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
 import { useIsMobile } from '../lib/useIsMobile';
 import { LearnHome } from './LearnHome';
 import { HistoryPage } from './HistoryPage';
@@ -20,13 +21,16 @@ import { historyOf, inHistory, learnCards } from './util';
 import './learn.css';
 
 type View = { kind: 'home' } | { kind: 'history' } | { kind: 'unit'; id: string } | { kind: 'card'; id: string; section?: string }
-  | { kind: 'mymap' } | { kind: 'record' } | { kind: 'sim'; id: string } | { kind: 'search' };
+  | { kind: 'mymap' } | { kind: 'record' } | { kind: 'sim'; id: string } | { kind: 'search' }
+  | { kind: 'topic'; name: string } | { kind: 'topics' };
 type Tab = 'main' | 'card' | 'map' | 'timeline';
 
 function initialView(q: URLSearchParams): View {
   if (q.get('unit')) return { kind: 'unit', id: q.get('unit')! };
   if (q.get('card')) return { kind: 'card', id: q.get('card')! };
   if (q.get('sim')) return { kind: 'sim', id: q.get('sim')! };
+  if (q.get('topic')) return { kind: 'topic', name: q.get('topic')! };
+  if (q.get('view') === 'topics') return { kind: 'topics' };
   if (q.get('view') === 'mymap') return { kind: 'mymap' };
   if (q.get('view') === 'record') return { kind: 'record' };
   if (q.get('history')) return { kind: 'history' };
@@ -83,7 +87,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
 
   // 分頁標題跟著目前在看的東西走，瀏覽器歷史與書籤才看得出是哪一課
   useEffect(() => {
-    const t = view.kind === 'unit' ? unit?.title : view.kind === 'card' ? byId(view.id)?.name : view.kind === 'history' ? h?.name : view.kind === 'mymap' ? '我的歷史地圖' : view.kind === 'record' ? '我的學習紀錄' : null;
+    const t = view.kind === 'unit' ? unit?.title : view.kind === 'card' ? byId(view.id)?.name : view.kind === 'history' ? h?.name : view.kind === 'topic' ? `#${view.name}` : view.kind === 'topics' ? '主題標籤' : view.kind === 'mymap' ? '我的歷史地圖' : view.kind === 'record' ? '我的學習紀錄' : null;
     document.title = t ? `${t}｜歷史長河` : '歷史長河：國高中生的歷史學習';
   }, [view, unit, h]);
 
@@ -94,6 +98,8 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     if (view.kind === 'unit') q.set('unit', view.id);
     if (view.kind === 'card') q.set('card', view.id);
     if (view.kind === 'sim') q.set('sim', view.id);
+    if (view.kind === 'topic') q.set('topic', view.name);
+    if (view.kind === 'topics') q.set('view', 'topics');
     if (view.kind === 'mymap') q.set('view', 'mymap');
     if (view.kind === 'record') q.set('view', 'record');
     history.replaceState(null, '', `${location.pathname}?${q}`);
@@ -104,6 +110,11 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const chooseHistory = (id: string) => { setHid(id); update((o) => ({ ...o, history: id })); push({ kind: 'history' }); };
   const openCard = (id: string, section?: string) => { if (!byId(id)?.learn) return; markCard(id); setLastCard(id); push({ kind: 'card', id, section }); };
   const openUnit = (id: string) => push({ kind: 'unit', id });
+  const openTopic = (name: string) => { setQuery(''); push({ kind: 'topic', name }); };
+  const allTopics = useMemo(() => (index.topicLayers ?? []).flatMap((l) => l.topics), [index]);
+  // 學習模式的標籤數字只算學習版的卡（和路徑頁「你讀過 n／m」的 m 一致）
+  const learnCount = (t: { cards: string[] }) => t.cards.filter((id) => !!byId(id)?.learn).length;
+  const researchHref = (id: string) => `${location.pathname}?mode=research&card=${encodeURIComponent(id)}`;
   const random = () => {
     const pool = index.units.filter((u) => !p.units[u.id]?.done);
     const list = pool.length ? pool : index.units;
@@ -113,35 +124,43 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const search = useMemo(() => createSearch(all), [all]);
   const hits = query.trim() ? search(query).hits.slice(0, 20) : [];
   const unitHits = query.trim() ? index.units.filter((u) => (u.title + u.mystery).includes(query.trim())) : [];
+  const topicHits = query.trim() ? matchTopics(allTopics.map((t) => t.name), query) : [];
 
   const content = (() => {
     if (query.trim()) return (
       <div className="lsearch">
         <h2>搜尋「{query}」</h2>
+        {topicHits.length > 0 && <div className="topic-suggest"><span className="muted small">看整條歷史路徑：</span>{topicHits.map((t) => <button key={t} className="chip topic big" onClick={() => openTopic(t)}>#{t}<small>{learnCount(findTopic(index, t)?.topic ?? { cards: [] })}</small></button>)}</div>}
         {unitHits.map((u) => <button key={u.id} className="mystery" onClick={() => { setQuery(''); openUnit(u.id); }}><span className="q">❓ {u.mystery}</span><span className="meta">{u.title}</span></button>)}
         {hits.map(({ card }) => <button key={card.id} className="lresult" onClick={() => { setQuery(''); openCard(card.id); }}><span className="nm">{card.name}</span><span className="why">{card.learn?.why_care}</span></button>)}
-        {!hits.length && !unitHits.length && <p className="muted">學習模式還沒有這個主題的卡片。可以到研究模式找找看，或試試下面的推薦謎題。</p>}
+        {!hits.length && !unitHits.length && !topicHits.length && <p className="muted">學習模式還沒有這個主題的卡片。可以到研究模式找找看，或試試下面的推薦謎題。</p>}
       </div>
     );
     switch (view.kind) {
-      case 'home': return <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => update((o) => ({ ...o, seenIntro: true }))} onRecord={() => push({ kind: 'record' })} />;
+      case 'home': return <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => update((o) => ({ ...o, seenIntro: true }))} onRecord={() => push({ kind: 'record' })} onTopic={openTopic} onTopics={() => push({ kind: 'topics' })} />;
       case 'history': return h ? <HistoryPage index={index} h={h} cards={histCards} p={p} onUnit={openUnit} onCard={openCard} onHistory={chooseHistory} onSim={(id) => push({ kind: 'sim', id })} />
         : <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => {}} />;
       case 'unit': return unit ? <UnitPlayer key={unit.id} unit={unit} index={index} prog={p.units[unit.id]} setProg={(x) => setUnit(unit.id, x)}
-        onCard={openCard} onUnit={openUnit} onSim={(id) => push({ kind: 'sim', id })} onFocus={setFocus} onHome={() => setStack([{ kind: 'home' }])} /> : <p>找不到這個單元（可能還在查核中）。</p>;
-      case 'card': { const c = byId(view.id); return c?.learn ? <LearnCard key={c.id} card={c} index={index} history={h} depth={view.section ? 'deep' : 'story'} onOpen={openCard} onHistory={(id) => setHid(id)} /> : <p>這張卡還不在學習模式裡（需要通過交叉查核）。</p>; }
+        onCard={openCard} onUnit={openUnit} onSim={(id) => push({ kind: 'sim', id })} onFocus={setFocus} onHome={() => setStack([{ kind: 'home' }])} onTopic={openTopic} topicCount={learnCount} /> : <p>找不到這個單元（可能還在查核中）。</p>;
+      case 'card': { const c = byId(view.id); return c?.learn ? <LearnCard key={c.id} card={c} index={index} history={h} depth={view.section ? 'deep' : 'story'} onOpen={openCard} onHistory={(id) => setHid(id)} onTopic={openTopic} topicCount={learnCount} /> : <p>這張卡還不在學習模式裡（需要通過交叉查核）。</p>; }
       case 'mymap': return <MyMap index={index} cards={all} p={p} onCard={openCard} onUnit={openUnit} onRecord={() => push({ kind: 'record' })} />;
       case 'record': return <LearnRecord index={index} p={p} onUnit={openUnit} onReset={() => { reset(); setStack([{ kind: 'home' }]); }} />;
       case 'sim': return <SimView id={view.id} index={index} onCard={openCard} />;
+      case 'topic': return <TopicView key={view.name} index={index} name={view.name} currentId={lastCard} onOpen={(id) => openCard(id)} onTopic={openTopic} onAll={() => push({ kind: 'topics' })}
+        canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onMap={isMobile ? () => setTab('map') : undefined} />;
+      case 'topics': return <TopicIndex index={index} onTopic={openTopic} count={learnCount} />;
     }
     return null;
   })();
 
+  const topicName = view.kind === 'topic' ? view.name : null;
+  const hl = useMemo(() => topicName ? { keys: [], routes: [], marks: topicMarks(index, topicName) }
+    : { keys: selected?.place.locations.map((l) => l.key) ?? [], routes: selected?.routes ?? [] }, [topicName, selected?.id, index]);
   const map = <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={isMobile} home={home}
-    highlight={{ keys: selected?.place.locations.map((l) => l.key) ?? [], routes: selected?.routes ?? [] }}
+    highlight={hl}
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}} />;
   const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} />;
-  const cardTab = lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} /> : <p className="muted">還沒打開任何卡片。</p>;
+  const cardTab = lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} /> : <p className="muted">還沒打開任何卡片。</p>;
 
   const header = (
     <header className="ltop">
@@ -155,6 +174,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         {!query && !isMobile && index.units.length > 0 && <div className="suggest">試試：{index.units.slice(0, 3).map((u) => <button key={u.id} className="link" onClick={() => openUnit(u.id)}>{u.mystery}</button>)}</div>}
       </div>
       {!isMobile && <button className="btn sm" onClick={random} title="隨機一個謎題" aria-label="隨機一個謎題">🎲</button>}
+      <button className={`btn sm ${view.kind === 'topic' || view.kind === 'topics' ? 'on' : ''}`} onClick={() => { setQuery(''); push({ kind: 'topics' }); }} title="主題標籤：把同一個主題的卡片依年代串成歷史路徑" aria-label="主題標籤">#{!isMobile && ' 主題標籤'}</button>
       <button className="btn sm" onClick={() => push({ kind: 'mymap' })} title="我的歷史地圖">🗺{!isMobile && ' 我的地圖'}</button>
       <button className="btn sm" onClick={() => push({ kind: 'record' })} title="我的學習紀錄：進度、答對率、寫過的回答">📒{!isMobile && ' 紀錄'}</button>
       {isMobile ? (

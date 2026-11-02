@@ -19,6 +19,7 @@ place:
     - { name_ancient: 溫泉津港, name_modern: 島根縣大田市溫泉津町（日本）, lat: 35.0930, lng: 132.3480, precision: schematic, role: 運出白銀的港口之一（示意）, src: [s4] }
   scale: area
 structure_tags: [意外財源, 技術擴散, 關鍵原料壟斷, 商路改道]
+topics: [白銀, 絲綢與絲路]
 links: [commodity-silver-flow, commodity-manila-galleon, finance-ming-baochao, commodity-laurion-silver]
 counterparts:
   - { id: commodity-laurion-silver, note: "相似：都是一座銀礦讓一個地區突然有錢，並改變當時的政治與貿易（雅典靠勞里昂銀礦建艦隊；戰國日本靠石見銀買中國絲綢與武器）。不同：勞里昂是古希臘的事、靠奴隸開採；石見是 16 世紀的事，銀子大量流向明朝中國，成為全球白銀流動的一部分。", src: [s3, s4] }

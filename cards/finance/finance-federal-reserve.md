@@ -21,6 +21,7 @@ place:
     - { name_ancient: 華盛頓特區, name_modern: 美國華盛頓特區, lat: 38.8951, lng: -77.0364, precision: schematic, role: 國會審議並於 1913 年 12 月通過《聯邦準備法》, src: [s3, s7] }
   scale: area
 structure_tags: [銀行擠兌, 金融制度創新, 強人繞過制度, 臨界點]
+topics: [銀行與借貸, 泡沫與金融危機, 中央銀行]
 links: [finance-nyse, finance-hamilton-financial-plan, finance-bank-of-england, finance-gold-standard, event-gilded-age-industrialization, finance-great-depression, finance-dollar-reserve-currency, finance-new-york-overtakes-london, finance-2008-crisis]
 counterparts: "無適當對照：中國軌現有卡中沒有以「設立央行作為最後貸款人」來回應銀行擠兌的事件；晚清票號與官銀錢號的擠兌情形本卡未查證，不硬湊。"
 sources:

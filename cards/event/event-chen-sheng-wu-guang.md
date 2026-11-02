@@ -18,6 +18,7 @@ place:
     - { name_ancient: 大澤鄉（蘄縣）, name_modern: 安徽宿州劉村附近, lat: 33.648, lng: 116.964, precision: schematic, role: 起義地點；座標為今宿州市政府, src: [s3, s4] }
   scale: area
 structure_tags: [附庸反叛, 合法性危機, 臨界點, 突變事件]
+topics: [民變與抗爭, 帝國的衰亡]
 links: [event-burning-books, war-chu-han, event-qin-unification]
 counterparts: "無適當對照：目前的西方卡沒有「被徵調的下層士兵起事、引發全國反叛並推翻帝國」的例子；結構最接近的羅馬斯巴達克斯奴隸起義（前 73 年）沒有卡，而且最後被鎮壓，沒有推翻政權。"
 sources:

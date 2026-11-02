@@ -14,6 +14,7 @@ const KEYS = [
   { name: 'places', label: '地名', weight: 2 },
   { name: 'fields', label: '場域', weight: 1.5 },
   { name: 'civilization', label: '文明', weight: 1.5 },
+  { name: 'topics', label: '主題標籤', weight: 1.8 },
   { name: 'tags', label: '結構標籤', weight: 1.5 },
   { name: 'typeLabel', label: '類型', weight: 1 },
 ] as const;
@@ -21,7 +22,7 @@ const LABEL = Object.fromEntries(KEYS.map((k) => [k.name, k.label])) as Record<s
 
 interface Rec {
   id: string; name: string; aliases: string[]; places: string[]; fields: string[];
-  civilization: string[]; tags: string[]; typeLabel: string;
+  civilization: string[]; topics: string[]; tags: string[]; typeLabel: string;
   py_name: string; py_aliases: string[]; py_places: string[];
 }
 
@@ -36,7 +37,7 @@ export function createSearch(cards: Card[]) {
     return {
       id: c.id, name: c.name, aliases: c.aliases, places,
       fields: [c.place.primary_field, ...c.place.secondary_fields],
-      civilization: c.civilization, tags: c.structure_tags, typeLabel: c.typeLabel,
+      civilization: c.civilization, topics: c.topics ?? [], tags: c.structure_tags, typeLabel: c.typeLabel,
       py_name: py(c.name), py_aliases: c.aliases.map(py), py_places: places.map(py),
     };
   });
@@ -90,6 +91,13 @@ function phonHighlight(rec: Rec, m: FuseResultMatch) {
 function dedupe(h: Hit['highlights']) {
   const seen = new Set<string>();
   return h.filter((x) => { const k = x.field + x.value; if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 4);
+}
+
+// 搜尋字和主題標籤對得上時，先推薦標籤（例：打「交易所」→ #交易所）
+export function matchTopics(names: string[], raw: string): string[] {
+  const q = toTrad(raw.trim()).replace(/^#/, '');
+  if (!q) return [];
+  return names.filter((n) => n === q || (q.length >= 2 && (n.includes(q) || (n.length >= 2 && q.includes(n))))).slice(0, 4);
 }
 
 // 「前431」「公元前 431 年」「431 BC」「-431」「212」「西元212年」→ 年份

@@ -19,6 +19,7 @@ place:
     - { name_ancient: 阿爾克馬爾, name_modern: 阿爾克馬爾（荷蘭）, lat: 52.6324, lng: 4.7534, precision: schematic, role: 1637 年 2 月 5 日拍出多種鬱金香的史上最高價, src: [s4] }
   scale: area
 structure_tags: [投機泡沫與崩盤, 臨界點]
+topics: [泡沫與金融危機]
 links: [finance-amsterdam-exchange, finance-south-sea-bubble]
 counterparts: 無適當對照：東方軌目前沒有十七世紀的商品投機泡沫卡。
 sources:

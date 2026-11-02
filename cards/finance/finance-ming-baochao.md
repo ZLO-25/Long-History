@@ -19,6 +19,7 @@ place:
     - { name_ancient: 北京（順天府）, name_modern: 北京市（中國）, lat: 39.9042, lng: 116.4074, precision: schematic, role: 1436 年起以白銀發給軍官俸餉, src: [s2] }
   scale: area
 structure_tags: [貨幣貶值, 惡性通膨, 貨幣體系轉換, 財政枯竭]
+topics: [紙幣, 通貨膨脹, 白銀]
 links: [finance-jiaozi, event-single-whip-reform, event-zheng-he-voyages, commodity-silver-flow]
 counterparts: 無適當對照：同時期西方軌沒有政府發行紙幣的卡片（歐洲當時以金屬貨幣為主）；結構上可和「西羅馬帝國滅亡」卡的銀幣貶值比較，但時代差距太大。
 sources:

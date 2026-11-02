@@ -18,6 +18,7 @@ place:
     - { name_ancient: 羅馬廣場, name_modern: 羅馬（義大利）, lat: 41.89161, lng: 12.48719, pleiades_id: "502866838", precision: exact, role: 共和制度的舞台 }
   scale: point
 structure_tags: [制度包裝延續, 強人繞過制度, 政治宣傳工程, 慢變結構]
+topics: [統一與中央集權, 內戰]
 links: [war-actium, event-rubicon, building-forum-romanum, building-pantheon, commodity-egypt-grain, war-teutoburg]
 counterparts:
   - { id: event-han-inherits-qin, note: "相似：新統治者沿用前一體制的權力機器，卻刻意包裝成與前任不同。不同：奧古斯都保留共和的名義與官職，實質上建立君主制；漢朝延續的本來就是秦的皇帝集權體制。", src: [s1, s6] }

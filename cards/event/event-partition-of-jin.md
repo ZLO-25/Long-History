@@ -18,6 +18,7 @@ place:
     - { name_ancient: 晉陽, name_modern: 太原（中國山西）, lat: 37.8704, lng: 112.5497, precision: schematic, role: 趙氏據守、被圍約兩年；座標為今太原市政府，古晉陽在今晉源區一帶, src: [s1, s3] }
   scale: area
 structure_tags: [精英內鬥, 聯盟破裂, 制度包裝延續, 臨界點]
+topics: [諸侯爭霸]
 links: [war-chengpu, event-shang-yang-reform, war-changping]
 counterparts:
   - { id: event-rubicon, note: "相似：國家的實權落到幾個掌握私人力量的權貴家族手中，他們先聯手、再互鬥，最後瓜分或奪取國家。不同：晉國真的被三家永久分成三國，周王還出面承認；羅馬的權貴之爭最後由一人勝出，國家沒有分裂。", src: [s1] }

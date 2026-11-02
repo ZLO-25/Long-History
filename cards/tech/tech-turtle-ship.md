@@ -19,6 +19,7 @@ place:
     - { name_ancient: 泗川, name_modern: 慶尚南道泗川市（韓國）, lat: 35.0036, lng: 128.0642, precision: schematic, role: 1592 年龜船首次參戰, src: [s1] }
   scale: area
 structure_tags: [技術代差, 海權對陸權]
+topics: [海戰與水戰, 火藥與武器]
 links: [war-imjin, event-joseon-dynasty]
 counterparts: 無適當對照：西方軌目前沒有 16 世紀戰艦技術的卡片；常被拿來比較的 19 世紀鐵甲艦時代差太遠。
 sources:

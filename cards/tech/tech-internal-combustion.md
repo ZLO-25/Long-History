@@ -21,6 +21,7 @@ place:
     - { name_ancient: 底特律高地公園, name_modern: 高地公園（美國密西根州）, lat: 42.4056, lng: -83.0966, precision: schematic, role: 1913 年福特移動式流水線所在工廠（座標為示意）, src: [s4, s5] }
   scale: area
 structure_tags: [能源轉換, 標準化量產, 技術擴散, 技術代差, 全面戰爭]
+topics: [道路與鐵路, 工業化, 能源]
 links: [tech-steam-engine, tech-electric-grid, war-world-war-one, war-world-war-two]
 counterparts:
   - { id: tech-gunpowder, note: "相似：兩者都是利用燃燒瞬間產生的氣體膨脹力；1680 年荷蘭科學家惠更斯就設計過用火藥推動的引擎，被歸為一種內燃機。不同：火藥主要用於爆破與射擊，每次燃燒都是一次性的；內燃機讓燃料在汽缸裡每分鐘受控燃燒上百次，把熱變成連續轉動。", src: [s2, s6] }

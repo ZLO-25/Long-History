@@ -20,6 +20,7 @@ place:
     - { name_ancient: 巴格達, name_modern: 巴格達（伊拉克）, lat: 33.3152, lng: 44.3661, precision: schematic, role: 8 世紀末出現造紙作坊，紙張進入阿拉伯帝國行政（座標為今巴格達市區）, src: [s1] }
   scale: line
 structure_tags: [資訊傳播革命, 技術擴散, 慢變結構]
+topics: [印刷與通訊]
 links: [tech-movable-type, tech-printing-press]
 counterparts:
   - { id: tech-printing-press, note: "相似：兩者都大幅降低了「把文字記下來、傳出去」的成本，並靠工匠與貿易傳到其他地區。不同：紙是一種材料，印刷機是一部機器；而且古騰堡的印刷正是建立在歐洲已有造紙業的基礎上，兩者是先後接力，不是平行發明。", src: [s1, s5] }

@@ -18,6 +18,7 @@ place:
     - { name_ancient: 廣州, name_modern: 廣州（中國廣東）, lat: 23.1291, lng: 113.2644, precision: schematic, role: 朱彧之父朱服任廣州市舶使，朱彧據此記下航海用指南針（座標為今廣州市區）, src: [s2] }
   scale: line
 structure_tags: [技術擴散, 慢變結構]
+topics: [航海]
 links: [event-zheng-he-voyages, event-vasco-da-gama, tech-gunpowder, tech-movable-type]
 counterparts: "無適當對照：西方軌道沒有獨立起源的同類卡；歐洲羅盤是否獨立發明仍有爭議，放在本卡 T2、T3 並列。後來的大航海（如達伽馬）是使用羅盤的事件，不是同類技術，因此只放 links。"
 sources:

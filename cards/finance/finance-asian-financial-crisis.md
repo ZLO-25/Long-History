@@ -21,6 +21,7 @@ place:
     - { name_ancient: 香港, name_modern: 香港（中國）, lat: 22.3193, lng: 114.1694, precision: schematic, role: 1997 至 1998 年捍衛聯繫匯率（座標為市中心）, src: [s1] }
   scale: area
 structure_tags: [債務擴張, 資本外逃, 貨幣貶值, 銀行擠兌, 臨界點, 合法性危機]
+topics: [泡沫與金融危機, 國際貨幣]
 links: [finance-japan-bubble, finance-plaza-accord, finance-bretton-woods, finance-2008-crisis, finance-dollar-reserve-currency, finance-taiwan-stock-1990]
 counterparts:
   - { id: finance-2008-crisis, note: "兩次危機都是資金湧入、槓桿與信心突然轉向所引發；1997 年是新興市場的匯率與短期外債危機，2008 年則發生在美國與歐洲核心金融體系。[s1][s3]", src: [s1, s3] }

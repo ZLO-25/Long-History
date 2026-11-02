@@ -20,6 +20,7 @@ place:
     - { name_ancient: 亞歷山卓, name_modern: 亞歷山大港（埃及）, lat: 31.20143, lng: 29.90977, pleiades_id: "727070", precision: exact, role: 前 30 年安東尼與克麗奧佩脫拉自殺處 }
   scale: area
 structure_tags: [海峽封鎖, 補給線過長, 精英內鬥, 政治宣傳工程, 聯盟破裂]
+topics: [海戰與水戰, 內戰]
 links: [event-rubicon, event-augustan-principate, commodity-egypt-grain]
 counterparts:
   - { id: war-chu-han, note: "相似：舊秩序瓦解後兩個強人爭天下，勝者建立延續數百年的新政體（元首制；漢朝）。不同：亞克興是羅馬共和制度內兩派的內戰；楚漢是秦帝國崩潰後群雄起兵的混戰。", src: [s1, s5] }

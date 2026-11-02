@@ -18,6 +18,7 @@ place:
     - { name_ancient: 紐約華爾街, name_modern: 紐約曼哈頓（美國）, lat: 40.7069, lng: -74.0111, precision: schematic, role: 1792 年經紀人在華爾街簽梧桐樹協議；1903 年起交易所大樓位於 Broad Street 18 號（座標為今交易所大樓）, src: [s1, s2] }
   scale: point
 structure_tags: [金融制度創新, 慢變結構, 投機泡沫與崩盤]
+topics: [交易所, 股票與公司]
 links: [finance-amsterdam-exchange, finance-great-depression, finance-2008-crisis, finance-taiwan-stock-exchange, tech-telegraph]
 counterparts:
   - { id: finance-taiwan-stock-exchange, note: "相似：都是把分散的股票、債券買賣集中到一個有規則的市場。不同：紐約證交所從 1792 年 24 名經紀人的民間約定長出來，1817 年才自訂章程；臺灣證交所是 1961 年在政府規劃下以公司組織成立，起因是土地改革發出的公營事業股票需要集中交易。", src: [s1, s3, s6] }

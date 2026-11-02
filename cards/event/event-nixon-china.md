@@ -23,6 +23,7 @@ place:
     - { name_ancient: 臺北, name_modern: 臺北（臺灣）, lat: 25.0330, lng: 121.5654, precision: schematic, role: 中華民國政府所在地；被斷交與退出聯合國的一方, src: [s3, s4, s6] }
   scale: area
 structure_tags: [聯盟破裂, 霸權挑戰, 合法性危機, 突變事件]
+topics: [冷戰]
 links: [event-containment-nato, war-korean-war, war-vietnam-war, event-reform-and-opening, event-us-china-trade-war, event-taiwan-martial-law]
 counterparts:
   - { id: event-containment-nato, note: "同為冷戰結構的轉折：1947–49 年圍堵與北約把美國綁進對蘇聯的聯盟體系，1970 年代初美國反過來接近蘇聯的競爭對手中國，改以拉攏代替圍堵。", src: [s2] }

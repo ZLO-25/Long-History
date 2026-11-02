@@ -55,6 +55,7 @@
 | `place.scale` | 核心 | `point`｜`line`｜`area` |
 | `routes` | 選填 | 相關路線 id（見 `data/routes/routes.yaml`），地圖以線條呈現 |
 | `structure_tags` | 核心 | 結構標籤，只能用 `docs/structure-tags.md` 詞表內的詞，至少 1 個 |
+| `topics` | 核心 | 主題標籤（跟什麼東西有關，例如 交易所、紙幣、運河），只能用 `data/topics.yaml` 詞表內的名稱，至少 1 個；卡片內文要真的談到這個主題。說明見 `docs/topics.md` |
 | `links` | 選填 | 相關卡片 id；反向連結由 build-index 自動計算 |
 | `frameworks` | 選填 | 熱門分析框架 id（見 `data/frameworks.yaml`），對照頁會自動帶出批評 |
 | `sources[]` | 核心 | 每筆：`id`、`title`、`url`、`accessed`（查閱日期）；第 6 期新增 `tier`（見第 8 節） |

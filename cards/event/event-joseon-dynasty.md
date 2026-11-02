@@ -18,6 +18,7 @@ place:
     - { name_ancient: 漢城（漢陽）, name_modern: 首爾（韓國）, lat: 37.5796, lng: 126.9770, precision: schematic, role: 朝鮮王朝首都（座標為景福宮一帶）, src: [s1] }
   scale: area
 structure_tags: [慢變結構, 宗教／意識形態動員, 外部勢力介入, 制度包裝延續]
+topics: [開港與鎖國, 儒家]
 links: [war-imjin, tech-turtle-ship]
 counterparts: 無適當對照：這是一張朝代概覽卡，跨越五百年，無法和西方軌單一事件對照。
 sources:

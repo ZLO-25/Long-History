@@ -24,6 +24,7 @@ place:
     - { name_ancient: 巴黎, name_modern: 法國巴黎, lat: 48.8566, lng: 2.3522, precision: schematic, role: 1783 年 9 月 3 日簽訂《巴黎和約》（座標為市中心）, src: [s3, s5] }
   scale: area
 structure_tags: [外部勢力介入, 海權對陸權, 補給線過長, 戰爭融資, 貨幣貶值, 債務擴張, 革命與政權更替]
+topics: [紙幣, 國債與公債, 通貨膨脹, 稅收, 革命]
 links: [event-thirteen-colonies, event-declaration-of-independence, event-us-constitution, finance-hamilton-financial-plan, event-westward-expansion, event-french-revolution, finance-amsterdam-decline]
 counterparts: "無適當對照：中國與東亞軌現有的卡中，沒有「殖民地脫離母國、並藉由第三方大國介入而獨立」的事件；硬配辛亥革命（推翻王朝而非脫離宗主國）會誤導，故不硬湊。"
 sources:

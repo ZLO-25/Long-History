@@ -20,6 +20,7 @@ place:
     - { name_ancient: 臺北府城, name_modern: 臺北市（臺灣）, lat: 25.0375, lng: 121.5625, precision: schematic, role: 1875 年設臺北府，建省後劉銘傳新政的中心, src: [s2, s4] }
   scale: area
 structure_tags: [外部勢力介入, 邊疆防線, 霸權挑戰, 基礎建設網絡, 擴大稅基]
+topics: [道路與鐵路, 原住民族, 對外擴張]
 links: [event-qing-taiwan-frontier, commodity-taiwan-tea-camphor, event-self-strengthening, event-meiji-restoration, event-1895-cession]
 counterparts:
   - { id: tech-railway, note: "相似：劉銘傳 1891 年通車的基隆—臺北鐵路，和歐美一樣是「國家把鐵路當成現代化與國防的象徵」。不同：英美鐵路由民間資本與工業需求推動，臺灣這條是官辦，靠清賦增加的稅收硬撐，只有基隆到臺北一小段。", src: [s4, s6] }

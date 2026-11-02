@@ -22,6 +22,7 @@ place:
     - { name_ancient: 皮亞琴察, name_modern: 皮亞琴察（義大利）, lat: 45.0526, lng: 9.6930, precision: schematic, role: "約 1579 年起舉辦匯兌市集之地（年份為估計）", src: [s10] }
   scale: area
 structure_tags: [戰爭融資, 債務擴張, 主權違約, 金融制度創新, 金融中心轉移]
+topics: [匯票與遠距付款, 國債與公債, 金融中心, 白銀]
 links: [finance-antwerp-bourse, war-fall-of-antwerp, commodity-silver-flow, finance-casa-di-san-giorgio, finance-amsterdam-wisselbank, finance-champagne-fairs, finance-venice-rialto]
 counterparts: "無適當對照：中國軌沒有「私人銀行家以承包契約向君主放貸、違約時再協商」的對應卡；同期明朝的一條鞭法雖同樣仰賴白銀，但屬稅制改革而非君主向私人借貸，不硬湊。"
 sources:

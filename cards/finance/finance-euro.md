@@ -20,6 +20,7 @@ place:
     - { name_ancient: 雅典, name_modern: 雅典（希臘）, lat: 37.9838, lng: 23.7275, precision: schematic, role: 歐債危機的起點，2010 年起接受歐盟與 IMF 援助（座標為今市中心）, src: [s3, s4] }
   scale: area
 structure_tags: [貨幣體系轉換, 金融制度創新, 債務擴張, 主權違約, 儲備貨幣地位, 臨界點]
+topics: [國債與公債, 泡沫與金融危機, 中央銀行, 國際貨幣]
 links: [finance-dollar-reserve-currency, finance-bretton-woods, finance-2008-crisis, finance-gold-standard, finance-eurodollar-big-bang, event-end-of-cold-war, finance-weimar-hyperinflation]
 counterparts:
   - id: finance-asian-financial-crisis

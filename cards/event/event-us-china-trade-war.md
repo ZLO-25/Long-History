@@ -22,6 +22,7 @@ place:
     - { name_ancient: 亞利桑那州鳳凰城北部, name_modern: 美國亞利桑那州鳳凰城一帶, lat: 33.7960, lng: -112.1480, precision: schematic, role: 台積電在美國設廠地點（座標為大略位置）, src: [s4] }
   scale: area
 structure_tags: [霸權挑戰, 經濟施壓與制裁, 技術代差, 關鍵原料壟斷, 慢變結構]
+topics: [關稅與貿易戰, 半導體與網路]
 links: [event-reform-and-opening, event-nixon-china, commodity-taiwan-semiconductor, event-hsinchu-park-tsmc, finance-plaza-accord, finance-dollar-reserve-currency, war-peloponnesian]
 frameworks: [thucydides-trap]
 counterparts:

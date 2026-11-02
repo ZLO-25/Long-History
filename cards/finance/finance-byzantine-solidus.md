@@ -19,6 +19,7 @@ place:
     - { name_ancient: 大馬士革, name_modern: 大馬士革（敘利亞）, lat: 33.5138, lng: 36.2765, precision: schematic, role: 倭馬亞哈里發國首都，阿卜杜勒-馬利克推動第納爾金幣改革的政權所在（座標為今市中心）, src: [s4] }
   scale: area
 structure_tags: [儲備貨幣地位, 貨幣貶值, 長期衰退, 慢變結構]
+topics: [鑄幣, 國際貨幣]
 links: [finance-roman-argentarii, finance-abbasid-sakk-hawala, commodity-silk, war-crusades, event-fall-western-rome, finance-venice-rialto]
 counterparts: "無適當對照：中國軌沒有以黃金為本位、跨國通行的國際硬幣；五銖錢是銅錢，主要在帝國內部流通，兩者性質不同，不硬湊。"
 sources:

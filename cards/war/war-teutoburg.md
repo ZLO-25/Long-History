@@ -17,6 +17,7 @@ place:
     - { name_ancient: 卡爾克里澤, name_modern: 下薩克森邦奧斯納布呂克附近（德國）, lat: 52.40637, lng: 8.128578, pleiades_id: "98992", precision: exact, role: 推定的主戰場 }
   scale: area
 structure_tags: [地形險阻, 附庸反叛, 補給線過長, 邊疆防線, 突變事件, 雇傭兵與蠻族化軍隊]
+topics: [游牧民族與邊疆]
 links: [event-augustan-principate, building-hadrians-wall]
 counterparts:
   - { id: war-han-xiongnu, note: "相似：農業帝國與邊疆外沒有城市、可以移動的對手作戰，戰爭決定了帝國的邊界畫在哪裡。不同：羅馬在條頓堡森林失去三個軍團後退守萊茵河；漢朝深入草原打贏多場大戰，但同樣無法佔領草原。", src: [s1, s5] }

@@ -18,6 +18,7 @@ place:
     - { name_ancient: 阿姆斯特丹（市政廳所在的水壩廣場一帶）, name_modern: 阿姆斯特丹（荷蘭）, lat: 52.3732, lng: 4.8914, precision: schematic, role: 銀行所在城市；座標為今水壩廣場一帶，並非銀行建築的精確位置, src: [s1] }
   scale: point
 structure_tags: [金融制度創新, 債務擴張, 長期衰退]
+topics: [銀行與借貸, 匯票與遠距付款]
 links: [finance-amsterdam-exchange, finance-antwerp-bourse, finance-venice-rialto, finance-amsterdam-decline, finance-london-rise, finance-bank-of-england, finance-mississippi-bubble, finance-medici-bank]
 counterparts: "無適當對照：中國軌沒有由城市政府設立、專門處理商人匯票結算的公營銀行；山西票號是 19 世紀的私人匯兌業，性質不同，且本卡所列來源也沒有涵蓋它，不硬湊。"
 sources:

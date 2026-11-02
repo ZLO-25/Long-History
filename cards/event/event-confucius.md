@@ -18,6 +18,7 @@ place:
     - { name_ancient: 魯國陬邑（曲阜）, name_modern: 曲阜（中國山東）, lat: 35.5819, lng: 116.9862, precision: schematic, role: 孔子出生與講學之地（座標為今曲阜市政府）, src: [s1, s3] }
   scale: point
 structure_tags: [宗教／意識形態動員, 思想異見與審判, 慢變結構]
+topics: [儒家, 科舉與教育]
 links: [event-confucian-orthodoxy, event-burning-books, event-guan-zhong-reform]
 counterparts:
   - { id: event-death-of-socrates, note: "相似：一位自己沒有留下著作的老師，在政治上不得志，學說靠弟子記錄流傳，日後成為整個文明的思想基礎。不同：蘇格拉底被雅典民主處死；孔子周遊列國求官未果，晚年回鄉教書而終，學說在三百多年後被漢朝定為官學。", src: [s1, s2] }

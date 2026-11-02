@@ -19,6 +19,7 @@ place:
     - { name_ancient: 漢口, name_modern: 武漢漢口（中國湖北）, lat: 30.5800, lng: 114.2700, precision: schematic, role: 票號重要分號據點，1881 年有 33 家、1912 年剩 5 家（座標為今漢口市區）, src: [s1, s2] }
   scale: area
 structure_tags: [金融制度創新, 技術代差, 長期衰退]
+topics: [銀行與借貸, 匯票與遠距付款]
 links: [finance-jiaozi, event-xinhai-revolution, tech-telegraph, tech-railway]
 counterparts:
   - { id: finance-medici-bank, note: "相似：都用「總號＋各地分號」的網路與匯票，讓商人不必長途運送現金；也都和掌權者綁得很緊。不同：梅迪奇做歐洲各國之間的跨幣種匯兌，靠山是教廷與佛羅倫斯政權；票號在同一個清帝國內匯兌，後期替清廷調度稅款與軍費。兩者都在靠山垮台時跟著沒落。", src: [s1, s5] }

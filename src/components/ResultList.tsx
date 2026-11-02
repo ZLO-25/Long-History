@@ -42,8 +42,9 @@ export function ResultList({ query, result, hits, cards, year, onOpen, topics, o
             <span className="r-name">{h.card.name}</span>
             <span className="r-time">{fmtRange(h.card.time.start, h.card.time.end)}</span>
             <span className="r-hl">
-              {h.highlights.map((x, i) => (
-                <span key={i} className="hl">{x.field}{x.via && `（${x.via}）`}：<Mark value={x.value} ranges={x.via ? undefined : x.ranges} /></span>
+              {/* 同一個欄位命中好幾個值（例：三個別名）併成一行，手機上才不會「別名：…別名：…」疊三行 */}
+              {Object.entries(h.highlights.reduce<Record<string, typeof h.highlights>>((m, x) => { const k = x.field + (x.via ? `（${x.via}）` : ''); (m[k] ??= []).push(x); return m; }, {})).map(([k, xs]) => (
+                <span key={k} className="hl">{k}：{xs.slice(0, 3).map((x, i) => <span key={i}>{i > 0 && '、'}<Mark value={x.value} ranges={x.via ? undefined : x.ranges} /></span>)}{xs.length > 3 && `…等 ${xs.length} 個`}</span>
               ))}
             </span>
           </button>

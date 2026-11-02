@@ -26,7 +26,6 @@ causes:
   - { id: event-crisis-third-century, rel: 背景, why: "三世紀危機時哥德人就曾越過多瑙河侵擾帝國，克勞狄二世在納伊蘇斯擊敗他們；此後羅馬與哥德人在多瑙河邊境時戰時和。", src: ["event-crisis-third-century:s1", s2] }
 effects:
   - { id: event-fall-western-rome, rel: 促成, why: "被匈人逼迫的哥德人大批進入帝國，羅馬無法驅逐也無法收服，皇帝戰死、東方野戰軍大半覆滅。", src: [s1, s2, "event-fall-western-rome:s1"] }
-  - { id: event-christian-empire, rel: 背景, why: "瓦倫斯戰死後狄奧多西一世繼位，他後來在 380 年頒布敕令，把尼西亞派基督教定為國教。", src: [s2, "event-christian-empire:s2"] }
 counterparts:
   - { id: war-feishui, note: "相似：幾乎同時（378 與 383 年），歐亞兩端都有一場決定性會戰，牽涉北方民族大規模南下與帝國的命運。不同：阿德里安堡是羅馬皇帝戰死、外族留在境內；淝水之戰則是南方的東晉擊退北方前秦。", src: [s1] }
 sources:

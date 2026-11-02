@@ -3,41 +3,19 @@
 #       畫面上兩站中間的說明就是那條關係的 why 與來源，所以這裡不寫新史實。
 #       question 是開場的大問題；blurb 只說「這條線怎麼讀」，不放史實細節。
 storylines:
-  - id: story-qin-han
-    title: 從三家分晉到漢朝：中國第一次大一統是怎麼來的？
-    question: 戰國七個國家打了兩百多年，為什麼最後贏的是秦？秦統一後又為什麼只撐了十五年，就換成了漢？
-    blurb: 這條線看一個國家怎麼靠改革變強、靠戰爭統一，又怎麼因為統治太急而倒下；接手的漢朝則學到了教訓。
-    stops: [event-partition-of-jin, event-shang-yang-reform, war-changping, event-qin-unification, event-chen-sheng-wu-guang, war-chu-han, event-han-inherits-qin]
-
-  - id: story-greece
-    title: 錢幣、銀礦與雅典：一座城邦的興衰
-    question: 一座銀礦的收入，怎麼幫雅典打贏波斯、變成霸主，最後又為什麼走到審判蘇格拉底？
-    blurb: 這條線從「錢」開始，看財富怎麼變成海軍、變成霸權，最後在戰爭裡把城邦拖垮。
-    stops: [finance-lydian-coinage, commodity-laurion-silver, war-greco-persian, war-peloponnesian, event-death-of-socrates]
-
-  - id: story-silver
-    title: 白銀怎麼把世界串起來
-    question: 明朝的紙鈔失敗了，為什麼最後全中國改用白銀繳稅？這些白銀又是從哪裡來的？
-    blurb: 這條線橫跨中國、日本和美洲：一個國家的貨幣問題，牽動了地球另一邊的礦山和航線。
-    stops: [finance-ming-baochao, commodity-iwami-silver, commodity-silver-flow, event-single-whip-reform]
-
   - id: story-taiwan-400
     title: 臺灣：一座島怎麼一次次換了統治者
     question: 從 1624 年到 1920 年代，臺灣先後由荷蘭（北部還有西班牙）、鄭氏、清朝、日本統治。每一次換手，是上一次留下了什麼？
     blurb: 這條線看臺灣怎麼被捲進大航海、改朝換代和帝國擴張；每一站都是上一站的結果。
     stops: [event-dutch-formosa, event-koxinga-taiwan, event-qing-taiwan-frontier, event-mudan-incident, event-1895-cession, event-taiwan-cultural-association]
 
-  - id: story-japan
-    title: 日本從鎖國到戰爭
-    question: 一個關起門兩百年的國家，怎麼在幾十年內變成列強，最後發動戰爭、要臺灣人改成日本名字？
-    blurb: 這條線看日本怎麼回應外來壓力：先關門，再被迫開門，然後學西方、向外擴張。
-    stops: [event-toyotomi-unification, event-sakoku, event-black-ships, event-meiji-restoration, war-sino-japanese-1937, event-taiwan-kominka]
 
   - id: story-postwar-taiwan
-    title: 戰後臺灣：從物價飛漲到戒嚴
-    question: 1945 年戰爭結束，臺灣人本來期待新時代，為什麼短短幾年就走到二二八和長達 38 年的戒嚴？
-    blurb: 這條線從錢開始：大陸的通膨傳到臺灣，經濟的苦變成政治的衝突，再變成長期的管制。
-    stops: [finance-gold-yuan-1948, finance-taiwan-1949-currency, event-228-incident, event-taiwan-martial-law]
+    title: 戰後臺灣：從物價飛漲到戒嚴，再到政黨輪替
+    question: 1945 年戰爭結束，臺灣人本來期待新時代，為什麼短短幾年就走到二二八和長達 38 年的戒嚴？這個戒嚴體制後來又是怎麼走到 2000 年的政黨輪替？
+    blurb: 這條線從錢開始：大陸的內戰與通膨傳到臺灣，經濟的苦變成政治的衝突，再變成長期的管制；最後看管制怎麼鬆開。
+    stops: [war-chinese-civil-war, finance-gold-yuan-1948, finance-taiwan-1949-currency, event-228-incident, event-taiwan-martial-law, event-taiwan-2000-transition]
+
 
   - id: story-chip
     title: 晶片島是怎麼長出來的
@@ -45,11 +23,62 @@ storylines:
     blurb: 這條線看一連串的產業政策怎麼一步接一步：先做加工，再建園區，最後長出半導體。
     stops: [event-kaohsiung-epz, event-hsinchu-park-tsmc, commodity-taiwan-semiconductor, event-us-china-trade-war]
 
-  - id: story-america
-    title: 從《大憲章》到「美國世紀」
-    question: 一份八百年前英國國王簽下的文件，和今天美國成為超級強權，中間是怎麼一步步接起來的？
-    blurb: 這條線跨越英國和美國：「國王也要守法」的想法，怎麼變成殖民地的自治、獨立、憲法，再經過內戰與工業化走上世界舞台。
-    stops: [event-magna-carta, event-thirteen-colonies, war-american-revolution, event-us-constitution, war-american-civil-war, event-gilded-age-industrialization, war-spanish-american, event-american-century]
+
+  - id: story-qin-han
+    title: 從三家分晉到漢朝：中國第一次大一統是怎麼來的？
+    question: 戰國七個國家打了兩百多年，為什麼最後贏的是秦？秦統一後又為什麼只撐了十五年，就換成了漢？
+    blurb: 這條線看一個國家怎麼靠改革變強、靠戰爭統一，又怎麼因為統治太急而倒下；接手的漢朝則學到了教訓。
+    stops: [event-partition-of-jin, event-shang-yang-reform, war-changping, event-qin-unification, event-chen-sheng-wu-guang, war-chu-han, event-han-inherits-qin]
+
+
+  - id: story-han-to-sui
+    title: 從黨錮到大運河：中國怎麼分裂了三百多年，又怎麼重新統一？
+    question: 東漢末年皇帝身邊的宦官和讀書人吵起來，怎麼會一路吵到天下分成三國、南北對峙近三百年？最後把中國重新接起來的，又是什麼？
+    blurb: 這條線看一個朝廷怎麼先失去士人、再失去地方，分裂之後南方被開發起來；重新統一的隋朝則用一條運河把南北綁在一起。
+    stops: [event-eunuchs-partisan, event-yellow-turban, event-three-kingdoms, event-northern-southern, event-sui-unification, building-grand-canal, event-economic-center-south]
+
+
+  - id: story-silver
+    title: 白銀怎麼把世界串起來
+    question: 明朝的紙鈔失敗了，為什麼最後全中國改用白銀繳稅？這些白銀又是從哪裡來的？
+    blurb: 這條線橫跨中國、日本和美洲：一個國家的貨幣問題，牽動了地球另一邊的礦山和航線。
+    stops: [finance-ming-baochao, commodity-iwami-silver, commodity-silver-flow, event-single-whip-reform]
+
+
+  - id: story-western-impact
+    title: 西力東漸：從蒸汽機到辛亥革命
+    question: 英國的一台抽水機器，怎麼會在一百多年後讓清朝打了敗仗？戰敗之後，中國為什麼先學技術、再改制度，最後連皇帝都沒了？
+    blurb: 這條線從工業革命的技術走到中國的政治變革：看外來的衝擊怎麼一層層往裡推，從武器、工廠到政治制度。
+    stops: [tech-steam-engine, war-opium-war, event-self-strengthening, war-first-sino-japanese, event-xinhai-revolution]
+
+
+  - id: story-japan
+    title: 日本從鎖國到戰爭
+    question: 一個關起門兩百年的國家，怎麼在幾十年內變成列強，最後發動戰爭、要臺灣人改成日本名字？
+    blurb: 這條線看日本怎麼回應外來壓力：先關門，再被迫開門，然後學西方、向外擴張；每打贏一場仗，就往下一場仗走近一步。
+    stops: [event-toyotomi-unification, event-sakoku, event-black-ships, event-meiji-restoration, war-first-sino-japanese, war-russo-japanese, war-mukden-incident, war-sino-japanese-1937, event-taiwan-kominka]
+
+
+  - id: story-greece
+    title: 錢幣、銀礦與雅典：一座城邦的興衰
+    question: 一座銀礦的收入，怎麼幫雅典打贏波斯、變成霸主，最後又為什麼走到審判蘇格拉底？
+    blurb: 這條線從「錢」開始，看財富怎麼變成海軍、變成霸權，最後在戰爭裡把城邦拖垮。
+    stops: [finance-lydian-coinage, commodity-laurion-silver, war-greco-persian, war-peloponnesian, event-death-of-socrates]
+
+
+  - id: story-rome-empire
+    title: 從凱撒渡河到羅馬和平：共和怎麼變成帝國
+    question: 羅馬人趕走國王、建立共和四百多年，為什麼最後還是出現了一個人說了算的皇帝？軍隊、內戰和「和平」之間有什麼關係？
+    blurb: 這條線看共和怎麼一步步被手握軍隊的強人掏空：每一次內戰都把權力集中到更少的人手上，最後剩下一個人。
+    stops: [event-rubicon, event-second-triumvirate, war-actium, event-augustan-principate, event-pax-romana]
+
+
+  - id: story-print-to-war
+    title: 從一張紙到三十年戰爭：印刷術怎麼把歐洲撕成兩半
+    question: 中國發明的造紙術傳到歐洲之後，怎麼會在幾百年後讓一個修士的文章傳遍德意志，最後引發一場死了幾百萬人的戰爭？
+    blurb: 這條線看一項技術怎麼改變「誰能說話、誰聽得到」：訊息傳得快，爭論就停不下來；教會的回應又把對立推向戰場。
+    stops: [tech-paper, tech-printing-press, event-reformation, event-counter-reformation, war-thirty-years]
+
 
   - id: story-finance-center
     title: 世界金融中心怎麼從阿姆斯特丹搬到紐約
@@ -57,11 +86,13 @@ storylines:
     blurb: 這條線看戰爭、制度和貨幣規則怎麼讓「錢的中心」一再搬家，一直到今天美元的地位。
     stops: [finance-amsterdam-decline, finance-london-rise, finance-gold-standard, finance-new-york-overtakes-london, finance-bretton-woods, finance-petrodollar]
 
-  - id: story-western-impact
-    title: 西力東漸：從蒸汽機到辛亥革命
-    question: 英國的一台抽水機器，怎麼會在一百多年後讓清朝打了敗仗？戰敗之後，中國為什麼先學技術、再改制度，最後連皇帝都沒了？
-    blurb: 這條線從工業革命的技術走到中國的政治變革：看外來的衝擊怎麼一層層往裡推，從武器、工廠到政治制度。
-    stops: [tech-steam-engine, war-opium-war, event-self-strengthening, event-xinhai-revolution]
+
+  - id: story-america
+    title: 從《大憲章》到「美國世紀」
+    question: 一份八百年前英國國王簽下的文件，和今天美國成為超級強權，中間是怎麼一步步接起來的？
+    blurb: 這條線跨越英國和美國：「國王也要守法」的想法，怎麼變成殖民地的自治、獨立、憲法，再經過內戰與工業化走上世界舞台。
+    stops: [event-magna-carta, event-thirteen-colonies, war-american-revolution, event-us-constitution, war-american-civil-war, event-gilded-age-industrialization, war-spanish-american, event-american-century]
+
 
   - id: story-cold-war
     title: 冷戰在亞洲：從二戰結束到尼克森訪華

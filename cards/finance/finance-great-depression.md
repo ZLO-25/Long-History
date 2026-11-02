@@ -21,7 +21,7 @@ structure_tags: [投機泡沫與崩盤, 債務擴張, 臨界點, 公共工程支
 topics: [銀行與借貸, 交易所, 股票與公司, 泡沫與金融危機, 中央銀行, 關稅與貿易戰]
 links: [finance-nyse, finance-bretton-woods, finance-2008-crisis, war-world-war-two]
 causes:
-  - { id: finance-federal-reserve, rel: 促成, why: 聯準會 1929 年升息想壓投機，金本位下各國被迫跟進；之後又沒擋住銀行擠兌，貨幣大減，衰退變成大蕭條。, src: [s3, s4] }
+  - { id: finance-federal-reserve, rel: 促成, why: 聯準會 1929 年升息想壓投機，金本位下各國被迫跟進；貨幣學派認為它之後又沒擋住銀行擠兌、讓貨幣大減，衰退才變成大蕭條，但需求面學派看法不同。, src: [s3, s4, s2], disputed: true }
 effects:
   - { id: event-new-deal, rel: 回應, why: 為了止住銀行倒閉，羅斯福推出銀行法、存款保險公司和證券交易委員會，替金融立下新規則。, src: [s2, s4, s5] }
   - { id: war-world-war-two, rel: 背景, why: 大蕭條讓德國失業暴增、許多人對民主失去信心，納粹上台後靠軍備支出消化失業；日本經濟重創，軍部激進派趁機推動對外擴張。史家對經濟危機有多重要仍有爭論。, src: [s14, war-world-war-two:s8], disputed: true }

@@ -25,7 +25,7 @@ structure_tags: [疫病衝擊, 突變事件, 臨界點]
 topics: [疫病, 海上貿易]
 links: [war-crusades, finance-medici-bank, commodity-silk]
 effects:
-  - { id: event-peasants-revolt-1381, rel: 回應, why: "人口大減使勞工稀少、工資上漲，英格蘭立法把工資壓回疫情前水準並強迫人工作，但擋不住漲勢。", src: [s3, s2] }
+  - { id: event-peasants-revolt-1381, rel: 促成, why: "人口大減使勞工稀少、工資上漲，英格蘭卻立法把工資壓回疫情前水準並強迫人工作，農民的不滿累積到 1381 年爆發。", src: [s3, s2] }
   - { id: event-reformation, rel: 背景, why: "黑死病時教會無力減輕人們的苦難，威信下降，讓後來批評教會的聲音更容易得到支持。", src: [event-reformation:s2] }
 counterparts: "無適當對照：計畫卡中沒有中國的疫病卡；且 14 世紀中國是否也爆發同一波鼠疫，史料證據薄弱（World History Encyclopedia），不宜硬配。"
 sources:

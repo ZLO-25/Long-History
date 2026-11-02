@@ -26,7 +26,7 @@ links: [tech-steam-engine, tech-internal-combustion, tech-internet]
 causes:
   - { id: tech-steam-engine, rel: 背景, why: 發電廠用蒸汽機或水力轉動發電機，再用電線把電送到各家各戶，蒸汽動力是早期電網的心臟。, src: [s6, s8] }
 effects:
-  - { id: event-new-deal, rel: 回應, why: 電網先接有利可圖的城市，1934 年只有約一成農場有電，政府只好在 1935 年成立專責機構替鄉村通電。, src: [s7] }
+  - { id: event-new-deal, rel: 背景, why: 電網先接有利可圖的城市，1934 年只有約一成農場有電，政府只好在 1935 年成立專責機構替鄉村通電。, src: [s7] }
 counterparts: "無適當對照：計畫中的中國軌卡沒有能源或動力網絡的題材；都江堰、大運河雖然是網絡化工程，但輸送的是水與糧食，不提供動力，結構不同。"
 sources:
   - { id: s1, title: "Pearl Street Station — Wikipedia", url: "https://en.wikipedia.org/wiki/Pearl_Street_Station", accessed: 2026-10-25 }

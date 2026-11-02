@@ -24,7 +24,7 @@ links: [event-228-incident, event-taiwan-martial-law, event-taiwan-kominka, even
 causes:
   - { id: event-228-incident, rel: 回應, why: 二二八的鎮壓在戒嚴下成為禁忌，解嚴前後民間要求說出真相，促成官方研究報告、總統道歉與補償條例。, src: [s1, event-228-incident:s4] }
   - { id: event-taiwan-martial-law, rel: 回應, why: 為了處理白色恐怖留下的傷害，2017 年通過條例，開放政治檔案、撤銷威權時期的有罪判決。, src: [s2, s3] }
-  - { id: event-taiwan-kominka, rel: 促成, why: 約二十萬臺灣人被動員當日本軍人軍屬、三萬人戰死，戰後日本只發少量弔慰金，欠薪問題成為長期爭議。, src: [s5] }
+  - { id: event-taiwan-kominka, rel: 背景, why: 約二十萬臺灣人被動員當日本軍人軍屬、三萬人戰死，戰後日本只發少量弔慰金，欠薪問題成為長期爭議。, src: [s5] }
 counterparts: "無適當對照：現有西方軌卡片沒有「民主化後用立法、檔案開放與撤銷判決處理前一個威權政權侵害人權」的事件卡；冷戰結束與蘇聯解體卡談的是政權崩潰而非轉型正義工程，不硬湊。"
 sources:
   - { id: s1, title: "二二八平反運動紀要 — 財團法人二二八事件紀念基金會", url: "https://www.228.org.tw/228incident-summary", accessed: 2026-11-02, tier: 通論 }

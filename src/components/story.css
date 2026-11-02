@@ -100,3 +100,7 @@
   .cause-list { padding: 6px 10px 4px; }
 }
 .home-stories { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; margin: 6px 0 12px; }
+/* 前因裡開始得比本卡晚的事：不是起因，而是後來的轉折／結束，分開列並用小標題說明 */
+.cause-list .ce-turn { margin: 8px 0 2px; padding-top: 6px; border-top: 2px solid var(--story-line); font-size: .9em; color: var(--story); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.cause-list .ce-turn small { font-weight: 400; color: var(--muted); font-size: .88em; }
+.cause-list .ce-turn + ul li:first-child { border-top: 0; }

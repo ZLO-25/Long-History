@@ -1,5 +1,5 @@
 // 可縮放的非線性時間軸（D3 zoom）：上方西方軌、中間中國軌（兩軌等高並列）、下方技術軌與金融軌；滑鼠移到卡上會連線到另一軌的對照卡；拖動紅線改變年代
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { startTransition, useEffect, useMemo, useRef, useState } from 'react';
 import { select } from 'd3-selection';
 import { zoom as d3zoom, zoomIdentity, type ZoomTransform } from 'd3-zoom';
 import type { Card, Econ } from '../types';
@@ -141,18 +141,37 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
     dragging.current = true;
     (e.target as Element).setPointerCapture(e.pointerId);
   };
+  // 拖紅線：pointermove 一秒可達上百次，每次都 setYear 會讓地圖（疆域快照、標記）和清單跟著重算，拖起來一格一格卡。
+  // 改成：每一影格最多更新一次；紅線用自己的 dragYear 立刻跟手，App 的 year 用 transition（低優先）更新，地圖慢一點沒關係。
+  const raf = useRef<number | null>(null);
+  const pendingX = useRef(0);
+  const [dragYear, setDragYear] = useState<number | null>(null);
+  const shownYear = dragYear ?? year;
   const onMove = (e: React.PointerEvent) => {
     if (!dragging.current) return;
-    const r = svgRef.current!.getBoundingClientRect();
-    setYear(Math.max(MIN_YEAR, Math.min(MAX_YEAR, yearAt(e.clientX - r.left))));
+    pendingX.current = e.clientX;
+    if (raf.current != null) return;
+    raf.current = requestAnimationFrame(() => {
+      raf.current = null;
+      if (!svgRef.current || !dragging.current) return;
+      const r = svgRef.current.getBoundingClientRect();
+      const y = Math.max(MIN_YEAR, Math.min(MAX_YEAR, yearAt(pendingX.current - r.left)));
+      setDragYear(y);
+      startTransition(() => setYear(y));
+    });
   };
-  const endDrag = () => { dragging.current = false; };
+  const endDrag = () => {
+    if (!dragging.current) return;
+    dragging.current = false;
+    // 放開時把最後的年份交給 App，並在同一個 transition 裡收掉 dragYear，紅線才不會先跳回舊年份再跳回來
+    startTransition(() => { setDragYear((d) => { if (d != null) setYear(d); return null; }); });
+  };
   const clickAxis = (e: React.MouseEvent) => {
     const r = svgRef.current!.getBoundingClientRect();
     setYear(Math.max(MIN_YEAR, Math.min(MAX_YEAR, yearAt(e.clientX - r.left))));
   };
 
-  const cx = x(year);
+  const cx = x(shownYear);
   // 畫面左右兩端是哪一年（給「正在看」那行字用）
   const viewA = Math.round(base.invert(t.invertX(0))), viewB = Math.round(base.invert(t.invertX(width - 50)));
   // 紅線在畫面外時，年份標籤貼在邊緣並加箭頭，提醒「目前年代在左邊／右邊」
@@ -162,7 +181,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
   return (
     <div className="timeline" ref={wrap}>
       <div className="tl-head">
-        <span className="tl-year" title="地圖與清單顯示的年代（紅線）">紅線：{fmtYear(year)} 年・{eraOf(year)}</span>
+        <span className="tl-year" title="地圖與清單顯示的年代（紅線）">紅線：{fmtYear(shownYear)} 年・{eraOf(shownYear)}</span>
         <EraBar active={eraSel} range={[viewA, viewB]} onAll={() => (svgRef.current as any)?.__zoom_reset?.()} onEra={goEra} />
         <span className="tl-hint" title="滾輪縮放、拖曳平移；拖動紅線或點刻度列改變年代">ⓘ 怎麼操作</span>
         {econ && <span className="econ-toggle">經濟曲線：
@@ -252,7 +271,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
           onPointerDown={curOff ? undefined : startDrag} onClick={curOff ? () => { const a = Math.max(MIN_YEAR, year - 50), b = Math.min(MAX_YEAR, year + 50); (svgRef.current as any)?.__zoom_to?.(a, b); setEraSel(null); } : undefined}>
           {curOff && <title>目前年代不在畫面上，點一下移過去</title>}
           <rect x={-28} y={AXIS_H - 2} width={56} height={16} rx={8} className="cursor-badge" />
-          <text y={AXIS_H + 10} textAnchor="middle">{curOff === 'left' ? '◀ ' : ''}{fmtYear(year)}{curOff === 'right' ? ' ▶' : ''}</text>
+          <text y={AXIS_H + 10} textAnchor="middle">{curOff === 'left' ? '◀ ' : ''}{fmtYear(shownYear)}{curOff === 'right' ? ' ▶' : ''}</text>
         </g>
       </svg>
       {m && <div className="econ-legend">

@@ -59,21 +59,31 @@ export function CauseList({ card, side, index, onOpen, canOpen, researchHref, co
   const time = (x: CauseLink) => (x.id ? byIdOf(index).get(x.id)?.time.start ?? 9999 : 9999);
   const sorted = [...list].sort((a, b) => Number(!a.id) - Number(!b.id) || time(a) - time(b));
   const isCause = side === 'causes';
+  // 一張卡常常是一段持續很久的事（例：漢薩同盟 1250–1669）。「前因」裡開始得比本卡晚的事，不是讓它發生的原因，
+  // 而是在它進行中改變它、或讓它結束的事（例：三十年戰爭 → 漢薩同盟瓦解）；標題若一律寫「這些事造成了本卡」會誤導，所以分開列。
+  // 「後果」那邊則相反：開始得比本卡早的卡，是本卡改變或結束的事。
+  const later = (x: CauseLink) => x.id ? (isCause ? time(x) > card.time.start : time(x) < card.time.start) : false;
+  const main = sorted.filter((x) => !later(x)), turn = sorted.filter(later);
+  const item = (x: CauseLink, i: number) => (
+    <li key={i}>
+      <div className="ce-line">
+        {isCause ? <><CardRef id={x.id} name={x.name} index={index} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} /><span className="ce-rel"><RelChip rel={x.rel} /><span className="ce-arrow" aria-hidden>→ 本卡</span></span></>
+          : <><span className="ce-rel"><span className="ce-arrow" aria-hidden>本卡 →</span><RelChip rel={x.rel} /></span><CardRef id={x.id} name={x.name} index={index} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} /></>}
+        {x.disputed && <span className="badge dispute" title="史家對這個因果看法不一">史家看法不一</span>}
+      </div>
+      <p className="ce-why">{x.why}<Sources list={x.sources} /></p>
+    </li>
+  );
   return (
     <section className={`cause-list ${side} ${compact ? 'compact' : ''}`} aria-label={isCause ? '從哪裡來' : '往哪裡去'}>
-      <h3>{isCause ? '← 從哪裡來' : '往哪裡去 →'}<small>{isCause ? '這些事造成了「' + card.name + '」' : '「' + card.name + '」接著造成了這些事'}</small></h3>
-      <ul>
-        {sorted.map((x, i) => (
-          <li key={i}>
-            <div className="ce-line">
-              {isCause ? <><CardRef id={x.id} name={x.name} index={index} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} /><span className="ce-rel"><RelChip rel={x.rel} /><span className="ce-arrow" aria-hidden>→ 本卡</span></span></>
-                : <><span className="ce-rel"><span className="ce-arrow" aria-hidden>本卡 →</span><RelChip rel={x.rel} /></span><CardRef id={x.id} name={x.name} index={index} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} /></>}
-              {x.disputed && <span className="badge dispute" title="史家對這個因果看法不一">史家看法不一</span>}
-            </div>
-            <p className="ce-why">{x.why}<Sources list={x.sources} /></p>
-          </li>
-        ))}
-      </ul>
+      <h3>{isCause ? '← 從哪裡來' : '往哪裡去 →'}<small>{main.length ? (isCause ? '這些事造成了「' + card.name + '」' : '「' + card.name + '」接著造成了這些事') : (isCause ? '起因還沒有寫成卡片' : '「' + card.name + '」改變了更早開始的事')}</small></h3>
+      {main.length > 0 && <ul>{main.map(item)}</ul>}
+      {turn.length > 0 && (
+        <>
+          <h4 className="ce-turn">{isCause ? '後來的轉折' : '改變了這些早已存在的事'}<small>{isCause ? '這些事發生在「' + card.name + '」開始之後，改變了它的走向或讓它結束' : '這些事比「' + card.name + '」更早開始，被它改變了走向或結束'}</small></h4>
+          <ul>{turn.map(item)}</ul>
+        </>
+      )}
       <details className="ce-help small"><summary>四種關係是什麼意思？</summary>
         <ul>{(Object.keys(REL_HELP) as CauseRel[]).map((r) => <li key={r}><RelChip rel={r} /> {REL_HELP[r]}</li>)}</ul>
         <p className="muted">由強到弱：直接引發 ＞ 促成 ＞ 背景；「回應」是對前一件事的反應。一件大事通常不只一個原因，這裡只列最重要的幾個。</p>

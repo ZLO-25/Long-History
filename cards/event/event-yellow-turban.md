@@ -21,7 +21,7 @@ structure_tags: [宗教／意識形態動員, 合法性危機, 財政枯竭, 附
 topics: [民變與抗爭, 宗教, 疫病]
 links: [war-red-cliffs, event-wang-mang-reform]
 causes:
-  - { id: event-eunuchs-partisan, rel: 促成, why: 靈帝倚賴宦官，賣官貪腐盛行，朝廷失去民心。, src: [s1, s2] }
+  - { id: event-eunuchs-partisan, rel: 促成, why: 靈帝倚賴宦官、公開賣官，貪官加重對百姓的剝削，朝廷失去民心，為黃巾起事提供了土壤。, src: [s1, s2] }
 effects:
   - { id: war-red-cliffs, rel: 背景, why: 為了平亂，地方將領取得更大兵權並逐漸不再效忠漢朝，曹操等人趁勢崛起，形成群雄割據。, src: [s1, s2] }
   - { id: event-three-kingdoms, rel: 促成, why: 黃巾之亂讓朝廷失去對地方軍隊的控制，史家視為東漢衰亡的關鍵一步，但不是唯一原因。, src: [s2] }

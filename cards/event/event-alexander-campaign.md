@@ -30,7 +30,7 @@ links: [war-greco-persian, building-acropolis]
 causes:
   - { id: event-macedon-rise, rel: 直接引發, why: 腓力二世遇刺後亞歷山大繼位，接下率領希臘各邦的科林斯同盟，鎮壓希臘的反叛後，就帶兵渡海進攻波斯。, src: [s1] }
 effects:
-  - { id: event-hellenistic-kingdoms, rel: 直接引發, why: 亞歷山大死時沒有穩定的繼承安排，部將爭奪帝國打了約 40 年，最後分成幾個希臘化王國。, src: [s1, s2] }
+  - { id: event-hellenistic-kingdoms, rel: 直接引發, why: 亞歷山大死時沒有穩定的繼承安排，部將爭奪帝國打了幾十年，最後分成幾個希臘化王國。, src: [s1, s2] }
   - { id: event-maurya-empire, rel: 促成, why: 東征在印度西北設下希臘人的總督，亞歷山大死後，旃陀羅笈多推翻這些總督，建立了孔雀王朝。, src: [s1] }
 counterparts:
   - { id: event-qin-unification, note: "相似：十年左右的連續征戰，把多個國家併成一個大帝國。不同：亞歷山大死後帝國被部將瓜分；秦朝本身只存在 15 年，但制度被漢朝接收延續。", src: [s1, s6] }

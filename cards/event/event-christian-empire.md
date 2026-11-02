@@ -25,7 +25,6 @@ topics: [宗教, 言論與思想管制, 法律與憲法]
 links: [event-constitutio-antoniniana, war-adrianople, event-fall-western-rome, finance-byzantine-solidus, event-confucian-orthodoxy, event-charlemagne-coronation]
 causes:
   - { id: event-constitutio-antoniniana, rel: 背景, why: "有學者認為 212 年全民成為公民後，帝國變成一個整體的「世界」，也為後來強制統一宗教鋪路。", src: ["event-constitutio-antoniniana:s1"], disputed: true }
-  - { id: war-adrianople, rel: 背景, why: "瓦倫斯在阿德里安堡戰死，狄奧多西一世因此繼位；正是他在 380 年把尼西亞派基督教定為國教。", src: ["war-adrianople:s2", s2] }
 effects:
   - { id: event-fall-western-rome, rel: 背景, why: "西羅馬衰亡的常見解釋裡，宗教變遷是其中一種：帝國改信基督教被一些學者列為原因之一，但這種看法爭議很大。", src: ["event-fall-western-rome:s1"], disputed: true }
 counterparts:

@@ -24,7 +24,6 @@ topics: [對外擴張, 軍事同盟, 法律與憲法, 國債與公債]
 links: [event-french-revolution, finance-london-rise, event-latin-american-independence, event-haitian-revolution, event-holy-roman-empire]
 causes:
   - { id: event-french-revolution, rel: 直接引發, why: 革命後的法國在 1792 年對奧宣戰，戰爭不斷又讓軍人拿破崙在 1799 年政變掌權、1804 年稱帝。, src: [s1, s2, event-french-revolution:s1] }
-  - { id: event-enlightenment, rel: 背景, why: 拿破崙的民法典延續受啟蒙影響的 1789 年《人權宣言》精神，把法律之前人人平等、世俗化寫成法條；史家傅勒說它是開明專制與 1789 理念的折衷。, src: [s3, event-enlightenment:s3] }
 effects:
   - { id: finance-london-rise, rel: 促成, why: 英法打了二十多年仗，英國靠借款、補助盟友與新開徵的所得稅撐住，國債與金融市場在戰爭中被迫擴大。, src: [s1, finance-london-rise:s2] }
   - { id: event-latin-american-independence, rel: 促成, why: 拿破崙 1808 年把西班牙國王換成自己的哥哥，西屬美洲失去合法的統治者，各地成立自治政府，最後走向獨立。, src: [s1, event-latin-american-independence:s1] }

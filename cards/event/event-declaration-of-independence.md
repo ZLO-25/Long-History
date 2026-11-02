@@ -26,7 +26,6 @@ causes:
 effects:
   - { id: event-us-constitution, rel: 背景, why: 宣言提出政府權力來自人民同意等原則，1787 年的憲法再把這些原則變成具體的政府架構。, src: [s1] }
   - { id: event-french-revolution, rel: 背景, why: 宣言的權利語言常被其他國家參考，1789 年法國的權利宣言也被認為是其中之一。, src: [s1] }
-  - { id: war-american-civil-war, rel: 背景, why: 「人人生而平等」成了後人要求兌現的標準，林肯在蓋茨堡演說中援引它，讓南北戰爭多了一層道德意義。, src: [s9] }
 counterparts: "無適當對照：中國軌沒有一份以「天賦權利」與「被統治者同意」為論述、並用書面宣告脫離宗主的事件；辛亥革命雖推翻皇帝、建立共和，但論述與背景不同，不硬湊。"
 sources:
   - { id: s1, title: "United States Declaration of Independence — Wikipedia", url: "https://en.wikipedia.org/wiki/United_States_Declaration_of_Independence", accessed: 2026-10-31, tier: 百科 }

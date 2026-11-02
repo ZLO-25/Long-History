@@ -22,6 +22,14 @@ place:
 structure_tags: [憲政分權, 慢變結構, 戰爭融資, 合法性危機]
 topics: [民主與參政, 殖民統治, 移民與移墾, 原住民族, 奴隸制, 公民身分]
 links: [event-declaration-of-independence, war-american-revolution, event-us-constitution, event-magna-carta, event-westward-expansion, event-american-founding-philosophy]
+causes:
+  - { name: "維吉尼亞公司獲得特許（1606）", rel: 直接引發, why: "英王詹姆斯一世特許維吉尼亞公司到北美建立殖民地以追求商業利益，1607年在詹姆斯鎮建立第一個長久殖民地。", src: [s2] }
+  - { name: "英格蘭清教徒受宗教壓迫（17 世紀初）", rel: 促成, why: "在英格蘭受宗教壓迫的清教徒想找新的生活空間，搭五月花號等船移居北美，建立新的殖民地。", src: [s1, s4] }
+  - { id: event-magna-carta, rel: 背景, why: "大憲章「國王不能隨意加稅、要依法審判」的觀念，經17世紀法學家柯克發揚，影響了北美殖民者看待自身權利的方式。", src: [event-magna-carta:s1] }
+effects:
+  - { id: war-american-revolution, rel: 促成, why: "七年戰爭後英國要殖民地分擔戰費、加稅加管制，習慣自治的殖民地認為沒有代表就不該被課稅，衝突最後升高成獨立戰爭。", src: [s1, s8, war-american-revolution:s1] }
+  - { id: event-us-constitution, rel: 背景, why: "殖民地時期累積的議會與地方自治經驗，成為獨立後建立州政府與聯邦制度的基礎。", src: [s1, s5] }
+  - { id: war-american-civil-war, rel: 背景, why: "1619年第一批非洲人被運到維吉尼亞，奴隸制從殖民時期延續到獨立後，成為美國後來的重大分裂來源。", src: [s7] }
 counterparts: "無適當對照：中國與東亞軌沒有「海外移民殖民地發展出自己的議會、並與母國爭論課稅權」的同類事件；臺灣的移墾社會（見清領前期卡）雖也是移民社會，但沒有代議機構，不硬湊。"
 sources:
   - { id: s1, title: "Thirteen Colonies — Wikipedia", url: "https://en.wikipedia.org/wiki/Thirteen_Colonies", accessed: 2026-10-31, tier: 百科 }

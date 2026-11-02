@@ -22,6 +22,12 @@ place:
 structure_tags: [憲政分權, 合法性危機, 革命與政權更替, 慢變結構]
 topics: [啟蒙與人權]
 links: [event-declaration-of-independence, event-us-constitution, event-thirteen-colonies, war-american-revolution, event-french-revolution, event-magna-carta, event-reformation, event-augustan-principate]
+causes:
+  - { name: 光榮革命（1688–1689）, rel: 背景, why: 英國議會在光榮革命後確立權力、限制王權，洛克的《政府論》也在這時出版，替「政府權力來自同意」提供了現成的例子。, src: [s19, s1] }
+  - { name: 「無代表不納稅」抗爭（1765–1775）, rel: 促成, why: 英國未經殖民地同意就徵稅，殖民地人便拿「同意統治」的理論來抗議，讓這套思想從書本走進政治現場。, src: [s3, event-declaration-of-independence:s6] }
+effects:
+  - { id: event-declaration-of-independence, rel: 促成, why: 自然權利與「政府權力來自被治理者同意」的主張，成為宣言說明殖民地為何能脫離英國的論證基礎。, src: [s1, s3, event-declaration-of-independence:s5] }
+  - { id: event-us-constitution, rel: 促成, why: 孟德斯鳩的權力分立和「以野心對抗野心」的想法，被麥迪遜等人用來設計分權制衡的憲法。, src: [s5, s6, event-us-constitution:s12] }
 counterparts:
   - { id: event-confucius, note: "兩者都是為政權正當性提供思想基礎；儒家後繼者孟子有暴君可被推翻的主張，結構上近似洛克的反抗權，但依據是天命與德行，而不是個人自然權利與同意，也沒有制度化的憲政制衡。", src: [s16] }
 sources:

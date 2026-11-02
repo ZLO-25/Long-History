@@ -21,6 +21,11 @@ place:
 structure_tags: [儲備貨幣地位, 貨幣貶值, 長期衰退, 慢變結構]
 topics: [鑄幣, 國際貨幣]
 links: [finance-roman-argentarii, finance-abbasid-sakk-hawala, commodity-silk, war-crusades, event-fall-western-rome, finance-venice-rialto]
+causes:
+  - { name: 羅馬貨幣混亂（3–4世紀）, rel: 回應, why: 舊金幣的重量和成色不穩，交易時不知道錢值多少，君士坦丁推出重量成色固定的索利都斯來解決。, src: [s1] }
+  - { name: 曼齊克特之戰（1071年）, rel: 促成, why: 戰敗後帝國失去安納托利亞大片土地，財政與軍事壓力加重，金幣加速貶值，最後在 1092 年被新幣取代。, src: [s1, s7] }
+effects:
+  - { name: 伊斯蘭金第納爾（7世紀末）, rel: 促成, why: 倭馬亞哈里發改革幣制時，金第納爾的造型與重量參考了索利都斯，成為它的競爭對手。, src: [s4, "finance-abbasid-sakk-hawala:s8"] }
 counterparts: "無適當對照：中國軌沒有以黃金為本位、跨國通行的國際硬幣；五銖錢是銅錢，主要在帝國內部流通，兩者性質不同，不硬湊。"
 sources:
   - { id: s1, title: "Solidus (coin) — Wikipedia", url: "https://en.wikipedia.org/wiki/Solidus_(coin)", accessed: 2026-10-31, tier: 百科 }

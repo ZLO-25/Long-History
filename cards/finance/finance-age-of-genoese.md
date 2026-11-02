@@ -24,6 +24,10 @@ place:
 structure_tags: [戰爭融資, 債務擴張, 主權違約, 金融制度創新, 金融中心轉移]
 topics: [匯票與遠距付款, 國債與公債, 金融中心, 白銀]
 links: [finance-antwerp-bourse, war-fall-of-antwerp, commodity-silver-flow, finance-casa-di-san-giorgio, finance-amsterdam-wisselbank, finance-champagne-fairs, finance-venice-rialto]
+causes:
+  - { name: "西班牙王室第一次停止付款（1557）", rel: 促成, why: "腓力二世第一次停止付款，富格爾等南德銀行家損失沉重，此後熱那亞銀行家在西班牙王室借貸中的角色更加重要。", src: [s3, s4] }
+  - { name: "熱那亞與哈布斯堡結盟（1528）", rel: 背景, why: "熱那亞海軍統帥多利亞改投查理五世，熱那亞與哈布斯堡結盟，為熱那亞銀行家長期替西班牙王室籌款鋪路。", src: [s1, s2] }
+  - { name: "西班牙運銀船隊（16 世紀）", rel: 背景, why: "美洲白銀用船運到塞維亞，軍隊卻駐在法蘭德斯，需要有人先在北方墊付軍餉，再以運抵的白銀收回，熱那亞人便接下這項工作。", src: [s5, s6] }
 counterparts: "無適當對照：中國軌沒有「私人銀行家以承包契約向君主放貸、違約時再協商」的對應卡；同期明朝的一條鞭法雖同樣仰賴白銀，但屬稅制改革而非君主向私人借貸，不硬湊。"
 sources:
   - { id: s1, title: "Republic of Genoa — Wikipedia", url: "https://en.wikipedia.org/wiki/Republic_of_Genoa", accessed: 2026-10-31, tier: 百科 }

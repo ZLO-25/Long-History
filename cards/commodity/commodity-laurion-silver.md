@@ -22,6 +22,11 @@ place:
 structure_tags: [意外財源, 關鍵原料壟斷, 戰爭融資, 慢變結構]
 topics: [鑄幣, 白銀, 奴隸制]
 links: [war-greco-persian, war-peloponnesian, building-acropolis, finance-lydian-coinage, finance-athens-trapezitai]
+causes:
+  - { id: finance-lydian-coinage, rel: 背景, why: 鑄幣從小亞細亞傳到希臘本土，雅典才有理由把勞里昂的白銀大量鑄成自己的「貓頭鷹」銀幣。, src: [finance-lydian-coinage:s6] }
+effects:
+  - { id: war-greco-persian, rel: 促成, why: 約前 483 年挖到豐富礦脈，雅典沒有把錢分給公民，而是造了約 200 艘戰船，成為薩拉米斯海戰打敗波斯的主力。, src: [s2, s5, s10] }
+  - { id: finance-athens-trapezitai, rel: 背景, why: 勞里昂的白銀讓雅典鑄出大量成色穩定的銀幣，港口商業興盛，銀行家和海上借貸才有足夠的錢可以周轉。, src: [finance-athens-trapezitai:s3] }
 counterparts:
   - { id: commodity-salt-iron, note: "相似：國家把關鍵礦產收歸公有，收入直接支撐戰爭（雅典艦隊；漢對匈奴）。不同：雅典把開採權租給私人收租；漢朝由官府設鐵官直接生產販賣、禁止民營。", src: [s1, s8] }
   - { id: commodity-wuzhu-coin, note: "相似：一種由單一權力發行、規格穩定的錢幣，因大家信任而長期大範圍流通。不同：雅典銀幣靠白銀本身的價值；五銖是銅錢，價值靠國家壟斷鑄造與官定比價維持。", src: [s1, s9] }

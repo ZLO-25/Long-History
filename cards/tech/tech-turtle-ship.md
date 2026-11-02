@@ -21,6 +21,10 @@ place:
 structure_tags: [技術代差, 海權對陸權]
 topics: [海戰與水戰, 火藥與武器]
 links: [war-imjin, event-joseon-dynasty]
+causes:
+  - { name: "日本水軍的登船近戰（15–16 世紀）", rel: 促成, why: "日本武士擅長跳上敵船近身肉搏，朝鮮水軍便替戰船加上頂蓋、插上鐵釘，讓敵兵跳不上來。", src: [s1, s2] }
+effects:
+  - { id: war-imjin, rel: 促成, why: "1592年起龜船和板屋船一起讓李舜臣的艦隊屢敗日本水軍，切斷日軍海上補給，北上的日軍因此難以補給。", src: [s1, s3] }
 counterparts: 無適當對照：西方軌目前沒有 16 世紀戰艦技術的卡片；常被拿來比較的 19 世紀鐵甲艦時代差太遠。
 sources:
   - { id: s1, title: "Turtle ship — Wikipedia", url: "https://en.wikipedia.org/wiki/Turtle_ship", accessed: 2026-10-25, tier: 百科 }

@@ -26,6 +26,13 @@ place:
 structure_tags: [海權對陸權, 快速擴張, 外部勢力介入, 政治宣傳工程, 附庸反叛]
 topics: [殖民統治, 海戰與水戰, 對外擴張]
 links: [event-monroe-doctrine, event-westward-expansion, event-gilded-age-industrialization, war-american-civil-war, event-american-century, war-opium-war, event-1895-cession, commodity-manila-galleon, war-world-war-two]
+causes:
+  - { id: event-gilded-age-industrialization, rel: 背景, why: 內戰後的工業化讓美國有能力建造鋼殼戰艦，加上馬漢海權論的鼓吹，美國有了向海外擴張的本錢。, src: [s1, s11] }
+  - { name: 古巴獨立戰爭（1895–1898）, rel: 促成, why: 古巴人反抗西班牙，平民在集中居住政策下大量死亡，美國報紙大篇幅報導，輿論要求出兵干預。, src: [s1, s3] }
+  - { name: 緬因號爆炸（1898）, rel: 直接引發, why: 美艦緬因號在哈瓦那港爆炸，原因至今不明，卻點燃美國輿論，兩個月後國會授權對西班牙用兵。, src: [s1, s7] }
+effects:
+  - { name: 菲美戰爭（1899–1902）, rel: 直接引發, why: 巴黎條約把菲律賓讓給美國，菲律賓人不接受新主人，1899 年起和美軍打了三年多。, src: [s4, s6] }
+  - { id: event-american-century, rel: 背景, why: 有學者認為，取得菲律賓、關島等海外基地，是美國從大陸國家變成海外強權的轉捩點。, src: [s11, s13], disputed: true }
 counterparts:
   - id: event-1895-cession
     note: "1895 年日本與 1898 年美國都是剛工業化的新興海上強權，打敗衰弱的老帝國後以條約取得海外領土（臺灣、菲律賓）；差別是被割讓地的人民都抵抗，但臺灣民主國很快瓦解，菲律賓的戰爭則持續到 1902 年。"

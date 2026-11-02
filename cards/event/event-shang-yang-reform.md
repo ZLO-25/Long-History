@@ -19,6 +19,12 @@ place:
 structure_tags: [重新設計基本單位, 擴大稅基, 公民身分擴張, 慢變結構]
 topics: [糧食與農業, 變法與改革, 統一與中央集權, 法律與憲法, 稅收, 諸侯爭霸, 土地制度]
 links: [event-qin-unification, event-cleisthenes-reform, event-twelve-tables, event-guan-zhong-reform, war-changping]
+causes:
+  - { id: event-partition-of-jin, rel: 背景, why: 三家分晉後進入戰國，各國兼併競爭越來越激烈，秦孝公急需富國強兵的辦法，才重用商鞅。, src: [s1, event-partition-of-jin:s2] }
+  - { name: 李悝的法典（戰國初期）, rel: 背景, why: 商鞅原本在魏國任職，到秦國後施行李悝的法典，再加上知情不報同罪的連坐規定。, src: [s1, s7] }
+effects:
+  - { id: event-qin-unification, rel: 促成, why: 變法讓秦國能動員全國人力種田和打仗，行政與軍事明顯強化，被視為秦後來滅六國、統一天下的基礎。, src: [s1, s2, s7] }
+  - { id: war-changping, rel: 背景, why: 秦國能用賜爵獎勵、徵發全國十五歲以上男子上長平前線，靠的正是商鞅建立的軍功爵與動員體制。, src: [war-changping:s1, s1] }
 counterparts:
   - { id: event-cleisthenes-reform, note: "相似：都「重新設計社會的基本單位」，把人口依新的規則登記、分組，打破舊貴族以血緣為基礎的控制。不同：克里斯提尼的改革讓更多公民參與政治；商鞅的改革讓國家更能動員人力去種田與打仗，平民的上升管道是軍功而非投票。", src: [s1, s2, s7] }
 sources:

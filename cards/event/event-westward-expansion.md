@@ -24,6 +24,12 @@ place:
 structure_tags: [快速擴張, 宗教／意識形態動員, 意外財源, 債務擴張]
 topics: [對外擴張, 移民與移墾, 原住民族]
 links: [event-thirteen-colonies, event-us-constitution, finance-hamilton-financial-plan, event-monroe-doctrine, war-american-civil-war, event-gilded-age-industrialization, war-spanish-american, finance-london-rise]
+causes:
+  - { name: 海地革命（1791–1804）, rel: 促成, why: 法軍在聖多明各被革命與疫病拖垮，拿破崙的北美計畫受挫，又要和英國開戰需要錢，才願意出售路易斯安那。, src: [s1, s2] }
+  - { name: 美國東部人口成長（19 世紀初）, rel: 背景, why: 東部人口增加，農民與投機者都想要新土地，中部農產品又得經紐奧良出海，美國很想控制密西西比河口。, src: [s1, s2] }
+effects:
+  - { id: war-american-civil-war, rel: 促成, why: 新取得的西部土地准不准有奴隸制，讓南北長期爭吵不休，成為南北戰爭的結構原因之一。, src: [s7, war-american-civil-war:s1] }
+  - { id: war-spanish-american, rel: 背景, why: 「邊疆」與「天命昭昭」讓美國人相信擴張是天經地義，這套說法後來延伸到美西戰爭後的海外擴張。, src: [s6, s12] }
 counterparts:
   - { id: event-qing-taiwan-frontier, note: "兩者都是政權與移民向原住民居住地推進的邊疆開發；差別是美國以購地、條約與立法大規模取得並分配土地，清朝在前期則以渡臺禁令限制移墾。", src: [s1, s15] }
 sources:

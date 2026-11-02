@@ -22,6 +22,12 @@ place:
 structure_tags: [海峽封鎖, 補給線過長, 精英內鬥, 政治宣傳工程, 聯盟破裂]
 topics: [海戰與水戰, 內戰]
 links: [event-rubicon, event-augustan-principate, commodity-egypt-grain]
+causes:
+  - { name: 凱撒遇刺後的權力分配破裂（前44–前32年）, rel: 促成, why: 凱撒死後掌權者瓜分勢力，屋大維控制義大利與西方，安東尼控制東方並與埃及結盟，兩大陣營終於對立。, src: [s1] }
+  - { name: 元老院對克麗奧佩脫拉宣戰（前32年）, rel: 直接引發, why: 屋大維讓元老院對埃及女王宣戰，把羅馬內戰包裝成對外戰爭，戰爭正式爆發。, src: [s1] }
+effects:
+  - { id: event-augustan-principate, rel: 促成, why: 安東尼與克麗奧佩脫拉戰敗自殺，屋大維成為唯一掌握大軍的人，才能一步步建立元首制。, src: [s1, s2, "event-augustan-principate:s2"] }
+  - { id: commodity-egypt-grain, rel: 促成, why: 戰後埃及成為羅馬行省，埃及的小麥從此大量運往羅馬城。, src: [s1, "commodity-egypt-grain:s1"] }
 counterparts:
   - { id: war-chu-han, note: "相似：舊秩序瓦解後兩個強人爭天下，勝者建立延續數百年的新政體（元首制；漢朝）。不同：亞克興是羅馬共和制度內兩派的內戰；楚漢是秦帝國崩潰後群雄起兵的混戰。", src: [s1, s5] }
 sources:

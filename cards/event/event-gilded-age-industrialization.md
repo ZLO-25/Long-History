@@ -24,6 +24,12 @@ place:
 structure_tags: [基礎建設網絡, 標準化量產, 快速擴張, 關鍵原料壟斷, 投機泡沫與崩盤]
 topics: [道路與鐵路, 工業化, 移民與移墾]
 links: [war-american-civil-war, event-westward-expansion, tech-railway, tech-telegraph, tech-electric-grid, war-spanish-american, finance-federal-reserve, event-american-century]
+causes:
+  - { id: war-american-civil-war, rel: 背景, why: 內戰期間北方的工廠、鐵路與聯邦財政能力都已擴張，戰後順勢走向大規模工業化。, src: [s1] }
+  - { id: tech-railway, rel: 促成, why: 1869 年橫貫大陸鐵路接軌，鐵路把原料、工廠與市場串成全國網，鋼鐵、石油的巨型公司才長得出來。, src: [s3, s4] }
+effects:
+  - { id: event-american-century, rel: 背景, why: 這時期建起的鐵路網、鋼鐵石油工業與全國市場，被認為是美國二十世紀成為超級強權的經濟底座。, src: [s1, s3, s5] }
+  - { id: finance-federal-reserve, rel: 背景, why: 快速擴張的鐵路與金融一再引發恐慌（1873、1893 年），讓人看到沒有央行的風險，成為日後設聯準會的背景。, src: [s10, finance-federal-reserve:s2] }
 counterparts:
   - { id: event-self-strengthening, note: "同一時期，清朝的自強運動由官員主導設立兵工廠與船廠，美國的鋼鐵與石油則主要是民間私人大公司推動，兩者的推動者不同。", src: [s11, s1] }
   - { id: event-meiji-restoration, note: "同期日本明治政府以國家力量推動工業化與鐵路，美國則靠民間資本與大企業，政府角色較偏事後規範（如反托拉斯法）。", src: [s12, s6] }

@@ -23,6 +23,11 @@ place:
 structure_tags: [銀行擠兌, 金融制度創新, 強人繞過制度, 臨界點]
 topics: [銀行與借貸, 泡沫與金融危機, 中央銀行]
 links: [finance-nyse, finance-hamilton-financial-plan, finance-bank-of-england, finance-gold-standard, event-gilded-age-industrialization, finance-great-depression, finance-dollar-reserve-currency, finance-new-york-overtakes-london, finance-2008-crisis]
+causes:
+  - { id: finance-hamilton-financial-plan, rel: 背景, why: 合眾國銀行的執照在 1811、1836 年到期後美國一直沒有央行，1907 年恐慌時只能靠民間銀行家臨時救市。, src: [s2] }
+  - { id: event-gilded-age-industrialization, rel: 背景, why: 鍍金時代快速擴張的金融體系一再爆發恐慌，管制少的信託公司成長最快，1907 年的擠兌就從它們開始。, src: [s1, s2, s5] }
+effects:
+  - { id: finance-new-york-overtakes-london, rel: 促成, why: 聯準會成立後，美國銀行可以做承兌匯票等國際貿易融資，紐約才出現能和倫敦競爭的市場。, src: [finance-new-york-overtakes-london:s4, finance-new-york-overtakes-london:s6] }
 counterparts: "無適當對照：中國軌現有卡中沒有以「設立央行作為最後貸款人」來回應銀行擠兌的事件；晚清票號與官銀錢號的擠兌情形本卡未查證，不硬湊。"
 sources:
   - { id: s1, title: "Panic of 1907 — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/panic-of-1907", accessed: 2026-10-31, tier: 通論 }

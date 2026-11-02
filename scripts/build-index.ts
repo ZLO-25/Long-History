@@ -9,6 +9,8 @@ import { loadCivTaxonomy } from './lib/civ.ts';
 import { SECTIONS, CORE_KEYS, TYPE_LABEL, FIELD_OPTIONS, UNDERSTAND, type CardType } from './lib/fields.ts';
 import { loadNameTable, polityZh } from './lib/labels.ts';
 import { pickMainAliases } from './lib/aliases.ts';
+import { buildEdges, type Edge } from './lib/causes.ts';
+import { loadStorylines, buildStorylines } from './lib/storylines.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits } from './lib/learn.ts';
 
 const get = (o: any, k: string) => k.split('.').reduce((a, p) => (a == null ? a : a[p]), o);
@@ -102,6 +104,13 @@ const cards = raw.filter((c) => c.fm?.id).map((c) => {
 });
 // 反向連結（被誰引用）
 for (const c of cards) for (const l of c.links) cards.find((x) => x.id === l)?.backlinks.push(c.id);
+// ---- 前因／後果（docs/causes.md）：兩邊寫的關係合併成一張圖，每張卡拿到自己的「從哪裡來／往哪裡去」----
+const edges = buildEdges(raw);
+const edgeOut = (e: Edge, side: 'causes' | 'effects') => ({ id: side === 'causes' ? e.from ?? null : e.to ?? null, name: side === 'causes' ? e.fromName ?? '' : e.toName ?? '', rel: e.rel, why: e.why, disputed: e.disputed, sources: e.sources });
+for (const c of cards as any[]) {
+  c.causes = edges.filter((e) => e.to === c.id).map((e) => edgeOut(e, 'causes'));
+  c.effects = edges.filter((e) => e.from === c.id).map((e) => edgeOut(e, 'effects'));
+}
 // 反向對照（別人把我列為對照、我自己沒列回去的）
 for (const c of cards) for (const x of c.counterparts) {
   const t = cards.find((y) => y.id === x.id);
@@ -151,6 +160,7 @@ const index = {
   chains: buildChains(loadChains(), raw, routes),
   today: buildToday(loadToday(), routes),
   histories,
+  storylines: buildStorylines(loadStorylines(), edges, cards),
   units: loadUnits().map((u) => u.unit).filter((u) => DEV || u.crosscheck?.result === '通過'),
   names: loadNameTable(),
 };

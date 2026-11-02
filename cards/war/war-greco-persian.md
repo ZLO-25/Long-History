@@ -26,6 +26,13 @@ routes: [sea-hellespont-grain]
 structure_tags: [海權對陸權, 地形險阻, 海峽封鎖, 補給線過長, 意外財源, 附庸反叛, 突變事件]
 topics: [海戰與水戰, 軍事同盟]
 links: [commodity-laurion-silver, building-acropolis, war-peloponnesian, event-cleisthenes-reform]
+causes:
+  - { name: 波斯帝國向愛琴海擴張（前 6 世紀）, rel: 背景, why: 波斯統治了小亞細亞沿岸的愛奧尼亞希臘城邦，帝國勢力逼近愛琴海，和希臘世界的衝突就此埋下。, src: [s1] }
+  - { name: 愛奧尼亞起義（前 499–前 493 年）, rel: 直接引發, why: 雅典出兵幫小亞細亞的希臘城邦反抗波斯，還焚燒了薩第斯，波斯平定起義後便出兵報復雅典。, src: [s1] }
+  - { id: commodity-laurion-silver, rel: 促成, why: 雅典把勞里昂新礦脈的收入拿去擴建艦隊，這支艦隊正是薩拉米斯海戰打敗波斯的主力。, src: [s3, s9] }
+effects:
+  - { id: building-acropolis, rel: 促成, why: 前 480 年波斯人攻上衛城、燒毀神廟，戰後雅典重建衛城，帕德嫩神廟也是為了感謝戰勝波斯而蓋。, src: [s2, building-acropolis:s1] }
+  - { id: war-peloponnesian, rel: 背景, why: 戰後雅典靠提洛同盟當上盟主，同盟漸漸變成雅典控制的體系，斯巴達越來越不安，埋下兩強開戰的伏筆。, src: [s1, war-peloponnesian:s3] }
 counterparts:
   - { id: war-red-cliffs, note: "相似：兵力佔優的入侵者在水戰中被較小的聯軍擊敗，主力隨即撤退（薩拉米斯；赤壁）。不同：波斯帝國戰後依然強大；赤壁之後中國分裂成三國。", src: [s1, s7] }
   - { id: war-feishui, note: "相似：由許多被征服民族組成的龐大入侵軍，敗給人數少、訓練好的守方。不同：波斯戰後仍存續；前秦在淝水之後兩年內就瓦解。", src: [s1, s8] }

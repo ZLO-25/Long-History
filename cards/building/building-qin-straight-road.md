@@ -22,6 +22,10 @@ routes: [stations-qin-zhidao]
 structure_tags: [基礎建設網絡, 邊疆防線, 公共工程支出, 快速擴張]
 topics: [游牧民族與邊疆, 道路與鐵路]
 links: [event-qin-unification, building-qin-han-great-wall, war-han-xiongnu, building-lingqu]
+causes:
+  - { id: event-qin-unification, rel: 促成, why: 統一後秦始皇北擊匈奴，需要讓軍隊從首都快速趕到河套，於是下令修築這條筆直的軍用道路。, src: [s1, event-qin-unification:s1] }
+effects:
+  - { id: war-han-xiongnu, rel: 背景, why: 直道讓軍隊幾天內就能從關中到達河套，真正發揮戰略作用是在漢代，漢武帝曾利用它反擊匈奴。, src: [s1] }
 counterparts:
   - { id: building-via-appia, note: "相似：國家為了讓軍隊快速移動而修的筆直大道，同時成為長期的交通幹線。不同：阿庇亞大道向南連接新征服的義大利城市；秦直道向北直通對付匈奴的邊疆，而且約一半路段走在山脊上；各來源連總長都說法不一。", src: [s1, s2] }
 sources:

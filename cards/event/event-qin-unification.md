@@ -20,6 +20,13 @@ place:
 structure_tags: [快速擴張, 標準化量產, 基礎建設網絡, 邊疆防線, 思想異見與審判]
 topics: [鑄幣, 統一與中央集權, 諸侯爭霸]
 links: [event-shang-yang-reform, event-zhang-qian-west, event-alexander-campaign, event-augustan-principate, war-changping, event-burning-books, event-chen-sheng-wu-guang, building-qin-straight-road, building-terracotta-army]
+causes:
+  - { id: event-shang-yang-reform, rel: 促成, why: 商鞅變法讓秦國能動員全國人力種田和打仗，國力強盛，成為秦滅六國的基礎。, src: [s1, event-shang-yang-reform:s7] }
+  - { id: war-changping, rel: 促成, why: 長平之戰後趙國兵源沒能恢復，東方最強的對手倒下，秦國之後得以逐一消滅六國。, src: [war-changping:s1] }
+effects:
+  - { id: event-han-inherits-qin, rel: 促成, why: 秦建立的皇帝、郡縣與官僚制度，被漢朝接收沿用並穩定下來，成為後來中國各朝的基礎。, src: [s1, event-han-inherits-qin:s2] }
+  - { id: event-burning-books, rel: 背景, why: 統一後秦以法家為官方學說、想統一思想，李斯才建議燒掉六國史書和民間私藏的《詩》《書》。, src: [event-burning-books:s1, event-burning-books:s2] }
+  - { id: building-qin-han-great-wall, rel: 促成, why: 統一後秦始皇拆掉各國之間的內牆，派蒙恬北擊匈奴，把北方舊有的防線連起來，成為長城的一部分。, src: [s1, s3] }
 counterparts:
   - { id: event-alexander-campaign, note: "相似：十年左右的連續征戰，把原本分立的多個國家併成一個大帝國。不同：亞歷山大死後帝國立刻被部將瓜分；秦朝本身只存在 15 年，但它的郡縣、文字與度量衡被漢朝接收，延續了兩千年。", src: [s1, s3] }
   - { id: event-augustan-principate, note: "相似：結束長期戰亂的統治者建立新的最高稱號（始皇帝；元首），並重新設計全國的行政。不同：奧古斯都保留共和的名義；秦始皇明白宣告廢除分封、自稱皇帝。", src: [s1, s2] }

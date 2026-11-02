@@ -22,6 +22,11 @@ place:
 structure_tags: [金融制度創新, 基礎建設網絡, 技術擴散, 慢變結構]
 topics: [銀行與借貸, 匯票與遠距付款, 金融中心, 香料貿易]
 links: [finance-byzantine-solidus, finance-jiaozi, finance-champagne-fairs, finance-venice-rialto, commodity-silk, war-crusades]
+causes:
+  - { name: 伊斯蘭的利息禁令（7世紀）, rel: 促成, why: 《古蘭經》禁止收取利息，商人改用一方出錢、一方經營、照約分利的合夥契約做生意。, src: [s6, s10] }
+  - { name: 伊斯蘭金第納爾（7世紀末）, rel: 背景, why: 參考拜占庭索利都斯發行的金第納爾，加上銀幣迪拉姆，構成巴格達商業的貨幣基礎。, src: [s8, s14] }
+effects:
+  - { name: 義大利的康曼達合夥契約（中世紀）, rel: 促成, why: 有學者認為伊斯蘭的 mudaraba 合夥契約影響了義大利的 commenda，進而影響威尼斯、熱那亞的商業，但證據不足。, src: [s7], disputed: true }
 counterparts:
   - { id: finance-jiaozi, note: "同為 9 至 11 世紀的支付創新：阿拔斯的 sakk 與匯兌偏向商人之間的私人信用，北宋交子則由民間票據走向官方發行的紙幣。", src: [s2, s11] }
 sources:

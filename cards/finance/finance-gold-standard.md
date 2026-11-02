@@ -22,6 +22,12 @@ place:
 structure_tags: [貨幣體系轉換, 金融制度創新, 儲備貨幣地位, 慢變結構]
 topics: [匯票與遠距付款, 國際貨幣]
 links: [finance-bank-of-england, finance-london-rise, finance-new-york-overtakes-london, finance-bretton-woods, finance-great-depression, finance-federal-reserve, finance-dollar-reserve-currency, war-world-war-one, event-gilded-age-industrialization, commodity-silver-flow, war-opium-war]
+causes:
+  - { name: 普法戰爭賠款（1871）, rel: 促成, why: 德國用戰勝法國得到的約 50 億法郎賠款當資金改採金本位，美國等國家也陸續跟進。, src: [s10, s4] }
+  - { name: 銀價長期下跌（19 世紀後期）, rel: 促成, why: 各國放棄銀幣、銀礦又增產，白銀對黃金越來越不值錢，原本的金銀複本位難以維持。, src: [s3] }
+effects:
+  - { name: 美國白銀運動（1890 年代）, rel: 回應, why: 黃金供給不夠時物價下跌，欠債農民負擔變重，1896 年布萊恩喊出「不要把人類釘在黃金十字架上」，要求恢復自由鑄造銀幣。, src: [s3, s8] }
+  - { id: finance-new-york-overtakes-london, rel: 背景, why: 一戰打斷金本位，英國 1925 年按戰前平價回歸，英鎊被認為偏貴，1931 年又被迫放棄，紐約趁勢追上倫敦。, src: [finance-new-york-overtakes-london:s1, finance-new-york-overtakes-london:s2] }
 counterparts:
   - id: finance-shanxi-piaohao
     note: "同一時期（1823 年日昇昌創立至 1910 年代，票號到民國初年才大量倒閉）山西票號在銀本位的中國辦理遠距匯兌，和倫敦匯票網路一樣是靠信用網絡跨地區清算；但中國以白銀計價，金銀比價下跌時處境和金本位國家相反（本卡推論）。[s3]"

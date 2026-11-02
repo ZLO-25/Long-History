@@ -20,6 +20,8 @@ place:
 structure_tags: [金融制度創新, 債務擴張, 長期衰退]
 topics: [銀行與借貸, 匯票與遠距付款]
 links: [finance-amsterdam-exchange, finance-antwerp-bourse, finance-venice-rialto, finance-amsterdam-decline, finance-london-rise, finance-bank-of-england, finance-mississippi-bubble, finance-medici-bank]
+causes:
+  - { name: "荷蘭流通硬幣混亂（17 世紀初）", rel: 促成, why: "各地來的硬幣成色、重量不一，還會被磨損刮邊，每次付款都要估價秤重，市政府於是設銀行，用帳簿貨幣統一標準。", src: [s1] }
 counterparts: "無適當對照：中國軌沒有由城市政府設立、專門處理商人匯票結算的公營銀行；山西票號是 19 世紀的私人匯兌業，性質不同，且本卡所列來源也沒有涵蓋它，不硬湊。"
 sources:
   - { id: s1, title: "Bank of Amsterdam — Wikipedia", url: "https://en.wikipedia.org/wiki/Bank_of_Amsterdam", accessed: 2026-10-31, tier: 百科 }

@@ -22,6 +22,12 @@ place:
 structure_tags: [投機泡沫與崩盤, 債務擴張, 金融中心轉移, 長期衰退, 臨界點]
 topics: [股票與公司, 泡沫與金融危機, 金融中心]
 links: [finance-plaza-accord, finance-dollar-reserve-currency, finance-eurodollar-big-bang, finance-new-york-overtakes-london, finance-asian-financial-crisis, finance-2008-crisis, finance-south-sea-bubble, finance-taiwan-stock-1990]
+causes:
+  - { id: finance-plaza-accord, rel: 促成, why: 有學者認為廣場協議後日圓急升，日本銀行怕衰退而長期低利率，寬鬆的錢流進股市和土地；也有人認為主因在日本自己的政策。, src: [s2, s5], disputed: true }
+  - { name: 日本金融自由化（1980年代）, rel: 促成, why: 金融自由化後大企業改向債市籌錢，銀行轉而大量放款給不動產並以土地擔保，地價越高越能借，形成循環。, src: [s1, s6] }
+effects:
+  - { name: 失落的十年（1990年代起）, rel: 直接引發, why: 泡沫破裂後擔保品縮水，銀行留下大量壞帳不敢放款，企業忙著還債，經濟長期低迷。, src: [s1, s4] }
+  - { name: 日本零利率與量化寬鬆（1999–2001）, rel: 回應, why: 為了對抗泡沫破裂後的長期低迷與通縮，日本銀行 1999 年實施零利率、2001 年推出量化寬鬆。, src: [s5] }
 counterparts:
   - { id: finance-2008-crisis, note: "兩者都是不動產與信用擴張造成的泡沫，破裂後銀行資產負債表受損、經濟長期疲弱；不同的是 2008 年的震央在證券化與影子銀行，日本的銀行問題則拖到 1997–98 年才集中爆發。", src: [s1, s7, s8] }
 sources:

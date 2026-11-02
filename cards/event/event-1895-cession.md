@@ -22,6 +22,11 @@ place:
 structure_tags: [突變事件, 合法性危機, 外部勢力介入, 附庸反叛, 法律成文化]
 topics: [殖民統治, 民變與抗爭]
 links: [event-mudan-incident, event-meiji-restoration, war-opium-war, event-xinhai-revolution, commodity-taiwan-tea-camphor]
+causes:
+  - { name: 甲午戰爭（1894–1895）, rel: 直接引發, why: 清朝為朝鮮問題和日本開戰，海陸都敗，只好在馬關條約中把臺灣、澎湖「永遠割與日本」。, src: [s1, s2] }
+  - { id: event-mudan-incident, rel: 背景, why: 二十年前日本出兵恆春，看到清朝治臺的空隙，牡丹社事件被視為日本取得臺灣的前奏。, src: [event-mudan-incident:s1] }
+effects:
+  - { id: event-taiwan-cultural-association, rel: 背景, why: 割臺後六三法讓總督可以自己立法，臺灣人沒有議會可參與，後來才有要求設立臺灣議會的請願。, src: [s5, s6, event-taiwan-cultural-association:s2] }
 counterparts:
   - { id: war-opium-war, note: "相似：都是清朝戰敗後用條約割讓土地給戰勝國，1842 年割香港島、1895 年割臺灣澎湖。不同：香港當時是人口很少的港口，臺灣是幾百萬人的全島，而且臺灣官民自組「民主國」武裝抵抗了半年，日本要靠軍隊一路打到臺南才接收。", src: [s1, s3] }
 sources:

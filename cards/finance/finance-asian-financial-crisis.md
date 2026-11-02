@@ -23,6 +23,12 @@ place:
 structure_tags: [債務擴張, 資本外逃, 貨幣貶值, 銀行擠兌, 臨界點, 合法性危機]
 topics: [泡沫與金融危機, 國際貨幣]
 links: [finance-japan-bubble, finance-plaza-accord, finance-bretton-woods, finance-2008-crisis, finance-dollar-reserve-currency, finance-taiwan-stock-1990]
+causes:
+  - { name: 短期外債與外資湧入（1990年代前半）, rel: 促成, why: 高成長吸引外資湧入，銀行和企業借了大量短期美元外債，超過外匯存底，債主一不續借就像擠兌。, src: [s1, s3] }
+  - { name: 美元走強（1995–1997）, rel: 背景, why: 1995 年後美元走強，釘住美元的泰銖跟著變貴，出口競爭力下降、經常帳赤字擴大，引來投機攻擊。, src: [s1, s4] }
+effects:
+  - { name: 蘇哈托下台（1998）, rel: 促成, why: 印尼盾崩跌、經濟重挫，1998 年 5 月爆發大規模動亂，執政三十多年的蘇哈托辭職，印尼走向民主化。, src: [s1] }
+  - { name: 清邁倡議（2000）, rel: 回應, why: 亞洲國家不滿 IMF 的緊縮處方，之後多累積外匯存底，並在 2000 年啟動東協加三的貨幣互換機制。, src: [s1] }
 counterparts:
   - { id: finance-2008-crisis, note: "兩次危機都是資金湧入、槓桿與信心突然轉向所引發；1997 年是新興市場的匯率與短期外債危機，2008 年則發生在美國與歐洲核心金融體系。[s1][s3]", src: [s1, s3] }
 sources:

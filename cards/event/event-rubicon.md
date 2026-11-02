@@ -22,6 +22,12 @@ place:
 structure_tags: [強人繞過制度, 精英內鬥, 臨界點, 合法性危機, 突變事件]
 topics: [內戰]
 links: [event-augustan-principate, war-actium, building-forum-romanum, building-via-appia]
+causes:
+  - { name: 凱撒與元老院、龐培決裂（前50–前49年）, rel: 直接引發, why: 元老院命令凱撒解散軍隊回羅馬，又倚重龐培的兵力；凱撒不肯交出兵權，選擇帶兵越界。, src: [s1, s2] }
+  - { name: 凱撒任高盧總督（前58–前49年）, rel: 背景, why: 凱撒在高盧長期帶兵，士兵效忠將領個人勝過共和法律，他才有一支願意跟他越界的軍隊。, src: [s1, s2] }
+effects:
+  - { name: 凱撒內戰（前49–前45年）, rel: 直接引發, why: 渡河後龐培與大批元老逃離羅馬，凱撒一路追擊，前 48 年在法薩盧斯擊敗龐培。, src: [s1, s2] }
+  - { id: event-augustan-principate, rel: 背景, why: 內戰後凱撒成為終身獨裁官，共和實質結束；他遇刺後的內戰最後由屋大維收尾，建立元首制。, src: [s1, s2, "event-augustan-principate:s2"] }
 counterparts:
   - { id: event-partition-of-jin, note: "相似：國家的實權落到幾個掌握私人力量的權貴手中，他們先聯手、再互鬥。不同：羅馬的權貴之爭最後由一人勝出，國家沒有分裂；晉國被三家永久分成三國，周王還出面承認。", src: [s1, s6] }
 sources:

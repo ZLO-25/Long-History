@@ -27,6 +27,13 @@ place:
 structure_tags: [代理人戰爭, 外部勢力介入, 霸權挑戰, 補給線過長, 突變事件]
 topics: [冷戰, 內戰, 軍事同盟]
 links: [war-world-war-two, event-containment-nato, event-american-century, war-vietnam-war, event-nixon-china, event-taiwan-martial-law, event-taiwan-land-reform]
+causes:
+  - { id: war-world-war-two, rel: 背景, why: 日本投降時美蘇以三八線分區受降，1948 年南北各自建國又都宣稱代表全朝鮮，埋下開戰的種子。, src: [s1, s3] }
+  - { name: 中共建國與蘇聯試爆原子彈（1949）, rel: 背景, why: 1949 年中共勝利、蘇聯有了原子彈，冷戰在東亞變得尖銳，北韓也在蘇聯支持下取得武器優勢。, src: [s1] }
+effects:
+  - { name: 第七艦隊協防臺灣與中美共同防禦條約（1950–1954）, rel: 直接引發, why: 韓戰爆發後，原本準備放手的美國派第七艦隊進入臺灣海峽，中共攻臺部隊也轉往朝鮮，1954 年再簽防禦條約。, src: [s6, s7] }
+  - { id: war-vietnam-war, rel: 促成, why: 韓戰爆發同月，美國擴大援助在印度支那作戰的法國，從此一步步介入越南問題。, src: [s2] }
+  - { id: event-taiwan-martial-law, rel: 背景, why: 韓戰把臺灣納入冷戰對峙前線，反共的緊張局勢讓戒嚴體制更容易長期延續。, src: [s2] }
 counterparts: "無適當對照：中國軌與西方軌都沒有「兩大陣營在第三方領土上打有限戰爭、並因核武威嚇而刻意不擴大」的卡；伯羅奔尼撒戰爭雖有雙盟主對峙，但當時沒有核武與聯合國機制，不硬湊。"
 sources:
   - { id: s1, title: "Korean War — Wikipedia", url: "https://en.wikipedia.org/wiki/Korean_War", accessed: 2026-10-31, tier: 百科 }

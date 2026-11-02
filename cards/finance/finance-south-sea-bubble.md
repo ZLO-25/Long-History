@@ -20,6 +20,12 @@ place:
 structure_tags: [投機泡沫與崩盤, 債務擴張, 精英內鬥, 臨界點]
 topics: [股票與公司, 國債與公債, 泡沫與金融危機]
 links: [finance-tulip-mania, finance-amsterdam-exchange]
+causes:
+  - { name: 南海公司承接英國國債（1711）, rel: 背景, why: 南海公司靠承接政府債務換來對西班牙美洲的貿易特權，但貿易幾乎沒賺錢，真正的業務變成替政府處理國債。, src: [s1, s3] }
+  - { name: 國會通過國債換股方案（1720）, rel: 直接引發, why: 國會讓國債持有人把債券換成南海公司股票，公司趁機大肆吹捧前景，股價從 128 英鎊衝到約 1,000 英鎊。, src: [s1, s3] }
+effects:
+  - { name: 國會調查與沃波爾整頓（1721）, rel: 回應, why: 崩盤後國會調查發現賄賂與內線交易，財政大臣入獄，沃波爾撤換董事並沒收他們大部分財產。, src: [s1, s2] }
+  - { name: 《泡沫法》（1720–1825）, rel: 回應, why: 股票狂熱中國會在 1720 年 6 月規定股份公司必須經國會或皇家特許才能成立，這條限制一直用到 1825 年。, src: [s1] }
 counterparts: 無適當對照：東方軌目前沒有十八世紀的股票泡沫卡。
 sources:
   - { id: s1, title: "South Sea Company — Wikipedia", url: "https://en.wikipedia.org/wiki/South_Sea_Company", accessed: 2026-10-25, tier: 百科 }

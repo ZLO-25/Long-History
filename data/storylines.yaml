@@ -1,0 +1,64 @@
+# 故事線：沿著前因／後果的箭頭走出來的跨時代路線（說明見 docs/storylines.md）
+# 規則：每兩站之間必須有一條卡片上寫好的 causes／effects 關係（前一站 → 後一站），
+#       畫面上兩站中間的說明就是那條關係的 why 與來源，所以這裡不寫新史實。
+#       question 是開場的大問題；blurb 只說「這條線怎麼讀」，不放史實細節。
+storylines:
+  - id: story-qin-han
+    title: 從三家分晉到漢朝：中國第一次大一統是怎麼來的？
+    question: 戰國七個國家打了兩百多年，為什麼最後贏的是秦？秦統一後又為什麼只撐了十五年，就換成了漢？
+    blurb: 這條線看一個國家怎麼靠改革變強、靠戰爭統一，又怎麼因為統治太急而倒下；接手的漢朝則學到了教訓。
+    stops: [event-partition-of-jin, event-shang-yang-reform, war-changping, event-qin-unification, event-chen-sheng-wu-guang, war-chu-han, event-han-inherits-qin]
+
+  - id: story-greece
+    title: 錢幣、銀礦與雅典：一座城邦的興衰
+    question: 一座小小的銀礦，怎麼讓雅典打贏波斯帝國，又一路走到審判蘇格拉底？
+    blurb: 這條線從「錢」開始，看財富怎麼變成海軍、變成霸權，最後在戰爭裡把城邦拖垮。
+    stops: [finance-lydian-coinage, commodity-laurion-silver, war-greco-persian, war-peloponnesian, event-death-of-socrates]
+
+  - id: story-silver
+    title: 白銀怎麼把世界串起來
+    question: 明朝的紙鈔失敗了，為什麼最後全中國改用白銀繳稅？這些白銀又是從哪裡來的？
+    blurb: 這條線橫跨中國、日本和美洲：一個國家的貨幣問題，牽動了地球另一邊的礦山和航線。
+    stops: [finance-ming-baochao, commodity-iwami-silver, commodity-silver-flow, event-single-whip-reform]
+
+  - id: story-taiwan-400
+    title: 臺灣：一座島怎麼一次次換了統治者
+    question: 從 1624 年到 1920 年代，臺灣先後由荷蘭（北部還有西班牙）、鄭氏、清朝、日本統治。每一次換手，是上一次留下了什麼？
+    blurb: 這條線看臺灣怎麼被捲進大航海、改朝換代和帝國擴張；每一站都是上一站的結果。
+    stops: [event-dutch-formosa, event-koxinga-taiwan, event-qing-taiwan-frontier, event-mudan-incident, event-1895-cession, event-taiwan-cultural-association]
+
+  - id: story-japan
+    title: 日本從鎖國到戰爭
+    question: 一個關起門兩百年的國家，怎麼在幾十年內變成列強，最後發動戰爭、要臺灣人改成日本名字？
+    blurb: 這條線看日本怎麼回應外來壓力：先關門，再被迫開門，然後學西方、向外擴張。
+    stops: [event-toyotomi-unification, event-sakoku, event-black-ships, event-meiji-restoration, war-sino-japanese-1937, event-taiwan-kominka]
+
+  - id: story-postwar-taiwan
+    title: 戰後臺灣：從物價飛漲到戒嚴
+    question: 1945 年戰爭結束，臺灣人本來期待新時代，為什麼短短幾年就走到二二八和長達 38 年的戒嚴？
+    blurb: 這條線從錢開始：大陸的通膨傳到臺灣，經濟的苦變成政治的衝突，再變成長期的管制。
+    stops: [finance-gold-yuan-1948, finance-taiwan-1949-currency, event-228-incident, event-taiwan-martial-law]
+
+  - id: story-chip
+    title: 晶片島是怎麼長出來的
+    question: 臺灣沒有石油、沒有大市場，為什麼會變成全世界最重要的晶片產地，還被捲進美中貿易戰？
+    blurb: 這條線看一連串的產業政策怎麼一步接一步：先做加工，再建園區，最後長出半導體。
+    stops: [event-kaohsiung-epz, event-hsinchu-park-tsmc, commodity-taiwan-semiconductor, event-us-china-trade-war]
+
+  - id: story-america
+    title: 從《大憲章》到「美國世紀」
+    question: 一份八百年前英國國王簽下的文件，和今天美國成為超級強權，中間是怎麼一步步接起來的？
+    blurb: 這條線跨越英國和美國：「國王也要守法」的想法，怎麼變成殖民地的自治、獨立、憲法，再經過內戰與工業化走上世界舞台。
+    stops: [event-magna-carta, event-thirteen-colonies, war-american-revolution, event-us-constitution, war-american-civil-war, event-gilded-age-industrialization, war-spanish-american, event-american-century]
+
+  - id: story-finance-center
+    title: 世界金融中心怎麼從阿姆斯特丹搬到紐約
+    question: 為什麼全世界的錢先集中在阿姆斯特丹，後來是倫敦，最後是紐約？
+    blurb: 這條線看戰爭、制度和貨幣規則怎麼讓「錢的中心」一再搬家，一直到今天美元的地位。
+    stops: [finance-amsterdam-decline, finance-london-rise, finance-gold-standard, finance-new-york-overtakes-london, finance-bretton-woods, finance-petrodollar]
+
+  - id: story-cold-war
+    title: 冷戰在亞洲：從二戰結束到尼克森訪華
+    question: 二次大戰才剛結束，為什麼美國和蘇聯又在朝鮮、越南打了起來？最後美國又為什麼轉身和中國握手？
+    blurb: 這條線看「圍堵」的想法怎麼一步步把美國帶進亞洲的戰爭，又怎麼在越戰之後轉了彎。
+    stops: [war-world-war-two, event-containment-nato, war-korean-war, war-vietnam-war, event-nixon-china]

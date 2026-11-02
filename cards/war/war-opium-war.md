@@ -25,6 +25,13 @@ place:
 structure_tags: [技術代差, 海權對陸權, 海峽封鎖, 合法性危機]
 topics: [白銀, 東印度公司, 開港與鎖國, 關稅與貿易戰, 海戰與水戰, 火藥與武器]
 links: [event-single-whip-reform, event-xinhai-revolution, tech-steam-engine, commodity-taiwan-tea-camphor, event-mudan-incident]
+causes:
+  - { name: 英國對華貿易逆差與鴉片走私（1800–1839）, rel: 促成, why: 英國人愛喝中國茶卻沒東西賣給中國，英商改用印度鴉片換茶，白銀反向流出、吸食者大增，清廷決心嚴禁。, src: [s1, s2] }
+  - { name: 林則徐虎門銷煙（1839）, rel: 直接引發, why: 林則徐逼英商交出兩萬多箱鴉片並公開銷毀，之後雙方在具結、林維喜案上僵持，1839 年 9 月起爆發衝突。, src: [s1, s2] }
+effects:
+  - { id: event-self-strengthening, rel: 促成, why: 清朝在鴉片戰爭中戰敗，加上太平天國之亂，一部分官員認為必須學習西方的武器與技術。, src: [event-self-strengthening:s1] }
+  - { name: 太平天國（1850–1864）, rel: 背景, why: 戰爭帶來的社會與經濟壓力，是太平天國等民變的背景之一，清朝的正當性也因此被削弱。, src: [s1, s2] }
+  - { id: commodity-taiwan-tea-camphor, rel: 背景, why: 鴉片戰爭開啟列強用條約逼清朝開港的先例；第二次鴉片戰爭後的天津條約，讓淡水、安平等臺灣港口也對外開放。, src: [s1, commodity-taiwan-tea-camphor:s2] }
 counterparts: "無適當對照：計畫卡中沒有同時期由西方國家被迫開港、簽不平等條約的事件；以「工業化海權打敗農業帝國」來看，結構上屬於全球帝國擴張的一環，不宜硬配單一西方事件。"
 sources:
   - { id: s1, title: "First Opium War — Wikipedia", url: "https://en.wikipedia.org/wiki/First_Opium_War", accessed: 2026-10-25, tier: 百科 }

@@ -21,6 +21,13 @@ place:
 structure_tags: [外部勢力介入, 海權對陸權, 附庸反叛, 慢變結構]
 topics: [對外擴張]
 links: [event-westward-expansion, war-american-civil-war, war-spanish-american, event-american-century, event-containment-nato]
+causes:
+  - { name: 拉丁美洲獨立運動（1810–1825）, rel: 促成, why: 西屬美洲殖民地紛紛獨立，美國擔心歐洲君主國家幫西班牙奪回殖民地，才宣布美洲不再是歐洲殖民的對象。, src: [s1, s2, s3] }
+  - { name: 神聖同盟與法國出兵西班牙（1815–1823）, rel: 促成, why: 拿破崙戰敗後俄奧普結成神聖同盟維護君主制，1823 年法國又出兵西班牙，讓美國更怕歐洲插手美洲。, src: [s1, s3] }
+  - { name: 俄國宣稱太平洋西北岸權利（1821）, rel: 促成, why: 俄國宣稱擁有太平洋西北岸、限制外國船隻靠近，美國因此決定直接向俄國表明立場。, src: [s1, s2] }
+effects:
+  - { id: event-westward-expansion, rel: 背景, why: 1845 年波克總統重申門羅主義，拿它來處理奧勒岡與德克薩斯問題，替美國向西擴張撐腰。, src: [s1] }
+  - { name: 羅斯福推論（1904）, rel: 背景, why: 老羅斯福把門羅主義延伸成美國可在西半球行使「國際警察權力」，之後美國多次出兵中美洲與加勒比海鄰國。, src: [s5, s6] }
 counterparts: "無適當對照：中國與東亞軌的現有卡片中沒有「某區域大國宣告排除域外強權」的同類事件，不硬湊。"
 sources:
   - { id: s1, title: "Monroe Doctrine — Wikipedia", url: "https://en.wikipedia.org/wiki/Monroe_Doctrine", accessed: 2026-10-31, tier: 百科 }

@@ -20,6 +20,12 @@ place:
 structure_tags: [資訊傳播革命, 標準化量產, 技術擴散, 快速擴張, 宗教／意識形態動員]
 topics: [印刷與通訊]
 links: [event-reformation, tech-movable-type, tech-paper]
+causes:
+  - { id: tech-paper, rel: 背景, why: "歐洲已有機械化造紙，紙張夠多夠便宜，古騰堡的印刷機才能建立在這個基礎上大量印書。", src: [s1] }
+  - { id: tech-movable-type, rel: 背景, why: "有學者認為中國、朝鮮活字的消息幾乎確定傳到西方，也有學者指出1450年前歐洲沒有文獻提到亞洲活字。", src: [s5], disputed: true }
+effects:
+  - { id: event-reformation, rel: 促成, why: "印刷機讓路德的著作幾年內印出約30萬份，改革思想迅速傳開；較早有印刷坊的城市也更可能改信新教。", src: [s1, s4] }
+  - { name: "科學革命（16–17 世紀）", rel: 促成, why: "有學者認為印刷讓研究成果傳得更快更廣，圖表與文字也能標準化，幫助形成科學社群。", src: [s1], disputed: true }
 counterparts:
   - { id: tech-movable-type, note: "相似：都用可重複使用的單字字模排版印刷。不同：古騰堡用鉛錫銻合金鑄字、油性墨與螺旋壓印機，拉丁字母數量少，活字五十年內傳遍歐洲；畢昇的泥活字面對數萬漢字，在中國始終比不過雕版。", src: [s1, s5] }
 sources:

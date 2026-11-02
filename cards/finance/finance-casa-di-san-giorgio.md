@@ -22,6 +22,8 @@ place:
 structure_tags: [金融制度創新, 債務擴張, 慢變結構]
 topics: [銀行與借貸, 國債與公債]
 links: [finance-venice-rialto, finance-medici-bank, finance-age-of-genoese, finance-bank-of-england, finance-amsterdam-wisselbank]
+causes:
+  - { name: "熱那亞的公債持有人團體（14 世紀）", rel: 促成, why: "熱那亞政府長年為戰爭與貿易向富人借錢、指定稅收還息，債主團體越來越多、各自收稅而混亂，1407年才合併成一個機構。", src: [s1] }
 counterparts: "無適當對照：中國軌現有與計畫卡中沒有由債權人團體集體接管稅收、管理公債的機構；交子、票號都不是這種結構，不硬湊。"
 sources:
   - { id: s1, title: "Bank of Saint George — Wikipedia", url: "https://en.wikipedia.org/wiki/Bank_of_Saint_George", accessed: 2026-10-31, tier: 百科 }

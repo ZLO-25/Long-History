@@ -21,6 +21,10 @@ place:
 structure_tags: [金融制度創新, 投機泡沫與崩盤, 快速擴張]
 topics: [交易所, 股票與公司]
 links: [finance-nyse, finance-great-depression, event-reform-and-opening]
+causes:
+  - { id: event-taiwan-land-reform, rel: 促成, why: 耕者有其田用臺泥等四大公營公司股票補償地主，股票買賣地點分散、弊病多，政府才規劃集中交易的證券交易所。, src: [s1, s3, s12] }
+effects:
+  - { id: finance-taiwan-stock-1990, rel: 背景, why: 證交所讓股票能集中買賣；1980 年代後期熱錢多、上市股票少，股價就在這個市場上狂飆後崩盤。, src: [s5, s6] }
 counterparts:
   - { id: finance-nyse, note: "相似：都把股票、債券集中到有規則的市場交易，也都經歷過借錢炒股後的大崩盤（紐約 1929 年、臺灣 1990 年）。不同：紐約證交所從 1792 年經紀人的民間約定長出來；臺灣證交所是政府為了處理土地改革發出的公營事業股票而規劃設立的公司。", src: [s2, s3, s9] }
   - { id: event-reform-and-opening, note: "相似：1990 年中國大陸在改革開放中重設上海證券交易所（11 月 26 日成立、12 月 19 日開業）。不同：同一年臺灣股市正從 12,682 點崩跌；臺灣證交所 1962 年就已開業，上海的交易所則是 1949 年關閉後重新設立，由中國證監會直接管理。", src: [s5, s6, s10] }

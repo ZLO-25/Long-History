@@ -26,6 +26,13 @@ place:
 structure_tags: [霸權挑戰, 補給線過長, 外部勢力介入, 全面戰爭, 宗教／意識形態動員, 地形險阻]
 topics: [世界大戰]
 links: [war-world-war-two, war-world-war-one, event-xinhai-revolution, event-taiwan-kominka]
+causes:
+  - { id: event-meiji-restoration, rel: 背景, why: 明治維新後日本快速現代化並對外擴張，甲午戰後取得臺灣，此後不斷擴大在中國的勢力。, src: [s5, s8] }
+  - { name: 九一八事變（1931）, rel: 促成, why: 日本 1931 年占領中國東北、扶植滿洲國，中日衝突從此升高，所以也有「十四年抗戰」的說法。, src: [s1, s2] }
+  - { name: 盧溝橋事變（1937）, rel: 直接引發, why: 1937 年 7 月 7 日北京附近的盧溝橋衝突沒有收住，擴大成全面戰爭。, src: [s1, s2] }
+effects:
+  - { id: event-taiwan-kominka, rel: 促成, why: 戰爭需要人力物力，日本在臺灣推動皇民化，並招募、徵召約二十萬臺灣人當軍人軍屬。, src: [s5, s6] }
+  - { id: war-world-war-two, rel: 背景, why: 日本侵華一路沒有被有效阻止，和德、義的擴張一起把世界推向大戰；也有史家把二戰亞洲起點定在 1937 年。, src: [war-world-war-two:s1] }
 counterparts:
   - { id: war-world-war-two, note: "相似：同一場世界大戰的亞洲與歐洲戰場，侵略方（日本／德國）都在 1945 年被同盟國擊敗，戰後都被占領並審判戰犯。不同：中國從 1937 年（東北從 1931 年）就開始抵抗，到 1941 年底前幾乎獨自作戰；1941 年 12 月以後才與英美並肩，併入世界大戰。", src: [s1, s10] }
 sources:

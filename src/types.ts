@@ -29,9 +29,18 @@ export interface Card {
   unknownFields: string[]; file: string;
   issues: { level: 'error' | 'warning'; msg: string }[];
   backlinks: string[];
+  /** 前因（從哪裡來）與後果（往哪裡去）：docs/causes.md */
+  causes: CauseLink[]; effects: CauseLink[];
   importance: 1 | 2 | 3;
   learn: Learn | null;
 }
+
+// 前因／後果：id＝對方卡片（null＝尚無卡片，只有 name）
+export type CauseRel = '直接引發' | '促成' | '背景' | '回應';
+export interface CauseSource { card: string; id: string; title: string; url: string }
+export interface CauseLink { id: string | null; name: string; rel: CauseRel; why: string; disputed: boolean; sources: CauseSource[] }
+// 故事線：每一站的 bridge＝到下一站的因果關係（最後一站為 null）
+export interface Storyline { id: string; title: string; question: string; blurb: string; stops: { id: string; bridge: Omit<CauseLink, 'id' | 'name'> | null }[] }
 
 // 第 6 期：學習模式
 export type LearnTrack = '臺灣' | '東亞' | '世界';
@@ -92,7 +101,7 @@ export interface Index {
   borders: { source: string; license: string; note: string; snapshots: { year: number; file: string }[] };
   itinere: boolean;
   econ: Econ; chains: Chain[]; today: Today;
-  histories: History[]; units: Unit[];
+  histories: History[]; units: Unit[]; storylines: Storyline[];
   // 地圖名稱中英對照（data/labels/names-en.yaml）
   names?: { en: Record<string, string>; zh: Record<string, string> };
 }

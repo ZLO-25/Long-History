@@ -10,6 +10,8 @@ import { ROOT, refsOf, loadTopicVocab, type RawCard } from './cards.ts';
 export interface Issue { level: 'error' | 'warning'; file: string; msg: string }
 
 const LENS_KEYS = ['李彔', '哈拉瑞'];
+// 前因／後果的關係類型（由強到弱）；說明見 docs/causes.md
+export const CAUSE_RELS = ['直接引發', '促成', '背景', '回應'];
 const PAGE_RE = /第\s*[一二三四五六七八九十百\d]+\s*章|第\s*\d+\s*頁|p{1,2}\.\s*\d+/;
 
 export function checkCards(
@@ -103,6 +105,46 @@ export function checkCards(
       if (new Set(f.topics ?? []).size !== (f.topics ?? []).length) warn('topics 有重複的主題');
     }
     for (const l of f.links ?? []) if (!ids.has(l)) err(`links 指向不存在的卡片：${l}`); else if (l === f.id) err('不可連結自己');
+    // ---- 前因／後果（docs/causes.md）：一條關係＝對方（卡片 id 或尚無卡片的事件名）＋關係類型＋一句「怎麼造成的」＋來源 ----
+    for (const key of ['causes', 'effects'] as const) {
+      const list = f[key];
+      if (list === undefined) continue;
+      if (!Array.isArray(list)) { err(`${key} 必須是清單`); continue; }
+      list.forEach((x: any, i: number) => {
+        const w = `${key}[${i}]（${x?.id ?? x?.name ?? '?'}）`;
+        if (!x || typeof x !== 'object') { err(`${w} 格式錯誤`); return; }
+        if (!!x.id === !!x.name) err(`${w} 要寫 id（有卡片）或 name（尚無卡片的事件），二選一`);
+        if (x.id) {
+          const other = cards.find((y) => y.fm?.id === x.id)?.fm;
+          if (!other) err(`${w} 指向不存在的卡片`);
+          else if (x.id === f.id) err(`${w} 不可指向自己`);
+          else if (f.time && other.time) {
+            // 原因不能整個發生在結果之後
+            const [cause, eff] = key === 'causes' ? [other, f] : [f, other];
+            if (cause.time.start > eff.time.end) err(`${w} 時間不合理：原因（${cause.name}，${cause.time.start}）晚於結果結束（${eff.name}，${eff.time.end}）`);
+          }
+        }
+        if (x.name && !/[（(]/.test(String(x.name))) warn(`${w} 尚無卡片的事件請在名稱後加年代，例如「國共內戰（1945–1949）」`);
+        if (!CAUSE_RELS.includes(x.rel)) err(`${w} rel 必須是 ${CAUSE_RELS.join('｜')}`);
+        const why = String(x.why ?? '');
+        if (why.length < 8) err(`${w} 需要 why：一句話說明「怎麼造成的」`);
+        else if (why.length > 90) warn(`${w} why 約 ${why.length} 字，請精簡到 80 字內`);
+        if (/\[s\d+\]/.test(why)) warn(`${w} why 裡不要放 [s] 代號，來源寫在 src`);
+        if (x.disputed !== undefined && typeof x.disputed !== 'boolean') err(`${w} disputed 只能是 true/false`);
+        if (!Array.isArray(x.src) || !x.src.length) err(`${w} 沒有來源代號（src）`);
+        else for (const r of x.src) {
+          const m = /^([a-z0-9-]+):(s\d+)$/.exec(String(r));
+          if (m) {
+            const other = cards.find((y) => y.fm?.id === m[1])?.fm;
+            if (!other) err(`${w} 來源 ${r} 指向不存在的卡片`);
+            else if (!(other.sources ?? []).some((s: any) => s.id === m[2])) err(`${w} 來源 ${r}：${m[1]} 沒有 ${m[2]}`);
+          } else { usedRefs.add(r); if (!srcIds.has(r)) err(`${w} 引用了不存在的來源 ${r}`); }
+        }
+      });
+      const ids2 = list.filter((x: any) => x?.id).map((x: any) => x.id);
+      if (new Set(ids2).size !== ids2.length) warn(`${key} 有重複的卡片`);
+    }
+    if (f.learn && !(f.causes?.length) && !(f.effects?.length) && !f.summary_card) warn('學習卡還沒有前因／後果（causes / effects），學生看不出它和其他事件的關係');
     for (const r of f.routes ?? []) if (!ctx.routes.has(r)) err(`routes 指向不存在的路線：${r}`);
     for (const fw of f.frameworks ?? []) if (!ctx.frameworks.has(fw)) err(`frameworks 指向不存在的框架：${fw}`);
 

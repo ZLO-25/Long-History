@@ -21,6 +21,13 @@ place:
 structure_tags: [能源轉換, 技術擴散, 臨界點]
 topics: [工業化, 能源]
 links: [tech-railway, tech-electric-grid, tech-internal-combustion, war-opium-war]
+causes:
+  - { name: 英國煤礦積水問題（18 世紀）, rel: 促成, why: 英國煤礦越挖越深、礦坑常淹水，人力馬力抽水不夠用，最早的蒸汽機就是為了抽水而造的。, src: [s1, s4] }
+  - { name: 薩弗里蒸汽抽水機（1698）, rel: 背景, why: 薩弗里先做出用蒸汽抽水的機器並取得專利，紐科門再做出能在煤礦穩定運轉的大氣式蒸汽機。, src: [s1] }
+effects:
+  - { id: tech-railway, rel: 促成, why: 蒸汽機裝上車輪成了火車頭，拉車運煤的成本約只有用馬的一半，1825 年起出現用蒸汽火車頭的公共鐵路。, src: [s3, tech-railway:s1] }
+  - { id: war-opium-war, rel: 促成, why: 英國艦隊靠蒸汽船和射程更遠的大炮沿海北上、切斷大運河，清朝打不過只好簽約。, src: [war-opium-war:s1] }
+  - { id: tech-electric-grid, rel: 背景, why: 發電廠用蒸汽轉動發電機，再用電線把電送到遠方，電力才能取代工廠裡各自裝的蒸汽機。, src: [tech-electric-grid:s6, tech-electric-grid:s8] }
 counterparts: "無適當對照：中國軌道沒有同時期、同性質的動力機械卡；李彔提到「為什麼中國沒有出現蒸汽機」正是一個「沒有發生」的問題，不是可對照的事件，寫在 T6。"
 sources:
   - { id: s1, title: "Newcomen atmospheric engine — Wikipedia", url: "https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine", accessed: 2026-10-25 }

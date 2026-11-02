@@ -24,6 +24,13 @@ place:
 structure_tags: [全面戰爭, 聯盟破裂, 霸權挑戰, 戰爭融資, 技術代差, 臨界點, 革命與政權更替]
 topics: [國債與公債, 火藥與武器, 軍事同盟, 世界大戰]
 links: [war-world-war-two, war-sino-japanese-1937, event-xinhai-revolution, tech-railway, tech-telegraph, tech-internal-combustion]
+causes:
+  - { name: 歐洲同盟體系與軍備競賽（19 世紀末–1914）, rel: 背景, why: 德國崛起打破歐洲均勢，列強搶殖民地、拚軍備，兩大同盟互相綁住，一國開戰就會把盟國拖下水。, src: [s1, s2] }
+  - { name: 斐迪南大公遇刺（1914）, rel: 直接引發, why: 奧匈皇儲在塞拉耶佛遇刺，奧匈對塞爾維亞宣戰，俄、德、法、英依同盟關係像骨牌一樣相繼參戰。, src: [s1, s2] }
+effects:
+  - { id: finance-weimar-hyperinflation, rel: 促成, why: 德國打仗主要靠借錢，稅收只占約一成，國債暴增，戰後又背上賠款，最後靠印鈔撐出惡性通膨。, src: [s4, finance-weimar-hyperinflation:s1] }
+  - { id: war-world-war-two, rel: 背景, why: 凡爾賽條約留下不滿，國際聯盟又擋不住動盪，戰後安排不穩定，成為第二次世界大戰的遠因之一。, src: [s1, s2] }
+  - { name: 五四運動（1919）, rel: 直接引發, why: 中國雖是戰勝國，巴黎和會卻把德國在山東的權益轉給日本，北京學生因此上街抗議。, src: [s6] }
 counterparts:
   - { id: event-xinhai-revolution, note: "相似：都是古老帝國在短時間內崩解——一戰後俄、德、奧匈、鄂圖曼帝國瓦解；1912 年清帝退位、中華民國成立。不同：歐洲帝國是被一場大規模國際戰爭拖垮；清朝是被國內的起義與政治談判結束，沒有經過世界大戰。", src: [s1, s2, s9] }
 sources:

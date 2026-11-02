@@ -26,6 +26,12 @@ place:
 structure_tags: [聯盟破裂, 全面戰爭, 經濟施壓與制裁, 戰爭融資, 金融制度創新, 基礎建設網絡, 公民身分擴張, 憲政分權]
 topics: [紙幣, 通貨膨脹, 內戰, 奴隸制]
 links: [event-us-constitution, event-declaration-of-independence, event-westward-expansion, finance-hamilton-financial-plan, tech-railway, tech-telegraph, event-gilded-age-industrialization, finance-federal-reserve, finance-gold-standard]
+causes:
+  - { id: event-westward-expansion, rel: 促成, why: 美國向西擴張後，南北長期爭吵奴隸制能不能帶到西部新領土，衝突越積越深。, src: [s1, s2] }
+  - { name: 林肯當選總統（1860）, rel: 直接引發, why: 林肯的共和黨主張限制奴隸制擴張，南方各州擔心奴隸制不保，接連宣布脫離聯邦。, src: [s1, s5] }
+effects:
+  - { id: event-gilded-age-industrialization, rel: 背景, why: 戰時北方的工廠、鐵路和聯邦財政都擴張，國家銀行和全國通用紙鈔也成形，替戰後工業化打好底子。, src: [s1, s7] }
+  - { name: 重建時期（1865–1877）, rel: 直接引發, why: 南方戰敗、奴隸獲得自由後，國會通過修正案給黑人公民權與投票權，但 1877 年聯邦撤軍後又被大幅限縮。, src: [s11] }
 counterparts: "無適當對照：中國軌現有卡片中沒有同時期（19 世紀中葉）因統一與分裂問題而爆發的內戰卡；同期的太平天國尚未建卡，不硬湊。"
 sources:
   - { id: s1, title: "American Civil War — Wikipedia", url: "https://en.wikipedia.org/wiki/American_Civil_War", accessed: 2026-10-31, tier: 百科 }

@@ -22,6 +22,12 @@ routes: [stations-zhang-qian]
 structure_tags: [關鍵原料壟斷, 補給線過長, 技術擴散, 快速擴張]
 topics: [游牧民族與邊疆]
 links: [event-zhang-qian-west, war-han-xiongnu, commodity-silk, event-alexander-campaign]
+causes:
+  - { id: event-zhang-qian-west, rel: 促成, why: 張騫回報大宛有「天馬」，漢武帝因此派人帶千金去求購。, src: [s1, s2] }
+  - { id: war-han-xiongnu, rel: 促成, why: 跟匈奴打仗需要比矮小的蒙古馬更強壯的戰馬，良馬成了關鍵軍事物資。, src: [s1, s2] }
+  - { name: 大宛拒售並殺漢使（前104年前）, rel: 直接引發, why: 大宛不肯賣馬，漢朝使者還在郁成被殺，漢朝於是派李廣利出兵強取。, src: [s1] }
+effects:
+  - { name: 西域都護府（前60年）, rel: 背景, why: 遠征後塔里木盆地的綠洲城邦紛紛從依附匈奴改投漢朝，大宛也變成親漢國家，為設立西域都護府鋪路。, src: [s1] }
 counterparts: "無適當對照：西方卡中沒有一種國家為了軍事需要、遠征數千公里去強取的牲畜或物資；亞歷山大在同一地區建立的「極遠的亞歷山大城」（今苦盞）只是地理上的巧合，結構不同。"
 sources:
   - { id: s1, title: "War of the Heavenly Horses — Wikipedia", url: "https://en.wikipedia.org/wiki/War_of_the_Heavenly_Horses", accessed: 2026-10-25 }

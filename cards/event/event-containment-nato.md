@@ -24,6 +24,14 @@ place:
 structure_tags: [霸權挑戰, 外部勢力介入, 經濟施壓與制裁, 宗教／意識形態動員, 臨界點]
 topics: [冷戰, 軍事同盟]
 links: [event-end-of-cold-war, event-marshall-plan, war-world-war-two, event-american-century, war-korean-war, event-nixon-china, war-war-on-terror, finance-bretton-woods]
+causes:
+  - { id: war-world-war-two, rel: 背景, why: 二戰結束後美蘇合作的基礎消失，雙方在東歐、德國與近東的利益開始衝突。, src: [s1, s3] }
+  - { name: 肯楠長電報（1946）, rel: 促成, why: 肯楠分析蘇聯為何對外強硬，建議美國堅定應對但不一定開戰，成為圍堵政策的思想基礎。, src: [s3, s8] }
+  - { name: 英國停止援助希臘與土耳其（1947）, rel: 直接引發, why: 英國無力再援助希臘和土耳其，美國必須決定是否接手，杜魯門因此向國會要錢並宣示杜魯門主義。, src: [s2, s10] }
+effects:
+  - { id: event-marshall-plan, rel: 背景, why: 杜魯門主義先確立美國支持對抗共產勢力的方向，幾個月後才提出援助歐洲復興的馬歇爾計畫。, src: [s1, event-marshall-plan:s1] }
+  - { id: war-korean-war, rel: 背景, why: 圍堵政策後來從歐洲擴展到亞洲，朝鮮半島與越南都成了兩大陣營對抗的戰場。, src: [s1] }
+  - { name: 華沙公約組織（1955）, rel: 回應, why: 西德 1955 年加入北約後，蘇聯與東歐國家同年成立華沙公約組織與之對抗。, src: [s9] }
 counterparts:
   - { id: war-korean-war, note: "圍堵從歐洲延伸到東亞的第一場熱戰：同樣是阻止共產勢力擴張，歐洲以援助與聯盟為主，朝鮮半島則演變成實際交戰。", src: [s1] }
   - { id: event-nixon-china, note: "北約代表圍堵被制度化成軍事同盟；尼克森訪華則顯示美國在東亞改採與對手接觸的路線，圍堵的形態有了變化。", src: [s1] }

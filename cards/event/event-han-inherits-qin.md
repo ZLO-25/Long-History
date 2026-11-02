@@ -19,6 +19,13 @@ place:
 structure_tags: [制度包裝延續, 合法性危機, 慢變結構, 精英內鬥]
 topics: [統一與中央集權, 儒家]
 links: [war-chu-han, event-qin-unification, event-confucian-orthodoxy, building-han-changan]
+causes:
+  - { id: war-chu-han, rel: 直接引發, why: 劉邦在楚漢戰爭中打敗項羽，前 202 年稱帝，國號「漢」就來自項羽封給他的漢中。, src: [s1] }
+  - { id: event-qin-unification, rel: 促成, why: 秦建立了皇帝、郡縣和官僚制度，漢初政府沒有現成的辦法，只好採用前朝的政府機構。, src: [s2, s12] }
+  - { name: 蕭何收取秦朝律令圖書（前 206 年）, rel: 促成, why: 劉邦進咸陽時，蕭何搶先收藏秦朝的法令和檔案，後來由他編定的漢律，許多條文都來自秦律。, src: [s6, s13, s1] }
+effects:
+  - { id: building-han-changan, rel: 促成, why: 漢朝建立後以長安為都，蕭何把秦的興樂宮改建為長樂宮，又興建未央宮、武庫和糧倉。, src: [s1, building-han-changan:s1] }
+  - { name: 七國之亂（前 154 年）, rel: 促成, why: 漢初在東方封了許多半自治的諸侯王國，王國勢力坐大後多次反叛，最大的一次就是七國之亂。, src: [s1] }
 counterparts:
   - { id: event-augustan-principate, note: "相似：新統治者實際上沿用前一個體制的權力機器，卻刻意包裝成與「名聲不好的前任」不同（漢朝說自己寬厚、與暴秦不同；奧古斯都說自己恢復了共和）。不同：漢朝延續的是秦的皇帝集權體制；奧古斯都延續的是共和的名義與官職，實質上建立了君主制。", src: [s1, s2] }
 sources:

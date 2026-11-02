@@ -21,6 +21,11 @@ place:
 structure_tags: [商路改道, 外部勢力介入, 技術擴散]
 topics: [絲綢與絲路, 游牧民族與邊疆]
 links: [event-qin-unification, event-alexander-campaign, war-han-xiongnu, commodity-ferghana-horse, commodity-silk]
+causes:
+  - { id: war-han-xiongnu, rel: 促成, why: 漢朝長期受匈奴威脅，漢武帝想聯合西遷的月氏夾擊匈奴，所以派張騫出使西域。, src: [s1, s2] }
+effects:
+  - { id: commodity-ferghana-horse, rel: 促成, why: 張騫回報大宛出產「天馬」，引起漢武帝的興趣，之後漢朝求購不成就出兵強取。, src: ["commodity-ferghana-horse:s1", "commodity-ferghana-horse:s2"] }
+  - { name: 漢朝經營西域與絲路往來（前2世紀起）, rel: 促成, why: 張騫帶回中亞第一手情報，漢朝因此向西域擴張、派出更多使節，苜蓿、葡萄與良馬傳入，後人稱為絲綢之路。, src: [s1, s2] }
 routes: [stations-zhang-qian]
 counterparts:
   - { id: event-alexander-campaign, note: "相似：一趟深入未知地區的遠行，第一次把兩端文明的地理知識連起來，而且兩人都到了大夏（巴克特里亞）。不同：亞歷山大帶著大軍去征服；張騫只帶百餘人，任務是結盟與蒐集情報，而且結盟失敗。", src: [s1, s2] }

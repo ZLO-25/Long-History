@@ -25,6 +25,12 @@ routes: [sea-hellespont-grain]
 structure_tags: [霸權挑戰, 海權對陸權, 聯盟破裂, 盟主剝削盟友, 海峽封鎖, 糧食進口依賴, 外部勢力介入, 補給線過長]
 topics: [海戰與水戰, 軍事同盟, 疫病]
 links: [commodity-laurion-silver, building-acropolis, war-greco-persian, event-death-of-socrates]
+causes:
+  - { id: war-greco-persian, rel: 背景, why: 波希戰爭後雅典靠提洛同盟的貢金擴建艦隊、勢力大增，斯巴達越來越害怕，修昔底德認為這讓戰爭無可避免。, src: [s2, s8] }
+  - { name: 墨伽拉法令（前 433/432 年）, rel: 促成, why: 雅典對斯巴達的盟友墨伽拉實施貿易禁令，激怒斯巴達陣營；有史家認為這是開戰的主因，也有人認為只是導火線。, src: [s3, s9], disputed: true }
+effects:
+  - { id: event-death-of-socrates, rel: 背景, why: 戰敗後親斯巴達的三十僭主統治雅典，領袖曾是蘇格拉底的學生；有學者認為民主恢復後的審判，是在清算這段關係。, src: [event-death-of-socrates:s1], disputed: true }
+  - { name: 馬其頓腓力二世崛起（前 4 世紀中）, rel: 背景, why: 長年戰爭讓希臘城邦互相消耗，之後斯巴達也敗給底比斯，北方的馬其頓才有機會稱霸希臘。, src: [s2] }
 frameworks: [thucydides-trap]
 counterparts:
   - { id: war-chengpu, note: "相似：南北兩大集團各帶一批盟國對抗，勝方取得「盟主」地位。不同：伯羅奔尼撒戰爭打了 27 年、雅典最後投降；城濮是一天決勝的會戰，楚國並未因此衰落。", src: [s1, s7] }

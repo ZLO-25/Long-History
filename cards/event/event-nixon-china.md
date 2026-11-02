@@ -26,6 +26,12 @@ place:
 structure_tags: [聯盟破裂, 霸權挑戰, 合法性危機, 突變事件]
 topics: [冷戰]
 links: [event-containment-nato, war-korean-war, war-vietnam-war, event-reform-and-opening, event-us-china-trade-war, event-taiwan-martial-law]
+causes:
+  - { name: 中蘇交惡與珍寶島衝突（1969）, rel: 促成, why: 1969 年中蘇邊界衝突後，中國把蘇聯當主要威脅，美國也想利用中蘇不和加強對蘇談判地位，雙方因此靠近。, src: [s1, s2, s3] }
+  - { id: war-vietnam-war, rel: 背景, why: 美國陷在越戰裡，想為撤出越戰與對蘇談判找出路，接近中國成為選項之一。, src: [s2] }
+effects:
+  - { name: 中美共同防禦條約終止（1980）, rel: 直接引發, why: 美國與北京建交、與中華民國斷交，雙方的共同防禦條約依一年通知期限，在 1980 年元旦終止。, src: [s3, s6] }
+  - { name: 八一七公報（1982）, rel: 促成, why: 建交後美國對臺軍售仍是爭議，1982 年美中再簽第三份公報，補上關於對臺軍售的說明。, src: [s3] }
 counterparts:
   - { id: event-containment-nato, note: "同為冷戰結構的轉折：1947–49 年圍堵與北約把美國綁進對蘇聯的聯盟體系，1970 年代初美國反過來接近蘇聯的競爭對手中國，改以拉攏代替圍堵。", src: [s2] }
 sources:

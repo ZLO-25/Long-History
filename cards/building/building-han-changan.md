@@ -20,6 +20,9 @@ place:
 structure_tags: [政治宣傳工程, 公共工程支出, 基礎建設網絡]
 topics: [首都與都城, 古代建築]
 links: [event-han-inherits-qin, event-wang-mang-reform, commodity-silk, event-zhang-qian-west]
+causes:
+  - { name: 婁敬、張良建議遷都（前 202 年）, rel: 直接引發, why: 劉邦起初建都洛陽，聽了婁敬、張良的建議才遷到長安，蕭何隨即在這裡改建、興建宮殿。, src: [s1] }
+  - { id: event-han-inherits-qin, rel: 促成, why: 漢朝接收了秦的基礎，蕭何把秦的興樂宮改建成長樂宮，再加蓋未央宮，長安從此成為西漢首都。, src: [s1, s2] }
 counterparts:
   - { id: building-forum-romanum, note: "相似：帝國首都的權力與商業中心，也是遠距貿易（絲路）兩端的終點之一。不同：羅馬廣場是開放的公共空間，元老院、法庭與神殿集中在一起；漢長安城以高牆圍起的宮殿為主體，未央宮建在俯視全城的台地上。", src: [s1, s2] }
 sources:

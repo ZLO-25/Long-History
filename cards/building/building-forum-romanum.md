@@ -20,6 +20,10 @@ place:
 structure_tags: [政治宣傳工程, 公共工程支出, 制度包裝延續, 慢變結構]
 topics: [古代建築, 首都與都城]
 links: [event-twelve-tables, event-augustan-principate, event-rubicon, building-colosseum]
+causes:
+  - { name: 大下水道排乾沼澤（前 7 世紀）, rel: 背景, why: 這片低地原本是沼澤，羅馬人修了大下水道把水排掉，這裡才變成可以集會、審判和做生意的公共空間。, src: [s1, s2] }
+effects:
+  - { id: event-twelve-tables, rel: 背景, why: 廣場是羅馬人聚會和審判的中心，法條刻好後放在這裡公開展示，所有公民才都讀得到。, src: [event-twelve-tables:s1, event-twelve-tables:s2] }
 counterparts:
   - { id: building-han-changan, note: "相似：帝國首都的權力與商業中心，也是遠距貿易的一端。不同：羅馬廣場是開放的公共空間，元老院、法庭與神殿集中；漢長安城以高牆圍起的宮殿為主體，市場也有圍牆管理。", src: [s1, s4] }
 sources:

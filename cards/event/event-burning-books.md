@@ -20,6 +20,10 @@ place:
 structure_tags: [思想異見與審判, 合法性危機, 政治宣傳工程]
 topics: [言論與思想管制, 儒家]
 links: [event-qin-unification, event-confucius, event-confucian-orthodoxy, event-chen-sheng-wu-guang]
+causes:
+  - { id: event-qin-unification, rel: 背景, why: 秦統一後以法家為官方學說，李斯推動統一文字、度量衡，也想統一思想，才建議焚書、禁止「以古非今」。, src: [s1, s2] }
+effects:
+  - { id: event-confucian-orthodoxy, rel: 背景, why: 秦代焚書和文字改變，讓許多經典原文難找、意思難懂，漢代尊儒時學者因此發展出注解經典的學問。, src: [event-confucian-orthodoxy:s5] }
 counterparts:
   - { id: event-death-of-socrates, note: "相似：國家以法律手段處理被認為「以古非今、動搖人心」的知識人。不同：蘇格拉底是由公民陪審團依法審判一個人；秦朝是由皇帝下令大規模禁書與處死，而且「坑儒」的規模與對象在學界有很大爭議。", src: [s1] }
 sources:

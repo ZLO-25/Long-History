@@ -22,6 +22,9 @@ place:
 structure_tags: [金融制度創新, 意外財源, 單一港口依賴, 海權對陸權]
 topics: [鑄幣, 銀行與借貸, 海上貿易, 奴隸制]
 links: [commodity-laurion-silver, finance-lydian-coinage, finance-roman-argentarii, war-peloponnesian]
+causes:
+  - { id: commodity-laurion-silver, rel: 背景, why: 雅典靠勞里昂銀礦鑄出大量銀幣，港口又有許多運貨的船，換錢、存款和放款的生意才做得起來。, src: [s3] }
+  - { id: finance-lydian-coinage, rel: 背景, why: 鑄幣讓錢的價值容易標準化，銀行家才能在各城邦錢幣並存的市場裡替人兌換、保管和借貸。, src: [finance-lydian-coinage:s6] }
 counterparts: "無適當對照：中國軌現有卡中沒有同時期（前 5–前 4 世紀）私人經營的存款與放款業；戰國時期的貨幣與信貸史料，本卡未查證，不硬湊。"
 sources:
   - { id: s1, title: "Pasion — Wikipedia", url: "https://en.wikipedia.org/wiki/Pasion", accessed: 2026-10-31, tier: 百科 }

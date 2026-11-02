@@ -20,6 +20,11 @@ place:
 structure_tags: [金融制度創新, 貨幣貶值, 慢變結構]
 topics: [紙幣]
 links: [event-wang-anshi-reform, tech-paper, tech-movable-type, finance-bank-of-england, finance-shanxi-piaohao, finance-abbasid-sakk-hawala]
+causes:
+  - { name: 四川使用鐵錢（北宋）, rel: 促成, why: 四川通行的鐵錢又重又不值錢，做生意要搬一大堆，商人才改用一張紙代表大筆鐵錢。, src: [s1, s2] }
+  - { name: 私交子擠兌危機（1020年）, rel: 促成, why: 有商號付不出錢引發擠兌，交子鋪被下令關閉；之後朝廷設益州交子務，改由官府發行。, src: [s2] }
+effects:
+  - { name: 錢引取代交子（1105／1107年）, rel: 促成, why: 朝廷把交子當籌錢工具，1070 年代起不斷增發，交子貶值，最後改名「錢引」、舊交子不再兌換。, src: [s1, s2] }
 counterparts:
   - { id: finance-bank-of-england, note: "相似：都是政府財政吃緊時出現的紙上信用，一張紙能代表金屬貨幣（交子代表鐵錢，英格蘭銀行券可兌換金幣），也都先由民間開始、再和國家財政綁在一起。不同：官交子由朝廷的交子務直接發行，發多少由朝廷決定，後來為了籌錢增發而貶值；英格蘭銀行由私人股東出資借錢給政府，利息由國會通過的稅收支付，紙鈔起初可兌換金幣。", src: [s1, s2, s6, s7] }
 sources:

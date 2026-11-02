@@ -23,6 +23,8 @@ place:
 structure_tags: [霸權挑戰, 外部勢力介入, 補給線過長, 海權對陸權, 財政枯竭]
 topics: [海戰與水戰, 對外擴張, 火藥與武器]
 links: [tech-turtle-ship, event-toyotomi-unification, event-joseon-dynasty, commodity-iwami-silver]
+effects:
+  - { name: "明朝晚期財政困難（16 世紀末–17 世紀）", rel: 促成, why: "明朝援朝除了出兵，還送出約1700萬兩白銀與物資（估計）；有人認為這加重了明朝的財政負擔。", src: [s1, s2], disputed: true }
 counterparts: 無適當對照：同時代西方軌最接近的是 1588 年西班牙無敵艦隊，但本站還沒有這張卡；之後補卡再對照。
 sources:
   - { id: s1, title: "Imjin War — Wikipedia", url: "https://en.wikipedia.org/wiki/Imjin_War", accessed: 2026-10-25, tier: 百科 }

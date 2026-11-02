@@ -20,6 +20,12 @@ place:
 structure_tags: [補給線過長, 地形險阻, 精英內鬥, 財政枯竭, 臨界點]
 topics: [諸侯爭霸]
 links: [event-shang-yang-reform, event-qin-unification]
+causes:
+  - { id: event-shang-yang-reform, rel: 背景, why: 商鞅建立的軍功爵與動員體制，讓秦國能用賜爵獎勵，徵發全國十五歲以上男子投入長期消耗戰。, src: [s1, event-shang-yang-reform:s1] }
+  - { name: 上黨郡獻趙（前 262 年）, rel: 直接引發, why: 秦國切斷韓國上黨郡與本國的聯繫，郡守馮亭不願降秦，把上黨獻給趙國，趙國接受後秦趙兩軍對峙。, src: [s1] }
+effects:
+  - { id: event-qin-unification, rel: 促成, why: 趙國在長平損失大量兵力，兵源從此沒能恢復，秦國少了最強的對手，約十年內就恢復元氣，最終統一天下。, src: [s1] }
+  - { name: 邯鄲之戰（前 259–前 257 年）, rel: 直接引發, why: 長平大勝後秦軍進攻趙都邯鄲，趙國靠楚、魏援軍擊退秦軍，秦國的擴張因此停頓將近三十年。, src: [s1] }
 counterparts:
   - { id: war-second-punic, note: "相似：守方先用「不決戰、拖垮對手補給」的戰略（廉頗守丹河；法比烏斯拖延），後來換上主張出擊的將領，結果大軍被包圍殲滅（長平；坎尼）。不同：羅馬在坎尼之後仍能重新動員並最終獲勝，趙國的兵源從此沒有恢復。", src: [s1] }
 sources:

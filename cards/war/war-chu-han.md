@@ -21,6 +21,11 @@ place:
 structure_tags: [精英內鬥, 補給線過長, 聯盟破裂, 合法性危機, 臨界點]
 topics: [內戰]
 links: [event-chen-sheng-wu-guang, event-han-inherits-qin, event-qin-unification]
+causes:
+  - { id: event-chen-sheng-wu-guang, rel: 促成, why: 陳勝起事後各地紛紛反秦，秦朝崩潰留下權力真空，劉邦、項羽這些起兵者才有機會爭奪天下。, src: [s1, event-chen-sheng-wu-guang:s1] }
+  - { name: 項羽分封十八國（前 206 年）, rel: 直接引發, why: 秦亡後項羽分封天下偏袒盟友，許多起兵者分得很少，劉邦也心懷不滿，從漢中出兵東進。, src: [s1] }
+effects:
+  - { id: event-han-inherits-qin, rel: 直接引發, why: 劉邦在垓下打敗項羽後稱帝，建立漢朝，並延續秦朝的許多制度。, src: [s1] }
 counterparts:
   - { id: war-actium, note: "相似：舊秩序瓦解後兩個強人爭天下，勝者建立延續數百年的新政體（漢朝；元首制）。不同：楚漢是秦帝國崩潰、各地起兵後的群雄混戰；亞克興是羅馬共和制度內部兩派的內戰。", src: [s1, s2] }
 sources:

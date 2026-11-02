@@ -20,6 +20,12 @@ place:
 structure_tags: [貨幣貶值, 合法性危機, 制度包裝延續, 關鍵原料壟斷, 臨界點]
 topics: [鑄幣, 國家專賣, 變法與改革, 儒家, 土地制度, 奴隸制]
 links: [commodity-wuzhu-coin, commodity-salt-iron, event-han-inherits-qin, event-yellow-turban]
+causes:
+  - { name: 外戚王氏掌權（前1–8年）, rel: 背景, why: 王莽以外戚身分輔佐幼帝、掌握朝政，最後自己稱帝，才有權力推行全面改制。, src: [s1, s2] }
+  - { id: event-confucian-orthodoxy, rel: 背景, why: 有學者認為王莽以恢復古制為名改革，效法古代聖王，正是儒家成為官學後的核心主張。, src: [s8], disputed: true }
+effects:
+  - { name: 綠林、赤眉起事（17年起）, rel: 促成, why: 改制造成貨幣混亂、物價不穩，又遇黃河潰決與饑荒，民間認為王莽失去天命，綠林、赤眉起兵。, src: [s1, s2] }
+  - { name: 東漢建立（25年）, rel: 促成, why: 改革幾乎全部失敗，23 年長安被攻破、王莽被殺，劉秀重建漢朝。, src: [s1, s4] }
 counterparts:
   - { id: event-augustan-principate, note: "相似：一位朝廷內部的權臣，以「恢復理想古制」為號召取得最高權力（王莽託古於周制；奧古斯都號稱恢復共和）。不同：奧古斯都保留舊制度的外殼、實際改變不大，政權延續數百年；王莽大刀闊斧改變土地、奴婢與貨幣制度，14 年就覆亡。", src: [s1, s2] }
 sources:

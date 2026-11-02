@@ -22,6 +22,12 @@ place:
 structure_tags: [外部勢力介入, 邊疆防線, 霸權挑戰, 基礎建設網絡, 擴大稅基]
 topics: [道路與鐵路, 原住民族, 對外擴張]
 links: [event-qing-taiwan-frontier, commodity-taiwan-tea-camphor, event-self-strengthening, event-meiji-restoration, event-1895-cession]
+causes:
+  - { name: 八瑤灣事件（1871）, rel: 直接引發, why: 琉球船民在八瑤灣遇害，清廷又說臺灣「生番」是化外之民，等於給了日本出兵臺灣的藉口。, src: [s1] }
+  - { id: event-meiji-restoration, rel: 背景, why: 明治政府正把琉球王國改成「琉球藩」，便以替琉球人討公道為名向清朝抗議並出兵。, src: [s1] }
+effects:
+  - { id: event-1895-cession, rel: 背景, why: 這次出兵暴露清朝在臺灣邊疆「不管」的空隙，牡丹社事件因此被看成日本日後取得臺灣的前奏。, src: [s1, s2] }
+  - { name: 日本併吞琉球（1879）, rel: 促成, why: 北京專約承認日本出兵是「保民義舉」，日本藉此主張琉球歸屬，1879 年廢琉球王國、設沖繩縣。, src: [s1] }
 counterparts:
   - { id: tech-railway, note: "相似：劉銘傳 1891 年通車的基隆—臺北鐵路，和歐美一樣是「國家把鐵路當成現代化與國防的象徵」。不同：英美鐵路由民間資本與工業需求推動，臺灣這條是官辦，靠清賦增加的稅收硬撐，只有基隆到臺北一小段。", src: [s4, s6] }
 sources:

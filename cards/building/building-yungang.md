@@ -20,6 +20,8 @@ place:
 structure_tags: [宗教／意識形態動員, 政治宣傳工程, 技術擴散]
 topics: [古代建築, 宗教]
 links: [event-xiaowen-reform, war-feishui, building-grand-canal]
+causes:
+  - { name: 佛教石窟藝術從南亞、中亞東傳（5世紀以前）, rel: 背景, why: 南亞、中亞的佛教石窟藝術傳到北魏，皇室贊助在平城開鑿，並融合中國傳統。, src: [s1, s2] }
 counterparts:
   - { id: building-pantheon, note: "相似：由國家出資、規模宏大的宗教建築，也是統治者展示權力與正統的地方。不同：萬神殿供奉羅馬自己的眾神；雲岡石窟供奉從南亞、中亞傳來的佛教，風格融合外來與中國傳統。", src: [s1, s2] }
 sources:

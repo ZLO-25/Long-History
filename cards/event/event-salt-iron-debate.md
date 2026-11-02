@@ -20,6 +20,13 @@ place:
 structure_tags: [關鍵原料壟斷, 財政枯竭, 精英內鬥, 戰爭融資]
 topics: [國家專賣, 游牧民族與邊疆, 儒家]
 links: [commodity-salt-iron, war-han-xiongnu, event-confucian-orthodoxy]
+causes:
+  - { id: commodity-salt-iron, rel: 促成, why: 鹽鐵專賣讓國庫充實，但鹽貴、鐵器不好用，民間怨聲很多，朝廷才召集儒生來辯論存廢。, src: [s1, s2] }
+  - { id: war-han-xiongnu, rel: 背景, why: 專賣本來是為了支付對匈奴的戰爭，所以會議也一併爭論該打仗還是和親。, src: [s1, s2] }
+  - { name: 漢武帝去世、霍光輔政（前87年）, rel: 背景, why: 武帝死後幼主即位，由霍光與桑弘羊輔政，霍光召集各地儒生和桑弘羊當面辯論。, src: [s1, s2] }
+effects:
+  - { name: 廢除酒類專賣（前81年）, rel: 直接引發, why: 官方大致勝出，鹽鐵專賣保留，只讓步廢除了酒的專賣。, src: [s1, s2] }
+  - { name: 《鹽鐵論》成書（前1世紀）, rel: 直接引發, why: 宣帝時官員桓寬把會議辯論整理成《鹽鐵論》，讓「國家該不該經營經濟」的爭論流傳下來。, src: [s1] }
 counterparts: "無適當對照：目前的西方卡沒有「朝廷召集各地學者，公開辯論國家該不該經營產業，並把辯論寫成書」的例子；羅馬共和晚期也有土地與糧食政策之爭（如格拉古兄弟），但本期沒有這張卡，形式也是公民大會的立法鬥爭而非朝廷辯論。"
 sources:
   - { id: s1, title: "Discourses on Salt and Iron — Wikipedia", url: "https://en.wikipedia.org/wiki/Discourses_on_Salt_and_Iron", accessed: 2026-10-25 }

@@ -23,6 +23,11 @@ place:
 structure_tags: [商路改道, 意外財源, 貨幣體系轉換, 慢變結構]
 topics: [白銀, 絲綢與絲路]
 links: [finance-ming-baochao, commodity-manila-galleon, commodity-iwami-silver, event-single-whip-reform, finance-age-of-genoese]
+causes:
+  - { name: "波托西銀礦開採（1545 年起）", rel: 促成, why: "西班牙在美洲波托西靠米塔制強迫原住民挖礦，16世紀後半估計產出全世界約六成白銀，供應了流向亞洲的銀。", src: [s4] }
+effects:
+  - { id: event-single-whip-reform, rel: 促成, why: "大量外國白銀流入中國，明朝才有足夠的銀推行以銀繳稅的一條鞭法。", src: [s1, s6] }
+  - { name: "江南與福建的商業繁榮（16–17 世紀）", rel: 促成, why: "白銀大量流入，讓江南、福建等地的商業交易更加活躍。", src: [s1, s6] }
 counterparts: 無適當對照：這張卡本身就跨東西兩軌（美洲、歐洲、日本、中國）；同時期西方軌與它最接近的是阿姆斯特丹交易所，但那是金融制度而不是物資流動。
 sources:
   - { id: s1, title: "Mark Cartwright, Ming Taxation & the Silver Economy — World History Encyclopedia", url: "https://www.worldhistory.org/article/3004/ming-taxation--the-silver-economy/", accessed: 2026-10-25, tier: 通論 }

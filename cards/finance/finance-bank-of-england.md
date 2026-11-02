@@ -20,6 +20,13 @@ place:
 structure_tags: [金融制度創新, 戰爭融資, 債務擴張]
 topics: [紙幣, 銀行與借貸, 國債與公債, 中央銀行]
 links: [finance-amsterdam-exchange, finance-medici-bank, finance-jiaozi, finance-bretton-woods, finance-great-depression, finance-2008-crisis, finance-casa-di-san-giorgio]
+causes:
+  - { name: 九年戰爭（1688–1697）, rel: 直接引發, why: 英格蘭和法國打仗缺錢、又借不到錢，於是成立一家銀行，把股東湊的 120 萬英鎊整筆借給政府。, src: [s1] }
+  - { name: 查理二世國庫止付（1672）, rel: 背景, why: 國王曾暫停償債，政府信用很差，所以要改由國會立專門稅收來付利息，讓人敢借錢給國家。, src: [s4, s1] }
+  - { name: 光榮革命（1688–1689）, rel: 促成, why: 有學者認為光榮革命後國會控制財政、國王不能任意賴帳，借錢給國家才變得可靠；也有學者指出利率並沒有因此明顯下降。, src: [s5], disputed: true }
+effects:
+  - { id: finance-london-rise, rel: 背景, why: 英格蘭銀行與國債制度給了英國一套可靠的借錢機制，拿破崙戰爭時英國才能靠借款撐住二十年的仗。, src: [finance-london-rise:s3, finance-london-rise:s5] }
+  - { id: finance-gold-standard, rel: 背景, why: 英格蘭銀行發行可兌換金幣的紙鈔，1844 年法律又規定超額鈔票要有黃金準備，成為英國金本位的核心制度。, src: [s3, finance-gold-standard:s2] }
 counterparts:
   - { id: finance-jiaozi, note: "相似：都是政府財政吃緊時出現的紙上信用，一張紙能代表金屬貨幣（交子代表鐵錢，英格蘭銀行券可兌換金幣）。不同：交子由朝廷的交子務直接發行，發多少由朝廷決定；英格蘭銀行是私人股東出錢借給政府，利息由國會通過的稅收支付，還債有國會背書。", src: [s1, s3, s7] }
   - { id: finance-shanxi-piaohao, note: "相似：政府都倚賴民間金融機構替國家調度錢（清廷靠票號匯解稅款與軍費）。不同：英格蘭銀行一路變成管理國債、發行鈔票的中央銀行；票號始終是民間商號，清朝滅亡後隨之沒落。", src: [s1, s8] }

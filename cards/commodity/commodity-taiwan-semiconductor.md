@@ -21,6 +21,10 @@ place:
 structure_tags: [關鍵原料壟斷, 單一港口依賴, 技術代差, 標準化量產]
 topics: [臺灣出口品, 出口區與科學園區, 半導體與網路]
 links: [event-hsinchu-park-tsmc, tech-internet]
+causes:
+  - { id: event-hsinchu-park-tsmc, rel: 促成, why: 1976 年工研院向 RCA 學技術、1987 年成立台積電，打下臺灣晶片製造業的基礎。, src: [s1, s6] }
+effects:
+  - { id: event-us-china-trade-war, rel: 背景, why: 最先進的晶片大多在臺灣製造，晶片成為美中競爭的焦點，台積電與臺灣也被捲進美中科技戰。, src: [s1, s5, event-us-china-trade-war:s4] }
 counterparts: 無適當對照：西方軌沒有「一個地方掌握全球關鍵工業品」的同時代物資卡；結構上可參考「霍爾木茲海峽」等今日咽喉。
 sources:
   - { id: s1, title: "Semiconductor industry in Taiwan — Wikipedia", url: "https://en.wikipedia.org/wiki/Semiconductor_industry_in_Taiwan", accessed: 2026-10-25, tier: 百科 }

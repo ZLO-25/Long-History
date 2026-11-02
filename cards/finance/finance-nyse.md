@@ -20,6 +20,11 @@ place:
 structure_tags: [金融制度創新, 慢變結構, 投機泡沫與崩盤]
 topics: [交易所, 股票與公司]
 links: [finance-amsterdam-exchange, finance-great-depression, finance-2008-crisis, finance-taiwan-stock-exchange, tech-telegraph]
+causes:
+  - { id: finance-hamilton-financial-plan, rel: 促成, why: 漢彌爾頓把戰爭欠債整理成可交易的聯邦公債，又成立第一銀行，紐約才有足夠的證券讓經紀人天天買賣。, src: [finance-hamilton-financial-plan:s1, finance-hamilton-financial-plan:s10] }
+  - { name: 美英戰爭結束（1815）, rel: 促成, why: 1815 年戰爭結束後，銀行和保險公司的股票也開始在紐約買賣，市場變大，經紀人便在 1817 年訂章程、租固定場地。, src: [s3] }
+effects:
+  - { id: finance-great-depression, rel: 背景, why: 紐交所成為美國股票交易的中心，1929 年 10 月在這裡發生的股災被認為引發了大蕭條。, src: [s1, s3] }
 counterparts:
   - { id: finance-taiwan-stock-exchange, note: "相似：都是把分散的股票、債券買賣集中到一個有規則的市場。不同：紐約證交所從 1792 年 24 名經紀人的民間約定長出來，1817 年才自訂章程；臺灣證交所是 1961 年在政府規劃下以公司組織成立，起因是土地改革發出的公營事業股票需要集中交易。", src: [s1, s3, s6] }
 sources:

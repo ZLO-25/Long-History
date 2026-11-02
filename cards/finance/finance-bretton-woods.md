@@ -20,6 +20,12 @@ place:
 structure_tags: [金融制度創新, 貨幣貶值, 臨界點]
 topics: [國際貨幣, 世界大戰]
 links: [finance-great-depression, finance-2008-crisis, war-world-war-two]
+causes:
+  - { id: finance-new-york-overtakes-london, rel: 背景, why: 美元在兩次大戰間已逐步追上英鎊，加上戰後美國握有全球約七成官方黃金，新體系自然以美元為中心。, src: [s4, finance-new-york-overtakes-london:s4] }
+  - { id: war-vietnam-war, rel: 促成, why: 有學者認為，1965 年後越戰支出推高美國通膨，順差國紛紛拿美元換黃金，才逼得尼克森關上黃金窗口。, src: [s9], disputed: true }
+effects:
+  - { id: finance-dollar-reserve-currency, rel: 促成, why: 布列敦森林讓各國貨幣都掛美元，美元成為國際貨幣中心；1971 年脫鉤黃金後，這個地位仍延續下來。, src: [s1, finance-dollar-reserve-currency:s5] }
+  - { id: finance-petrodollar, rel: 背景, why: 1971 年美元不再兌換黃金，信用改靠政府，石油收入回流美元資產成了支撐美元需求的來源之一。, src: [s4, finance-petrodollar:s4, finance-petrodollar:s1] }
 counterparts: "無適當對照：中國軌現有與計畫卡中沒有「國際貨幣制度」的卡；中華民國雖是 1944 年與會的 44 國之一，但本卡未查證其角色，不硬湊。"
 sources:
   - { id: s1, title: "Bretton Woods system — Wikipedia", url: "https://en.wikipedia.org/wiki/Bretton_Woods_system", accessed: 2026-10-25, tier: 百科 }

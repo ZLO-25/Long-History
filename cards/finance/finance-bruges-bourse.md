@@ -22,6 +22,12 @@ place:
 structure_tags: [金融制度創新, 金融中心轉移, 單一港口依賴, 商路改道, 慢變結構]
 topics: [匯票與遠距付款, 交易所, 金融中心]
 links: [finance-medici-bank, finance-champagne-fairs, finance-venice-rialto, finance-antwerp-bourse, war-fall-of-antwerp, finance-amsterdam-wisselbank]
+causes:
+  - { id: finance-champagne-fairs, rel: 背景, why: "義大利與法蘭德斯開出海上直航後，不必再走陸路到香檳市集中轉，商人的貿易與信用活動轉到布魯日等港口延續。", src: [finance-champagne-fairs:s1, finance-champagne-fairs:s6] }
+  - { name: "漢薩同盟（13–17 世紀）", rel: 背景, why: "布魯日是漢薩同盟四大外國商站之一，加上義大利商人與銀行設點，各地商人聚集，才需要固定的聚會換錢場所。", src: [s1, s3, s4] }
+effects:
+  - { id: finance-antwerp-bourse, rel: 促成, why: "茲溫河口淤積讓布魯日失去海港優勢，又和哈布斯堡統治者衝突，外國商人與金融活動於是轉往安特衛普。", src: [s1, s5, s6] }
+  - { id: finance-amsterdam-exchange, rel: 背景, why: "商人在布魯日固定聚會的場所以「bourse」一名流傳，影響了後來安特衛普、阿姆斯特丹等地的交易所。", src: [s2, s6] }
 counterparts: "無適當對照：中國與東亞軌現有卡片中沒有「外國商人群聚、在固定場所買賣匯票與換錢」的市場卡，不硬湊。"
 sources:
   - { id: s1, title: "Bruges — Wikipedia", url: "https://en.wikipedia.org/wiki/Bruges", accessed: 2026-10-31, tier: 百科 }

@@ -24,6 +24,11 @@ place:
 structure_tags: [金融制度創新, 債務擴張, 長期衰退]
 topics: [銀行與借貸, 匯票與遠距付款]
 links: [finance-amsterdam-exchange, finance-bank-of-england, finance-shanxi-piaohao, finance-casa-di-san-giorgio]
+causes:
+  - { name: "教會禁止收取利息（中世紀）", rel: 背景, why: "教會禁止放高利貸，銀行不能明著收利息，梅迪奇便改從匯票的匯率差與付款期限中賺取相當於利息的收入。", src: [s1] }
+  - { id: finance-champagne-fairs, rel: 背景, why: "匯票與帳面結算在梅迪奇之前就已存在，香檳市集的書面債據被視為匯票前身之一；梅迪奇是把這些工具有系統地用開。", src: [s1, finance-champagne-fairs:s4] }
+effects:
+  - { name: "複式簿記與匯票在歐洲推廣（15 世紀）", rel: 促成, why: "梅迪奇把分行網路、匯票和複式簿記組成一套制度，讓跨國金融有系統地運作，競爭者也跟著採用。", src: [s1, s2] }
 counterparts:
   - { id: finance-shanxi-piaohao, note: "相似：都用「總行＋各地分號」的網路和匯票，讓商人不必扛著現金長途跋涉就能把錢送到遠方。不同：梅迪奇在歐洲各國之間做跨國、跨幣種匯兌，大客戶是教廷；山西票號在同一個清帝國內匯兌，後期大客戶是清政府的稅款與軍費。兩者都隨著靠山的政權倒台而沒落（1494 年梅迪奇失勢、1911 年清朝滅亡）。", src: [s1, s4] }
 sources:

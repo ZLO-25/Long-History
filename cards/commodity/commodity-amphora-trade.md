@@ -24,6 +24,11 @@ routes: [sea-baetica-rome]
 structure_tags: [標準化量產, 商路改道, 單一港口依賴, 基礎建設網絡, 慢變結構]
 topics: [海上貿易]
 links: [commodity-egypt-grain, commodity-roman-concrete, building-via-appia]
+causes:
+  - { name: 羅馬國家的糧油配給（帝國時期）, rel: 促成, why: 國家要供應首都居民和軍隊的橄欖油，透過配給體系大量採購，貝提卡的油才一船船裝在雙耳瓶裡運到羅馬。, src: [s2] }
+  - { id: war-second-punic, rel: 背景, why: 羅馬在第二次布匿戰爭奪下伊比利南部，那裡的貝提卡後來成為裝在雙耳瓶裡運往羅馬的橄欖油主要產地。, src: [war-second-punic:s2, s3] }
+effects:
+  - { name: 泰斯塔西奧山（約 140–260 年）, rel: 直接引發, why: 裝過油的雙耳瓶碎片沾滿油漬難以回收，就地丟棄比運回產地划算，在羅馬堆出一座含約五千萬個瓶子的人造山。, src: [s1, s2] }
 counterparts:
   - { id: building-terracotta-army, note: "相似：大量、規格化的陶製品，作坊在產品上留下戳記或名號，可以追查來源與品質。不同：雙耳瓶是市場與運輸用的容器；兵馬俑是國家為皇帝陵墓製作、埋入地下的陪葬品。", src: [s1, s7] }
 sources:

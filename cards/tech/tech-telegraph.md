@@ -24,6 +24,12 @@ place:
 structure_tags: [資訊傳播革命, 基礎建設網絡, 技術擴散, 快速擴張]
 topics: [印刷與通訊]
 links: [tech-railway, tech-internet, tech-printing-press]
+causes:
+  - { name: 早期電報實驗（1816–1833）, rel: 背景, why: 羅納茲、席林、高斯與韋伯等人先後做出靜電電報、指針電報和電線通訊，庫克、惠斯通與摩斯接著做出能實用的電報。, src: [s1] }
+  - { id: tech-railway, rel: 背景, why: 電報 1838 年最先裝在英國大西部鐵路上，鐵路靠它做號誌、確認前方有沒有車，兩者一起擴張。, src: [s1] }
+effects:
+  - { id: finance-shanxi-piaohao, rel: 促成, why: 新式銀行用電報和鐵路結算，成本更低、放款利率也更低，靠分號和密押匯票的票號因此被搶走生意。, src: [finance-shanxi-piaohao:s1] }
+  - { id: war-american-civil-war, rel: 背景, why: 南北戰爭中電報和鐵路一起用來調兵與指揮，將領能更快掌握遠方戰況。, src: [war-american-civil-war:s1, s1] }
 counterparts: "無適當對照：計畫中的中國軌卡沒有通訊類題材；清代驛傳、烽火沒有獨立卡片，而活字印刷是「大量複製」資訊，不是「遠距即時傳送」，結構不同，不硬湊。"
 sources:
   - { id: s1, title: "Electrical telegraph — Wikipedia", url: "https://en.wikipedia.org/wiki/Electrical_telegraph", accessed: 2026-10-25 }

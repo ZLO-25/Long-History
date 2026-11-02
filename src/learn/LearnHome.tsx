@@ -10,9 +10,9 @@ const GROUPS: [string, (h: History) => boolean][] = [
   ['臺灣', (h) => h.track === '臺灣'], ['東亞', (h) => h.track === '東亞'], ['世界', (h) => h.track === '世界' || h.track === '全部'], ['專題（跨地區）', (h) => h.track === '專題'],
 ];
 
-export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, onRecord, onTopic, onTopics }: {
+export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, onRecord, onTopic, onTopics, onStory }: {
   index: Index; p: Progress; onHistory: (id: string) => void; onUnit: (id: string) => void; onRandom: () => void; onIntroSeen: () => void; onRecord?: () => void;
-  onTopic?: (name: string) => void; onTopics?: () => void;
+  onTopic?: (name: string) => void; onTopics?: () => void; onStory?: (id: string) => void;
 }) {
   const cards = learnCards(index);
   // 上次做到一半的單元：放在最上面，一鍵接著做
@@ -77,8 +77,14 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
       </section>
       {onTopic && onTopics && (
         <section className="home-topics">
-          <h2>2. 或者，順著一個主題往下走</h2>
-          <p className="muted">每張卡都有「主題標籤」。點一個標籤，就能看到同一件事物從古到今的歷史路徑。</p>
+          <h2>2. 或者，順著一條故事線、一個主題往下走</h2>
+          {onStory && (index.storylines ?? []).length > 0 && <>
+            <p className="muted"><b>故事線</b>：一件事怎麼引出下一件事，跨越不同時代和地區。每一站之間都說明「怎麼造成的」。</p>
+            <div className="home-stories">
+              {(index.storylines ?? []).map((s) => <button key={s.id} className="si-item" onClick={() => onStory(s.id)}><span className="si-title">〰 {s.title}</span><span className="si-q">{s.question}</span><span className="si-meta muted small">{s.stops.length} 站</span></button>)}
+            </div>
+          </>}
+          <p className="muted"><b>主題標籤</b>：每張卡都有「主題標籤」。點一個標籤，就能看到同一件事物從古到今的歷史路徑。</p>
           <div className="chips">
             {FEATURED.map((n) => { const t = (index.topicLayers ?? []).flatMap((l) => l.topics).find((x) => x.name === n); return t ? <button key={n} className="chip topic big" onClick={() => onTopic(n)}>#{n}<small>{t.cards.filter((id) => cards.some((c) => c.id === id)).length}</small></button> : null; })}
             <button className="btn sm" onClick={onTopics}>看全部 {(index.topicLayers ?? []).reduce((k, l) => k + l.topics.length, 0)} 個標籤 →</button>

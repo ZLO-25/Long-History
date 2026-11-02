@@ -24,6 +24,8 @@ routes: [wall-hadrian]
 structure_tags: [邊疆防線, 政治宣傳工程, 公共工程支出, 慢變結構]
 topics: [游牧民族與邊疆]
 links: [war-teutoburg, event-fall-western-rome, building-via-appia]
+causes:
+  - { name: 哈德良停止擴張、守住邊界的政策（2世紀）, rel: 背景, why: 有學者把長城看成羅馬不再往外征服、改用固定防線守住領土的象徵，牆兼具防禦、監控與課稅功能。, src: [s1, s2], disputed: true }
 counterparts:
   - { id: building-qin-han-great-wall, note: "相似：帝國在北方邊疆築牆，管理與外族之間的邊界，牆邊有駐軍與關口。不同：哈德良長城是一道約 117 公里、規格一致的牆；秦漢長城是用各地材料拼接、延伸數千公里的防線，秦代部分幾乎沒有留下來。", src: [s1, s4] }
 sources:

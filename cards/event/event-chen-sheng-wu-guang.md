@@ -20,6 +20,12 @@ place:
 structure_tags: [附庸反叛, 合法性危機, 臨界點, 突變事件]
 topics: [民變與抗爭, 帝國的衰亡]
 links: [event-burning-books, war-chu-han, event-qin-unification]
+causes:
+  - { id: event-qin-unification, rel: 背景, why: 統一後秦朝施行嚴法、重稅和大量徭役，農民常被徵調到遠方戍邊，不滿越積越深。, src: [s2] }
+  - { name: 秦始皇去世與胡亥即位（前 210 年）, rel: 促成, why: 依漢代史家的說法，胡亥用偽詔逼死扶蘇即位，起義者便假借扶蘇的名義號召人心。, src: [s2] }
+  - { name: 戍卒大澤鄉遇雨失期（前 209 年）, rel: 直接引發, why: 九百名戍卒遇大雨趕不上期限，依《史記》誤期要斬，陳勝、吳廣決定與其等死不如起事。, src: [s1, s2, s5] }
+effects:
+  - { id: war-chu-han, rel: 促成, why: 陳勝起事打破秦朝不可挑戰的局面，各地反秦勢力接連起兵，劉邦、項羽也在其中，秦亡後兩人爭奪天下。, src: [s1, s2] }
 counterparts: "無適當對照：目前的西方卡沒有「被徵調的下層士兵起事、引發全國反叛並推翻帝國」的例子；結構最接近的羅馬斯巴達克斯奴隸起義（前 73 年）沒有卡，而且最後被鎮壓，沒有推翻政權。"
 sources:
   - { id: s1, title: "Dazexiang uprising — Wikipedia", url: "https://en.wikipedia.org/wiki/Dazexiang_uprising", accessed: 2026-10-25, tier: 百科 }

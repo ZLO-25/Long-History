@@ -21,6 +21,8 @@ place:
 structure_tags: [貨幣貶值, 金融制度創新, 戰爭融資, 長期衰退]
 topics: [鑄幣, 銀行與借貸, 通貨膨脹]
 links: [building-forum-romanum, event-constitutio-antoniniana, event-fall-western-rome, finance-athens-trapezitai, finance-byzantine-solidus, commodity-wuzhu-coin, war-second-punic, event-augustan-principate]
+causes:
+  - { id: war-second-punic, rel: 背景, why: 羅馬在和漢尼拔作戰期間整頓幣制，約前 211 年推出第納里烏斯銀幣，成為之後數百年的標準貨幣。, src: [s1] }
 counterparts:
   - { id: commodity-wuzhu-coin, note: "兩者都是大帝國長期通行的標準錢幣：漢武帝前 118 年起鑄五銖錢，羅馬約前 211 年起鑄第納里烏斯；差別在於五銖是銅錢、第納里烏斯是銀幣，且羅馬廣場周邊另有私人銀行家與包稅公司組成的金融網絡。", src: [s1, s7] }
 sources:

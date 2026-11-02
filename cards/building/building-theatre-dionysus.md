@@ -20,6 +20,11 @@ place:
 structure_tags: [宗教／意識形態動員, 公共工程支出, 慢變結構]
 topics: [古代建築, 宗教]
 links: [building-acropolis, event-cleisthenes-reform, event-death-of-socrates]
+causes:
+  - { name: 庇西特拉圖家族創辦城市酒神節（前 6 世紀）, rel: 促成, why: 庇西特拉圖家族統治時開始舉辦大酒神節，節慶需要演出場地，衛城南坡的酒神聖域才有了最早的表演場地。, src: [s1] }
+  - { id: event-cleisthenes-reform, rel: 促成, why: 克里斯提尼改革時重新組織了城市酒神節，在這裡演出的戲劇因此成為雅典公民共同參與的節慶。, src: [s1] }
+effects:
+  - { id: event-death-of-socrates, rel: 背景, why: 有學者認為，在劇場上演的喜劇《雲》把蘇格拉底演成詭辯家，讓雅典人把他和「帶壞年輕人」連在一起。, src: [event-death-of-socrates:s1, event-death-of-socrates:s2], disputed: true }
 counterparts: "無適當對照：中國卡沒有公民集體觀賞戲劇、同時是城邦公共生活的場所；春秋戰國到漢代的史料與卡片都沒有可比的建築。"
 sources:
   - { id: s1, title: "Theatre of Dionysus — Wikipedia", url: "https://en.wikipedia.org/wiki/Theatre_of_Dionysus", accessed: 2026-10-24 }

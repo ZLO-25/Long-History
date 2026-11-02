@@ -20,6 +20,9 @@ place:
 structure_tags: [技術代差, 政治宣傳工程, 制度包裝延續, 宗教／意識形態動員]
 topics: [古代建築, 宗教]
 links: [commodity-roman-concrete, event-augustan-principate, building-colosseum]
+causes:
+  - { id: commodity-roman-concrete, rel: 促成, why: 分級骨材的混凝土越往上越輕，才撐得起內徑約 43 公尺、沒有鋼筋的穹頂。, src: [s1, s3] }
+  - { name: 阿格里帕舊神廟兩度焚毀（80、110年）, rel: 直接引發, why: 奧古斯都時期阿格里帕蓋的舊神廟在 80 年與 110 年兩度失火，之後才重建成現在的萬神殿。, src: [s1] }
 counterparts:
   - { id: building-yungang, note: "相似：由統治者出資、規模宏大的宗教建築，也是展示權力與正統的地方。不同：萬神殿供奉羅馬的眾神；雲岡石窟供奉從南亞、中亞傳來的佛教。", src: [s1, s6] }
 sources:

@@ -20,6 +20,11 @@ place:
 structure_tags: [關鍵原料壟斷, 戰爭融資, 標準化量產, 財政枯竭, 擴大稅基]
 topics: [國家專賣]
 links: [war-han-xiongnu, event-salt-iron-debate, event-wang-mang-reform, commodity-wuzhu-coin]
+causes:
+  - { id: war-han-xiongnu, rel: 促成, why: 對匈奴的戰爭讓國庫吃緊，朝廷把鹽鐵收歸國家經營，不必向農民加稅就能籌到軍費。, src: [s2, s3] }
+  - { name: 富商大族掌控鹽鐵（前2世紀）, rel: 背景, why: 官營以前，煮鹽與冶鐵由地方富商大族主導全國買賣；朝廷想把這筆大利潤收歸國庫。, src: [s3] }
+effects:
+  - { id: event-salt-iron-debate, rel: 促成, why: 專賣讓鹽鐵變貴、官製農具粗糙難買，民間怨聲多，武帝死後朝廷召開會議辯論該不該廢除。, src: [s2, "event-salt-iron-debate:s1"] }
 counterparts:
   - { id: commodity-laurion-silver, note: "相似：國家把關鍵礦產收歸公有，收入直接支撐戰爭（雅典艦隊；漢對匈奴）。不同：雅典把銀礦開採權租給私人經營、收租金；漢朝由官府直接設鐵官生產與販賣，民間被禁止。", src: [s1, s2] }
   - { id: commodity-egypt-grain, note: "相似：國家控制一種戰略物資的供應，並因此背上「與民爭利」或依賴的政治問題。不同：羅馬的埃及穀物主要是實物稅，運去餵養首都；漢朝鹽鐵官營是國家自己生產、賣給百姓以增加財政收入。", src: [s1, s3] }

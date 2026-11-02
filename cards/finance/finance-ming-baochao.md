@@ -21,6 +21,11 @@ place:
 structure_tags: [貨幣貶值, 惡性通膨, 貨幣體系轉換, 財政枯竭]
 topics: [紙幣, 通貨膨脹, 白銀]
 links: [finance-jiaozi, event-single-whip-reform, event-zheng-he-voyages, commodity-silver-flow]
+causes:
+  - { name: "明朝建立（1368）", rel: 背景, why: "朱元璋建立明朝後敵視宋元以來的商業經濟，想由政府掌控貨幣，於是發行寶鈔作為唯一法定貨幣、禁止民間用金銀交易。", src: [s3, s4] }
+effects:
+  - { id: event-single-whip-reform, rel: 促成, why: "寶鈔不能兌換又不斷貶值，民間改用白銀；1436年起朝廷也開始收銀，以銀繳稅逐步制度化，最後發展成一條鞭法。", src: [s2, s5] }
+  - { id: commodity-silver-flow, rel: 促成, why: "寶鈔失敗後白銀成為主要通貨，中國對白銀的龐大需求把日本和美洲的白銀吸進中國。", src: [s4, s5] }
 counterparts: 無適當對照：同時期西方軌沒有政府發行紙幣的卡片（歐洲當時以金屬貨幣為主）；結構上可和「西羅馬帝國滅亡」卡的銀幣貶值比較，但時代差距太大。
 sources:
   - { id: s1, title: "Great Ming Treasure Note — Wikipedia", url: "https://en.wikipedia.org/wiki/Da-Ming_Baochao", accessed: 2026-10-25, tier: 百科 }

@@ -20,6 +20,8 @@ place:
 structure_tags: [標準化量產, 政治宣傳工程, 公共工程支出]
 topics: [古代建築]
 links: [event-qin-unification, event-chen-sheng-wu-guang]
+causes:
+  - { id: event-qin-unification, rel: 背景, why: 嬴政即位就開始修陵，統一後工程一路持續到他去世；《史記》說修陵動用了七十萬名被徵發的勞工。, src: [s1, s2] }
 counterparts:
   - { id: commodity-amphora-trade, note: "相似：大量、分件、規格化的陶製品，各作坊在產品上留下名號以便追查品質。不同：雙耳瓶是給市場與運輸用的容器；兵馬俑是國家動員工匠為皇帝陵墓製作、埋入地下的陪葬品。", src: [s1] }
 sources:

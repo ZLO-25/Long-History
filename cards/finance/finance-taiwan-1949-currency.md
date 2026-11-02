@@ -21,6 +21,11 @@ place:
 structure_tags: [貨幣貶值, 惡性通膨, 貨幣體系轉換, 財政枯竭, 戰爭融資]
 topics: [紙幣, 通貨膨脹, 中央銀行, 內戰]
 links: [finance-taiwan-stock-exchange, finance-bretton-woods, finance-gold-yuan-1948, event-228-incident]
+causes:
+  - { name: 國共內戰（1945–1949）, rel: 促成, why: 臺灣銀行被要求替中央墊付軍公經費，陳誠說墊款已占發行總額九成，鈔票越印越多。, src: [s5] }
+  - { id: finance-gold-yuan-1948, rel: 促成, why: 上海金融崩潰、金圓券改革後，大陸的熱錢湧進臺灣，臺灣的物價跟著加速上漲。, src: [s1, s5] }
+effects:
+  - { id: event-228-incident, rel: 促成, why: 接收後政府大量印鈔、米糧統制，物價飛漲讓民怨越積越深。, src: [event-228-incident:s1, event-228-incident:s5] }
 counterparts:
   - { id: finance-weimar-hyperinflation, note: "相似：政府都靠印鈔撐財政，物價失控後換新貨幣（四萬換一元、一兆換一元）。不同：臺灣在改革時撥入黃金準備，但物價要到後來美援進來才穩住；德國則靠以資產擔保的地租馬克（德國的部分見威瑪卡）。", src: [s3, s5] }
 sources:

@@ -20,6 +20,12 @@ place:
 structure_tags: [宗教／意識形態動員, 制度包裝延續, 慢變結構]
 topics: [言論與思想管制, 儒家, 科舉與教育]
 links: [event-confucius, event-burning-books, event-han-inherits-qin, event-salt-iron-debate]
+causes:
+  - { id: event-burning-books, rel: 背景, why: 秦代焚書讓許多經典原文難找、意思難懂，漢代因此發展出注解經典的學問，為儒家經學成為官學打底。, src: [s5] }
+  - { id: event-confucius, rel: 背景, why: 董仲舒主張「推明孔氏，抑黜百家」，朝廷要獨尊的，正是孔子開創、以五經為核心的儒家學說。, src: [s2] }
+effects:
+  - { name: 科舉制度（約600年起）, rel: 背景, why: 察舉與太學讓讀儒家經典成為做官的途徑，被視為隋代以考試選官的科舉的前身。, src: [s3, s5] }
+  - { id: event-salt-iron-debate, rel: 背景, why: 察舉制度讓各地推舉的儒生進入朝廷視野，鹽鐵會議上批評專賣的「賢良」「文學」多半就是這些儒生。, src: [s2, "event-salt-iron-debate:s1"] }
 counterparts: "無適當對照：目前的西方卡沒有「國家選定一套學說作為官方意識形態，並以它來選拔官員」的例子；結構最接近的是 4 世紀羅馬帝國以基督教為國教，本期沒有這張卡，而且宗教與「以學問選官」並不相同。"
 sources:
   - { id: s1, title: "Han dynasty — Wikipedia", url: "https://en.wikipedia.org/wiki/Han_dynasty", accessed: 2026-10-25 }

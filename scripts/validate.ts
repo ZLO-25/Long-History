@@ -4,6 +4,8 @@ import { checkCards, loadContext, checkTopics } from './lib/check.ts';
 import { loadEcon, loadChains, checkEcon, checkChains } from './lib/econ.ts';
 import { loadToday, checkToday } from './lib/today.ts';
 import { loadCivTaxonomy } from './lib/civ.ts';
+import { buildEdges } from './lib/causes.ts';
+import { loadStorylines, checkStorylines } from './lib/storylines.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, loadUnits, checkUnits } from './lib/learn.ts';
 
 const cards = loadCards();
@@ -19,6 +21,8 @@ const issues = [
   ...cardIssues,
   ...checkUnits(units, cards, histories, eligible),
   ...checkTopics(cards),
+  ...checkStorylines(loadStorylines(), cards, buildEdges(cards)),
+  ...checkCycles(cards),
   ...checkEcon(loadEcon()),
   ...checkChains(loadChains(), cards, new Set(routes.map((r: any) => r.id))),
   ...checkToday(loadToday(), cards, new Set(tagVocab.flatMap((c: any) => c.tags.map((t: any) => t.tag))), new Set(routes.map((r: any) => r.id))),
@@ -47,6 +51,13 @@ for (const cat of tagVocab) for (const t of cat.tags) if (!t.plain || !t.example
   }
   const counts = histories.map((h) => `${h.name} ${rows.filter((r) => r.c.fm.learn && eligible.has(r.c.fm.id) && (r.explicit.includes(h.id) || r.inferred.includes(h.id))).length}`);
   console.log(`\n學習模式可用卡 ${eligible.size} 張（有 learn 區塊 ${cards.filter((c) => c.fm?.learn).length} 張）；單元 ${units.length} 個。各史可用卡：${counts.join('、')}`);
+}
+
+// 前因／後果互指（A 是 B 的原因、B 又是 A 的原因）通常是寫反了
+function checkCycles(cs: typeof cards) {
+  const es = buildEdges(cs).filter((e) => e.from && e.to);
+  return es.filter((e) => es.some((x) => x.from === e.to && x.to === e.from) && e.from! < e.to!)
+    .map((e) => ({ level: 'warning' as const, file: cs.find((c) => c.fm?.id === e.from)!.file, msg: `前因／後果互指：${e.from} ↔ ${e.to}，請確認方向（或改用「回應」只寫一邊）` }));
 }
 
 const byFile = new Map<string, typeof issues>();

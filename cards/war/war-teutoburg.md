@@ -19,6 +19,11 @@ place:
 structure_tags: [地形險阻, 附庸反叛, 補給線過長, 邊疆防線, 突變事件, 雇傭兵與蠻族化軍隊]
 topics: [游牧民族與邊疆]
 links: [event-augustan-principate, building-hadrians-wall]
+causes:
+  - { id: event-augustan-principate, rel: 背景, why: 奧古斯都時期羅馬向萊茵河以東擴張，西元 7 年派瓦魯斯出任日耳曼尼亞總督，羅馬軍深入日耳曼森林。, src: [s1, s2] }
+effects:
+  - { name: 羅馬以萊茵河為界（1世紀起）, rel: 促成, why: 慘敗後羅馬停止向萊茵河以東擴張，改建防線；但也有學者認為主因是日耳曼尼亞稅基有限、占領不划算。, src: [s1, s2], disputed: true }
+  - { name: 德意志民族主義的阿米尼烏斯神話（19世紀）, rel: 背景, why: 這場羅馬慘敗在 19 世紀被重新講述，阿米尼烏斯被塑造成德意志民族英雄。, src: [s1] }
 counterparts:
   - { id: war-han-xiongnu, note: "相似：農業帝國與邊疆外沒有城市、可以移動的對手作戰，戰爭決定了帝國的邊界畫在哪裡。不同：羅馬在條頓堡森林失去三個軍團後退守萊茵河；漢朝深入草原打贏多場大戰，但同樣無法佔領草原。", src: [s1, s5] }
 sources:

@@ -25,6 +25,14 @@ place:
 structure_tags: [全面戰爭, 霸權挑戰, 宗教／意識形態動員, 戰爭融資, 技術代差, 外部勢力介入, 聯盟破裂]
 topics: [海戰與水戰, 軍事同盟, 世界大戰]
 links: [war-world-war-one, war-sino-japanese-1937, event-end-of-cold-war, tech-internal-combustion]
+causes:
+  - { id: war-world-war-one, rel: 背景, why: 一戰和凡爾賽條約留下的不滿，讓歐洲的法西斯主義有機會興起。, src: [s1] }
+  - { id: war-sino-japanese-1937, rel: 促成, why: 日本侵華、義大利侵衣索比亞、德國併吞奧地利，一連串擴張都沒被有效阻止，戰火越燒越大。, src: [s1, s7] }
+  - { name: 德國入侵波蘭（1939）, rel: 直接引發, why: 1939 年 9 月 1 日德國入侵波蘭，英、法隨即對德宣戰，歐洲大戰爆發。, src: [s1] }
+effects:
+  - { id: event-containment-nato, rel: 背景, why: 戰後美蘇成為兩個超級強國，合作基礎消失，在東歐、德國的利益衝突開啟了冷戰。, src: [s1, event-containment-nato:s1] }
+  - { id: event-american-century, rel: 促成, why: 歐亞主要工業國被戰火重創，美國本土卻沒被摧毀，戰後美國的相對優勢因此特別大。, src: [event-american-century:s21] }
+  - { name: 亞非去殖民化（1945–1960 年代）, rel: 促成, why: 大戰讓歐洲列強元氣大傷、國際影響力下降，亞洲與非洲的殖民地加速獨立。, src: [s1] }
 counterparts:
   - { id: war-sino-japanese-1937, note: "相似：同一場世界大戰的兩個戰場，都是擴張型軸心國（德國／日本）侵略鄰國，最後在 1945 年被同盟國擊敗。不同：歐洲戰場以德國入侵波蘭（1939）為起點，中國戰場從 1937 年（甚至 1931 年）就開打，比歐洲早兩年以上，且中國到 1941 年底前幾乎是獨自抵抗。", src: [s1, s7] }
 sources:

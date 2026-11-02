@@ -23,6 +23,11 @@ place:
 structure_tags: [單一港口依賴, 宗教／意識形態動員, 慢變結構, 外部勢力介入]
 topics: [開港與鎖國, 宗教, 海上貿易]
 links: [event-toyotomi-unification, event-black-ships, commodity-iwami-silver, event-dutch-formosa]
+causes:
+  - { id: event-toyotomi-unification, rel: 背景, why: 豐臣秀吉 1587 年就下令驅逐傳教士，德川幕府延續這種戒心，而且越來越深。, src: [s1] }
+  - { name: 天主教傳入日本（16 世紀）, rel: 促成, why: 幕府把天主教和西班牙、葡萄牙看成真正的威脅，怕它們的殖民與宗教影響，所以趕走葡萄牙人、嚴禁天主教。, src: [s1] }
+effects:
+  - { id: event-black-ships, rel: 背景, why: 日本只開放四口對外往來，美國船在太平洋航線上找不到補給港，培理才帶艦隊來要求開港。, src: [event-black-ships:s1, event-black-ships:s2] }
 counterparts: 無適當對照：西方軌沒有一張「國家主動收緊對外往來兩百多年」的卡。
 sources:
   - { id: s1, title: "Sakoku — Wikipedia", url: "https://en.wikipedia.org/wiki/Sakoku", accessed: 2026-10-25, tier: 百科 }

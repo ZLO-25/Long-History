@@ -21,6 +21,10 @@ place:
 structure_tags: [債務擴張, 戰爭融資, 金融制度創新, 商路改道, 長期衰退]
 topics: [國債與公債, 金融中心, 香料貿易, 海上貿易]
 links: [event-vasco-da-gama, war-crusades, finance-champagne-fairs, finance-bruges-bourse, finance-medici-bank, finance-antwerp-bourse, event-black-death, finance-casa-di-san-giorgio, finance-byzantine-solidus, finance-abbasid-sakk-hawala]
+causes:
+  - { name: "拜占庭扣押威尼斯人（1171）", rel: 直接引發, why: "拜占庭扣押威尼斯商人，威尼斯要造艦隊報復卻缺錢，只好向富裕市民強制借款並承諾付息，成為公債制度的起點。", src: [s4] }
+effects:
+  - { id: event-vasco-da-gama, rel: 背景, why: "亞洲香料要經阿拉伯商人與威尼斯等中間商轉手，葡萄牙國王因此想找一條繞過他們、直接通往印度的海路。", src: [event-vasco-da-gama:s1, s1] }
 counterparts:
   - { id: finance-jiaozi, note: "宋代交子是政府承認並管理的紙幣，威尼斯公債則是付利息的強制貸款；兩者都是國家為了財政需要發明的信用工具，但一個靠紙幣流通，一個靠債權人收利息。", src: [s6] }
 sources:

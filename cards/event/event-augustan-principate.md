@@ -20,6 +20,12 @@ place:
 structure_tags: [制度包裝延續, 強人繞過制度, 政治宣傳工程, 慢變結構]
 topics: [統一與中央集權, 內戰]
 links: [war-actium, event-rubicon, building-forum-romanum, building-pantheon, commodity-egypt-grain, war-teutoburg]
+causes:
+  - { id: war-actium, rel: 促成, why: 亞克興與亞歷山卓之戰結束內戰，屋大維成為唯一掌握大軍的人，有實力重新安排羅馬政體。, src: [s2] }
+  - { id: event-rubicon, rel: 背景, why: 凱撒帶兵渡河開了「軍隊效忠將領、壓過共和法律」的先例，奧古斯都也靠士兵向他個人效忠來掌權。, src: [s2, "event-rubicon:s1"] }
+effects:
+  - { id: war-teutoburg, rel: 背景, why: 奧古斯都時期羅馬向萊茵河以東擴張、派瓦魯斯治理日耳曼尼亞，才有後來的條頓堡慘敗。, src: ["war-teutoburg:s1", "war-teutoburg:s2"] }
+  - { name: 羅馬和平（前27–180年）, rel: 促成, why: 元首制結束了長年內戰，軍隊只效忠皇帝一人，帝國進入約兩百年相對和平的時期。, src: [s2] }
 counterparts:
   - { id: event-han-inherits-qin, note: "相似：新統治者沿用前一體制的權力機器，卻刻意包裝成與前任不同。不同：奧古斯都保留共和的名義與官職，實質上建立君主制；漢朝延續的本來就是秦的皇帝集權體制。", src: [s1, s6] }
   - { id: event-wang-mang-reform, note: "相似：朝廷內部的權臣以恢復理想古制為號召取得最高權力。不同：奧古斯都保留舊制度外殼、實際變動有限，政權延續數百年；王莽大幅改變土地、奴婢與貨幣制度，14 年就覆亡。", src: [s1, s7] }

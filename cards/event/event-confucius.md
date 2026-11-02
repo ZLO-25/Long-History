@@ -20,6 +20,11 @@ place:
 structure_tags: [宗教／意識形態動員, 思想異見與審判, 慢變結構]
 topics: [儒家, 科舉與教育]
 links: [event-confucian-orthodoxy, event-burning-books, event-guan-zhong-reform]
+causes:
+  - { name: 魯國權臣家族專政（春秋晚期）, rel: 背景, why: 魯國實權在權臣家族手上，孔子支持拆他們城牆的計畫失敗，只好辭官周遊列國，晚年回魯專心教學與整理典籍。, src: [s1, s2] }
+effects:
+  - { name: 孟子與荀子發展儒學（戰國時代）, rel: 背景, why: 孔門弟子成為戰國最有影響力的思想群體之一，孟子、荀子在孔子學說上各自發展出性善與重禮教的主張。, src: [s1] }
+  - { id: event-confucian-orthodoxy, rel: 背景, why: 孔子的言行靠弟子編成《論語》流傳下來，三百多年後漢武帝把儒家定為官學，只為《五經》設博士。, src: [s1, event-confucian-orthodoxy:s1] }
 counterparts:
   - { id: event-death-of-socrates, note: "相似：一位自己沒有留下著作的老師，在政治上不得志，學說靠弟子記錄流傳，日後成為整個文明的思想基礎。不同：蘇格拉底被雅典民主處死；孔子周遊列國求官未果，晚年回鄉教書而終，學說在三百多年後被漢朝定為官學。", src: [s1, s2] }
 sources:

@@ -24,6 +24,11 @@ place:
 structure_tags: [快速擴張, 標準化量產, 儲備貨幣地位, 貨幣體系轉換, 金融中心轉移, 技術代差, 霸權挑戰, 慢變結構]
 topics: [冷戰, 世界大戰]
 links: [war-world-war-two, finance-bretton-woods, event-marshall-plan, event-containment-nato, war-korean-war, war-vietnam-war, event-nixon-china, finance-petrodollar, finance-dollar-reserve-currency, finance-new-york-overtakes-london, event-end-of-cold-war, event-monroe-doctrine]
+causes:
+  - { id: war-world-war-two, rel: 促成, why: 二戰讓美國放下孤立主義、成為「民主國家的兵工廠」；戰後歐亞工業國殘破，美國的相對優勢大增。, src: [s2, s21] }
+  - { id: event-gilded-age-industrialization, rel: 背景, why: 鍍金時代建起的鐵路網、鋼鐵石油工業與全國市場，是美國後來成為超級強權的經濟底座。, src: [event-gilded-age-industrialization:s1] }
+effects:
+  - { id: tech-internet, rel: 促成, why: 冷戰時美國政府大量資助科技計畫，阿帕網就是其中之一，1983 年改用 TCP/IP，成為網際網路的前身。, src: [s12, s13] }
 counterparts: "無適當對照：中國軌與東亞軌現有卡片中，沒有「單一國家在戰後主導全球貨幣、安全與科技規則」的對應事件；漢代朝貢體系的規模與性質不同，不硬湊。"
 sources:
   - { id: s1, title: "American Century — Wikipedia", url: "https://en.wikipedia.org/wiki/American_Century", accessed: 2026-10-31, tier: 百科 }

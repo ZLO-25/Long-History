@@ -6,18 +6,22 @@ import { TodayRefs } from './TodayPanel';
 import { Bi } from './Bi';
 import { TopicChips } from './Topics';
 import { AliasList } from './AliasList';
+import { CauseList, PathNav } from './Story';
 import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 interface Props {
   card: Card; index: Index; byId: Map<string, Card>;
   onOpen: (id: string) => void; onTag: (t: string) => void; onTopic?: (name: string) => void; onPlace: (key: string) => void; onRoute: (id: string) => void; onChain?: (id: string) => void; onToday?: (id: string) => void;
+  onStory?: (id: string) => void;
 }
 const LEVEL = { core: '核心', deep: '深入', optional: '選填' };
 const VERIF_CLASS: Record<string, string> = { '交叉確認': 'ok', 'AI草稿': 'draft', '爭議': 'dispute' };
 
-export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPlace, onRoute, onChain, onToday }: Props) {
+export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPlace, onRoute, onChain, onToday, onStory }: Props) {
   const chains = (index.chains ?? []).filter((x) => x.card === c.id);
   const fws = index.frameworks.filter((f) => c.frameworks.includes(f.id));
+  // 已經寫在「從哪裡來／往哪裡去」的卡，不在「其他相關卡片」重複列
+  const causal = new Set([...(c.causes ?? []), ...(c.effects ?? [])].map((x) => x.id).filter(Boolean) as string[]);
   return (
     <article className="card-detail">
       <div className="cd-head" style={{ borderColor: TYPE_COLOR[c.type] }}>
@@ -35,6 +39,9 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
         <div className="summary-line">{c.summary_line}</div>
         {onTopic && <TopicChips card={c} index={index} onTopic={onTopic} />}
       </div>
+
+      <PathNav card={c} index={index} onOpen={onOpen} onStory={(id) => onStory?.(id)} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} />
+      <CauseList card={c} side="causes" index={index} onOpen={onOpen} />
 
       <section className="cd-sec">
         <h3>基本資料</h3>
@@ -81,6 +88,7 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
         </section>
       ))}
 
+      <CauseList card={c} side="effects" index={index} onOpen={onOpen} />
       <Counterparts card={c} byId={byId} onOpen={onOpen} />
       <TodayRefs card={c} index={index} onToday={(id) => onToday?.(id)} onChain={(id) => onChain?.(id)} />
 
@@ -94,9 +102,9 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
       ))}
 
       <section className="cd-sec">
-        <h3>卡片連結</h3>
-        <LinkList title="連結到" ids={c.links} byId={byId} onOpen={onOpen} />
-        <LinkList title="被誰引用" ids={c.backlinks} byId={byId} onOpen={onOpen} />
+        <h3>其他相關卡片<small className="muted">（有關，但不一定是因果）</small></h3>
+        <LinkList title="連結到" ids={c.links.filter((id) => !causal.has(id))} byId={byId} onOpen={onOpen} />
+        <LinkList title="被誰引用" ids={c.backlinks.filter((id) => !causal.has(id))} byId={byId} onOpen={onOpen} />
       </section>
 
       <section className="cd-sec">

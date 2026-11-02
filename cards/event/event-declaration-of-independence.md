@@ -20,6 +20,14 @@ place:
 structure_tags: [合法性危機, 革命與政權更替, 宗教／意識形態動員, 政治宣傳工程, 臨界點]
 topics: [法律與憲法, 革命, 啟蒙與人權, 奴隸制]
 links: [event-thirteen-colonies, war-american-revolution, event-us-constitution, event-magna-carta, event-french-revolution, war-american-civil-war, event-american-founding-philosophy]
+causes:
+  - { name: 「無代表不納稅」抗爭（1765–1775）, rel: 促成, why: 英國在七年戰爭後向殖民地徵印花稅、茶稅，殖民地人抗議自己在國會沒有代表，衝突一路升高到開戰。, src: [s6, s1] }
+  - { id: war-american-revolution, rel: 促成, why: 1775 年列星頓開火後戰爭已經開始，問題從「英國怎麼對待我們」變成「還要不要當英國臣民」，於是走向宣布獨立。, src: [s1] }
+  - { name: 潘恩《常識》（1776）, rel: 背景, why: 潘恩用淺白文字公開主張反對世襲君主、殖民地應該獨立；同年夏天大陸會議就提出並通過獨立決議。, src: [s4, s1] }
+effects:
+  - { id: event-us-constitution, rel: 背景, why: 宣言提出政府權力來自人民同意等原則，1787 年的憲法再把這些原則變成具體的政府架構。, src: [s1] }
+  - { id: event-french-revolution, rel: 背景, why: 宣言的權利語言常被其他國家參考，1789 年法國的權利宣言也被認為是其中之一。, src: [s1] }
+  - { id: war-american-civil-war, rel: 背景, why: 「人人生而平等」成了後人要求兌現的標準，林肯在蓋茨堡演說中援引它，讓南北戰爭多了一層道德意義。, src: [s9] }
 counterparts: "無適當對照：中國軌沒有一份以「天賦權利」與「被統治者同意」為論述、並用書面宣告脫離宗主的事件；辛亥革命雖推翻皇帝、建立共和，但論述與背景不同，不硬湊。"
 sources:
   - { id: s1, title: "United States Declaration of Independence — Wikipedia", url: "https://en.wikipedia.org/wiki/United_States_Declaration_of_Independence", accessed: 2026-10-31, tier: 百科 }

@@ -21,6 +21,11 @@ place:
 structure_tags: [金融中心轉移, 儲備貨幣地位, 債務擴張, 戰爭融資, 貨幣體系轉換, 臨界點]
 topics: [匯票與遠距付款, 國際貨幣, 金融中心, 世界大戰]
 links: [war-world-war-one, finance-federal-reserve, finance-gold-standard, finance-london-rise, finance-great-depression, finance-weimar-hyperinflation, finance-bretton-woods, finance-dollar-reserve-currency, finance-eurodollar-big-bang]
+causes:
+  - { id: war-world-war-one, rel: 促成, why: 英國打仗要向美國買大量物資，只好透過摩根公司向美國借錢，戰後美國從欠債國變成各國的債主。, src: [s4, s5, s8] }
+  - { id: finance-federal-reserve, rel: 促成, why: 1913 年聯準會成立，讓美國銀行能做國際貿易融資，紐約才有和倫敦競爭的市場。, src: [s4, s6] }
+effects:
+  - { id: finance-bretton-woods, rel: 背景, why: 美元在兩次大戰之間逐步追上英鎊，二戰後的布列敦森林體系才正式把美元放在中心。, src: [s4, s7] }
 counterparts: "無適當對照：中國軌與東亞軌現有卡片中沒有「國際金融中心與國際儲備貨幣易手」這類事件，不硬湊。"
 sources:
   - { id: s1, title: "Gold standard — Wikipedia", url: "https://en.wikipedia.org/wiki/Gold_standard", accessed: 2026-10-31, tier: 百科 }

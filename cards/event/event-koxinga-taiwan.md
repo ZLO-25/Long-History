@@ -23,6 +23,12 @@ place:
 structure_tags: [外部勢力介入, 擴大稅基, 商路改道]
 topics: [東印度公司, 海戰與水戰, 移民與移墾, 科舉與教育]
 links: [event-dutch-formosa, social-siraya-deer, event-spanish-north-taiwan, event-qing-taiwan-frontier]
+causes:
+  - { name: 明清易代（1644）, rel: 背景, why: 清軍入關後，鄭成功擁明抗清，以廈門、金門為基地、靠海上貿易養軍，才有後來能渡海的大軍。, src: [s2] }
+  - { name: 鄭成功北伐失敗與清朝遷界令（1659–1661）, rel: 直接引發, why: 鄭成功 1659 年攻南京失敗，清朝又下遷界令逼沿海居民內遷、切斷補給，他才轉而攻取荷蘭人控制的臺灣。, src: [s1, s2] }
+  - { id: event-dutch-formosa, rel: 背景, why: 荷蘭時期已有數萬漢人在西南部開墾，鄭家來臺後能在現成的農業社會上屯田養兵。, src: [event-dutch-formosa:s1, event-dutch-formosa:s4] }
+effects:
+  - { id: event-qing-taiwan-frontier, rel: 直接引發, why: 1683 年清軍攻下澎湖、鄭家投降，清朝取得臺灣；又怕這裡再變成反清基地，所以對渡臺移民設下種種限制。, src: [s1, event-qing-taiwan-frontier:s1] }
 counterparts: 無適當對照：目前本站西方軌沒有「流亡政權退到海島、靠海上貿易撐住」的同時期卡片，之後補卡再對照。
 sources:
   - { id: s1, title: "Kingdom of Tungning — Wikipedia", url: "https://en.wikipedia.org/wiki/Kingdom_of_Tungning", accessed: 2026-10-25, tier: 百科 }

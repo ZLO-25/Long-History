@@ -20,6 +20,12 @@ place:
 structure_tags: [標準化量產, 貨幣貶值, 關鍵原料壟斷, 慢變結構]
 topics: [鑄幣]
 links: [commodity-salt-iron, event-wang-mang-reform, event-qin-unification, finance-lydian-coinage, finance-roman-argentarii]
+causes:
+  - { name: 漢初幣制混亂（前2世紀）, rel: 促成, why: 漢初曾開放民間鑄錢，半兩錢越鑄越輕薄，商人不肯照面額收，朝廷才推出重量固定的五銖錢。, src: [s1, s5] }
+  - { id: war-han-xiongnu, rel: 促成, why: 為了籌措對匈奴的軍費，漢武帝把鹽、鐵與鑄幣大權一起收歸中央，五銖錢後來只准上林三官鑄造。, src: ["event-salt-iron-debate:s1", s1] }
+effects:
+  - { id: event-wang-mang-reform, rel: 背景, why: 百姓用慣也信任五銖錢，王莽廢五銖改發二十多種新錢，大家不信任仍私下用五銖，新幣制因此失敗。, src: [s1, "event-wang-mang-reform:s4"] }
+  - { name: 東漢長期通膨與幣值崩潰（1–3世紀）, rel: 促成, why: 有學者認為政府壟斷鑄幣、為賺鑄幣利益而過量發行，加上劣幣驅逐良幣，造成東漢長期通膨。, src: [s6], disputed: true }
 counterparts:
   - { id: commodity-laurion-silver, note: "相似：由單一權力統一發行、規格穩定的錢幣，因為大家信任而長期、大範圍流通。不同：雅典銀幣靠白銀本身的價值；五銖是銅錢，價值靠國家壟斷鑄造與官定比價（一斤黃金兌一萬錢）維持。", src: [s1] }
 sources:

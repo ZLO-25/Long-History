@@ -20,6 +20,10 @@ place:
 structure_tags: [銀行擠兌, 精英內鬥, 債務擴張, 合法性危機]
 topics: [銀行與借貸, 泡沫與金融危機]
 links: [finance-taiwan-stock-exchange, finance-taiwan-1949-currency, event-taiwan-martial-law]
+causes:
+  - { name: 金融監理寬鬆與政商關係（1980年代）, rel: 促成, why: 官員多年容忍違規放款，蔡辰洲還與立委組「十三兄弟」遊說財經官員，讓超貸問題越滾越大。, src: [s1, s3] }
+effects:
+  - { name: 中央存款保險公司成立（1985）, rel: 回應, why: 十信擠兌暴露存款人缺乏保障，同年政府成立中央存款保險公司，此後信用合作社擠兌不再重演。, src: [s6] }
 counterparts: 無適當對照：本站同時代的西方軌沒有單一金融機構擠兌的卡片；擠兌結構可對照「大蕭條」與「2008 金融危機」卡，但時代差太多，不列為同期對照。
 sources:
   - { id: s1, title: "十信案 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/%E5%8D%81%E4%BF%A1%E6%A1%88", accessed: 2026-10-25, tier: 百科 }

@@ -24,6 +24,8 @@ routes: [road-via-appia, road-via-egnatia, road-via-flaminia, road-via-aurelia, 
 structure_tags: [基礎建設網絡, 公共工程支出, 補給線過長, 快速擴張]
 topics: [道路與鐵路]
 links: [event-twelve-tables, building-roman-aqueducts, commodity-roman-concrete, event-rubicon]
+causes:
+  - { name: 薩莫奈戰爭（前 343–前 290 年）, rel: 促成, why: 羅馬和薩莫奈人作戰，需要把軍隊和補給快速送到卡普阿，於是修了一條跨越彭甸沼澤的軍用大道。, src: [s1] }
 counterparts:
   - { id: building-qin-straight-road, note: "相似：國家為讓軍隊快速移動而修的大道，同時成為長期交通幹線。不同：阿庇亞大道向南連接新征服的義大利城市；秦直道向北直通對付匈奴的邊疆。", src: [s1, s6] }
   - { id: building-lingqu, note: "相似：為了把兵員與糧食送到新征服地區而修的交通工程。不同：阿庇亞大道是陸路；靈渠是只有 36.4 公里、連通長江與珠江兩大水系的運河。", src: [s1, s7] }

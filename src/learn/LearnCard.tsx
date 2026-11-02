@@ -5,19 +5,24 @@ import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import { LearnText, SourceList, TermPop, type Term } from './LearnText';
 import { tierOrder } from './util';
 import { TopicChips } from '../components/Topics';
+import { CauseList, PathNav } from '../components/Story';
 
 export type Depth = 'story' | 'understand' | 'deep';
 // 國中讀到「理解」就夠；「深入」是史家爭論與完整段落，標成高中選讀
 const DEPTHS: [Depth, string, string][] = [['story', '故事', '3 分鐘・國中'], ['understand', '理解', '10 分鐘・國中'], ['deep', '深入', '高中選讀']];
+const learnOk = (x: Card) => !!x.learn;
+const researchHref = (id: string) => `${location.pathname}?mode=research&card=${encodeURIComponent(id)}`;
 const textLen = (t?: string) => (t ?? '').replace(/\[s\d+\]|\*\*/g, '').length;
 
 interface Props {
   card: Card; index: Index; history: History | null; depth?: Depth; onDepth?: (d: Depth) => void;
   onOpen: (id: string) => void; onHistory?: (id: string) => void; compact?: boolean;
   onTopic?: (name: string) => void; topicCount?: (t: { cards: string[] }) => number;
+  /** 這張卡在哪些單元／故事線（上一站、下一站）；hereUnit＝正在讀的單元，不重複列 */
+  onStory?: (id: string) => void; onUnit?: (id: string) => void; hereUnit?: string;
 }
 
-export function LearnCard({ card: c, index, history, depth: depth0 = 'story', onDepth, onOpen, onHistory, compact, onTopic, topicCount }: Props) {
+export function LearnCard({ card: c, index, history, depth: depth0 = 'story', onDepth, onOpen, onHistory, compact, onTopic, topicCount, onStory, onUnit, hereUnit }: Props) {
   const [depth, setDepth] = useState<Depth>(depth0);
   useEffect(() => setDepth(depth0), [depth0, c.id]);
   const [term, setTerm] = useState<Term | null>(null);
@@ -40,6 +45,9 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
   // 「深入」層多出來的字數（給學生判斷要不要讀）
   const deepChars = useMemo(() => textLen(L.historiography) + textLen(L.exaggerated)
     + c.sections.filter((x) => x.text && !L.understand.includes(x.code) && x.role !== 'lens' && x.role !== 'today_hook' && x.role !== 'non_analogous').reduce((n, x) => n + textLen(x.text), 0), [c, L]);
+  const causal = new Set([...(c.causes ?? []), ...(c.effects ?? [])].map((x) => x.id).filter(Boolean) as string[]);
+  const ext = [...c.links, ...c.backlinks, ...c.counterparts.map((x) => x.id)].filter((id, i, a) => a.indexOf(id) === i && !causal.has(id))
+    .map((id) => index.cards.find((x) => x.id === id)).filter((x): x is Card => !!x?.learn);
   const T = (t: string) => <LearnText text={t} sources={c.sources} terms={terms} onTerm={setTerm} />;
 
   return (
@@ -61,6 +69,8 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
         {persp && <p className="persp">從<b>{index.histories.find((h) => h.id === viewId)?.name}</b>看：{persp.text}</p>}
       </header>
 
+      {onStory && <PathNav card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} onUnit={onUnit} onStory={onStory} hereUnit={hereUnit} />}
+
       <div className="depth-tabs" role="tablist" aria-label="閱讀深度">
         {DEPTHS.map(([d, l, hint]) => (
           <button key={d} role="tab" aria-selected={depth === d} className={depth === d ? 'on' : ''} onClick={() => set(d)}>{l}<small>{hint}</small></button>
@@ -70,6 +80,7 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
       {depth === 'deep' && (
         <p className="deep-note">🎓 <b>高中選讀</b>：這一層收錄完整段落和史家的爭論，約 {Math.max(1, Math.round(deepChars / 400))} 分鐘（{deepChars.toLocaleString()} 字）。國中生讀完「理解」就夠了；想挑戰再往下讀。</p>
       )}
+      <CauseList card={c} side="causes" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />
       <section className="lc-sec story">{T(L.story)}</section>
 
       {depth !== 'story' && <>
@@ -120,14 +131,16 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
         <dl className="glossary">{terms.map((t) => <div key={t.term}><dt>{t.term}</dt><dd>{t.plain}<br /><span className="muted">例：{t.example}</span></dd></div>)}</dl>
       </section>
 
-      <section className="lc-sec">
-        <h3>延伸</h3>
-        <div className="chips">
-          {[...c.links, ...c.backlinks, ...c.counterparts.map((x) => x.id)].filter((id, i, a) => a.indexOf(id) === i)
-            .map((id) => index.cards.find((x) => x.id === id)).filter((x): x is Card => !!x?.learn)
-            .map((x) => <button key={x.id} className="chip" onClick={() => onOpen(x.id)}>{TYPE_ICON[x.type]} {x.name}</button>)}
-        </div>
-      </section>
+      <CauseList card={c} side="effects" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />
+
+      {ext.length > 0 && (
+        <section className="lc-sec">
+          <h3>延伸<small className="muted">（相關，但不一定是因果）</small></h3>
+          <div className="chips">
+            {ext.map((x) => <button key={x.id} className="chip" onClick={() => onOpen(x.id)}>{TYPE_ICON[x.type]} {x.name}</button>)}
+          </div>
+        </section>
+      )}
 
       <details className="lc-sec">
         <summary>全部來源（{c.sources.length}）：先列中文，標示來源分級</summary>

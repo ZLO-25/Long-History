@@ -23,6 +23,9 @@ place:
 structure_tags: [技術代差, 默會知識外流, 標準化量產, 基礎建設網絡]
 topics: [古代建築]
 links: [building-pantheon, building-colosseum, building-roman-aqueducts, commodity-amphora-trade]
+effects:
+  - { id: building-pantheon, rel: 促成, why: 混凝土可以一層層鋪砌，越往上換用越輕的凝灰岩與浮石，才蓋得出萬神殿這種無鋼筋的超大穹頂。, src: [s1, s2] }
+  - { id: building-colosseum, rel: 背景, why: 競技場深約 6 公尺的地基與拱頂都用混凝土和輕質浮石，混凝土技術讓這種巨型公共建築可行。, src: ["building-colosseum:s1", "building-colosseum:s2"] }
 counterparts: "無適當對照：中國卡沒有專門談建材技術的卡；秦漢長城與秦直道使用的夯土是另一種工法，但沒有獨立成卡，硬配會失準。"
 sources:
   - { id: s1, title: "Roman concrete — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_concrete", accessed: 2026-10-24 }

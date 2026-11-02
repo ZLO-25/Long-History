@@ -21,6 +21,10 @@ place:
 structure_tags: [快速擴張, 技術擴散, 基礎建設網絡, 擴大稅基]
 topics: [關稅與貿易戰, 臺灣出口品, 出口區與科學園區, 工業化]
 links: [finance-taiwan-stock-1990, building-ten-major-projects, event-hsinchu-park-tsmc, tech-container-shipping, event-taiwan-land-reform]
+causes:
+  - { name: 美援結束（1965）, rel: 促成, why: 美援即將停止，政府需要新的外匯與就業來源，於是劃出免稅特區，吸引外國工廠來臺設廠出口。, src: [s1, s2] }
+effects:
+  - { id: commodity-taiwan-semiconductor, rel: 背景, why: 加工區讓臺灣學到國際電子業的生產與管理方式，後來轉型成半導體與高科技產業的基地。, src: [s3, s8] }
 counterparts:
   - { id: event-reform-and-opening, note: "相似：都用一塊劃出來的特別區域、給外資減稅與免關稅，吸引工廠來做出口（臺灣 1966 年加工區、中國 1980 年代深圳經濟特區）。不同：深圳特區是整個國家從計畫經濟轉向市場的試點，範圍和政治意義大得多；高雄加工區是在已經有市場經濟的臺灣多開一條出口管道。", src: [s1, s6] }
 sources:

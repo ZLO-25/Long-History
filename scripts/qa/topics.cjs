@@ -85,8 +85,9 @@ const fs = require('fs');
   // 手機
   const m = await b.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }); watch(m);
   await m.goto(base + '?mode=research', { waitUntil: 'networkidle' }); await m.waitForTimeout(500);
-  await m.click('nav.tabs button >> text=主題標籤'); await m.waitForTimeout(300);
-  ok(!!(await m.$('.topic-index')), '手機研究模式有「主題標籤」分頁');
+  await m.click('nav.tabs button >> text=故事／主題'); await m.waitForTimeout(300);
+  if (await m.$('.story-index')) { await m.click('.story-index button.link >> text=看主題標籤'); await m.waitForTimeout(300); }
+  ok(!!(await m.$('.topic-index')), '手機研究模式「故事／主題」分頁可到主題標籤');
   await m.click('.topic-index .chip.topic >> text=#紙幣'); await m.waitForTimeout(500);
   ok(!!(await m.$('.topic-view .tv-map')), '手機路徑頁有「在地圖上看」');
   await m.click('.topic-view .tv-map'); await m.waitForTimeout(1500);

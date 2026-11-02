@@ -23,6 +23,12 @@ place:
 structure_tags: [長期衰退, 雇傭兵與蠻族化軍隊, 財政枯竭, 糧食進口依賴, 精英內鬥, 合法性危機, 慢變結構]
 topics: [鑄幣, 帝國的衰亡, 游牧民族與邊疆, 移民與移墾, 疫病]
 links: [event-constitutio-antoniniana, commodity-egypt-grain, building-hadrians-wall, war-teutoburg]
+causes:
+  - { name: 哥德人入境與阿德里安堡之戰（376–378年）, rel: 促成, why: 被匈人逼迫的哥德人大批進入帝國，羅馬無法驅逐也無法收服，皇帝戰死、東方野戰軍大半覆滅。, src: [s1, s2] }
+  - { name: 汪達爾人攻占北非（約439年）, rel: 促成, why: 北非是西羅馬的糧倉和稅源，被汪達爾人奪走後，西羅馬失去大部分糧食與稅收。, src: [s2, s3] }
+  - { name: 帝國內部的軍隊、財政與繼承問題（4–5世紀）, rel: 促成, why: 有學者認為內部問題同樣關鍵：軍隊依賴蠻族兵、重稅、內戰與繼承不穩、富裕元老不肯出錢出兵。, src: [s1], disputed: true }
+effects:
+  - { id: event-charlemagne-coronation, rel: 背景, why: 476 年後西歐三百多年沒有皇帝，查理曼在 800 年被加冕，是西方重新出現在位的皇帝。, src: ["event-charlemagne-coronation:s1"] }
 counterparts:
   - { id: event-pingwang-east, note: "相似：最高統治者在外族壓力與內部繼承之爭中失去實權，權力分散到各地強權手中。不同：西羅馬皇帝的位置在 476 年後就不再設立；周王作為名義共主又延續了約五百年。", src: [s1, s6] }
 sources:

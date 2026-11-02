@@ -22,6 +22,11 @@ place:
 structure_tags: [債務擴張, 金融制度創新, 投機泡沫與崩盤, 貨幣貶值, 銀行擠兌]
 topics: [紙幣, 股票與公司, 國債與公債, 泡沫與金融危機]
 links: [finance-south-sea-bubble, finance-bank-of-england, finance-amsterdam-wisselbank, finance-amsterdam-decline, finance-london-rise]
+causes:
+  - { name: 路易十四的戰爭債務（1715）, rel: 促成, why: 路易十四長年打仗留下巨債，攝政政府急著解決債務與缺錢問題，才願意試約翰·羅多發紙幣的新方法。, src: [s1, s2] }
+  - { name: 約翰·羅出版《貨幣與貿易之考察》（1705）, rel: 背景, why: 羅早就主張用紙幣增加貨幣供給、讓經濟更熱絡，這套理論成了通用銀行與密西西比公司計畫的藍圖。, src: [s2] }
+effects:
+  - { name: 法蘭西銀行成立（1800）, rel: 背景, why: 有學者認為這次崩潰讓法國社會長期不信任紙幣與銀行，所以法國要到 1800 年才成立法蘭西銀行。, src: [s1, s6], disputed: true }
 counterparts:
   - { id: finance-ming-baochao, note: "同樣是政府大量發行紙幣後失去信用；不同的是寶鈔是朝廷直接發行的法定紙幣，沒有搭配公司股票與債轉股的投機循環。", src: [s1, s7] }
 sources:

@@ -22,6 +22,10 @@ routes: [stations-zhang-qian]
 structure_tags: [關鍵原料壟斷, 默會知識外流, 技術擴散, 商路改道, 戰爭融資]
 topics: [絲綢與絲路]
 links: [event-zhang-qian-west, war-han-xiongnu, commodity-ferghana-horse]
+causes:
+  - { name: 中國的養蠶織絲技術（新石器時代起）, rel: 背景, why: 中國從新石器時代就開始養蠶織絲，又長期嚴守技術，到漢代絲綢已是成熟又珍貴、可以當錢用的產品。, src: [s1, s2] }
+effects:
+  - { name: 羅馬的絲綢消費與金銀東流（1 世紀）, rel: 背景, why: 絲綢經安息等中間人轉賣到羅馬，羅馬人花大筆金銀購買；有人認為這是羅馬財政困難的原因之一。, src: [s1, s2], disputed: true }
 counterparts:
   - { id: commodity-laurion-silver, note: "相似：一種物資同時是「貨幣」與國家財政工具（絲綢可付俸給、繳稅、送外交禮物；勞里昂白銀鑄成雅典銀幣、支付艦隊）。不同：白銀是礦產，靠奴隸開採；絲綢是手工製品，靠家戶女性養蠶織造，技術本身就是被保護的祕密。", src: [s1, s2] }
 sources:

@@ -27,6 +27,14 @@ place:
 structure_tags: [外部勢力介入, 海權對陸權, 補給線過長, 戰爭融資, 貨幣貶值, 債務擴張, 革命與政權更替]
 topics: [紙幣, 國債與公債, 通貨膨脹, 稅收, 革命]
 links: [event-thirteen-colonies, event-declaration-of-independence, event-us-constitution, finance-hamilton-financial-plan, event-westward-expansion, event-french-revolution, finance-amsterdam-decline]
+causes:
+  - { name: 七年戰爭（1756–1763）, rel: 背景, why: 英國打完七年戰爭欠下大筆戰債，又要防衛北美，所以開始對殖民地加稅、加強管制。, src: [s1, s2] }
+  - { id: event-thirteen-colonies, rel: 促成, why: 殖民地早有自己的議會與自治經驗，認為沒有代表就不該被英國國會課稅，雙方在「誰有權課稅」上越吵越僵。, src: [s1, s2, event-thirteen-colonies:s1] }
+  - { id: event-american-founding-philosophy, rel: 背景, why: 有學者認為殖民地人讀了英國反對派警告權力腐化的文章，深怕自由被陰謀侵犯，這種恐懼推動了革命。, src: [event-american-founding-philosophy:s8, event-american-founding-philosophy:s9], disputed: true }
+effects:
+  - { id: event-us-constitution, rel: 促成, why: 大陸會議沒有徵稅權，只能印鈔、向各邦攤派和借外債，戰時暴露的財政弱點讓領袖們想要更強的中央政府。, src: [s6, s1] }
+  - { id: event-french-revolution, rel: 促成, why: 法國出錢出兵支援美國，主要靠借款付戰費，累積的債務成為 1780 年代法國財政危機的原因之一。, src: [s9, event-french-revolution:s1] }
+  - { id: event-westward-expansion, rel: 背景, why: 《巴黎和約》把美國疆界畫到密西西比河，美國取得大片西部土地，成為後來西進擴張的起點。, src: [s3, s5] }
 counterparts: "無適當對照：中國與東亞軌現有的卡中，沒有「殖民地脫離母國、並藉由第三方大國介入而獨立」的事件；硬配辛亥革命（推翻王朝而非脫離宗主國）會誤導，故不硬湊。"
 sources:
   - { id: s1, title: "American Revolutionary War — Wikipedia", url: "https://en.wikipedia.org/wiki/American_Revolutionary_War", accessed: 2026-10-31, tier: 百科 }

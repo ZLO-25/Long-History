@@ -26,6 +26,14 @@ place:
 structure_tags: [代理人戰爭, 外部勢力介入, 補給線過長, 地形險阻, 戰爭融資, 合法性危機, 臨界點]
 topics: [冷戰]
 links: [war-korean-war, event-containment-nato, event-nixon-china, finance-bretton-woods, finance-petrodollar, event-american-century, event-end-of-cold-war, finance-dollar-reserve-currency]
+causes:
+  - { name: 第一次印度支那戰爭與日內瓦協議（1946–1954）, rel: 促成, why: 法國戰敗後越南暫時以北緯 17 度分南北，南越拒辦 1956 年統一選舉，南北對立演變成戰爭。, src: [s1, s2] }
+  - { id: event-containment-nato, rel: 背景, why: 美國以圍堵共產勢力的邏輯看越南，相信一國倒下會像骨牌一樣連帶影響鄰國，因此支持南越。, src: [s1, s9] }
+  - { id: war-korean-war, rel: 促成, why: 韓戰爆發後，美國擴大援助在印度支那作戰的法國，開始介入越南問題。, src: [war-korean-war:s2] }
+effects:
+  - { id: finance-bretton-woods, rel: 促成, why: 越戰支出推高美國通膨，外國手中美元越來越多、黃金不夠換，是 1971 年美元停止兌換黃金的壓力之一。, src: [s10, s12] }
+  - { name: 美國《戰爭權力決議》（1973）, rel: 回應, why: 越戰讓國會覺得總統動武權太大，1973 年推翻尼克森的否決，立法限制總統未經國會同意出兵。, src: [s1] }
+  - { name: 越南船民潮（1975–1990年代）, rel: 促成, why: 1975 年西貢陷落、北越統一全國後，大批越南人冒險乘船逃離，成為「船民」。, src: [s1] }
 counterparts: "無適當對照：中國軌與西方軌都沒有一張「大國介入他國內戰，最後因國內民意與財政壓力撤出」的對應卡；韓戰卡雖同屬冷戰代理人戰爭，但與本卡同在東亞軌，不算跨軌對照。"
 sources:
   - { id: s1, title: "Vietnam War — Wikipedia", url: "https://en.wikipedia.org/wiki/Vietnam_War", accessed: 2026-10-31, tier: 百科 }

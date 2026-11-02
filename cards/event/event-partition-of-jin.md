@@ -20,6 +20,12 @@ place:
 structure_tags: [精英內鬥, 聯盟破裂, 制度包裝延續, 臨界點]
 topics: [諸侯爭霸]
 links: [war-chengpu, event-shang-yang-reform, war-changping]
+causes:
+  - { name: 晉國六卿專權（春秋晚期）, rel: 背景, why: 晉國國政長期被六家卿族把持，范氏、中行氏被消滅後只剩四家，國君早已沒有實權。, src: [s1] }
+  - { name: 晉陽之戰（前 455–前 453 年）, rel: 直接引發, why: 智氏聯合韓、魏圍攻趙氏，趙襄子說服韓、魏倒戈，三家滅了智氏、瓜分土地，晉國實權從此落入三家。, src: [s1] }
+effects:
+  - { name: 戰國七雄並立（前 5–前 3 世紀）, rel: 促成, why: 晉國一分為三，和秦、楚、齊、燕形成七個大國互相兼併的局面，戰爭動員越來越大、越打越久。, src: [s2] }
+  - { id: event-shang-yang-reform, rel: 背景, why: 三家分晉後進入戰國，各國競爭激烈，秦孝公急需富國強兵的辦法，才重用從魏國來的商鞅。, src: [s2, event-shang-yang-reform:s1] }
 counterparts:
   - { id: event-rubicon, note: "相似：國家的實權落到幾個掌握私人力量的權貴家族手中，他們先聯手、再互鬥，最後瓜分或奪取國家。不同：晉國真的被三家永久分成三國，周王還出面承認；羅馬的權貴之爭最後由一人勝出，國家沒有分裂。", src: [s1] }
 sources:

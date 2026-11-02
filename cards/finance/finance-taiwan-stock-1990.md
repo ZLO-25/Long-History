@@ -20,6 +20,11 @@ place:
 structure_tags: [投機泡沫與崩盤, 快速擴張, 臨界點, 債務擴張]
 topics: [交易所, 股票與公司, 泡沫與金融危機]
 links: [finance-taiwan-stock-exchange, finance-tenth-credit-1985]
+causes:
+  - { name: 鉅額貿易順差與新臺幣升值（1986–1989）, rel: 促成, why: 出口賺進大量美元、新臺幣大幅升值，熱錢湧入，民間閒錢又缺乏投資管道，只好湧進股市和房市。, src: [s2, s4] }
+  - { name: 外匯管制開放（1987）, rel: 促成, why: 1987 年開放外匯管制後，貨幣供給一年增加約 46%，套匯熱錢在短時間內推高股價。, src: [s4] }
+effects:
+  - { name: 開放新民營銀行設立（1991）, rel: 回應, why: 泡沫破裂後政府加強證券市場監理，並在 1991 年開放新民營銀行設立。, src: [s3, s6] }
 counterparts: 無適當對照：同時期日本也有資產泡沫（1980 年代後期），但本站目前沒有日本泡沫的卡片；之後補卡再對照。
 sources:
   - { id: s1, title: "Taiwan Capitalization Weighted Stock Index — Wikipedia", url: "https://en.wikipedia.org/wiki/Taiwan_Capitalization_Weighted_Stock_Index", accessed: 2026-10-25, tier: 百科 }

@@ -20,6 +20,8 @@ place:
 structure_tags: [基礎建設網絡, 公共工程支出, 技術代差, 慢變結構]
 topics: [糧食與農業, 運河與水利]
 links: [event-shang-yang-reform, event-qin-unification, building-lingqu]
+effects:
+  - { name: 成都平原成為產糧重地（秦以後）, rel: 促成, why: 都江堰把岷江的水分配到成都平原，同時防洪排沙，收成變得穩定，四川一度成為中國產量最高的農業區。, src: [s1, s2] }
 counterparts:
   - { id: building-roman-aqueducts, note: "相似：國家投入的大型水利工程，靠重力與精確的地形判斷運作，數百年持續維護。不同：羅馬水道主要把水送進城市供飲用與浴場；都江堰是不築壩、把岷江分流去灌溉整個成都平原的農田，至今仍在使用。", src: [s1, s2] }
 sources:

@@ -23,6 +23,12 @@ place:
 structure_tags: [革命與政權更替, 合法性危機, 臨界點, 強人繞過制度]
 topics: [革命, 帝國的衰亡]
 links: [war-opium-war, event-french-revolution, war-sino-japanese-1937, event-taiwan-cultural-association]
+causes:
+  - { id: war-opium-war, rel: 背景, why: 從鴉片戰爭、英法聯軍到甲午戰爭接連戰敗，清廷威信大降，許多人相信必須改變制度。, src: [s1] }
+  - { name: 皇族內閣（1911）, rel: 促成, why: 清廷說要立憲，1911 年成立的內閣卻多數是皇族，立憲派認為朝廷沒有誠意，轉而不再支持清廷。, src: [s2] }
+  - { name: 保路運動（1911）, rel: 直接引發, why: 清廷把鐵路收歸國有並借外債，四川爆發保路運動；朝廷調湖北軍隊入川，武昌空虛，新軍趁機起義。, src: [s2, s3] }
+effects:
+  - { name: 軍閥割據（1916–1928）, rel: 背景, why: 革命結束帝制卻沒建立穩定的民主，袁世凱稱帝失敗病逝後，中國陷入軍閥混戰。, src: [s1, s2] }
 counterparts:
   - { id: event-french-revolution, note: "相似：都推翻延續很久的君主制、建立共和，之後都出現強人（袁世凱、拿破崙）甚至恢復帝制。不同：辛亥革命由地方新軍起義引發，以清帝和平退位、袁世凱接任收場；法國大革命從首都群眾起事開始，處死國王並經歷恐怖統治。", src: [s1, s2] }
 sources:

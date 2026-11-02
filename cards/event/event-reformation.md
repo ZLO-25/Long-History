@@ -22,6 +22,12 @@ place:
 structure_tags: [資訊傳播革命, 宗教／意識形態動員, 合法性危機, 思想異見與審判]
 topics: [印刷與通訊, 宗教]
 links: [tech-printing-press, event-black-death, event-french-revolution]
+causes:
+  - { name: "贖罪券販售（16 世紀初）", rel: 直接引發, why: "教會為蓋聖彼得大教堂大賣贖罪券，引起強烈不滿，路德在1517年發表《九十五條論綱》批評贖罪券與教宗權力。", src: [s1, s2] }
+effects:
+  - { name: "德意志農民戰爭（1524–1525）", rel: 促成, why: "改革者挑戰教會權威的風潮也鼓舞了不滿領主的農民起事，但路德譴責暴動，起事被鎮壓，估計約10萬人喪生。", src: [s2, s3] }
+  - { name: "反宗教改革（約 1545 年起）", rel: 回應, why: "天主教會為回應新教，改正部分弊端，同時想把新教地區收回來，讓宗教衝突拖得更久。", src: [s2] }
+  - { name: "三十年戰爭（1618–1648）", rel: 背景, why: "西歐分裂成多個教派後，各國之間反覆爆發宗教戰爭，其中三十年戰爭估計約800萬人死亡。", src: [s1, s2] }
 counterparts: "無適當對照：同時期中國沒有一個由下而上挑戰官方宗教權威、並讓宗教分裂成多個教派的運動；硬配儒學或佛教事件會誤導。"
 sources:
   - { id: s1, title: "Reformation — Wikipedia", url: "https://en.wikipedia.org/wiki/Reformation", accessed: 2026-10-25 }

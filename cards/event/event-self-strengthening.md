@@ -23,7 +23,7 @@ topics: [變法與改革, 火藥與武器, 工業化, 儒家, 科舉與教育]
 links: [war-opium-war, event-meiji-restoration, event-black-ships, event-mudan-incident, event-1895-cession]
 causes:
   - { id: war-opium-war, rel: 促成, why: 鴉片戰爭戰敗讓一部分官員認定，清朝必須學西方的武器和技術，國家才能「自強」。, src: [s1] }
-  - { name: 太平天國之亂（1850–1864）, rel: 促成, why: 外有列強、內有太平天國，朝廷急需新式武器保住政權，於是開始買洋槍、辦兵工廠。, src: [s1] }
+  - { id: war-taiping, rel: 促成, why: 外有列強、內有太平天國，朝廷急需新式武器保住政權，於是開始買洋槍、辦兵工廠。, src: [s1] }
 effects:
   - { id: event-xinhai-revolution, rel: 背景, why: 甲午戰敗讓「只學技術、不改制度」的路線被質疑，越來越多人相信必須改變政治制度，革命思潮因此抬頭。, src: [s1, s2, event-xinhai-revolution:s1] }
 counterparts: 無適當對照：西方軌沒有一張「戰敗後只引進技術、保留舊制度」的對應卡。

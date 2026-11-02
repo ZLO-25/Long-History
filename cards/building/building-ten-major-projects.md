@@ -25,10 +25,7 @@ structure_tags: [公共工程支出, 基礎建設網絡, 能源轉換, 快速擴
 topics: [道路與鐵路, 工業化, 能源]
 links: [event-kaohsiung-epz, event-hsinchu-park-tsmc, tech-railway]
 causes:
-  - { name: 第一次石油危機（1973）, rel: 促成, why: 1973 年底油價暴漲、物價飛升，臺灣經濟陷入困境，政府提出大型公共工程來撐經濟。, src: [s2, s3] }
-  - { name: 交通與電力瓶頸（1960年代末）, rel: 背景, why: 當時港口、道路、電力都不夠用，拖慢經濟發展，十大建設就是要打通這些瓶頸。, src: [s1, s3] }
-effects:
-  - { name: 經濟回升與高通膨（1974–1979）, rel: 促成, why: 有學者認為十大建設緩和了經濟停滯，但也帶來高通膨的副作用，連李國鼎都說效益是「歪打正著」。, src: [s2], disputed: true }
+  - { id: finance-oil-crisis-1973, rel: 促成, why: 1973 年底油價暴漲、物價飛升，臺灣經濟陷入困境，政府提出大型公共工程來撐經濟。, src: [s2, s3] }
 counterparts: 無適當對照：本站西方軌目前沒有 1970 年代國家主導大型公共工程的卡片（例如石油危機後各國的建設計畫），之後補卡再對照。
 sources:
   - { id: s1, title: "Ten Major Construction Projects — Wikipedia", url: "https://en.wikipedia.org/wiki/Ten_Major_Construction_Projects", accessed: 2026-10-25, tier: 百科 }

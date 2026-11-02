@@ -22,6 +22,8 @@ const fs = require('fs');
   // ---- 資料 ----
   const links = ix.cards.flatMap((c) => [...c.causes.map((x) => ({ ...x, side: 'c', at: c })), ...c.effects.map((x) => ({ ...x, side: 'e', at: c }))]);
   ok(links.every((x) => RELS.includes(x.rel) && x.why && x.sources.length), `每條前因／後果都有關係類型、說明、來源（${links.length} 條，含兩端各算一次）`);
+  const grey = links.filter((x) => !x.id || !byId.has(x.id));
+  ok(!grey.length, `沒有「尚無卡片」的灰字：每條前因／後果都指向一張已有的卡${grey.length ? '（' + grey.slice(0, 5).map((x) => x.at.id + '→' + x.name).join('、') + '）' : ''}`);
   const learn = ix.cards.filter((c) => c.learn);
   const lonely = learn.filter((c) => !c.causes.length && !c.effects.length);
   ok(!lonely.length, `每張學習卡都至少有一條前因或後果（${learn.length} 張）${lonely.length ? '：' + lonely.map((c) => c.id).join(' ') : ''}`);

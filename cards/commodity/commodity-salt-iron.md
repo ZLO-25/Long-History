@@ -22,7 +22,6 @@ topics: [國家專賣]
 links: [war-han-xiongnu, event-salt-iron-debate, event-wang-mang-reform, commodity-wuzhu-coin]
 causes:
   - { id: war-han-xiongnu, rel: 促成, why: 對匈奴的戰爭讓國庫吃緊，朝廷把鹽鐵收歸國家經營，不必向農民加稅就能籌到軍費。, src: [s2, s3] }
-  - { name: 富商大族掌控鹽鐵（前2世紀）, rel: 背景, why: 官營以前，煮鹽與冶鐵由地方富商大族主導全國買賣；朝廷想把這筆大利潤收歸國庫。, src: [s3] }
 effects:
   - { id: event-salt-iron-debate, rel: 促成, why: 專賣讓鹽鐵變貴、官製農具粗糙難買，民間怨聲多，武帝死後朝廷召開會議辯論該不該廢除。, src: [s2, "event-salt-iron-debate:s1"] }
 counterparts:

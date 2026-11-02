@@ -23,7 +23,6 @@ structure_tags: [商路改道, 單一港口依賴, 擴大稅基, 外部勢力介
 topics: [股票與公司, 絲綢與絲路, 東印度公司, 海上貿易, 臺灣出口品, 殖民統治, 移民與移墾, 原住民族]
 links: [finance-amsterdam-exchange, social-siraya-deer, event-spanish-north-taiwan, event-koxinga-taiwan]
 causes:
-  - { name: 荷蘭占領澎湖被明軍逐出（1622–1624）, rel: 直接引發, why: 荷蘭人想在澎湖設據點打進中國貿易，1624 年被明軍圍攻後被迫撤離，才轉到對岸的大員落腳。, src: [s1, s3] }
   - { id: finance-amsterdam-exchange, rel: 背景, why: 荷蘭東印度公司靠眾多股東集資，又有開戰、簽約、建立殖民地的特權，才能在大員蓋城堡、設商館並統治當地。, src: [finance-amsterdam-exchange:s2, finance-amsterdam-exchange:s3] }
 effects:
   - { id: event-spanish-north-taiwan, rel: 回應, why: 荷蘭人占了大員，馬尼拉的西班牙人怕福建開往馬尼拉的商船被攔截，1626 年便北上占領雞籠。, src: [event-spanish-north-taiwan:s1, event-spanish-north-taiwan:s2] }

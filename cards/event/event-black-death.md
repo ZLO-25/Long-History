@@ -24,12 +24,8 @@ place:
 structure_tags: [疫病衝擊, 突變事件, 臨界點]
 topics: [疫病, 海上貿易]
 links: [war-crusades, finance-medici-bank, commodity-silk]
-causes:
-  - { name: "金帳汗國圍攻卡法（1340 年代）", rel: 促成, why: "金帳汗國圍攻黑海港口卡法時疫病在城中傳開，之後熱那亞船隻把疫病帶到西西里，從此擴散到全歐洲。", src: [s1, s2] }
-  - { name: "歐洲大饑荒與氣候變冷（14 世紀前期）", rel: 背景, why: "疫情爆發前，歐洲已接連遭遇饑荒、英法百年戰爭與小冰期變冷，社會本來就承受很大壓力。", src: [s2] }
 effects:
-  - { name: "英格蘭《勞工法》（1349–1351）", rel: 回應, why: "人口大減使勞工稀少、工資上漲，英格蘭立法把工資壓回疫情前水準並強迫人工作，但擋不住漲勢。", src: [s3] }
-  - { name: "英格蘭農民起義（1381）", rel: 促成, why: "勞力稀少削弱了農奴制度，政府卻用《勞工法》壓低工資，民怨累積，《勞工法》成為1381年起義的原因之一。", src: [s2, s3] }
+  - { id: event-peasants-revolt-1381, rel: 回應, why: "人口大減使勞工稀少、工資上漲，英格蘭立法把工資壓回疫情前水準並強迫人工作，但擋不住漲勢。", src: [s3, s2] }
   - { id: event-reformation, rel: 背景, why: "黑死病時教會無力減輕人們的苦難，威信下降，讓後來批評教會的聲音更容易得到支持。", src: [event-reformation:s2] }
 counterparts: "無適當對照：計畫卡中沒有中國的疫病卡；且 14 世紀中國是否也爆發同一波鼠疫，史料證據薄弱（World History Encyclopedia），不宜硬配。"
 sources:

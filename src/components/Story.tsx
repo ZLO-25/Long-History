@@ -55,7 +55,7 @@ export function RelChip({ rel }: { rel: CauseRel }) {
 export function CauseList({ card, side, index, onOpen, canOpen, researchHref, compact }: OpenProps & { card: Card; side: 'causes' | 'effects'; compact?: boolean }) {
   const list: CauseLink[] = (side === 'causes' ? card.causes : card.effects) ?? [];
   if (!list.length) return null;
-  // 先列有卡片的、再列尚無卡片的；同類依時間
+  // 依時間排列（尚無卡片的灰字已由 validate 禁止，這裡的排序只是保險）
   const time = (x: CauseLink) => (x.id ? byIdOf(index).get(x.id)?.time.start ?? 9999 : 9999);
   const sorted = [...list].sort((a, b) => Number(!a.id) - Number(!b.id) || time(a) - time(b));
   const isCause = side === 'causes';

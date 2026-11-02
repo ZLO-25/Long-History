@@ -21,7 +21,6 @@ structure_tags: [技術擴散, 慢變結構]
 topics: [航海]
 links: [event-zheng-he-voyages, event-vasco-da-gama, tech-gunpowder, tech-movable-type]
 effects:
-  - { name: 地中海航海季延長（13世紀）, rel: 促成, why: 有了羅盤，陰天也能辨別方向，威尼斯船隊往返東地中海一年可以跑兩趟，不再只有一趟。, src: [s1] }
   - { id: event-vasco-da-gama, rel: 背景, why: 羅盤讓船隻遠離海岸也能保持航向，遠洋航行更安全，最後支撐了大航海時代。, src: [s1, s4] }
 counterparts: "無適當對照：西方軌道沒有獨立起源的同類卡；歐洲羅盤是否獨立發明仍有爭議，放在本卡 T2、T3 並列。後來的大航海（如達伽馬）是使用羅盤的事件，不是同類技術，因此只放 links。"
 sources:

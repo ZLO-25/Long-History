@@ -24,11 +24,9 @@ structure_tags: [商路改道, 關鍵原料壟斷, 單一港口依賴, 外部勢
 topics: [白銀, 絲綢與絲路, 海上貿易, 航海]
 links: [finance-ming-baochao, commodity-silver-flow, commodity-silk, event-spanish-north-taiwan]
 causes:
-  - { name: "烏達內塔發現太平洋回航航線（1565）", rel: 直接引發, why: "烏達內塔找到利用北太平洋西風帶回美洲的航線，船隻終於能在美洲與菲律賓之間往返，大帆船貿易才開得起來。", src: [s1, s2] }
   - { id: finance-ming-baochao, rel: 促成, why: "明朝改以白銀繳稅，銀在中國約比歐洲值錢一倍，美洲白銀因此大量經馬尼拉運往亞洲。", src: [s4, s5] }
 effects:
   - { id: commodity-silver-flow, rel: 促成, why: "大帆船把美洲白銀從阿卡普爾科運到馬尼拉，再由福建商人換走絲綢瓷器，是美洲白銀流入中國的主要路線之一。", src: [s1, s2, s5] }
-  - { name: "馬尼拉華人起事與屠殺（1603–1686）", rel: 背景, why: "大帆船貿易吸引大批福建商人到馬尼拉，西班牙當局把他們限制在城外的八連，1603、1639、1686年先後爆發起事與屠殺。", src: [s3] }
   - { id: event-spanish-north-taiwan, rel: 背景, why: "馬尼拉靠福建商船運來絲綢瓷器換美洲白銀，荷蘭人占大員後威脅這條航線，西班牙因此北上占領雞籠。", src: [event-spanish-north-taiwan:s1] }
 counterparts:
   - { id: commodity-silk, note: "相似：都是中國絲綢往外流、換回別人的貴重物品。不同：漢代絲路走陸路、經過許多中間商；大帆船是 16 世紀起橫跨太平洋的直接海路，換回的是美洲白銀。", src: [s1, s2] }

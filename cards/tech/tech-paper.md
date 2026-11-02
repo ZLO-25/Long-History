@@ -23,7 +23,6 @@ structure_tags: [資訊傳播革命, 技術擴散, 慢變結構]
 topics: [印刷與通訊]
 links: [tech-movable-type, tech-printing-press]
 effects:
-  - { name: 阿拉伯帝國行政改用紙（約794年）, rel: 促成, why: 造紙術傳到巴格達後出現造紙作坊，紙比羊皮紙便宜，阿拉伯帝國官府改用紙寫公文。, src: [s1] }
   - { id: tech-printing-press, rel: 背景, why: 造紙傳入歐洲後紙價大降，古騰堡的印刷機正是建立在已經機械化的造紙生產上。, src: [s1, s5, "tech-printing-press:s1"] }
 counterparts:
   - { id: tech-printing-press, note: "相似：兩者都大幅降低了「把文字記下來、傳出去」的成本，並靠工匠與貿易傳到其他地區。不同：紙是一種材料，印刷機是一部機器；而且古騰堡的印刷正是建立在歐洲已有造紙業的基礎上，兩者是先後接力，不是平行發明。", src: [s1, s5] }

@@ -20,14 +20,8 @@ place:
 structure_tags: [投機泡沫與崩盤, 債務擴張, 臨界點, 突變事件]
 topics: [銀行與借貸, 泡沫與金融危機, 中央銀行]
 links: [finance-great-depression, finance-nyse, finance-bretton-woods]
-causes:
-  - { name: 美國房市泡沫與次級房貸（2000年代）, rel: 直接引發, why: 許多人借高風險房貸買房，2006 年中房價開始下跌，還不出錢的人越來越多，壞帳引爆危機。, src: [s1, s2, s3] }
-  - { name: 房貸證券化（1990–2000年代）, rel: 促成, why: 房貸被綁成證券賣到全世界，房價一跌，沒人知道哪些證券藏著壞帳，大家互不信任、停止借錢。, src: [s1, s3, s10] }
-  - { name: 金融監管失靈（2000年代）, rel: 促成, why: 美國危機調查委員會多數認為監管失靈與過度冒險是主因；少數委員則認為主因是全球性的信用與房市泡沫。, src: [s8, s9], disputed: true }
 effects:
   - { id: finance-euro, rel: 促成, why: 危機後各國財政惡化、銀行問題浮現，讓南歐國家的債務問題爆發成歐債危機。, src: [finance-euro:s3] }
-  - { name: 陶德－法蘭克法案（2010）, rel: 回應, why: 為了避免危機重演，美國 2010 年通過陶德－法蘭克法案大改金融監管，國際上也推出巴塞爾協議 III。, src: [s1] }
-  - { name: 聯準會零利率與量化寬鬆（2008–2014）, rel: 回應, why: 為了救經濟，聯準會把利率降到接近零，並大量購買公債與房貸證券，把錢注入市場。, src: [s2] }
 counterparts: "無適當對照：中國軌現有與計畫卡中沒有 2008 年前後的金融事件卡（改革開放卡只寫到 1992 年）；臺灣證交所卡（other 軌）談的是 1990 年泡沫，與次貸危機的機制不同，不硬湊。"
 sources:
   - { id: s1, title: "2008 financial crisis — Wikipedia", url: "https://en.wikipedia.org/wiki/2008_financial_crisis", accessed: 2026-10-25, tier: 百科 }

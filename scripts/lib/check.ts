@@ -21,6 +21,9 @@ export function checkCards(
   const issues: Issue[] = [];
   const ids = new Map<string, string>();
   for (const c of cards) if (c.fm?.id) ids.set(c.fm.id, c.file);
+  // 被別張卡的 causes／effects 指到的卡（畫面上會自動出現在「從哪裡來／往哪裡去」）
+  const linkedIn = new Set<string>();
+  for (const c of cards) for (const k of ['causes', 'effects']) for (const x of (Array.isArray(c.fm?.[k]) ? c.fm[k] : [])) if (x?.id) linkedIn.add(x.id);
 
   for (const c of cards) {
     const err = (msg: string) => issues.push({ level: 'error', file: c.file, msg });
@@ -113,7 +116,9 @@ export function checkCards(
       list.forEach((x: any, i: number) => {
         const w = `${key}[${i}]（${x?.id ?? x?.name ?? '?'}）`;
         if (!x || typeof x !== 'object') { err(`${w} 格式錯誤`); return; }
-        if (!!x.id === !!x.name) err(`${w} 要寫 id（有卡片）或 name（尚無卡片的事件），二選一`);
+        // 完整的教學不留「尚無卡片」：每一條都必須指向一張已有的卡（docs/causes.md）
+        if (x.name) err(`${w} 不可只寫 name（尚無卡片的事件）：請先補卡再用 id 指向它，或刪掉這條`);
+        else if (!x.id) err(`${w} 缺少 id`);
         if (x.id) {
           const other = cards.find((y) => y.fm?.id === x.id)?.fm;
           if (!other) err(`${w} 指向不存在的卡片`);
@@ -144,7 +149,7 @@ export function checkCards(
       const ids2 = list.filter((x: any) => x?.id).map((x: any) => x.id);
       if (new Set(ids2).size !== ids2.length) warn(`${key} 有重複的卡片`);
     }
-    if (f.learn && !(f.causes?.length) && !(f.effects?.length) && !f.summary_card) warn('學習卡還沒有前因／後果（causes / effects），學生看不出它和其他事件的關係');
+    if (f.learn && !(f.causes?.length) && !(f.effects?.length) && !linkedIn.has(f.id)) warn('學習卡還沒有前因／後果（causes / effects），學生看不出它和其他事件的關係');
     for (const r of f.routes ?? []) if (!ctx.routes.has(r)) err(`routes 指向不存在的路線：${r}`);
     for (const fw of f.frameworks ?? []) if (!ctx.frameworks.has(fw)) err(`frameworks 指向不存在的框架：${fw}`);
 

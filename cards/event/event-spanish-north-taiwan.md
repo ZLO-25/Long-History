@@ -25,9 +25,7 @@ links: [event-dutch-formosa, commodity-manila-galleon]
 causes:
   - { id: event-dutch-formosa, rel: 回應, why: 荷蘭人 1624 年占了大員，可能攔截從福建開往馬尼拉的中國商船，西班牙人因此北上搶占北臺灣。, src: [s1, s2] }
   - { id: commodity-manila-galleon, rel: 背景, why: 馬尼拉靠中國商船運來絲綢瓷器、交換美洲白銀，這條商路對西班牙很重要，所以不能讓荷蘭人卡住。, src: [s1] }
-  - { name: 日本禁止天主教（17 世紀初）, rel: 背景, why: 日本正在迫害天主教，西班牙傳教士想把臺灣當跳板，把人送進日本，也找一條不經澳門進入中國的路。, src: [s2] }
-effects:
-  - { name: 淡水紅毛城（1640 年代起）, rel: 促成, why: 1642 年西班牙守軍投降後，北臺灣改由荷蘭控制，荷蘭人在淡水重建城堡，就是今天紅毛城的前身。, src: [s1, s4] }
+  - { id: event-sakoku, rel: 背景, why: 日本正在迫害天主教，西班牙傳教士想把臺灣當跳板，把人送進日本，也找一條不經澳門進入中國的路。, src: [s2] }
 counterparts:
   - { id: event-reformation, note: "相似：天主教的西班牙傳教士與新教的荷蘭人在臺灣南北對峙，是歐洲宗教分裂延伸到亞洲的一角。不同：在臺灣，雙方更在意的是貿易據點，不是宗教戰爭本身。", src: [s1, s2] }
 sources:

@@ -23,10 +23,8 @@ topics: [出口區與科學園區, 半導體與網路]
 links: [event-kaohsiung-epz, building-ten-major-projects, commodity-taiwan-semiconductor, tech-internet, event-taiwan-martial-law]
 causes:
   - { id: event-kaohsiung-epz, rel: 促成, why: 加工出口帶動成長，但工資上升、技術握在外國公司手上，政府想找新的技術突破口，才轉向發展積體電路。, src: [s4, s5] }
-  - { name: 工業技術研究院成立（1973）, rel: 促成, why: 工研院先向美國 RCA 學積體電路技術、培養工程師，再把團隊分拆成聯電、台積電等公司。, src: [s4, s5] }
 effects:
   - { id: commodity-taiwan-semiconductor, rel: 促成, why: 從 RCA 技術移轉到台積電成立，臺灣有了自己的晶片製造業，逐步發展成全球晶圓代工的中心。, src: [s1, s5] }
-  - { name: 無晶圓廠晶片設計公司興起（1987年後）, rel: 促成, why: 台積電只替別人代工、不賣自有品牌，設計公司不必自己蓋工廠，全球因此出現大量無晶圓廠設計公司。, src: [s1, s5] }
 counterparts: 無適當對照：西方軌的「網際網路」卡時代相近，但講的是通訊技術，不是國家培育產業；之後補美國矽谷或日本半導體卡再對照。
 sources:
   - { id: s1, title: "TSMC — Wikipedia", url: "https://en.wikipedia.org/wiki/TSMC", accessed: 2026-10-25, tier: 百科 }

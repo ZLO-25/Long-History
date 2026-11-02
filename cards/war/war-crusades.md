@@ -26,11 +26,7 @@ structure_tags: [宗教／意識形態動員, 戰爭融資, 補給線過長, 聯
 topics: [宗教]
 links: [event-charlemagne-coronation, event-black-death, finance-medici-bank, commodity-silk]
 causes:
-  - { name: 曼齊克特之戰（1071年）, rel: 背景, why: 塞爾柱擊敗拜占庭，安那托利亞向突厥人敞開，拜占庭陷入危機。, src: [s1] }
-  - { name: 拜占庭求援與克萊蒙會議（1095年）, rel: 直接引發, why: 拜占庭皇帝派使節向教宗求援，教宗也想擴大權威，便號召西歐人武裝東征，承諾減免罪罰。, src: [s1, s2] }
-effects:
-  - { name: 義大利商人主導地中海貿易（12–13世紀）, rel: 促成, why: 十字軍靠威尼斯、比薩的船隊運兵補給，約一個世紀內義大利商人取代穆斯林與猶太商人，成為地中海貿易主力。, src: [s1, s2] }
-  - { name: 教會向教士課稅（1199年起）, rel: 促成, why: 為了籌措東征經費，教宗開始對教士收入課稅，教會的權力與財富因此增加。, src: [s1, s2] }
+  - { id: war-manzikert, rel: 背景, why: 塞爾柱擊敗拜占庭，安那托利亞向突厥人敞開，拜占庭陷入危機。, src: [s1] }
 counterparts:
   - { id: war-jingkang, note: "相似：都在 12 世紀，都是長期的跨文明戰爭，都發生了大城市被攻陷、洗劫、居民被殺或被擄走的慘劇（1099 耶路撒冷、1204 君士坦丁堡；1127 開封）。不同：十字軍是以宗教號召、千里遠征他方；靖康是新興的金國南下攻滅北宋，宋是被攻擊的防守方。", src: [s1, s2] }
 sources:

@@ -26,8 +26,6 @@ causes:
   - { id: event-end-of-cold-war, rel: 背景, why: 冷戰結束、德國統一後歐洲整合加速，1992 年各國簽下《馬斯垂克條約》，約定建立共同貨幣。, src: [s1] }
   - { id: finance-weimar-hyperinflation, rel: 背景, why: 德國人對惡性通膨的記憶，讓歐洲央行被設計成以「物價穩定」為首要目標。, src: [s2, s3] }
   - { id: finance-2008-crisis, rel: 促成, why: 2008 年金融危機後各國財政惡化、銀行問題浮現，投資人開始擔心南歐國家還不起債，引爆歐債危機。, src: [s3] }
-effects:
-  - { name: 歐洲穩定機制與銀行聯盟（2012起）, rel: 回應, why: 歐債危機暴露歐元區缺少共同財政與最後貸款人，各國於是成立歐洲穩定機制、推動銀行聯盟補洞。, src: [s3] }
 counterparts:
   - id: finance-asian-financial-crisis
     note: "兩者都是資金長期流入後突然逆轉、再由 IMF 介入援助的危機；差別是亞洲國家的貨幣可以貶值，歐元區成員沒有自己的貨幣可貶，只能靠減薪、緊縮與外部貸款調整。"

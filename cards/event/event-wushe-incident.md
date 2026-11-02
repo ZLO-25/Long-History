@@ -22,10 +22,7 @@ structure_tags: [附庸反叛, 地形險阻, 技術代差, 邊疆防線, 突變�
 topics: [殖民統治, 民變與抗爭, 原住民族]
 links: [event-taiwan-cultural-association, event-taiwan-kominka, social-siraya-deer, event-228-incident]
 causes:
-  - { name: 五年理蕃計畫（1910 年代）, rel: 背景, why: 總督府以武力和駐在所控制山地，沒收槍枝、禁止出草紋面、徵調勞役、收走獵場，族人不滿越積越深。, src: [s1, s4, s6] }
-  - { name: 敬酒事件（1930）, rel: 直接引發, why: 事件前二十天，日警在婚宴上拒絕莫那魯道之子敬酒並起衝突，揚言報復，成為起事的導火線。, src: [s1, s4, s6] }
-effects:
-  - { name: 理蕃政策調整與集團移住（1931 起）, rel: 回應, why: 事件後總督府檢討理蕃政策，把倖存者集中到便於監控的「模範部落」，推動定耕與日語教育。, src: [s3] }
+  - { id: event-taiwan-aborigine-policy, rel: 背景, why: 總督府以武力和駐在所控制山地，沒收槍枝、禁止出草紋面、徵調勞役、收走獵場，族人不滿越積越深。, src: [s1, s4, s6] }
 counterparts:
   - { id: war-teutoburg, note: "相似：都是被帝國統治的部族趁對方放鬆時發動突襲，利用山林地形讓帝國軍隊吃虧。不同：條頓堡森林的日耳曼人擋住了羅馬擴張；霧社的賽德克族面對飛機、山砲與毒氣彈，不到兩個月就被鎮壓。", src: [s1, s5] }
 sources:

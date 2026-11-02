@@ -21,7 +21,7 @@ topics: [糧食與農業, 變法與改革, 統一與中央集權, 法律與憲�
 links: [event-qin-unification, event-cleisthenes-reform, event-twelve-tables, event-guan-zhong-reform, war-changping]
 causes:
   - { id: event-partition-of-jin, rel: 背景, why: 三家分晉後進入戰國，各國兼併競爭越來越激烈，秦孝公急需富國強兵的辦法，才重用商鞅。, src: [s1, event-partition-of-jin:s2] }
-  - { name: 李悝的法典（戰國初期）, rel: 背景, why: 商鞅原本在魏國任職，到秦國後施行李悝的法典，再加上知情不報同罪的連坐規定。, src: [s1, s7] }
+  - { id: event-li-kui-reform, rel: 背景, why: 商鞅原本在魏國任職，到秦國後施行李悝的法典，再加上知情不報同罪的連坐規定。, src: [s1, s7] }
 effects:
   - { id: event-qin-unification, rel: 促成, why: 變法讓秦國能動員全國人力種田和打仗，行政與軍事明顯強化，被視為秦後來滅六國、統一天下的基礎。, src: [s1, s2, s7] }
   - { id: war-changping, rel: 背景, why: 秦國能用賜爵獎勵、徵發全國十五歲以上男子上長平前線，靠的正是商鞅建立的軍功爵與動員體制。, src: [war-changping:s1, s1] }

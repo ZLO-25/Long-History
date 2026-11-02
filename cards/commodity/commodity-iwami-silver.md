@@ -22,7 +22,6 @@ structure_tags: [意外財源, 技術擴散, 關鍵原料壟斷, 商路改道]
 topics: [白銀, 絲綢與絲路]
 links: [commodity-silver-flow, commodity-manila-galleon, finance-ming-baochao, commodity-laurion-silver]
 causes:
-  - { name: "灰吹法傳入日本（1533）", rel: 促成, why: "1533年從朝鮮半島傳入灰吹法，能大量煉出高純度白銀，石見銀山因此成為重要產地。", src: [s2, s3, s4] }
   - { id: finance-ming-baochao, rel: 背景, why: "明朝寶鈔失敗後改以白銀繳稅、發軍餉，中國對銀需求極大，日本白銀才能大量運去換中國絲綢。", src: [s3, s5, s7] }
 effects:
   - { id: commodity-silver-flow, rel: 促成, why: "石見等日本銀山大量產銀，先由走私海商、1557年後也由葡萄牙人運進中國，成為流入明朝的白銀主要來源之一。", src: [s3, s8] }

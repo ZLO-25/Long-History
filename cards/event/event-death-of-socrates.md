@@ -24,8 +24,6 @@ links: [war-peloponnesian, event-cleisthenes-reform, building-theatre-dionysus]
 causes:
   - { id: war-peloponnesian, rel: 背景, why: 雅典戰敗後由三十僭主統治，領袖克里提亞斯曾是蘇格拉底的學生；有學者認為這場審判是繞過大赦、清算舊帳的方式。, src: [s1], disputed: true }
   - { id: building-theatre-dionysus, rel: 背景, why: 有學者認為，阿里斯托芬在劇場上演的《雲》把蘇格拉底演成詭辯家，加深了雅典人對他「帶壞年輕人」的印象。, src: [s1, s2], disputed: true }
-effects:
-  - { name: 柏拉圖的對話錄（前 4 世紀）, rel: 促成, why: 蘇格拉底拒絕逃亡而死，學生柏拉圖寫下《申辯篇》《斐多篇》等著作，讓這場審判和老師的思想成為西方思想史的核心。, src: [s1, s2] }
 counterparts:
   - { id: event-confucius, note: "相似：一位沒有留下著作的老師，學說靠弟子記錄流傳，日後成為整個文明的思想基礎。不同：蘇格拉底被雅典民主處死；孔子周遊列國求官未果，晚年回鄉教書而終。", src: [s1, s5] }
   - { id: event-burning-books, note: "相似：國家以法律手段處理被認為動搖人心的知識人。不同：蘇格拉底是由公民陪審團依法審判一個人；秦朝是皇帝下令大規模禁書，而「坑儒」的規模與對象在學界有很大爭議。", src: [s1, s6] }

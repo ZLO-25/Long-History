@@ -24,7 +24,7 @@ structure_tags: [戰爭融資, 債務擴張, 擴大稅基, 金融中心轉移, �
 topics: [國債與公債, 金融中心]
 links: [finance-bank-of-england, finance-amsterdam-decline, finance-amsterdam-exchange, finance-gold-standard, event-french-revolution, event-westward-expansion, finance-new-york-overtakes-london]
 causes:
-  - { name: 法國革命戰爭與拿破崙戰爭（1793–1815）, rel: 促成, why: 英法打了二十多年仗，英國靠借款和 1799 年首次開徵的所得稅撐住，國家財政與金融市場在戰爭中被迫擴大。, src: [s2, s5, s6] }
+  - { id: war-napoleonic, rel: 促成, why: 英法打了二十多年仗，英國靠借款和 1799 年首次開徵的所得稅撐住，國家財政與金融市場在戰爭中被迫擴大。, src: [s2, s5, s6] }
 effects:
   - { id: finance-gold-standard, rel: 促成, why: 戰時英格蘭銀行停兌黃金，證明紙鈔照樣能流通；1821 年英國恢復用紙鈔換黃金，成了古典金本位的開端。, src: [s3, finance-gold-standard:s1] }
 counterparts: "無適當對照：中國軌在 1793–1815 年間沒有「靠國債與中央銀行信用支撐長期戰爭、並使金融中心易手」的對應卡；山西票號（1823 年起）時間較晚、性質也不同，不硬湊。"

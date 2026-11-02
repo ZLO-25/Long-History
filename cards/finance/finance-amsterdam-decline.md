@@ -24,7 +24,6 @@ links: [finance-amsterdam-wisselbank, finance-amsterdam-exchange, finance-london
 causes:
   - { id: war-american-revolution, rel: 促成, why: 荷蘭和美國革命者往來，英國 1780 年對荷宣戰，荷蘭 1784 年戰敗割地，貿易與資金被戰爭打斷。, src: [s1, war-american-revolution:s12] }
   - { id: event-french-revolution, rel: 促成, why: 法國革命戰爭中法軍 1795 年入侵荷蘭，成立巴達維亞共和國，荷蘭還得付一億荷盾賠款。, src: [s2] }
-  - { name: 英國海運與製造業崛起（18 世紀）, rel: 背景, why: 有學者認為荷蘭在海運和製造業上漸漸被英國超越，資本只好轉向放貸給外國，慢慢變成食利型的金融中心。, src: [s5], disputed: true }
 effects:
   - { id: finance-london-rise, rel: 促成, why: 阿姆斯特丹被戰爭與占領打擊，銀行家霍普 1794 年移往英國，國際借款也越來越常和倫敦商人合作。, src: [s4, s5, finance-london-rise:s8] }
   - { id: event-westward-expansion, rel: 背景, why: 荷蘭資本雖然退居幕後，仍大量投向外國證券，霍普銀行和倫敦的巴林一起替 1803 年路易斯安那購地籌款。, src: [s4] }

@@ -21,8 +21,6 @@ place:
 structure_tags: [技術代差, 外部勢力介入, 海權對陸權, 臨界點, 合法性危機]
 topics: [開港與鎖國, 航海]
 links: [event-sakoku, event-meiji-restoration, war-opium-war]
-causes:
-  - { name: 美國太平洋航線需要補給港（19 世紀中葉）, rel: 促成, why: 美國船在太平洋航行需要煤炭與糧食補給，也要保護遇難船員，總統菲爾莫爾因此派培理帶國書去要求日本開港。, src: [s1, s2] }
 effects:
   - { id: event-meiji-restoration, rel: 促成, why: 幕府被迫開國，又破天荒徵詢大名卻得不到共識，顯得軟弱，反幕府勢力因此抬頭，十多年後推翻幕府。, src: [s1, event-meiji-restoration:s5] }
 counterparts: 無適當對照：西方軌是派出艦隊的一方，沒有一張「被蒸汽艦隊叩關而開國」的對應卡。

@@ -23,8 +23,7 @@ structure_tags: [海峽封鎖, 補給線過長, 精英內鬥, 政治宣傳工程
 topics: [海戰與水戰, 內戰]
 links: [event-rubicon, event-augustan-principate, commodity-egypt-grain]
 causes:
-  - { name: 凱撒遇刺後的權力分配破裂（前44–前32年）, rel: 促成, why: 凱撒死後掌權者瓜分勢力，屋大維控制義大利與西方，安東尼控制東方並與埃及結盟，兩大陣營終於對立。, src: [s1] }
-  - { name: 元老院對克麗奧佩脫拉宣戰（前32年）, rel: 直接引發, why: 屋大維讓元老院對埃及女王宣戰，把羅馬內戰包裝成對外戰爭，戰爭正式爆發。, src: [s1] }
+  - { id: event-second-triumvirate, rel: 促成, why: 凱撒死後掌權者瓜分勢力，屋大維控制義大利與西方，安東尼控制東方並與埃及結盟，兩大陣營終於對立。, src: [s1] }
 effects:
   - { id: event-augustan-principate, rel: 促成, why: 安東尼與克麗奧佩脫拉戰敗自殺，屋大維成為唯一掌握大軍的人，才能一步步建立元首制。, src: [s1, s2, "event-augustan-principate:s2"] }
   - { id: commodity-egypt-grain, rel: 促成, why: 戰後埃及成為羅馬行省，埃及的小麥從此大量運往羅馬城。, src: [s1, "commodity-egypt-grain:s1"] }

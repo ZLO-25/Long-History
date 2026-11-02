@@ -23,7 +23,6 @@ topics: [內戰]
 links: [event-chen-sheng-wu-guang, event-han-inherits-qin, event-qin-unification]
 causes:
   - { id: event-chen-sheng-wu-guang, rel: 促成, why: 陳勝起事後各地紛紛反秦，秦朝崩潰留下權力真空，劉邦、項羽這些起兵者才有機會爭奪天下。, src: [s1, event-chen-sheng-wu-guang:s1] }
-  - { name: 項羽分封十八國（前 206 年）, rel: 直接引發, why: 秦亡後項羽分封天下偏袒盟友，許多起兵者分得很少，劉邦也心懷不滿，從漢中出兵東進。, src: [s1] }
 effects:
   - { id: event-han-inherits-qin, rel: 直接引發, why: 劉邦在垓下打敗項羽後稱帝，建立漢朝，並延續秦朝的許多制度。, src: [s1] }
 counterparts:

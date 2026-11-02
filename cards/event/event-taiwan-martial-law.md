@@ -24,10 +24,10 @@ topics: [民主與參政, 言論與思想管制]
 links: [event-228-incident, event-taiwan-land-reform, building-ten-major-projects, finance-taiwan-stock-1990, event-end-of-cold-war]
 causes:
   - { id: event-228-incident, rel: 背景, why: 二二八事件後的鎮壓讓臺灣社會噤聲，政府之後實施戒嚴時，民間已難以反抗。, src: [s1] }
-  - { name: 國共內戰（1945–1949）, rel: 促成, why: 國府內戰失利、大批軍民遷臺，把臺灣當成反攻基地，便以戒嚴等非常手段控制社會。, src: [s1, s8] }
+  - { id: war-chinese-civil-war, rel: 促成, why: 國府內戰失利、大批軍民遷臺，把臺灣當成反攻基地，便以戒嚴等非常手段控制社會。, src: [s1, s8] }
 effects:
-  - { name: 政黨輪替（2000）, rel: 促成, why: 民主化開放組黨與選舉，美麗島世代與辯護律師成為民進黨主力，2000 年首次政黨輪替。, src: [s3] }
-  - { name: 促進轉型正義條例（2017）, rel: 回應, why: 為了處理白色恐怖留下的傷害，2017 年通過條例，開放政治檔案、撤銷威權時期的有罪判決。, src: [s2, s6, s7] }
+  - { id: event-taiwan-2000-transition, rel: 促成, why: 民主化開放組黨與選舉，美麗島世代與辯護律師成為民進黨主力，2000 年首次政黨輪替。, src: [s3] }
+  - { id: event-taiwan-transitional-justice, rel: 回應, why: 為了處理白色恐怖留下的傷害，2017 年通過條例，開放政治檔案、撤銷威權時期的有罪判決。, src: [s2, s6, s7] }
 counterparts:
   - { id: event-end-of-cold-war, note: "相似：都發生在 1980 年代末到 1990 年代初的「民主化浪潮」裡，威權政府在內外壓力下和平放手，沒有爆發內戰（臺灣 1987 解嚴、1991 終止動員戡亂、1996 直選；東歐 1989 年起政權更替）。不同：臺灣是執政黨自己主導、分十年逐步改革，國民黨改革後仍繼續執政；東歐多是共產黨在數月內垮台、政權整個換人。", src: [s1, s10] }
 sources:

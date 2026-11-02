@@ -19,11 +19,8 @@ place:
 structure_tags: [雇傭兵與蠻族化軍隊, 突變事件, 臨界點, 聯盟破裂]
 topics: [游牧民族與邊疆]
 links: [war-red-cliffs, event-xiaowen-reform]
-causes:
-  - { name: 前秦統一北方（4世紀後期）, rel: 背景, why: 西晉滅亡後北方各族政權割據，前秦一度統一北方，苻堅於是想再滅東晉、統一全中國。, src: [s1] }
 effects:
-  - { name: 前秦瓦解與北方再分裂（384–394年）, rel: 直接引發, why: 大軍潰敗後前秦內戰，慕容垂等人反叛，385 年苻堅被殺，北方又分裂成多個政權。, src: [s1] }
-  - { name: 南北朝對峙（420–589年）, rel: 背景, why: 東晉保住南方政權，北方則再度分裂，形成後來南北長期對峙的基礎。, src: [s1, s2] }
+  - { id: event-northern-southern, rel: 背景, why: 東晉保住南方政權，北方則再度分裂，形成後來南北長期對峙的基礎。, src: [s1, s2] }
 counterparts:
   - { id: war-greco-persian, note: "相似：一支由許多被征服民族拼成、數量龐大的入侵大軍，被人數少、訓練精良的守方擊敗。不同：波斯帝國戰後依然存續；前秦在淝水之後兩年內各族反叛、迅速瓦解。", src: [s1] }
 sources:

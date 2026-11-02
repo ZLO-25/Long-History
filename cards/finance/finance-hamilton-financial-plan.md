@@ -25,7 +25,6 @@ causes:
   - { id: war-american-revolution, rel: 促成, why: 獨立戰爭讓聯邦和各州欠下外債，以及欠士兵與商人的借據，新政府必須想辦法處理這筆債。, src: [s1, s5] }
 effects:
   - { id: finance-nyse, rel: 促成, why: 公債變成可以買賣的金融資產，第一銀行股票又引發投機熱，紐約經紀人在 1792 年簽下梧桐樹協議，交易所由此發展起來。, src: [s1, s4, s10] }
-  - { name: 聯邦派與民主共和派對立（1790 年代）, rel: 促成, why: 支持與反對漢彌爾頓計畫、第一銀行合不合憲的人越吵越兇，逐漸分成兩個政治派別。, src: [s5, s2] }
 counterparts: "無適當對照：中國軌與東亞軌現有卡片中，沒有「新國家承認舊債、發行新公債並設立特許銀行與統一貨幣單位」這種組合；宋代交子、明代寶鈔是發行紙幣，山西票號是民間匯兌，性質不同，不硬湊。"
 sources:
   - { id: s1, title: "Funding Act of 1790 — Wikipedia", url: "https://en.wikipedia.org/wiki/Funding_Act_of_1790", accessed: 2026-10-31, tier: 百科 }

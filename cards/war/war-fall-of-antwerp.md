@@ -23,11 +23,9 @@ structure_tags: [海峽封鎖, 金融中心轉移, 財政枯竭, 宗教／意識
 topics: [金融中心]
 links: [finance-antwerp-bourse, finance-bruges-bourse, finance-amsterdam-exchange, finance-amsterdam-wisselbank, finance-amsterdam-decline, event-reformation, event-vasco-da-gama, event-french-revolution, finance-age-of-genoese]
 causes:
-  - { name: "八十年戰爭（1568–1648）", rel: 背景, why: "腓力二世的宗教與稅收政策引發尼德蘭長期反抗，安特衛普夾在西班牙軍隊與起義各省之間，成為雙方爭奪的焦點。", src: [s3, s9] }
-  - { name: "西班牙駐軍長期欠餉（1570 年代）", rel: 直接引發, why: "西班牙同時應付多個戰場，駐尼德蘭軍隊的軍餉長期積欠，1576年兵變士兵衝進安特衛普洗劫。", src: [s2, s3] }
+  - { id: war-eighty-years, rel: 背景, why: "腓力二世的宗教與稅收政策引發尼德蘭長期反抗，安特衛普夾在西班牙軍隊與起義各省之間，成為雙方爭奪的焦點。", src: [s3, s9, s2] }
 effects:
   - { id: finance-amsterdam-exchange, rel: 促成, why: "安特衛普陷落後許多工匠與新教徒北遷，荷蘭又封鎖斯海爾德河，貿易與資本轉往阿姆斯特丹，是它崛起的原因之一。", src: [s1, s5, s6] }
-  - { name: "《明斯特和約》確認封閉斯海爾德河（1648）", rel: 背景, why: "荷蘭艦隊在城陷後持續封鎖河口，這項封鎖在1648年和約談判中大致得到確認，安特衛普長期與海上貿易隔絕。", src: [s1, s3, s4] }
 counterparts:
   - { id: war-jingkang, note: "兩者都是一座富庶的商業大城陷落後，人口與資本往另一個地區遷移；差別在於宋室帶著國家南遷，安特衛普的商人卻是投向敵對的北方國家。", src: [s11] }
 sources:

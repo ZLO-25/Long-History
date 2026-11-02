@@ -21,8 +21,6 @@ place:
 structure_tags: [金融制度創新, 投機泡沫與崩盤, 快速擴張]
 topics: [交易所, 股票與公司, 金融中心, 香料貿易, 東印度公司]
 links: [finance-medici-bank, finance-bank-of-england, finance-nyse, finance-taiwan-stock-exchange, event-vasco-da-gama]
-causes:
-  - { name: "荷蘭多家亞洲貿易公司互相競爭（1590 年代）", rel: 促成, why: "荷蘭議會把互相競爭的亞洲貿易公司合併成東印度公司，股本永久不退，投資人想拿回錢只能轉賣股份，因而需要交易所。", src: [s1, s2] }
 effects:
   - { id: event-dutch-formosa, rel: 背景, why: "交易所讓東印度公司能動員大量股東資本，在亞洲建立貿易據點，1624年也在臺灣大員設立商館。", src: [s2, s3] }
 counterparts:

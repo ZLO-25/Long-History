@@ -22,12 +22,11 @@ structure_tags: [重新設計基本單位, 外部勢力介入, 擴大稅基, 慢
 topics: [股票與公司, 糧食與農業, 變法與改革, 土地制度]
 links: [event-228-incident, finance-taiwan-1949-currency, event-kaohsiung-epz, event-taiwan-martial-law]
 causes:
-  - { name: 國共內戰（1945–1949）, rel: 促成, why: 國府在大陸內戰失利、遷臺後，想先穩住農村、在國共競爭中爭取農民支持，於是從減租做起。, src: [s4, s6] }
+  - { id: war-chinese-civil-war, rel: 促成, why: 國府在大陸內戰失利、遷臺後，想先穩住農村、在國共競爭中爭取農民支持，於是從減租做起。, src: [s4, s6] }
   - { id: finance-taiwan-1949-currency, rel: 背景, why: 1949 年臺灣碰上惡性通膨與缺糧，政府需要穩定農村與糧食來源，減租成為第一步。, src: [s4, s6] }
-  - { name: 美國援華與農復會（1948）, rel: 促成, why: 美國施壓，並透過美援支持的農復會提供經費與技術，讓土地改革有錢有人推動。, src: [s6, s8] }
+  - { id: finance-us-aid-taiwan, rel: 促成, why: 美國施壓，並透過美援支持的農復會提供經費與技術，讓土地改革有錢有人推動。, src: [s6, s8] }
 effects:
   - { id: finance-taiwan-stock-exchange, rel: 促成, why: 地主拿到臺泥等四大公營公司的股票當補償，這些股票需要集中買賣的地方，促成證券交易所設立。, src: [s1, s3, finance-taiwan-stock-exchange:s12] }
-  - { name: 地主家族轉型為工業資本（1950年代）, rel: 促成, why: 中小地主不信任補償的股票而賤賣，大家族趁機收購，轉型成工業資本家。, src: [s3, s4] }
 counterparts:
   - { id: event-reform-and-opening, note: "相似：都是政府用一紙命令把土地的使用權或所有權交到耕種者手上，農業產量和農民所得都明顯增加（臺灣 1949–1953 年土改；中國 1978 年後包產到戶）。不同：臺灣是把私人地主的土地「有償徵收」再賣給佃農，地主拿到債券和股票；中國是把集體所有的土地承包給農戶，所有權仍不屬於農民。", src: [s1, s3] }
 sources:

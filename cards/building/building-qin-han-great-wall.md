@@ -21,7 +21,6 @@ structure_tags: [邊疆防線, 公共工程支出, 基礎建設網絡, 慢變結
 topics: [游牧民族與邊疆, 古代建築]
 links: [event-qin-unification, war-han-xiongnu, building-qin-straight-road, event-zhang-qian-west]
 causes:
-  - { name: 戰國各國修築的長城（前 5–前 3 世紀）, rel: 背景, why: 戰國時秦、趙、燕等國早已各自築牆防守，秦統一後把北方原有的防線連起來，成了秦長城的基礎。, src: [s1] }
   - { id: event-qin-unification, rel: 促成, why: 統一後秦始皇拆掉各國之間的內牆，派蒙恬率三十多萬人北擊匈奴，修築的工事成為長城的一部分。, src: [s1, s4] }
 counterparts:
   - { id: building-hadrians-wall, note: "相似：農業帝國在北方邊疆築牆，管理與遊牧或部落民族之間的邊界，牆邊有駐軍與關口。不同：哈德良長城是一道約 117 公里、規格一致的石牆；秦漢長城是用各地材料（山區用石、平原用夯土）拼接、延伸數千公里的防線網絡，而且秦代的部分幾乎沒有留下來。", src: [s1, s3] }

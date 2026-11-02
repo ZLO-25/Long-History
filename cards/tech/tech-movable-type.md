@@ -21,8 +21,6 @@ place:
 structure_tags: [資訊傳播革命, 技術擴散, 標準化量產]
 topics: [印刷與通訊]
 links: [tech-paper, tech-printing-press, tech-gunpowder, tech-compass]
-effects:
-  - { name: 朝鮮金屬活字與《直指》（1377年）, rel: 背景, why: 活字證明了「拆字重排」可行，朝鮮進一步發展出金屬活字，印出現存最古老的金屬活字書。, src: [s1, s4] }
 counterparts:
   - { id: tech-printing-press, note: "相似：都是把文字拆成一個個可重複使用的字模，排版、印刷後再拆開重排。不同：畢昇用燒過的泥字、手工刷印，漢字數量龐大，雕版仍是主流；古騰堡用金屬鑄字加螺旋壓印機，拉丁字母只有幾十個，活字很快成為歐洲主流。", src: [s1, s2, s6] }
 sources:

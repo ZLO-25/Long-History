@@ -23,12 +23,14 @@ structure_tags: [金融制度創新, 債務擴張, 慢變結構]
 topics: [銀行與借貸, 國債與公債]
 links: [finance-venice-rialto, finance-medici-bank, finance-age-of-genoese, finance-bank-of-england, finance-amsterdam-wisselbank]
 causes:
-  - { name: "熱那亞的公債持有人團體（14 世紀）", rel: 促成, why: "熱那亞政府長年為戰爭與貿易向富人借錢、指定稅收還息，債主團體越來越多、各自收稅而混亂，1407年才合併成一個機構。", src: [s1] }
+  - { id: war-fall-constantinople, rel: 促成, why: 君士坦丁堡陷落後，熱那亞在黑海的屬地失去屏障，政府同年把克里米亞屬地的統治權交給聖喬治之家，這些地方 1474 年仍被鄂圖曼攻下。, src: [s4] }
+  - { id: war-napoleonic, rel: 直接引發, why: 拿破崙掌權後把銀行的黃金運往巴黎，1805 年熱那亞所在的利古里亞併入法國，聖喬治之家隨之解散。, src: [s1, s4] }
 counterparts: "無適當對照：中國軌現有與計畫卡中沒有由債權人團體集體接管稅收、管理公債的機構；交子、票號都不是這種結構，不硬湊。"
 sources:
   - { id: s1, title: "Bank of Saint George — Wikipedia", url: "https://en.wikipedia.org/wiki/Bank_of_Saint_George", accessed: 2026-10-31, tier: 百科 }
   - { id: s2, title: "Republic of Genoa — Wikipedia", url: "https://en.wikipedia.org/wiki/Republic_of_Genoa", accessed: 2026-10-31, tier: 百科 }
   - { id: s3, title: "Niccolò Machiavelli, Istorie fiorentine（義大利文原文，義大利文維基文庫）", url: "https://it.wikisource.org/wiki/Istorie_fiorentine", accessed: 2026-10-31, tier: 一手 }
+  - { id: s4, title: "Banco di San Giorgio — Wikipedia（義大利文）", url: "https://it.wikipedia.org/wiki/Banco_di_San_Giorgio", accessed: 2026-11-02, tier: 百科 }
 importance: 2
 learn:
   histories: [歐洲史, 錢的歷史, 世界通史]

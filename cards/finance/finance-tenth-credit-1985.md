@@ -20,10 +20,8 @@ place:
 structure_tags: [銀行擠兌, 精英內鬥, 債務擴張, 合法性危機]
 topics: [銀行與借貸, 泡沫與金融危機]
 links: [finance-taiwan-stock-exchange, finance-taiwan-1949-currency, event-taiwan-martial-law]
-causes:
-  - { name: 金融監理寬鬆與政商關係（1980年代）, rel: 促成, why: 官員多年容忍違規放款，蔡辰洲還與立委組「十三兄弟」遊說財經官員，讓超貸問題越滾越大。, src: [s1, s3] }
 effects:
-  - { name: 中央存款保險公司開業（1985）, rel: 背景, why: 存款保險條例在十信案前一個月才公布；十信擠兌讓大家看到存款沒有保障，中央存款保險公司同年 9 月開業，此後信合社擠兌不再重演。, src: [s6, s9] }
+  - { id: event-taiwan-martial-law, rel: 促成, why: 有學者認為，十信案和陳文成案、江南案等案件接連爆發，重創國民黨威信，迫使蔣經國走向政治改革與 1987 年解嚴。, src: [s10], disputed: true }
 counterparts: 無適當對照：本站同時代的西方軌沒有單一金融機構擠兌的卡片；擠兌結構可對照「大蕭條」與「2008 金融危機」卡，但時代差太多，不列為同期對照。
 sources:
   - { id: s1, title: "十信案 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/%E5%8D%81%E4%BF%A1%E6%A1%88", accessed: 2026-10-25, tier: 百科 }
@@ -35,6 +33,7 @@ sources:
   - { id: s8, title: "Hsu Li-teh — Wikipedia（1984-05 至 1985-03 任經濟部長）", url: "https://en.wikipedia.org/wiki/Hsu_Li-teh", accessed: 2026-10-25, tier: 百科 }
   - { id: s9, title: "中央存款保險公司 — 維基百科（存款保險條例 1985-01-09 公布、公司 1985-09-27 開業）", url: "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%A4%AE%E5%AD%98%E6%AC%BE%E4%BF%9D%E9%9A%AA%E5%85%AC%E5%8F%B8", accessed: 2026-11-02, tier: 百科 }
   - { id: s7, title: "Tsai Chen-chou — Wikipedia", url: "https://en.wikipedia.org/wiki/Tsai_Chen-chou", accessed: 2026-10-25, tier: 百科 }
+  - { id: s10, title: "薛化元，〈政治改革路線與國家定位的延續與斷裂：從蔣經國到李登輝〉，《民主與民主之外：李登輝百年誕辰紀念學術討論會論文集》— 國史館總統副總統文物典藏", url: "https://presidentiallth.drnh.gov.tw/article.php?access=PATA00099%2F17848fa5", accessed: 2026-11-02, tier: 學術 }
 importance: 2
 learn:
   histories: [臺灣史, 錢的歷史]
@@ -90,7 +89,7 @@ lens_status: 無直接論述
 
 - 財政部長陸潤康、經濟部長徐立德、國民黨祕書長蔣彥士等人先後下臺。[s1][s3][s8]
 - 民眾對金融機構和執政黨的信任大受打擊。[s1][s3]
-- 同年中央存款保險公司成立；行政院長在 40 週年時說，早年信用合作社擠兌的事件現在已不再發生。[s6]
+- 同年中央存款保險公司成立；行政院長在 40 週年時說，早年信用合作社擠兌的事件現在已不再發生。[s6][s9]
 
 ## F6 雙軌解讀
 

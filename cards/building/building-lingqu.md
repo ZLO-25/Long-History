@@ -23,8 +23,7 @@ links: [event-qin-unification, building-dujiangyan, building-qin-straight-road]
 causes:
   - { id: event-qin-unification, rel: 促成, why: 統一六國後秦始皇繼續南征嶺南百越，需要把糧食運到前線，於是命史祿開鑿靈渠連通湘江和漓江。, src: [s1, s2] }
 effects:
-  - { name: 秦征服嶺南（前 3 世紀末）, rel: 促成, why: 靈渠讓船隻能從長江水系開進珠江水系，糧食和補給得以送到南方前線，支援秦軍征服嶺南。, src: [s1, s2] }
-  - { name: 興安的灌溉農業（秦以後）, rel: 促成, why: 靈渠的水後來也被引去灌溉田地，讓廣西興安一帶成為農業區。, src: [s2] }
+  - { id: war-qin-lingnan, rel: 促成, why: 靈渠讓船隻能從長江水系開進珠江水系，糧食和補給得以送到南方前線，支援秦軍征服嶺南。, src: [s1, s2] }
 counterparts:
   - { id: building-via-appia, note: "相似：為了把兵員與糧食送到新征服的地區而修的國家級交通工程，之後轉為長期的經濟動脈。不同：阿庇亞大道是陸路；靈渠是把長江水系（湘江）與珠江水系（漓江）接起來的運河，只有 36.4 公里卻連通了兩大流域。", src: [s1, s2] }
 sources:

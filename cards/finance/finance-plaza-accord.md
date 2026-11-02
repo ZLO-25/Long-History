@@ -22,11 +22,8 @@ place:
 structure_tags: [貨幣貶值, 儲備貨幣地位, 臨界點]
 topics: [國際貨幣, 關稅與貿易戰]
 links: [finance-bretton-woods, finance-dollar-reserve-currency, finance-petrodollar, finance-japan-bubble, finance-taiwan-stock-1990, finance-asian-financial-crisis, finance-eurodollar-big-bang, event-us-china-trade-war]
-causes:
-  - { name: 美國高利率與財政赤字（1980年代初）, rel: 促成, why: 美國高利率與大幅赤字吸引外資湧入，美元太貴、貿易赤字擴大，國會想用保護主義，各國才聯手壓低美元。, src: [s1, s4] }
 effects:
   - { id: finance-japan-bubble, rel: 促成, why: 有學者認為日圓大升值後，日本怕出口受傷而長期壓低利率，便宜的錢流進股市房市；也有學者認為協議的角色被高估。, src: [s4, s5, s6], disputed: true }
-  - { name: 羅浮宮協議（1987）, rel: 回應, why: 美元跌得夠多之後，1987 年六國改為同意讓匯率穩定在當時水準附近，以政策協調撐住。, src: [s3] }
 counterparts:
   - { id: finance-japan-bubble, note: 日圓升值後日本放寬貨幣政策，常被連到泡沫形成，但因果比例有爭議；兩卡一個看國際協調，一個看日本國內後果。, src: [s5, s6] }
 sources:

@@ -21,9 +21,6 @@ place:
 structure_tags: [能源轉換, 技術擴散, 臨界點]
 topics: [工業化, 能源]
 links: [tech-railway, tech-electric-grid, tech-internal-combustion, war-opium-war]
-causes:
-  - { name: 英國煤礦積水問題（18 世紀）, rel: 促成, why: 英國煤礦越挖越深、礦坑常淹水，人力馬力抽水不夠用，最早的蒸汽機就是為了抽水而造的。, src: [s1, s4] }
-  - { name: 薩弗里蒸汽抽水機（1698）, rel: 背景, why: 薩弗里先做出用蒸汽抽水的機器並取得專利，紐科門再做出能在煤礦穩定運轉的大氣式蒸汽機。, src: [s1] }
 effects:
   - { id: tech-railway, rel: 促成, why: 蒸汽機裝上車輪成了火車頭，拉車運煤的成本約只有用馬的一半，1825 年起出現用蒸汽火車頭的公共鐵路。, src: [s3, tech-railway:s1] }
   - { id: war-opium-war, rel: 背景, why: 蒸汽船能逆風逆流駛入內河，英軍靠它沿海北上、切斷大運河，清朝打不過只好簽約；它影響的是戰局，不是開戰的原因。, src: [war-opium-war:s1] }

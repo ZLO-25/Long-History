@@ -22,11 +22,10 @@ structure_tags: [貨幣貶值, 惡性通膨, 貨幣體系轉換, 財政枯竭, �
 topics: [紙幣, 通貨膨脹, 內戰]
 links: [finance-taiwan-1949-currency, finance-weimar-hyperinflation]
 causes:
-  - { name: 國共內戰（1945–1949）, rel: 促成, why: 內戰軍費龐大，政府只好一直印法幣付帳，法幣貶到沒人要，才推出金圓券想重建信用。, src: [s1, s3] }
+  - { id: war-chinese-civil-war, rel: 促成, why: 內戰軍費龐大，政府只好一直印法幣付帳，法幣貶到沒人要，才推出金圓券想重建信用。, src: [s1, s3] }
   - { id: war-sino-japanese-1937, rel: 背景, why: "抗戰期間政府大量印法幣支應戰費，發行量從約 14 億元暴增到 5,569 億元，戰後通膨的底子早已埋下。", src: [s1] }
 effects:
   - { id: finance-taiwan-1949-currency, rel: 促成, why: 金圓券初期與舊臺幣固定匯率，大陸避險資金湧入臺灣，加速臺灣通膨，1949 年 6 月臺灣改發新臺幣。, src: [s6] }
-  - { name: 國民政府失去中國大陸（1949）, rel: 促成, why: 金圓券崩潰讓城市居民積蓄蒸發、對政府失去信任，多位研究者認為經濟崩潰是國民黨輸掉內戰的關鍵之一。, src: [s1, s3] }
 counterparts:
   - { id: finance-weimar-hyperinflation, note: "相似：政府都靠印鈔票撐財政，最後換新貨幣重建信用。不同：時代背景不同（德國的部分見威瑪卡）；中國是在內戰進行中，金圓券崩潰後國民政府也失去了大陸。", src: [s1, s2] }
 sources:

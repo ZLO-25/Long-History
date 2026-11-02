@@ -27,7 +27,6 @@ causes:
   - { id: finance-new-york-overtakes-london, rel: 背景, why: 英鎊原本是主要國際貨幣，經過兩次大戰逐漸退位，美元才有機會接手。, src: [s2] }
 effects:
   - { id: finance-asian-financial-crisis, rel: 背景, why: 泰銖原本與以美元為主的貨幣籃掛鉤，1997 年撐不住而放棄，危機擴散到鄰國，顯示外圍國家在美元體系中的脆弱。, src: [s16] }
-  - { name: 去美元化與人民幣國際化（2015 起）, rel: 回應, why: 美元可以被當成制裁工具，2022 年凍結俄國資產與 SWIFT 制裁後，部分國家更想降低對美元的依賴。, src: [s12, s13, s14] }
 counterparts:
   - { id: finance-asian-financial-crisis, note: "相似處是兩者都顯示美元體系的外圍國家難以自主：1997 年泰銖放棄與美元為主的貨幣籃掛鉤後危機擴散；不同處是亞洲危機是外圍國家的貨幣危機，本卡談的是中心貨幣為何能維持地位。[s16]", src: [s16] }
 sources:

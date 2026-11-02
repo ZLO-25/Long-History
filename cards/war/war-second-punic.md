@@ -27,11 +27,10 @@ structure_tags: [海權對陸權, 補給線過長, 聯盟破裂, 附庸反叛, �
 topics: [對外擴張]
 links: [event-twelve-tables, war-actium, commodity-amphora-trade]
 causes:
-  - { name: 第一次布匿戰爭（前 264–前 241 年）, rel: 背景, why: 迦太基戰敗失去西西里，又被羅馬奪走薩丁尼亞、加重賠款，只好轉往伊比利發展，用當地銀礦和兵源重建實力。, src: [s1, s2, s3] }
-  - { name: 漢尼拔攻陷薩貢托（前 219 年）, rel: 直接引發, why: 漢尼拔圍攻羅馬的盟友薩貢托並攻陷，羅馬要求交出漢尼拔被拒絕，前 218 年宣戰。, src: [s1, s2, s3] }
+  - { id: war-first-punic, rel: 背景, why: 迦太基戰敗失去西西里，又被羅馬奪走薩丁尼亞、加重賠款，只好轉往伊比利發展，用當地銀礦和兵源重建實力。, src: [s1, s2, s3] }
 effects:
   - { id: finance-roman-argentarii, rel: 背景, why: 羅馬在和漢尼拔作戰期間整頓幣制，約前 211 年推出第納里烏斯銀幣，之後成為羅馬數百年的標準銀幣。, src: [s4, finance-roman-argentarii:s1] }
-  - { name: 第三次布匿戰爭（前 149–前 146 年）, rel: 背景, why: 和約讓迦太基不能自行開戰，羅馬又默許努米底亞不斷侵擾迦太基，最後引爆第三次戰爭，迦太基被毀。, src: [s1] }
+  - { id: war-third-punic, rel: 背景, why: 和約讓迦太基不能自行開戰，羅馬又默許努米底亞不斷侵擾迦太基，最後引爆第三次戰爭，迦太基被毀。, src: [s1] }
 counterparts:
   - { id: war-changping, note: "相似：守方先採取避免決戰、拖垮對手的戰略，後來換上主張出擊的將領，主力被包圍殲滅（坎尼；長平）。不同：羅馬在坎尼之後仍能重新動員並最終獲勝；趙國的兵源在長平之後再也沒有恢復。", src: [s1, s7] }
 sources:

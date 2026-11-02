@@ -21,9 +21,6 @@ place:
 structure_tags: [憲政分權, 法律成文化, 精英內鬥, 臨界點]
 topics: [民主與參政, 法律與憲法, 啟蒙與人權, 奴隸制, 公民身分]
 links: [event-magna-carta, event-french-revolution, event-american-founding-philosophy]
-causes:
-  - { name: 《邦聯條例》的弱點（1781–1789）, rel: 促成, why: 邦聯國會不能直接徵稅、沒有行政首長，修改條例要十三州全數同意，戰爭欠債和各州糾紛都難以處理。, src: [s2] }
-  - { name: 謝斯起義（1786–1787）, rel: 促成, why: 麻薩諸塞農民因債務與稅負起事，讓許多領袖擔心邦聯政府撐不住，認為需要更強的中央政府。, src: [s13, s2] }
 effects:
   - { id: finance-hamilton-financial-plan, rel: 促成, why: 憲法承認邦聯時期的債務，又給國會徵稅與鑄幣的權力，聯邦政府才有本錢推出漢彌爾頓的財政計畫。, src: [s3, finance-hamilton-financial-plan:s6] }
   - { id: war-american-civil-war, rel: 背景, why: 憲法用五分之三條款和 1808 年條款把奴隸制問題往後推，這個矛盾近一個世紀後以南北戰爭收場。, src: [s3, s7] }

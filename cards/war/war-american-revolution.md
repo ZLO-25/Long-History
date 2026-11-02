@@ -28,7 +28,7 @@ structure_tags: [外部勢力介入, 海權對陸權, 補給線過長, 戰爭融
 topics: [紙幣, 國債與公債, 通貨膨脹, 稅收, 革命]
 links: [event-thirteen-colonies, event-declaration-of-independence, event-us-constitution, finance-hamilton-financial-plan, event-westward-expansion, event-french-revolution, finance-amsterdam-decline]
 causes:
-  - { name: 七年戰爭（1756–1763）, rel: 背景, why: 英國打完七年戰爭欠下大筆戰債，又要防衛北美，所以開始對殖民地加稅、加強管制。, src: [s1, s2] }
+  - { id: war-seven-years, rel: 背景, why: 英國打完七年戰爭欠下大筆戰債，又要防衛北美，所以開始對殖民地加稅、加強管制。, src: [s1, s2] }
   - { id: event-thirteen-colonies, rel: 促成, why: 殖民地早有自己的議會與自治經驗，認為沒有代表就不該被英國國會課稅，雙方在「誰有權課稅」上越吵越僵。, src: [s1, s2, event-thirteen-colonies:s1] }
   - { id: event-american-founding-philosophy, rel: 背景, why: 有學者認為殖民地人讀了英國反對派警告權力腐化的文章，深怕自由被陰謀侵犯，這種恐懼推動了革命。, src: [event-american-founding-philosophy:s8, event-american-founding-philosophy:s9], disputed: true }
 effects:

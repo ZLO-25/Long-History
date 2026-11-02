@@ -25,7 +25,7 @@ causes:
   - { id: event-black-ships, rel: 回應, why: 黑船來航逼幕府開國，幕府威信大跌，國內激烈爭論，反幕府勢力壯大，最後推翻幕府、改革國家。, src: [s1, s5] }
 effects:
   - { id: event-1895-cession, rel: 促成, why: 維新後日本有了國民軍隊與中央政府，到 1895 年已成軍事強國，打贏甲午戰爭，因而取得臺灣。, src: [s1] }
-  - { name: 日俄戰爭（1904–1905）, rel: 促成, why: 富國強兵讓日本接連打贏甲午戰爭與日俄戰爭，從被迫開國的國家變成列強之一。, src: [s1] }
+  - { id: war-russo-japanese, rel: 促成, why: 富國強兵讓日本接連打贏甲午戰爭與日俄戰爭，從被迫開國的國家變成列強之一。, src: [s1] }
 counterparts: 無適當對照：西方軌沒有一張「非西方國家在二十年內全面改造國家制度」的卡。
 sources:
   - { id: s1, title: "Meiji Restoration — Wikipedia", url: "https://en.wikipedia.org/wiki/Meiji_Restoration", accessed: 2026-10-25, tier: 百科 }

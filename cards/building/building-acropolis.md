@@ -22,7 +22,7 @@ topics: [古代建築, 宗教]
 links: [war-greco-persian, war-peloponnesian, building-theatre-dionysus, commodity-laurion-silver]
 causes:
   - { id: war-greco-persian, rel: 促成, why: 前 480 年波斯人焚毀衛城上興建中的神廟，戰後雅典決定重建，帕德嫩就是為了感謝戰勝波斯而蓋的。, src: [s1, s3] }
-  - { name: 提洛同盟金庫遷往雅典（前 454 年）, rel: 促成, why: 雅典把盟邦繳的同盟金庫從提洛島搬回雅典，伯里克利才有大筆經費蓋帕德嫩神廟、山門和雅典娜金象牙像。, src: [s2, s7] }
+  - { id: event-delian-league, rel: 促成, why: 雅典把盟邦繳的同盟金庫從提洛島搬回雅典，伯里克利才有大筆經費蓋帕德嫩神廟、山門和雅典娜金象牙像。, src: [s2, s7] }
 counterparts:
   - { id: building-han-changan, note: "相似：都城的大型建設展示權力，花的錢也成為問題（伯里克利挪用提洛同盟貢金；蕭何因花費過多受責備）。不同：衛城以神殿為中心；漢長安城以皇帝宮殿為中心。", src: [s2, s6] }
 sources:

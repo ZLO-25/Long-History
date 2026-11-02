@@ -21,11 +21,8 @@ structure_tags: [擴大稅基, 財政枯竭, 精英內鬥]
 topics: [變法與改革, 稅收]
 links: [event-single-whip-reform, finance-jiaozi, event-shang-yang-reform, war-jingkang]
 causes:
-  - { name: 北宋「三冗」與財政赤字（11世紀中期）, rel: 促成, why: 官員、軍隊、開支都太多，1065 年支出超過收入，朝廷急需開源節流。, src: [s2] }
-  - { name: 遼與西夏的軍事壓力（11世紀）, rel: 背景, why: 北方有遼與西夏威脅，必須養大批軍隊，加重了財政負擔。, src: [s2] }
-  - { name: 大地主隱田逃稅（11世紀）, rel: 促成, why: 大地主隱藏土地逃避稅收，國家稅基流失，新法因此要重新丈量土地。, src: [s1] }
+  - { id: event-chanyuan-treaty, rel: 背景, why: 北方有遼與西夏威脅，必須養大批軍隊，加重了財政負擔。, src: [s2] }
 effects:
-  - { name: 新舊黨爭（1086–1127年）, rel: 直接引發, why: 變法讓朝廷分裂成新黨、舊黨，兩派反覆上台、互相廢除對方政策，搖擺了幾十年。, src: [s1, s2] }
   - { id: war-jingkang, rel: 背景, why: 有學者認為變法引發的黨爭一直延續到北宋末年，朝廷內耗，削弱了應付金國的能力。, src: [s1, "war-jingkang:s2"], disputed: true }
 counterparts:
   - { id: event-magna-carta, note: "相似：兩者都是因為國家打仗缺錢、要向更多人收錢而引發的大衝突。不同：大憲章是貴族逼國王承諾「收稅要先問過大家」，限制了國王；王安石變法是朝廷主動擴大收錢的範圍，反對派只能靠皇帝換人來翻盤，並沒有建立限制君權的規則。", src: [s1, s2, s5] }

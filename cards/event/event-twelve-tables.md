@@ -21,9 +21,7 @@ structure_tags: [法律成文化, 精英內鬥, 債務擴張, 慢變結構]
 topics: [法律與憲法]
 links: [building-forum-romanum, event-constitutio-antoniniana, event-cleisthenes-reform]
 causes:
-  - { name: 羅馬平民與貴族的階級衝突（前 5 世紀）, rel: 促成, why: 法律只由貴族祭司解釋，平民常遭任意判決，於是以集體撤離城市為威脅爭取讓步，法律才被寫下來公開。, src: [s1, s2] }
-effects:
-  - { name: 羅馬法傳統（前 5 世紀–6 世紀）, rel: 背景, why: 羅馬人把十二銅表法當成法律的根基，後來的法律雖然取代了大部分內容，卻一直沒有正式廢除它。, src: [s1, s2] }
+  - { id: event-conflict-of-orders, rel: 促成, why: 法律只由貴族祭司解釋，平民常遭任意判決，於是以集體撤離城市為威脅爭取讓步，法律才被寫下來公開。, src: [s1, s2] }
 counterparts:
   - { id: event-shang-yang-reform, note: "相似：把法律統一並公開施行，讓規則不再只由貴族掌握。不同：《十二銅表法》是平民爭取來的成文法；商鞅的法律由國君推行，重點在連坐與獎懲以動員人民。", src: [s1, s5] }
 sources:

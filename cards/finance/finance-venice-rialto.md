@@ -21,8 +21,6 @@ place:
 structure_tags: [債務擴張, 戰爭融資, 金融制度創新, 商路改道, 長期衰退]
 topics: [國債與公債, 金融中心, 香料貿易, 海上貿易]
 links: [event-vasco-da-gama, war-crusades, finance-champagne-fairs, finance-bruges-bourse, finance-medici-bank, finance-antwerp-bourse, event-black-death, finance-casa-di-san-giorgio, finance-byzantine-solidus, finance-abbasid-sakk-hawala]
-causes:
-  - { name: "拜占庭扣押威尼斯人（1171）", rel: 直接引發, why: "1171 年拜占庭扣押境內所有威尼斯人並沒收財產，威尼斯造艦隊報復卻缺錢，1172 年向富裕市民強制借款並付息，成為公債制度的起點。", src: [s4, s9, s10] }
 effects:
   - { id: event-vasco-da-gama, rel: 背景, why: "亞洲香料要經阿拉伯商人與威尼斯等中間商轉手，葡萄牙國王因此想找一條繞過他們、直接通往印度的海路。", src: [event-vasco-da-gama:s1, s1] }
 counterparts:
@@ -78,7 +76,7 @@ lens_status: 無直接論述
 
 ## F2 起源與背景
 
-**1171 年的導火線**：拜占庭皇帝在 1171 年扣押威尼斯人，威尼斯決定出兵報復，總督 Vitale II Michiel 為此緊急籌款，這常被視為威尼斯強制貸款制度的起點，但各來源對細節說法不一。[s4]
+**1171 年的導火線**：拜占庭皇帝在 1171 年扣押威尼斯人，威尼斯決定出兵報復，總督 Vitale II Michiel 為此緊急籌款，這常被視為威尼斯強制貸款制度的起點，但各來源對細節說法不一。[s4] 研究者把 1172 年向市民強制借款、按期付息的做法（prestiti）視為最早的主權戰爭公債之一。[s9][s10]
 
 **1262 年的整合**：估計：後來數次強制貸款被整合為統一的債務基金（常稱 Monte Vecchio），以後又陸續出現新的基金。本卡未能在所列來源逐字核對年份與名稱，僅供參考。
 

@@ -23,9 +23,6 @@ topics: [民主與參政, 殖民統治, 印刷與通訊]
 links: [event-wushe-incident, event-taiwan-kominka, event-228-incident, event-meiji-restoration]
 causes:
   - { id: event-1895-cession, rel: 背景, why: 割臺後日本用六三法讓總督自己立法，臺灣人沒有議會可參與，於是有人要求設立臺灣議會。, src: [s2] }
-  - { name: 內地延長主義（1919）, rel: 回應, why: 總督府想把臺灣人同化成日本人；林呈祿等人認為撤廢六三法等於接受同化，改為要求設立臺灣自己的議會。, src: [s2, s4] }
-effects:
-  - { name: 臺灣地方選舉（1935）, rel: 促成, why: 有學者認為，1935 年總督府開放一半地方議員民選，是請願運動推動出來的「半套」成果。, src: [s2], disputed: true }
 counterparts:
   - { id: event-magna-carta, note: "相似：都是被統治的一方要求「不經我們的代表同意，不能隨便立法、課稅」。不同：大憲章是英國貴族拿武力逼國王簽字；臺灣議會請願是殖民地人民用合法的簽名與請願書，連請 15 次都沒有成功。", src: [s2, s4] }
 sources:

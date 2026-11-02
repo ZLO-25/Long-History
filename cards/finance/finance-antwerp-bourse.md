@@ -24,9 +24,7 @@ structure_tags: [金融中心轉移, 金融制度創新, 商路改道, 債務擴
 topics: [匯票與遠距付款, 交易所, 國債與公債, 金融中心, 香料貿易]
 links: [event-vasco-da-gama, finance-medici-bank, finance-amsterdam-exchange, finance-age-of-genoese]
 causes:
-  - { name: "哈布斯堡君主的龐大借款需求（16 世紀）", rel: 背景, why: "哈布斯堡君主要打仗、選皇帝，需要大筆借款，富格爾等南德銀行家因此在安特衛普設分支，替君主籌錢。", src: [s4, s5] }
-effects:
-  - { name: "倫敦皇家交易所（1571）", rel: 促成, why: "格雷欣在安特衛普替英國王室辦理借款，熟悉當地交易所，回倫敦後倡議仿效興建皇家交易所。", src: [s6, s7] }
+  - { id: finance-age-of-genoese, rel: 背景, why: "哈布斯堡君主要打仗、選皇帝，需要大筆借款，富格爾等南德銀行家因此在安特衛普設分支，替君主籌錢。", src: [s4, s5] }
 counterparts: "無適當對照：中國軌沒有同時期以專屬交易所建築、國際匯票與君主借款為核心的金融中心；山西票號（1823 年起）晚了三個多世紀，性質是匯兌網絡，不硬配。"
 sources:
   - { id: s1, title: "Antwerp — Wikipedia", url: "https://en.wikipedia.org/wiki/Antwerp", accessed: 2026-10-31, tier: 百科 }

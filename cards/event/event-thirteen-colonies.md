@@ -23,8 +23,6 @@ structure_tags: [憲政分權, 慢變結構, 戰爭融資, 合法性危機]
 topics: [民主與參政, 殖民統治, 移民與移墾, 原住民族, 奴隸制, 公民身分]
 links: [event-declaration-of-independence, war-american-revolution, event-us-constitution, event-magna-carta, event-westward-expansion, event-american-founding-philosophy]
 causes:
-  - { name: "維吉尼亞公司獲得特許（1606）", rel: 直接引發, why: "英王詹姆斯一世特許維吉尼亞公司到北美建立殖民地以追求商業利益，1607年在詹姆斯鎮建立第一個長久殖民地。", src: [s2] }
-  - { name: "英格蘭清教徒受宗教壓迫（17 世紀初）", rel: 促成, why: "在英格蘭受宗教壓迫的清教徒想找新的生活空間，搭五月花號等船移居北美，建立新的殖民地。", src: [s1, s4] }
   - { id: event-magna-carta, rel: 背景, why: "大憲章「國王不能隨意加稅、要依法審判」的觀念，經17世紀法學家柯克發揚，影響了北美殖民者看待自身權利的方式。", src: [event-magna-carta:s1] }
 effects:
   - { id: war-american-revolution, rel: 促成, why: "七年戰爭後英國要殖民地分擔戰費、加稅加管制，習慣自治的殖民地認為沒有代表就不該被課稅，衝突最後升高成獨立戰爭。", src: [s1, s8, war-american-revolution:s1] }

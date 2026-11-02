@@ -22,9 +22,6 @@ topics: [諸侯爭霸, 軍事同盟]
 links: [event-partition-of-jin, event-guan-zhong-reform, war-changping]
 causes:
   - { id: event-pingwang-east, rel: 背景, why: 東遷後周王室衰弱，天下秩序要靠強大的諸侯以「尊王」名義維持，晉、楚因此爭當霸主。, src: [event-pingwang-east:s2, s1] }
-  - { name: 楚國北上圍宋（前 633 年）, rel: 直接引發, why: 楚國圍攻晉國的盟友宋，晉國反過來佔領楚的附庸衛、曹，兩國大軍因此在城濮正面交鋒。, src: [s1] }
-effects:
-  - { name: 晉國成為春秋霸主（前 632 年起）, rel: 直接引發, why: 晉軍打敗楚軍，周天子承認晉文公為諸侯之長，晉國從此主持諸侯會盟，也暫時擋住楚國北進。, src: [s1, s2] }
 counterparts:
   - { id: war-peloponnesian, note: "相似：北方與南方兩大集團各帶一批盟國對抗，勝方成為「盟主」主持諸國會盟。不同：城濮是一天定勝負的會戰，伯羅奔尼撒戰爭打了 27 年；春秋霸主名義上仍尊周王。", src: [s1] }
 sources:

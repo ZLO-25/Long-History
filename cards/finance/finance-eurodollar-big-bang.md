@@ -21,12 +21,8 @@ place:
 structure_tags: [金融制度創新, 儲備貨幣地位, 金融中心轉移, 經濟施壓與制裁, 慢變結構]
 topics: [交易所, 國際貨幣, 金融中心]
 links: [finance-bretton-woods, finance-new-york-overtakes-london, finance-petrodollar, finance-dollar-reserve-currency, finance-london-rise, event-containment-nato, finance-plaza-accord]
-causes:
-  - { name: 冷戰中蘇聯的美元避險（1950年代）, rel: 促成, why: 有學者認為，蘇聯等國怕存在美國的美元被冷戰對手凍結，改存倫敦的銀行，形成最早的歐洲美元。, src: [s1], disputed: true }
-  - { name: 美國Q條例存款利率上限（1933–1980年代）, rel: 促成, why: Q 條例限制美國銀行的存款利率，市場利率較高時，存款人就把美元搬到不受管制的境外銀行。, src: [s2] }
 effects:
   - { id: finance-petrodollar, rel: 背景, why: 1973 年後產油國賺到的大筆美元，很多存進西方銀行與歐洲美元市場，再轉貸給缺錢的國家。, src: [finance-petrodollar:s1, finance-petrodollar:s8] }
-  - { name: 外資進駐倫敦金融城（1986年後）, rel: 促成, why: 大爆炸取消固定佣金、開放外資持有證券行號，外國金融機構大舉進入倫敦，許多英國老行號被收購。, src: [s5] }
 counterparts: "無適當對照：東亞軌（china／east）現有卡中沒有討論離岸貨幣市場的；日本泡沫經濟卡與本卡的終點同為 1986 年，但本卡未查證兩者的因果關聯，不硬湊。"
 sources:
   - { id: s1, title: "Eurodollar — Wikipedia", url: "https://en.wikipedia.org/wiki/Eurodollar", accessed: 2026-10-31, tier: 百科 }

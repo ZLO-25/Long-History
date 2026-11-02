@@ -20,8 +20,6 @@ place:
 structure_tags: [慢變結構, 宗教／意識形態動員, 外部勢力介入, 制度包裝延續]
 topics: [開港與鎖國, 儒家]
 links: [war-imjin, tech-turtle-ship]
-causes:
-  - { name: "高麗末年政局動盪（14 世紀後期）", rel: 背景, why: "高麗王朝末年政局動盪，手握兵權的將領李成桂得以在1392年即位，建立新的朝鮮王朝。", src: [s1] }
 effects:
   - { id: war-imjin, rel: 背景, why: "朝鮮1401年起加入明朝的朝貢體系，名義上是明朝屬國，所以日本入侵時能向明朝求援，明軍因此出兵。", src: [s1, war-imjin:s1] }
 counterparts: 無適當對照：這是一張朝代概覽卡，跨越五百年，無法和西方軌單一事件對照。

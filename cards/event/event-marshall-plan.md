@@ -25,10 +25,7 @@ links: [event-containment-nato, event-american-century, finance-bretton-woods, w
 causes:
   - { id: war-world-war-two, rel: 背景, why: 二戰毀掉歐洲的工廠和交通，各國又缺美元，買不起美國的糧食、燃料與機器，才需要大規模援助。, src: [s1, s2] }
   - { id: event-containment-nato, rel: 促成, why: 1947 年杜魯門主義定下對抗共產勢力的方向，美國怕西歐經濟崩潰讓共產黨得勢，於是用援助穩住西歐。, src: [s1, s2] }
-  - { name: 捷克斯洛伐克政變（1948）, rel: 促成, why: 共產黨在捷克奪權，讓美國國會更擔心蘇聯擴張，因而更願意通過《經濟合作法》。, src: [s1] }
 effects:
-  - { name: 經濟互助委員會（1949）, rel: 回應, why: 蘇聯拒絕參加，另組東歐的經濟互助委員會對抗，歐洲經濟因此分成東西兩塊。, src: [s1, s2] }
-  - { name: 歐洲支付同盟（1950）, rel: 促成, why: 援助附帶降低貿易障礙、穩定財政的要求，推動西歐國家成立處理彼此付款結算的歐洲支付同盟。, src: [s1, s3, s4] }
   - { id: event-american-century, rel: 促成, why: 美元援助讓西歐靠向美國，鞏固美國在戰後西方經濟體系的領導地位。, src: [s1, s2] }
 counterparts: "無適當對照：中國軌與東亞軌現有卡片中沒有類似的戰後大規模對外經濟重建援助計畫；美國對日本、臺灣的戰後援助本卡未查證，不硬湊。"
 sources:

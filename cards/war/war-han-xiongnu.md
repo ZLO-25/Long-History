@@ -22,8 +22,7 @@ structure_tags: [邊疆防線, 補給線過長, 財政枯竭, 快速擴張, 戰�
 topics: [游牧民族與邊疆, 對外擴張]
 links: [event-zhang-qian-west, commodity-ferghana-horse, commodity-salt-iron, building-qin-han-great-wall]
 causes:
-  - { name: 白登之圍與和親（前200年起）, rel: 促成, why: 漢高祖被匈奴圍困後改用和親送公主、財物換和平，但匈奴劫掠沒停，漢朝對和親越來越不滿。, src: [s1, s2] }
-  - { name: 馬邑之謀（前133年）, rel: 直接引發, why: 漢朝在馬邑設伏想誘殺單于，單于察覺撤退，雙方從此撕破臉、全面開戰。, src: [s1, s3] }
+  - { id: war-baideng-heqin, rel: 促成, why: 漢高祖被匈奴圍困後改用和親送公主、財物換和平，但匈奴劫掠沒停，漢朝對和親越來越不滿。, src: [s1, s2] }
 effects:
   - { id: commodity-salt-iron, rel: 促成, why: 長年出兵花費龐大，朝廷把鹽鐵收歸官營，拿走原本歸商人的利潤來支付對匈奴的戰爭。, src: ["commodity-salt-iron:s2", "commodity-salt-iron:s3"] }
   - { id: commodity-ferghana-horse, rel: 促成, why: 對匈奴作戰損失大量戰馬，中國本地的蒙古馬又矮小，漢朝因此想取得大宛的強壯良馬。, src: [s1, "commodity-ferghana-horse:s1"] }

@@ -22,11 +22,9 @@ structure_tags: [革命與政權更替, 財政枯竭, 合法性危機, 公民身
 topics: [民主與參政, 法律與憲法, 稅收, 革命, 啟蒙與人權]
 links: [event-reformation, event-xinhai-revolution, war-world-war-one]
 causes:
-  - { name: 法國稅制不公與財政危機（1780 年代）, rel: 促成, why: 教士與貴族免稅，九成以上平民扛起大部分稅；到 1788 年國家收入約一半拿去付債，改革又被擋下，國王只好召開三級會議。, src: [s1, s2] }
-  - { name: 法國歉收與糧價高漲（1787–1788）, rel: 促成, why: 1785 年起經濟衰退，1787、1788 年又連續歉收，糧價高漲、失業嚴重，數百萬人陷入貧困。, src: [s1, s2] }
-  - { name: 啟蒙思想（18 世紀）, rel: 背景, why: 啟蒙思想讓許多人認為舊政權腐敗、專制，給了要求改變的人一套說法。, src: [s2] }
+  - { id: event-enlightenment, rel: 背景, why: 啟蒙思想讓許多人認為舊政權腐敗、專制，給了要求改變的人一套說法。, src: [s2] }
 effects:
-  - { name: 拿破崙稱帝（1804）, rel: 直接引發, why: 革命後政局在激進與反動之間擺盪、對外戰爭不斷，最後軍人拿破崙發動霧月政變掌權，1804 年稱帝。, src: [s1, s2] }
+  - { id: war-napoleonic, rel: 直接引發, why: 革命後政局在激進與反動之間擺盪、對外戰爭不斷，最後軍人拿破崙發動霧月政變掌權，1804 年稱帝。, src: [s1, s2] }
   - { id: finance-london-rise, rel: 促成, why: 英國與革命後的法國從 1793 年起打了二十多年仗，英國被迫擴大借款與稅收，荷蘭則被法軍占領，倫敦逐漸取代阿姆斯特丹。, src: [finance-london-rise:s2, finance-london-rise:s5, finance-london-rise:s8] }
 counterparts:
   - { id: event-xinhai-revolution, note: "相似：都推翻延續很久的君主制、建立共和，之後又出現強人掌權（拿破崙、袁世凱稱帝）。不同：法國革命從財政危機與首都群眾起事開始，並經歷處死國王與恐怖統治；辛亥革命由地方新軍起義引發，以清帝和平退位收場。", src: [s1, s2] }

@@ -19,12 +19,8 @@ place:
 structure_tags: [公民身分擴張, 擴大稅基, 財政枯竭, 貨幣貶值]
 topics: [稅收, 公民身分]
 links: [event-twelve-tables, event-augustan-principate, event-fall-western-rome]
-causes:
-  - { name: 卡拉卡拉的財政需求（3世紀初）, rel: 促成, why: 有學者認為皇帝想增加稅收：非公民不必繳遺產稅、解放稅，人人變公民就能擴大稅基；但這說法受到質疑。, src: [s1, s8, s9], disputed: true }
-  - { name: 擴大軍團兵源（3世紀初）, rel: 促成, why: 有學者認為只有公民能當軍團兵，皇帝想讓更多人有資格從軍。, src: [s1], disputed: true }
 effects:
-  - { name: 上等人與下等人之分（3世紀）, rel: 背景, why: 公民身分不再是少數人的特權後，新的「上等人」「下等人」區分隨之出現，兩者刑罰輕重不同。, src: [s2] }
-  - { name: 羅馬帝國的強制宗教統一（4世紀）, rel: 背景, why: 有學者認為全民成為公民後帝國變成一個整體的「世界」，也為後來強制統一宗教鋪路。, src: [s1], disputed: true }
+  - { id: event-christian-empire, rel: 背景, why: 有學者認為全民成為公民後帝國變成一個整體的「世界」，也為後來強制統一宗教鋪路。, src: [s1], disputed: true }
 counterparts:
   - { id: event-xiaowen-reform, note: "相似：統治者以一道命令改寫全國人的身分（羅馬公民權；漢服、漢語、漢姓）。不同：卡拉卡拉把統治者的身分擴大給被統治者；孝文帝讓統治族群改採被統治者的語言與姓氏。", src: [s1, s7] }
 sources:

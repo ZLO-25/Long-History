@@ -20,8 +20,6 @@ place:
 structure_tags: [合法性危機, 外部勢力介入, 精英內鬥, 長期衰退]
 topics: [帝國的衰亡, 諸侯爭霸, 首都與都城]
 links: [war-chengpu, event-guan-zhong-reform]
-causes:
-  - { name: 周幽王廢太子與犬戎攻破鎬京（前 771 年）, rel: 直接引發, why: 幽王廢掉申后和太子宜臼，申侯聯合犬戎殺了幽王、攻破鎬京，宜臼即位後只好把都城遷到東方的洛邑。, src: [s1] }
 effects:
   - { id: event-guan-zhong-reform, rel: 背景, why: 東遷後周王室權威衰落，諸侯互相競爭，齊國才需要、也才有機會靠改革富國強兵，爭當諸侯的領袖。, src: [s2, event-guan-zhong-reform:s3] }
   - { id: war-chengpu, rel: 背景, why: 周王失去實力，只能靠強大的諸侯出面維持秩序，晉、楚才會為了爭奪「霸主」地位在城濮決戰。, src: [s2, war-chengpu:s1] }

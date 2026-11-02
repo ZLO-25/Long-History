@@ -22,8 +22,7 @@ topics: [古代建築]
 links: [commodity-roman-concrete, building-forum-romanum, building-pantheon]
 causes:
   - { id: commodity-roman-concrete, rel: 背景, why: 混凝土地基與浮石拱頂讓這座巨型圓形劇場蓋得起來。, src: [s1, s2] }
-  - { name: 攻陷耶路撒冷（70年）, rel: 促成, why: 根據一段重建的銘文，皇帝下令用攻陷耶路撒冷得來的戰利品出資興建競技場。, src: [s1] }
-  - { name: 尼祿死後的內戰（68–69年）, rel: 背景, why: 內戰後維斯帕先把競技場蓋在尼祿私人宮殿的人工湖上，表示把城市還給人民。, src: [s1, s2] }
+  - { id: war-jerusalem-70, rel: 促成, why: 根據一段重建的銘文，皇帝下令用攻陷耶路撒冷得來的戰利品出資興建競技場。, src: [s1] }
 counterparts: "無適當對照：中國卡沒有為群眾娛樂而建的大型公共建築；秦漢的大型工程多是宮殿、陵墓、水利與邊防，結構不同。"
 sources:
   - { id: s1, title: "Colosseum — Wikipedia", url: "https://en.wikipedia.org/wiki/Colosseum", accessed: 2026-10-24 }

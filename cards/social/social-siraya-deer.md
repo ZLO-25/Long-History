@@ -25,7 +25,6 @@ links: [event-dutch-formosa, event-koxinga-taiwan, event-spanish-north-taiwan, e
 causes:
   - { id: event-dutch-formosa, rel: 促成, why: 荷蘭東印度公司把鹿皮當成賣往日本的熱門商品，還發捕鹿執照，西拉雅人的獵場因此被捲進國際貿易。, src: [s2] }
 effects:
-  - { name: 新港文書（17–18 世紀）, rel: 促成, why: 傳教士在西拉雅各社傳教，用羅馬字拼寫西拉雅語，後來留下約 187 件羅馬字書寫的新港文書。, src: [s1] }
   - { id: event-koxinga-taiwan, rel: 背景, why: 有學者認為荷蘭人與原住民的緊張關係，是荷蘭統治在鄭成功來襲時結束的原因之一。, src: [s5], disputed: true }
 counterparts: 無適當對照：本站目前沒有同時代其他地區原住民族日常生活的卡片，之後補 E 卡時再對照。
 sources:

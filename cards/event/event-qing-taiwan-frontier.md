@@ -24,7 +24,6 @@ topics: [糧食與農業, 民變與抗爭, 運河與水利, 移民與移墾, 原
 links: [event-koxinga-taiwan, event-dutch-formosa, social-siraya-deer, commodity-taiwan-tea-camphor, event-mudan-incident]
 causes:
   - { id: event-koxinga-taiwan, rel: 直接引發, why: 清朝為了消滅明鄭才出兵臺灣，打下後朝中有人主張放棄，施琅上奏說臺灣是東南沿海屏障，康熙才把它留下。, src: [s1, s2] }
-  - { name: 閩粵沿海人多地少（17–19 世紀）, rel: 促成, why: 福建、廣東人多地少，就算有渡臺限制，大批移民仍偷渡來臺開墾，島上人口從約 13 萬增加到近 200 萬。, src: [s4, s8, s9] }
   - { id: event-dutch-formosa, rel: 背景, why: 荷蘭時期招募的漢人已在西南部形成農業社會，清代移民在這個基礎上一路往中部、北部推進。, src: [event-dutch-formosa:s1, event-dutch-formosa:s4, s3] }
 effects:
   - { id: commodity-taiwan-tea-camphor, rel: 背景, why: 清代移墾把西部平原開成稻米與蔗糖產區，開港前糖主要賣往中國大陸，開港後才轉向全球市場。, src: [s4, commodity-taiwan-tea-camphor:s1] }

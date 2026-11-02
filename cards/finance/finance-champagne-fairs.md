@@ -23,10 +23,6 @@ place:
 structure_tags: [商路改道, 金融制度創新, 金融中心轉移, 慢變結構]
 topics: [匯票與遠距付款]
 links: [finance-venice-rialto, finance-bruges-bourse, finance-medici-bank, finance-antwerp-bourse, war-crusades, finance-abbasid-sakk-hawala, finance-age-of-genoese]
-causes:
-  - { name: "法蘭德斯與義大利之間的長途貿易（12–13 世紀）", rel: 背景, why: "北方的毛織品要賣到南方、義大利商人帶來南方貨物，兩邊商人需要在中途的香檳地區見面交易，伯爵又提供通行保護。", src: [s1, s2] }
-effects:
-  - { name: "匯票的普及（13–15 世紀）", rel: 促成, why: "有學者認為，商人在市集上約定「下次市集再付款」的書面債據是匯票的前身之一，但匯票起源說法很多。", src: [s1, s4], disputed: true }
 counterparts: "無適當對照：中國軌的山西票號是常設商號網絡做異地匯兌，與香檳市集「定期集會、集中結算」的結構不同，且本卡來源未涵蓋票號，不硬湊。"
 sources:
   - { id: s1, title: "Champagne fairs — Wikipedia", url: "https://en.wikipedia.org/wiki/Champagne_fairs", accessed: 2026-10-31, tier: 百科 }

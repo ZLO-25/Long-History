@@ -21,11 +21,10 @@ structure_tags: [宗教／意識形態動員, 合法性危機, 財政枯竭, 附
 topics: [民變與抗爭, 宗教, 疫病]
 links: [war-red-cliffs, event-wang-mang-reform]
 causes:
-  - { name: 東漢宦官專權與賣官（2世紀後期）, rel: 促成, why: 靈帝倚賴宦官，賣官貪腐盛行，朝廷失去民心。, src: [s1, s2] }
-  - { name: 天災、饑荒與瘟疫（2世紀後期）, rel: 促成, why: 長期用兵讓百姓稅負加重，又遇黃河氾濫、旱災、饑荒和瘟疫，百姓認為皇帝已失天命，轉而追隨太平道。, src: [s1, s2] }
+  - { id: event-eunuchs-partisan, rel: 促成, why: 靈帝倚賴宦官，賣官貪腐盛行，朝廷失去民心。, src: [s1, s2] }
 effects:
   - { id: war-red-cliffs, rel: 背景, why: 為了平亂，地方將領取得更大兵權並逐漸不再效忠漢朝，曹操等人趁勢崛起，形成群雄割據。, src: [s1, s2] }
-  - { name: 東漢滅亡（220年）, rel: 促成, why: 黃巾之亂讓朝廷失去對地方軍隊的控制，史家視為東漢衰亡的關鍵一步，但不是唯一原因。, src: [s2] }
+  - { id: event-three-kingdoms, rel: 促成, why: 黃巾之亂讓朝廷失去對地方軍隊的控制，史家視為東漢衰亡的關鍵一步，但不是唯一原因。, src: [s2] }
 counterparts: "無適當對照：目前的西方卡沒有「以宗教號召的大規模民變，平亂的將領因此坐大、最後瓜分帝國」的例子；羅馬帝國也經歷過軍人擁兵自重的「三世紀危機」，但本期沒有這張卡，而且那不是由宗教民變引發。"
 sources:
   - { id: s1, title: "Yellow Turban Rebellion — Wikipedia", url: "https://en.wikipedia.org/wiki/Yellow_Turban_Rebellion", accessed: 2026-10-25 }

@@ -23,12 +23,9 @@ place:
 structure_tags: [商路改道, 技術代差, 快速擴張]
 topics: [香料貿易, 航海]
 links: [event-zheng-he-voyages, commodity-manila-galleon, event-dutch-formosa, finance-amsterdam-exchange]
-causes:
-  - { name: "迪亞士繞過好望角（1488）", rel: 背景, why: "迪亞士已證明船能繞過非洲南端，達伽馬船隊的領航員之一正是迪亞士當年的首席領航員。", src: [s2] }
 effects:
   - { id: finance-antwerp-bourse, rel: 促成, why: "新航路讓葡萄牙能從亞洲直接運回香料，並以安特衛普為主要航運基地，用香料換紡織品與金屬，帶動安特衛普興起。", src: [finance-antwerp-bourse:s1, finance-antwerp-bourse:s2] }
-  - { name: "葡萄牙海上帝國（16 世紀）", rel: 促成, why: "首航顯示香料貿易獲利巨大，葡萄牙隨即派艦隊以武力開路，1505年設印度總督，在東非與亞洲沿岸建堡壘。", src: [s1, s2] }
-  - { name: "威尼斯香料中介地位受挑戰（16 世紀）", rel: 促成, why: "有學者認為新航路讓香料不必再經地中海，重創威尼斯的中介生意；也有人指出威尼斯衰落另有多種原因。", src: [s1, finance-venice-rialto:s1], disputed: true }
+  - { id: event-portuguese-empire, rel: 促成, why: "首航顯示香料貿易獲利巨大，葡萄牙隨即派艦隊以武力開路，1505年設印度總督，在東非與亞洲沿岸建堡壘。", src: [s1, s2] }
 counterparts:
   - { id: event-zheng-he-voyages, note: "相似：都是國家出資、橫越印度洋到達印度西南岸古里（卡利卡特）的遠航。不同：達伽馬只有 4 艘船、約 170 人，目標是香料貿易，之後葡萄牙一再派船、用武力建堡壘；鄭和船隊規模大得多，目的是朝貢與國威，結束後明朝停止遠航。", src: [s1, s2, s5] }
 sources:

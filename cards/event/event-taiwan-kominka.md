@@ -24,10 +24,8 @@ topics: [殖民統治, 言論與思想管制, 世界大戰, 宗教, 原住民族
 links: [event-taiwan-cultural-association, event-wushe-incident, event-228-incident, event-kaohsiung-epz, war-sino-japanese-1937]
 causes:
   - { id: war-sino-japanese-1937, rel: 促成, why: 1937 年中日戰爭爆發，總督府要削弱臺灣人的祖國觀念、動員人力物力，皇民化運動因此全面展開。, src: [s1] }
-  - { name: 日月潭水力發電工程（1934）, rel: 背景, why: 日月潭發電帶來便宜電力，吸引日本財閥到高雄設鋁工廠等耗電工業，成為戰時工業化的基礎。, src: [s4, s7] }
 effects:
-  - { name: 戰後臺灣公營事業（1945 起）, rel: 背景, why: 日治末期為戰爭建立的電力、鋁、化學工業，戰後被接收，成為公營事業的基礎。, src: [s6, s7] }
-  - { name: 臺籍日本兵補償爭議（1987 起）, rel: 促成, why: 約二十萬臺灣人被動員當軍人軍屬、三萬人戰死，戰後日本只發少量弔慰金，欠薪問題至今未解。, src: [s3] }
+  - { id: event-taiwan-transitional-justice, rel: 促成, why: 約二十萬臺灣人被動員當軍人軍屬、三萬人戰死，戰後日本只發少量弔慰金，欠薪問題至今未解。, src: [s3] }
 counterparts:
   - { id: war-world-war-two, note: "相似：都是總體戰——政府把語言、宗教、姓名、配給和兵役全部拉進戰爭動員。不同：歐美各國動員的是本國公民；臺灣人是殖民地人民，先被要求「變成日本人」，到 1945 年才適用徵兵，戰後補償也和日本人不同。", src: [s1, s3] }
 sources:

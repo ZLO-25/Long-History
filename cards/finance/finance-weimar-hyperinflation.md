@@ -23,10 +23,7 @@ topics: [紙幣, 國債與公債, 通貨膨脹, 世界大戰]
 links: [finance-gold-yuan-1948, finance-taiwan-1949-currency, finance-great-depression]
 causes:
   - { id: war-world-war-one, rel: 促成, why: 一戰時德國靠借債而不是加稅打仗，1918 年國債約 1560 億馬克，戰後財政早已千瘡百孔。, src: [s1] }
-  - { name: 凡爾賽和約賠款（1921 年倫敦支付時間表）, rel: 促成, why: 有學者認為 1320 億金馬克的賠款逼德國印鈔；也有人認為德國是故意放任通膨來逃避賠款。, src: [s1], disputed: true }
-  - { name: 魯爾占領（1923）, rel: 促成, why: 法比占領魯爾區，德國號召罷工並印鈔替罷工工人發薪，通膨從飛奔變成失控。, src: [s1, s2] }
-effects:
-  - { name: 道斯計畫（1924）, rel: 回應, why: 換發新貨幣止住通膨後，1924 年道斯計畫重新安排賠款，美國資金開始流入德國。, src: [s1, finance-new-york-overtakes-london:s8] }
+  - { id: event-versailles-treaty, rel: 促成, why: 有學者認為 1320 億金馬克的賠款逼德國印鈔；也有人認為德國是故意放任通膨來逃避賠款。, src: [s1, s2], disputed: true }
 counterparts:
   - { id: finance-gold-yuan-1948, note: "相似：政府都靠印鈔票撐財政，最後換新貨幣重建信用。不同：德國是戰後賠款與魯爾被占領，換成地租馬克後物價很快穩定；中國是內戰進行中，換成金圓券反而更快崩潰。", src: [s1, s2] }
 sources:

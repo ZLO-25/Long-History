@@ -22,9 +22,8 @@ topics: [海戰與水戰, 疫病]
 links: [event-yellow-turban, war-feishui, war-chu-han]
 causes:
   - { id: event-yellow-turban, rel: 背景, why: 黃巾之亂後中央失去控制、軍閥割據，曹操統一北方後才有實力南下。, src: [s1, s2, "event-yellow-turban:s2"] }
-  - { name: 曹操取得荊州（208年）, rel: 直接引發, why: 曹操拿下荊州後順長江東進、寫信威嚇孫權，孫權決定與劉備聯手抵抗。, src: [s1, s2] }
 effects:
-  - { name: 三國鼎立（220–280年）, rel: 促成, why: 曹操戰敗退回北方，劉備取得荊州大部分，蜀與吳的根據地得以確立，中國分裂為三國。, src: [s1, s2] }
+  - { id: event-three-kingdoms, rel: 促成, why: 曹操戰敗退回北方，劉備取得荊州大部分，蜀與吳的根據地得以確立，中國分裂為三國。, src: [s1, s2] }
 counterparts:
   - { id: war-greco-persian, note: "相似：兵力佔優的入侵者在水戰中被較小的聯軍擊敗，主力隨即撤退，戰後格局被固定下來。不同：波斯帝國戰後依然強大；曹操是在東漢崩解後想重新統一，赤壁讓中國分裂成三國。", src: [s1, s2] }
 sources:

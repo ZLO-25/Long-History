@@ -25,11 +25,10 @@ topics: [通貨膨脹, 國際貨幣, 能源]
 links: [finance-bretton-woods, finance-dollar-reserve-currency, finance-eurodollar-big-bang, finance-plaza-accord]
 causes:
   - { id: finance-bretton-woods, rel: 背景, why: 1971 年美元停止兌換黃金，美元信用不再靠黃金撐著，石油交易與回流的美元成為支撐美元需求的新管道。, src: [s4] }
-  - { name: 第四次中東戰爭與石油禁運（1973）, rel: 直接引發, why: 阿拉伯產油國對支持以色列的國家減產禁運，油價漲了三到四倍，產油國一下子收進大筆美元。, src: [s2, s3] }
+  - { id: finance-oil-crisis-1973, rel: 直接引發, why: 阿拉伯產油國對支持以色列的國家減產禁運，油價漲了三到四倍，產油國一下子收進大筆美元。, src: [s2, s3] }
   - { id: finance-eurodollar-big-bang, rel: 背景, why: 早已在倫敦運作的歐洲美元市場，提供產油國存放美元、銀行再轉貸出去的現成管道。, src: [s1, s8] }
 effects:
-  - { name: 拉丁美洲債務危機（1982）, rel: 促成, why: 銀行把回流的石油美元大量貸給拉美國家，後來利率大升，墨西哥 1982 年宣布無法如期還款，危機擴散。, src: [s7, s8] }
-  - { name: 美國停滯性通膨（1970年代）, rel: 促成, why: 油價暴漲推高物價並引發衰退；聯準會也提醒，貨幣與財政政策同樣是當時高通膨的原因。, src: [s5, s7, s9] }
+  - { id: finance-latin-debt-crisis, rel: 促成, why: 銀行把回流的石油美元大量貸給拉美國家，後來利率大升，墨西哥 1982 年宣布無法如期還款，危機擴散。, src: [s7, s8] }
 counterparts: "無適當對照：中國與東亞軌現有的卡中沒有「資源出口國把巨額外匯盈餘回流到強勢貨幣國的金融市場」的同類卡；白銀流動卡是金屬貨幣流入中國，機制與規模都不同，不硬湊。"
 sources:
   - { id: s1, title: "Petrodollar recycling — Wikipedia", url: "https://en.wikipedia.org/wiki/Petrodollar_recycling", accessed: 2026-10-31, tier: 百科 }

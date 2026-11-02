@@ -26,10 +26,6 @@ topics: [關稅與貿易戰, 半導體與網路]
 links: [event-reform-and-opening, event-nixon-china, commodity-taiwan-semiconductor, event-hsinchu-park-tsmc, finance-plaza-accord, finance-dollar-reserve-currency, war-peloponnesian]
 causes:
   - { id: event-reform-and-opening, rel: 背景, why: 改革開放讓中國接上世界市場，2001 年加入世貿後對美出口大增，美國長期逆差，成為貿易戰的背景。, src: [s1, s6, event-reform-and-opening:s1] }
-  - { name: 中國製造2025（2015）, rel: 促成, why: 中國 2015 年提出產業升級計畫，被美方視為挑戰美國科技領先地位，加上不滿技術移轉要求，美國展開 301 調查。, src: [s1] }
-effects:
-  - { name: 美國《晶片與科學法》（2022）, rel: 回應, why: 美中科技競爭升溫，美國用補貼把晶片製造拉回本土，並規定受補助者十年內不得在中國擴建先進製程。, src: [s2, s8] }
-  - { name: 台積電赴美設廠（2020–2025）, rel: 促成, why: "美中科技戰讓供應鏈安全成為重點，台積電在美國亞利桑那州設廠並取得補助，2025 年在美承諾投資達 1,650 億美元。", src: [s4] }
 frameworks: [thucydides-trap]
 counterparts:
   - { id: war-peloponnesian, note: "修昔底德陷阱一詞取自伯羅奔尼撒戰爭，常被用來比喻美中競爭；但兩者在核武與經濟互賴上差異極大，不能直接類比。", src: [s5] }

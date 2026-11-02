@@ -22,11 +22,8 @@ place:
 structure_tags: [技術擴散, 技術代差, 慢變結構]
 topics: [火藥與武器]
 links: [war-jingkang, tech-compass, tech-movable-type]
-causes:
-  - { name: 唐代道士煉丹（8–9世紀）, rel: 背景, why: 道士想煉長生藥，把硝石、硫磺和含碳材料混在一起，意外發現這種會起火的混合物。, src: [s1, s2] }
 effects:
-  - { name: 鄂圖曼攻陷君士坦丁堡（1453年）, rel: 促成, why: 鄂圖曼軍用巨砲連續轟擊千年城牆，雖然砲擊慢又不準，仍讓高大的城牆不再安全。, src: [s4] }
-  - { name: 卡斯蒂永戰役與百年戰爭結束（1453年）, rel: 促成, why: 法軍用多達 300 門砲擊敗英軍，被視為歐洲第一場主要靠野戰砲贏的大戰，百年戰爭隨之結束。, src: [s3] }
+  - { id: war-fall-constantinople, rel: 促成, why: 鄂圖曼軍用巨砲連續轟擊千年城牆，雖然砲擊慢又不準，仍讓高大的城牆不再安全。, src: [s4] }
 counterparts: "無適當對照：西方軌道沒有獨立起源的同類技術；歐洲的火藥與火砲是 13 世紀後由中國經伊斯蘭世界傳入再改良的同一技術，放在本卡 T3 說明，不另立對照。"
 sources:
   - { id: s1, title: "Gunpowder — Wikipedia", url: "https://en.wikipedia.org/wiki/Gunpowder", accessed: 2026-10-25 }

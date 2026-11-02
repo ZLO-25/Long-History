@@ -22,8 +22,7 @@ structure_tags: [金融制度創新, 技術代差, 長期衰退]
 topics: [銀行與借貸, 匯票與遠距付款]
 links: [finance-jiaozi, event-xinhai-revolution, tech-telegraph, tech-railway]
 causes:
-  - { name: 平遙西裕成顏料莊的跨地生意（19 世紀初）, rel: 直接引發, why: 顏料莊在各地有分店，用會票代替押運現銀，別的商人也來請託代匯，於是乾脆改行專做匯兌。, src: [s1, s2] }
-  - { name: 太平天國（1850–1864）, rel: 促成, why: 戰爭後清廷常靠票號在各省之間匯解稅款和軍費，票號生意擴大，但也越來越依賴政府。, src: [s1] }
+  - { id: war-taiping, rel: 促成, why: 戰爭後清廷常靠票號在各省之間匯解稅款和軍費，票號生意擴大，但也越來越依賴政府。, src: [s1] }
 counterparts:
   - { id: finance-medici-bank, note: "相似：都用「總號＋各地分號」的網路與匯票，讓商人不必長途運送現金；也都和掌權者綁得很緊。不同：梅迪奇做歐洲各國之間的跨幣種匯兌，靠山是教廷與佛羅倫斯政權；票號在同一個清帝國內匯兌，後期替清廷調度稅款與軍費。兩者都在靠山垮台時跟著沒落。", src: [s1, s5] }
 sources:

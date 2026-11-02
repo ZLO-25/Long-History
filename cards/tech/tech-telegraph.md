@@ -25,7 +25,6 @@ structure_tags: [資訊傳播革命, 基礎建設網絡, 技術擴散, 快速擴
 topics: [印刷與通訊]
 links: [tech-railway, tech-internet, tech-printing-press]
 causes:
-  - { name: 早期電報實驗（1816–1833）, rel: 背景, why: 羅納茲、席林、高斯與韋伯等人先後做出靜電電報、指針電報和電線通訊，庫克、惠斯通與摩斯接著做出能實用的電報。, src: [s1] }
   - { id: tech-railway, rel: 背景, why: 電報 1838 年最先裝在英國大西部鐵路上，鐵路靠它做號誌、確認前方有沒有車，兩者一起擴張。, src: [s1] }
 effects:
   - { id: finance-shanxi-piaohao, rel: 促成, why: 新式銀行用電報和鐵路結算，成本更低、放款利率也更低，靠分號和密押匯票的票號因此被搶走生意。, src: [finance-shanxi-piaohao:s1] }

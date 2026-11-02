@@ -24,11 +24,9 @@ topics: [通貨膨脹, 國家專賣, 民變與抗爭]
 links: [finance-taiwan-1949-currency, finance-gold-yuan-1948, event-taiwan-martial-law, event-taiwan-land-reform]
 causes:
   - { id: finance-taiwan-1949-currency, rel: 促成, why: 接收後政府大量印鈔，臺北米價一年半漲約 400 倍，加上大量失業，民怨越積越深。, src: [s1, s5] }
-  - { name: 行政長官公署體制與米糧統制（1945–1947）, rel: 促成, why: 陳儀一人集大權、要職多由外省人擔任，又低價強制徵購稻米、專賣獨占，造成米荒與不滿。, src: [s1] }
 effects:
   - { id: event-taiwan-martial-law, rel: 背景, why: 鎮壓與清鄉讓臺灣社會噤聲，1949 年戒嚴後二二八成為禁忌，政府對社會的監控延續數十年。, src: [s1, s2, event-taiwan-martial-law:s1] }
-  - { name: 臺灣省政府成立（1947）, rel: 回應, why: 事件後政府撤銷行政長官公署、改設省政府，但處理委員會要求的省自治與民選縣市長都沒實現。, src: [s3, s6] }
-  - { name: 二二八平反運動（1987–1995）, rel: 回應, why: 解嚴前後民間要求說出真相，促成官方研究報告、總統道歉與補償條例。, src: [s4] }
+  - { id: event-taiwan-transitional-justice, rel: 回應, why: 解嚴前後民間要求說出真相，促成官方研究報告、總統道歉與補償條例。, src: [s4] }
 counterparts: "無適當對照：現有西方或其他軌道的卡片中，沒有「戰後接收政府與當地居民因經濟管制與統治方式衝突、演變為軍隊鎮壓」的事件可以對照；法國大革命與冷戰結束的結構差異太大，不硬湊。"
 sources:
   - { id: s1, title: "二二八事件 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/%E4%BA%8C%E4%BA%8C%E5%85%AB%E4%BA%8B%E4%BB%B6", accessed: 2026-10-26, tier: 百科 }

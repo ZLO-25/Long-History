@@ -20,12 +20,8 @@ place:
 structure_tags: [投機泡沫與崩盤, 債務擴張, 精英內鬥, 臨界點]
 topics: [股票與公司, 國債與公債, 泡沫與金融危機]
 links: [finance-tulip-mania, finance-amsterdam-exchange]
-causes:
-  - { name: 南海公司承接英國國債（1711）, rel: 背景, why: 南海公司靠承接政府債務換來對西班牙美洲的貿易特權，但貿易幾乎沒賺錢，真正的業務變成替政府處理國債。, src: [s1, s3] }
-  - { name: 國會通過國債換股方案（1720）, rel: 直接引發, why: 國會讓國債持有人把債券換成南海公司股票，公司趁機大肆吹捧前景，股價從 128 英鎊衝到約 1,000 英鎊。, src: [s1, s3] }
 effects:
-  - { name: 國會調查與沃波爾整頓（1721）, rel: 回應, why: 崩盤後國會調查發現賄賂與內線交易，財政大臣入獄，沃波爾撤換董事並沒收他們大部分財產。, src: [s1, s2] }
-  - { name: 《泡沫法》（1720–1825）, rel: 回應, why: 股票狂熱中國會在 1720 年 6 月規定股份公司必須經國會或皇家特許才能成立，這條限制一直用到 1825 年。, src: [s1] }
+  - { id: finance-bank-of-england, rel: 促成, why: 南海公司原本和英格蘭銀行搶著替政府管國債，南海公司崩盤後，英格蘭銀行坐穩了政府主要銀行的位置。, src: [s6] }
 counterparts: 無適當對照：東方軌目前沒有十八世紀的股票泡沫卡。
 sources:
   - { id: s1, title: "South Sea Company — Wikipedia", url: "https://en.wikipedia.org/wiki/South_Sea_Company", accessed: 2026-10-25, tier: 百科 }
@@ -33,6 +29,7 @@ sources:
   - { id: s3, title: "Andrew Odlyzko, Isaac Newton and the perils of the financial South Sea — Physics Today，2020-07-01（依據他 2019 年在 Notes and Records 的論文）", url: "https://physicstoday.aip.org/features/isaac-newton-and-the-perils-of-the-financial-south-sea", accessed: 2026-10-25, tier: 學術 }
   - { id: s4, title: "Newton, Isaac (Attributed) — WIST Quotations（David C. Hill）", url: "https://wist.info/newton-isaac/45097/", accessed: 2026-10-25, tier: 摘要 }
   - { id: s5, title: "Alice Marples（The Newton Project），The South Sea Bubble of 1720 — 英國國家檔案館部落格，2020", url: "https://blog.nationalarchives.gov.uk/the-south-sea-bubble-of-1720", accessed: 2026-10-25, tier: 通論 }
+  - { id: s6, title: "South Sea Bubble — Wikipedia", url: "https://en.wikipedia.org/wiki/South_Sea_Bubble", accessed: 2026-11-02, tier: 百科 }
 importance: 2
 learn:
   histories: [歐洲史, 錢的歷史]

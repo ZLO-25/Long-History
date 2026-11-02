@@ -22,7 +22,6 @@ topics: [交易所, 股票與公司]
 links: [finance-amsterdam-exchange, finance-great-depression, finance-2008-crisis, finance-taiwan-stock-exchange, tech-telegraph]
 causes:
   - { id: finance-hamilton-financial-plan, rel: 促成, why: 漢彌爾頓把戰爭欠債整理成可交易的聯邦公債，又成立第一銀行，紐約才有足夠的證券讓經紀人天天買賣。, src: [finance-hamilton-financial-plan:s1, finance-hamilton-financial-plan:s10] }
-  - { name: 美英戰爭結束（1815）, rel: 促成, why: 1815 年戰爭結束後，銀行和保險公司的股票也開始在紐約買賣，市場變大，經紀人便在 1817 年訂章程、租固定場地。, src: [s3] }
 effects:
   - { id: finance-great-depression, rel: 背景, why: 紐交所成為美國股票交易的中心，1929 年 10 月在這裡發生的股災被認為引發了大蕭條。, src: [s1, s3] }
 counterparts:

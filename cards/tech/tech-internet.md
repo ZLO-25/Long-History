@@ -22,11 +22,6 @@ place:
 structure_tags: [資訊傳播革命, 基礎建設網絡, 快速擴張, 技術擴散]
 topics: [冷戰, 印刷與通訊, 半導體與網路]
 links: [tech-telegraph, tech-printing-press, tech-movable-type, tech-container-shipping, event-end-of-cold-war]
-causes:
-  - { name: 美國國防部高等研究計畫署出資（1960年代）, rel: 促成, why: 當時電腦又大又貴，美國國防部出錢建立阿帕網，讓各地研究人員共用電腦，網路由此誕生。, src: [s1] }
-  - { name: 封包交換理論（1961–1964）, rel: 背景, why: 克萊因羅克、巴蘭與戴維斯先後提出把資料切成小封包傳送的構想，成為阿帕網的技術基礎。, src: [s1, s2] }
-effects:
-  - { name: 網際網路商業化（1995）, rel: 促成, why: 1995 年最後的商業使用限制取消，網路從學術工具變成人人可用的商業平台。, src: [s2, s4] }
 counterparts:
   - { id: tech-movable-type, note: "相似：兩者都大幅降低複製與傳遞文字的成本，改變了誰能取得知識。不同：北宋畢昇約 1040 年發明的陶活字要大量印刷才划算，資訊仍是由少數印書者發出；網際網路讓每個連上網的人都能同時發送和接收，而且幾乎不必付複製成本。", src: [s4, s7] }
 sources:

@@ -24,10 +24,9 @@ structure_tags: [商路改道, 關鍵原料壟斷, 單一港口依賴, 外部勢
 topics: [海上貿易, 國家專賣, 開港與鎖國, 臺灣出口品, 原住民族]
 links: [event-qing-taiwan-frontier, event-mudan-incident, war-opium-war, event-self-strengthening, commodity-taiwan-semiconductor]
 causes:
-  - { name: 天津條約與臺灣開港（1858–1860 年代）, rel: 直接引發, why: 天津條約讓淡水、雞籠、安平、打狗陸續開港，外國商人可以直接來臺灣收購茶、糖、樟腦。, src: [s2, s5] }
-  - { name: 歐美對烏龍茶與樟腦的需求（19 世紀後期）, rel: 促成, why: 美國人愛喝臺灣烏龍茶、歐洲大量需要樟腦，茶九成以上賣到美國，樟腦也成了島上最重要的產業之一。, src: [s3, s7] }
+  - { id: event-tianjin-treaty-taiwan, rel: 直接引發, why: 天津條約讓淡水、雞籠、安平、打狗陸續開港，外國商人可以直接來臺灣收購茶、糖、樟腦。, src: [s2, s5] }
 effects:
-  - { name: 樟腦專賣與泰雅族抗日（1900–1907）, rel: 促成, why: 樟樹長在原住民領域，樟腦利益把國家力量推進山區，清末設腦務局、日治設專賣，大豹社等泰雅族起而抵抗。, src: [s4] }
+  - { id: event-taiwan-aborigine-policy, rel: 促成, why: 樟樹長在原住民領域，樟腦利益把國家力量推進山區，清末設腦務局、日治設專賣，大豹社等泰雅族起而抵抗。, src: [s4] }
 counterparts:
   - { id: commodity-silver-flow, note: "相似：都是「一種物資把一個地方接上全球市場」，美洲與日本的白銀流進明朝，臺灣的茶和樟腦流向美國與歐洲，當地社會跟著改變。不同：白銀是貨幣、由大帝國與大商人推動；茶和樟腦是農產與山產，靠洋行、買辦和小農一層層串起來，而且是戰敗後被迫開港才開始。", src: [s1, s2] }
 sources:

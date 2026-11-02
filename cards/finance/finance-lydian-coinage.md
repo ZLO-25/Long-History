@@ -21,12 +21,9 @@ place:
 structure_tags: [金融制度創新, 標準化量產, 技術擴散]
 topics: [鑄幣]
 links: [commodity-laurion-silver, finance-athens-trapezitai, finance-mesopotamia-credit, commodity-wuzhu-coin]
-causes:
-  - { name: 呂底亞出產天然琥珀金（前 7 世紀）, rel: 背景, why: 呂底亞的河流與礦區出產天然的金銀合金，國王手上有現成的金屬，才能把它打成一枚枚蓋上印記的錢幣。, src: [s1, s2] }
 effects:
   - { id: commodity-laurion-silver, rel: 背景, why: 鑄幣的做法從小亞細亞傳到希臘本土，雅典才會用勞里昂的白銀大量鑄造「貓頭鷹」銀幣。, src: [s6] }
   - { id: finance-athens-trapezitai, rel: 背景, why: 鑄幣讓價值容易標準化，雅典的銀行家才能在各城邦錢幣流通的市場裡，替人換錢、存款和放款。, src: [s6] }
-  - { name: 波斯大流克金幣（前 6 世紀末）, rel: 背景, why: 波斯征服呂底亞後，在當地原有的鑄幣傳統上，發展出以大流克為名的帝國金幣。, src: [s1] }
 counterparts:
   - { id: commodity-wuzhu-coin, note: "兩地都出現金屬鑄幣，但中國有自己的布幣、刀幣傳統，後來才走向漢代五銖錢；未查到與呂底亞直接傳播的證據，一般視為獨立發展。", src: [s7] }
 sources:

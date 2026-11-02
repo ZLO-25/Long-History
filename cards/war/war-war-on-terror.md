@@ -27,11 +27,7 @@ topics: [軍事同盟]
 links: [event-end-of-cold-war, event-american-century, finance-dollar-reserve-currency, finance-2008-crisis, finance-petrodollar, war-vietnam-war, event-us-china-trade-war]
 causes:
   - { id: event-end-of-cold-war, rel: 背景, why: 冷戰結束後美國成為唯一超級強權，軍事存在遍及中東，也成為蓋達組織敵視的目標。, src: [s1, s2] }
-  - { name: 波斯灣戰爭與美軍駐紮沙烏地（1991）, rel: 促成, why: 賓拉登提出的不滿包括美軍駐紮沙烏地阿拉伯、美國支持以色列與制裁伊拉克，成為他攻擊美國的理由。, src: [s1] }
-  - { name: 塔利班庇護蓋達組織（1996–2001）, rel: 背景, why: 塔利班 1996 年起控制阿富汗大部分地區並庇護蓋達，九一一後拒交賓拉登，美國便出兵阿富汗。, src: [s5] }
-effects:
-  - { name: 伊斯蘭國興起（2014）, rel: 促成, why: 有學者認為伊拉克戰後的教派衝突讓伊斯蘭國得以崛起，但各方對這個因果有多強並沒有共識。, src: [s7], disputed: true }
-  - { name: 美國戰爭舉債（2001–2021）, rel: 促成, why: 九一一後各場反恐戰爭估計花費約 8 兆美元，主要靠舉債支付，成本要數十年後才會完全顯現。, src: [s4] }
+  - { id: war-gulf-war, rel: 促成, why: 賓拉登提出的不滿包括美軍駐紮沙烏地阿拉伯、美國支持以色列與制裁伊拉克，成為他攻擊美國的理由。, src: [s1] }
 counterparts:
   - id: war-vietnam-war
     note: "相似：都是美國長期介入後撤軍，對手在撤軍後奪下首都（1975 年西貢、2021 年喀布爾）；不同：北越是有正規軍的國家，塔利班是武裝運動，且阿富汗戰爭的起點是遭到本土攻擊。"

@@ -21,11 +21,9 @@ place:
 structure_tags: [擴大稅基, 意外財源, 慢變結構]
 topics: [白銀, 變法與改革, 稅收]
 links: [event-wang-anshi-reform, event-zheng-he-voyages, war-opium-war]
-causes:
-  - { name: "里甲賦役制度敗壞（明代中期）", rel: 促成, why: "明中期人口流亡、戶籍與田冊失真，輪派勞役擾民，豪強與胥吏上下其手，官員才想把各種賦役合併、改收白銀。", src: [s2] }
 effects:
-  - { name: "明朝滅亡（1644）", rel: 促成, why: "有學者認為，稅改用銀繳後財政綁上外國白銀，1630年代白銀進口減少，銀價飆升、通貨緊縮引發民變，成為明亡因素之一。", src: [s1, s3], disputed: true }
-  - { name: "攤丁入畝（18 世紀）", rel: 背景, why: "清代田賦大體沿用一條鞭法的合併折銀做法，並在這個基礎上進一步發展出攤丁入畝。", src: [s2] }
+  - { id: event-ming-qing-transition, rel: 促成, why: "有學者認為，稅改用銀繳後財政綁上外國白銀，1630年代白銀進口減少，銀價飆升、通貨緊縮引發民變，成為明亡因素之一。", src: [s1, s3], disputed: true }
+  - { id: finance-tanding-rumu, rel: 背景, why: "清代田賦大體沿用一條鞭法的合併折銀做法，並在這個基礎上進一步發展出攤丁入畝。", src: [s2] }
 counterparts: "無適當對照：計畫卡中沒有同時期西方的稅制改革卡；一條鞭法與美洲白銀、歐洲貿易緊密相連，但那是全球白銀流動的一環，不是另一條軌道上結構相似的單一事件。"
 sources:
   - { id: s1, title: "Single whip law — Wikipedia", url: "https://en.wikipedia.org/wiki/Single_whip_reform", accessed: 2026-10-25, tier: 百科 }

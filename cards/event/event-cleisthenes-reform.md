@@ -21,11 +21,7 @@ place:
 structure_tags: [重新設計基本單位, 公民身分擴張, 外部勢力介入, 精英內鬥]
 topics: [變法與改革, 民主與參政, 公民身分]
 links: [war-greco-persian, building-theatre-dionysus, event-death-of-socrates]
-causes:
-  - { name: 雅典推翻僭主希庇亞斯（前 510 年）, rel: 背景, why: 斯巴達幫雅典人趕走僭主後，城裡出現權力空缺，各派貴族開始爭奪領導權。, src: [s1] }
-  - { name: 伊薩哥拉斯與克里斯提尼爭權（前 508 年）, rel: 直接引發, why: 伊薩哥拉斯靠斯巴達國王撐腰想奪權，克里斯提尼得到民眾支持擊敗他，接著推動擴大公民參政的改革。, src: [s1, s2] }
 effects:
-  - { name: 雅典民主政治（前 5 世紀）, rel: 促成, why: 十個部落與五百人議事會的架構，成為之後雅典民主運作的基礎，克里斯提尼因此被稱為「雅典民主之父」。, src: [s1, s2] }
   - { id: building-theatre-dionysus, rel: 促成, why: 改革時重新組織了城市酒神節，酒神劇場的戲劇演出因此成為雅典公民共同參與的節慶。, src: [building-theatre-dionysus:s1] }
 counterparts:
   - { id: event-shang-yang-reform, note: "相似：重新設計社會的基本單位，打破舊貴族以血緣為基礎的控制。不同：克里斯提尼擴大公民參與；商鞅強化國家動員，平民的上升管道是軍功而非投票。", src: [s1, s6] }

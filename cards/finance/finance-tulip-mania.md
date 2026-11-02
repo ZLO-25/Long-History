@@ -22,9 +22,7 @@ structure_tags: [投機泡沫與崩盤, 臨界點]
 topics: [泡沫與金融危機]
 links: [finance-amsterdam-exchange, finance-south-sea-bubble]
 causes:
-  - { name: 鬱金香從鄂圖曼帝國傳入歐洲（16 世紀）, rel: 背景, why: 鬱金香 1594 年在荷蘭第一次開花，感染病毒的條紋品種稀少又難繁殖，成了有錢人搶購的奢侈品，給了炒作的對象。, src: [s1] }
-effects:
-  - { name: 花商公會改訂合約規則（1637）, rel: 回應, why: 崩盤後花商公會宣布 1636 年 11 月 30 日以後的合約可付小額費用取消，所以多數買家不必全額付款，損失多半停在帳面上。, src: [s1, s2] }
+  - { id: finance-amsterdam-exchange, rel: 背景, why: 東印度貿易一趟利潤可達四倍，阿姆斯特丹商人手頭寬裕；荷蘭也已出現先簽約、日後交貨的遠期交易，炒球根有了錢和方法。, src: [s1] }
 counterparts: 無適當對照：東方軌目前沒有十七世紀的商品投機泡沫卡。
 sources:
   - { id: s1, title: "Tulip mania — Wikipedia", url: "https://en.wikipedia.org/wiki/Tulip_mania", accessed: 2026-10-25, tier: 百科 }

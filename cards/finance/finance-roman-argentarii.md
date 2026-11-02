@@ -3,6 +3,7 @@ id: finance-roman-argentarii
 type: finance
 name: 羅馬的銀行家（argentarii）與第納里烏斯
 aliases: [羅馬銀行家, argentarii, argentarius, 第納里烏斯, 迪納厄斯, 德納留斯, denarius, denarii, 羅馬銀幣, nummularii, 驗幣員, 包稅人, 包稅公司, publicani, 提比略, Tiberius, 西元33年信用危機, 33年金融危機, Panic of 33, 塞斯特斯, sestertius, 安敦尼尼安幣, antoninianus, 羅馬貨幣貶值, 尼祿幣制改革]
+aliases_main: [羅馬銀行家, 第納里烏斯, argentarii]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
 civilization: [古羅馬]
 track: west
 time:

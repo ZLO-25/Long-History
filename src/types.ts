@@ -14,6 +14,8 @@ export interface Section {
 }
 export interface Card {
   id: string; type: CardType; typeLabel: string; name: string; aliases: string[];
+  /** 卡片上先顯示的主要別名（2～3 個），其他收在「顯示更多」 */
+  aliases_main: string[];
   civilization: string[]; civPaths: string[]; track: 'china' | 'west' | 'east' | 'other';
   time: { start: number; end: number; precision: string };
   summary_line: string;

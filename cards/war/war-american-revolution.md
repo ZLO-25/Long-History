@@ -3,6 +3,7 @@ id: war-american-revolution
 type: war
 name: 美國獨立戰爭
 aliases: [美國革命戰爭, 美国独立战争, 美國革命, American Revolutionary War, American War of Independence, Revolutionary War, 列星頓與康科德, 薩拉托加戰役, 約克鎮圍城, 約克鎮戰役, 巴黎和約 1783, Treaty of Paris 1783, 大陸幣, Continental currency, 法美同盟, Franco-American alliance, 華盛頓, George Washington, 拉法葉, Lafayette]
+aliases_main: [美國革命, American Revolutionary War, American War of Independence]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
 civilization: [美國（建國初期）, 英國, 法國, 西班牙, 荷蘭]
 track: west
 time:

@@ -3,6 +3,7 @@ id: event-american-century
 type: event
 name: 「美國世紀」：美國為什麼成為超級強權
 aliases: [美國世紀, The American Century, American Century, 亨利·魯斯, 魯斯, Henry Luce, 民主國家的兵工廠, 民主兵工廠, Arsenal of Democracy, 美國霸權, 美治和平, Pax Americana, 超級強權, 戰後美國霸權, US hegemony, 租借法案, Lend-Lease]
+aliases_main: [美治和平, 民主國家的兵工廠, The American Century]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
 civilization: [美國（世界強權）]
 track: west
 time:

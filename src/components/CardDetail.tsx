@@ -5,6 +5,7 @@ import { Counterparts } from './Counterparts';
 import { TodayRefs } from './TodayPanel';
 import { Bi } from './Bi';
 import { TopicChips } from './Topics';
+import { AliasList } from './AliasList';
 import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 interface Props {
@@ -38,7 +39,7 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
       <section className="cd-sec">
         <h3>基本資料</h3>
         <dl className="kv">
-          <dt>別名</dt><dd>{c.aliases.join('、')}</dd>
+          <dt>別名</dt><dd><AliasList key={c.id} aliases={c.aliases} main={c.aliases_main} /></dd>
           <dt>文明</dt><dd>{c.civilization.join('、')}</dd>
           <dt>場域</dt><dd><b>{c.place.primary_field}</b>{c.place.secondary_fields.length > 0 && `（次：${c.place.secondary_fields.join('、')}）`}</dd>
           <dt>地點</dt>

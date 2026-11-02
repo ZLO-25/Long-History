@@ -3,6 +3,7 @@ id: war-american-civil-war
 type: war
 name: 南北戰爭
 aliases: [美國內戰, 美国内战, 南北战争, American Civil War, Civil War, 邦聯, 邦联, Confederate States of America, Confederacy, Union, 林肯, Abraham Lincoln, 傑佛遜·戴維斯, Jefferson Davis, 羅伯特·李, Robert E. Lee, 格蘭特, Ulysses S. Grant, 解放奴隸宣言, Emancipation Proclamation, 蓋茲堡, Gettysburg, 綠鈔, Greenbacks, 國家銀行法, National Banking Act, 傑伊·庫克, Jay Cooke, 第十三修正案, Thirteenth Amendment, 重建, Reconstruction]
+aliases_main: [美國內戰, American Civil War]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
 civilization: [美國（內戰與工業化）]
 track: west
 time:

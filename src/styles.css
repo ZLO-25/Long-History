@@ -105,6 +105,10 @@ a { color: var(--accent); }
 .ref.missing { color: var(--red); }
 .kv { display: grid; grid-template-columns: 70px 1fr; gap: 4px 8px; font-size: 14px; margin: 0; }
 .kv dt { color: var(--muted); } .kv dd { margin: 0; min-width: 0; }
+/* 別名：主要的先顯示，其他收在「顯示更多」 */
+.aliases-more { margin-left: 6px; font-size: 12px; white-space: nowrap; text-decoration: none; }
+.aliases-more:hover { text-decoration: underline; }
+.aliases-rest { color: var(--muted); }
 .locs { list-style: none; padding: 0 !important; margin: 0; }
 .locs li { font-size: 13.5px !important; line-height: 1.6 !important; }
 .tag-muted { font-size: 11px; background: #f3efe6; border-radius: 3px; padding: 0 4px; margin-left: 4px; }

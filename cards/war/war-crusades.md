@@ -3,6 +3,7 @@ id: war-crusades
 type: war
 name: 十字軍東征
 aliases: [十字军东征, 十字軍, Crusades, The Crusades, 第一次十字軍, 第四次十字軍, 教宗烏爾班二世, Pope Urban II, 克萊蒙會議, Council of Clermont, 薩拉丁, Saladin, 獅心王理查, Richard the Lionheart, 聖殿騎士團, Knights Templar, 阿卡陷落]
+aliases_main: [十字軍, Crusades]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
 civilization: [法國, 英格蘭, 神聖羅馬帝國, 拜占庭帝國, 塞爾柱, 阿拉伯（伊斯蘭）, 阿尤布王朝, 馬木路克]
 track: west
 time:

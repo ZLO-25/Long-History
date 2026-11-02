@@ -3,6 +3,7 @@ id: tech-railway
 type: tech
 name: 鐵路
 aliases: [铁路, 火車, 火车, 蒸汽火車, Railway, Railroad, Steam railway, 斯托克頓—達靈頓鐵路, Stockton and Darlington Railway, 利物浦—曼徹斯特鐵路, Liverpool and Manchester Railway, 喬治·史蒂文生, George Stephenson, 火箭號, Rocket, 美國橫貫鐵路, Transcontinental Railroad, 吳淞鐵路, Woosung Road, 劉銘傳, 臺灣鐵路]
+aliases_main: [火車, 蒸汽火車, Railway]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
 civilization: [英國, 美國, 中國（清）]
 track: west
 time:

@@ -3,6 +3,7 @@ id: finance-petrodollar
 type: finance
 name: 石油美元體系
 aliases: [石油美元, 石油美元回流, 石油美金, 石油美元體系, Petrodollar, Petrodollar system, Petrodollar recycling, 美沙經濟合作聯合委員會, US-Saudi Joint Commission on Economic Cooperation, 1973 石油危機, 阿拉伯石油禁運, OAPEC 禁運, OPEC, 石油輸出國組織, 沙烏地阿拉伯, 沙烏地, 沙特, Treasury 公債, 美國公債]
+aliases_main: [石油美元回流, Petrodollar]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
 civilization: [美國（世界強權）, 沙烏地阿拉伯]
 track: west
 time:

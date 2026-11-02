@@ -305,3 +305,43 @@ h2 .en, .muted .en, .link .en { font-size: .78em; color: #777; font-weight: 400;
 .year-slider b { color: var(--red); }
 .era-seg.m-era { display: flex; margin: 0 12px; }
 .era-seg.m-era button { flex: 1; padding: 6px 4px; }
+
+/* ── 三個區塊：拖曳換位置、浮動小窗、新視窗（components/Dock.tsx）──
+   每個區塊外面包一層 .dock-cell：上面一條 .dock-bar，下面是原本的區塊（地圖、卡片欄、時間軸…） */
+.dock-main { position: relative; }
+.dock-cell { display: flex; flex-direction: column; min-width: 0; min-height: 0; position: relative; isolation: isolate; background: var(--panel); }
+.dock-cell > :nth-child(2) { flex: 1; min-height: 0; min-width: 0; }
+.dock-cell > .map-wrap, .dock-cell > .ld-map { position: relative; }
+.dock-cell > .panel, .dock-cell > .lcontent { border: 0; }
+.dock-cell.slot-c { border-top: 1px solid var(--line); }
+.dock-cell > .timeline-wrap, .dock-cell > .ld-tl { border-top: 0; max-height: none; height: auto; overflow-y: auto; }
+.dock-cell.auto-h > .timeline-wrap { max-height: 40vh; }
+.dock-cell.auto-h > .ld-tl { max-height: 30vh; }
+.dock-cell.collapsed > .timeline-wrap, .dock-cell.collapsed > .ld-tl { display: none; }
+.dock-bar { flex: none; display: flex; align-items: center; gap: 4px; height: 26px; padding: 0 6px; background: #f3efe4; border-bottom: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+.dock-handle { display: inline-flex; align-items: center; gap: 4px; line-height: 1; border: 0; background: none; font: inherit; font-weight: 600; color: #5a5446; cursor: grab; padding: 3px 6px; border-radius: 4px; touch-action: none; user-select: none; }
+.dock-handle:hover, .dock-handle:focus-visible { background: #e6dfcc; }
+.dock-handle .grip { color: #a09a8c; font-size: 13px; }
+.dock-extra { flex: 1; display: flex; justify-content: flex-end; }
+.dock-bar .tl-toggle { position: static; padding: 1px 8px; }
+.dock-btn { border: 1px solid transparent; background: none; font: inherit; color: var(--muted); padding: 1px 6px; border-radius: 4px; cursor: pointer; white-space: nowrap; }
+.dock-btn:hover, .dock-btn:focus-visible { border-color: var(--line); background: #fff; color: #333; }
+/* 拖曳中 */
+body.dock-dragging, body.dock-dragging * { cursor: grabbing !important; user-select: none; }
+body.dock-dragging .map-canvas, body.dock-dragging iframe { pointer-events: none; }
+.dock-cell.dock-src { opacity: 0.6; }
+.dock-cell.drop-target::after { content: '放開：交換位置'; position: absolute; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; background: rgba(246, 173, 85, 0.25); outline: 3px dashed #dd6b20; outline-offset: -3px; font-size: 16px; font-weight: 700; color: #9c4221; pointer-events: none; }
+/* 浮動小窗 */
+.dock-cell.floating { position: absolute; z-index: 30; border: 1px solid #b8ad8f; border-radius: 8px; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25); overflow: hidden; }
+.dock-cell.floating > .dock-bar { cursor: grab; background: #ebe3cf; }
+.dock-resize { position: absolute; right: 0; bottom: 0; width: 16px; height: 16px; cursor: nwse-resize; z-index: 40; touch-action: none;
+  background: linear-gradient(135deg, transparent 50%, #a09a8c 50%, #a09a8c 60%, transparent 60%, transparent 70%, #a09a8c 70%, #a09a8c 80%, transparent 80%); }
+.dock-empty { display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; color: var(--muted); }
+/* 新視窗：整個視窗就是這一個區塊 */
+.popout { height: 100vh; display: flex; flex-direction: column; }
+.popout > .dock-cell.popped { flex: 1; }
+.popout .dock-handle { cursor: default; }
+.dock-back { background: #fff7e6; }
+@media print { .dock-bar, .dock-resize { display: none !important; } }
+main.dock-main > .splitter.col { grid-area: sc; }
+main.dock-main > .splitter.row { grid-area: sr; }

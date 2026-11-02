@@ -15,22 +15,22 @@ const { chromium } = require('playwright');
   const size = (sel) => p.$eval(sel, (e) => { const r = e.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height)]; });
   // 研究模式
   await p.goto(base + '?mode=research', { waitUntil: 'networkidle' }); await p.waitForTimeout(800);
-  console.log('研究 初始 panel', await size('.d-main > .panel'), 'tl', await size('.timeline-wrap'), 'map', await size('.map-wrap'));
+  console.log('研究 初始 panel', await size('.dock-cell[data-panel="side"]'), 'tl', await size('.dock-cell[data-panel="tl"]'), 'map', await size('.map-wrap'));
   await drag('.d-main > .splitter.col', -200, 0);
   await drag('.d-main > .splitter.row', 0, -120);
-  console.log('研究 拖後 panel', await size('.d-main > .panel'), 'tl', await size('.timeline-wrap'), 'map', await size('.map-wrap'), '重設鈕', !!(await p.$('.layout-reset')));
+  console.log('研究 拖後 panel', await size('.dock-cell[data-panel="side"]'), 'tl', await size('.dock-cell[data-panel="tl"]'), 'map', await size('.map-wrap'), '重設鈕', !!(await p.$('.layout-reset')));
   await p.screenshot({ path: (process.argv[3] || 'docs/screenshots/layout') + '/research-dragged.png' });
   await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(800);
-  console.log('研究 重整後 panel', await size('.d-main > .panel'), 'tl', await size('.timeline-wrap'), 'localStorage', await p.evaluate(() => localStorage.getItem('history-river-layout-v1')));
-  await p.click('.timeline-wrap .tl-toggle'); await p.waitForTimeout(200);
-  console.log('研究 收起 tl', await size('.timeline-wrap'), 'map', await size('.map-wrap'));
+  console.log('研究 重整後 panel', await size('.dock-cell[data-panel="side"]'), 'tl', await size('.dock-cell[data-panel="tl"]'), 'localStorage', await p.evaluate(() => localStorage.getItem('history-river-layout-v1')));
+  await p.click('.dock-cell[data-panel="tl"] .tl-toggle'); await p.waitForTimeout(200);
+  console.log('研究 收起 tl', await size('.dock-cell[data-panel="tl"]'), 'map', await size('.map-wrap'));
   await p.screenshot({ path: (process.argv[3] || 'docs/screenshots/layout') + '/research-tl-closed.png' });
-  await p.click('.timeline-wrap .tl-toggle'); await p.waitForTimeout(200);
+  await p.click('.dock-cell[data-panel="tl"] .tl-toggle'); await p.waitForTimeout(200);
   // 鍵盤
   await p.focus('.d-main > .splitter.col'); await p.keyboard.press('ArrowLeft'); await p.keyboard.press('ArrowLeft'); await p.waitForTimeout(100);
-  console.log('研究 鍵盤後 panel', await size('.d-main > .panel'));
+  console.log('研究 鍵盤後 panel', await size('.dock-cell[data-panel="side"]'));
   await p.click('.layout-reset'); await p.waitForTimeout(200);
-  console.log('研究 重設後 panel', await size('.d-main > .panel'), 'tl', await size('.timeline-wrap'), '重設鈕', !!(await p.$('.layout-reset')));
+  console.log('研究 重設後 panel', await size('.dock-cell[data-panel="side"]'), 'tl', await size('.dock-cell[data-panel="tl"]'), '重設鈕', !!(await p.$('.layout-reset')));
   // 學習模式
   await p.goto(base + '?mode=learn&history=taiwan', { waitUntil: 'networkidle' }); await p.waitForTimeout(800);
   console.log('學習 初始 content', await size('.lcontent'), 'map', await size('.ld-map'), 'tl', await size('.ld-tl'));

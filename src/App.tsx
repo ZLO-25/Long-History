@@ -18,9 +18,11 @@ import { TodayPanel } from './components/TodayPanel';
 import { useIsMobile } from './lib/useIsMobile';
 import { MIN_YEAR, MAX_YEAR, ERAS, eraOf } from './lib/timeScale';
 import { LearnApp } from './learn/LearnApp';
-import { Splitter } from './components/Splitter';
-import { useLayout, colSize, rowSize } from './lib/layout';
-import { useRef } from 'react';
+import { DockLayout, useDock } from './components/Dock';
+import { useLayout, colSize } from './lib/layout';
+
+type RPanel = 'map' | 'side' | 'tl';
+const R_PANELS: readonly RPanel[] = ['map', 'side', 'tl'];
 
 export type Panel =
   | { kind: 'list' }
@@ -99,12 +101,12 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const [mobileTab, setMobileTab] = useState<'list' | 'map' | 'match' | 'topics'>('list');
   const panel = stack[stack.length - 1];
   // 各區塊大小可拖曳調整（右欄寬、時間軸高、時間軸收合），記在這台瀏覽器；「⟲ 版面」恢復預設
-  const { layout, set: setLayout, reset: resetLayout } = useLayout();
-  const mainRef = useRef<HTMLElement>(null);
-  const panelRef = useRef<HTMLElement>(null);
-  const tlRef = useRef<HTMLDivElement>(null);
+  // 三個區塊還可以拖曳交換位置、變浮動小窗、彈出新視窗（components/Dock.tsx）
+  const L = useLayout();
+  const { layout, set: setLayout } = L;
+  const dock = useDock('r', R_PANELS, L);
   const tlOpen = layout.rTlOpen ?? true;
-  const customized = layout.rPanel != null || layout.rTl != null;
+  const tlInC = dock.order[2] === 'tl' && !dock.float.tl && !dock.wins.tl;
 
   const byId = useMemo(() => new Map(index.cards.map((c) => [c.id, c])), [index]);
   const search = useMemo(() => createSearch(index.cards), [index]);
@@ -166,6 +168,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
 
   const onQuery = (q: string) => { setQuery(q); if (panel.kind !== 'list') home(); if (isMobile) setMobileTab('list'); };
 
+  const panelTitle = ({ list: '卡片清單', card: '卡片', place: '地點', route: '路線', match: '結構對照', chain: '物資鏈', econ: '經濟曲線', today: '今日對照', topic: '主題路徑', topics: '主題標籤' } as const)[panel.kind];
   const side = (() => {
     switch (panel.kind) {
       case 'card': return selectedCard && <CardDetail card={selectedCard} index={index} byId={byId} onOpen={openCard}
@@ -196,7 +199,8 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
           placeholder={isMobile ? '搜尋卡片（可打錯字、簡體、英文）' : '搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）'} aria-label="搜尋" />
         {!isMobile && <button className={`btn ${panel.kind === 'topic' || panel.kind === 'topics' ? 'on' : ''}`} onClick={() => open({ kind: 'topics' })} title="依主題把卡片串成歷史路徑，例如 #交易所">主題標籤</button>}
         {!isMobile && <button className={`btn ${panel.kind === 'match' ? 'on' : ''}`} onClick={() => open({ kind: 'match' })}>結構對照</button>}
-        {!isMobile && customized && <button className="btn layout-reset" onClick={() => resetLayout(['rPanel', 'rTl'])} title="把地圖、卡片欄、時間軸的大小恢復預設">⟲ 版面</button>}
+        {!isMobile && (Object.keys(dock.wins) as RPanel[]).map((id) => <button key={id} className="btn sm dock-back" onClick={() => dock.unpop(id)} title="這個區塊在另一個視窗，按一下收回來">↩ 收回{({ map: '地圖', side: '卡片欄', tl: '時間軸' } as const)[id]}</button>)}
+        {!isMobile && dock.customized && <button className="btn layout-reset" onClick={dock.resetAll} title="恢復預設版面：大小、位置、浮動小窗、彈出的視窗全部歸位">⟲ 版面</button>}
         <button className="btn learn-btn" onClick={onLearn} title="給國高中生的自主學習模式">學習模式</button>
         <a className="btn credits" href={`${import.meta.env.BASE_URL}credits.html`} target="_blank" rel="noopener" title="資料來源與授權">出處</a>
       </header>
@@ -231,24 +235,21 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
           </main>
         </>
       ) : (
-        <main ref={mainRef} className={`d-main ${layout.rTl ? 'tl-sized' : ''} ${tlOpen ? '' : 'tl-closed'}`}
-          style={{ gridTemplateColumns: `minmax(0, 1fr) 6px ${colSize(layout.rPanel, 'minmax(360px, 34%)')}`, gridTemplateRows: `minmax(0, 1fr) 6px ${tlOpen ? rowSize(layout.rTl, 'auto') : 'auto'}` }}>
-          <div className="map-wrap">{map}</div>
-          <Splitter dir="col" grow="neg" label="調整卡片欄寬度" min={280} max={() => (mainRef.current?.clientWidth ?? 1200) * 0.65}
-            measure={() => panelRef.current?.getBoundingClientRect().width ?? 400} onChange={(px) => setLayout({ rPanel: px })} onReset={() => resetLayout(['rPanel'])} />
-          <section ref={panelRef} className="panel">
-            {stack.length > 1 && <div className="panel-nav"><button className="back" onClick={back}>← 返回</button><button className="back" onClick={home}>清單</button></div>}
-            {side}
-          </section>
-          <Splitter dir="row" grow="neg" label="調整時間軸高度" min={60} max={() => (mainRef.current?.clientHeight ?? 800) * 0.55}
-            measure={() => tlRef.current?.getBoundingClientRect().height ?? 200} onChange={(px) => setLayout({ rTl: px })} onReset={() => resetLayout(['rTl'])} />
-          <div ref={tlRef} className="timeline-wrap">
-            <button className="tl-toggle" onClick={() => setLayout({ rTlOpen: !tlOpen })} aria-expanded={tlOpen}>{tlOpen ? '▾ 收起時間軸' : '▸ 展開時間軸'}</button>
-            {tlOpen && <Timeline cards={visible} allCards={index.cards} year={year} setYear={setYear}
-              selectedId={selectedCard?.id ?? null} onOpen={openCard} focusIds={panel.kind === 'topic' ? findTopic(index, panel.name)?.topic.cards ?? null : null}
-              econ={index.econ} onEcon={openEcon} econSel={panel.kind === 'econ' ? { series: panel.series, point: panel.point } : null} />}
-          </div>
-        </main>
+        <DockLayout dock={dock} mainClass={`d-main ${tlOpen ? '' : 'tl-closed'}`}
+          panels={{
+            map: { title: '地圖', cls: 'map-wrap', node: map },
+            side: { title: panelTitle, cls: 'panel', node: <>
+              {stack.length > 1 && <div className="panel-nav"><button className="back" onClick={back}>← 返回</button><button className="back" onClick={home}>清單</button></div>}
+              {side}
+            </> },
+            tl: { title: '時間軸', cls: 'timeline-wrap', extra: tlInC && <button className="tl-toggle" onClick={() => setLayout({ rTlOpen: !tlOpen })} aria-expanded={tlOpen}>{tlOpen ? '▾ 收起' : '▸ 展開'}</button>,
+              node: (tlOpen || !tlInC) && <Timeline cards={visible} allCards={index.cards} year={year} setYear={setYear}
+                selectedId={selectedCard?.id ?? null} onOpen={openCard} focusIds={panel.kind === 'topic' ? findTopic(index, panel.name)?.topic.cards ?? null : null}
+                econ={index.econ} onEcon={openEcon} econSel={panel.kind === 'econ' ? { series: panel.series, point: panel.point } : null} /> },
+          }}
+          colA={() => 'minmax(0, 1fr)'} colB={(px) => colSize(px, 'minmax(360px, 34%)')} colSized="b" colMin={280} colMaxPct={65}
+          rowCDefault={(id) => (id === 'tl' ? 'auto' : '38%')} cCollapsed={(id) => id === 'tl' && !tlOpen}
+          popRoot={{ className: 'app desktop popout' }} />
       )}
     </div>
   );

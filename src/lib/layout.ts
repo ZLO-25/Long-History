@@ -7,7 +7,12 @@ export interface Layout {
   rTlOpen?: boolean; // 研究模式：時間軸是否展開（預設展開）
   lContent?: number; // 學習模式：左側文字欄寬（px）
   lTl?: number;      // 學習模式：時間軸高（px）
+  rOrder?: string[]; // 研究模式：三個區塊放在 a、b、c 哪個位置（見 lib/dock.ts）
+  lOrder?: string[]; // 學習模式：同上
+  rFloat?: Record<string, Geo>; // 研究模式：變成浮動小窗的區塊與位置大小
+  lFloat?: Record<string, Geo>; // 學習模式：同上
 }
+export interface Geo { x: number; y: number; w: number; h: number }
 const KEY = 'history-river-layout-v1';
 function read(): Layout {
   try { const raw = window.localStorage.getItem(KEY); return raw ? JSON.parse(raw) : {}; } catch { return {}; }

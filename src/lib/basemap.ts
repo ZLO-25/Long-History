@@ -27,7 +27,22 @@ export async function addBasemap(m: L.Map): Promise<'vector' | 'raster'> {
       import('maplibre-gl'), import('maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url')]);
     setWorkerUrl(workerUrl);
     const { maplibreGL } = await import('@maplibre/maplibre-gl-leaflet');
+    // 地圖可能在底圖載入期間就被拿掉了（例如區塊拉到新視窗、或關掉新視窗），這時就不要再加
+    if (!(m as any)._mapPane) return 'vector';
     const layer = maplibreGL({ style: style as any, attributionControl: false, interactive: false } as any);
+    // 外掛的已知問題：地圖移除後，排在下一格畫面的 _transitionEnd 仍會執行而讀 null 的 _map。
+    // 這裡照外掛原本的寫法重寫一次，只多一行「地圖已移除就不做」（區塊拉到新視窗再收回時會遇到）
+    (layer as any)._transitionEnd = function (this: any) {
+      requestAnimationFrame(() => {
+        const map = this._map; if (!map || !this._glMap) return;
+        const zoom = map.getZoom(), center = map.getCenter();
+        const offset = map.latLngToContainerPoint(map.getBounds().getNorthWest());
+        this._resizeContainer();
+        L.DomUtil.setTransform(this._glMap._actualCanvas, offset, 1);
+        this._glMap.once('moveend', () => { if (this._map) this._zoomEnd(); });
+        this._glMap.jumpTo({ center, zoom: zoom - 1 });
+      });
+    };
     layer.addTo(m);
     m.attributionControl?.addAttribution(BASEMAP_ATTRIBUTION);
     m.getContainer().classList.add('basemap-vector');

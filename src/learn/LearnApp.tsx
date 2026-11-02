@@ -1,8 +1,11 @@
 // 第 6 期：自主學習模式。和研究模式共用同一批卡片資料，只是呈現方式不同
 // 網址：?mode=learn&history=japan&unit=unit-xxx&card=war-xxx&sim=bubble&view=mymap
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Splitter } from '../components/Splitter';
-import { useLayout, colSize, rowSize } from '../lib/layout';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { DockLayout, useDock } from '../components/Dock';
+import { useLayout, colSize } from '../lib/layout';
+
+type LPanel = 'content' | 'map' | 'tl';
+const L_PANELS: readonly LPanel[] = ['content', 'map', 'tl'];
 import type { Card, Index } from '../types';
 import { MapView } from '../components/MapView';
 import { createSearch, matchTopics } from '../lib/search';
@@ -75,11 +78,9 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   // 桌機的時間軸可以收起來，讀單元時留更多空間給文字；記在瀏覽器
   const tlOpen = p.timelineOpen ?? true;
   // 文字欄寬、時間軸高可拖曳調整，記在瀏覽器；「⟲ 版面」恢復預設
-  const { layout, set: setLayout, reset: resetLayout } = useLayout();
-  const mainRef = useRef<HTMLElement>(null);
-  const contentRef = useRef<HTMLElement>(null);
-  const tlRef = useRef<HTMLDivElement>(null);
-  const customized = layout.lContent != null || layout.lTl != null;
+  // 三個區塊還可以拖曳交換位置、變浮動小窗、彈出新視窗（components/Dock.tsx）
+  const dock = useDock('l', L_PANELS, useLayout());
+  const tlInC = dock.order[2] === 'tl' && !dock.float.tl && !dock.wins.tl;
   const toggleTl = () => update((o) => ({ ...o, timelineOpen: !(o.timelineOpen ?? true) }));
   // 字級：手機上用一顆按鈕循環（標準 → 大 → 特大 → 標準）
   const cycleFs = () => update((o) => { const cur = o.fontScale ?? 1; return { ...o, fontScale: cur >= 1.35 ? 1 : cur >= 1.15 ? 1.4 : 1.2 }; });
@@ -162,6 +163,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} />;
   const cardTab = lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} /> : <p className="muted">還沒打開任何卡片。</p>;
 
+  const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '單元', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '主題標籤' } as Record<View['kind'], string>)[view.kind];
   const header = (
     <header className="ltop">
       <button className="brand" onClick={() => setStack([{ kind: 'home' }])} title="回到學習模式首頁">歷史長河</button>
@@ -185,7 +187,8 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
           <button className="btn sm" onClick={() => update((o) => ({ ...o, fontScale: Math.min(1.5, (o.fontScale ?? 1) + 0.1) }))} aria-label="字變大">A＋</button>
         </div>
       )}
-      {!isMobile && customized && <button className="btn sm layout-reset" onClick={() => resetLayout(['lContent', 'lTl'])} title="把文字欄、地圖、時間軸的大小恢復預設">⟲ 版面</button>}
+      {!isMobile && (Object.keys(dock.wins) as LPanel[]).map((id) => <button key={id} className="btn sm dock-back" onClick={() => dock.unpop(id)} title="這個區塊在另一個視窗，按一下收回來">↩ 收回{({ content: '文字欄', map: '地圖', tl: '時間軸' } as const)[id]}</button>)}
+      {!isMobile && dock.customized && <button className="btn sm layout-reset" onClick={dock.resetAll} title="恢復預設版面：大小、位置、浮動小窗、彈出的視窗全部歸位">⟲ 版面</button>}
       <button className="btn sm" onClick={() => { update((o) => ({ ...o, seenIntro: false })); setStack([{ kind: 'home' }]); setQuery(''); }} title="怎麼使用這個網站" aria-label="使用說明">？</button>
     </header>
   );
@@ -208,19 +211,16 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   return (
     <div className={`learn desktop ${tlOpen ? '' : 'tl-closed'}`} style={{ ['--fs' as any]: fs }}>
       {header}
-      <main ref={mainRef} className={`ld-main ${layout.lTl ? 'tl-sized' : ''}`}
-        style={{ gridTemplateColumns: `${colSize(layout.lContent, 'minmax(0, 1.15fr)', 320, 75)} 6px minmax(0, 1fr)`, gridTemplateRows: `minmax(0, 1fr) 6px ${tlOpen ? rowSize(layout.lTl, 'auto') : 'auto'}` }}>
-        <section ref={contentRef} className="lcontent">{stack.length > 1 && <button className="back" onClick={back}>← 返回</button>}{content}</section>
-        <Splitter dir="col" grow="pos" label="調整文字欄寬度" min={320} max={() => (mainRef.current?.clientWidth ?? 1200) * 0.75}
-          measure={() => contentRef.current?.getBoundingClientRect().width ?? 600} onChange={(px) => setLayout({ lContent: px })} onReset={() => resetLayout(['lContent'])} />
-        <div className="ld-map">{map}</div>
-        <Splitter dir="row" grow="neg" label="調整時間軸高度" min={60} max={() => (mainRef.current?.clientHeight ?? 800) * 0.55}
-          measure={() => tlRef.current?.getBoundingClientRect().height ?? 200} onChange={(px) => setLayout({ lTl: px })} onReset={() => resetLayout(['lTl'])} />
-        <div ref={tlRef} className="ld-tl">
-          <button className="tl-toggle" onClick={toggleTl} aria-expanded={tlOpen}>{tlOpen ? '▾ 收起時間軸' : '▸ 展開時間軸'}</button>
-          {tlOpen && timeline}
-        </div>
-      </main>
+      <DockLayout dock={dock} mainClass="ld-main"
+        panels={{
+          content: { title: contentTitle, cls: 'lcontent', node: <>{stack.length > 1 && <button className="back" onClick={back}>← 返回</button>}{content}</> },
+          map: { title: '地圖', cls: 'ld-map', node: map },
+          tl: { title: '時間軸', cls: 'ld-tl', extra: tlInC && <button className="tl-toggle" onClick={toggleTl} aria-expanded={tlOpen}>{tlOpen ? '▾ 收起' : '▸ 展開'}</button>,
+            node: (tlOpen || !tlInC) && timeline },
+        }}
+        colA={(px) => colSize(px, 'minmax(0, 1.15fr)', 320, 75)} colB={() => 'minmax(0, 1fr)'} colSized="a" colMin={320} colMaxPct={75}
+        rowCDefault={(id) => (id === 'tl' ? 'auto' : '38%')} cCollapsed={(id) => id === 'tl' && !tlOpen}
+        popRoot={{ className: 'learn desktop popout', style: { ['--fs' as any]: fs } }} />
     </div>
   );
 }

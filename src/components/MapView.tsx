@@ -40,6 +40,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   const map = useRef<L.Map>();
   const topicZoom = useRef<() => void>(() => {});
   const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; topic: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup }>();
+  const canvasR = useRef<{ borders: L.Canvas; roads: L.Canvas }>();
   const cb = useRef({ onPlace, onRoute, onToday });
   cb.current = { onPlace, onRoute, onToday };
   const [snapLabel, setSnapLabel] = useState('');
@@ -54,6 +55,8 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     addBasemap(m);
     labelLayer().addTo(m);
     m.createPane('borders').style.zIndex = '350';
+    // 效能：疆域（一個年代上千個多邊形）和古道網改畫在 canvas，不再產生數千個 SVG 節點
+    canvasR.current = { borders: L.canvas({ pane: 'borders', padding: 0.3 }), roads: L.canvas({ padding: 0.3 }) };
     layers.current = {
       borders: L.layerGroup().addTo(m), awmc: L.layerGroup().addTo(m), itinere: L.layerGroup().addTo(m), routes: L.layerGroup().addTo(m),
       places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m), topic: L.layerGroup().addTo(m), chain: L.layerGroup().addTo(m), mover: L.layerGroup().addTo(m), today: L.layerGroup().addTo(m),
@@ -80,6 +83,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       g.clearLayers();
       L.geoJSON(gj, {
         pane: 'borders',
+        ...({ renderer: canvasR.current?.borders } as L.GeoJSONOptions),
         style: (f) => {
           const h = hue(f?.properties?.name ?? '');
           return { color: `hsl(${h},45%,40%)`, weight: 1, fillColor: `hsl(${h},60%,55%)`, fillOpacity: 0.16, dashArray: '3 3' };
@@ -95,7 +99,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   useEffect(() => {
     if (!index.itinere || !layers.current) return;
     fetch(`${import.meta.env.BASE_URL}data/itinere.geojson`).then((r) => r.json()).then((gj) => {
-      L.geoJSON(gj, { style: { color: '#8b5a2b', weight: 1, opacity: 0.55 }, interactive: false }).addTo(layers.current!.itinere);
+      L.geoJSON(gj, { renderer: canvasR.current?.roads, style: { color: '#8b5a2b', weight: 1, opacity: 0.55 }, interactive: false } as L.GeoJSONOptions).addTo(layers.current!.itinere);
     });
   }, [index.itinere]);
   useEffect(() => {
@@ -114,6 +118,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     if (!g || !awmc) return;
     g.clearLayers();
     L.geoJSON(awmc, {
+      ...({ renderer: canvasR.current?.roads } as L.GeoJSONOptions),
       filter: (f) => roadInEra(f.properties.t, era),
       style: (f) => ({ color: '#8b5a2b', weight: f?.properties.m ? 1.6 : 0.9, opacity: f?.properties.t ? 0.6 : 0.4, dashArray: f?.properties.k ? undefined : '4 3' }),
       onEachFeature: (f, layer) => layer.bindTooltip(`${biHtml(f.properties.n || '古道')}（巴林頓地圖集；${f.properties.k ? '路線確定' : '大致路線'}；${f.properties.t ? `時代 ${f.properties.t}` : '未標時代'}）`, { sticky: true }),

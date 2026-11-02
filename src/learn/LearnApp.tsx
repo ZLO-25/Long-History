@@ -1,6 +1,6 @@
 // 第 6 期：自主學習模式。和研究模式共用同一批卡片資料，只是呈現方式不同
 // 網址：?mode=learn&history=japan&unit=unit-xxx&card=war-xxx&sim=bubble&view=mymap
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useDeferredValue, useCallback, useEffect, useMemo, useState } from 'react';
 import { DockLayout, useDock } from '../components/Dock';
 import { useLayout, colSize } from '../lib/layout';
 
@@ -8,7 +8,7 @@ type LPanel = 'content' | 'map' | 'tl';
 const L_PANELS: readonly LPanel[] = ['content', 'map', 'tl'];
 import type { Card, Index } from '../types';
 import { MapView } from '../components/MapView';
-import { createSearch, matchTopics } from '../lib/search';
+import { createSearch, matchTopics, useSearchLibs } from '../lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from '../components/Story';
 import { useIsMobile } from '../lib/useIsMobile';
@@ -129,7 +129,9 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   };
 
   const search = useMemo(() => createSearch(all), [all]);
-  const hits = query.trim() ? search(query).hits.slice(0, 20) : [];
+  const libsReady = useSearchLibs(!!query.trim()); // 套件載入後重算，簡轉繁與拼音即生效
+  const dq = useDeferredValue(query);
+  const hits = useMemo(() => (dq.trim() ? search(dq).hits.slice(0, 20) : []), [search, dq, libsReady]); // eslint-disable-line react-hooks/exhaustive-deps
   const unitHits = query.trim() ? index.units.filter((u) => (u.title + u.mystery).includes(query.trim())) : [];
   const topicHits = query.trim() ? matchTopics(allTopics.map((t) => t.name), query) : [];
 

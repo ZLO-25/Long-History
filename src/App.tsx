@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState, useCallback } from 'react';
+import { useDeferredValue, useEffect, useMemo, useState, useCallback } from 'react';
 import { setNameTable } from './lib/bilingual';
 import type { Index, Card, Filters } from './types';
-import { createSearch, matchTopics } from './lib/search';
+import { createSearch, matchTopics, useSearchLibs } from './lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from './components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from './components/Story';
 import { activeAt } from './lib/format';
@@ -121,7 +121,10 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     (!filters.fields.length || [c.place.primary_field, ...c.place.secondary_fields].some((f) => filters.fields.includes(f))) &&
     (!filters.civs.length || c.civPaths.some((v) => filters.civs.some((f) => v === f || v.startsWith(f + '/')))), [filters]);
   const visible = useMemo(() => index.cards.filter(passFilter), [index, passFilter]);
-  const result = useMemo(() => search(query), [search, query]);
+  const libsReady = useSearchLibs(!!query.trim());
+  // 效能：搜尋結果用延後值，打字不會因為重算結果和地圖而卡住
+  const dq = useDeferredValue(query);
+  const result = useMemo(() => search(dq), [search, dq, libsReady]); // eslint-disable-line react-hooks/exhaustive-deps
   const hits = useMemo(() => result.hits.filter((h) => passFilter(h.card)), [result, passFilter]);
 
   const open = useCallback((p: Panel) => {
@@ -169,7 +172,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     open({ kind: 'story', id });
   }, [open, index, byId, year]);
   const topicNames = useMemo(() => (index.topicLayers ?? []).flatMap((l) => l.topics.map((t) => ({ name: t.name, n: t.cards.length }))), [index]);
-  const topicHits = useMemo(() => { const m = matchTopics(topicNames.map((t) => t.name), query); return topicNames.filter((t) => m.includes(t.name)); }, [topicNames, query]);
+  const topicHits = useMemo(() => { const m = matchTopics(topicNames.map((t) => t.name), query); return topicNames.filter((t) => m.includes(t.name)); }, [topicNames, query, libsReady]); // eslint-disable-line react-hooks/exhaustive-deps
   // 打開卡片或主題路徑時，網址跟著變（?card= / ?topic=），可以直接複製分享
   useEffect(() => {
     if (panel.kind !== 'card' && panel.kind !== 'topic' && panel.kind !== 'story') return;

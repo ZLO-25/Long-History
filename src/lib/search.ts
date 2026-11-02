@@ -1,12 +1,41 @@
 // 模糊搜尋：Fuse.js（容錯）＋ pinyin-pro（同音錯字）＋ opencc-js（簡轉繁）
 import Fuse, { type FuseResultMatch } from 'fuse.js';
-import { pinyin } from 'pinyin-pro';
-import { Converter } from 'opencc-js/cn2t';
+import { useEffect, useState } from 'react';
 import type { Card } from '../types';
 import { fmtYear } from './format';
 
-const toTrad = Converter({ from: 'cn', to: 'tw' });
-const py = (s: string) => pinyin(s, { toneType: 'none', separator: '', nonZh: 'consecutive' }).toLowerCase().replace(/\s+/g, '');
+// 效能：pinyin-pro（約 1MB）和 opencc（約 1MB）不放進首頁載入，
+// 第一次要搜尋（或瀏覽器空閒）時才下載；下載完成前先用原字搜尋，不會擋住畫面。
+type Libs = { toTrad: (s: string) => string; py: (s: string) => string };
+let libs: Libs | null = null;
+let loading: Promise<Libs> | null = null;
+export function loadSearchLibs(): Promise<Libs> {
+  if (!loading) loading = Promise.all([import('pinyin-pro'), import('opencc-js/cn2t')]).then(([p, o]) => {
+    const conv = o.Converter({ from: 'cn', to: 'tw' });
+    libs = {
+      toTrad: (s) => conv(s),
+      py: (s) => p.pinyin(s, { toneType: 'none', separator: '', nonZh: 'consecutive' }).toLowerCase().replace(/\s+/g, ''),
+    };
+    return libs;
+  });
+  return loading;
+}
+const toTrad = (s: string) => (libs ? libs.toTrad(s) : s);
+
+/** 回傳搜尋輔助套件是否已載入；want 為 true（使用者開始打字）時立刻載，否則等瀏覽器空閒再載 */
+export function useSearchLibs(want: boolean): boolean {
+  const [ready, setReady] = useState(!!libs);
+  useEffect(() => {
+    if (ready) return;
+    let alive = true;
+    const go = () => loadSearchLibs().then(() => { if (alive) setReady(true); }).catch(() => {});
+    if (want) { go(); return () => { alive = false; }; }
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
+    const t = w.requestIdleCallback ? w.requestIdleCallback(go, { timeout: 6000 }) : window.setTimeout(go, 3000);
+    return () => { alive = false; if (!w.requestIdleCallback) clearTimeout(t); };
+  }, [want, ready]);
+  return ready;
+}
 
 const KEYS = [
   { name: 'name', label: '名稱', weight: 3 },
@@ -38,15 +67,22 @@ export function createSearch(cards: Card[]) {
       id: c.id, name: c.name, aliases: c.aliases, places,
       fields: [c.place.primary_field, ...c.place.secondary_fields],
       civilization: c.civilization, topics: c.topics ?? [], tags: c.structure_tags, typeLabel: c.typeLabel,
-      py_name: py(c.name), py_aliases: c.aliases.map(py), py_places: places.map(py),
+      py_name: '', py_aliases: [], py_places: [],
     };
   });
   const byId = new Map(cards.map((c) => [c.id, c]));
   const opts = { includeScore: true, includeMatches: true, ignoreLocation: true, threshold: 0.34, minMatchCharLength: 1 };
   const text = new Fuse(recs, { ...opts, keys: KEYS.map((k) => ({ name: k.name, weight: k.weight })) });
-  const phon = new Fuse(recs, { ...opts, threshold: 0.25, keys: [
-    { name: 'py_name', weight: 3 }, { name: 'py_aliases', weight: 2.5 }, { name: 'py_places', weight: 2 },
-  ] });
+  // 拼音索引等套件載入後、第一次需要時才建
+  let phon: Fuse<Rec> | null = null;
+  const getPhon = (py: (s: string) => string) => {
+    if (phon) return phon;
+    for (const r of recs) { r.py_name = py(r.name); r.py_aliases = r.aliases.map(py); r.py_places = r.places.map(py); }
+    phon = new Fuse(recs, { ...opts, threshold: 0.25, keys: [
+      { name: 'py_name', weight: 3 }, { name: 'py_aliases', weight: 2.5 }, { name: 'py_places', weight: 2 },
+    ] });
+    return phon;
+  };
 
   return function search(raw: string): { hits: Hit[]; converted: string; year: number | null } {
     const q = raw.trim();
@@ -66,9 +102,9 @@ export function createSearch(cards: Card[]) {
     } else {
       for (const r of text.search(converted)) add(r.item.id, r.score ?? 1, (r.matches ?? []).map(toHighlight));
       // 拼音只在輸入含中文且長度 ≥ 2 時使用，避免英文誤命中
-      if (/[一-鿿]/.test(converted) && converted.length >= 2) {
-        const pq = py(converted);
-        for (const r of phon.search(pq)) {
+      if (libs && /[一-鿿]/.test(converted) && converted.length >= 2) {
+        const pq = libs.py(converted);
+        for (const r of getPhon(libs.py).search(pq)) {
           const hl = (r.matches ?? []).map((m) => phonHighlight(r.item, m));
           add(r.item.id, (r.score ?? 1) + 0.1, hl);
         }

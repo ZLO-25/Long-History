@@ -2,7 +2,7 @@
 id: commodity-iwami-silver
 type: commodity
 name: 石見銀山：日本白銀流向中國（1527–1923）
-aliases: [石見銀山, 石見, 大森銀山, 灰吹法, 神屋壽禎, 日本銀, 藤田組, Iwami Ginzan, Iwami silver mine, Hivami, cupellation, haifuki]
+aliases: [石見銀山, Iwami Ginzan, 日本銀, 灰吹法, 大森銀山, 神屋壽禎, 石見, 藤田組, Iwami silver mine, Hivami, cupellation, haifuki]
 civilization: [日本（戰國、江戶）]
 track: east
 time:

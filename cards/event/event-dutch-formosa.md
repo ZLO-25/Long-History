@@ -2,7 +2,7 @@
 id: event-dutch-formosa
 type: event
 name: 荷蘭東印度公司統治臺灣（大員與熱蘭遮城）
-aliases: [荷蘭時期, 荷治時期, 荷據時期, 大員, 熱蘭遮城, 安平古堡, Dutch Formosa, Fort Zeelandia, Tayouan, VOC Taiwan]
+aliases: [荷蘭時期, 熱蘭遮城, 安平古堡, 大員, 荷據時期, 荷治時期, Dutch Formosa, Fort Zeelandia, VOC Taiwan, Tayouan]
 civilization: [臺灣（荷西時期）, 荷蘭]
 track: east
 time:

@@ -2,7 +2,7 @@
 id: event-twelve-tables
 type: event
 name: 《十二銅表法》
-aliases: [十二銅表法, 十二表法, 十二铜表法, Twelve Tables, Lex Duodecim Tabularum, 羅馬成文法]
+aliases: [十二銅表法, 十二表法, Twelve Tables, 羅馬成文法, Lex Duodecim Tabularum, 十二铜表法]
 civilization: [古羅馬]
 track: west
 time:

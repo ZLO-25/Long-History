@@ -2,7 +2,7 @@
 id: event-228-incident
 type: event
 name: 二二八事件（1947）
-aliases: [二二八, 228事件, 二二八大屠殺, 二二八起義, 緝菸血案, 天馬茶房事件, 處理委員會, 三十二條, 清鄉, 陳儀, 林江邁, February 28 incident, 228 Incident, "2.28"]
+aliases: [二二八, 228事件, 228 Incident, 陳儀, 緝菸血案, 天馬茶房事件, 林江邁, 清鄉, February 28 incident, 二二八大屠殺, 二二八起義, 處理委員會, 三十二條, "2.28"]
 civilization: [臺灣（中華民國）]
 track: east
 time:

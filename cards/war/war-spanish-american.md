@@ -2,7 +2,7 @@
 id: war-spanish-american
 type: war
 name: 美西戰爭與美國海外擴張
-aliases: [美西戰爭, 西美戰爭, 美西战争, Spanish–American War, Spanish-American War, 緬因號, 緬因號爆炸, USS Maine, 杜威, George Dewey, 馬尼拉灣海戰, Battle of Manila Bay, 巴黎條約, Treaty of Paris 1898, 菲美戰爭, Philippine–American War, 門戶開放政策, 門戶開放照會, Open Door Policy, 海外擴張, 黃色新聞, 阿奎納多, Emilio Aguinaldo, 特勒修正案, 普拉特修正案]
+aliases: [美西戰爭, Spanish–American War, 緬因號, USS Maine, 馬尼拉灣海戰, 門戶開放政策, Open Door Policy, 菲美戰爭, 杜威, 黃色新聞, 海外擴張, 阿奎納多, Treaty of Paris 1898, 西美戰爭, Spanish-American War, 緬因號爆炸, George Dewey, Battle of Manila Bay, 巴黎條約, Philippine–American War, 門戶開放照會, Emilio Aguinaldo, 特勒修正案, 普拉特修正案, 美西战争]
 civilization: [美國（內戰與工業化）, 西班牙, 東南亞（菲律賓）, 拉丁美洲]
 track: west
 time:

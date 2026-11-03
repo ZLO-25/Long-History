@@ -2,7 +2,7 @@
 id: war-franco-prussian
 type: war
 name: 普法戰爭與德意志統一（1870–1871年）
-aliases: [普法战争, 普法戰爭, 德法戰爭, 色當戰役, 埃姆斯電報, 法蘭克福條約, 德意志帝國成立, 德國統一, 俾斯麥, 普法戰爭賠款, Franco-Prussian War, Franco-German War, Ems Dispatch, Treaty of Frankfurt, Battle of Sedan, Unification of Germany]
+aliases: [俾斯麥, 德國統一, 德意志帝國成立, 色當戰役, Franco-Prussian War, 埃姆斯電報, 法蘭克福條約, 普法戰爭賠款, 德法戰爭, Unification of Germany, Battle of Sedan, Ems Dispatch, 普法戰爭, Franco-German War, Treaty of Frankfurt, 普法战争]
 civilization: [法國, 德國]
 track: west
 time:

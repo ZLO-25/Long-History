@@ -2,7 +2,7 @@
 id: building-grand-canal
 type: building
 name: 隋唐大運河
-aliases: [隋唐大运河, 大運河, 大运河, Grand Canal, Sui–Tang Grand Canal, 通濟渠, 永濟渠, 江南河, 山陽瀆, 邗溝, 隋煬帝, 楊廣, Emperor Yang of Sui, 汴河]
+aliases: [大運河, Grand Canal, 隋煬帝, 通濟渠, 永濟渠, 汴河, Sui–Tang Grand Canal, 江南河, 山陽瀆, 邗溝, 楊廣, Emperor Yang of Sui, 隋唐大运河, 大运河]
 civilization: [中國（隋）, 中國（唐）]
 track: china
 time:

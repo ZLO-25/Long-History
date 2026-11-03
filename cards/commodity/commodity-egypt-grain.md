@@ -2,7 +2,7 @@
 id: commodity-egypt-grain
 type: commodity
 name: 埃及穀物輸羅馬
-aliases: [埃及小麥, 羅馬糧食供應, 糧食配給, 埃及谷物输罗马, Egyptian grain, Cura Annonae, annona, 亞歷山卓運糧船隊]
+aliases: [埃及小麥, 羅馬糧食供應, Egyptian grain, 糧食配給, Cura Annonae, 亞歷山卓運糧船隊, annona, 埃及谷物输罗马]
 civilization: [古羅馬, 羅馬埃及]
 track: west
 time:

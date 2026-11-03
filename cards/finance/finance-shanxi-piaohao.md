@@ -2,7 +2,7 @@
 id: finance-shanxi-piaohao
 type: finance
 name: 山西票號
-aliases: [票號, 票号, 山西票号, 晉商票號, 晋商票号, 日昇昌, 日升昌, Rishengchang, Piaohao, Shanxi banks, draft bank, 匯兌莊, 西裕成顏料莊, 雷履泰, Lei Lütai, 李大全, 平遙, Pingyao]
+aliases: [票號, 晉商票號, 日昇昌, 平遙, 雷履泰, Piaohao, Shanxi banks, Rishengchang, Pingyao, 匯兌莊, 李大全, 日升昌, draft bank, 西裕成顏料莊, Lei Lütai, 票号, 山西票号, 晋商票号]
 civilization: [中國（清）]
 track: china
 time:

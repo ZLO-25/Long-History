@@ -2,7 +2,7 @@
 id: tech-electric-grid
 type: tech
 name: 電力與電網
-aliases: [电力与电网, 電網, 电网, 發電廠, 電氣化, Electric power grid, Electrification, 珍珠街電廠, Pearl Street Station, 愛迪生, Thomas Edison, 特斯拉, Nikola Tesla, 西屋, George Westinghouse, 交直流之爭, 電流大戰, War of the currents, 尼加拉瀑布發電廠]
+aliases: [電網, 電氣化, 愛迪生, 特斯拉, 電流大戰, 交直流之爭, Thomas Edison, Nikola Tesla, 發電廠, Electric power grid, 西屋, 珍珠街電廠, Electrification, Pearl Street Station, George Westinghouse, War of the currents, 尼加拉瀑布發電廠, 电力与电网, 电网]
 civilization: [美國]
 track: west
 time:

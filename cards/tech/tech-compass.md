@@ -2,7 +2,7 @@
 id: tech-compass
 type: tech
 name: 指南針與航海羅盤
-aliases: [指南针, 指南針, 羅盤, 罗盘, Compass, magnetic compass, mariner's compass, 司南, 指南魚, 萍洲可談, 萍洲可谈, 朱彧, Zhu Yu, 沈括, Shen Kuo, 夢溪筆談, 四大發明]
+aliases: [指南針, 四大發明, 羅盤, Compass, 司南, 沈括, 夢溪筆談, magnetic compass, "mariner's compass", 指南魚, 萍洲可談, 朱彧, Zhu Yu, Shen Kuo, 指南针, 罗盘, 萍洲可谈]
 civilization: [中國（北宋）]
 track: china
 time:

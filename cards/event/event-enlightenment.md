@@ -2,7 +2,7 @@
 id: event-enlightenment
 type: event
 name: 啟蒙運動（17–18世紀）
-aliases: [啟蒙思想, 启蒙运动, 理性時代, 百科全書派, 伏爾泰, 盧梭, 孟德斯鳩, 洛克, 康德, 何謂啟蒙, 敢於求知, Enlightenment, Age of Enlightenment, Age of Reason, Encyclopédie, Sapere aude]
+aliases: [啟蒙思想, 理性時代, 伏爾泰, 盧梭, 孟德斯鳩, 洛克, 康德, Enlightenment, Age of Enlightenment, 百科全書派, 敢於求知, 何謂啟蒙, Age of Reason, Encyclopédie, Sapere aude, 启蒙运动]
 civilization: [法國, 英國, 日耳曼與法蘭克]
 track: west
 time:

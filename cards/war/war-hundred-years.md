@@ -2,8 +2,7 @@
 id: war-hundred-years
 type: war
 name: 英法百年戰爭（1337–1453年）
-aliases: [百年戰爭, 百年战争, 英法百年戰爭, 克雷西會戰, 普瓦捷會戰, 阿金庫爾戰役, 奧爾良之圍, 聖女貞德, 卡斯蒂永戰役, 長弓, 愛德華三世, 查理七世, Hundred Years' War, Battle of Crécy, Battle of Agincourt, Siege of Orléans, Joan of Arc, Battle of Castillon]
-aliases_main: [百年戰爭, 聖女貞德, Hundred Years' War]
+aliases: [百年戰爭, 聖女貞德, "Hundred Years' War", Joan of Arc, 英法百年戰爭, 阿金庫爾戰役, 克雷西會戰, 奧爾良之圍, 長弓, 普瓦捷會戰, Battle of Agincourt, 愛德華三世, 查理七世, 卡斯蒂永戰役, Battle of Crécy, Siege of Orléans, Battle of Castillon, 百年战争]
 civilization: [英國, 法國]
 track: west
 time:

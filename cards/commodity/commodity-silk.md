@@ -2,7 +2,7 @@
 id: commodity-silk
 type: commodity
 name: 絲綢
-aliases: [丝绸, 絲, 蠶絲, silk, sericulture, 養蠶, 絲綢之路, Seres, 賽里斯]
+aliases: [絲綢之路, silk, 蠶絲, 養蠶, 絲, sericulture, 賽里斯, Seres, 丝绸]
 civilization: [中國（漢）, 羅馬帝國, 安息（帕提亞）]
 track: china
 time:

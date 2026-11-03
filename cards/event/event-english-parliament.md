@@ -2,8 +2,7 @@
 id: event-english-parliament
 type: event
 name: 英格蘭議會的形成（13世紀起）
-aliases: [英格蘭議會, 英國議會的起源, 國會的起源, 孟福爾議會, 模範議會, 第一次男爵戰爭, 牛津條例, 上議院, 下議院, 平民院, 賢人會議, 大議會, 徵稅須經同意, Parliament of England, Simon de Montfort's Parliament, Model Parliament, First Barons' War, Provisions of Oxford, House of Commons, House of Lords]
-aliases_main: [英格蘭議會, 孟福爾議會, Parliament of England]
+aliases: [英格蘭議會, 英國議會的起源, 下議院, 上議院, 國會的起源, 模範議會, 孟福爾議會, Parliament of England, House of Commons, 徵稅須經同意, 第一次男爵戰爭, 牛津條例, 平民院, 賢人會議, 大議會, "Simon de Montfort's Parliament", Model Parliament, "First Barons' War", Provisions of Oxford, House of Lords]
 civilization: [英國]
 track: west
 time:

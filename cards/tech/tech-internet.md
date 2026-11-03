@@ -2,7 +2,7 @@
 id: tech-internet
 type: tech
 name: 網際網路
-aliases: [互联网, 互聯網, 因特网, 網路, 网络, Internet, ARPANET, 阿帕網, TCP/IP, 封包交換, Packet switching, 全球資訊網, World Wide Web, WWW, 柏納茲—李, Tim Berners-Lee, 瑟夫, Vint Cerf, 卡恩, Bob Kahn, CERN, NSFNET]
+aliases: [網路, 互聯網, Internet, 全球資訊網, World Wide Web, WWW, TCP/IP, 阿帕網, ARPANET, 柏納茲—李, Tim Berners-Lee, 封包交換, Packet switching, 瑟夫, Vint Cerf, 卡恩, Bob Kahn, CERN, NSFNET, 互联网, 因特网, 网络]
 civilization: [美國]
 track: west
 time:

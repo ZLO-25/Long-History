@@ -2,8 +2,7 @@
 id: war-jerusalem-70
 type: war
 name: 第一次猶太戰爭與耶路撒冷陷落（66–70年）
-aliases: [第一次猶太戰爭, 第一次猶太－羅馬戰爭, 猶太大起義, 耶路撒冷圍城戰, 攻陷耶路撒冷, 第二聖殿被毀, First Jewish–Roman War, Great Jewish Revolt, Siege of Jerusalem (70 CE), 提圖斯, Titus]
-aliases_main: [第一次猶太－羅馬戰爭, 耶路撒冷圍城戰, First Jewish–Roman War]
+aliases: [耶路撒冷圍城戰, 第二聖殿被毀, 猶太大起義, 第一次猶太戰爭, Siege of Jerusalem (70 CE), Great Jewish Revolt, 提圖斯, Titus, 攻陷耶路撒冷, First Jewish–Roman War, 第一次猶太－羅馬戰爭]
 civilization: [古羅馬]
 track: west
 time:

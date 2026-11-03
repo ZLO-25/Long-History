@@ -2,7 +2,7 @@
 id: war-eighty-years
 type: war
 name: 八十年戰爭：荷蘭獨立（1568–1648年）
-aliases: [八十年戰爭, 荷蘭獨立戰爭, 荷蘭起義, 尼德蘭革命, 破壞聖像運動, 烏特勒支同盟, 廢除效忠宣言, 十二年休戰, 明斯特和約, 奧蘭治的威廉, 沉默者威廉, 西班牙之怒, Eighty Years' War, Dutch Revolt, Act of Abjuration, Plakkaat van Verlatinghe, Union of Utrecht, Peace of Münster, Spanish Fury]
+aliases: [荷蘭獨立戰爭, 八十年戰爭, Dutch Revolt, "Eighty Years' War", 沉默者威廉, 奧蘭治的威廉, 尼德蘭革命, 荷蘭起義, 西班牙之怒, 烏特勒支同盟, 明斯特和約, 廢除效忠宣言, 破壞聖像運動, 十二年休戰, Act of Abjuration, Plakkaat van Verlatinghe, Union of Utrecht, Peace of Münster, Spanish Fury]
 civilization: [荷蘭, 西班牙, 法蘭德斯與比利時]
 track: west
 time:

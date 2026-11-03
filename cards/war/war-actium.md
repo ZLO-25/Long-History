@@ -2,7 +2,7 @@
 id: war-actium
 type: war
 name: 亞克興海戰
-aliases: [阿克提姆海戰, 亚克兴海战, 亞克提烏姆戰役, Battle of Actium, Actium, 屋大維, 安東尼與克麗奧佩脫拉]
+aliases: [屋大維, 安東尼與克麗奧佩脫拉, Battle of Actium, 阿克提姆海戰, 亞克提烏姆戰役, Actium, 亚克兴海战]
 civilization: [古羅馬, 托勒密埃及]
 track: west
 time:

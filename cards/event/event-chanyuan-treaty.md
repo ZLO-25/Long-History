@@ -2,8 +2,7 @@
 id: event-chanyuan-treaty
 type: event
 name: 宋遼夏對峙與澶淵之盟（1004年起）
-aliases: [澶淵之盟, 澶渊之盟, 澶淵, 宋遼夏對峙, 宋遼關係, 歲幣, 慶曆增幣, 慶曆和議, 燕雲十六州, 宋真宗, 曹利用, 遼聖宗, 蕭太后, 李元昊, 西夏, Chanyuan Treaty, Treaty of Shanyuan, Song–Liao relations, Western Xia]
-aliases_main: [澶淵之盟, 歲幣, Chanyuan Treaty]
+aliases: [澶淵之盟, 歲幣, 燕雲十六州, 西夏, 宋真宗, 蕭太后, 李元昊, 宋遼關係, Chanyuan Treaty, 澶淵, 宋遼夏對峙, 慶曆增幣, 慶曆和議, 曹利用, 遼聖宗, Treaty of Shanyuan, Song–Liao relations, Western Xia, 澶渊之盟]
 civilization: [中國（北宋）, 北方草原]
 track: china
 time:

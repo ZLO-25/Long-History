@@ -2,7 +2,7 @@
 id: war-fall-of-antwerp
 type: war
 name: 安特衛普的陷落與斯海爾德河封鎖
-aliases: [安特衛普陷落, 安特衛普圍城, 安特衛普之圍, 西班牙之怒, 斯海爾德河封鎖, 謝爾特河封鎖, 斯凱爾特河封鎖, 帕爾馬公爵, 亞歷山德羅·法爾內塞, 地獄燃燒船, Fall of Antwerp, Siege of Antwerp, Spanish Fury, Scheldt blockade, Closing of the Scheldt, Alexander Farnese, Duke of Parma, Hellburners]
+aliases: [安特衛普陷落, 安特衛普之圍, Fall of Antwerp, 斯海爾德河封鎖, 帕爾馬公爵, 亞歷山德羅·法爾內塞, Siege of Antwerp, 西班牙之怒, Spanish Fury, 地獄燃燒船, 安特衛普圍城, Scheldt blockade, 謝爾特河封鎖, 斯凱爾特河封鎖, Closing of the Scheldt, Alexander Farnese, Duke of Parma, Hellburners]
 civilization: [法蘭德斯與比利時（安特衛普）, 西班牙, 荷蘭]
 track: west
 time:

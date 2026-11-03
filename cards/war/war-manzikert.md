@@ -2,8 +2,7 @@
 id: war-manzikert
 type: war
 name: 曼齊克特之戰（1071年）
-aliases: [曼齊克特之戰, 曼齐克特之战, 曼齊刻爾特戰役, 馬拉茲吉爾特之戰, 羅曼努斯四世, 阿爾普·阿爾斯蘭, 塞爾柱突厥, 安納托利亞, Battle of Manzikert, Mantzikert, Malazgirt, Romanos IV Diogenes, Alp Arslan, Seljuk Turks]
-aliases_main: [曼齊克特之戰, 塞爾柱突厥, Battle of Manzikert]
+aliases: [曼齊克特之戰, 塞爾柱突厥, Battle of Manzikert, 阿爾普·阿爾斯蘭, Alp Arslan, 羅曼努斯四世, 安納托利亞, Seljuk Turks, 曼齊刻爾特戰役, 馬拉茲吉爾特之戰, Malazgirt, Mantzikert, Romanos IV Diogenes, 曼齐克特之战]
 civilization: [拜占庭帝國, 伊斯蘭世界（塞爾柱）]
 track: west
 time:

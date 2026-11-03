@@ -2,8 +2,7 @@
 id: event-christian-empire
 type: event
 name: 基督教成為羅馬國教（313–380年）
-aliases: [基督教成為羅馬國教, 米蘭敕令, 帖撒羅尼迦敕令, 君士坦丁皈依, 羅馬帝國基督教化, 狄奧多西一世, Edict of Milan, Edict of Thessalonica, Christianity as the Roman state religion, Constantine the Great, Theodosius I, 尼西亞會議]
-aliases_main: [米蘭敕令, 帖撒羅尼迦敕令, Edict of Thessalonica]
+aliases: [米蘭敕令, 君士坦丁皈依, Edict of Milan, 尼西亞會議, Constantine the Great, 狄奧多西一世, 帖撒羅尼迦敕令, 羅馬帝國基督教化, 基督教成為羅馬國教, Edict of Thessalonica, Christianity as the Roman state religion, Theodosius I]
 civilization: [古羅馬]
 track: west
 time:

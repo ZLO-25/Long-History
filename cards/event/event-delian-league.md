@@ -2,7 +2,7 @@
 id: event-delian-league
 type: event
 name: 提洛同盟（前478–前404年）
-aliases: [提洛同盟, 第洛斯同盟, 迪洛斯同盟, 雅典帝國, 同盟金庫遷往雅典, 提洛同盟金庫遷往雅典, Delian League, Athenian Empire, Athenian tribute lists]
+aliases: [提洛同盟, 雅典帝國, Delian League, 第洛斯同盟, 迪洛斯同盟, Athenian Empire, 同盟金庫遷往雅典, 提洛同盟金庫遷往雅典, Athenian tribute lists]
 civilization: [古希臘]
 track: west
 time:

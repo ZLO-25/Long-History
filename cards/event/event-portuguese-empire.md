@@ -2,7 +2,7 @@
 id: event-portuguese-empire
 type: event
 name: 葡萄牙海上帝國與迪亞士繞過好望角（1488年起）
-aliases: [葡萄牙海上帝國, 迪亞士繞過好望角, 迪亞士, 好望角, 風暴角, 葡屬印度, 印度總督, 果阿, 麻六甲, 澳門, 通行證制度, Portuguese Empire, Bartolomeu Dias, Cape of Good Hope, Estado da India, cartaz]
+aliases: [好望角, 迪亞士, 葡萄牙海上帝國, 迪亞士繞過好望角, Cape of Good Hope, Bartolomeu Dias, 澳門, 麻六甲, 果阿, 風暴角, Portuguese Empire, 葡屬印度, 印度總督, 通行證制度, Estado da India, cartaz]
 civilization: [葡萄牙]
 track: west
 time:

@@ -2,7 +2,7 @@
 id: war-changping
 type: war
 name: 長平之戰
-aliases: [长平之战, 長平, Battle of Changping, 白起坑殺趙卒, 紙上談兵, 趙括, 廉頗]
+aliases: [紙上談兵, 白起坑殺趙卒, 趙括, 廉頗, 長平, Battle of Changping, 长平之战]
 civilization: [中國（戰國）]
 track: china
 time:

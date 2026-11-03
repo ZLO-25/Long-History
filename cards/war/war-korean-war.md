@@ -2,7 +2,7 @@
 id: war-korean-war
 type: war
 name: 韓戰
-aliases: [朝鮮戰爭, 朝鲜战争, 抗美援朝, 抗美援朝戰爭, 六二五戰爭, 6.25戰爭, 한국전쟁, 6·25 전쟁, Korean War, 仁川登陸, Inchon Landing, Operation Chromite, 聯合國軍, United Nations Command, 中國人民志願軍, Chinese People's Volunteer Army, 三八線, 板門店, 朝鮮停戰協定, Korean Armistice Agreement, 麥克阿瑟, MacArthur, 金日成, 第七艦隊臺灣海峽中立化]
+aliases: [朝鮮戰爭, 抗美援朝, Korean War, 三八線, 仁川登陸, 麥克阿瑟, MacArthur, 板門店, 金日成, 中國人民志願軍, 聯合國軍, 六二五戰爭, 朝鮮停戰協定, 한국전쟁, 抗美援朝戰爭, 6.25戰爭, 6·25 전쟁, Inchon Landing, Operation Chromite, United Nations Command, "Chinese People's Volunteer Army", Korean Armistice Agreement, 第七艦隊臺灣海峽中立化, 朝鲜战争]
 civilization: [朝鮮（近現代）, 美國（世界強權）, 中華人民共和國, 蘇聯]
 track: east
 time:

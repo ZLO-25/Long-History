@@ -2,7 +2,7 @@
 id: war-napoleonic
 type: war
 name: 法國大革命戰爭與拿破崙戰爭（1792–1815年）
-aliases: [拿破崙戰爭, 拿破仑战争, 法國革命戰爭, 反法同盟, 拿破崙稱帝, 拿破崙, 滑鐵盧, 特拉法加海戰, 奧斯特里茨戰役, 大陸封鎖, 拿破崙法典, Napoleonic Wars, French Revolutionary Wars, Coalition Wars, Napoleon Bonaparte, Waterloo]
+aliases: [拿破崙戰爭, 拿破崙, 滑鐵盧, Napoleonic Wars, Napoleon Bonaparte, Waterloo, 拿破崙法典, 特拉法加海戰, 奧斯特里茨戰役, 大陸封鎖, 反法同盟, 拿破崙稱帝, 法國革命戰爭, French Revolutionary Wars, Coalition Wars, 拿破仑战争]
 civilization: [法國, 英國, 俄羅斯, 奧地利與哈布斯堡, 西班牙]
 track: west
 time:

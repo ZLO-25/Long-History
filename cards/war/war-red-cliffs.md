@@ -2,7 +2,7 @@
 id: war-red-cliffs
 type: war
 name: 赤壁之戰
-aliases: [赤壁之战, 赤壁, Battle of Red Cliffs, Battle of Chibi, 火燒赤壁, 曹操, 周瑜, 孫權, 劉備, 三國]
+aliases: [火燒赤壁, 赤壁, 曹操, 周瑜, 孫權, 劉備, 三國, Battle of Red Cliffs, Battle of Chibi, 赤壁之战]
 civilization: [中國（東漢末）]
 track: china
 time:

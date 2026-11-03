@@ -2,7 +2,7 @@
 id: war-chinese-civil-war
 type: war
 name: 國共內戰（1945–1949年）
-aliases: [國共內戰, 第二次國共內戰, 解放戰爭, 戡亂, 動員戡亂, 國民政府失去中國大陸, 三大戰役, 遼瀋戰役, 淮海戰役, 徐蚌會戰, 平津戰役, 渡江戰役, Chinese Civil War, "Chinese Civil War (1945–1949)"]
+aliases: [國共內戰, 第二次國共內戰, 三大戰役, 徐蚌會戰, 淮海戰役, 遼瀋戰役, 平津戰役, 渡江戰役, 解放戰爭, 動員戡亂, Chinese Civil War, 國民政府失去中國大陸, 戡亂, Chinese Civil War (1945–1949)]
 civilization: [中華民國, 中華人民共和國]
 track: china
 time:

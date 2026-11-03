@@ -2,7 +2,7 @@
 id: event-us-taiwan-defense
 type: event
 name: 美國協防臺灣與中美共同防禦條約（1950–1979年）
-aliases: [美國協防臺灣, 第七艦隊協防臺灣, 臺灣海峽中立化, 中美共同防禦條約, 中美共同防禦條約終止, 美華共同防禦條約, Sino-American Mutual Defense Treaty, 福爾摩沙決議案, Formosa Resolution, 第一次臺海危機, 九三砲戰, 一江山戰役, 大陳撤退, 臺灣關係法, Taiwan Relations Act, 八一七公報, August 17 Communiqué]
+aliases: [中美共同防禦條約, 美國協防臺灣, 第七艦隊協防臺灣, 九三砲戰, 第一次臺海危機, 臺灣關係法, 一江山戰役, 大陳撤退, 八一七公報, Sino-American Mutual Defense Treaty, Taiwan Relations Act, 臺灣海峽中立化, 中美共同防禦條約終止, 美華共同防禦條約, 福爾摩沙決議案, Formosa Resolution, August 17 Communiqué]
 civilization: [美國（世界強權）, 臺灣（中華民國）, 中華人民共和國]
 track: east
 time:

@@ -2,7 +2,7 @@
 id: war-german-peasants
 type: war
 name: 德意志農民戰爭（1524–1525年）
-aliases: [德意志農民戰爭, 德國農民戰爭, 農民戰爭, 十二條款, 閔采爾, 弗蘭肯豪森之戰, German Peasants' War, Twelve Articles, Thomas Müntzer, Battle of Frankenhausen, Bauernkrieg]
+aliases: [德國農民戰爭, 農民戰爭, 閔采爾, 十二條款, "German Peasants' War", Thomas Müntzer, 弗蘭肯豪森之戰, Twelve Articles, Bauernkrieg, 德意志農民戰爭, Battle of Frankenhausen]
 civilization: [神聖羅馬帝國]
 track: west
 time:

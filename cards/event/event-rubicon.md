@@ -2,7 +2,7 @@
 id: event-rubicon
 type: event
 name: 凱撒渡盧比孔河
-aliases: [凯撒渡卢比孔河, 渡過盧比孔河, 盧比孔河, 骰子已經擲下, Crossing the Rubicon, Rubicon, alea iacta est, 凱撒內戰]
+aliases: [骰子已經擲下, 渡過盧比孔河, Crossing the Rubicon, 盧比孔河, alea iacta est, 凱撒內戰, Rubicon, 凯撒渡卢比孔河]
 civilization: [古羅馬]
 track: west
 time:

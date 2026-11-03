@@ -2,7 +2,7 @@
 id: tech-turtle-ship
 type: tech
 name: 龜船（龜甲船）
-aliases: [龜船, 龜甲船, 거북선, 鐵甲船, 李舜臣龜船, 板屋船, turtle ship, geobukseon, kobukson]
+aliases: [龜船, 李舜臣龜船, 龜甲船, turtle ship, 거북선, 板屋船, geobukseon, 鐵甲船, kobukson]
 civilization: [朝鮮（朝鮮王朝）]
 track: east
 time:

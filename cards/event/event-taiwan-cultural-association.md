@@ -2,7 +2,7 @@
 id: event-taiwan-cultural-association
 type: event
 name: 臺灣文化協會與臺灣議會設置請願運動（1921–1934）
-aliases: [臺灣文化協會, 台灣文化協會, 文協, 臺灣議會設置請願運動, 議會請願運動, 治警事件, 臺灣民眾黨, 台灣民眾黨, 臺灣農民組合, 蔣渭水, 林獻堂, 臨床講義, 非武裝抗日, 新文化運動, Taiwanese Cultural Association, Petition Movement for a Taiwanese Parliament]
+aliases: [臺灣文化協會, 蔣渭水, 林獻堂, 文協, 臺灣議會設置請願運動, 臺灣民眾黨, 治警事件, 臨床講義, 非武裝抗日, 臺灣農民組合, Taiwanese Cultural Association, 議會請願運動, 新文化運動, Petition Movement for a Taiwanese Parliament, 台灣文化協會, 台灣民眾黨]
 civilization: [臺灣（日治）, 日本（近現代）]
 track: east
 time:

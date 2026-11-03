@@ -2,7 +2,7 @@
 id: event-eastern-han-founding
 type: event
 name: 綠林赤眉起事與東漢建立（17–25年）
-aliases: [綠林起事, 赤眉起事, 綠林赤眉, 绿林赤眉, 東漢建立, 东汉建立, 光武中興, 昆陽之戰, 劉秀, 漢光武帝, Lülin, Red Eyebrows, Emperor Guangwu, Eastern Han founding]
+aliases: [光武中興, 劉秀, 漢光武帝, 昆陽之戰, 綠林赤眉, 東漢建立, 綠林起事, 赤眉起事, Emperor Guangwu, Lülin, Red Eyebrows, Eastern Han founding, 绿林赤眉, 东汉建立]
 civilization: [中國（新朝）, 中國（東漢）]
 track: china
 time:

@@ -2,7 +2,7 @@
 id: war-jingnan
 type: war
 name: 靖難之變（1399–1402年）
-aliases: [靖難之變, 靖難之役, 靖難, 燕王起兵, 金川門之變, 削藩, 建文帝, 朱棣, 永樂帝, Jingnan campaign, Jingnan rebellion]
+aliases: [靖難之役, 朱棣, 永樂帝, 建文帝, 燕王起兵, 靖難之變, 削藩, 靖難, 金川門之變, Jingnan campaign, Jingnan rebellion]
 civilization: [中國（明）]
 track: china
 time:

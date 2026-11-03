@@ -2,7 +2,7 @@
 id: event-prc-founding
 type: event
 name: 中華人民共和國成立（1949年）
-aliases: [中華人民共和國成立, 中共建國, 開國大典, 新中國成立, 中國人民站起來了, 中國人民政治協商會議, 共同綱領, 中共建國與蘇聯試爆原子彈, 蘇聯第一次核試, RDS-1, 中蘇友好同盟互助條約, 一邊倒, Founding of the People's Republic of China, Proclamation of the People's Republic of China]
+aliases: [開國大典, 中華人民共和國成立, 新中國成立, 中國人民站起來了, 中共建國, 一邊倒, 中蘇友好同盟互助條約, 共同綱領, "Founding of the People's Republic of China", 中國人民政治協商會議, 中共建國與蘇聯試爆原子彈, 蘇聯第一次核試, RDS-1, "Proclamation of the People's Republic of China"]
 civilization: [中華人民共和國, 蘇聯]
 track: china
 time:

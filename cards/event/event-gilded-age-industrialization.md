@@ -2,7 +2,7 @@
 id: event-gilded-age-industrialization
 type: event
 name: 鍍金時代：美國工業化與移民潮
-aliases: [鍍金時代, 鍍金年代, 镀金时代, Gilded Age, 美國工業化, 美國第二次工業革命, 強盜大亨, 強盜貴族, Robber Barons, 托拉斯, Trust, 卡內基, Andrew Carnegie, 洛克斐勒, John D. Rockefeller, 標準石油, Standard Oil, 摩根, J. P. Morgan, 美國鋼鐵公司, U.S. Steel, 謝爾曼反托拉斯法, Sherman Antitrust Act, 橫貫大陸鐵路, 艾利斯島, 排華法案]
+aliases: [鍍金時代, Gilded Age, 洛克斐勒, 卡內基, 強盜大亨, 美國工業化, 標準石油, 摩根, Robber Barons, 排華法案, 托拉斯, 鍍金年代, 美國第二次工業革命, 強盜貴族, Trust, Andrew Carnegie, John D. Rockefeller, Standard Oil, J. P. Morgan, 美國鋼鐵公司, U.S. Steel, 謝爾曼反托拉斯法, Sherman Antitrust Act, 橫貫大陸鐵路, 艾利斯島, 镀金时代]
 civilization: [美國（內戰與工業化）]
 track: west
 time:

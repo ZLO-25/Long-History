@@ -2,7 +2,7 @@
 id: event-magna-carta
 type: event
 name: 大憲章
-aliases: [大宪章, Magna Carta, Magna Carta Libertatum, Great Charter, 自由大憲章, 約翰王, King John, 蘭尼米德, Runnymede, 英格蘭貴族叛亂]
+aliases: [Magna Carta, 約翰王, 自由大憲章, King John, 蘭尼米德, Great Charter, Runnymede, 英格蘭貴族叛亂, Magna Carta Libertatum, 大宪章]
 civilization: [英格蘭]
 track: west
 time:

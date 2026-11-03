@@ -2,7 +2,7 @@
 id: event-tianjin-treaty-taiwan
 type: event
 name: 天津條約與臺灣開港（1858–1860年代）
-aliases: [天津條約與臺灣開港, 臺灣開港, 台灣開港, 天津條約, 淡水開港, 打狗開港, 安平開港, 雞籠開港, 條約港, 滬尾, 郇和, 史溫侯, Treaty of Tientsin, Treaty of Tianjin, Taiwan treaty ports, Tamsui, Takao, Robert Swinhoe]
+aliases: [臺灣開港, 天津條約, 淡水開港, 打狗開港, 安平開港, 雞籠開港, 條約港, 滬尾, 郇和, Treaty of Tientsin, Robert Swinhoe, Taiwan treaty ports, 天津條約與臺灣開港, 史溫侯, Treaty of Tianjin, Tamsui, Takao, 台灣開港]
 civilization: [臺灣（清治）, 中國（清）, 英國]
 track: east
 time:

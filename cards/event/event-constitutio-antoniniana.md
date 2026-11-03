@@ -2,7 +2,7 @@
 id: event-constitutio-antoniniana
 type: event
 name: 卡拉卡拉敕令（212 年）
-aliases: [卡拉卡拉敕令, 安東尼努斯敕令, 卡拉卡拉, 卡拉卡拉敕令（212年）, Constitutio Antoniniana, Edict of Caracalla, Antonine Constitution, 羅馬公民權普及]
+aliases: [卡拉卡拉, 羅馬公民權普及, Edict of Caracalla, Constitutio Antoniniana, 安東尼努斯敕令, 卡拉卡拉敕令, 卡拉卡拉敕令（212年）, Antonine Constitution]
 civilization: [古羅馬]
 track: west
 time:

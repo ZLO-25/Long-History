@@ -2,7 +2,7 @@
 id: event-taiwan-2000-transition
 type: event
 name: 2000 年臺灣首次政黨輪替
-aliases: [政黨輪替, 首次政黨輪替, 第一次政黨輪替, 2000年總統大選, 第十任總統選舉, 陳水扁當選, 台灣站起來, 四不一沒有, 2000 Taiwanese presidential election, first transfer of power in Taiwan, Chen Shui-bian]
+aliases: [政黨輪替, 首次政黨輪替, 陳水扁當選, Chen Shui-bian, 2000年總統大選, 四不一沒有, 台灣站起來, 第一次政黨輪替, first transfer of power in Taiwan, 第十任總統選舉, 2000 Taiwanese presidential election]
 civilization: [臺灣（中華民國）]
 track: east
 time:

@@ -119,7 +119,10 @@ a { color: var(--accent); }
 .kv { display: grid; grid-template-columns: 70px 1fr; gap: 4px 8px; font-size: 14px; margin: 0; }
 .kv dt { color: var(--muted); } .kv dd { margin: 0; min-width: 0; }
 /* 別名：主要的先顯示，其他收在「顯示更多」 */
-.aliases-more { margin-left: 6px; font-size: 12px; white-space: nowrap; text-decoration: none; }
+.aliases { display: block; position: relative; }
+.aliases-measure { position: absolute; left: 0; top: 0; visibility: hidden; pointer-events: none; white-space: normal; }
+.aliases-measure .m { font-size: 12px; white-space: nowrap; }
+.aliases-more { font-size: 12px; white-space: nowrap; text-decoration: none; padding: 0; }
 .aliases-more:hover { text-decoration: underline; }
 .aliases-rest { color: var(--muted); }
 .locs { list-style: none; padding: 0 !important; margin: 0; }

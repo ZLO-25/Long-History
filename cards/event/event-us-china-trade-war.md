@@ -2,7 +2,7 @@
 id: event-us-china-trade-war
 type: event
 name: 美中貿易戰與科技戰
-aliases: [中美貿易戰, 美中貿易戰, 中美科技戰, 中美貿易战, 美中科技戰, US–China trade war, Sino-US trade war, China–United States trade war, 301條款, 301調查, Section 301, 實體清單, Entity List, 華為, Huawei, 晶片法案, 晶片與科學法, CHIPS and Science Act, CHIPS Act, 出口管制, 川普關稅, 對等關稅, reciprocal tariffs, 脫鉤, decoupling, 修昔底德陷阱, Thucydides Trap, IEEPA 關稅, 芬太尼關稅, 釜山川習會, 關聯企業規則, Affiliates Rule, Learning Resources v. Trump]
+aliases: [中美貿易戰, 中美科技戰, US–China trade war, 川普關稅, 對等關稅, 華為, 晶片法案, 出口管制, 實體清單, 脫鉤, 修昔底德陷阱, CHIPS Act, 美中貿易戰, 美中科技戰, Sino-US trade war, China–United States trade war, 301條款, 301調查, Section 301, Entity List, Huawei, 晶片與科學法, CHIPS and Science Act, reciprocal tariffs, decoupling, Thucydides Trap, IEEPA 關稅, 芬太尼關稅, 釜山川習會, 關聯企業規則, Affiliates Rule, Learning Resources v. Trump, 中美貿易战]
 civilization: [美國（冷戰後）, 中華人民共和國, 臺灣（中華民國）]
 track: china
 time:

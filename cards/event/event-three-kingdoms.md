@@ -2,7 +2,7 @@
 id: event-three-kingdoms
 type: event
 name: 東漢滅亡與三國鼎立（220–280年）
-aliases: [三國, 三国, 三國鼎立, 三国鼎立, 東漢滅亡, 曹魏, 蜀漢, 孫吳, 魏蜀吳, 隆中對, Three Kingdoms, Fall of the Han dynasty, Cao Wei, Shu Han, Eastern Wu]
+aliases: [三國, 三國鼎立, 魏蜀吳, 曹魏, 蜀漢, 孫吳, 隆中對, 東漢滅亡, Three Kingdoms, Cao Wei, Shu Han, Eastern Wu, Fall of the Han dynasty, 三国, 三国鼎立]
 civilization: [中國（東漢末）, 中國（三國）]
 track: china
 time:

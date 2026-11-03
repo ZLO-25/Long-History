@@ -2,7 +2,7 @@
 id: finance-mississippi-bubble
 type: finance
 name: 約翰·羅與密西西比泡沫
-aliases: [密西西比泡沫, 密西西比公司, 約翰·勞, 約翰·羅, 約翰羅, John Law, Mississippi Bubble, Mississippi Company, Compagnie des Indes, Compagnie d'Occident, Banque Générale, Banque Royale, 通用銀行, 皇家銀行, 法國皇家銀行, 路易斯安那, 路易十四債務, 羅氏體系, Law's System]
+aliases: [密西西比泡沫, 約翰·羅, John Law, Mississippi Bubble, 密西西比公司, Mississippi Company, 約翰·勞, 皇家銀行, Banque Royale, 羅氏體系, "Law's System", 路易斯安那, 約翰羅, Compagnie des Indes, "Compagnie d'Occident", Banque Générale, 通用銀行, 法國皇家銀行, 路易十四債務]
 civilization: [法國]
 track: west
 time:

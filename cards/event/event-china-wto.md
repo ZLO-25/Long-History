@@ -2,7 +2,7 @@
 id: event-china-wto
 type: event
 name: 中國加入世界貿易組織（2001年）
-aliases: [中國加入世貿, 中國入世, 中国入世, 加入WTO, 中國加入世界貿易組織, 世界貿易組織, 世貿組織, 中國衝擊, China WTO accession, China joins WTO, World Trade Organization, China shock, permanent normal trade relations, PNTR]
+aliases: [中國入世, 中國加入世貿, 加入WTO, 世界貿易組織, China joins WTO, 中國衝擊, China shock, World Trade Organization, 中國加入世界貿易組織, 世貿組織, China WTO accession, permanent normal trade relations, PNTR, 中国入世]
 civilization: [中華人民共和國, 美國（冷戰後）]
 track: china
 time:

@@ -2,7 +2,7 @@
 id: finance-hamilton-financial-plan
 type: finance
 name: 漢彌爾頓財政計畫與美國第一銀行
-aliases: [漢密爾頓財政計畫, 汉密尔顿财政计划, 漢彌爾頓, 漢密爾頓, 亞歷山大·漢彌爾頓, Alexander Hamilton, 公共信用報告, Report on Public Credit, First Report on the Public Credit, 聯邦承擔各州債務, Assumption of state debts, 1790 年資金籌措法, Funding Act of 1790, 美國第一銀行, 第一合眾國銀行, First Bank of the United States, 1792 年鑄幣法, Coinage Act of 1792, 美國鑄幣局, 1792 年恐慌, Panic of 1792, 梧桐樹協議, Buttonwood Agreement, 1790 年妥協, Compromise of 1790]
+aliases: [漢彌爾頓, Alexander Hamilton, 美國第一銀行, First Bank of the United States, 漢密爾頓財政計畫, 聯邦承擔各州債務, 公共信用報告, Report on Public Credit, 梧桐樹協議, Buttonwood Agreement, 1790 年妥協, 美國鑄幣局, 漢密爾頓, 亞歷山大·漢彌爾頓, First Report on the Public Credit, Assumption of state debts, 1790 年資金籌措法, Funding Act of 1790, 第一合眾國銀行, 1792 年鑄幣法, Coinage Act of 1792, 1792 年恐慌, Panic of 1792, Compromise of 1790, 汉密尔顿财政计划]
 civilization: [美國（建國初期）]
 track: west
 time:

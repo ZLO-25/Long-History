@@ -2,7 +2,7 @@
 id: event-western-regions-protectorate
 type: event
 name: 西域都護府（前60年）
-aliases: [西域都護, 西域都护府, 都護府, 鄭吉, 烏壘城, 漢朝經營西域, Protectorate of the Western Regions, Protector General of the Western Regions]
+aliases: [西域都護, 漢朝經營西域, 都護府, 鄭吉, 烏壘城, Protectorate of the Western Regions, Protector General of the Western Regions, 西域都护府]
 civilization: [中國（西漢）, 中國（東漢）]
 track: china
 time:

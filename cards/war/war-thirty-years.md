@@ -2,7 +2,7 @@
 id: war-thirty-years
 type: war
 name: 三十年戰爭（1618–1648年）
-aliases: [三十年戰爭, 30年戰爭, 布拉格拋窗事件, 白山之戰, 馬德堡之劫, 西發里亞和約, 威斯特伐利亞和約, 古斯塔夫二世, Thirty Years' War, Defenestration of Prague, Peace of Westphalia, Gustavus Adolphus]
+aliases: [西發里亞和約, 威斯特伐利亞和約, "Thirty Years' War", Peace of Westphalia, 布拉格拋窗事件, 古斯塔夫二世, Gustavus Adolphus, 白山之戰, 馬德堡之劫, Defenestration of Prague, 30年戰爭, 三十年戰爭]
 civilization: [神聖羅馬帝國, 法國, 西班牙, 荷蘭]
 track: west
 time:

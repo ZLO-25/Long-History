@@ -2,8 +2,7 @@
 id: event-southern-song
 type: event
 name: 南宋建立與宋金對峙（1127–1279年）
-aliases: [南宋, 南宋建立, 宋金對峙, 南北分治, 宋高宗, 趙構, 臨安, 杭州, 行在, 紹興和議, 秦檜, 岳飛, 淮河為界, 采石之戰, 崖山之戰, 襄陽之戰, Southern Song, Treaty of Shaoxing, Lin'an]
-aliases_main: [南宋, 紹興和議, Southern Song]
+aliases: [南宋, 岳飛, 秦檜, 宋金對峙, 臨安, 杭州, 宋高宗, 趙構, 崖山之戰, 襄陽之戰, 紹興和議, 采石之戰, Southern Song, 南宋建立, 南北分治, 行在, 淮河為界, Treaty of Shaoxing, "Lin'an"]
 civilization: [中國（南宋）, 北方草原（金）]
 track: china
 time:

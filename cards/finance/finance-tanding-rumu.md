@@ -2,7 +2,7 @@
 id: finance-tanding-rumu
 type: finance
 name: 攤丁入畝（1723年起）
-aliases: [攤丁入畝, 攤丁入地, 地丁合一, 丁銀, 盛世滋丁永不加賦, 雍正稅改, 雍正帝, Tanding rumu, Tanding rudi, Yongzheng tax reform, poll tax merged into land tax]
+aliases: [雍正稅改, 攤丁入地, 地丁合一, 雍正帝, 盛世滋丁永不加賦, 丁銀, Yongzheng tax reform, Tanding rumu, 攤丁入畝, Tanding rudi, poll tax merged into land tax]
 civilization: [中國（清）]
 track: china
 time:

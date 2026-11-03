@@ -2,7 +2,7 @@
 id: building-dujiangyan
 type: building
 name: 都江堰
-aliases: [都江堰, Dujiangyan, 李冰, Li Bing, 魚嘴, 飛沙堰, 寶瓶口, 岷江, 天府之國]
+aliases: [Dujiangyan, 李冰, 天府之國, 魚嘴, 寶瓶口, 飛沙堰, 岷江, 都江堰, Li Bing]
 civilization: [中國（戰國秦）]
 track: china
 time:

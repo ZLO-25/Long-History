@@ -2,7 +2,7 @@
 id: war-second-punic
 type: war
 name: 第二次布匿戰爭
-aliases: [第二次布匿战争, 漢尼拔戰爭, 汉尼拔战争, Second Punic War, Hannibalic War, 坎尼會戰, 坎尼之戰, 札馬戰役, Cannae]
+aliases: [漢尼拔戰爭, 坎尼會戰, Second Punic War, Hannibalic War, 札馬戰役, Cannae, 坎尼之戰, 第二次布匿战争, 汉尼拔战争]
 civilization: [古羅馬, 迦太基]
 track: west
 time:

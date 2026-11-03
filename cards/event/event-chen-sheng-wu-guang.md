@@ -2,7 +2,7 @@
 id: event-chen-sheng-wu-guang
 type: event
 name: 陳勝吳廣起義（大澤鄉起義）
-aliases: [陈胜吴广起义, 大澤鄉起義, 大泽乡起义, Dazexiang uprising, 陳勝, 吳廣, Chen Sheng, Wu Guang, 張楚, 王侯將相寧有種乎, 失期當斬]
+aliases: [大澤鄉起義, 陳勝, 吳廣, 王侯將相寧有種乎, 張楚, 失期當斬, Dazexiang uprising, Chen Sheng, Wu Guang, 陈胜吴广起义, 大泽乡起义]
 civilization: [中國（秦）]
 track: china
 time:

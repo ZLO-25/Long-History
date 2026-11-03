@@ -2,7 +2,7 @@
 id: finance-us-aid-taiwan
 type: finance
 name: 美援與農復會（1948–1965年）
-aliases: [美援, 美國援華, 美國援助, 農復會, 中國農村復興聯合委員會, 美援會, 美援運用委員會, 美援結束, US aid to Taiwan, Joint Commission on Rural Reconstruction, JCRR, Sino-American Joint Commission on Rural Reconstruction, China Aid Act of 1948]
+aliases: [美援, 農復會, 美國援華, 美援會, 中國農村復興聯合委員會, 美援運用委員會, 美援結束, US aid to Taiwan, JCRR, Joint Commission on Rural Reconstruction, 美國援助, Sino-American Joint Commission on Rural Reconstruction, China Aid Act of 1948]
 civilization: [臺灣（中華民國）, 美國（世界強權）]
 track: east
 time:

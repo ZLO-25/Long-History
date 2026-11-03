@@ -2,7 +2,7 @@
 id: event-counter-reformation
 type: event
 name: 反宗教改革（1545年起）
-aliases: [反宗教改革, 天主教改革, 天主教復興, 特倫托大公會議, 特利騰大公會議, 耶穌會, 禁書目錄, Counter-Reformation, Catholic Reformation, Council of Trent, Jesuits, Index Librorum Prohibitorum]
+aliases: [天主教改革, 耶穌會, 特倫托大公會議, 禁書目錄, Counter-Reformation, Jesuits, Council of Trent, 特利騰大公會議, 反宗教改革, 天主教復興, Catholic Reformation, Index Librorum Prohibitorum]
 civilization: [義大利]
 track: west
 time:

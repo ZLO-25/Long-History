@@ -2,7 +2,7 @@
 id: finance-tulip-mania
 type: finance
 name: 荷蘭鬱金香狂熱（1634–1637）
-aliases: [鬱金香狂熱, 鬱金香泡沫, 鬱金香熱, 永遠的奧古斯都, 風中交易, Tulip mania, Tulipomania, Semper Augustus, windhandel]
+aliases: [鬱金香狂熱, 鬱金香泡沫, Tulip mania, 鬱金香熱, 永遠的奧古斯都, Semper Augustus, 風中交易, Tulipomania, windhandel]
 civilization: [荷蘭]
 track: west
 time:

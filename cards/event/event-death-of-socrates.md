@@ -2,7 +2,7 @@
 id: event-death-of-socrates
 type: event
 name: 蘇格拉底之死
-aliases: [蘇格拉底審判, 苏格拉底之死, Socrates, Trial of Socrates, 蘇格拉底, 毒堇]
+aliases: [蘇格拉底, 蘇格拉底審判, Socrates, Trial of Socrates, 毒堇, 苏格拉底之死]
 civilization: [古希臘]
 track: west
 time:

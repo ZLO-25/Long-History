@@ -2,7 +2,7 @@
 id: building-han-changan
 type: building
 name: 漢長安城
-aliases: [汉长安城, 長安, 长安, Chang'an, Han Chang'an, 未央宮, 未央宫, Weiyang Palace, 長樂宮, 建章宮, 斗城]
+aliases: [長安, "Chang'an", 未央宮, Weiyang Palace, 長樂宮, 建章宮, "Han Chang'an", 斗城, 汉长安城, 长安, 未央宫]
 civilization: [中國（西漢）]
 track: china
 time:

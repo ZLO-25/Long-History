@@ -2,7 +2,7 @@
 id: event-american-founding-philosophy
 type: event
 name: 美國立國哲學：啟蒙思想、自然權利與共和主義
-aliases: [美國立國思想, 建國思想, 立國哲學, 美國革命的思想起源, 洛克與美國建國, 自然權利, 同意統治, 社會契約論, 古典共和主義, 公民共和主義, 共和主義與自由主義之爭, American founding philosophy, Intellectual origins of the American Revolution, Enlightenment and the American founding, Lockean liberalism, Civic republicanism, Natural rights, Consent of the governed, Two Treatises of Government, Spirit of the Laws, Cato's Letters, The Federalist Papers]
+aliases: [美國立國思想, 自然權利, 社會契約論, 洛克與美國建國, 古典共和主義, The Federalist Papers, American founding philosophy, 同意統治, Natural rights, 建國思想, 立國哲學, 美國革命的思想起源, 公民共和主義, 共和主義與自由主義之爭, Intellectual origins of the American Revolution, Enlightenment and the American founding, Lockean liberalism, Civic republicanism, Consent of the governed, Two Treatises of Government, Spirit of the Laws, "Cato's Letters"]
 civilization: [美國（殖民地時期）, 美國（建國初期）, 英國, 法國]
 track: west
 time:

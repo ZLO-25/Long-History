@@ -2,7 +2,7 @@
 id: event-ming-founding
 type: event
 name: 明朝建立（1368年）
-aliases: [明朝建立, 明朝開國, 朱元璋稱帝, 洪武建國, 大明建國, 洪武帝, 朱元璋, 明太祖, Founding of the Ming dynasty, Hongwu Emperor, Zhu Yuanzhang]
+aliases: [朱元璋, 明太祖, 洪武帝, 明朝建立, 朱元璋稱帝, 明朝開國, Hongwu Emperor, Founding of the Ming dynasty, 洪武建國, 大明建國, Zhu Yuanzhang]
 civilization: [中國（明）]
 track: china
 time:

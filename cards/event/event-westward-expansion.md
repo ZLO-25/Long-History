@@ -2,7 +2,7 @@
 id: event-westward-expansion
 type: event
 name: 路易斯安那購地與西進擴張
-aliases: [西進運動, 西進擴張, 西部擴張, 路易斯安那購地, 路易斯安那購買, Louisiana Purchase, Westward Expansion, 天命昭昭, 昭昭天命, 天定命運, Manifest Destiny, 印第安人遷移法, 印第安人強制遷移法, Indian Removal Act, 淚之路, 眼淚之路, Trail of Tears, 切羅基人, 美墨戰爭, Mexican–American War, 瓜達盧佩-伊達爾戈條約, Treaty of Guadalupe Hidalgo, 加州淘金熱, California Gold Rush, 宅地法, 公地放領法, Homestead Act, 邊疆關閉, 邊疆論, Frontier Thesis, 傑克遜, Andrew Jackson]
+aliases: [西進運動, 路易斯安那購地, 天命昭昭, Manifest Destiny, Louisiana Purchase, 淚之路, Trail of Tears, 美墨戰爭, 加州淘金熱, 宅地法, 印第安人遷移法, Westward Expansion, 西進擴張, 西部擴張, 路易斯安那購買, 昭昭天命, 天定命運, 印第安人強制遷移法, Indian Removal Act, 眼淚之路, 切羅基人, Mexican–American War, 瓜達盧佩-伊達爾戈條約, Treaty of Guadalupe Hidalgo, California Gold Rush, 公地放領法, Homestead Act, 邊疆關閉, 邊疆論, Frontier Thesis, 傑克遜, Andrew Jackson]
 civilization: [美國（建國初期）, 法國, 拉丁美洲]
 track: west
 time:

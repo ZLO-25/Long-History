@@ -2,7 +2,7 @@
 id: event-han-inherits-qin
 type: event
 name: 漢承秦制（劉邦建漢）
-aliases: [汉承秦制, 劉邦建漢, 刘邦建汉, 漢高祖, 汉高祖, Emperor Gaozu of Han, Han dynasty founding, 郡國並行, 七國之亂, 蕭何律]
+aliases: [劉邦建漢, 漢高祖, 七國之亂, 郡國並行, 蕭何律, Emperor Gaozu of Han, Han dynasty founding, 汉承秦制, 刘邦建汉, 汉高祖]
 civilization: [中國（西漢）]
 track: china
 time:

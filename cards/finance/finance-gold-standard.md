@@ -2,7 +2,7 @@
 id: finance-gold-standard
 type: finance
 name: 古典金本位與英鎊時代
-aliases: [古典金本位, 金本位制, 金本位, 金本位制度, 英鎊時代, Classical gold standard, Gold standard, Pax Britannica monetary system, 彼爾條例, 皮爾條例, 1844年銀行特許法, Bank Charter Act 1844, Peel's Bank Act, 恢復金兌換, 金銀複本位, Bimetallism, 1873年罪行, Crime of 73, 銀價下跌, 白銀貶值, 金匯兌本位, 德國馬克金本位]
+aliases: [金本位, 金本位制, 古典金本位, Gold standard, Classical gold standard, 英鎊時代, 金銀複本位, Bimetallism, 皮爾條例, 1844年銀行特許法, Bank Charter Act 1844, 金匯兌本位, 金本位制度, Pax Britannica monetary system, 彼爾條例, "Peel's Bank Act", 恢復金兌換, 1873年罪行, Crime of 73, 銀價下跌, 白銀貶值, 德國馬克金本位]
 civilization: [英國, 日耳曼與法蘭克/德國, 美國（內戰與工業化）]
 track: west
 time:

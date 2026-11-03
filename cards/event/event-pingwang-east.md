@@ -2,7 +2,7 @@
 id: event-pingwang-east
 type: event
 name: 平王東遷
-aliases: [平王东迁, 周平王東遷, 東周開始, 东周, Eastern Zhou, King Ping of Zhou, 犬戎, 鎬京, 洛邑, 春秋時代開始]
+aliases: [東周開始, 周平王東遷, 犬戎, 春秋時代開始, 鎬京, 洛邑, Eastern Zhou, King Ping of Zhou, 平王东迁, 东周]
 civilization: [中國（周）]
 track: china
 time:

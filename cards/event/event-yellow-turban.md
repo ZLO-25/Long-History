@@ -2,7 +2,7 @@
 id: event-yellow-turban
 type: event
 name: 黃巾之亂
-aliases: [黄巾之乱, 黃巾起義, 黄巾起义, Yellow Turban Rebellion, 張角, 张角, Zhang Jue, 太平道, Taiping Dao, 蒼天已死黃天當立]
+aliases: [黃巾起義, 張角, 蒼天已死黃天當立, 太平道, Yellow Turban Rebellion, Zhang Jue, Taiping Dao, 黄巾之乱, 黄巾起义, 张角]
 civilization: [中國（東漢）]
 track: china
 time:

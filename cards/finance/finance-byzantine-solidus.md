@@ -2,7 +2,7 @@
 id: finance-byzantine-solidus
 type: finance
 name: 拜占庭金幣索利都斯：七百年的「中世紀美元」
-aliases: [索利都斯, 索里德, 索利達斯, 拜占庭金幣, 拜占庭索里達, 諾米斯瑪, 諾米斯馬, 貝占特, 金幣貝占特, 海珀皮倫, Solidus, Byzantine solidus, nomisma, bezant, besant, hyperpyron, hyperpera, The Dollar of the Middle Ages, 中世紀的美元, 君士坦丁金幣, 拂菻金幣]
+aliases: [索利都斯, 拜占庭金幣, 中世紀的美元, Byzantine solidus, Solidus, 貝占特, bezant, 諾米斯瑪, nomisma, 君士坦丁金幣, 拂菻金幣, 海珀皮倫, 索利達斯, 諾米斯馬, besant, hyperpyron, hyperpera, The Dollar of the Middle Ages, 索里德, 拜占庭索里達, 金幣貝占特]
 civilization: [古羅馬, 拜占庭帝國]
 track: west
 time:

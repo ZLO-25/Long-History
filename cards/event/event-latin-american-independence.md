@@ -2,7 +2,7 @@
 id: event-latin-american-independence
 type: event
 name: 拉丁美洲獨立運動（1810–1825年）
-aliases: [拉丁美洲獨立, 拉美獨立運動, 西屬美洲獨立戰爭, 玻利瓦, 玻利瓦爾, 聖馬丁, 牙買加信函, 阿亞庫喬戰役, 大哥倫比亞, 克里奧爾人, Spanish American wars of independence, Latin American independence, Simón Bolívar, José de San Martín, Jamaica Letter, Battle of Ayacucho]
+aliases: [拉丁美洲獨立, 玻利瓦, Simón Bolívar, 聖馬丁, 拉美獨立運動, 大哥倫比亞, 克里奧爾人, Latin American independence, 牙買加信函, 西屬美洲獨立戰爭, 玻利瓦爾, 阿亞庫喬戰役, Spanish American wars of independence, José de San Martín, Jamaica Letter, Battle of Ayacucho]
 civilization: [拉丁美洲, 西班牙]
 track: west
 time:

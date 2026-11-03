@@ -2,7 +2,7 @@
 id: finance-amsterdam-decline
 type: finance
 name: 阿姆斯特丹金融中心的衰落
-aliases: [阿姆斯特丹的衰落, 荷蘭金融霸權的終結, 荷蘭黃金時代的終結, 1763 年信用危機, 1763 信用危機, Credit crisis of 1763, 第四次英荷戰爭, Fourth Anglo-Dutch War, 荷蘭東印度公司解散, 巴達維亞共和國, Batavian Republic, 荷普銀行, Hope & Co., Decline of Amsterdam as a financial center]
+aliases: [阿姆斯特丹的衰落, 荷蘭黃金時代的終結, 荷蘭金融霸權的終結, 1763 年信用危機, 第四次英荷戰爭, 荷蘭東印度公司解散, 巴達維亞共和國, Decline of Amsterdam as a financial center, 1763 信用危機, Credit crisis of 1763, Fourth Anglo-Dutch War, Batavian Republic, 荷普銀行, Hope & Co.]
 civilization: [荷蘭]
 track: west
 time:

@@ -2,7 +2,7 @@
 id: building-colosseum
 type: building
 name: 競技場（羅馬圓形競技場）
-aliases: [羅馬競技場, 圓形競技場, 罗马斗兽场, 羅馬鬥獸場, 弗拉維圓形劇場, Colosseum, Flavian Amphitheatre, Amphitheatrum Flavium]
+aliases: [羅馬競技場, Colosseum, 羅馬鬥獸場, 圓形競技場, 弗拉維圓形劇場, Flavian Amphitheatre, Amphitheatrum Flavium, 罗马斗兽场]
 civilization: [古羅馬]
 track: west
 time:

@@ -2,7 +2,7 @@
 id: event-second-triumvirate
 type: event
 name: 凱撒遇刺與後三頭同盟（前44–前32年）
-aliases: [後三頭同盟, 後三巨頭, 第二次三頭同盟, 凱撒遇刺, 3月15日, 公敵宣告, 腓立比戰役, 元老院對克麗奧佩脫拉宣戰, 凱撒遇刺後的權力分配破裂, Second Triumvirate, Assassination of Julius Caesar, Ides of March, Lex Titia, proscription, Battle of Philippi]
+aliases: [凱撒遇刺, 後三頭同盟, Assassination of Julius Caesar, Ides of March, Second Triumvirate, 3月15日, 後三巨頭, 腓立比戰役, 第二次三頭同盟, 公敵宣告, 元老院對克麗奧佩脫拉宣戰, 凱撒遇刺後的權力分配破裂, Lex Titia, proscription, Battle of Philippi]
 civilization: [古羅馬]
 track: west
 time:

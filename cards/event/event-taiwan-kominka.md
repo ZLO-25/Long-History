@@ -2,7 +2,7 @@
 id: event-taiwan-kominka
 type: event
 name: 皇民化運動與戰爭動員（1937–1945）
-aliases: [皇民化運動, 皇民化, 國語家庭, 改姓名, 寺廟整理, 皇民奉公會, 臺籍日本兵, 台籍日本兵, 高砂義勇隊, 陸軍特別志願兵, 徵兵制, 臺北大空襲, 台北大空襲, 日月潭發電, 工業臺灣 農業南洋, 戰時配給, Kōminka, Kominka movement, Japanization of Taiwan, Raid on Taipei]
+aliases: [皇民化運動, 皇民化, 改姓名, 國語家庭, 臺籍日本兵, 高砂義勇隊, 臺北大空襲, 皇民奉公會, 寺廟整理, 工業臺灣 農業南洋, Kominka movement, 陸軍特別志願兵, 徵兵制, 日月潭發電, 戰時配給, Kōminka, Japanization of Taiwan, Raid on Taipei, 台籍日本兵, 台北大空襲]
 civilization: [臺灣（日治）, 日本（近現代）]
 track: east
 time:

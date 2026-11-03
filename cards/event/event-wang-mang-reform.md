@@ -2,7 +2,7 @@
 id: event-wang-mang-reform
 type: event
 name: 王莽改制
-aliases: [王莽改制, 王莽, Wang Mang, 新朝, Xin dynasty, 王田, 五均六筦, 綠林, 赤眉, 托古改制]
+aliases: [王莽, 新朝, 托古改制, 王田, 綠林, 赤眉, Wang Mang, Xin dynasty, 五均六筦, 王莽改制]
 civilization: [中國（新朝）]
 track: china
 time:

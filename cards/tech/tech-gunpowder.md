@@ -2,7 +2,7 @@
 id: tech-gunpowder
 type: tech
 name: 火藥
-aliases: [火药, Gunpowder, black powder, 黑火藥, 黑火药, 武經總要, 武经总要, Wujing Zongyao, 曾公亮, 煉丹術, 火槍, 火炮, 四大發明]
+aliases: [四大發明, 黑火藥, Gunpowder, 火炮, 火槍, 煉丹術, 武經總要, black powder, 曾公亮, Wujing Zongyao, 火药, 黑火药, 武经总要]
 civilization: [中國（唐）, 中國（北宋）]
 track: china
 time:

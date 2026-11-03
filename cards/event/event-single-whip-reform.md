@@ -2,7 +2,7 @@
 id: event-single-whip-reform
 type: event
 name: 一條鞭法
-aliases: [一条鞭法, 條鞭法, Single Whip Reform, Single Whip Law, Single Whip Tax, 張居正, 张居正, Zhang Juzheng, 萬曆新政, 桂萼, 海瑞, 龐尚鵬, 清丈田畝]
+aliases: [張居正, 條鞭法, Single Whip Reform, 萬曆新政, 海瑞, Zhang Juzheng, 清丈田畝, Single Whip Law, 桂萼, 龐尚鵬, Single Whip Tax, 一条鞭法, 张居正]
 civilization: [中國（明）]
 track: china
 time:

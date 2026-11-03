@@ -2,7 +2,7 @@
 id: finance-venice-rialto
 type: finance
 name: 威尼斯：里亞托與強制公債
-aliases: [威尼斯里亞托, 里亞托市場, 里亞托銀行家, 威尼斯公債, 威尼斯強制公債, 強制貸款, Monte Vecchio, Monte Nuovo, prestiti, banchi di scritta, banco di scritta, 轉帳銀行, 杜卡特, 杜卡特金幣, 威尼斯杜卡特, ducat, zecchino, Venetian ducat, Rialto, Venice public debt, Republic of Venice finance]
+aliases: [威尼斯杜卡特, 里亞托市場, Rialto, 威尼斯公債, ducat, 杜卡特金幣, 威尼斯強制公債, 強制貸款, Venetian ducat, 里亞托銀行家, 轉帳銀行, 威尼斯里亞托, Monte Vecchio, Monte Nuovo, prestiti, banchi di scritta, banco di scritta, 杜卡特, zecchino, Venice public debt, Republic of Venice finance]
 civilization: [義大利/威尼斯共和國]
 track: west
 time:

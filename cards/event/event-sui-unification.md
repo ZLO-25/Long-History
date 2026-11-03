@@ -2,7 +2,7 @@
 id: event-sui-unification
 type: event
 name: 隋朝統一南北（589年）
-aliases: [隋統一, 隋朝統一, 隋滅陳, 隋灭陈, 平陳, 楊堅, 隋文帝, 陳叔寶, 陳後主, 一衣帶水, Sui reunification, Sui conquest of Chen, Emperor Wen of Sui]
+aliases: [隋文帝, 楊堅, 隋統一, 隋滅陳, 陳後主, 陳叔寶, 一衣帶水, 平陳, Sui reunification, Emperor Wen of Sui, 隋朝統一, Sui conquest of Chen, 隋灭陈]
 civilization: [中國（隋）, 中國（南北朝）]
 track: china
 time:

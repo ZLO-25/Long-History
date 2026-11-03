@@ -2,7 +2,7 @@
 id: event-northern-southern
 type: event
 name: 南北朝對峙（420–589年）
-aliases: [南北朝, 南北朝对峙, 南朝, 北朝, 宋齊梁陳, 北魏, 六朝, 衣冠南渡, 新亭對泣, Northern and Southern dynasties, Six Dynasties]
+aliases: [南北朝, 北魏, 南朝, 北朝, 六朝, 宋齊梁陳, 衣冠南渡, Northern and Southern dynasties, Six Dynasties, 新亭對泣, 南北朝对峙]
 civilization: [中國（南北朝）]
 track: china
 time:

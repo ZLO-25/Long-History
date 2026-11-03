@@ -2,7 +2,7 @@
 id: event-augustan-principate
 type: event
 name: 奧古斯都元首制
-aliases: [元首制, 奥古斯都元首制, 奧古斯都, 屋大維, Principate, Augustus, Princeps, 羅馬和平, Pax Romana]
+aliases: [奧古斯都, 屋大維, 元首制, 羅馬和平, Pax Romana, Augustus, Principate, Princeps, 奥古斯都元首制]
 civilization: [古羅馬]
 track: west
 time:

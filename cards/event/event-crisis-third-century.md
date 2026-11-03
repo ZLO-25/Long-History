@@ -2,8 +2,7 @@
 id: event-crisis-third-century
 type: event
 name: 羅馬三世紀危機（235–284年）
-aliases: [三世紀危機, 第三世紀危機, 帝國危機, 軍營皇帝, 軍人皇帝時代, Crisis of the Third Century, Imperial Crisis, Barracks emperors, 高盧帝國, 帕米拉帝國, 奧勒良, 戴克里先]
-aliases_main: [三世紀危機, 軍營皇帝, Crisis of the Third Century]
+aliases: [三世紀危機, 軍人皇帝時代, 戴克里先, 奧勒良, Crisis of the Third Century, 軍營皇帝, 帕米拉帝國, 高盧帝國, 第三世紀危機, 帝國危機, Imperial Crisis, Barracks emperors]
 civilization: [古羅馬]
 track: west
 time:

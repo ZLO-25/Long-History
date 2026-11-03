@@ -2,7 +2,7 @@
 id: event-glorious-revolution
 type: event
 name: 光榮革命（1688–1689年）
-aliases: [光荣革命, 光榮革命與權利法案, 權利法案, 英國權利法案, 威廉三世, 奧蘭治的威廉, 威廉與瑪麗, 詹姆斯二世, Glorious Revolution, Revolution of 1688, Bill of Rights 1689, William of Orange]
+aliases: [權利法案, 光榮革命與權利法案, 威廉三世, 奧蘭治的威廉, 威廉與瑪麗, 詹姆斯二世, Glorious Revolution, Bill of Rights 1689, 英國權利法案, Revolution of 1688, William of Orange, 光荣革命]
 civilization: [英格蘭, 荷蘭]
 track: west
 time:

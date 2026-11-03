@@ -2,7 +2,7 @@
 id: event-zheng-he-voyages
 type: event
 name: 鄭和下西洋
-aliases: [郑和下西洋, 鄭和七下西洋, Zheng He voyages, Treasure voyages, Ming treasure voyages, Cheng Ho, 鄭和, 三保太監, 三寶太監, 明成祖, 永樂帝, 寶船]
+aliases: [鄭和, 鄭和七下西洋, 三寶太監, 寶船, 明成祖, 永樂帝, Zheng He voyages, Treasure voyages, 三保太監, Cheng Ho, Ming treasure voyages, 郑和下西洋]
 civilization: [中國（明）, 東南亞, 印度]
 track: china
 time:

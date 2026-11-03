@@ -2,7 +2,7 @@
 id: event-end-of-cold-war
 type: event
 name: 冷戰結束與蘇聯解體
-aliases: [冷戰結束, 冷战结束, 蘇聯解體, 苏联解体, End of the Cold War, Dissolution of the Soviet Union, Collapse of the Soviet Union, Revolutions of 1989, 東歐劇變, 东欧剧变, 柏林圍牆倒塌, 柏林墙倒塌, 戈巴契夫, 戈尔巴乔夫, Gorbachev, 葉爾欽, Yeltsin, 改革重建, 開放政策, perestroika, glasnost, 獨立國協]
+aliases: [蘇聯解體, 冷戰結束, 柏林圍牆倒塌, 東歐劇變, 戈巴契夫, End of the Cold War, Dissolution of the Soviet Union, 葉爾欽, Gorbachev, perestroika, 獨立國協, Collapse of the Soviet Union, Revolutions of 1989, Yeltsin, 改革重建, 開放政策, glasnost, 冷战结束, 苏联解体, 东欧剧变, 柏林墙倒塌, 戈尔巴乔夫]
 civilization: [蘇聯, 俄羅斯, 美國, 德國]
 track: west
 time:

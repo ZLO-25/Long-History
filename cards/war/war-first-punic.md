@@ -2,7 +2,7 @@
 id: war-first-punic
 type: war
 name: 第一次布匿戰爭（前264–前241年）
-aliases: [第一次布匿戰爭, 第一次迦太基戰爭, 布匿戰爭, 埃加迪群島海戰, 米列海戰, 烏鴉吊橋, 盧塔提烏斯條約, First Punic War, Punic Wars, Battle of the Aegates, Battle of Mylae, corvus, Treaty of Lutatius]
+aliases: [布匿戰爭, Punic Wars, First Punic War, 第一次迦太基戰爭, 烏鴉吊橋, corvus, 米列海戰, 埃加迪群島海戰, 盧塔提烏斯條約, Battle of Mylae, 第一次布匿戰爭, Battle of the Aegates, Treaty of Lutatius]
 civilization: [古羅馬, 迦太基]
 track: west
 time:

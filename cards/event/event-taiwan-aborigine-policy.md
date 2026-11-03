@@ -2,7 +2,7 @@
 id: event-taiwan-aborigine-policy
 type: event
 name: 日治初期的理蕃與山地抗日（1895–1915年）
-aliases: [理蕃政策, 理番政策, 五年理蕃計畫, 五箇年計畫理蕃事業, 隘勇線, 隘勇線前進, 樟腦專賣與泰雅族抗日, 大嵙崁事件, 大豹社事件, 太魯閣戰役, 太魯閣事件, 佐久間左馬太, 理蕃總督, Five-year Plan to Control the Aborigines, Truku War]
+aliases: [理蕃政策, 太魯閣戰役, 隘勇線, 五年理蕃計畫, 佐久間左馬太, 太魯閣事件, 大嵙崁事件, 大豹社事件, 理番政策, Truku War, 五箇年計畫理蕃事業, 隘勇線前進, 樟腦專賣與泰雅族抗日, 理蕃總督, Five-year Plan to Control the Aborigines]
 civilization: [臺灣（日治）, 日本（明治）]
 track: east
 time:

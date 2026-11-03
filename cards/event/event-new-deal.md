@@ -2,7 +2,7 @@
 id: event-new-deal
 type: event
 name: 羅斯福新政（1933–1939年）
-aliases: [新政, 羅斯福新政, 罗斯福新政, New Deal, 第一次新政, 第二次新政, 緊急銀行法, 聯邦存款保險公司, FDIC, 證券交易委員會, SEC, 公共事業振興署, WPA, 民間資源保護隊, CCC, 社會安全法, Social Security Act, 田納西河谷管理局, TVA, 美國農村電氣化管理局, REA, Rural Electrification Administration, 爐邊談話]
+aliases: [新政, 羅斯福新政, New Deal, 爐邊談話, 社會安全法, 田納西河谷管理局, TVA, Social Security Act, 聯邦存款保險公司, FDIC, SEC, WPA, 第一次新政, 第二次新政, 緊急銀行法, 證券交易委員會, 公共事業振興署, 民間資源保護隊, CCC, 美國農村電氣化管理局, REA, Rural Electrification Administration, 罗斯福新政]
 civilization: [美國（世界強權）]
 track: west
 time:

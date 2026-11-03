@@ -2,7 +2,7 @@
 id: building-pantheon
 type: building
 name: 萬神殿
-aliases: [羅馬萬神殿, 万神殿, 潘提翁神殿, Pantheon, 聖母與殉道者教堂, Santa Maria ad Martyres]
+aliases: [羅馬萬神殿, Pantheon, 潘提翁神殿, 聖母與殉道者教堂, Santa Maria ad Martyres, 万神殿]
 civilization: [古羅馬]
 track: west
 time:

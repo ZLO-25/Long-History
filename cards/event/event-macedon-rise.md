@@ -2,7 +2,7 @@
 id: event-macedon-rise
 type: event
 name: 馬其頓崛起：腓力二世（前359–前336年）
-aliases: [馬其頓崛起, 腓力二世, 菲利普二世, 馬其頓的腓力二世, 腓力二世遇刺, 喀羅尼亞戰役, 科林斯同盟, 馬其頓方陣, Philip II of Macedon, Battle of Chaeronea, League of Corinth, Macedonian phalanx]
+aliases: [腓力二世, 馬其頓崛起, 馬其頓方陣, 喀羅尼亞戰役, 科林斯同盟, Philip II of Macedon, 菲利普二世, 腓力二世遇刺, 馬其頓的腓力二世, Battle of Chaeronea, League of Corinth, Macedonian phalanx]
 civilization: [古希臘（馬其頓）]
 track: west
 time:

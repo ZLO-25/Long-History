@@ -2,7 +2,7 @@
 id: event-us-constitution
 type: event
 name: 美國憲法、聯邦制與權利法案
-aliases: [美國憲法, 費城制憲會議, 制憲會議, 邦聯條例, 權利法案, 聯邦黨人文集, 大妥協, 康乃狄克妥協, 五分之三妥協, 三權分立, 聯邦制, 反聯邦黨人, 麥迪遜, 漢彌爾頓, U.S. Constitution, Constitutional Convention, Articles of Confederation, Bill of Rights, Federalist Papers, Great Compromise, Connecticut Compromise, Three-fifths Compromise, Federalism]
+aliases: [美國憲法, U.S. Constitution, 三權分立, 聯邦制, 權利法案, 制憲會議, 費城制憲會議, 聯邦黨人文集, 大妥協, 麥迪遜, 漢彌爾頓, Bill of Rights, 邦聯條例, 康乃狄克妥協, 五分之三妥協, 反聯邦黨人, Constitutional Convention, Articles of Confederation, Federalist Papers, Great Compromise, Connecticut Compromise, Three-fifths Compromise, Federalism]
 civilization: [美國（建國初期）]
 track: west
 time:

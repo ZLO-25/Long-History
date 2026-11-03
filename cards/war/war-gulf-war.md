@@ -2,7 +2,7 @@
 id: war-gulf-war
 type: war
 name: 波斯灣戰爭（1990–1991年）
-aliases: [波斯灣戰爭, 海灣戰爭, 海湾战争, 第一次波斯灣戰爭, 沙漠風暴行動, 沙漠盾牌行動, 伊拉克入侵科威特, 波斯灣戰爭與美軍駐紮沙烏地, Gulf War, Persian Gulf War, Operation Desert Storm, Operation Desert Shield, Iraqi invasion of Kuwait]
+aliases: [波斯灣戰爭, 海灣戰爭, 沙漠風暴行動, 伊拉克入侵科威特, Gulf War, Operation Desert Storm, Persian Gulf War, 沙漠盾牌行動, 第一次波斯灣戰爭, Iraqi invasion of Kuwait, 波斯灣戰爭與美軍駐紮沙烏地, Operation Desert Shield, 海湾战争]
 civilization: [伊拉克, 沙烏地阿拉伯, 美國（冷戰後）]
 track: west
 time:

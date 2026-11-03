@@ -2,8 +2,7 @@
 id: war-seven-states-rebellion
 type: war
 name: 七國之亂（前154年）
-aliases: [七國之亂, 七国之乱, 吳楚七國之亂, 吴楚七国之乱, 吳王劉濞, 劉濞, 晁錯, 鼂錯, 削藩, 削藩策, 周亞夫, 清君側, Rebellion of the Seven States, Revolt of the Seven States, Liu Pi, Chao Cuo, Zhou Yafu]
-aliases_main: [吳楚七國之亂, 削藩, Rebellion of the Seven States]
+aliases: [吳楚七國之亂, 晁錯, 劉濞, 吳王劉濞, 削藩, 清君側, 周亞夫, 削藩策, Rebellion of the Seven States, 鼂錯, 七國之亂, Revolt of the Seven States, Liu Pi, Chao Cuo, Zhou Yafu, 七国之乱, 吴楚七国之乱]
 civilization: [中國（西漢）]
 track: china
 time:

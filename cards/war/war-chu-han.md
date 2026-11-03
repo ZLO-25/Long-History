@@ -2,7 +2,7 @@
 id: war-chu-han
 type: war
 name: 楚漢戰爭
-aliases: [楚汉战争, 楚漢相爭, 楚汉相争, Chu–Han Contention, 垓下之戰, 垓下之战, 四面楚歌, 鴻門宴, 項羽, 劉邦]
+aliases: [四面楚歌, 鴻門宴, 項羽, 劉邦, 楚漢相爭, 垓下之戰, Chu–Han Contention, 楚汉战争, 楚汉相争, 垓下之战]
 civilization: [中國（秦末漢初）]
 track: china
 time:

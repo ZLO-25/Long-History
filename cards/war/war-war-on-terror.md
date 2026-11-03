@@ -2,7 +2,7 @@
 id: war-war-on-terror
 type: war
 name: 九一一事件與反恐戰爭
-aliases: [反恐戰爭, 全球反恐戰爭, 九一一襲擊, 911事件, 9/11, 9·11事件, War on Terror, Global War on Terrorism, September 11 attacks, 阿富汗戰爭, 伊拉克戰爭, War in Afghanistan, Iraq War, 持久自由行動, Operation Enduring Freedom, 蓋達組織, 基地組織, al-Qaeda, 賓拉登, Osama bin Laden, 塔利班, Taliban, 喀布爾陷落]
+aliases: [911事件, 9/11, 反恐戰爭, War on Terror, September 11 attacks, 賓拉登, Osama bin Laden, 蓋達組織, al-Qaeda, 阿富汗戰爭, 伊拉克戰爭, 塔利班, Taliban, 基地組織, 喀布爾陷落, Iraq War, 全球反恐戰爭, 九一一襲擊, 9·11事件, Global War on Terrorism, War in Afghanistan, 持久自由行動, Operation Enduring Freedom]
 civilization: [美國（冷戰後）, 伊拉克, 阿富汗]
 track: west
 time:

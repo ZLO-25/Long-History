@@ -2,7 +2,7 @@
 id: event-xinhai-revolution
 type: event
 name: 辛亥革命
-aliases: [辛亥革命, 1911 Revolution, Xinhai Revolution, Chinese Revolution of 1911, 武昌起義, 武昌起义, Wuchang Uprising, 孫中山, 孙中山, 孫文, Sun Yat-sen, 袁世凱, Yuan Shikai, 黎元洪, 黃興, 同盟會, 清帝退位, 溥儀, 保路運動, 雙十節]
+aliases: [武昌起義, 孫中山, 1911 Revolution, Xinhai Revolution, 雙十節, 孫文, 袁世凱, 清帝退位, 溥儀, 同盟會, 黃興, 黎元洪, 保路運動, Sun Yat-sen, 辛亥革命, Chinese Revolution of 1911, Wuchang Uprising, Yuan Shikai, 武昌起义, 孙中山]
 civilization: [中國（清）, 中華民國]
 track: china
 time:

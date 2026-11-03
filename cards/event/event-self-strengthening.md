@@ -2,7 +2,7 @@
 id: event-self-strengthening
 type: event
 name: 自強運動（洋務運動，約 1861–1895）
-aliases: [自強運動, 洋務運動, 同治中興, 總理衙門, 江南製造局, 福州船政局, 北洋艦隊, 李鴻章, 曾國藩, 左宗棠, 張之洞, 馮桂芬, 中體西用, Self-Strengthening Movement, Westernization Movement, Zongli Yamen]
+aliases: [洋務運動, 李鴻章, 中體西用, 北洋艦隊, 曾國藩, 左宗棠, 張之洞, 江南製造局, 福州船政局, 總理衙門, 同治中興, Self-Strengthening Movement, 自強運動, 馮桂芬, Westernization Movement, Zongli Yamen]
 civilization: [中國（清）]
 track: east
 time:

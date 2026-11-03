@@ -2,8 +2,7 @@
 id: war-fall-constantinople
 type: war
 name: 鄂圖曼攻陷君士坦丁堡（1453年）
-aliases: [君士坦丁堡陷落, 君士坦丁堡淪陷, 攻陷君士坦丁堡, 拜占庭帝國滅亡, 穆罕默德二世, 征服者穆罕默德, 君士坦丁十一世, 烏爾班巨砲, 金角灣, 狄奧多西城牆, Fall of Constantinople, Siege of Constantinople 1453, Mehmed II, Constantine XI, Orban, Golden Horn, Theodosian Walls]
-aliases_main: [君士坦丁堡陷落, 穆罕默德二世, Fall of Constantinople]
+aliases: [君士坦丁堡陷落, 拜占庭帝國滅亡, Fall of Constantinople, 穆罕默德二世, 征服者穆罕默德, Mehmed II, 君士坦丁十一世, 狄奧多西城牆, 烏爾班巨砲, 金角灣, 君士坦丁堡淪陷, 攻陷君士坦丁堡, Siege of Constantinople 1453, Constantine XI, Orban, Golden Horn, Theodosian Walls]
 civilization: [拜占庭帝國, 伊斯蘭世界（鄂圖曼帝國）]
 track: west
 time:

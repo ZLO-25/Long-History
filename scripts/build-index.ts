@@ -8,7 +8,7 @@ import { loadToday, checkToday, buildToday } from './lib/today.ts';
 import { loadCivTaxonomy } from './lib/civ.ts';
 import { SECTIONS, CORE_KEYS, TYPE_LABEL, FIELD_OPTIONS, UNDERSTAND, type CardType } from './lib/fields.ts';
 import { loadNameTable, polityZh } from './lib/labels.ts';
-import { pickMainAliases } from './lib/aliases.ts';
+import { orderAliases } from './lib/aliases.ts';
 import { buildEdges, type Edge } from './lib/causes.ts';
 import { loadStorylines, buildStorylines } from './lib/storylines.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits } from './lib/learn.ts';
@@ -69,7 +69,7 @@ const cards = raw.filter((c) => c.fm?.id).map((c) => {
   const lens = byRole('lens');
   return {
     id: f.id, type, typeLabel: TYPE_LABEL[type], name: f.name, aliases: (f.aliases ?? []).map(String),
-    aliases_main: pickMainAliases(String(f.name), (f.aliases ?? []).map(String), f.aliases_main),
+    aliases_show: orderAliases(String(f.name), (f.aliases ?? []).map(String), f.aliases_main),
     civilization: f.civilization ?? [], civPaths: civPathsOf(f.civilization ?? []), track: f.track, time: f.time, summary_line: f.summary_line,
     place: {
       ...f.place,

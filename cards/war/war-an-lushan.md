@@ -2,7 +2,7 @@
 id: war-an-lushan
 type: war
 name: 安史之亂
-aliases: [安史之乱, An Lushan Rebellion, An–Shi Rebellion, 安祿山, 安禄山, 史思明, 史朝義, 唐玄宗, 楊貴妃, 楊國忠, 馬嵬驛, 大燕, 節度使, 藩鎮割據]
+aliases: [安祿山, 楊貴妃, 唐玄宗, 史思明, 馬嵬驛, An Lushan Rebellion, 藩鎮割據, 節度使, 楊國忠, An–Shi Rebellion, 史朝義, 大燕, 安史之乱, 安禄山]
 civilization: [中國（唐）]
 track: china
 time:

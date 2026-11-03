@@ -2,7 +2,7 @@
 id: building-yungang
 type: building
 name: 雲岡石窟
-aliases: [云冈石窟, 雲岡, Yungang Grottoes, 曇曜五窟, 昙曜五窟, Tan Yao, 北魏佛教, 平城]
+aliases: [雲岡, Yungang Grottoes, 曇曜五窟, 北魏佛教, 平城, Tan Yao, 云冈石窟, 昙曜五窟]
 civilization: [中國（北魏）]
 track: china
 time:

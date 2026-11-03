@@ -2,7 +2,7 @@
 id: event-shang-yang-reform
 type: event
 name: 商鞅變法
-aliases: [商鞅变法, 商鞅, 衛鞅, 公孫鞅, Shang Yang, Shang Yang reforms, 秦國變法, 法家]
+aliases: [商鞅, 法家, 秦國變法, 衛鞅, 公孫鞅, Shang Yang, Shang Yang reforms, 商鞅变法]
 civilization: [中國（戰國秦）]
 track: china
 time:

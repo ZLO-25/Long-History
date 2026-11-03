@@ -2,8 +2,7 @@
 id: event-li-kui-reform
 type: event
 name: 李悝變法與《法經》（前5世紀末）
-aliases: [李悝變法, 李悝, 李克, 法經, 法经, 盡地力之教, 平糴法, 平籴法, 魏文侯, Li Kui, Canon of Laws, Fajing, Book of Law]
-aliases_main: [李悝變法, 法經, Li Kui]
+aliases: [李悝變法, 李悝, 法經, 魏文侯, 盡地力之教, 平糴法, Li Kui, Canon of Laws, 李克, Fajing, Book of Law, 法经, 平籴法]
 civilization: [中國（戰國）]
 track: china
 time:

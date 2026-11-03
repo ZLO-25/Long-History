@@ -2,7 +2,7 @@
 id: war-sui-goguryeo
 type: war
 name: 隋煬帝征高句麗（612–614年）
-aliases: [隋征高句麗, 隋征高句丽, 隋麗戰爭, 高句麗–隋戰爭, 薩水之戰, 薩水大捷, 살수대첩, 乙支文德, Goguryeo–Sui War, Battle of Salsu, Koguryo-Sui War]
+aliases: [隋征高句麗, 薩水大捷, 乙支文德, 隋麗戰爭, 薩水之戰, Goguryeo–Sui War, Battle of Salsu, 高句麗–隋戰爭, 살수대첩, Koguryo-Sui War, 隋征高句丽]
 civilization: [中國（隋）, 朝鮮（三國）]
 track: china
 time:

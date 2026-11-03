@@ -2,7 +2,7 @@
 id: event-containment-nato
 type: event
 name: 杜魯門主義、圍堵政策與北約
-aliases: [杜魯門主義, 圍堵政策, 遏制政策, 遏制战略, 肯楠長電報, 長電報, X文章, X 文章, 蘇聯行為的根源, 柏林封鎖, 柏林空運, 北大西洋公約, 北大西洋公約組織, 北約, 北约, 第五條, Truman Doctrine, Containment, Long Telegram, X Article, The Sources of Soviet Conduct, Berlin Blockade, Berlin Airlift, NATO, North Atlantic Treaty, Article 5, George Kennan, 喬治·肯楠]
+aliases: [北約, 杜魯門主義, 圍堵政策, 柏林封鎖, 柏林空運, 長電報, NATO, Truman Doctrine, Containment, 喬治·肯楠, 遏制政策, 北大西洋公約組織, 肯楠長電報, X文章, X 文章, 蘇聯行為的根源, 北大西洋公約, 第五條, Long Telegram, X Article, The Sources of Soviet Conduct, Berlin Blockade, Berlin Airlift, North Atlantic Treaty, Article 5, George Kennan, 遏制战略, 北约]
 civilization: [美國（世界強權）, 蘇聯, 英國, 法國]
 track: west
 time:

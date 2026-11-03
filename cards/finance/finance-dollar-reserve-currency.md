@@ -2,7 +2,7 @@
 id: finance-dollar-reserve-currency
 type: finance
 name: 美元的國際儲備貨幣地位
-aliases: [美元霸權, 美元霸权, 美元儲備貨幣, 儲備貨幣, 储备货币, 國際儲備貨幣, 特里芬難題, 特里芬两难, Triffin dilemma, 過分的特權, 過度特權, 嚣張的特權, Exorbitant privilege, 季斯卡, Valéry Giscard d'Estaing, IMF COFER, COFER, 外匯存底, 去美元化, de-dollarization, SWIFT, 人民幣國際化, dollar hegemony, reserve currency]
+aliases: [美元霸權, 儲備貨幣, 國際儲備貨幣, 去美元化, dollar hegemony, reserve currency, 特里芬難題, Triffin dilemma, 過分的特權, Exorbitant privilege, SWIFT, 人民幣國際化, 外匯存底, 美元儲備貨幣, 過度特權, 季斯卡, "Valéry Giscard d'Estaing", IMF COFER, COFER, de-dollarization, 美元霸权, 储备货币, 特里芬两难, 嚣張的特權]
 civilization: [美國（冷戰後）, 美國（世界強權）]
 track: west
 time:

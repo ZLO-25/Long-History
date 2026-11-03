@@ -2,7 +2,7 @@
 id: event-burning-books
 type: event
 name: 焚書坑儒
-aliases: [焚书坑儒, 焚書, 坑儒, Burning of books and burying of scholars, 李斯, Li Si, 挾書律, 秦始皇]
+aliases: [焚書, 坑儒, 秦始皇, 李斯, Burning of books and burying of scholars, 挾書律, Li Si, 焚书坑儒]
 civilization: [中國（秦）]
 track: china
 time:

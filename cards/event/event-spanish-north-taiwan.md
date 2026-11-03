@@ -2,7 +2,7 @@
 id: event-spanish-north-taiwan
 type: event
 name: 西班牙人在北臺灣（雞籠與淡水）
-aliases: [西班牙時期, 西班牙統治北臺灣, 聖薩爾瓦多城, 聖多明哥城, Spanish Formosa, San Salvador, Santo Domingo, Isla Hermosa, 雞籠, 社寮島]
+aliases: [西班牙時期, 雞籠, 聖薩爾瓦多城, 聖多明哥城, 西班牙統治北臺灣, Spanish Formosa, 社寮島, Isla Hermosa, San Salvador, Santo Domingo]
 civilization: [臺灣（荷西時期）, 西班牙]
 track: east
 time:

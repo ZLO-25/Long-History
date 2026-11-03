@@ -2,7 +2,7 @@
 id: event-economic-center-south
 type: event
 name: 中國經濟重心南移（8–12世紀）
-aliases: [經濟重心南移, 经济重心南移, 江南開發, 江南繁榮, 北方人口南遷, 圩田, 蘇湖熟天下足, 唐代江南糧食北運, Southward shift of China's economic center, Rise of Jiangnan]
+aliases: [經濟重心南移, 江南開發, 蘇湖熟天下足, 北方人口南遷, 圩田, 江南繁榮, Rise of Jiangnan, 唐代江南糧食北運, "Southward shift of China's economic center", 经济重心南移]
 civilization: [中國（唐）, 中國（宋）]
 track: china
 time:

@@ -2,7 +2,7 @@
 id: finance-2008-crisis
 type: finance
 name: 2008 全球金融危機
-aliases: [金融海嘯, 2008年金融危机, 全球金融危機, 次貸危機, 次贷危机, subprime mortgage crisis, 2007–2008 financial crisis, Global Financial Crisis, GFC, 大衰退, Great Recession, 雷曼兄弟, 雷曼兄弟破產, Lehman Brothers, 貝爾斯登, Bear Stearns, 房利美, 房地美, AIG, TARP, 陶德－法蘭克法案, Dodd-Frank]
+aliases: [金融海嘯, 次貸危機, 雷曼兄弟, 全球金融危機, Global Financial Crisis, 雷曼兄弟破產, Lehman Brothers, 大衰退, Great Recession, subprime mortgage crisis, AIG, 房利美, 房地美, 2007–2008 financial crisis, GFC, 貝爾斯登, Bear Stearns, TARP, 陶德－法蘭克法案, Dodd-Frank, 2008年金融危机, 次贷危机]
 civilization: [美國]
 track: west
 time:

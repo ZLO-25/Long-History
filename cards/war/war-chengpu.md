@@ -2,7 +2,7 @@
 id: war-chengpu
 type: war
 name: 城濮之戰
-aliases: [城濮之战, 城濮, Battle of Chengpu, 晉楚城濮之戰, 退避三舍, 晉文公稱霸]
+aliases: [退避三舍, 晉文公稱霸, 晉楚城濮之戰, 城濮, Battle of Chengpu, 城濮之战]
 civilization: [中國（春秋）]
 track: china
 time:

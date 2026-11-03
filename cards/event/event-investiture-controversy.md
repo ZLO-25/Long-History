@@ -2,8 +2,7 @@
 id: event-investiture-controversy
 type: event
 name: 教宗與皇帝之爭：敘任權之爭（1075–1122年）
-aliases: [敘任權之爭, 叙任权之争, 主教敘任權之爭, 教宗與皇帝之爭, 卡諾莎之行, 卡諾莎悔罪, 沃爾姆斯宗教協定, 格里高利七世, 亨利四世, 教宗訓令, 格里高利改革, Investiture Controversy, Investiture Contest, Walk to Canossa, Concordat of Worms, Dictatus papae, Gregory VII, Henry IV]
-aliases_main: [敘任權之爭, 卡諾莎之行, Investiture Controversy]
+aliases: [敘任權之爭, 卡諾莎之行, 主教敘任權之爭, 格里高利七世, 亨利四世, 沃爾姆斯宗教協定, Investiture Controversy, Walk to Canossa, 卡諾莎悔罪, 教宗與皇帝之爭, 教宗訓令, 格里高利改革, Investiture Contest, Concordat of Worms, Dictatus papae, Gregory VII, Henry IV, 叙任权之争]
 civilization: [日耳曼與法蘭克（神聖羅馬帝國）, 義大利]
 track: west
 time:

@@ -2,7 +2,7 @@
 id: event-guan-zhong-reform
 type: event
 name: 管仲改革（齊國）
-aliases: [管仲改革, 管仲, 管子, Guan Zhong, Guanzi, 齊桓公, 齊桓公稱霸, Duke Huan of Qi, 官山海, 春秋五霸]
+aliases: [管仲, 齊桓公, 春秋五霸, 管子, 齊桓公稱霸, Guan Zhong, 官山海, 管仲改革, Guanzi, Duke Huan of Qi]
 civilization: [中國（春秋齊國）]
 track: china
 time:

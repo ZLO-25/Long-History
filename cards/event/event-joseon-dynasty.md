@@ -2,7 +2,7 @@
 id: event-joseon-dynasty
 type: event
 name: 朝鮮王朝（1392–1897）概覽
-aliases: [朝鮮王朝, 李氏朝鮮, 李朝, 朝鮮, 漢城, 世宗大王, 訓民正音, 韓文, 諺文, 兩班, 隱士之國, Joseon, Chosŏn, Hangul, Hermit Kingdom]
+aliases: [李氏朝鮮, 朝鮮王朝, 世宗大王, 訓民正音, 韓文, Joseon, 漢城, 兩班, Hangul, 隱士之國, 李朝, 朝鮮, 諺文, Chosŏn, Hermit Kingdom]
 civilization: [朝鮮（朝鮮王朝）]
 track: east
 time:

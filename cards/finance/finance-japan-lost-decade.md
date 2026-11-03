@@ -2,7 +2,7 @@
 id: finance-japan-lost-decade
 type: finance
 name: 日本「失落的十年」（1990年代起）
-aliases: [失落的十年, 失落的二十年, 失落的三十年, 日本經濟停滯, 日本零利率與量化寬鬆, 零利率政策, 量化寬鬆, 殭屍企業, 資產負債表衰退, Lost Decade, Lost Decades, Japan lost decade, zero interest rate policy, ZIRP, quantitative easing, zombie firms, balance sheet recession]
+aliases: [失落的三十年, 失落的二十年, 日本經濟停滯, Lost Decade, 量化寬鬆, 零利率政策, 殭屍企業, 資產負債表衰退, Japan lost decade, quantitative easing, balance sheet recession, ZIRP, 失落的十年, 日本零利率與量化寬鬆, Lost Decades, zero interest rate policy, zombie firms]
 civilization: [日本（近現代）]
 track: east
 time:

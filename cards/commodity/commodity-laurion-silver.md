@@ -2,7 +2,7 @@
 id: commodity-laurion-silver
 type: commodity
 name: 勞里昂銀礦
-aliases: [勞里溫銀礦, 劳里昂银矿, 拉夫里翁, Laurion, Laurium, Lavrio, 雅典銀礦, 貓頭鷹銀幣]
+aliases: [勞里溫銀礦, Laurion, 雅典銀礦, 貓頭鷹銀幣, Laurium, 拉夫里翁, Lavrio, 劳里昂银矿]
 civilization: [古希臘]
 track: west
 time:

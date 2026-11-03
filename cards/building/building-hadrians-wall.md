@@ -2,7 +2,7 @@
 id: building-hadrians-wall
 type: building
 name: 哈德良長城
-aliases: [哈德良長城, 哈德良城牆, 哈德良长城, Hadrian's Wall, Vallum Aelium, 羅馬帝國邊界, 文德蘭達]
+aliases: ["Hadrian's Wall", 哈德良城牆, 羅馬帝國邊界, 文德蘭達, 哈德良長城, Vallum Aelium, 哈德良长城]
 civilization: [古羅馬]
 track: west
 time:

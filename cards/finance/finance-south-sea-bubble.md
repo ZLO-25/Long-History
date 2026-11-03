@@ -2,7 +2,7 @@
 id: finance-south-sea-bubble
 type: finance
 name: 英國南海泡沫（1720）
-aliases: [南海泡沫, 南海公司, 南海泡沫事件, 泡沫法, 牛頓炒股, South Sea Bubble, South Sea Company, Bubble Act, Isaac Newton]
+aliases: [南海泡沫, 南海公司, South Sea Bubble, 牛頓炒股, Isaac Newton, South Sea Company, 泡沫法, Bubble Act, 南海泡沫事件]
 civilization: [英國]
 track: west
 time:

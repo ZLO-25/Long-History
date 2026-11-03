@@ -2,7 +2,7 @@
 id: event-reconstruction
 type: event
 name: 美國重建時期（1865–1877年）
-aliases: [重建時期, 南方重建, 重建, Reconstruction, Reconstruction era, 第十三修正案, 第十四修正案, 第十五修正案, 自由民局, Freedmen's Bureau, 重建法案, Reconstruction Acts, 一八七七年妥協, Compromise of 1877, 三K黨, Ku Klux Klan]
+aliases: [重建時期, 南方重建, Reconstruction, 三K黨, Ku Klux Klan, 第十三修正案, 第十四修正案, 自由民局, 一八七七年妥協, Reconstruction era, 重建, 第十五修正案, "Freedmen's Bureau", 重建法案, Reconstruction Acts, Compromise of 1877]
 civilization: [美國（內戰與工業化）]
 track: west
 time:

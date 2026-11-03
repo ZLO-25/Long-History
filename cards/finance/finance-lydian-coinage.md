@@ -2,7 +2,7 @@
 id: finance-lydian-coinage
 type: finance
 name: 呂底亞：最早的鑄幣
-aliases: [呂底亞鑄幣, 利底亞鑄幣, 里底亞, 呂底亞琥珀金幣, 琥珀金, 琥珀金幣, 克羅伊斯金幣, 克羅伊斯, 克里薩斯, 薩第斯, 撒狄, Lydian coinage, Lydia, electrum, electrum coins, Croesus, Croeseid, Sardis, 最早的錢幣, 以弗所阿提米絲神廟錢幣, Artemision hoard]
+aliases: [最早的錢幣, 呂底亞鑄幣, 克羅伊斯, 琥珀金, 琥珀金幣, Lydian coinage, Lydia, electrum, Croesus, 薩第斯, Sardis, 克里薩斯, 利底亞鑄幣, 呂底亞琥珀金幣, 克羅伊斯金幣, 撒狄, electrum coins, Croeseid, 以弗所阿提米絲神廟錢幣, Artemision hoard, 里底亞]
 civilization: [安納托利亞（呂底亞）, 古希臘]
 track: west
 time:

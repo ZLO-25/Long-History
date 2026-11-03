@@ -2,8 +2,7 @@
 id: war-vandal-north-africa
 type: war
 name: 汪達爾人攻占北非（429–439年）
-aliases: [汪達爾人征服北非, 汪達爾人攻占迦太基, 汪達爾王國, 蓋薩里克, 根西里克, Gaiseric, Genseric, Vandal conquest of Roman Africa, Vandal Kingdom, 希波圍城, Siege of Hippo Regius]
-aliases_main: [汪達爾人征服北非, 蓋薩里克, Vandal conquest of Roman Africa]
+aliases: [汪達爾王國, 蓋薩里克, 根西里克, 汪達爾人攻占迦太基, Gaiseric, Genseric, 汪達爾人征服北非, Vandal Kingdom, Vandal conquest of Roman Africa, 希波圍城, Siege of Hippo Regius]
 civilization: [古羅馬, 日耳曼與法蘭克（日耳曼部落）]
 track: west
 time:

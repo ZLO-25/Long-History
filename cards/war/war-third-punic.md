@@ -2,7 +2,7 @@
 id: war-third-punic
 type: war
 name: 第三次布匿戰爭與迦太基滅亡（前149–前146年）
-aliases: [第三次布匿戰爭, 第三次迦太基戰爭, 迦太基滅亡, 迦太基城陷落, 迦太基必須毀滅, Third Punic War, Siege of Carthage, Carthago delenda est, Scipio Aemilianus]
+aliases: [迦太基滅亡, 迦太基必須毀滅, Third Punic War, Carthago delenda est, 迦太基城陷落, Siege of Carthage, 第三次迦太基戰爭, Scipio Aemilianus, 第三次布匿戰爭]
 civilization: [古羅馬, 迦太基]
 track: west
 time:

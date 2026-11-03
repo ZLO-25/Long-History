@@ -2,7 +2,7 @@
 id: finance-plaza-accord
 type: finance
 name: 廣場協議
-aliases: [廣場協議, 广场协议, Plaza Accord, プラザ合意, G5, 五國集團, 五國財長會議, 羅浮宮協議, 卢浮宫协议, Louvre Accord, 日圓升值, 円高, 日圓大升值, 貝克, James Baker, 竹下登, 美元貶值, 廣場飯店協議]
+aliases: [Plaza Accord, 日圓升值, 日圓大升值, 羅浮宮協議, 美元貶值, G5, 五國財長會議, 貝克, James Baker, 竹下登, Louvre Accord, 廣場飯店協議, 廣場協議, プラザ合意, 五國集團, 円高, 广场协议, 卢浮宫协议]
 civilization: [美國（世界強權）, 日本（近現代）, 德國, 英國, 法國]
 track: west
 time:

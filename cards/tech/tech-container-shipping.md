@@ -2,7 +2,7 @@
 id: tech-container-shipping
 type: tech
 name: 貨櫃運輸
-aliases: [货柜运输, 集裝箱, 集装箱, 貨櫃, 货柜, 貨櫃輪, Container shipping, Containerization, Intermodal container, TEU, 二十呎標準貨櫃, 麥克林, Malcom McLean, 理想X號, Ideal X, 海陸公司, Sea-Land, ISO 668]
+aliases: [貨櫃, 貨櫃輪, 集裝箱, Container shipping, Containerization, TEU, 麥克林, Malcom McLean, 二十呎標準貨櫃, 理想X號, 海陸公司, Intermodal container, Ideal X, Sea-Land, ISO 668, 货柜运输, 集装箱, 货柜]
 civilization: [美國]
 track: west
 time:

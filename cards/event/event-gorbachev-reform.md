@@ -2,7 +2,7 @@
 id: event-gorbachev-reform
 type: event
 name: 戈巴契夫改革與蘇聯解體（1985–1991年）
-aliases: [戈巴契夫改革, 戈尔巴乔夫改革, 改革重建, 開放政策, 經濟重建, 新思維, 蘇聯解體, 苏联解体, 八一九政變, 別洛韋日協議, 獨立國協, 蘇聯經濟停滯, Perestroika, Glasnost, Gorbachev reforms, dissolution of the Soviet Union, August Coup, Belovezha Accords, Commonwealth of Independent States]
+aliases: [戈巴契夫改革, 蘇聯解體, 改革重建, 開放政策, Perestroika, Glasnost, 新思維, 八一九政變, 獨立國協, 經濟重建, 別洛韋日協議, 蘇聯經濟停滯, Gorbachev reforms, dissolution of the Soviet Union, August Coup, Belovezha Accords, Commonwealth of Independent States, 戈尔巴乔夫改革, 苏联解体]
 civilization: [蘇聯, 俄羅斯]
 track: west
 time:

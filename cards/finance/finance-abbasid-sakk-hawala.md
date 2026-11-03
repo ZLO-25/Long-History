@@ -2,8 +2,7 @@
 id: finance-abbasid-sakk-hawala
 type: finance
 name: 阿拔斯巴格達：支票（sakk）、匯兌（hawala）與拉唐商人
-aliases: [阿拔斯王朝金融, 巴格達金融, 巴格達, 圓城, 曼蘇爾, sakk, suftaja, hawala, 哈瓦拉, 支票的起源, jahbadh, 拉唐商人, 拉唐猶太商人, Radhanites, Radhanite, 道里邦國志, 伊本·胡爾達茲貝, Ibn Khordadbeh, 利息禁令, riba, mudaraba, qirad, 開羅經冢, Cairo Geniza, Goitein, Abbasid banking]
-aliases_main: [阿拔斯王朝金融, 支票的起源, hawala]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
+aliases: [支票的起源, 哈瓦拉, 巴格達, hawala, sakk, 阿拔斯王朝金融, 拉唐商人, Radhanites, 巴格達金融, 圓城, 曼蘇爾, 開羅經冢, suftaja, jahbadh, 拉唐猶太商人, Radhanite, 道里邦國志, 伊本·胡爾達茲貝, Ibn Khordadbeh, 利息禁令, riba, mudaraba, qirad, Cairo Geniza, Goitein, Abbasid banking]
 civilization: [伊斯蘭世界（阿拔斯王朝）]
 track: west
 time:

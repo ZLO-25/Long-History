@@ -2,7 +2,7 @@
 id: finance-nyse
 type: finance
 name: 紐約證券交易所
-aliases: [New York Stock Exchange, NYSE, 纽约证券交易所, 紐約證交所, 纽交所, 梧桐樹協議, 梧桐树协议, Buttonwood Agreement, New York Stock & Exchange Board, 華爾街, 华尔街, Wall Street, Big Board]
+aliases: [紐約證交所, 華爾街, NYSE, New York Stock Exchange, Wall Street, 梧桐樹協議, Buttonwood Agreement, Big Board, New York Stock & Exchange Board, 纽约证券交易所, 纽交所, 梧桐树协议, 华尔街]
 civilization: [美國]
 track: west
 time:

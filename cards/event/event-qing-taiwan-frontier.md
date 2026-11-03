@@ -2,7 +2,7 @@
 id: event-qing-taiwan-frontier
 type: event
 name: 清領前期的臺灣：渡臺禁令、移墾社會與民變（1684–1860）
-aliases: [清領前期, 清治前期, 渡臺禁令, 渡台禁令, 移墾社會, 羅漢腳, 墾戶佃戶, 大租小租, 一田二主, 八堡圳, 瑠公圳, 分類械鬥, 漳泉械鬥, 閩粵械鬥, 朱一貴事件, 林爽文事件, 三年一小反五年一大亂, 一府二鹿三艋舺, Qing Taiwan, Taiwan under Qing rule]
+aliases: [渡臺禁令, 一府二鹿三艋舺, 羅漢腳, 林爽文事件, 朱一貴事件, 三年一小反五年一大亂, 漳泉械鬥, 分類械鬥, 清領前期, 瑠公圳, 八堡圳, 大租小租, Qing Taiwan, 清治前期, 移墾社會, 墾戶佃戶, 一田二主, 閩粵械鬥, Taiwan under Qing rule, 渡台禁令]
 civilization: [臺灣（清治）, 中國（清）]
 track: east
 time:

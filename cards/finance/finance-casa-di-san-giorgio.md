@@ -2,7 +2,7 @@
 id: finance-casa-di-san-giorgio
 type: finance
 name: 熱那亞聖喬治銀行（Casa di San Giorgio）
-aliases: [聖喬治銀行, 聖喬治之家, 聖喬治銀行（熱那亞）, Casa di San Giorgio, Banco di San Giorgio, Casa delle Compere e dei Banchi di San Giorgio, Bank of Saint George, Bank of St George, Genoa Bank of St George, compere, 熱那亞公債, 熱那亞債權人團體, 馬基維利, Machiavelli]
+aliases: [聖喬治銀行, Bank of Saint George, Casa di San Giorgio, 聖喬治之家, 熱那亞公債, Banco di San Giorgio, 馬基維利, Machiavelli, 熱那亞債權人團體, 聖喬治銀行（熱那亞）, Casa delle Compere e dei Banchi di San Giorgio, Bank of St George, Genoa Bank of St George, compere]
 civilization: [熱那亞共和國]
 track: west
 time:

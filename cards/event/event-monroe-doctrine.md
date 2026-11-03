@@ -2,7 +2,7 @@
 id: event-monroe-doctrine
 type: event
 name: 門羅主義
-aliases: [門羅宣言, 門羅咨文, 门罗主义, 門羅教條, Monroe Doctrine, Monroe's Seventh Annual Message, 羅斯福推論, Roosevelt Corollary, 老羅斯福推論, 約翰·昆西·亞當斯, John Quincy Adams, 坎寧, George Canning, 美洲是美洲人的美洲]
+aliases: [Monroe Doctrine, 美洲是美洲人的美洲, 門羅宣言, 羅斯福推論, Roosevelt Corollary, 門羅咨文, 約翰·昆西·亞當斯, 門羅教條, "Monroe's Seventh Annual Message", 老羅斯福推論, John Quincy Adams, 坎寧, George Canning, 门罗主义]
 civilization: [美國（建國初期）, 拉丁美洲, 英國]
 track: west
 time:

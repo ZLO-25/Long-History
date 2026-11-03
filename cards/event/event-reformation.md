@@ -2,7 +2,7 @@
 id: event-reformation
 type: event
 name: 宗教改革
-aliases: [新教改革, 宗教改革運動, Reformation, Protestant Reformation, 马丁·路德, 馬丁路德, Martin Luther, 九十五條論綱, Ninety-five Theses, 喀爾文, Calvin, 慈運理, Zwingli, 奧格斯堡和約, Peace of Augsburg, 贖罪券]
+aliases: [馬丁路德, Martin Luther, 新教改革, 九十五條論綱, Reformation, Protestant Reformation, 贖罪券, 喀爾文, Calvin, Ninety-five Theses, 奧格斯堡和約, 慈運理, 宗教改革運動, Zwingli, Peace of Augsburg, 马丁·路德]
 civilization: [神聖羅馬帝國, 英格蘭, 法國]
 track: west
 time:

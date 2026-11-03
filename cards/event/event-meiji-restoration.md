@@ -2,7 +2,7 @@
 id: event-meiji-restoration
 type: event
 name: 明治維新（1868–1889）
-aliases: [明治維新, 明治天皇, 大政奉還, 王政復古, 戊辰戰爭, 五條御誓文, 廢藩置縣, 徵兵令, 西南戰爭, 明治憲法, 富國強兵, Meiji Restoration, Charter Oath, Boshin War, fukoku kyōhei]
+aliases: [明治天皇, 大政奉還, 富國強兵, 廢藩置縣, Meiji Restoration, 五條御誓文, 戊辰戰爭, 明治憲法, 西南戰爭, 王政復古, 明治維新, 徵兵令, Charter Oath, Boshin War, fukoku kyōhei]
 civilization: [日本（明治）]
 track: east
 time:

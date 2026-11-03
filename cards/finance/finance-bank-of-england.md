@@ -2,7 +2,7 @@
 id: finance-bank-of-england
 type: finance
 name: 英格蘭銀行與國債
-aliases: [英格蘭銀行, 英格兰银行, 英倫銀行, Bank of England, BoE, The Old Lady of Threadneedle Street, 針線街老婦人, 國債, 国债, national debt, 金融革命, Financial Revolution, 威廉·佩特森, William Paterson, 查爾斯·蒙塔古, Charles Montagu, 噸稅法, Tonnage Act 1694]
+aliases: [英格蘭銀行, Bank of England, 英倫銀行, 國債, national debt, 金融革命, 針線街老婦人, The Old Lady of Threadneedle Street, BoE, 威廉·佩特森, Financial Revolution, William Paterson, 查爾斯·蒙塔古, Charles Montagu, 噸稅法, Tonnage Act 1694, 英格兰银行, 国债]
 civilization: [英格蘭, 英國]
 track: west
 time:

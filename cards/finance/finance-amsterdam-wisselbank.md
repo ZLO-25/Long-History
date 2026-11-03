@@ -2,7 +2,7 @@
 id: finance-amsterdam-wisselbank
 type: finance
 name: 阿姆斯特丹匯兌銀行（Wisselbank）
-aliases: [阿姆斯特丹銀行, 阿姆斯特丹匯兌銀行, 阿姆斯特丹外匯銀行, Wisselbank, Amsterdamsche Wisselbank, Bank of Amsterdam, Amsterdam Exchange Bank, 銀行貨幣, bank guilder, banco, agio, 銀行荷盾]
+aliases: [阿姆斯特丹銀行, Bank of Amsterdam, 阿姆斯特丹匯兌銀行, Wisselbank, 銀行貨幣, 銀行荷盾, bank guilder, 阿姆斯特丹外匯銀行, Amsterdamsche Wisselbank, Amsterdam Exchange Bank, banco, agio]
 civilization: [荷蘭]
 track: west
 time:

@@ -2,8 +2,7 @@
 id: finance-islamic-dinar
 type: finance
 name: 伊斯蘭金第納爾（696年起）
-aliases: [伊斯蘭金第納爾, 金第納爾, 第納爾, 倭馬亞第納爾, 阿布杜勒·馬利克幣制改革, 無像金幣, 站立哈里發金幣, 米斯卡爾, 迪拉姆, Islamic gold dinar, gold dinar, Umayyad dinar, Abd al-Malik coinage reform, standing caliph dinar, mithqal, dirham]
-aliases_main: [金第納爾, 阿布杜勒·馬利克幣制改革, Islamic gold dinar]
+aliases: [金第納爾, 第納爾, 迪拉姆, gold dinar, Islamic gold dinar, 倭馬亞第納爾, 阿布杜勒·馬利克幣制改革, 無像金幣, dirham, 站立哈里發金幣, 米斯卡爾, 伊斯蘭金第納爾, Umayyad dinar, Abd al-Malik coinage reform, standing caliph dinar, mithqal]
 civilization: [伊斯蘭世界]
 track: west
 time:

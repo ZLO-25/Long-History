@@ -2,7 +2,7 @@
 id: event-alexander-campaign
 type: event
 name: 亞歷山大東征
-aliases: [亚历山大东征, 亞歷山大大帝, 亞歷山大遠征, Alexander the Great, Wars of Alexander the Great, 馬其頓東征, 高加米拉戰役, 伊蘇斯戰役]
+aliases: [亞歷山大大帝, Alexander the Great, 亞歷山大遠征, 馬其頓東征, 高加米拉戰役, 伊蘇斯戰役, Wars of Alexander the Great, 亚历山大东征]
 civilization: [馬其頓, 古希臘, 波斯]
 track: west
 time:

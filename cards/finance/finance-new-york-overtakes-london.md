@@ -2,7 +2,7 @@
 id: finance-new-york-overtakes-london
 type: finance
 name: 紐約取代倫敦：一戰後英鎊退位
-aliases: [紐約取代倫敦, 英鎊退位, 美元取代英鎊, 倫敦與紐約, 英鎊與美元, 英國回歸金本位, 英國放棄金本位, 1925 回歸金本位, 1931 英鎊危機, 邱吉爾與金本位, 凱因斯與邱吉爾, 英法聯合貸款, J.P. 摩根與一戰, Sterling to Dollar, New York overtakes London, Gold Standard Act 1925, Churchill gold standard, Sterling crisis 1931]
+aliases: [美元取代英鎊, 紐約取代倫敦, 英鎊退位, 英國放棄金本位, 1931 英鎊危機, 英國回歸金本位, 邱吉爾與金本位, 凱因斯與邱吉爾, New York overtakes London, Sterling to Dollar, 倫敦與紐約, 英鎊與美元, 1925 回歸金本位, 英法聯合貸款, J.P. 摩根與一戰, Gold Standard Act 1925, Churchill gold standard, Sterling crisis 1931]
 civilization: [美國（世界強權）, 英國]
 track: west
 time:

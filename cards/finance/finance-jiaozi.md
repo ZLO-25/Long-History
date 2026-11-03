@@ -2,7 +2,7 @@
 id: finance-jiaozi
 type: finance
 name: 交子
-aliases: [官交子, 私交子, 交子务, 益州交子務, Jiaozi, jiaozi paper money, Song dynasty paper money, 錢引, 钱引, 張詠, 张咏, 世界最早紙幣]
+aliases: [世界最早紙幣, 官交子, Jiaozi, 益州交子務, 私交子, 錢引, 張詠, Song dynasty paper money, jiaozi paper money, 交子务, 钱引, 张咏]
 civilization: [中國（北宋）]
 track: china
 time:

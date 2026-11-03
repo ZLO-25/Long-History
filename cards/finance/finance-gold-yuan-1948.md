@@ -2,7 +2,7 @@
 id: finance-gold-yuan-1948
 type: finance
 name: 金圓券改革與崩潰（1948–1949）
-aliases: [金圓券, 金元券, 金圓, 法幣, 八一九防線, 財政經濟緊急處分令, 蔣經國打老虎, 上海打虎, 限價, Gold yuan, Gold Yuan certificate, fabi]
+aliases: [金圓券, 法幣, 蔣經國打老虎, 上海打虎, 金元券, 八一九防線, 限價, 財政經濟緊急處分令, Gold yuan, Gold Yuan certificate, 金圓, fabi]
 civilization: [中華民國]
 track: east
 time:

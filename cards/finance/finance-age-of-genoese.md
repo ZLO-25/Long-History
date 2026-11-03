@@ -2,7 +2,7 @@
 id: finance-age-of-genoese
 type: finance
 name: 「熱那亞人的世紀」：熱那亞銀行家與西班牙帝國
-aliases: [熱那亞人的世紀, 熱那亞世紀, 熱那亞銀行家, 熱那亞金融家, Age of the Genoese, Genoese Century, Genoese bankers, asiento, 阿森托, 皮亞琴察市集, 貝桑松市集, Besançon fairs, Piacenza fairs, 菲利普二世停止付款, 西班牙國家破產, Lending to the Borrower from Hell, 積累體系週期, 布勞岱爾, Braudel, 阿瑞吉, Arrighi, Spinola, Grimaldi, Centurione, Doria]
+aliases: [熱那亞人的世紀, 熱那亞銀行家, Age of the Genoese, Genoese bankers, 西班牙國家破產, 菲利普二世停止付款, 布勞岱爾, Braudel, 阿瑞吉, asiento, 熱那亞世紀, 熱那亞金融家, Genoese Century, 阿森托, 皮亞琴察市集, 貝桑松市集, Besançon fairs, Piacenza fairs, Lending to the Borrower from Hell, 積累體系週期, Arrighi, Spinola, Grimaldi, Centurione, Doria]
 civilization: [熱那亞共和國, 西班牙, 法蘭德斯與比利時（安特衛普）]
 track: west
 time:

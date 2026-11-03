@@ -2,8 +2,7 @@
 id: finance-london-rise
 type: finance
 name: 倫敦取代阿姆斯特丹：拿破崙戰爭與羅斯柴爾德
-aliases: [倫敦崛起, 倫敦成為世界金融中心, 拿破崙戰爭財政, 英國戰爭融資, 停止兌換黃金, 銀行限制法, Bank Restriction Act 1797, 羅斯柴爾德, 內森·羅斯柴爾德, 內森羅斯柴爾德, Nathan Mayer Rothschild, Rothschild, 霸菱, 霸菱銀行, Barings, 滑鐵盧內線交易, 滑鐵盧神話, 財政軍事國家, London rise, Napoleonic Wars finance]
-aliases_main: [倫敦崛起, 羅斯柴爾德, Rothschild]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
+aliases: [羅斯柴爾德, Rothschild, 倫敦崛起, 倫敦成為世界金融中心, 內森·羅斯柴爾德, Nathan Mayer Rothschild, 滑鐵盧內線交易, 拿破崙戰爭財政, 霸菱銀行, Barings, 銀行限制法, 財政軍事國家, 英國戰爭融資, 停止兌換黃金, Bank Restriction Act 1797, 內森羅斯柴爾德, 霸菱, 滑鐵盧神話, London rise, Napoleonic Wars finance]
 civilization: [英國, 荷蘭, 法國]
 track: west
 time:

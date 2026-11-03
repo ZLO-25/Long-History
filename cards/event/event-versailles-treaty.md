@@ -2,7 +2,7 @@
 id: event-versailles-treaty
 type: event
 name: 凡爾賽和約與德國賠款（1919–1932年）
-aliases: [凡爾賽和約, 凡爾賽條約, 凡尔赛和约, Treaty of Versailles, 戰爭罪責條款, 第231條, Article 231, 凡爾賽和約賠款, 德國賠款, World War I reparations, 倫敦支付時間表, London Schedule of Payments, 魯爾占領, Occupation of the Ruhr, 道斯計畫, Dawes Plan, 楊格計畫, Young Plan, 洛桑會議]
+aliases: [凡爾賽條約, Treaty of Versailles, 德國賠款, 戰爭罪責條款, 魯爾占領, 道斯計畫, 楊格計畫, 第231條, World War I reparations, 凡爾賽和約, Article 231, 凡爾賽和約賠款, 倫敦支付時間表, London Schedule of Payments, Occupation of the Ruhr, Dawes Plan, Young Plan, 洛桑會議, 凡尔赛和约]
 civilization: [德國, 法國, 英國, 美國（世界強權）]
 track: west
 time:

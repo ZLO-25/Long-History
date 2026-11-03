@@ -2,7 +2,7 @@
 id: building-qin-han-great-wall
 type: building
 name: 秦漢長城
-aliases: [秦长城, 漢長城, 汉长城, 萬里長城, 万里长城, Great Wall of China, Qin wall, Han wall, 玉門關, 玉门关, 蒙恬]
+aliases: [萬里長城, Great Wall of China, 漢長城, 蒙恬, 玉門關, Qin wall, Han wall, 秦长城, 汉长城, 万里长城, 玉门关]
 civilization: [中國（秦、漢）]
 track: china
 time:

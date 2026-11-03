@@ -2,7 +2,7 @@
 id: event-taiwan-land-reform
 type: event
 name: 臺灣土地改革：三七五減租、公地放領、耕者有其田（1949–1953）
-aliases: [土地改革, 三七五減租, 公地放領, 耕者有其田, 實施耕者有其田條例, 耕地三七五減租條例, 陳誠土改, 實物土地債券, 四大公司股票, 肥料換穀, 農復會, Taiwan land reform, 37.5% rent reduction, Land-to-the-Tiller]
+aliases: [三七五減租, 耕者有其田, 公地放領, 土地改革, 四大公司股票, 農復會, 陳誠土改, 肥料換穀, 實物土地債券, Taiwan land reform, Land-to-the-Tiller, 實施耕者有其田條例, 耕地三七五減租條例, 37.5% rent reduction]
 civilization: [臺灣（中華民國）]
 track: east
 time:

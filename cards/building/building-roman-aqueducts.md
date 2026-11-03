@@ -2,7 +2,7 @@
 id: building-roman-aqueducts
 type: building
 name: 羅馬水道（含加爾橋）
-aliases: [羅馬水道橋, 罗马水道, 加爾橋, 嘉德水道橋, 加尔桥, Pont du Gard, Roman aqueduct, Aqua Appia, 尼姆水道]
+aliases: [羅馬水道橋, 加爾橋, Roman aqueduct, Pont du Gard, 嘉德水道橋, Aqua Appia, 尼姆水道, 罗马水道, 加尔桥]
 civilization: [古羅馬]
 track: west
 time:

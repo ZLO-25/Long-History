@@ -2,7 +2,7 @@
 id: finance-eurodollar-big-bang
 type: finance
 name: 歐洲美元市場與倫敦金融城「大爆炸」
-aliases: [歐洲美元, 歐洲美元市場, 離岸美元, 歐洲貨幣市場, 大爆炸, 倫敦大爆炸, 金融大爆炸, 柴契爾, 撒切爾, Eurodollar, Eurodollar market, Eurocurrency market, Big Bang, Big Bang 1986, Regulation Q, Q條例, 利息平衡稅, Interest Equalization Tax, 歐洲債券, Eurobond, City of London]
+aliases: [歐洲美元, 倫敦大爆炸, 金融大爆炸, 柴契爾, Eurodollar, Big Bang, 離岸美元, 歐洲美元市場, City of London, 歐洲債券, Eurobond, Regulation Q, 歐洲貨幣市場, 大爆炸, 撒切爾, Eurodollar market, Eurocurrency market, Big Bang 1986, Q條例, 利息平衡稅, Interest Equalization Tax]
 civilization: [英國, 美國（世界強權）]
 track: west
 time:

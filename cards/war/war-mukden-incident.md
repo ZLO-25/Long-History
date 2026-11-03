@@ -2,7 +2,7 @@
 id: war-mukden-incident
 type: war
 name: 九一八事變與滿洲國（1931–1932年）
-aliases: [九一八事變, 九一八事变, 九一八, 瀋陽事變, 柳條湖事件, 柳條溝事件, 滿洲事變, 滿洲國, 满洲国, 偽滿洲國, 李頓報告書, 史汀生主義, Mukden Incident, Manchurian Incident, Manchukuo, Lytton Report, Stimson Doctrine, Kwantung Army]
+aliases: [九一八事變, 九一八, 滿洲國, 偽滿洲國, 柳條湖事件, Mukden Incident, Manchukuo, 瀋陽事變, 滿洲事變, 李頓報告書, Lytton Report, 柳條溝事件, 史汀生主義, Manchurian Incident, Stimson Doctrine, Kwantung Army, 九一八事变, 满洲国]
 civilization: [中華民國, 日本（近現代）]
 track: china
 time:

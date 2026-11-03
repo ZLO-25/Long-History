@@ -2,7 +2,7 @@
 id: event-partition-of-jin
 type: event
 name: 三家分晉
-aliases: [三家分晋, 韓趙魏, 晉陽之戰, 晋阳之战, Partition of Jin, Battle of Jinyang, 戰國開始, 智伯]
+aliases: [韓趙魏, 戰國開始, 晉陽之戰, 智伯, Partition of Jin, Battle of Jinyang, 三家分晋, 晋阳之战]
 civilization: [中國（春秋晉國→戰國韓、趙、魏）]
 track: china
 time:

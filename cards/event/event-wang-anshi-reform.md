@@ -2,7 +2,7 @@
 id: event-wang-anshi-reform
 type: event
 name: 王安石變法
-aliases: [王安石变法, 熙寧變法, 熙宁变法, 熙豐變法, 熙寧元豐變法, Wang Anshi reforms, New Policies, 新法, 王安石, 宋神宗, 司馬光, 青苗法, 免役法, 保甲法, 市易法]
+aliases: [王安石, 熙寧變法, 新法, 宋神宗, 司馬光, 青苗法, 免役法, 保甲法, 市易法, Wang Anshi reforms, New Policies, 熙豐變法, 熙寧元豐變法, 王安石变法, 熙宁变法]
 civilization: [中國（北宋）]
 track: china
 time:

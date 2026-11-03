@@ -2,7 +2,7 @@
 id: event-thirteen-colonies
 type: event
 name: 北美十三殖民地與殖民地自治（1607–1763）
-aliases: [北美十三殖民地, 十三殖民地, 英屬北美殖民地, 詹姆斯鎮, 五月花號, 五月花號公約, 維吉尼亞議會, 維吉尼亞殖民者議會, 有益的忽視, 有益忽視, Thirteen Colonies, British America, Jamestown, Mayflower Compact, Virginia House of Burgesses, Salutary neglect]
+aliases: [十三殖民地, 北美十三殖民地, 五月花號, 五月花號公約, 詹姆斯鎮, Thirteen Colonies, Mayflower Compact, Jamestown, 英屬北美殖民地, 維吉尼亞議會, 有益的忽視, Salutary neglect, 維吉尼亞殖民者議會, 有益忽視, British America, Virginia House of Burgesses]
 civilization: [美國（殖民地時期）, 英國]
 track: west
 time:

@@ -2,7 +2,7 @@
 id: finance-two-tax-salt
 type: finance
 name: 唐代鹽專賣與兩稅法（758–780年）
-aliases: [兩稅法, 两税法, 鹽專賣, 鹽法, 榷鹽, 鹽鐵使, 劉晏, 第五琦, 楊炎, 租庸調, Two-tax system, Salt Commission, Tang salt monopoly]
+aliases: [兩稅法, 楊炎, 劉晏, 租庸調, 鹽專賣, 榷鹽, 鹽鐵使, 第五琦, 鹽法, Two-tax system, Tang salt monopoly, Salt Commission, 两税法]
 civilization: [中國（唐）]
 track: china
 time:

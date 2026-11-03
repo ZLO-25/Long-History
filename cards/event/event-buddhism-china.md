@@ -2,7 +2,7 @@
 id: event-buddhism-china
 type: event
 name: 佛教傳入中國（1–6世紀）
-aliases: [佛教傳入中國, 佛教东传, 佛教東傳, 浮屠, 白馬寺, 安世高, 鳩摩羅什, 楚王英, Buddhism in China, Silk Road transmission of Buddhism]
+aliases: [佛教東傳, 佛教傳入中國, 白馬寺, 鳩摩羅什, 浮屠, Buddhism in China, 安世高, 楚王英, Silk Road transmission of Buddhism, 佛教东传]
 civilization: [中國（漢）, 中國（南北朝）]
 track: china
 time:

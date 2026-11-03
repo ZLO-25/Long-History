@@ -2,7 +2,7 @@
 id: event-cleisthenes-reform
 type: event
 name: 克里斯提尼改革
-aliases: [克利斯提尼改革, 克里斯提尼, 克里斯梯尼改革, 克里斯提尼改革, Cleisthenes, Kleisthenes reforms, 雅典民主奠基]
+aliases: [克里斯提尼, 雅典民主奠基, Cleisthenes, 克利斯提尼改革, 克里斯梯尼改革, 克里斯提尼改革, Kleisthenes reforms]
 civilization: [古希臘]
 track: west
 time:

@@ -2,7 +2,7 @@
 id: finance-taiwan-stock-exchange
 type: finance
 name: 臺灣證券交易所
-aliases: [台灣證券交易所, 台湾证券交易所, 證交所, 台股, 臺股, Taiwan Stock Exchange, TWSE, TAIEX, 加權指數, 發行量加權股價指數, "12682", 1990年台股崩盤, 台灣錢淹腳目, 辜振甫, 耕者有其田, 台泥]
+aliases: [台灣證券交易所, 台股, 證交所, 加權指數, Taiwan Stock Exchange, TWSE, TAIEX, 辜振甫, 發行量加權股價指數, 台灣錢淹腳目, 1990年台股崩盤, "12682", 臺股, 耕者有其田, 台湾证券交易所, 台泥]
 civilization: [臺灣（中華民國）]
 track: other
 time:

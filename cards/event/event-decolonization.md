@@ -2,7 +2,7 @@
 id: event-decolonization
 type: event
 name: 亞非去殖民化（1945–1975年）
-aliases: [去殖民化, 去殖民, 解殖, 非殖民化, 亞非去殖民化, 民族獨立運動, Decolonization, Decolonisation, 非洲年, Year of Africa, 變革之風, Wind of Change, 聯合國大會第1514號決議, 給予殖民地國家和人民獨立宣言, Resolution 1514, 印巴分治, 阿爾及利亞戰爭]
+aliases: [去殖民化, 民族獨立運動, Decolonization, 非殖民化, 解殖, 印巴分治, 非洲年, 阿爾及利亞戰爭, 變革之風, 去殖民, 亞非去殖民化, Decolonisation, Year of Africa, Wind of Change, 聯合國大會第1514號決議, 給予殖民地國家和人民獨立宣言, Resolution 1514]
 civilization: [英國, 法國, 荷蘭, 葡萄牙, 印度, 東南亞]
 track: other
 time:

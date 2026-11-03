@@ -2,7 +2,7 @@
 id: finance-euro
 type: finance
 name: 歐元誕生與歐債危機
-aliases: [歐元, 欧元, 歐元區, 欧元区, 歐債危機, 欧债危机, 歐洲主權債務危機, 希臘債務危機, 希腊债务危机, 馬斯垂克條約, 马斯特里赫特条约, 馬斯垂克, 歐洲央行, 欧洲央行, 德拉吉, 不惜一切代價, Euro, Eurozone, Euro area, European debt crisis, Eurozone crisis, Greek debt crisis, Maastricht Treaty, ECB, European Central Bank, Mario Draghi, Whatever it takes, OMT, Troika]
+aliases: [歐元, 歐元區, 歐債危機, 希臘債務危機, Euro, Eurozone, 歐洲央行, ECB, 馬斯垂克條約, 德拉吉, 不惜一切代價, Whatever it takes, European debt crisis, Maastricht Treaty, 歐洲主權債務危機, 馬斯垂克, Euro area, Eurozone crisis, Greek debt crisis, European Central Bank, Mario Draghi, OMT, Troika, 欧元, 欧元区, 欧债危机, 希腊债务危机, 马斯特里赫特条约, 欧洲央行]
 civilization: [日耳曼與法蘭克/德國, 法國, 義大利, 歐盟]
 track: west
 time:

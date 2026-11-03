@@ -2,7 +2,7 @@
 id: event-mudan-incident
 type: event
 name: 牡丹社事件到臺灣建省：清廷轉向積極治臺（1874–1885）
-aliases: [牡丹社事件, 八瑤灣事件, 石門之役, 1874 日本出兵臺灣, 台灣出兵, 沈葆楨, 開山撫番, 廢渡臺禁令, 億載金城, 清法戰爭, 西仔反, 滬尾之役, 淡水之役, 基隆之役, 臺灣建省, 福建臺灣省, 劉銘傳, 清賦, 臺灣鐵路, Mudan incident, Japanese expedition to Taiwan 1874, Keelung campaign, Sino-French War Taiwan]
+aliases: [牡丹社事件, 臺灣建省, 沈葆楨, 劉銘傳, 清法戰爭, 開山撫番, 億載金城, 八瑤灣事件, 西仔反, 滬尾之役, Mudan incident, 石門之役, 1874 日本出兵臺灣, 廢渡臺禁令, 淡水之役, 基隆之役, 福建臺灣省, 清賦, 臺灣鐵路, Japanese expedition to Taiwan 1874, Keelung campaign, Sino-French War Taiwan, 台灣出兵]
 civilization: [臺灣（清治）, 中國（清）, 日本（明治）]
 track: east
 time:

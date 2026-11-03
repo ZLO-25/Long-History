@@ -2,7 +2,7 @@
 id: event-may-fourth
 type: event
 name: 五四運動（1919年）
-aliases: [五四运动, 五四, 五四愛國運動, 火燒趙家樓, 山東問題, 新文化運動, 德先生與賽先生, 北京學界全體宣言, May Fourth Movement, Shandong Problem, New Culture Movement, Mr. Science and Mr. Democracy]
+aliases: [五四, 新文化運動, 五四愛國運動, 山東問題, 德先生與賽先生, 火燒趙家樓, May Fourth Movement, New Culture Movement, 北京學界全體宣言, Shandong Problem, Mr. Science and Mr. Democracy, 五四运动]
 civilization: [中華民國]
 track: china
 time:

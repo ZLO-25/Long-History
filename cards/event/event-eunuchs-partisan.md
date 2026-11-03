@@ -2,7 +2,7 @@
 id: event-eunuchs-partisan
 type: event
 name: 東漢宦官、外戚與黨錮之禍（2世紀）
-aliases: [黨錮之禍, 党锢之祸, 黨錮, 宦官專權, 東漢宦官, 外戚專權, 十常侍, 賣官, 梁冀, 李膺, Disasters of the Partisan Prohibitions, Partisan Prohibitions, Ten Attendants]
+aliases: [黨錮之禍, 宦官專權, 外戚專權, 十常侍, 黨錮, 東漢宦官, 梁冀, 李膺, 賣官, Disasters of the Partisan Prohibitions, Partisan Prohibitions, Ten Attendants, 党锢之祸]
 civilization: [中國（東漢）]
 track: china
 time:

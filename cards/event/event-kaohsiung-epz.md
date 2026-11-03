@@ -2,7 +2,7 @@
 id: event-kaohsiung-epz
 type: event
 name: 高雄加工出口區設立（1966）
-aliases: [加工出口區, 高雄加工區, 前鎮加工區, 楠梓加工區, 臺中加工區, 前鎮科技產業園區, 加工區女工, 客廳即工廠, Kaohsiung Export Processing Zone, KEPZ, export processing zone]
+aliases: [加工出口區, 高雄加工區, 客廳即工廠, 加工區女工, 楠梓加工區, 前鎮加工區, Kaohsiung Export Processing Zone, export processing zone, 臺中加工區, 前鎮科技產業園區, KEPZ]
 civilization: [臺灣（中華民國）]
 track: east
 time:

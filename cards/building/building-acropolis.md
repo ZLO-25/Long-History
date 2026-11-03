@@ -2,7 +2,7 @@
 id: building-acropolis
 type: building
 name: 雅典衛城（含帕德嫩神廟）
-aliases: [雅典卫城, 帕德嫩神廟, 帕特農神廟, 巴特農神殿, Acropolis of Athens, Parthenon, 衛城]
+aliases: [帕德嫩神廟, Parthenon, Acropolis of Athens, 衛城, 巴特農神殿, 帕特農神廟, 雅典卫城]
 civilization: [古希臘]
 track: west
 time:

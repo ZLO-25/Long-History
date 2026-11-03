@@ -2,7 +2,7 @@
 id: war-sino-japanese-1937
 type: war
 name: 中日戰爭（抗日戰爭）
-aliases: [抗日戰爭, 抗日战争, 中日战争, 八年抗戰, 八年抗战, 十四年抗戰, 第二次中日戰爭, Second Sino-Japanese War, War of Resistance against Japan, 七七事變, 七七事变, 盧溝橋事變, 九一八事變, 南京大屠殺, 南京大屠杀, 蔣介石, 毛澤東, 汪精衛, 皇民化運動, 台籍日本兵]
+aliases: [抗日戰爭, 八年抗戰, 第二次中日戰爭, 七七事變, 盧溝橋事變, 南京大屠殺, 蔣介石, Second Sino-Japanese War, 十四年抗戰, 九一八事變, 汪精衛, 毛澤東, War of Resistance against Japan, 皇民化運動, 抗日战争, 中日战争, 八年抗战, 七七事变, 南京大屠杀, 台籍日本兵]
 civilization: [中華民國, 日本]
 track: china
 time:

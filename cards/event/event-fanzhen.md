@@ -2,7 +2,7 @@
 id: event-fanzhen
 type: event
 name: 藩鎮割據（763–907年）
-aliases: [藩鎮, 藩镇割据, 藩鎮割據, 節度使, 节度使, 節度使擁兵, 河朔三鎮, 河北三鎮, 魏博, 成德, 盧龍, 元和中興, Jiedushi, Fanzhen, Three Fanzhen of Hebei]
+aliases: [藩鎮, 藩鎮割據, 節度使, 河朔三鎮, 河北三鎮, 節度使擁兵, 元和中興, Jiedushi, 魏博, 成德, 盧龍, Fanzhen, Three Fanzhen of Hebei, 藩镇割据, 节度使]
 civilization: [中國（唐）]
 track: china
 time:

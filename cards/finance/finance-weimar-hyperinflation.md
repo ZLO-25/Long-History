@@ -2,7 +2,7 @@
 id: finance-weimar-hyperinflation
 type: finance
 name: 威瑪德國惡性通膨（1921–1923）
-aliases: [威瑪惡性通膨, 德國惡性通膨, 1923 年通膨, 威瑪共和, 紙馬克, 地租馬克, 魯爾占領, 消極抵抗, 戰爭賠款, Weimar hyperinflation, Papiermark, Rentenmark, Ruhr occupation, Reparations]
+aliases: [德國惡性通膨, 威瑪惡性通膨, 威瑪共和, 紙馬克, 地租馬克, 魯爾占領, 戰爭賠款, Weimar hyperinflation, 1923 年通膨, Rentenmark, Papiermark, 消極抵抗, Ruhr occupation, Reparations]
 civilization: [德國]
 track: west
 time:

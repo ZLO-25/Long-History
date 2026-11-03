@@ -2,7 +2,7 @@
 id: event-black-ships
 type: event
 name: 黑船來航與日本開國（1853–1854）
-aliases: [黑船來航, 黑船, 培理, 佩里, 培理來航, 神奈川條約, 日美和親條約, 開國, Perry Expedition, Black Ships, Kurofune, Convention of Kanagawa, Matthew Perry]
+aliases: [黑船來航, 黑船, 培理, 日美和親條約, 神奈川條約, 開國, Black Ships, Perry Expedition, Matthew Perry, 佩里, 培理來航, Kurofune, Convention of Kanagawa]
 civilization: [日本（江戶）, 美國]
 track: east
 time:

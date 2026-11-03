@@ -2,7 +2,7 @@
 id: event-hsinchu-park-tsmc
 type: event
 name: 新竹科學園區與台積電的誕生（1974–1987）
-aliases: [新竹科學園區, 竹科, 新竹科學工業園區, 台積電, 臺積電, 台灣積體電路製造, 晶圓代工, 工研院, 工業技術研究院, RCA 計畫, 聯電, 張忠謀, 李國鼎, 孫運璿, 潘文淵, TSMC, Hsinchu Science Park, ITRI, UMC]
+aliases: [台積電, 竹科, 新竹科學園區, 張忠謀, TSMC, 晶圓代工, 工研院, 聯電, 李國鼎, 孫運璿, Hsinchu Science Park, 新竹科學工業園區, 臺積電, 工業技術研究院, RCA 計畫, 潘文淵, ITRI, UMC, 台灣積體電路製造]
 civilization: [臺灣（中華民國）]
 track: east
 time:

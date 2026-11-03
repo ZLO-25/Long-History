@@ -2,7 +2,7 @@
 id: event-salt-iron-debate
 type: event
 name: 鹽鐵會議
-aliases: [盐铁会议, 鹽鐵論, 盐铁论, Discourses on Salt and Iron, Yantie lun, Salt and Iron Debate, 桓寬, 桑弘羊, 霍光, 賢良文學]
+aliases: [鹽鐵論, 桑弘羊, 霍光, 桓寬, 賢良文學, Discourses on Salt and Iron, Salt and Iron Debate, Yantie lun, 盐铁会议, 盐铁论]
 civilization: [中國（西漢）]
 track: china
 time:

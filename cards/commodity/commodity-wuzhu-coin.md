@@ -2,7 +2,7 @@
 id: commodity-wuzhu-coin
 type: commodity
 name: 五銖錢
-aliases: [五铢钱, 五銖, 五铢, Wu Zhu, wuzhu coin, 半兩錢, 半两钱, Ban Liang, 上林三官, 貨幣統一]
+aliases: [五銖, Wu Zhu, 半兩錢, 貨幣統一, 上林三官, wuzhu coin, Ban Liang, 五铢钱, 五铢, 半两钱]
 civilization: [中國（西漢至隋）]
 track: china
 time:

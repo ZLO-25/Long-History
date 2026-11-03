@@ -2,7 +2,7 @@
 id: war-first-indochina
 type: war
 name: 第一次印度支那戰爭與日內瓦協議（1946–1954年）
-aliases: [第一次印度支那戰爭, 印度支那戰爭, 法越戰爭, 抗法戰爭, First Indochina War, French Indochina War, 奠邊府戰役, 奠邊府, Battle of Dien Bien Phu, 日內瓦協議, 日內瓦會議, 1954 Geneva Accords, Geneva Conference 1954, 北緯十七度線, 越盟, Viet Minh, 胡志明, 武元甲]
+aliases: [奠邊府戰役, 印度支那戰爭, First Indochina War, 日內瓦協議, 胡志明, 武元甲, 越盟, Battle of Dien Bien Phu, 法越戰爭, 北緯十七度線, 抗法戰爭, 奠邊府, 1954 Geneva Accords, 第一次印度支那戰爭, French Indochina War, 日內瓦會議, Geneva Conference 1954, Viet Minh]
 civilization: [越南, 法國]
 track: east
 time:

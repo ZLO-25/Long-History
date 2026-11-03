@@ -2,7 +2,7 @@
 id: finance-medici-bank
 type: finance
 name: 梅迪奇銀行與複式簿記
-aliases: [梅迪奇銀行, 麥地奇銀行, 美第奇銀行, 美第奇银行, 麦地奇银行, Medici Bank, Banco dei Medici, 複式簿記, 复式簿记, double-entry bookkeeping, 匯票, bill of exchange, 喬凡尼·德·梅迪奇, Giovanni di Bicci de' Medici, 科西莫·德·梅迪奇, Cosimo de' Medici, 羅倫佐·德·梅迪奇, Lorenzo de' Medici]
+aliases: [梅迪奇銀行, 美第奇銀行, 麥地奇銀行, Medici Bank, 複式簿記, double-entry bookkeeping, 匯票, 羅倫佐·德·梅迪奇, 科西莫·德·梅迪奇, "Cosimo de' Medici", "Lorenzo de' Medici", bill of exchange, Banco dei Medici, 喬凡尼·德·梅迪奇, "Giovanni di Bicci de' Medici", 美第奇银行, 麦地奇银行, 复式簿记]
 civilization: [佛羅倫斯共和國]
 track: west
 time:

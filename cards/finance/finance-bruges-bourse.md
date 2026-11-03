@@ -2,7 +2,7 @@
 id: finance-bruges-bourse
 type: finance
 name: 布魯日與「交易所（Bourse）」的誕生
-aliases: [布魯日交易所, 布魯日, 布呂赫, Bruges, Brugge, Bourse, Beurs, Brugse Beurs, 范德布爾斯, Van der Beurse, Van der Beurze, Ter Beurse, 茲溫河, Zwin, 漢薩同盟商站, Hanseatic Kontor, 馬克西米利安, Maximilian I, 交易所的起源]
+aliases: [布魯日, Bruges, 布魯日交易所, 交易所的起源, Bourse, 布呂赫, Brugge, Beurs, 范德布爾斯, Van der Beurse, 漢薩同盟商站, 茲溫河, Brugse Beurs, Van der Beurze, Ter Beurse, Zwin, Hanseatic Kontor, 馬克西米利安, Maximilian I]
 civilization: [法蘭德斯與比利時（布魯日）]
 track: west
 time:

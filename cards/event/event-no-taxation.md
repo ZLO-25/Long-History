@@ -2,7 +2,7 @@
 id: event-no-taxation
 type: event
 name: 印花稅與「無代表不納稅」（1765–1775年）
-aliases: [無代表不納稅, 无代表不纳税, 印花稅法, 印花稅法案, 印花稅法會議, 自由之子, 湯森德法案, 波士頓茶黨, 波士頓茶葉事件, 不可容忍法案, No taxation without representation, Stamp Act 1765, Stamp Act Congress, Sons of Liberty, Boston Tea Party, Intolerable Acts]
+aliases: [無代表不納稅, 波士頓茶黨, 印花稅法, No taxation without representation, Boston Tea Party, 波士頓茶葉事件, 自由之子, Stamp Act 1765, 湯森德法案, 不可容忍法案, 印花稅法案, 印花稅法會議, Stamp Act Congress, Sons of Liberty, Intolerable Acts, 无代表不纳税]
 civilization: [美國（殖民地時期）, 英國]
 track: west
 time:

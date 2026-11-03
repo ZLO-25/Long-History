@@ -2,7 +2,7 @@
 id: event-conflict-of-orders
 type: event
 name: 羅馬平民與貴族的階級鬥爭（前494–前287年）
-aliases: [階級鬥爭, 等級鬥爭, 平民與貴族的鬥爭, 羅馬平民與貴族的階級衝突, 平民撤離運動, 聖山撤離, 保民官, 霍騰西烏斯法, Conflict of the Orders, Struggle of the Orders, secessio plebis, tribune of the plebs, Lex Hortensia]
+aliases: [平民與貴族的鬥爭, 保民官, 等級鬥爭, 平民撤離運動, Conflict of the Orders, 霍騰西烏斯法, 聖山撤離, Struggle of the Orders, 階級鬥爭, 羅馬平民與貴族的階級衝突, secessio plebis, tribune of the plebs, Lex Hortensia]
 civilization: [古羅馬]
 track: west
 time:

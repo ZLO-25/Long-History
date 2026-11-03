@@ -2,7 +2,7 @@
 id: war-peloponnesian
 type: war
 name: 伯羅奔尼撒戰爭
-aliases: [伯羅奔尼薩戰爭, 伯罗奔尼撒战争, Peloponnesian War, 雅典斯巴達戰爭]
+aliases: [雅典斯巴達戰爭, Peloponnesian War, 伯羅奔尼薩戰爭, 伯罗奔尼撒战争]
 civilization: [古希臘]
 track: west
 time:

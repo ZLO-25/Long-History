@@ -2,7 +2,7 @@
 id: event-reform-and-opening
 type: event
 name: 改革開放
-aliases: [改革开放, Reform and Opening Up, Reform and opening-up, Gaige Kaifang, 鄧小平, 邓小平, 十一屆三中全會, 家庭聯產承包責任制, 包產到戶, 小崗村, 經濟特區, 经济特区, 深圳, 南巡講話, 南巡讲话, 社會主義市場經濟, 黑貓白貓]
+aliases: [鄧小平, Reform and Opening Up, 經濟特區, 深圳, 黑貓白貓, 南巡講話, 十一屆三中全會, 包產到戶, 小崗村, 家庭聯產承包責任制, 社會主義市場經濟, Reform and opening-up, Gaige Kaifang, 改革开放, 邓小平, 经济特区, 南巡讲话]
 civilization: [中華人民共和國]
 track: china
 time:

@@ -2,7 +2,7 @@
 id: commodity-roman-concrete
 type: commodity
 name: 羅馬混凝土（火山灰）
-aliases: [羅馬混凝土, 罗马混凝土, 火山灰水泥, 波佐利火山灰, pozzolana, opus caementicium, Roman concrete, 自癒混凝土]
+aliases: [羅馬混凝土, Roman concrete, 火山灰水泥, 波佐利火山灰, pozzolana, 自癒混凝土, opus caementicium, 罗马混凝土]
 civilization: [古羅馬]
 track: west
 time:

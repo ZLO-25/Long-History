@@ -2,7 +2,7 @@
 id: war-teutoburg
 type: war
 name: 條頓堡森林戰役
-aliases: [条顿堡森林战役, 瓦魯斯戰役, 條頓堡森林之戰, Battle of the Teutoburg Forest, Varus, Varian disaster, 阿米尼烏斯, Kalkriese]
+aliases: [條頓堡森林之戰, 瓦魯斯戰役, 阿米尼烏斯, Battle of the Teutoburg Forest, Varus, Varian disaster, Kalkriese, 条顿堡森林战役]
 civilization: [古羅馬, 日耳曼部落]
 track: west
 time:

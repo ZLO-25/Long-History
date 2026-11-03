@@ -2,7 +2,7 @@
 id: event-taiwan-martial-law
 type: event
 name: 戒嚴與民主化：從 1949 年戒嚴到 1996 年總統直選
-aliases: [戒嚴, 臺灣省戒嚴令, 解嚴, 白色恐怖, 動員戡亂時期臨時條款, 黨外運動, 雷震案, 自由中國, 美麗島事件, 高雄事件, 民進黨成立, 萬年國會, 野百合學運, 總統直選, 景美看守所, 綠島, 蔣經國, 李登輝, Martial law in Taiwan, White Terror, Kaohsiung Incident, Formosa Incident, democratization]
+aliases: [戒嚴, 解嚴, 白色恐怖, 美麗島事件, 總統直選, 蔣經國, 李登輝, 野百合學運, 黨外運動, 民進黨成立, 萬年國會, 雷震案, 自由中國, 綠島, 動員戡亂時期臨時條款, White Terror, Kaohsiung Incident, 臺灣省戒嚴令, 高雄事件, 景美看守所, Martial law in Taiwan, Formosa Incident, democratization]
 civilization: [臺灣（中華民國）]
 track: east
 time:

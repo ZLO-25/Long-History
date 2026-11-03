@@ -2,7 +2,7 @@
 id: event-taiwan-transitional-justice
 type: event
 name: 臺灣的轉型正義（1987年起）
-aliases: [轉型正義, 二二八平反運動, 二二八和平日促進會, 二二八事件處理及賠償條例, 戒嚴時期不當叛亂暨匪諜審判案件補償條例, 促進轉型正義條例, 促轉會, 促進轉型正義委員會, 不當黨產, 政治檔案條例, 臺籍日本兵補償爭議, 臺籍日本兵, Transitional justice in Taiwan, Transitional Justice Commission]
+aliases: [轉型正義, 促轉會, 不當黨產, 二二八平反運動, 促進轉型正義條例, 促進轉型正義委員會, 二二八和平日促進會, 政治檔案條例, Transitional justice in Taiwan, 二二八事件處理及賠償條例, 戒嚴時期不當叛亂暨匪諜審判案件補償條例, 臺籍日本兵補償爭議, 臺籍日本兵, Transitional Justice Commission]
 civilization: [臺灣（中華民國）]
 track: east
 time:

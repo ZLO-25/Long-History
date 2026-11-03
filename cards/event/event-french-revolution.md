@@ -2,7 +2,7 @@
 id: event-french-revolution
 type: event
 name: 法國大革命
-aliases: [法国大革命, 法國革命, French Revolution, Révolution française, 攻占巴士底獄, 巴士底, Bastille, 人權宣言, 路易十六, Louis XVI, 羅伯斯比爾, Robespierre, 恐怖統治, 拿破崙, Napoleon, 霧月政變]
+aliases: [法國革命, French Revolution, 攻占巴士底獄, 拿破崙, 路易十六, 人權宣言, 羅伯斯比爾, 恐怖統治, Napoleon, Bastille, 霧月政變, Révolution française, 巴士底, Louis XVI, Robespierre, 法国大革命]
 civilization: [法國]
 track: west
 time:

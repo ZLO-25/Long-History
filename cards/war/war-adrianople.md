@@ -2,8 +2,7 @@
 id: war-adrianople
 type: war
 name: 哥德人入境與阿德里安堡之戰（376–378年）
-aliases: [阿德里安堡之戰, 亞德里安堡戰役, 哈德良堡之戰, 哥德戰爭（376–382）, 哥德人渡過多瑙河, Battle of Adrianople, Battle of Hadrianopolis, Gothic War (376–382), 瓦倫斯, Valens, 弗里提格倫, Fritigern]
-aliases_main: [阿德里安堡之戰, 哥德戰爭（376–382）, Battle of Adrianople]
+aliases: [阿德里安堡之戰, Battle of Adrianople, 哥德人渡過多瑙河, 瓦倫斯, Valens, 亞德里安堡戰役, 哈德良堡之戰, 弗里提格倫, 哥德戰爭（376–382）, Battle of Hadrianopolis, Gothic War (376–382), Fritigern]
 civilization: [古羅馬, 日耳曼與法蘭克（日耳曼部落）]
 track: west
 time:

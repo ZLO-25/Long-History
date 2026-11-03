@@ -2,7 +2,7 @@
 id: tech-movable-type
 type: tech
 name: 雕版與活字印刷
-aliases: [雕版印刷, 活字印刷, 活字印刷术, 泥活字, 木活字, Movable type, woodblock printing, 畢昇, 毕昇, Bi Sheng, 夢溪筆談, 梦溪笔谈, 沈括, 王禎, 金剛經, 直指心體要節, Jikji, 四大發明]
+aliases: [活字印刷, 四大發明, 雕版印刷, 畢昇, 夢溪筆談, 沈括, 金剛經, Movable type, woodblock printing, 泥活字, 木活字, 直指心體要節, Bi Sheng, 王禎, Jikji, 活字印刷术, 毕昇, 梦溪笔谈]
 civilization: [中國（北宋）, 中國（元）, 朝鮮]
 track: china
 time:

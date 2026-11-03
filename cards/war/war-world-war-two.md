@@ -2,7 +2,7 @@
 id: war-world-war-two
 type: war
 name: 第二次世界大戰
-aliases: [二戰, 第二次世界大战, 二战, World War II, WWII, Second World War, 太平洋戰爭, 太平洋战争, 軸心國, 同盟國, 希特勒, 邱吉爾, 羅斯福, 史達林, 珍珠港, 諾曼第登陸, 史達林格勒, 原子彈, 納粹大屠殺, Holocaust]
+aliases: [二戰, World War II, WWII, Second World War, 希特勒, 珍珠港, 諾曼第登陸, 納粹大屠殺, Holocaust, 太平洋戰爭, 邱吉爾, 羅斯福, 史達林, 原子彈, 史達林格勒, 軸心國, 同盟國, 第二次世界大战, 二战, 太平洋战争]
 civilization: [德國, 義大利, 日本, 英國, 法國, 蘇聯, 美國, 中華民國]
 track: west
 time:

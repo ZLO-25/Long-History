@@ -2,7 +2,7 @@
 id: tech-telegraph
 type: tech
 name: 電報
-aliases: [电报, 電線, 有線電報, Electrical telegraph, Telegraph, 摩斯, 摩斯電碼, Morse code, Samuel Morse, 庫克與惠斯通, Cooke and Wheatstone, 跨大西洋電纜, Transatlantic telegraph cable, 大東方號, Great Eastern, 丁日昌, 西聯, Western Union]
+aliases: [摩斯電碼, Morse code, Telegraph, Samuel Morse, 摩斯, 跨大西洋電纜, 有線電報, Electrical telegraph, 西聯, Western Union, 丁日昌, 電線, 庫克與惠斯通, Cooke and Wheatstone, Transatlantic telegraph cable, 大東方號, Great Eastern, 电报]
 civilization: [英國, 美國, 中國（清）]
 track: west
 time:

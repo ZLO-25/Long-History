@@ -2,7 +2,7 @@
 id: tech-printing-press
 type: tech
 name: 古騰堡印刷機
-aliases: [古腾堡印刷机, 谷騰堡, 古登堡, Gutenberg, Johannes Gutenberg, printing press, 金屬活字印刷, 印刷革命, Printing Revolution, 古騰堡聖經, Gutenberg Bible, 搖籃本, incunabula]
+aliases: [Gutenberg, 印刷革命, 古騰堡聖經, printing press, Gutenberg Bible, 金屬活字印刷, 古登堡, 谷騰堡, Printing Revolution, 搖籃本, Johannes Gutenberg, incunabula, 古腾堡印刷机]
 civilization: [神聖羅馬帝國]
 track: west
 time:

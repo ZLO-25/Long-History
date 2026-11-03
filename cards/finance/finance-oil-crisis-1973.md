@@ -2,7 +2,7 @@
 id: finance-oil-crisis-1973
 type: finance
 name: 第一次石油危機（1973年）
-aliases: [第一次石油危機, 石油危機, 1973年石油危機, 石油禁運, 第四次中東戰爭與石油禁運, 贖罪日戰爭, 停滯性通膨, 美國停滯性通膨, 能源獨立計畫, 1973 oil crisis, oil embargo, OAPEC embargo, first oil shock, Yom Kippur War, Project Independence, stagflation]
+aliases: [石油危機, 第一次石油危機, 石油禁運, 1973年石油危機, 停滯性通膨, 1973 oil crisis, 贖罪日戰爭, 第四次中東戰爭與石油禁運, oil embargo, stagflation, Yom Kippur War, first oil shock, 美國停滯性通膨, 能源獨立計畫, OAPEC embargo, Project Independence]
 civilization: [伊斯蘭世界, 美國（世界強權）, 日本（近現代）]
 track: west
 time:

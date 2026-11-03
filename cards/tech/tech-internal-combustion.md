@@ -2,7 +2,7 @@
 id: tech-internal-combustion
 type: tech
 name: 內燃機與汽車
-aliases: [内燃机与汽车, 內燃機, 内燃机, 汽車, 汽车, Internal combustion engine, Automobile, 四行程引擎, Four-stroke engine, 奧圖循環, Otto cycle, 尼古拉斯·奧圖, Nicolaus Otto, 卡爾·賓士, Karl Benz, 賓士專利汽車, Benz Patent-Motorwagen, 福特, Henry Ford, T型車, Model T, 流水線, Assembly line]
+aliases: [汽車, 內燃機, 福特, T型車, Model T, 流水線, Automobile, Internal combustion engine, 卡爾·賓士, Henry Ford, Karl Benz, Assembly line, 四行程引擎, Four-stroke engine, 奧圖循環, Otto cycle, 尼古拉斯·奧圖, Nicolaus Otto, 賓士專利汽車, Benz Patent-Motorwagen, 内燃机与汽车, 内燃机, 汽车]
 civilization: [德國, 美國]
 track: west
 time:

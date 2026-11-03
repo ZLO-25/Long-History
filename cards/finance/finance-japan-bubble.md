@@ -2,7 +2,7 @@
 id: finance-japan-bubble
 type: finance
 name: 日本泡沫經濟與東京的興衰
-aliases: [日本泡沫經濟, 日本泡沫经济, 泡沫經濟, バブル景気, バブル経済, Japanese asset price bubble, Japan bubble economy, 失落的十年, 失落的三十年, Lost Decade, Lost Decades, 日經225, 日经225, Nikkei 225, 日經指數, 皇居地價, 円高不況, 總量規制, 財テク]
+aliases: [泡沫經濟, 日本泡沫經濟, 失落的三十年, 失落的十年, 日經225, Japan bubble economy, Lost Decade, Nikkei 225, 日經指數, 皇居地價, Japanese asset price bubble, 總量規制, バブル景気, バブル経済, Lost Decades, 円高不況, 財テク, 日本泡沫经济, 日经225]
 civilization: [日本（近現代）]
 track: east
 time:

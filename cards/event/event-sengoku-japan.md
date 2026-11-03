@@ -2,7 +2,7 @@
 id: event-sengoku-japan
 type: event
 name: 日本戰國時代（1467–1590年）
-aliases: [日本戰國時代, 戰國時代（日本）, 應仁之亂, 下剋上, 戰國大名, 本能寺之變, 織田信長, 明智光秀, 長篠之戰, 鐵炮, 種子島銃, Sengoku period, Ōnin War, gekokujō, Honnō-ji incident, Oda Nobunaga, Akechi Mitsuhide]
+aliases: [織田信長, 本能寺之變, 下剋上, 戰國大名, 明智光秀, 應仁之亂, Sengoku period, Oda Nobunaga, 長篠之戰, 種子島銃, 鐵炮, 日本戰國時代, 戰國時代（日本）, Ōnin War, gekokujō, Honnō-ji incident, Akechi Mitsuhide]
 civilization: [日本（戰國）]
 track: east
 time:

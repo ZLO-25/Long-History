@@ -2,7 +2,7 @@
 id: commodity-silver-flow
 type: commodity
 name: 白銀的全球流動：美洲與日本的銀流向明朝中國（約 1550–1650）
-aliases: [白銀流動, 白銀貿易, 美洲白銀, 波托西, 隆慶開海, 月港, 白銀帝國, 銀荒, 1640 年代白銀危機, silver flow, Potosí, global silver trade]
+aliases: [白銀貿易, 美洲白銀, 白銀帝國, 波托西, 隆慶開海, 月港, global silver trade, 銀荒, 白銀流動, 1640 年代白銀危機, silver flow, Potosí]
 civilization: [中國（明）, 日本, 拉丁美洲（祕魯、墨西哥）, 伊比利半島（西班牙、葡萄牙）]
 track: other
 time:

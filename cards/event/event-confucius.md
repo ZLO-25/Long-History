@@ -2,7 +2,7 @@
 id: event-confucius
 type: event
 name: 孔子與儒家形成
-aliases: [孔子, 儒家, 儒学, 儒學, Confucius, Confucianism, 論語, 论语, Analects, 孟子, 荀子, 諸子百家, 軸心時代]
+aliases: [孔子, 儒家, 論語, Confucius, Confucianism, 孟子, 荀子, 諸子百家, 儒學, Analects, 軸心時代, 儒学, 论语]
 civilization: [中國（春秋魯國）]
 track: china
 time:

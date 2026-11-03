@@ -2,7 +2,7 @@
 id: finance-bretton-woods
 type: finance
 name: 布列敦森林體系
-aliases: [布雷頓森林體系, 布雷顿森林体系, Bretton Woods system, Bretton Woods Conference, 布列敦森林會議, 國際貨幣基金, 国际货币基金组织, IMF, 世界銀行, World Bank, IBRD, 美元與黃金掛鉤, 金匯兌本位, 尼克森震撼, 尼克松冲击, Nixon shock, 凱因斯, Keynes, Harry Dexter White, 史密森協定]
+aliases: [布雷頓森林體系, Bretton Woods system, 布列敦森林會議, 美元與黃金掛鉤, 國際貨幣基金, IMF, 世界銀行, World Bank, 尼克森震撼, Nixon shock, 凱因斯, Keynes, 金匯兌本位, Bretton Woods Conference, IBRD, Harry Dexter White, 史密森協定, 布雷顿森林体系, 国际货币基金组织, 尼克松冲击]
 civilization: [美國, 英國]
 track: west
 time:

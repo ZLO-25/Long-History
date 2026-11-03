@@ -2,7 +2,7 @@
 id: finance-amsterdam-exchange
 type: finance
 name: 阿姆斯特丹交易所與荷蘭東印度公司股票
-aliases: [阿姆斯特丹交易所, 阿姆斯特丹證券交易所, 阿姆斯特丹证券交易所, Amsterdam Stock Exchange, Amsterdam Bourse, Beurs van Hendrick de Keyser, Euronext Amsterdam, 荷蘭東印度公司, 荷兰东印度公司, VOC, Vereenigde Oostindische Compagnie, Dutch East India Company, 聯合東印度公司, 鬱金香狂熱, 郁金香狂热, Tulip mania, 亨德里克·德·凱瑟, Hendrick de Keyser]
+aliases: [荷蘭東印度公司, VOC, 阿姆斯特丹證券交易所, 鬱金香狂熱, Dutch East India Company, Amsterdam Stock Exchange, 阿姆斯特丹交易所, Tulip mania, 聯合東印度公司, Amsterdam Bourse, Beurs van Hendrick de Keyser, Euronext Amsterdam, Vereenigde Oostindische Compagnie, 亨德里克·德·凱瑟, Hendrick de Keyser, 阿姆斯特丹证券交易所, 荷兰东印度公司, 郁金香狂热]
 civilization: [荷蘭]
 track: west
 time:

@@ -2,7 +2,7 @@
 id: commodity-ferghana-horse
 type: commodity
 name: 大宛馬（天馬）
-aliases: [大宛马, 汗血馬, 汗血马, 天馬, 天马, Ferghana horse, heavenly horses, 大宛, Dayuan, 天馬之戰, 李廣利, 貳師將軍]
+aliases: [汗血馬, 天馬, Ferghana horse, 大宛, 李廣利, 貳師將軍, 天馬之戰, heavenly horses, Dayuan, 大宛马, 汗血马, 天马]
 civilization: [中國（西漢）, 大宛]
 track: china
 time:

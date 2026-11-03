@@ -42,7 +42,7 @@ export function checkCards(
     if (!Array.isArray(f.aliases) || !f.aliases.length) err('aliases 至少要有 1 個');
     else for (const a of f.aliases) if (typeof a !== 'string') warn(`別名 ${a} 會被 YAML 讀成數字，請加引號寫成字串`);
     if (f.aliases_main !== undefined) {
-      if (!Array.isArray(f.aliases_main)) err('aliases_main 要寫成清單，例如 [美國內戰, American Civil War]');
+      if (!Array.isArray(f.aliases_main)) err('aliases_main 要寫成清單，例如 [美國內戰, American Civil War]（現在建議直接調整 aliases 的順序）');
       else for (const a of f.aliases_main) if (!(f.aliases ?? []).map(String).includes(String(a))) warn(`aliases_main 的「${a}」不在 aliases 裡，會被略過`);
     }
     if (!Array.isArray(f.civilization) || !f.civilization.length) err('缺少 civilization');

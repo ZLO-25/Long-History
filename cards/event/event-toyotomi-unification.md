@@ -2,7 +2,7 @@
 id: event-toyotomi-unification
 type: event
 name: 豐臣秀吉統一日本（1582–1590）
-aliases: [豐臣秀吉, 秀吉, 太閤, 刀狩令, 刀狩, 伴天連追放令, 小田原征伐, 戰國統一, Toyotomi Hideyoshi, Sword hunt, Katanagari, Bateren Edict]
+aliases: [豐臣秀吉, 秀吉, 太閤, 刀狩令, 小田原征伐, 戰國統一, Toyotomi Hideyoshi, 刀狩, 伴天連追放令, Sword hunt, Katanagari, Bateren Edict]
 civilization: [日本（戰國）]
 track: east
 time:

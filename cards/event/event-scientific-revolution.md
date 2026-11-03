@@ -2,7 +2,7 @@
 id: event-scientific-revolution
 type: event
 name: 科學革命（16–17世紀）
-aliases: [科學革命, 近代科學革命, 哥白尼革命, 日心說, 伽利略, 牛頓, 自然哲學的數學原理, 皇家學會, Scientific Revolution, Copernicus, Galileo, Newton, Principia]
+aliases: [牛頓, 伽利略, 哥白尼革命, 日心說, Scientific Revolution, Newton, Galileo, Copernicus, 自然哲學的數學原理, 皇家學會, Principia, 近代科學革命, 科學革命]
 civilization: [義大利, 英國, 日耳曼與法蘭克, 法國]
 track: west
 time:

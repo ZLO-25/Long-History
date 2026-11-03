@@ -2,7 +2,7 @@
 id: event-warlord-era
 type: event
 name: 北洋軍閥割據（1916–1928年）
-aliases: [軍閥割據, 军阀割据, 北洋軍閥, 北洋政府, 軍閥混戰, 直皖戰爭, 直奉戰爭, 皖系, 直系, 奉系, 張作霖, 段祺瑞, 吳佩孚, 東北易幟, 北伐, Warlord Era, Beiyang government, Beiyang warlords, Zhili clique, Fengtian clique, Anhui clique]
+aliases: [北洋軍閥, 軍閥割據, 北洋政府, 軍閥混戰, 北伐, 張作霖, 段祺瑞, 吳佩孚, 東北易幟, 直奉戰爭, Warlord Era, Beiyang government, 直皖戰爭, 皖系, 直系, 奉系, Beiyang warlords, Zhili clique, Fengtian clique, Anhui clique, 军阀割据]
 civilization: [中華民國]
 track: china
 time:

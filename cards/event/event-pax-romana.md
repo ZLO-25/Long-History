@@ -2,7 +2,7 @@
 id: event-pax-romana
 type: event
 name: 羅馬和平（前27–180年）
-aliases: [羅馬和平, 羅馬治世, 羅馬盛世, 五賢帝, 哈德良停止擴張, 羅馬以萊茵河為界, 雅努斯神廟關門, Pax Romana, Pax Augusta, Five Good Emperors, Roman frontier, limes]
+aliases: [五賢帝, 羅馬治世, 羅馬盛世, Pax Romana, Five Good Emperors, 哈德良停止擴張, Pax Augusta, 雅努斯神廟關門, limes, 羅馬和平, 羅馬以萊茵河為界, Roman frontier]
 civilization: [古羅馬]
 track: west
 time:

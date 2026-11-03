@@ -2,7 +2,7 @@
 id: tech-cuneiform
 type: tech
 name: 楔形文字的發明（約前3300–前3000年）
-aliases: [楔形文字, 楔形字, 原始楔形文字, 烏魯克泥板, 泥板文書, Cuneiform, Proto-cuneiform, cuneiform script, Uruk tablets]
+aliases: [楔形文字, 泥板文書, Cuneiform, 楔形字, 烏魯克泥板, 原始楔形文字, cuneiform script, Proto-cuneiform, Uruk tablets]
 civilization: [美索不達米亞（蘇美）]
 track: west
 time:

@@ -2,7 +2,7 @@
 id: event-hellenistic-kingdoms
 type: event
 name: 繼業者戰爭與希臘化王國（前323–前30年）
-aliases: [繼業者戰爭, 繼業者, 希臘化時代, 希臘化王國, 托勒密王朝, 塞琉古王朝, 安提柯王朝, 伊普蘇斯戰役, Diadochi, Wars of the Diadochi, Hellenistic period, Hellenistic kingdoms, Battle of Ipsus]
+aliases: [希臘化時代, 托勒密王朝, 塞琉古王朝, 繼業者戰爭, 希臘化王國, 安提柯王朝, Hellenistic period, Diadochi, 伊普蘇斯戰役, 繼業者, Wars of the Diadochi, Hellenistic kingdoms, Battle of Ipsus]
 civilization: [古希臘（馬其頓）, 托勒密埃及]
 track: west
 time:

@@ -2,7 +2,7 @@
 id: building-forum-romanum
 type: building
 name: 羅馬廣場
-aliases: [古羅馬廣場, 罗马广场, 羅馬論壇, Forum Romanum, Roman Forum, 元老院議事堂, 演講台]
+aliases: [古羅馬廣場, Roman Forum, Forum Romanum, 元老院議事堂, 演講台, 羅馬論壇, 罗马广场]
 civilization: [古羅馬]
 track: west
 time:

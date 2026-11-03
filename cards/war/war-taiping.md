@@ -2,7 +2,7 @@
 id: war-taiping
 type: war
 name: 太平天國（1851–1864年）
-aliases: [太平天國之亂, 太平天国, 太平軍, 洪秀全, 金田起義, 天京, 天京事變, 湘軍, 曾國藩, Taiping Rebellion, Taiping Heavenly Kingdom, Taiping Civil War]
+aliases: [太平天國之亂, 洪秀全, 太平軍, 金田起義, 天京, 曾國藩, 湘軍, 天京事變, Taiping Rebellion, Taiping Heavenly Kingdom, Taiping Civil War, 太平天国]
 civilization: [中國（清）]
 track: china
 time:

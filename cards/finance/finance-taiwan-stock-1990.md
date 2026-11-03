@@ -2,7 +2,7 @@
 id: finance-taiwan-stock-1990
 type: finance
 name: 臺灣錢淹腳目：1986–1990 年股市與房市泡沫
-aliases: [臺灣錢淹腳目, 台灣錢淹腳目, 台股萬點, "12682", 1990 年股市崩盤, 台股崩盤, 泡沫經濟, 地下投資公司, 鴻源, 大家樂, 新台幣升值, 熱錢, Taiwan bubble economy, 1990 Taiwan stock crash]
+aliases: [台灣錢淹腳目, 台股萬點, 台股崩盤, 1990 年股市崩盤, 大家樂, 鴻源, 地下投資公司, 泡沫經濟, 熱錢, 新台幣升值, "12682", Taiwan bubble economy, 臺灣錢淹腳目, 1990 Taiwan stock crash]
 civilization: [臺灣（中華民國）]
 track: east
 time:

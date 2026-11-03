@@ -2,7 +2,7 @@
 id: war-han-xiongnu
 type: war
 name: 漢匈戰爭（含漠北之戰）
-aliases: [汉匈战争, 漢匈之戰, 漠北之戰, 漠北之战, Han–Xiongnu wars, Battle of Mobei, 衛青, 霍去病, 匈奴, 和親, 白登之圍]
+aliases: [衛青, 霍去病, 漠北之戰, 匈奴, 漢匈之戰, 和親, 白登之圍, Han–Xiongnu wars, Battle of Mobei, 汉匈战争, 漠北之战]
 civilization: [中國（西漢）, 匈奴]
 track: china
 time:

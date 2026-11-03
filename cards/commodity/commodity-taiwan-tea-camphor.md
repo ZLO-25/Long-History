@@ -2,8 +2,7 @@
 id: commodity-taiwan-tea-camphor
 type: commodity
 name: 開港後的茶、糖、樟腦：臺灣接上世界市場（1860–1895）
-aliases: [茶糖樟腦, 臺灣三寶, 開港通商, 淡水開港, 打狗開港, 洋行, 買辦, 寶順洋行, 德記洋行, 怡記洋行, 李春生, 杜德, 陶德, John Dodd, 大稻埕, 福爾摩沙烏龍茶, Formosa Oolong, 樟腦, 腦丁, camphor, Formosa tea, treaty ports Taiwan]
-aliases_main: [茶糖樟腦, 開港通商, Formosa Oolong]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
+aliases: [臺灣三寶, 茶糖樟腦, 開港通商, 大稻埕, 福爾摩沙烏龍茶, Formosa Oolong, 李春生, 洋行, 淡水開港, 打狗開港, 買辦, 寶順洋行, 德記洋行, 怡記洋行, 杜德, 陶德, John Dodd, 樟腦, 腦丁, camphor, Formosa tea, treaty ports Taiwan]
 civilization: [臺灣（清治）, 中國（清）]
 track: east
 time:

@@ -2,7 +2,7 @@
 id: finance-federal-reserve
 type: finance
 name: 1907 年大恐慌與聯準會成立
-aliases: [聯準會, 聯邦準備系統, 美聯儲, Federal Reserve, Federal Reserve System, 聯邦準備法, Federal Reserve Act, 1907 年恐慌, Panic of 1907, 尼克伯克信託, Knickerbocker Trust, J.P. 摩根, J. P. Morgan, 國家貨幣委員會, National Monetary Commission, 哲基爾島, Jekyll Island, 奧爾德里奇計畫, Aldrich Plan, 最後貸款人, lender of last resort, 格拉斯－歐文法案]
+aliases: [聯準會, 美聯儲, Federal Reserve, 聯邦準備系統, Panic of 1907, 1907 年恐慌, J.P. 摩根, 最後貸款人, lender of last resort, 聯邦準備法, Federal Reserve Act, 哲基爾島, Federal Reserve System, 尼克伯克信託, Knickerbocker Trust, J. P. Morgan, 國家貨幣委員會, National Monetary Commission, Jekyll Island, 奧爾德里奇計畫, Aldrich Plan, 格拉斯－歐文法案]
 civilization: [美國（內戰與工業化）]
 track: west
 time:

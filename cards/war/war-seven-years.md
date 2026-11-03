@@ -2,7 +2,7 @@
 id: war-seven-years
 type: war
 name: 七年戰爭（1756–1763年）
-aliases: [七年战争, 英法七年戰爭, 法國—印第安人戰爭, 法印戰爭, 外交革命, 1763 年巴黎條約, 腓特烈大帝, Seven Years' War, French and Indian War, Treaty of Paris 1763, Diplomatic Revolution]
+aliases: [法印戰爭, French and Indian War, "Seven Years' War", 腓特烈大帝, 英法七年戰爭, 法國—印第安人戰爭, 1763 年巴黎條約, 外交革命, Treaty of Paris 1763, Diplomatic Revolution, 七年战争]
 civilization: [英國, 法國, 北美十三殖民地]
 track: west
 time:

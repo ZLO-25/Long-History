@@ -2,7 +2,7 @@
 id: social-siraya-deer
 type: social
 name: 鹿皮貿易時代的西拉雅人
-aliases: [西拉雅族, 西拉雅, Siraya, 新港社, 麻豆社, 鹿皮貿易, 梅花鹿, 新港文書, Sinckan]
+aliases: [西拉雅族, 西拉雅, Siraya, 鹿皮貿易, 梅花鹿, 新港文書, 新港社, 麻豆社, Sinckan]
 civilization: [臺灣（荷西時期）]
 track: east
 time:

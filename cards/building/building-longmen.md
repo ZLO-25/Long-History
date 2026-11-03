@@ -2,7 +2,7 @@
 id: building-longmen
 type: building
 name: 龍門石窟（493年起）
-aliases: [龍門石窟, 龙门石窟, 伊闕, 古陽洞, 賓陽洞, 奉先寺, 盧舍那大佛, Longmen Grottoes, Longmen Caves]
+aliases: [龍門石窟, Longmen Grottoes, 盧舍那大佛, 奉先寺, 伊闕, 賓陽洞, 古陽洞, Longmen Caves, 龙门石窟]
 civilization: [中國（北魏）, 中國（唐）]
 track: china
 time:

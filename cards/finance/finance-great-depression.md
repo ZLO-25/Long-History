@@ -2,7 +2,7 @@
 id: finance-great-depression
 type: finance
 name: 1929 股災與大蕭條
-aliases: [大蕭條, 大萧条, 經濟大恐慌, 1929年股災, 1929年股灾, 華爾街股災, Great Depression, Wall Street Crash of 1929, Black Tuesday, 黑色星期四, 黑色星期二, 羅斯福新政, 罗斯福新政, New Deal, Franklin D. Roosevelt, 美國證券交易委員會, SEC, 斯姆特－霍利關稅法]
+aliases: [大蕭條, 經濟大恐慌, 1929年股災, 華爾街股災, Great Depression, 黑色星期四, 黑色星期二, Black Tuesday, Wall Street Crash of 1929, 羅斯福新政, New Deal, 斯姆特－霍利關稅法, Franklin D. Roosevelt, 美國證券交易委員會, SEC, 大萧条, 1929年股灾, 罗斯福新政]
 civilization: [美國]
 track: west
 time:

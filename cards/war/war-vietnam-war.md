@@ -2,7 +2,7 @@
 id: war-vietnam-war
 type: war
 name: 越戰（越南戰爭，1955–1975）
-aliases: [越戰, 越南戰爭, 越南战争, 第二次印度支那戰爭, 抗美救國戰爭, Vietnam War, Second Indochina War, American War, 北越, 南越, 越共, Viet Cong, 南方民族解放陣線, 胡志明, Ho Chi Minh, 東京灣事件, Gulf of Tonkin incident, 東京灣決議, 春節攻勢, Tet Offensive, 骨牌理論, Domino theory, 巴黎和約, Paris Peace Accords, 西貢陷落, Fall of Saigon, 越南化, Vietnamization]
+aliases: [越戰, 越南戰爭, Vietnam War, 胡志明, Ho Chi Minh, 越共, Viet Cong, 北越, 南越, 春節攻勢, Tet Offensive, 西貢陷落, Fall of Saigon, 骨牌理論, 東京灣事件, 第二次印度支那戰爭, 抗美救國戰爭, Second Indochina War, American War, 南方民族解放陣線, Gulf of Tonkin incident, 東京灣決議, Domino theory, 巴黎和約, Paris Peace Accords, 越南化, Vietnamization, 越南战争]
 civilization: [東南亞, 美國（世界強權）, 中華人民共和國, 蘇聯]
 track: east
 time:

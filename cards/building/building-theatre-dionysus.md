@@ -2,7 +2,7 @@
 id: building-theatre-dionysus
 type: building
 name: 酒神劇場
-aliases: [戴奧尼索斯劇場, 狄俄尼索斯劇場, 酒神剧场, Theatre of Dionysus, Theater of Dionysus Eleuthereus]
+aliases: [戴奧尼索斯劇場, Theatre of Dionysus, 狄俄尼索斯劇場, Theater of Dionysus Eleuthereus, 酒神剧场]
 civilization: [古希臘, 古羅馬]
 track: west
 time:

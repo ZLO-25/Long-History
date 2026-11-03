@@ -2,7 +2,7 @@
 id: event-sino-soviet-split
 type: event
 name: 中蘇交惡（1956–1969年）
-aliases: [中蘇交惡, 中苏交恶, 中蘇分裂, 中蘇決裂, 中蘇論戰, 九評, 珍寶島事件, 珍宝岛事件, 珍寶島衝突, 中蘇邊界衝突, Sino-Soviet split, Sino-Soviet border conflict, Zhenbao Island incident, Damansky Island incident]
+aliases: [中蘇決裂, 中蘇分裂, 珍寶島事件, 中蘇論戰, Sino-Soviet split, 中蘇邊界衝突, 九評, 珍寶島衝突, Zhenbao Island incident, 中蘇交惡, Sino-Soviet border conflict, Damansky Island incident, 中苏交恶, 珍宝岛事件]
 civilization: [中華人民共和國, 蘇聯]
 track: china
 time:

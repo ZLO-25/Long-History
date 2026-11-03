@@ -2,7 +2,7 @@
 id: event-roman-grain-dole
 type: event
 name: 羅馬的糧食配給（前123年起）
-aliases: [羅馬糧食配給, 羅馬城糧食配給制度, 羅馬國家的糧油配給, 糧食法, 格拉古糧食法, 麵包與馬戲, 糧食長官, Cura Annonae, annona, grain dole, Lex Sempronia frumentaria, frumentatio, bread and circuses, praefectus annonae]
+aliases: [麵包與馬戲, 羅馬糧食配給, bread and circuses, 格拉古糧食法, 糧食法, Cura Annonae, annona, grain dole, 糧食長官, 羅馬城糧食配給制度, 羅馬國家的糧油配給, Lex Sempronia frumentaria, frumentatio, praefectus annonae]
 civilization: [古羅馬]
 track: west
 time:

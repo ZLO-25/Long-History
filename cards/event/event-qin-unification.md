@@ -2,7 +2,7 @@
 id: event-qin-unification
 type: event
 name: 秦統一
-aliases: [秦统一, 秦滅六國, 秦始皇, 始皇帝, Qin unification, Qin's wars of unification, Qin Shi Huang, 書同文車同軌]
+aliases: [秦始皇, 秦滅六國, 始皇帝, 書同文車同軌, Qin Shi Huang, Qin unification, "Qin's wars of unification", 秦统一]
 civilization: [中國（秦）]
 track: china
 time:

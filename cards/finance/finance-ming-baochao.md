@@ -2,7 +2,7 @@
 id: finance-ming-baochao
 type: finance
 name: 大明寶鈔的崩壞與白銀登場（1375–1567）
-aliases: [大明寶鈔, 大明通行寶鈔, 寶鈔, 明代紙幣, 鈔法, 金花銀, 銀錢兼使, 洪武寶鈔, Da-Ming Baochao, Great Ming Treasure Note, Ming paper money]
+aliases: [大明寶鈔, 寶鈔, 明代紙幣, 大明通行寶鈔, 洪武寶鈔, 金花銀, 鈔法, 銀錢兼使, Great Ming Treasure Note, Ming paper money, Da-Ming Baochao]
 civilization: [中國（明）]
 track: china
 time:

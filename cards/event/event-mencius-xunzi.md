@@ -2,8 +2,7 @@
 id: event-mencius-xunzi
 type: event
 name: 孟子與荀子：戰國儒學（前4–前3世紀）
-aliases: [孟子, 荀子, 孟軻, 荀況, 荀卿, 性善論, 性惡論, 民貴君輕, 稷下學宮, 亞聖, Mencius, Mengzi, Xunzi, Xun Kuang, 孟荀]
-aliases_main: [孟子, 荀子, Mencius]
+aliases: [孟子, 荀子, 性善論, 性惡論, 民貴君輕, 亞聖, Mencius, Xunzi, 稷下學宮, 孟軻, 荀況, 荀卿, Mengzi, Xun Kuang, 孟荀]
 civilization: [中國（戰國）]
 track: china
 time:

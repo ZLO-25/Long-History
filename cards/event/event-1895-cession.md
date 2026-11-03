@@ -2,7 +2,7 @@
 id: event-1895-cession
 type: event
 name: 馬關條約割臺、臺灣民主國與乙未之役（1895）
-aliases: [乙未割臺, 馬關條約, 下關條約, 甲午戰爭割臺, 臺灣民主國, 台灣民主國, 唐景崧, 丘逢甲, 劉永福, 乙未戰爭, 乙未之役, 澳底登陸, 八卦山之役, 北白川宮能久, 臺灣總督府, 六三法, 始政, Treaty of Shimonoseki, Republic of Formosa, Japanese invasion of Taiwan 1895, Law 63]
+aliases: [馬關條約, 乙未割臺, 臺灣民主國, 乙未戰爭, Treaty of Shimonoseki, 劉永福, 丘逢甲, 唐景崧, 八卦山之役, Republic of Formosa, 下關條約, 甲午戰爭割臺, 乙未之役, 澳底登陸, 北白川宮能久, 臺灣總督府, 六三法, 始政, Japanese invasion of Taiwan 1895, Law 63, 台灣民主國]
 civilization: [臺灣（清治）, 臺灣（日治）, 中國（清）, 日本（明治）]
 track: east
 time:

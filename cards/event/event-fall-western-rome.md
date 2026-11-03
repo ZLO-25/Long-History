@@ -2,7 +2,7 @@
 id: event-fall-western-rome
 type: event
 name: 西羅馬滅亡（476 年）
-aliases: [西羅馬帝國滅亡, 西罗马灭亡, 羅馬衰亡, 西羅馬滅亡（476年）, Fall of the Western Roman Empire, Fall of Rome, 奧多亞塞, Odoacer, 羅慕路斯．奧古斯都路斯]
+aliases: [西羅馬帝國滅亡, 羅馬衰亡, Fall of Rome, Fall of the Western Roman Empire, 奧多亞塞, Odoacer, 羅慕路斯．奧古斯都路斯, 西羅馬滅亡（476年）, 西罗马灭亡]
 civilization: [古羅馬, 日耳曼部落]
 track: west
 time:

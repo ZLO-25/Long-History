@@ -2,7 +2,7 @@
 id: event-maurya-empire
 type: event
 name: 孔雀王朝建立（約前321年）
-aliases: [孔雀王朝, 孔雀帝國, 旃陀羅笈多, 月護王, 旃陀羅笈多·孔雀, 阿育王, 華氏城, 考底利耶, Maurya Empire, Mauryan Empire, Chandragupta Maurya, Sandrocottus, Ashoka, Pataliputra]
+aliases: [孔雀王朝, 阿育王, 孔雀帝國, 旃陀羅笈多, 月護王, Maurya Empire, Ashoka, Chandragupta Maurya, 華氏城, 考底利耶, 旃陀羅笈多·孔雀, Mauryan Empire, Sandrocottus, Pataliputra]
 civilization: [印度]
 track: other
 time:

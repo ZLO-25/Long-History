@@ -2,7 +2,7 @@
 id: event-wushe-incident
 type: event
 name: 霧社事件（1930–1931）
-aliases: [霧社事件, 雾社事件, 霧社蜂起, 第二次霧社事件, 莫那魯道, 莫那·魯道, 賽德克族, 賽德克·巴萊, 川中島, 清流部落, 理蕃政策, Musha Incident, Wushe Incident, Wushe Rebellion, Mona Rudao]
+aliases: [莫那魯道, 賽德克·巴萊, 賽德克族, 霧社蜂起, Wushe Incident, Musha Incident, 第二次霧社事件, 川中島, 清流部落, Mona Rudao, 霧社事件, 莫那·魯道, 理蕃政策, Wushe Rebellion, 雾社事件]
 civilization: [臺灣（日治）, 日本（近現代）]
 track: east
 time:

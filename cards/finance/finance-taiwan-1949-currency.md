@@ -2,7 +2,7 @@
 id: finance-taiwan-1949-currency
 type: finance
 name: 戰後臺灣惡性通膨與 1949 年幣制改革（舊臺幣四萬換新臺幣一元）
-aliases: [四萬換一塊, 四萬換一元, 1949 幣制改革, 臺灣省幣制改革方案, 新臺幣發行辦法, 舊臺幣, 新臺幣, 臺幣兌換券, 戰後通膨, 惡性物價膨脹, 黃金儲蓄存款, Old Taiwan dollar, New Taiwan dollar 1949]
+aliases: [四萬換一塊, 四萬換一元, 新臺幣, 舊臺幣, 1949 幣制改革, 戰後通膨, 惡性物價膨脹, 新臺幣發行辦法, 臺灣省幣制改革方案, 黃金儲蓄存款, New Taiwan dollar 1949, 臺幣兌換券, Old Taiwan dollar]
 civilization: [臺灣（中華民國）]
 track: east
 time:

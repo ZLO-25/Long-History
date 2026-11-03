@@ -2,7 +2,7 @@
 id: building-lingqu
 type: building
 name: 靈渠
-aliases: [灵渠, 靈渠運河, Lingqu, Lingqu Canal, 興安運河, 史祿, 陡門, 湘江, 漓江]
+aliases: [Lingqu Canal, 興安運河, 史祿, 湘江, 漓江, 陡門, 靈渠運河, Lingqu, 灵渠]
 civilization: [中國（秦）]
 track: china
 time:

@@ -2,7 +2,7 @@
 id: event-black-death
 type: event
 name: 黑死病
-aliases: [黑死病大流行, Black Death, Black Plague, the Great Mortality, 鼠疫, 腺鼠疫, Yersinia pestis, 鼠疫桿菌, 卡法圍城, Caffa, 薄伽丘]
+aliases: [鼠疫, Black Death, 黑死病大流行, 腺鼠疫, Black Plague, 鼠疫桿菌, 薄伽丘, 卡法圍城, the Great Mortality, Yersinia pestis, Caffa]
 civilization: [義大利, 英格蘭, 法國, 蒙古帝國]
 track: west
 time:

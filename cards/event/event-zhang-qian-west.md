@@ -2,7 +2,7 @@
 id: event-zhang-qian-west
 type: event
 name: 張騫通西域
-aliases: [张骞通西域, 張騫出使西域, 張騫, 鑿空, Zhang Qian, 絲綢之路, 丝绸之路, Silk Road]
+aliases: [絲綢之路, 張騫, Silk Road, 張騫出使西域, 鑿空, Zhang Qian, 张骞通西域, 丝绸之路]
 civilization: [中國（西漢）]
 track: china
 time:

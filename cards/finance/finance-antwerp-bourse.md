@@ -2,8 +2,7 @@
 id: finance-antwerp-bourse
 type: finance
 name: 安特衛普的黃金時代與新交易所
-aliases: [安特衛普交易所, 安特衛普黃金時代, 安特衛普金融中心, 安特衛普, Antwerpen, Antwerp Bourse, Antwerp Golden Age, Handelsbeurs, 富格爾, Fugger, 雅各布·富格爾, 1557 西班牙破產, 腓力二世破產, 格雷欣, Thomas Gresham, 倫敦皇家交易所, Royal Exchange]
-aliases_main: [安特衛普黃金時代, Antwerp Bourse]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
+aliases: [安特衛普交易所, 安特衛普黃金時代, 安特衛普, Antwerp Bourse, 富格爾, Fugger, 格雷欣, Thomas Gresham, 倫敦皇家交易所, 腓力二世破產, 安特衛普金融中心, Antwerp Golden Age, Antwerpen, Handelsbeurs, 雅各布·富格爾, 1557 西班牙破產, Royal Exchange]
 civilization: [法蘭德斯與比利時（安特衛普）, 葡萄牙, 西班牙]
 track: west
 time:

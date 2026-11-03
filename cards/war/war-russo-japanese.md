@@ -2,7 +2,7 @@
 id: war-russo-japanese
 type: war
 name: 日俄戰爭（1904–1905年）
-aliases: [日俄战争, 日露戰爭, 旅順圍城, 奉天會戰, 對馬海戰, 日本海海戰, 樸茨茅斯條約, 朴次茅斯條約, 日露講和條約, Russo-Japanese War, Treaty of Portsmouth, Battle of Tsushima, Siege of Port Arthur, Battle of Mukden]
+aliases: [日露戰爭, 對馬海戰, 日本海海戰, 旅順圍城, 樸茨茅斯條約, 奉天會戰, Russo-Japanese War, Battle of Tsushima, Treaty of Portsmouth, Siege of Port Arthur, 朴次茅斯條約, 日露講和條約, Battle of Mukden, 日俄战争]
 civilization: [日本（明治）, 俄羅斯]
 track: east
 time:

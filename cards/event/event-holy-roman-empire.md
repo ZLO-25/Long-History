@@ -2,8 +2,7 @@
 id: event-holy-roman-empire
 type: event
 name: 神聖羅馬帝國建立（962年）
-aliases: [神聖羅馬帝國, 神圣罗马帝国, 鄂圖一世加冕, 奧托一世, 鄂圖大帝, 鄂圖王朝, 列希菲德之戰, 鄂圖特許狀, 帝國教會體系, Holy Roman Empire, Otto I, Otto the Great, Diploma Ottonianum, Battle of Lechfeld, Sacrum Romanum Imperium]
-aliases_main: [神聖羅馬帝國, 鄂圖一世加冕, Holy Roman Empire]
+aliases: [神聖羅馬帝國, 鄂圖大帝, 奧托一世, Holy Roman Empire, Otto the Great, 鄂圖一世加冕, 列希菲德之戰, 鄂圖王朝, 鄂圖特許狀, 帝國教會體系, Otto I, Diploma Ottonianum, Battle of Lechfeld, Sacrum Romanum Imperium, 神圣罗马帝国]
 civilization: [日耳曼與法蘭克（神聖羅馬帝國）]
 track: west
 time:

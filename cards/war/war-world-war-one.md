@@ -2,7 +2,7 @@
 id: war-world-war-one
 type: war
 name: 第一次世界大戰
-aliases: [一戰, 第一次世界大战, 一战, World War I, WWI, First World War, The Great War, 歐戰, 大戰, 斐迪南大公, 凡爾賽條約, 凡尔赛条约, 西線, 壕溝戰, 華工, 威爾遜]
+aliases: [一戰, World War I, WWI, First World War, The Great War, 歐戰, 斐迪南大公, 凡爾賽條約, 壕溝戰, 西線, 威爾遜, 華工, 大戰, 第一次世界大战, 一战, 凡尔赛条约]
 civilization: [英國, 法國, 俄羅斯, 德國, 奧匈帝國, 鄂圖曼帝國, 義大利, 美國, 日本, 中華民國]
 track: west
 time:

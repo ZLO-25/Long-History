@@ -2,7 +2,7 @@
 id: event-xiaowen-reform
 type: event
 name: 北魏孝文帝改革
-aliases: [孝文帝改革, 北魏孝文帝, 孝文帝漢化, 孝文帝汉化, Emperor Xiaowen of Northern Wei, Northern Wei sinicization, 遷都洛陽, 均田制, 拓跋改元, 馮太后]
+aliases: [孝文帝改革, 北魏孝文帝, 孝文帝漢化, 遷都洛陽, 均田制, 馮太后, Emperor Xiaowen of Northern Wei, Northern Wei sinicization, 拓跋改元, 孝文帝汉化]
 civilization: [中國（北魏，鮮卑）]
 track: china
 time:

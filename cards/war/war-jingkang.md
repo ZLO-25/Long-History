@@ -2,7 +2,7 @@
 id: war-jingkang
 type: war
 name: 靖康之變／宋金戰爭
-aliases: [靖康之變, 靖康之变, 靖康之難, 靖康之耻, 靖康恥, Jingkang incident, Jin–Song wars, 宋金戰爭, 宋金战争, 海上之盟, 宋徽宗, 宋欽宗, 趙構, 宋高宗, 完顏宗望, 李綱, 女真, 開封之圍, 南宋建立]
+aliases: [靖康之難, 靖康恥, 靖康之變, 宋徽宗, 宋欽宗, 女真, 宋金戰爭, 海上之盟, 南宋建立, 宋高宗, 趙構, 李綱, Jingkang incident, 開封之圍, Jin–Song wars, 完顏宗望, 靖康之变, 靖康之耻, 宋金战争]
 civilization: [中國（北宋）, 中國（南宋）, 金]
 track: china
 time:

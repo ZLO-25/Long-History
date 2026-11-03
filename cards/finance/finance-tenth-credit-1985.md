@@ -2,7 +2,7 @@
 id: finance-tenth-credit-1985
 type: finance
 name: 十信案與 1985 年擠兌風暴
-aliases: [十信案, 十信事件, 十信風暴, 臺北市第十信用合作社, 台北十信, 國信擠兌, 國泰信託, 蔡辰洲, 國泰塑膠, 國塑, 十三兄弟, Tenth Credit Cooperative, 10th Credit scandal, Cathay Investment and Trust]
+aliases: [十信案, 十信風暴, 台北十信, 蔡辰洲, 國泰信託, 國信擠兌, 十信事件, 臺北市第十信用合作社, 國泰塑膠, 十三兄弟, Tenth Credit Cooperative, 國塑, 10th Credit scandal, Cathay Investment and Trust]
 civilization: [臺灣（中華民國）]
 track: east
 time:

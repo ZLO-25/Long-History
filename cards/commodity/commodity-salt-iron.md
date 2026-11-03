@@ -2,7 +2,7 @@
 id: commodity-salt-iron
 type: commodity
 name: 鹽與鐵（漢代鹽鐵官營）
-aliases: [盐与铁, 鹽鐵專賣, 盐铁专卖, 鹽鐵官營, 盐铁官营, 鐵官, salt and iron monopoly, Han iron industry, 桑弘羊]
+aliases: [鹽鐵專賣, 鹽鐵官營, 桑弘羊, salt and iron monopoly, 鐵官, Han iron industry, 盐与铁, 盐铁专卖, 盐铁官营]
 civilization: [中國（西漢）]
 track: china
 time:

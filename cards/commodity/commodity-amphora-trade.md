@@ -2,7 +2,7 @@
 id: commodity-amphora-trade
 type: commodity
 name: 葡萄酒與橄欖油雙耳瓶貿易
-aliases: [雙耳瓶貿易, 双耳瓶贸易, 雙耳瓶, 橄欖油貿易, 葡萄酒貿易, amphora, amphorae, Dressel 20, 泰斯塔西奧山, Monte Testaccio]
+aliases: [雙耳瓶, 雙耳瓶貿易, amphora, 橄欖油貿易, 葡萄酒貿易, 泰斯塔西奧山, Monte Testaccio, amphorae, Dressel 20, 双耳瓶贸易]
 civilization: [古羅馬, 古希臘]
 track: west
 time:

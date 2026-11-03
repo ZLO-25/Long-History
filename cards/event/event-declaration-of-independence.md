@@ -2,7 +2,7 @@
 id: event-declaration-of-independence
 type: event
 name: 《獨立宣言》與啟蒙思想
-aliases: [獨立宣言, 美國獨立宣言, 独立宣言, 美国独立宣言, Declaration of Independence, United States Declaration of Independence, 傑佛遜, Thomas Jefferson, 潘恩, Thomas Paine, 常識, Common Sense, 洛克, John Locke, 人人生而平等, 無代表不納稅, No taxation without representation, 七月四日, 獨立紀念日]
+aliases: [獨立宣言, 美國獨立宣言, Declaration of Independence, 人人生而平等, 傑佛遜, Thomas Jefferson, 無代表不納稅, 獨立紀念日, 潘恩, 常識, 洛克, United States Declaration of Independence, Thomas Paine, Common Sense, John Locke, No taxation without representation, 七月四日, 独立宣言, 美国独立宣言]
 civilization: [美國（建國初期）, 英國]
 track: west
 time:

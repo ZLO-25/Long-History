@@ -2,7 +2,7 @@
 id: event-marshall-plan
 type: event
 name: 馬歇爾計畫
-aliases: [馬歇爾計劃, 歐洲復興計畫, European Recovery Program, ERP, Marshall Plan, 歐洲經濟合作組織, OEEC, 馬歇爾, George C. Marshall, 經濟合作法, Economic Cooperation Act, 哈佛演說]
+aliases: [Marshall Plan, 歐洲復興計畫, 馬歇爾, George C. Marshall, European Recovery Program, 馬歇爾計劃, 歐洲經濟合作組織, 哈佛演說, ERP, OEEC, 經濟合作法, Economic Cooperation Act]
 civilization: [美國（世界強權）, 英國, 法國, 德國, 義大利]
 track: west
 time:

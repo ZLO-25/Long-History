@@ -2,7 +2,7 @@
 id: finance-latin-debt-crisis
 type: finance
 name: 拉丁美洲債務危機（1982年）
-aliases: [拉丁美洲債務危機, 拉美債務危機, 拉美债务危机, 墨西哥債務危機, 1982年債務危機, 失落的十年（拉丁美洲）, 布雷迪計畫, Latin American debt crisis, LDC debt crisis, Mexican default 1982, Brady Plan, lost decade]
+aliases: [拉美債務危機, 拉丁美洲債務危機, 墨西哥債務危機, 失落的十年（拉丁美洲）, Latin American debt crisis, 布雷迪計畫, Brady Plan, 1982年債務危機, Mexican default 1982, LDC debt crisis, lost decade, 拉美债务危机]
 civilization: [拉丁美洲, 美國（世界強權）]
 track: west
 time:

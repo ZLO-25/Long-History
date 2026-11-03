@@ -2,7 +2,7 @@
 id: war-greco-persian
 type: war
 name: 波希戰爭（含薩拉米斯海戰）
-aliases: [希波戰爭, 波斯戰爭, 薩拉米斯海戰, 萨拉米斯海战, Greco-Persian Wars, Persian Wars, Battle of Salamis, 馬拉松戰役, 溫泉關]
+aliases: [希波戰爭, 溫泉關, 馬拉松戰役, 薩拉米斯海戰, Greco-Persian Wars, Persian Wars, Battle of Salamis, 波斯戰爭, 萨拉米斯海战]
 civilization: [古希臘, 波斯]
 track: west
 time:

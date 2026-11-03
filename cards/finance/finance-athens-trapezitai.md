@@ -2,7 +2,7 @@
 id: finance-athens-trapezitai
 type: finance
 name: 雅典的銀行家（trapezitai）與海上借貸
-aliases: [trapezitai, trapezites, 雅典銀行家, 雅典的錢莊, 桌子銀行家, 帕西翁, Pasion, 海上借貸, 船貨抵押貸款, bottomry, maritime loan, 德摩斯梯尼, Demosthenes, 雅典貓頭鷹銀幣, Athenian banking, 古希臘銀行]
+aliases: [雅典銀行家, 古希臘銀行, 海上借貸, 帕西翁, Pasion, trapezitai, 德摩斯梯尼, Demosthenes, 雅典貓頭鷹銀幣, maritime loan, 船貨抵押貸款, 雅典的錢莊, Athenian banking, trapezites, 桌子銀行家, bottomry]
 civilization: [古希臘, 雅典]
 track: west
 time:

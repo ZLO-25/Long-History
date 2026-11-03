@@ -2,7 +2,7 @@
 id: finance-mesopotamia-credit
 type: finance
 name: 美索不達米亞的神廟借貸與《漢摩拉比法典》
-aliases: [美索不達米亞借貸, 兩河流域債務, 神廟借貸, 漢摩拉比法典, 汉谟拉比法典, Code of Hammurabi, Hammurabi, 債務奴役, 債務免除詔令, mīšarum, misharum, 安米薩杜卡詔令, Edict of Ammisaduqa, 楔形文字泥板借據, Mesopotamian credit, 蘇美, 古巴比倫]
+aliases: [漢摩拉比法典, Code of Hammurabi, Hammurabi, 神廟借貸, 債務奴役, 債務免除詔令, 蘇美, 古巴比倫, 美索不達米亞借貸, 兩河流域債務, 楔形文字泥板借據, mīšarum, misharum, 安米薩杜卡詔令, Edict of Ammisaduqa, Mesopotamian credit, 汉谟拉比法典]
 civilization: [美索不達米亞（蘇美）, 美索不達米亞（古巴比倫）]
 track: west
 time:

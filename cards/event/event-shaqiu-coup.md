@@ -2,8 +2,7 @@
 id: event-shaqiu-coup
 type: event
 name: 沙丘之變：秦始皇去世與胡亥即位（前210年）
-aliases: [沙丘之變, 沙丘之謀, 沙丘政變, 秦始皇之死, 胡亥即位, 秦二世即位, 扶蘇之死, 趙高, 李斯, 胡亥, 扶蘇, Qin Er Shi, Huhai, Fusu, Zhao Gao, Shaqiu]
-aliases_main: [沙丘之謀, 胡亥即位, Qin Er Shi]
+aliases: [趙高, 胡亥, 扶蘇, 李斯, 秦始皇之死, 沙丘之謀, 秦二世即位, 胡亥即位, 扶蘇之死, Zhao Gao, Qin Er Shi, 沙丘政變, 沙丘之變, Huhai, Fusu, Shaqiu]
 civilization: [中國（秦）]
 track: china
 time:

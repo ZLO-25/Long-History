@@ -2,7 +2,7 @@
 id: building-via-appia
 type: building
 name: 亞壁古道與羅馬道路網
-aliases: [亞壁古道, 阿庇亞大道, 亚壁古道, 羅馬道路網, 羅馬大道, Via Appia, Appian Way, Roman roads, 條條大路通羅馬, Regina Viarum]
+aliases: [亞壁古道, 條條大路通羅馬, Appian Way, Via Appia, 羅馬大道, Roman roads, 阿庇亞大道, 羅馬道路網, Regina Viarum, 亚壁古道]
 civilization: [古羅馬]
 track: west
 time:

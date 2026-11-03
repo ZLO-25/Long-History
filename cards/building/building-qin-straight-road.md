@@ -2,7 +2,7 @@
 id: building-qin-straight-road
 type: building
 name: 秦直道
-aliases: [秦直道, 直道, Qin Straight Road, Qin Zhidao, Zhidao, 咸陽到九原]
+aliases: [直道, Qin Straight Road, 咸陽到九原, Qin Zhidao, 秦直道, Zhidao]
 civilization: [中國（秦）]
 track: china
 time:

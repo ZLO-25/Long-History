@@ -2,7 +2,7 @@
 id: war-opium-war
 type: war
 name: 鴉片戰爭
-aliases: [第一次鴉片戰爭, 鸦片战争, 第一次鸦片战争, First Opium War, Opium War, Anglo-Chinese War, 林則徐, 林则徐, 虎門銷煙, 南京條約, 南京条约, Treaty of Nanking, 義律, Charles Elliot, 道光帝]
+aliases: [第一次鴉片戰爭, 林則徐, 虎門銷煙, 南京條約, Opium War, First Opium War, Treaty of Nanking, 道光帝, 義律, Anglo-Chinese War, Charles Elliot, 鸦片战争, 第一次鸦片战争, 林则徐, 南京条约]
 civilization: [中國（清）, 英國]
 track: china
 time:

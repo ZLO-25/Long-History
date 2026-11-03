@@ -2,7 +2,7 @@
 id: building-ten-major-projects
 type: building
 name: 十大建設（1974–1979）
-aliases: [十大建設, 十項建設, 九大建設, 中山高速公路, 國道一號, 北迴鐵路, 鐵路電氣化, 中正國際機場, 桃園機場, 臺中港, 蘇澳港, 中鋼, 中國鋼鐵, 中國造船, 核一廠, 石化工業, 蔣經國, Ten Major Construction Projects]
+aliases: [十大建設, 蔣經國, Ten Major Construction Projects, 中山高速公路, 桃園機場, 中鋼, 北迴鐵路, 核一廠, 十項建設, 九大建設, 國道一號, 鐵路電氣化, 中正國際機場, 臺中港, 蘇澳港, 中國鋼鐵, 中國造船, 石化工業]
 civilization: [臺灣（中華民國）]
 track: east
 time:

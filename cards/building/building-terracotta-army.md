@@ -2,7 +2,7 @@
 id: building-terracotta-army
 type: building
 name: 秦始皇陵兵馬俑
-aliases: [兵马俑, 兵馬俑, 秦始皇陵, Terracotta Army, Terracotta Warriors, Mausoleum of the First Qin Emperor, 驪山, 臨潼]
+aliases: [兵馬俑, 秦始皇陵, Terracotta Army, Terracotta Warriors, 驪山, 臨潼, Mausoleum of the First Qin Emperor, 兵马俑]
 civilization: [中國（秦）]
 track: china
 time:

@@ -2,7 +2,7 @@
 id: event-great-leap-cultural-revolution
 type: event
 name: 大躍進與文化大革命（1958–1976年）
-aliases: [大躍進, 大跃进, 文化大革命, 文革, 人民公社, 大饑荒, 三年大饑荒, 紅衛兵, 上山下鄉, 四人幫, 毛澤東去世, 毛澤東去世與鄧小平掌權, Great Leap Forward, Cultural Revolution, Great Chinese Famine, Red Guards, Gang of Four, people's communes]
+aliases: [文化大革命, 文革, 大躍進, 紅衛兵, 四人幫, 人民公社, 大饑荒, 上山下鄉, Cultural Revolution, Great Leap Forward, 三年大饑荒, 毛澤東去世, 毛澤東去世與鄧小平掌權, Great Chinese Famine, Red Guards, Gang of Four, "people's communes", 大跃进]
 civilization: [中華人民共和國]
 track: china
 time:

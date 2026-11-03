@@ -2,7 +2,7 @@
 id: event-vasco-da-gama
 type: event
 name: 達伽馬開闢印度航路
-aliases: [达伽马开辟印度航路, 達伽馬, 达伽马, 瓦斯科·達伽馬, Vasco da Gama, Vasco da Gama first voyage, sea route to India, 好望角航線, 新航路, 大航海時代, 卡利卡特, Calicut, 古里, 曼努埃爾一世]
+aliases: [達伽馬, Vasco da Gama, 大航海時代, 新航路, 好望角航線, sea route to India, 卡利卡特, 古里, 瓦斯科·達伽馬, Vasco da Gama first voyage, Calicut, 曼努埃爾一世, 达伽马开辟印度航路, 达伽马]
 civilization: [葡萄牙, 印度]
 track: west
 time:

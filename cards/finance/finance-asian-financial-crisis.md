@@ -2,7 +2,7 @@
 id: finance-asian-financial-crisis
 type: finance
 name: 1997 亞洲金融風暴
-aliases: [亞洲金融危機, 亞洲金融風暴, 東亞金融危機, 1997 年亞洲金融危機, 泰銖危機, 泰铢危机, 亚洲金融危机, Asian financial crisis, 1997 Asian financial crisis, East Asian financial crisis, Tom Yum Goong crisis, Thai baht crisis, 蘇哈托下台, 聯繫匯率保衛戰, IMF 紓困, 國際貨幣基金]
+aliases: [亞洲金融風暴, 亞洲金融危機, 泰銖危機, Asian financial crisis, 1997 Asian financial crisis, 東亞金融危機, IMF 紓困, 國際貨幣基金, 蘇哈托下台, 聯繫匯率保衛戰, Thai baht crisis, 1997 年亞洲金融危機, East Asian financial crisis, Tom Yum Goong crisis, 泰铢危机, 亚洲金融危机]
 civilization: [泰國, 印尼, 朝鮮（近現代）, 香港]
 track: east
 time:

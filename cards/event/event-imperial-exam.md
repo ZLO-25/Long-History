@@ -2,7 +2,7 @@
 id: event-imperial-exam
 type: event
 name: 科舉制度（587年起）
-aliases: [科舉, 科举, 科舉考試, 進士科, 進士, 殿試, 開科取士, Imperial examination, Keju, Civil service examination]
+aliases: [科舉, 科舉考試, 進士, 殿試, Imperial examination, 進士科, 開科取士, Civil service examination, Keju, 科举]
 civilization: [中國（隋）, 中國（唐）, 中國（北宋）]
 track: china
 time:

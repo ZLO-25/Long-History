@@ -2,7 +2,7 @@
 id: event-charlemagne-coronation
 type: event
 name: 查理曼加冕
-aliases: [查理曼加冕, 查理大帝加冕, Coronation of Charlemagne, Charlemagne, Charles the Great, Karl der Große, Carolus Magnus, 教宗良三世, Pope Leo III, 羅馬人的皇帝, Imperator Romanorum, 加洛林王朝, Carolingian, 卡洛林文藝復興]
+aliases: [查理大帝加冕, Charlemagne, 查理曼加冕, Coronation of Charlemagne, 加洛林王朝, 教宗良三世, 卡洛林文藝復興, 羅馬人的皇帝, Charles the Great, Karl der Große, Carolus Magnus, Pope Leo III, Imperator Romanorum, Carolingian]
 civilization: [法蘭克王國]
 track: west
 time:

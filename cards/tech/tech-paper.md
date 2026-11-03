@@ -2,7 +2,7 @@
 id: tech-paper
 type: tech
 name: 造紙術
-aliases: [造纸术, Papermaking, paper, invention of paper, 蔡倫, 蔡伦, Cai Lun, 蔡侯紙, 蔡侯纸, 放馬灘紙, 四大發明]
+aliases: [蔡倫, 四大發明, 蔡侯紙, Papermaking, paper, Cai Lun, invention of paper, 放馬灘紙, 造纸术, 蔡伦, 蔡侯纸]
 civilization: [中國（東漢）, 阿拉伯（伊斯蘭）]
 track: china
 time:

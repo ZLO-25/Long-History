@@ -2,7 +2,7 @@
 id: event-confucian-orthodoxy
 type: event
 name: 漢武帝獨尊儒術
-aliases: [独尊儒术, 罷黜百家獨尊儒術, 罢黜百家独尊儒术, 董仲舒, Dong Zhongshu, 五經博士, 太學, 太学, 察舉, Han Confucianism, state Confucianism, 天人感應]
+aliases: [罷黜百家獨尊儒術, 董仲舒, 太學, 五經博士, 察舉, 天人感應, Han Confucianism, Dong Zhongshu, state Confucianism, 独尊儒术, 罢黜百家独尊儒术, 太学]
 civilization: [中國（西漢）]
 track: china
 time:

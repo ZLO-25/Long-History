@@ -2,7 +2,7 @@
 id: event-ming-qing-transition
 type: event
 name: 明清易代（1644年）
-aliases: [明清易代, 明朝滅亡, 明亡, 甲申之變, 崇禎自縊, 李自成入北京, 山海關之戰, 清軍入關, 明朝晚期財政困難, 南明, Transition from Ming to Qing, Fall of the Ming, Chongzhen Emperor, Li Zicheng, Wu Sangui]
+aliases: [明朝滅亡, 清軍入關, 李自成入北京, 崇禎自縊, 甲申之變, 山海關之戰, 南明, 明清易代, Fall of the Ming, Li Zicheng, Wu Sangui, 明亡, 明朝晚期財政困難, Transition from Ming to Qing, Chongzhen Emperor]
 civilization: [中國（明）, 中國（清）]
 track: china
 time:

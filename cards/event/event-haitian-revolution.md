@@ -2,7 +2,7 @@
 id: event-haitian-revolution
 type: event
 name: 海地革命（1791–1804年）
-aliases: [海地革命, 海地獨立, 聖多明各革命, 杜桑·盧維杜爾, 杜桑盧維杜爾, 德薩林, 卡伊曼森林儀式, 海地獨立宣言, Haitian Revolution, Saint-Domingue, Toussaint Louverture, Jean-Jacques Dessalines, Haitian Declaration of Independence]
+aliases: [海地獨立, Haitian Revolution, 杜桑·盧維杜爾, Toussaint Louverture, 德薩林, 聖多明各革命, 海地獨立宣言, 海地革命, 杜桑盧維杜爾, 卡伊曼森林儀式, Saint-Domingue, Jean-Jacques Dessalines, Haitian Declaration of Independence]
 civilization: [拉丁美洲, 法國]
 track: west
 time:

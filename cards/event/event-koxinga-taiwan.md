@@ -2,7 +2,7 @@
 id: event-koxinga-taiwan
 type: event
 name: 鄭成功攻臺與明鄭時期（東寧）
-aliases: [明鄭, 明鄭時期, 東寧王國, 東寧, 鄭氏王朝, 國姓爺, 鄭成功, 鄭經, 施琅攻臺, Koxinga, Kingdom of Tungning, Zheng Chenggong]
+aliases: [鄭成功, 國姓爺, 明鄭, 明鄭時期, 東寧王國, 鄭經, Koxinga, 施琅攻臺, Kingdom of Tungning, 東寧, 鄭氏王朝, Zheng Chenggong]
 civilization: [臺灣（明鄭）, 中國（明）]
 track: east
 time:

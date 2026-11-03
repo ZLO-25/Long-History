@@ -2,7 +2,7 @@
 id: commodity-taiwan-semiconductor
 type: commodity
 name: 臺灣的半導體（晶片）
-aliases: [半導體, 晶片, 積體電路, IC, 晶圓, 晶圓代工, 護國神山, 矽盾, 先進製程, 封裝測試, IC 設計, semiconductor, chip, silicon shield, foundry]
+aliases: [護國神山, 半導體, 晶片, 晶圓代工, 矽盾, semiconductor, IC 設計, 先進製程, 積體電路, IC, 晶圓, 封裝測試, chip, silicon shield, foundry]
 civilization: [臺灣（中華民國）]
 track: east
 time:

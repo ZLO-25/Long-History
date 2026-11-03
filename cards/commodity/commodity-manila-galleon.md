@@ -2,8 +2,7 @@
 id: commodity-manila-galleon
 type: commodity
 name: 馬尼拉大帆船：白銀換絲綢的太平洋航線（1565–1815）
-aliases: [馬尼拉大帆船, 大帆船貿易, 中國之船, 阿卡普爾科, 馬尼拉, 生理人, 八連, Parián, Manila galleon, Nao de China, Acapulco galleon, Sangley]
-aliases_main: [大帆船貿易, 中國之船, Manila galleon]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
+aliases: [馬尼拉大帆船, 大帆船貿易, Manila galleon, 中國之船, 阿卡普爾科, 馬尼拉, Nao de China, 生理人, 八連, Parián, Acapulco galleon, Sangley]
 civilization: [東南亞（菲律賓）, 伊比利半島（西班牙）, 拉丁美洲（墨西哥）, 中國（明）]
 track: east
 time:

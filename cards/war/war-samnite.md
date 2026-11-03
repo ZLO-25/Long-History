@@ -2,7 +2,7 @@
 id: war-samnite
 type: war
 name: 薩莫奈戰爭（前343–前290年）
-aliases: [薩莫奈戰爭, 薩謨奈戰爭, 薩姆尼特戰爭, 卡夫丁峽谷之戰, 卡夫丁軛門, 森提努姆戰役, Samnite Wars, Battle of the Caudine Forks, Caudine Forks, Battle of Sentinum, Samnites]
+aliases: [薩莫奈戰爭, 卡夫丁峽谷之戰, 卡夫丁軛門, Samnite Wars, 薩謨奈戰爭, 薩姆尼特戰爭, 森提努姆戰役, Battle of the Caudine Forks, Caudine Forks, Samnites, Battle of Sentinum]
 civilization: [古羅馬]
 track: west
 time:

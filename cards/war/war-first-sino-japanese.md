@@ -2,7 +2,7 @@
 id: war-first-sino-japanese
 type: war
 name: 甲午戰爭（1894–1895年）
-aliases: [甲午战争, 中日甲午戰爭, 第一次中日戰爭, 日清戰爭, 黃海海戰, 威海衛之戰, 北洋艦隊, 北洋水師, 馬關條約, 下關條約, 三國干涉還遼, First Sino-Japanese War, Sino-Japanese War of 1894–1895, Treaty of Shimonoseki, Battle of the Yalu River, Beiyang Fleet]
+aliases: [中日甲午戰爭, 馬關條約, 北洋艦隊, 黃海海戰, 三國干涉還遼, 第一次中日戰爭, 日清戰爭, 威海衛之戰, 北洋水師, First Sino-Japanese War, Treaty of Shimonoseki, 下關條約, Sino-Japanese War of 1894–1895, Battle of the Yalu River, Beiyang Fleet, 甲午战争]
 civilization: [中國（清）, 日本（明治）, 朝鮮（朝鮮王朝）]
 track: china
 time:

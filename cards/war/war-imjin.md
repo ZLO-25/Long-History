@@ -2,7 +2,7 @@
 id: war-imjin
 type: war
 name: 壬辰戰爭（1592–1598）：日本入侵朝鮮與明朝援朝
-aliases: [壬辰戰爭, 壬辰倭亂, 丁酉再亂, 萬曆朝鮮之役, 抗倭援朝, 文祿之役, 慶長之役, 文祿・慶長の役, 李舜臣, 鳴梁海戰, 豐臣秀吉出兵朝鮮, 耳塚, Imjin War, Japanese invasions of Korea]
+aliases: [壬辰倭亂, 萬曆朝鮮之役, 李舜臣, 豐臣秀吉出兵朝鮮, Imjin War, 抗倭援朝, 文祿之役, 慶長之役, 丁酉再亂, 鳴梁海戰, Japanese invasions of Korea, 壬辰戰爭, 耳塚, 文祿・慶長の役]
 civilization: [朝鮮（朝鮮王朝）, 日本（戰國）, 中國（明）]
 track: east
 time:

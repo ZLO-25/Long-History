@@ -2,7 +2,7 @@
 id: war-baideng-heqin
 type: war
 name: 白登之圍與和親（前200年起）
-aliases: [白登之圍, 白登之围, 平城之圍, 和親, 和亲, 漢匈和親, Battle of Baideng, Siege of Baideng, Heqin]
+aliases: [白登之圍, 和親, 漢匈和親, 平城之圍, Siege of Baideng, Battle of Baideng, Heqin, 白登之围, 和亲]
 civilization: [中國（西漢）, 北方草原（匈奴）]
 track: china
 time:

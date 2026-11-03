@@ -2,8 +2,7 @@
 id: commodity-hanseatic-league
 type: commodity
 name: 漢薩同盟（13–17世紀）
-aliases: [漢薩同盟, 汉萨同盟, 漢撒同盟, 漢薩, 呂貝克, 漢薩議會, 商館, 鋼院, 布呂根, 柯克船, 鱈魚乾, 波羅的海貿易, Hanseatic League, Hansa, Hanse, Hansetag, Kontor, Steelyard, Bryggen, Peterhof, cog, Lübeck]
-aliases_main: [漢薩同盟, 呂貝克, Hanseatic League]
+aliases: [漢薩同盟, Hanseatic League, 呂貝克, Hansa, 波羅的海貿易, 漢薩, Lübeck, 商館, 漢撒同盟, 漢薩議會, 鋼院, 布呂根, 柯克船, 鱈魚乾, Hanse, Hansetag, Kontor, Steelyard, Bryggen, Peterhof, cog, 汉萨同盟]
 civilization: [日耳曼與法蘭克（神聖羅馬帝國）]
 track: west
 time:

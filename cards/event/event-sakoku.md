@@ -2,7 +2,7 @@
 id: event-sakoku
 type: event
 name: 江戶幕府「鎖國」（1633–1854）
-aliases: [鎖國, 锁国, 海禁, 鎖國令, 出島, 四口, 江戶幕府, 德川幕府, Sakoku, Kaikin, Dejima, Tokugawa shogunate]
+aliases: [鎖國, 德川幕府, 江戶幕府, 出島, 鎖國令, Sakoku, 海禁, Dejima, Tokugawa shogunate, 四口, Kaikin, 锁国]
 civilization: [日本（江戶）]
 track: east
 time:

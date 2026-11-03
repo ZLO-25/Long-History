@@ -2,7 +2,7 @@
 id: war-feishui
 type: war
 name: 淝水之戰
-aliases: [淝水之战, 淝水, Battle of Fei River, Battle of Feishui, 苻堅, 謝玄, 謝安, 前秦, 東晉, 草木皆兵, 風聲鶴唳]
+aliases: [草木皆兵, 風聲鶴唳, 苻堅, 謝安, 謝玄, 前秦, 東晉, 淝水, Battle of Fei River, Battle of Feishui, 淝水之战]
 civilization: [中國（東晉）, 前秦]
 track: china
 time:

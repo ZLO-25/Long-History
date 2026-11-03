@@ -2,8 +2,7 @@
 id: event-peasants-revolt-1381
 type: event
 name: 英格蘭農民起義（1381年）
-aliases: [英格蘭農民起義, 1381年農民起義, 瓦特·泰勒起義, 泰勒起義, 約翰·鮑爾, 人頭稅, 勞工法, 勞工條例, 史密斯菲爾德, 理查二世, Peasants' Revolt, Great Rising of 1381, Wat Tyler's Rebellion, Wat Tyler, John Ball, poll tax, Statute of Labourers, Ordinance of Labourers]
-aliases_main: [英格蘭農民起義, 瓦特·泰勒起義, Peasants' Revolt]
+aliases: [瓦特·泰勒起義, "Peasants' Revolt", Wat Tyler, 人頭稅, 約翰·鮑爾, John Ball, 1381年農民起義, 理查二世, 勞工法, poll tax, 英格蘭農民起義, 泰勒起義, 勞工條例, 史密斯菲爾德, Great Rising of 1381, "Wat Tyler's Rebellion", Statute of Labourers, Ordinance of Labourers]
 civilization: [英國]
 track: west
 time:

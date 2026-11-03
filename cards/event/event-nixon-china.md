@@ -2,8 +2,7 @@
 id: event-nixon-china
 type: event
 name: 尼克森訪華與美中建交
-aliases: [尼克森訪華, 尼克松访华, 季辛吉密訪, 季辛吉祕密訪華, 基辛格秘密访华, 乒乓外交, 上海公報, 上海公报, Shanghai Communiqué, 美中建交, 中美建交, 中美關係正常化, 聯合國2758號決議, Resolution 2758, 臺灣關係法, 台灣關係法, Taiwan Relations Act, 三角外交, 聯中制蘇, Nixon visit to China, Kissinger secret trip to China, 美中斷交, 臺美斷交]
-aliases_main: [乒乓外交, 上海公報, Nixon visit to China]  # 卡片上先顯示的主要別名，其他收在「顯示更多」
+aliases: [尼克森訪華, 中美建交, 美中建交, 乒乓外交, 上海公報, 季辛吉密訪, 臺灣關係法, 臺美斷交, 聯合國2758號決議, Nixon visit to China, Shanghai Communiqué, Taiwan Relations Act, 中美關係正常化, Resolution 2758, 三角外交, 聯中制蘇, Kissinger secret trip to China, 美中斷交, 尼克松访华, 季辛吉祕密訪華, 基辛格秘密访华, 上海公报, 台灣關係法]
 civilization: [美國（世界強權）, 中華人民共和國, 臺灣（中華民國）]
 track: china
 time:

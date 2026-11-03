@@ -2,7 +2,7 @@
 id: commodity-potosi
 type: commodity
 name: 波托西銀礦（1545年起）
-aliases: [波托西銀礦, 波托西, 富山, 塞羅里科, 米塔制, 西班牙運銀船隊, 西印度船隊, 寶藏船隊, Potosí, Cerro Rico, mita, Spanish treasure fleet, Flota de Indias, vale un Potosí]
+aliases: [波托西銀礦, 波托西, Potosí, 富山, Cerro Rico, 米塔制, 西班牙運銀船隊, 寶藏船隊, 塞羅里科, 西印度船隊, mita, Spanish treasure fleet, Flota de Indias, vale un Potosí]
 civilization: [拉丁美洲, 西班牙]
 track: other
 time:

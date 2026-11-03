@@ -2,8 +2,7 @@
 id: war-qin-lingnan
 type: war
 name: 秦征服嶺南（前221–前214年）
-aliases: [秦征嶺南, 秦平百越, 秦攻百越, 秦征南越, 屠睢, 任囂, 趙佗, 南海郡, 桂林郡, 象郡, 陸梁地, Qin's campaign against the Yue tribes, Qin conquest of Baiyue, Lingnan]
-aliases_main: [秦平百越, 秦征南越, Qin's campaign against the Yue tribes]
+aliases: [秦平百越, 秦征嶺南, 趙佗, 南海郡, 桂林郡, 象郡, 秦攻百越, 秦征南越, 任囂, 屠睢, Lingnan, Qin conquest of Baiyue, 陸梁地, "Qin's campaign against the Yue tribes"]
 civilization: [中國（秦）]
 track: china
 time:

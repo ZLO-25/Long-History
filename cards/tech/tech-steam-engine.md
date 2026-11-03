@@ -2,7 +2,7 @@
 id: tech-steam-engine
 type: tech
 name: 蒸汽機
-aliases: [蒸汽机, Steam engine, 紐科門, 纽科门, Thomas Newcomen, 大氣式蒸汽機, Newcomen atmospheric engine, 瓦特, James Watt, 瓦特蒸汽機, Watt steam engine, 分離式冷凝器, 博爾頓, Matthew Boulton, 工業革命]
+aliases: [瓦特, 工業革命, James Watt, Steam engine, 瓦特蒸汽機, 紐科門, Thomas Newcomen, 博爾頓, 分離式冷凝器, Watt steam engine, 大氣式蒸汽機, Newcomen atmospheric engine, Matthew Boulton, 蒸汽机, 纽科门]
 civilization: [英國]
 track: west
 time:

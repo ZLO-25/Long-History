@@ -183,7 +183,9 @@ a { color: var(--accent); }
 /* 第 2 期：中西對照 */
 .timeline .node.rel rect { stroke: #e53e3e; stroke-width: 2; opacity: 1; }
 .timeline .node.rel text { font-weight: 700; }
-.timeline .node.dim { opacity: 0.5; }
+/* 點了一張卡後，沒被點到的卡：色條變淡，但名稱保持深灰（ZL 2026-11-03：要看得清楚） */
+.timeline .node.dim rect { opacity: 0.4; }
+.timeline .node.dim text { fill: #3a362f; font-weight: 400; }
 .timeline .cp-link { stroke: #e53e3e; stroke-width: 1.5; stroke-dasharray: 4 3; pointer-events: none; }
 .counterparts .cp-item { border-left: 3px solid var(--line); padding-left: 8px; margin: 6px 0; }
 .map-views { position: absolute; top: 10px; right: 10px; z-index: 500; display: flex; gap: 4px; }

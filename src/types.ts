@@ -1,11 +1,17 @@
 // public/index.json 的型別（由 scripts/build-index.ts 產生）
-export type CardType = 'war' | 'commodity' | 'event' | 'building' | 'tech' | 'finance' | 'social';
+export type CardType = 'war' | 'commodity' | 'event' | 'building' | 'tech' | 'finance' | 'social' | 'person';
 
 export interface Source { id: string; title: string; url: string; accessed: string; tier?: string; tier_guess?: boolean }
 export interface Location {
   name_ancient: string; name_modern: string; lat: number; lng: number;
   pleiades_id?: string; precision: string; role?: string; key: string;
+  /** 人物卡：他哪一年在這裡（地圖依年份連成人生軌跡） */
+  year?: number;
 }
+// 深入專題：人物卡
+export type RelationKind = '主從' | '同盟' | '聯姻' | '敵對' | '背叛' | '師友' | '親屬';
+export interface Relation { id: string; kind: RelationKind; from?: number; to?: number; note: string; sources: CauseSource[] }
+export interface Person { role: string; faction?: string; name_romaji: string }
 export interface Section {
   code: string; title: string; level: 'core' | 'deep' | 'optional';
   role: 'lens' | 'today_hook' | 'non_analogous' | null;
@@ -33,6 +39,8 @@ export interface Card {
   causes: CauseLink[]; effects: CauseLink[];
   importance: 1 | 2 | 3;
   learn: Learn | null;
+  /** 人物卡才有 */
+  person: Person | null; relations: Relation[];
 }
 
 // 前因／後果：id＝對方卡片（null＝尚無卡片，只有 name）
@@ -95,13 +103,19 @@ export interface TagCategory { name: string; tags: { tag: string; def: string; p
 export interface Topic { name: string; plain: string; path: string; see: string[]; cards: string[] }
 export interface TopicLayer { name: string; icon: string; topics: Topic[] }
 export interface CivNode { name: string; path: string; children: CivNode[] }
+// 深入專題（data/dives/*.yaml）：把一段時代的卡片、人物、故事線、勢力圖聚在一起（docs/dives.md）
+export interface PowerMap { year: number; file: string; title: string; note: string; sources: Source[]; powers: { name: string; en: string; color: string; provinces: string; card: string | null }[] }
+export interface Dive {
+  id: string; title: string; question: string; blurb: string; range: { start: number; end: number }; histories: string[];
+  lanes: { name: string; types: string[] }[]; cards: string[]; storylines: string[]; units: string[]; power_maps: PowerMap[];
+}
 export interface Index {
   generated: string; cards: Card[]; tagCategories: TagCategory[]; topicLayers: TopicLayer[]; fieldOptions: string[];
   civTree: CivNode[]; frameworks: Framework[]; routes: Route[];
   borders: { source: string; license: string; note: string; snapshots: { year: number; file: string }[] };
   itinere: boolean;
   econ: Econ; chains: Chain[]; today: Today;
-  histories: History[]; units: Unit[]; storylines: Storyline[];
+  histories: History[]; units: Unit[]; storylines: Storyline[]; dives?: Dive[];
   // 地圖名稱中英對照（data/labels/names-en.yaml）
   names?: { en: Record<string, string>; zh: Record<string, string> };
 }

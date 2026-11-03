@@ -106,7 +106,7 @@ export function checkUnits(units: { file: string; unit: any }[], cards: RawCard[
           useRef(s.ref, w); if (!s.ref) err(`${w}：要用 ref 連回歷史卡`); break;
         case 'today': {
           const c = useCard(s.card, w);
-          if (c && !c.sections.some((x) => /^(A12|B10|C10|D8|T8|F8|E8)$/.test(x.code) && x.text)) err(`${w}：${s.card} 沒有「不可類比的差異」段落`);
+          if (c && !c.sections.some((x) => /^(A12|B10|C10|D8|T8|F8|E8|P9)$/.test(x.code) && x.text)) err(`${w}：${s.card} 沒有「不可類比的差異」段落`);
           if (!s.question || !s.model_answer) err(`${w}：需要 question（這個類比哪裡不成立？）與 model_answer`); break;
         }
         case 'sim': if (!SIMS.includes(s.sim)) err(`${w}：sim 必須是 ${SIMS.join('|')}`); break;

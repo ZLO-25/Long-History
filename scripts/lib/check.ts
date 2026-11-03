@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   SECTIONS, TYPE_LABEL, TYPE_PREFIX, FIELD_OPTIONS, VERIFICATION, LENS_STATUS, TIME_PRECISION,
-  LOC_PRECISION, SCALES, TRACKS, SOURCE_TIERS, type CardType,
+  LOC_PRECISION, SCALES, TRACKS, SOURCE_TIERS, RELATION_KINDS, type CardType,
 } from './fields.ts';
 import { ROOT, refsOf, loadTopicVocab, type RawCard } from './cards.ts';
 
@@ -34,7 +34,7 @@ export function checkCards(
     // ---- 核心欄位 ----
     const type = f.type as CardType;
     if (!(type in TYPE_LABEL)) err(`type 必須是 ${Object.keys(TYPE_LABEL).join('|')}，目前是「${f.type}」`);
-    if (!/^(war|commodity|event|building|tech|finance|social)-[a-z0-9]+(-[a-z0-9]+)*$/.test(f.id ?? '')) err(`id 格式錯誤：「${f.id}」`);
+    if (!/^(war|commodity|event|building|tech|finance|social|person)-[a-z0-9]+(-[a-z0-9]+)*$/.test(f.id ?? '')) err(`id 格式錯誤：「${f.id}」`);
     else if (!f.id.startsWith(type + '-')) err(`id 前綴應為「${type}-」`);
     if (f.id && path.basename(c.file, '.md') !== f.id) err(`檔名應為 ${f.id}.md`);
     if ([...cards].filter((x) => x.fm?.id === f.id).length > 1) err(`id 重複：${f.id}`);
@@ -88,7 +88,37 @@ export function checkCards(
       if (l.pleiades_id !== undefined && typeof l.pleiades_id !== 'string') err(`${w} pleiades_id 要加引號寫成字串`);
       if (!l.pleiades_id) needRefs(l.src, `${w}（無 Pleiades ID 時需 src）`);
       else if (l.src) needRefs(l.src, w);
+      if (l.year !== undefined && typeof l.year !== 'number') err(`${w} year 必須是數字`);
+      if (type === 'person' && typeof l.year !== 'number') err(`${w} 人物卡每個地點都要有 year（他哪一年在這裡），地圖才能畫人生軌跡`);
+      else if (type === 'person' && t && (l.year < t.start || l.year > t.end)) err(`${w} year ${l.year} 不在生卒年 ${t.start}–${t.end} 之間`);
     });
+    // ---- 人物卡（深入專題）：person 區塊與 relations ----
+    if (type === 'person') {
+      const P = f.person ?? {};
+      if (!f.person) err('人物卡要有 person 區塊（role、faction、name_romaji）');
+      else {
+        if (!P.role) err('person.role：一句話說他是誰（例：戰國大名、天下人）');
+        if (!P.name_romaji) err('person.name_romaji：羅馬字拼音（例：Oda Nobunaga）');
+        if (P.born !== undefined && P.born !== t?.start) err('person.born 要等於 time.start（生年）');
+        if (P.died !== undefined && P.died !== t?.end) err('person.died 要等於 time.end（卒年）');
+      }
+      const rels = f.relations;
+      if (rels !== undefined) {
+        if (!Array.isArray(rels)) err('relations 必須是清單');
+        else rels.forEach((r: any, i: number) => {
+          const w = `relations[${i}]（${r?.id ?? '?'}）`;
+          const other = cards.find((y) => y.fm?.id === r?.id)?.fm;
+          if (!other) err(`${w} 指向不存在的卡片`);
+          else if (other.type !== 'person') err(`${w} 關係只能指向人物卡`);
+          else if (r.id === f.id) err(`${w} 不可指向自己`);
+          if (!RELATION_KINDS.includes(r?.kind)) err(`${w} kind 必須是 ${RELATION_KINDS.join('｜')}`);
+          if (!r?.note || String(r.note).length < 6) err(`${w} 需要 note：一句話說明這段關係`);
+          if (r?.from !== undefined && typeof r.from !== 'number') err(`${w} from 必須是年份數字`);
+          if (r?.to !== undefined && typeof r.to !== 'number') err(`${w} to 必須是年份數字`);
+          needRefs(r?.src, w);
+        });
+      }
+    } else if (f.person || f.relations) err('person／relations 只有人物卡（type: person）可以填');
 
     const label = TYPE_LABEL[type];
     const parts = String(f.summary_line ?? '').split('｜');
@@ -149,7 +179,7 @@ export function checkCards(
       const ids2 = list.filter((x: any) => x?.id).map((x: any) => x.id);
       if (new Set(ids2).size !== ids2.length) warn(`${key} 有重複的卡片`);
     }
-    if (f.learn && !(f.causes?.length) && !(f.effects?.length) && !linkedIn.has(f.id)) warn('學習卡還沒有前因／後果（causes / effects），學生看不出它和其他事件的關係');
+    if (f.learn && type !== 'person' && !(f.causes?.length) && !(f.effects?.length) && !linkedIn.has(f.id)) warn('學習卡還沒有前因／後果（causes / effects），學生看不出它和其他事件的關係');
     for (const r of f.routes ?? []) if (!ctx.routes.has(r)) err(`routes 指向不存在的路線：${r}`);
     for (const fw of f.frameworks ?? []) if (!ctx.frameworks.has(fw)) err(`frameworks 指向不存在的框架：${fw}`);
 

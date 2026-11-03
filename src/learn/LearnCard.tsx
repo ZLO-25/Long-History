@@ -6,6 +6,7 @@ import { LearnText, SourceList, TermPop, type Term } from './LearnText';
 import { tierOrder } from './util';
 import { TopicChips } from '../components/Topics';
 import { CauseList, PathNav } from '../components/Story';
+import { PersonBlock } from '../components/Person';
 
 export type Depth = 'story' | 'understand' | 'deep';
 // 國中讀到「理解」就夠；「深入」是史家爭論與完整段落，標成高中選讀
@@ -82,6 +83,7 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
       )}
       <CauseList card={c} side="causes" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />
       <section className="lc-sec story">{T(L.story)}</section>
+      {c.type === 'person' && <PersonBlock card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />}
 
       {depth !== 'story' && <>
         {L.primary_source.map((p, i) => (

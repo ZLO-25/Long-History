@@ -25,8 +25,8 @@ const fs = require('fs');
   const grey = links.filter((x) => !x.id || !byId.has(x.id));
   ok(!grey.length, `沒有「尚無卡片」的灰字：每條前因／後果都指向一張已有的卡${grey.length ? '（' + grey.slice(0, 5).map((x) => x.at.id + '→' + x.name).join('、') + '）' : ''}`);
   const learn = ix.cards.filter((c) => c.learn);
-  const lonely = learn.filter((c) => !c.causes.length && !c.effects.length);
-  ok(!lonely.length, `每張學習卡都至少有一條前因或後果（${learn.length} 張）${lonely.length ? '：' + lonely.map((c) => c.id).join(' ') : ''}`);
+  const lonely = learn.filter((c) => c.type !== 'person' && !c.causes.length && !c.effects.length); // 人物卡不寫因果（docs/dives.md）
+  ok(!lonely.length, `每張學習卡（人物卡除外）都至少有一條前因或後果（${learn.length} 張）${lonely.length ? '：' + lonely.map((c) => c.id).join(' ') : ''}`);
   const isolated = ix.cards.filter((c) => !c.causes.length && !c.effects.length);
   ok(isolated.length <= ix.cards.length * 0.05, `沒有前因也沒有後果的卡 ≤ 5%（${isolated.length} 張${isolated.length ? '：' + isolated.slice(0, 8).map((c) => c.id).join(' ') : ''}）`);
   // 對稱：A 的後果裡有 B ⇔ B 的前因裡有 A

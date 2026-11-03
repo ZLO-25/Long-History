@@ -1,5 +1,5 @@
 // 欄位規格：對應 docs/card-fields.md。改規格時兩邊一起改。
-export type CardType = 'war' | 'commodity' | 'event' | 'building' | 'tech' | 'finance' | 'social';
+export type CardType = 'war' | 'commodity' | 'event' | 'building' | 'tech' | 'finance' | 'social' | 'person';
 export type Level = 'core' | 'deep' | 'optional';
 
 export interface SectionDef {
@@ -17,9 +17,10 @@ export const TYPE_LABEL: Record<CardType, string> = {
   tech: '技術',
   finance: '金融',
   social: '社會',
+  person: '人物',
 };
 
-export const TYPE_PREFIX: Record<CardType, string> = { war: 'A', commodity: 'B', event: 'C', building: 'D', tech: 'T', finance: 'F', social: 'E' };
+export const TYPE_PREFIX: Record<CardType, string> = { war: 'A', commodity: 'B', event: 'C', building: 'D', tech: 'T', finance: 'F', social: 'E', person: 'P' };
 
 export const FIELD_OPTIONS = [
   '戰場', '宮廷／政治中心', '港口／海峽', '商路', '資源產地', '城市／都會',
@@ -119,7 +120,21 @@ export const SECTIONS: Record<CardType, SectionDef[]> = {
     { code: 'E7', title: '今日對照鉤子', level: 'deep', role: 'today_hook' },
     { code: 'E8', title: '不可類比的差異', level: 'deep', role: 'non_analogous' },
   ],
+  // 深入專題（2026-11-03）：人物卡。time.start＝生年、time.end＝卒年；place.locations 每個地點要有 year，地圖依年份連成「人生軌跡」
+  person: [
+    { code: 'P1', title: '出身與時代', level: 'deep' },
+    { code: 'P2', title: '一生的轉折', level: 'deep' },
+    { code: 'P3', title: '關鍵決定：當時有哪些選擇', level: 'deep' },
+    { code: 'P4', title: '他改變了什麼', level: 'deep' },
+    { code: 'P5', title: '從另一邊看他', level: 'deep' },
+    { code: 'P6', title: '評價怎麼變', level: 'deep' },
+    { code: 'P7', title: '雙軌解讀', level: 'deep', role: 'lens' },
+    { code: 'P8', title: '今日對照鉤子', level: 'deep', role: 'today_hook' },
+    { code: 'P9', title: '不可類比的差異', level: 'deep', role: 'non_analogous' },
+  ],
 };
+// 人物卡 relations 的關係種類
+export const RELATION_KINDS = ['主從', '同盟', '聯姻', '敵對', '背叛', '師友', '親屬'] as const;
 
 // 第 6 期：學習模式「理解」層要顯示的段落（「故事」層是 learn.story；「深入」層是全部段落）
 export const UNDERSTAND: Record<CardType, string[]> = {
@@ -130,6 +145,7 @@ export const UNDERSTAND: Record<CardType, string[]> = {
   tech: ['T1', 'T5'],
   finance: ['F1', 'F3', 'F5'],
   social: ['E1', 'E2', 'E4'],
+  person: ['P1', 'P3', 'P4'],
 };
 
 // 第 6 期：來源分級。進入學習模式的卡至少要有 1 筆「一手」或「學術」

@@ -7,6 +7,7 @@ import { loadCivTaxonomy } from './lib/civ.ts';
 import { buildEdges } from './lib/causes.ts';
 import { loadStorylines, checkStorylines } from './lib/storylines.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, loadUnits, checkUnits } from './lib/learn.ts';
+import { loadDives, checkDives } from './lib/dives.ts';
 
 const cards = loadCards();
 const tagVocab = loadTagVocab();
@@ -22,6 +23,7 @@ const issues = [
   ...checkUnits(units, cards, histories, eligible),
   ...checkTopics(cards),
   ...checkStorylines(loadStorylines(), cards, buildEdges(cards)),
+  ...checkDives(loadDives(), cards, new Set(loadStorylines().map((s) => s.id)), new Set(units.map((u) => u.unit?.id)), historyKeys(histories)),
   ...checkCycles(cards),
   ...checkEcon(loadEcon()),
   ...checkChains(loadChains(), cards, new Set(routes.map((r: any) => r.id))),

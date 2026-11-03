@@ -24,6 +24,8 @@
 
 只有「有學習區塊、而且通過獨立交叉查核」的卡片和單元才會出現在學習模式。2026-10-26 以教學角度檢視後，補上清領、日治、戰後政治史共 10 張臺灣史卡與 3 個單元，臺灣史從 1624 到 1996 接成一條學習路徑（見 `docs/pedagogy-review.md`）。單元怎麼寫見 `docs/learn-units.md`，細節見 `docs/phase6-report.md`。
 
+2026-11-03 加入**深入專題**（頂端「專題」，或網址 `?dive=dive-sengoku`）：把一段時代的卡片、人物、故事線、勢力圖聚在一起放大看。第一個專題是日本戰國（1467–1639）：新增「人物」卡類型（生卒、人生軌跡、人物關係、「從另一邊看他」與「評價怎麼變」）、1582 年勢力示意圖、戰國故事線；專題打開時時間軸會放大到該年代並改用專題軌道。專題怎麼定義、勢力圖怎麼畫、怎麼新增下一個專題見 `docs/dives.md`。
+
 第 7 期補上**美國史**與**金融中心的轉移**，共 37 張新卡、2 個新單元：
 
 - 美國史（22 張）：十三殖民地、《獨立宣言》與啟蒙思想、獨立戰爭、憲法與聯邦制、漢彌爾頓財政計畫、西進擴張、門羅主義、南北戰爭、鍍金時代、美西戰爭、聯準會、「美國世紀」、馬歇爾計畫、圍堵與北約、韓戰、越戰、尼克森訪華、石油美元、廣場協議、美元儲備貨幣地位、反恐戰爭、美中貿易戰。學習模式多了一條「美國史」（`?mode=learn&history=usa`）。
@@ -94,6 +96,7 @@ npm run dev
 | `node scripts/qa/labels.cjs http://localhost:4173/` | 地圖名稱都是繁中＋英文：底圖地名、案例地點、疆域、今日咽喉（說明見 docs/map-names.md） |
 | `npx tsx tools/cardgen/gen.ts draft\|revise\|fix\|urls\|check\|unit\|unitrevise\|unitcheck [id ...]` | 第 7、8 期的卡片生成器（`revise`／`unitrevise` 依任務書的 `revise` 欄位改寫既有卡片或單元）：用 Claude Sonnet 起草、依 validate 修正、檢查網址、獨立查核（需要環境變數 `ANTHROPIC_API_KEY`；任務書在 `tools/cardgen/specs.yaml`、`unit-specs.yaml`；中間檔在 `tools/cardgen/.out/`，不進 git） |
 | `node scripts/qa/layout.cjs http://localhost:4173/` | 桌機版可拖曳分隔線：拖曳、重整後記住、收起時間軸、鍵盤、「⟲ 版面」重設、小視窗、手機無分隔線（說明見 docs/layout-report.md） |
+| `node scripts/qa/dive.cjs http://localhost:4173/` | 深入專題：專題定義、人物卡、勢力圖資料檢查；專題頁、勢力圖層、專題時間軸、人生軌跡、學習模式人物卡（桌機＋手機，說明見 docs/dives.md） |
 
 ## 三、用 Obsidian 編輯卡片
 
@@ -167,3 +170,4 @@ sources:
 - `docs/screenshots/phase6/`：375 與 1280 寬的截圖
 - `docs/phase7-report.md`：第 7 期（美國史與金融中心的轉移）與第 8 期補充的驗收回報、生成流程與判斷
 - `docs/map-names.md`：地圖名稱改成繁中＋英文的做法、資料檔與怎麼改譯名（截圖在 `docs/screenshots/map-names/`）
+- `docs/dives.md`：深入專題（專題定義檔、人物卡、勢力示意圖、怎麼新增專題）；`docs/dive-sengoku-1.md`：日本戰國第 1 期驗收回報（截圖在 `docs/screenshots/dive/`）

@@ -17,6 +17,9 @@ interface Props {
   todayOn?: boolean; setTodayOn?: (v: boolean) => void; onToday?: (id: string) => void; todaySel?: string | null;
   // 第 6 期學習模式：其他史的卡淡化成背景小點；多一個「東亞」視野；圖例加上疆域示意的說明
   bgCards?: Card[]; learn?: boolean; home?: [[number, number], [number, number]] | null;
+  // 深入專題：大名勢力示意圖（public/data/dives/<file>）；人物卡的人生軌跡（依年份連線）
+  power?: { file: string; title: string } | null; onCard?: (id: string) => void;
+  trail?: { lat: number; lng: number; year: number; name: string }[] | null;
 }
 
 // 地圖視野：地中海／中國／歐亞
@@ -35,31 +38,34 @@ const loadBorders = (file: string) => {
   return borderCache.get(file)!;
 };
 
-export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel, bgCards, learn, home }: Props) {
+export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel, bgCards, learn, home, power, onCard, trail }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map>();
   const topicZoom = useRef<() => void>(() => {});
-  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; topic: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup }>();
+  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; topic: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup; power: L.LayerGroup; trail: L.LayerGroup }>();
   const canvasR = useRef<{ borders: L.Canvas; roads: L.Canvas }>();
-  const cb = useRef({ onPlace, onRoute, onToday });
-  cb.current = { onPlace, onRoute, onToday };
+  const cb = useRef({ onPlace, onRoute, onToday, onCard });
+  cb.current = { onPlace, onRoute, onToday, onCard };
   const [snapLabel, setSnapLabel] = useState('');
   // 地圖上的名稱一律「繁中＋英文」：先載入對照表
   useMemo(() => setNameTable(index.names), [index]);
 
   useEffect(() => {
-    const m = L.map(el.current!, { zoomControl: true, worldCopyJump: true, preferCanvas: false }).setView(compact ? [38, 18] : [39, 20], compact ? 4 : 4);
+    const m = L.map(el.current!, { zoomControl: true, worldCopyJump: true, preferCanvas: false, zoomSnap: 0.5 }).setView(compact ? [38, 18] : [39, 20], compact ? 4 : 4);
     m.setMaxZoom(12);
     // 底圖不帶文字，地名由 labelLayer 畫成繁中＋英文（見 lib/basemap.ts、lib/labelLayer.ts）
     m.attributionControl.setPrefix(false).addAttribution('疆域 historical-basemaps｜古道 AWMC／Barrington Atlas｜古地名 Pleiades');
     addBasemap(m);
     labelLayer().addTo(m);
     m.createPane('borders').style.zIndex = '350';
+    m.createPane('power').style.zIndex = '360';
+    const noteZoom = () => { m.getContainer().dataset.zoom = m.getZoom().toFixed(2); }; m.on('zoomend moveend', noteZoom); noteZoom(); // 給自動測試讀目前縮放
     // 效能：疆域（一個年代上千個多邊形）和古道網改畫在 canvas，不再產生數千個 SVG 節點
     canvasR.current = { borders: L.canvas({ pane: 'borders', padding: 0.3 }), roads: L.canvas({ padding: 0.3 }) };
     layers.current = {
       borders: L.layerGroup().addTo(m), awmc: L.layerGroup().addTo(m), itinere: L.layerGroup().addTo(m), routes: L.layerGroup().addTo(m),
       places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m), topic: L.layerGroup().addTo(m), chain: L.layerGroup().addTo(m), mover: L.layerGroup().addTo(m), today: L.layerGroup().addTo(m),
+      power: L.layerGroup().addTo(m), trail: L.layerGroup().addTo(m),
     };
     map.current = m;
     // 區塊被拖曳改大小時，馬上讓 Leaflet 重新量容器，地圖才不會留白或偏掉
@@ -238,6 +244,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     };
     drawMarks();
     m.off('zoomend', topicZoom.current); topicZoom.current = drawMarks; if (marks.length) m.on('zoomend', drawMarks); else layers.current?.topic.clearLayers();
+    if (powerOn.current && marks.length > 1) return; // 專題開著勢力圖時，視野以勢力圖為準（卡片編號可能散到朝鮮、臺灣）
     if (pts.length === 1) m.flyTo(pts[0], Math.max(m.getZoom(), 6), { duration: 0.6 });
     else if (pts.length > 1) m.flyToBounds(L.latLngBounds(pts).pad(0.3), { duration: 0.6, maxZoom: 7 });
   }, [highlight, places, index]);
@@ -272,6 +279,68 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     if (!mover.current || !g.hasLayer(mover.current)) mover.current = L.circleMarker(at, { radius: 8, color: '#fff', weight: 2, fillColor: '#c53030', fillOpacity: 1, className: 'chain-mover' }).addTo(g);
     else mover.current.setLatLng(at);
   }, [chain]);
+
+  // 深入專題：大名勢力示意圖。每個勢力一個顏色，名稱標在最大一塊的中央；縮小時只標主要勢力，放大才全部標；點名稱打開對應的人物卡
+  const powerFile = power?.file ?? null;
+  const powerOn = useRef(false); powerOn.current = !!powerFile;
+  const powerZoom = useRef<() => void>(() => {});
+  useEffect(() => {
+    const g = layers.current?.power, m = map.current;
+    if (!g || !m) return;
+    g.clearLayers();
+    m.off('zoomend', powerZoom.current);
+    if (!powerFile) return;
+    let cancelled = false;
+    fetch(`${import.meta.env.BASE_URL}data/dives/${powerFile}`).then((r) => r.json()).then((gj) => {
+      if (cancelled) return;
+      g.clearLayers();
+      const all: L.LatLng[] = [];
+      const labels: { ll: L.LatLng; major: boolean; size: number; mk: L.Marker }[] = [];
+      L.geoJSON(gj, {
+        pane: 'power',
+        style: (f) => ({ color: f?.properties.color ?? '#888', weight: 1.2, opacity: 0.9, fillColor: f?.properties.color ?? '#888', fillOpacity: 0.38 }),
+        onEachFeature: (f, layer) => {
+          layer.bindTooltip(`${f.properties.name} <span class="en">${f.properties.en ?? ''}</span><br><small>${f.properties.provinces ?? ''}</small><br><small>勢力範圍示意（以令制國為單位）</small>`, { sticky: true });
+          if (f.properties.card) layer.on('click', () => cb.current.onCard?.(f.properties.card));
+          // 名稱放在面積最大的那一塊多邊形的框中央
+          const geom = f.geometry as any;
+          const polys: number[][][] = (geom.type === 'MultiPolygon' ? geom.coordinates : [geom.coordinates]).map((p: number[][][]) => p[0]);
+          const boundsOf = (ring: number[][]) => L.latLngBounds(ring.map(([x, y]) => [y, x] as [number, number]));
+          const size = (ring: number[][]) => { const b = boundsOf(ring); return b.getSouthWest().distanceTo(b.getNorthEast()); };
+          const big = polys.reduce((a, b) => (size(b) > size(a) ? b : a), polys[0]);
+          if (!big) return;
+          const bb = boundsOf(big);
+          all.push(bb.getSouthWest(), bb.getNorthEast());
+          const short = String(f.properties.name).replace(/（.*）/, '');
+          const major = !/諸氏|餘黨|從屬|自立|雜賀/.test(f.properties.name) && size(big) > 120000;
+          const mk = L.marker(bb.getCenter(), { icon: L.divIcon({ className: `power-label ${major ? 'major' : 'minor'}`, html: `${short}<small>${f.properties.en ? String(f.properties.en).replace(/\s*\(.*\)$/, '') : ''}</small>`, iconSize: undefined as any }), keyboard: false, interactive: !!f.properties.card, zIndexOffset: 300 })
+            .on('click', () => { if (f.properties.card) cb.current.onCard?.(f.properties.card); });
+          labels.push({ ll: bb.getCenter(), major, size: size(big), mk });
+        },
+      }).addTo(g);
+      // 縮得越小標得越少：zoom<6 只標最大的 6 個主要勢力，6 標全部主要勢力，7 以上全標
+      labels.sort((a, b) => b.size - a.size);
+      const draw = () => { const z = m.getZoom(); labels.forEach((l, i) => { const show = z >= 7 || (l.major && (z >= 6 || i < 6)); if (show && !g.hasLayer(l.mk)) l.mk.addTo(g); else if (!show && g.hasLayer(l.mk)) g.removeLayer(l.mk); }); };
+      draw();
+      powerZoom.current = draw; m.on('zoomend', draw);
+      if (all.length) m.flyToBounds(L.latLngBounds(all), { duration: 0.6, maxZoom: 7 });
+    }).catch(() => {});
+    return () => { cancelled = true; m.off('zoomend', powerZoom.current); };
+  }, [powerFile]);
+
+  // 人物卡：人生軌跡。依年份把地點連成虛線，每個點標年份
+  useEffect(() => {
+    const g = layers.current?.trail;
+    if (!g) return;
+    g.clearLayers();
+    if (!trail || trail.length < 2) return;
+    const pts = [...trail].sort((a, b) => a.year - b.year);
+    L.polyline(pts.map((p) => [p.lat, p.lng] as [number, number]), { color: '#8a5a00', weight: 3, opacity: 0.85, dashArray: '6 5', className: 'trail-line' })
+      .bindTooltip('人生軌跡（依年份連線，只是先後順序，不是實際走的路）', { sticky: true }).addTo(g);
+    pts.forEach((p, i) => {
+      L.marker([p.lat, p.lng], { icon: L.divIcon({ className: 'trail-year', html: `${i + 1}・${fmtYear(p.year)}`, iconSize: undefined as any, iconAnchor: [0, 22] }), keyboard: false, interactive: false, zIndexOffset: 400 }).addTo(g);
+    });
+  }, [trail]);
 
   // 今日對照層：菱形標記＋「資料截至」；與歷史年代無關，打開就一直顯示
   useEffect(() => {
@@ -308,6 +377,8 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
         {era !== 'M' && <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>}
         {todayOn && <div><i className="lg today" />今日咽喉要道（灰色＝資料可能過時）</div>}
+        {power && <div><i className="lg power" />勢力示意：{power.title}（以令制國為單位、用今日縣界近似，不是確切領地線）</div>}
+        {trail && trail.length > 1 && <div><i className="lg trail" />人生軌跡：依年份連線（先後順序，不是實際路線）</div>}
         {ch && <div><i className="lg chain" />物資鏈（實線＝沿已畫路線，點線＝路線示意）</div>}
       </div>
     </div>

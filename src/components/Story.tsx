@@ -221,13 +221,14 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
   );
 }
 
-export function StorylineIndex({ index, onStory, onTopics }: { index: Index; onStory: (id: string) => void; onTopics?: () => void }) {
+export function StorylineIndex({ index, onStory, onTopics, onDives }: { index: Index; onStory: (id: string) => void; onTopics?: () => void; onDives?: () => void }) {
   const m = byIdOf(index);
   return (
     <div className="story-index">
       <h2>故事線</h2>
       <p className="muted">沿著「前因 → 後果」的箭頭，把不同時代、不同地區的事件接成一條路。每一站之間都說明「怎麼造成的」。</p>
       {onTopics && <p className="small">想看同一種東西（例如 #交易所、#白銀）在各時代的樣子？<button className="link" onClick={onTopics}>看主題標籤</button></p>}
+      {onDives && <p className="small">想把一段時代放大來看（人物、勢力圖）？<button className="link" onClick={onDives}>看深入專題</button></p>}
       <ul>
         {(index.storylines ?? []).map((s) => {
           const a = m.get(s.stops[0].id), b = m.get(s.stops[s.stops.length - 1].id);

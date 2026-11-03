@@ -21,7 +21,7 @@ place:
   scale: area
 structure_tags: [精英內鬥, 合法性危機, 技術擴散, 突變事件]
 topics: [內戰, 火藥與武器]
-links: [event-toyotomi-unification, event-portuguese-empire, commodity-iwami-silver, war-imjin, event-sakoku]
+links: [war-onin, war-okehazama, tech-tanegashima-arquebus, war-nagashino, event-honnoji-incident, person-oda-nobunaga, event-toyotomi-unification, event-portuguese-empire, commodity-iwami-silver, war-imjin, event-sakoku]
 causes:
   - { id: event-portuguese-empire, rel: 促成, why: 葡萄牙商人 1540 年代抵達種子島帶來火繩槍，日本很快大量仿製，大名需要大批步兵與槍隊，領地逐漸被併成少數大勢力。, src: [s1] }
 effects:

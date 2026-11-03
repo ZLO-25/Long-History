@@ -99,3 +99,11 @@ storylines:
     question: 二次大戰才剛結束，美國為什麼又在朝鮮、越南打起仗來？打了二十年之後，又為什麼轉身和中國握手？
     blurb: 這條線看「圍堵」的想法怎麼一步步把美國帶進亞洲的戰爭，又怎麼在越戰之後轉了彎。
     stops: [war-world-war-two, event-containment-nato, war-korean-war, war-vietnam-war, event-nixon-china]
+
+
+  # 深入專題「日本戰國」的主線（data/dives/sengoku.yaml）
+  - id: story-sengoku
+    title: 日本戰國：從應仁之亂到關起門的太平
+    question: 將軍還在、卻沒人聽他的日本，怎麼打了一百多年，最後被信長、秀吉、家康三個人接力收拾成一個關起門來的太平國家？
+    blurb: 這條線沿著「誰接手了上一個人留下的局面」走：每一站的勝利都替下一站鋪路，也留下下一站要解決的問題。
+    stops: [war-onin, war-okehazama, war-nagashino, event-honnoji-incident, event-toyotomi-unification, war-sekigahara, war-osaka-sieges, event-sakoku]

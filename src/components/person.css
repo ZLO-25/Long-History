@@ -1,0 +1,37 @@
+/* 人物卡（深入專題）：土黃色系，和事件卡的藍、戰爭卡的紅區分 */
+:root { --person: #8a5a00; --person-bg: #fbf6ec; --person-line: #e8d9b8; }
+.person-block { border: 1px solid var(--person-line); background: var(--person-bg); border-radius: 10px; padding: 8px 12px 6px; margin: 10px 0; line-height: 1.55; }
+.person-block h4 { margin: 8px 0 4px; font-size: .95em; color: var(--person); display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.person-block h4 small { font-weight: 400; font-size: 11.5px; }
+.pb-who { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; margin: 0; font-size: 13.5px; }
+.pb-who dt { color: var(--person); font-weight: 600; }
+.pb-who dd { margin: 0; }
+.pb-who dd small { margin-left: 6px; font-size: 11px; }
+.pb-path ol { margin: 0; padding-left: 0; list-style: none; position: relative; }
+.pb-path li { display: flex; gap: 8px; align-items: baseline; padding: 2px 0 2px 14px; position: relative; font-size: 13.5px; }
+.pb-path li::before { content: ''; position: absolute; left: 3px; top: 10px; width: 7px; height: 7px; border-radius: 50%; background: var(--person); }
+.pb-path li::after { content: ''; position: absolute; left: 6px; top: 17px; bottom: -4px; width: 1px; background: var(--person-line); }
+.pb-path li:last-child::after { display: none; }
+.pb-year { font-variant-numeric: tabular-nums; color: var(--person); font-weight: 600; min-width: 3.2em; }
+.pb-role { color: #5a544a; font-size: 12.5px; }
+.pb-rel ul { margin: 0; padding: 0; list-style: none; }
+.pb-rel li { padding: 5px 0; border-top: 1px dashed var(--person-line); }
+.pr-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.pr-name { border: 1px solid; border-radius: 8px; background: #fff; padding: 2px 8px; font-size: 13.5px; cursor: pointer; color: inherit; text-decoration: none; }
+.pr-name small { margin-left: 5px; color: #6b655b; font-size: 11px; }
+.pr-name.off { border-style: dashed; color: #6b655b; }
+.pr-name:hover, .pr-name:focus-visible { background: #fff8e8; outline: 2px solid var(--person); outline-offset: 1px; }
+.pr-note { margin: 2px 0 0; font-size: 13px; color: #3a362f; }
+.kind-chip { font-size: 11.5px; border-radius: 999px; padding: 1px 8px; border: 1px solid transparent; white-space: nowrap; }
+.k-lord { background: #ece4ff; color: #4c2a9a; border-color: #c9b8f0; }
+.k-ally { background: #e3f3e8; color: #1f6b3a; border-color: #b7dcc3; }
+.k-marry { background: #fde8f0; color: #9b2c5a; border-color: #f2bcd0; }
+.k-enemy { background: #fde3e1; color: #9b1c1c; border-color: #f1b7b3; }
+.k-betray { background: #2d2a26; color: #fff; border-color: #2d2a26; }
+.k-mentor { background: #e6f0fb; color: #1f4e8c; border-color: #bcd3f0; }
+.k-kin { background: #fff2cc; color: #7a5200; border-color: #ead9a0; }
+.person-block.compact { padding: 6px 10px; }
+/* 卡片標題下的羅馬字 */
+.romaji { display: block; font-size: 13px; color: #6b655b; letter-spacing: .02em; margin-top: -2px; }
+/* 地圖上的人生軌跡年份標籤 */
+.trail-year { background: var(--person); color: #fff; border-radius: 999px; font-size: 11px; line-height: 18px; text-align: center; font-weight: 600; box-shadow: 0 0 0 2px #fff; white-space: nowrap; padding: 0 5px; }

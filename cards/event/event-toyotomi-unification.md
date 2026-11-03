@@ -20,7 +20,7 @@ place:
   scale: area
 structure_tags: [快速擴張, 精英內鬥, 合法性危機, 宗教／意識形態動員]
 topics: [統一與中央集權, 對外擴張, 宗教]
-links: [war-imjin, event-sakoku]
+links: [event-honnoji-incident, person-toyotomi-hideyoshi, social-taiko-kenchi-katanagari, war-imjin, war-sekigahara, event-sakoku]
 causes:
   - { id: event-sengoku-japan, rel: 直接引發, why: "織田信長在本能寺之變中身亡，秀吉11天後打敗明智光秀，接手信長的勢力，展開統一日本的行動。", src: [s1] }
 effects:

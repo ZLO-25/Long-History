@@ -12,6 +12,7 @@ import { orderAliases } from './lib/aliases.ts';
 import { buildEdges, type Edge } from './lib/causes.ts';
 import { loadStorylines, buildStorylines } from './lib/storylines.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits } from './lib/learn.ts';
+import { loadDives, buildDives, copyPowerMaps } from './lib/dives.ts';
 
 const get = (o: any, k: string) => k.split('.').reduce((a, p) => (a == null ? a : a[p]), o);
 const present = (v: any) => (Array.isArray(v) ? v.length > 0 : v !== undefined && v !== null && v !== '');
@@ -97,6 +98,9 @@ const cards = raw.filter((c) => c.fm?.id).map((c) => {
     lens: { lilu: lens?.sub?.['李彔']?.text ?? '', harari: lens?.sub?.['哈拉瑞']?.text ?? '' },
     unknownFields: sections.filter((s) => s.text && s.unknown).map((s) => `${s.code} ${s.title}`),
     singleSourceSections: sections.filter((s) => s.text && !s.unknown && refsOf(s.text).length === 1).map((s) => s.code),
+    // 人物卡（深入專題）：person 區塊與人際關係；關係的來源解析成可點的連結
+    person: type === 'person' && f.person ? { role: String(f.person.role ?? ''), faction: f.person.faction ? String(f.person.faction) : undefined, name_romaji: String(f.person.name_romaji ?? '') } : null,
+    relations: (Array.isArray(f.relations) ? f.relations : []).map((r: any) => ({ id: r.id, kind: r.kind, from: r.from, to: r.to, note: r.note, sources: (r.src ?? []).map((sid: string) => { const s = (f.sources ?? []).find((y: any) => y.id === sid); return s ? { card: f.id, id: sid, title: s.title, url: s.url } : null; }).filter(Boolean) })),
     file: c.file,
     issues: issues.filter((i) => i.file === c.file).map((i) => ({ level: i.level, msg: i.msg })),
     backlinks: [] as string[],
@@ -140,6 +144,9 @@ fs.copyFileSync(path.join(ROOT, 'data/labels/basemap-labels.json'), path.join(pu
   fs.writeFileSync(path.join(pubData, 'awmc-roads.geojson'), JSON.stringify({ type: 'FeatureCollection', features: feats }));
 }
 if (hasItinere) fs.copyFileSync(path.join(ROOT, 'data/routes/itinere-simplified.geojson'), path.join(pubData, 'itinere.geojson'));
+// 深入專題的勢力圖（docs/dives.md）
+const dives = loadDives();
+copyPowerMaps(dives, pubData);
 
 const index = {
   generated: new Date().toISOString(),
@@ -162,6 +169,8 @@ const index = {
   histories,
   storylines: buildStorylines(loadStorylines(), edges, cards),
   units: loadUnits().map((u) => u.unit).filter((u) => DEV || u.crosscheck?.result === '通過'),
+  // 深入專題：把一段時代的卡片、人物、故事線、勢力圖聚在一起（docs/dives.md）
+  dives: buildDives(dives, cards),
   names: loadNameTable(),
 };
 // 地圖上的名稱要中英並列：列出還沒有英文（或中文）對照的地名

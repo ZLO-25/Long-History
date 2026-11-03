@@ -16,10 +16,14 @@ interface Props {
   selectedId: string | null; onOpen: (id: string) => void;
   /** 主題路徑：只亮這些卡，其餘變淡 */
   focusIds?: string[] | null;
+  /** 深入專題：把畫面放大到這段年代 */
+  range?: { start: number; end: number } | null;
+  /** 深入專題：改用專題自己的軌道（依卡片類型分），不分中西 */
+  lanesDef?: { name: string; types: string[] }[] | null;
   econ?: Econ; onEcon?: (series: string, point: number) => void; econSel?: { series: string; point: number } | null;
 }
 
-export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, econ, onEcon, econSel, focusIds }: Props) {
+export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, econ, onEcon, econSel, focusIds, range, lanesDef }: Props) {
   const [metric, setMetric] = useState<string | null>(null);
   const ECON_H = metric ? 150 : 0, EPAD = 14;
   const wrap = useRef<HTMLDivElement>(null);
@@ -73,15 +77,28 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
     return () => { svg.on('.zoom', null); };
   }, [width, base]);
 
+  // 深入專題：打開時把畫面放大到專題年代；關掉時回到全覽
+  const rangeKey = range ? `${range.start}:${range.end}` : '';
+  useEffect(() => {
+    const svg = svgRef.current as any;
+    if (!svg) return;
+    if (range) { svg.__zoom_to?.(range.start, range.end); setEraSel(null); }
+    else if (rangeKey === '' && era.current) svg.__zoom_reset?.();
+  }, [rangeKey]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // 依目前縮放排列：每條軌道內以貪婪法分列，避免重疊
   const showFull = t.k >= 2.5;
   const lanes = useMemo(() => {
     // 技術卡、金融卡不分中西，各自獨立一條軌
     const own = (c: Card) => c.type === 'tech' || c.type === 'finance';
     const lane = (track: 'west' | 'china' | 'tech' | 'finance') => cards.filter((c) => (track === 'tech' || track === 'finance' ? c.type === track : !own(c) && (track === 'china' ? c.track === 'china' || c.track === 'east' : c.track !== 'china' && c.track !== 'east')));
-    return (['west', 'china', 'tech', 'finance'] as const).map((track) => {
+    // 深入專題：依專題定義的軌道（卡片類型）分軌；沒對到的放「其他」
+    const defs: { track: string; label: string; items: Card[] }[] = lanesDef
+      ? (() => { const used = new Set<string>(); const out = lanesDef.map((l) => { const items = cards.filter((c) => l.types.includes(c.type)); items.forEach((c) => used.add(c.id)); return { track: `dive-${l.name}`, label: l.name, items }; }); const rest = cards.filter((c) => !used.has(c.id)); if (rest.length) out.push({ track: 'dive-other', label: '其他', items: rest }); return out; })()
+      : (['west', 'china', 'tech', 'finance'] as const).map((track) => ({ track, label: { china: '中國與東亞', west: '西方', tech: '技術（發明→普及）', finance: '金融' }[track], items: lane(track) }));
+    return defs.map(({ track, label: laneLabel, items: all }) => {
       // 只排目前畫面內的卡：放大到某個時代時，軌道高度只依畫面內的卡數，技術軌與金融軌才不會被擠到下面看不到
-      const items = lane(track).filter((c) => x(Math.max(c.time.end, c.time.start)) >= -200 && x(c.time.start) <= width + 10)
+      const items = all.filter((c) => x(Math.max(c.time.end, c.time.start)) >= -200 && x(c.time.start) <= width + 10)
         .sort((a, b) => a.time.start - b.time.start || b.time.end - a.time.end);
       const rowEnds: number[] = [];
       const placed = items.map((c) => {
@@ -94,16 +111,14 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
         if (row === -1) { row = rowEnds.length; rowEnds.push(end); } else rowEnds[row] = end;
         return { c, x0, x1, row, label, lx };
       });
-      return { track, placed, rows: Math.max(1, rowEnds.length) };
+      return { track, laneLabel, placed, rows: Math.max(1, rowEnds.length) };
     });
-  }, [cards, t, base, showFull, width]);
+  }, [cards, t, base, showFull, width, lanesDef]);
 
-  // 兩軌等高：以列數較多的一軌為準，中西份量在畫面上相同
-  const laneH = Math.max(lanes[0].rows, lanes[1].rows) * ROW_H + LANE_PAD * 2;
-  const westH = laneH, chinaH = laneH;
-  const techH = lanes[2].rows * ROW_H + LANE_PAD * 2, finH = lanes[3].rows * ROW_H + LANE_PAD * 2;
-  const laneTop = [0, westH, westH + chinaH, westH + chinaH + techH];
-  const laneHt = [westH, chinaH, techH, finH];
+  // 兩軌等高：以列數較多的一軌為準，中西份量在畫面上相同（專題軌道則各自依卡數）
+  const laneHt = lanes.map((ln, i) => (!lanesDef && i < 2 ? Math.max(lanes[0].rows, lanes[1].rows) : ln.rows) * ROW_H + LANE_PAD * 2);
+  const laneTop = laneHt.map((_, i) => laneHt.slice(0, i).reduce((a, b) => a + b, 0));
+  const lanesTotal = laneHt.reduce((a, b) => a + b, 0);
 
   // 對照連線：滑鼠所在（或已選取）的卡 ↔ 另一軌的對照卡
   const focus = hover ?? selectedId;
@@ -129,7 +144,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
     : ey.ticks(4);
   const entities = [...new Set(eSeries.flatMap((s) => s.points.map((p) => p.entity)))];
   const ecolor = (e: string) => ENTITY_COLORS[entities.indexOf(e) % ENTITY_COLORS.length];
-  const height = AXIS_H + ECON_H + westH + chinaH + techH + finH + 4;
+  const height = AXIS_H + ECON_H + lanesTotal + 4;
 
   // 刻度：縮放越大越細
   const span = base.invert(t.invertX(width)) - base.invert(t.invertX(0));
@@ -224,7 +239,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
                   </g>
                 );
               })}
-              <text x={4} y={12} className="lane-label">{{ china: '中國與東亞', west: '西方', tech: '技術（發明→普及）', finance: '金融' }[ln.track]}</text>
+              <text x={4} y={12} className="lane-label">{ln.laneLabel}</text>
             </g>
           );
         })}

@@ -7,6 +7,7 @@ import { Bi } from './Bi';
 import { TopicChips } from './Topics';
 import { AliasList } from './AliasList';
 import { CauseList, PathNav } from './Story';
+import { PersonBlock } from './Person';
 import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 interface Props {
@@ -26,7 +27,7 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
     <article className="card-detail">
       <div className="cd-head" style={{ borderColor: TYPE_COLOR[c.type] }}>
         <span className="type-badge" style={{ background: TYPE_COLOR[c.type] }}>{TYPE_ICON[c.type]} {c.typeLabel}</span>
-        <h2>{c.name}</h2>
+        <h2>{c.name}{c.person?.name_romaji && <span className="romaji" lang="ja-Latn">{c.person.name_romaji}</span>}</h2>
         <div className="cd-meta">
           <span>{fmtRange(c.time.start, c.time.end)}（{PRECISION_LABEL[c.time.precision]}）</span>
           <span className={`verif ${VERIF_CLASS[c.verification] ?? ''}`}>{c.verification}</span>
@@ -42,6 +43,7 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
 
       <PathNav card={c} index={index} onOpen={onOpen} onStory={(id) => onStory?.(id)} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} />
       <CauseList card={c} side="causes" index={index} onOpen={onOpen} />
+      <PersonBlock card={c} index={index} onOpen={onOpen} onPlace={onPlace} />
 
       <section className="cd-sec">
         <h3>基本資料</h3>

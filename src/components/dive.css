@@ -1,0 +1,44 @@
+/* 深入專題：深紅褐色系（和故事線的青綠、主題的橘、人物的土黃區分） */
+:root { --dive: #7b2d26; --dive-bg: #fbf3f1; --dive-line: #ebcdc7; }
+.dive-view, .dive-index { line-height: 1.6; }
+.dive-view .back { font-size: 13px; }
+.dive-view h2, .dive-index h2 { margin: 6px 0 4px; color: var(--dive); }
+.dv-q { font-size: 15px; margin: 4px 0; }
+.dv-blurb { margin: 4px 0 6px; color: #3a362f; }
+.dv-sec { margin: 12px 0; }
+.dv-sec h3 { margin: 0 0 6px; font-size: 1em; color: var(--dive); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.dv-sec h3 small, .dv-sec h4 small { font-weight: 400; font-size: 11.5px; }
+.dv-lane h4 { margin: 8px 0 4px; font-size: 13px; color: #5a544a; border-bottom: 1px solid var(--dive-line); padding-bottom: 2px; }
+.dv-list { display: flex; flex-direction: column; gap: 4px; }
+.dv-card { display: flex; align-items: baseline; gap: 6px; text-align: left; border: 1px solid var(--line); border-left-width: 4px; border-radius: 8px; background: #fff; padding: 5px 9px; font: inherit; font-size: 13.5px; color: inherit; cursor: pointer; text-decoration: none; }
+.dv-card:hover, .dv-card:focus-visible { background: var(--dive-bg); border-color: var(--dive); outline: none; }
+.dv-card.here { background: var(--dive-bg); box-shadow: inset 0 0 0 1px var(--dive); }
+.dv-card.in-year .dv-name { font-weight: 600; }
+.dv-card.off { border-style: dashed; color: #6b655b; }
+.dv-n { background: var(--dive); color: #fff; border-radius: 999px; min-width: 20px; height: 20px; line-height: 20px; text-align: center; font-size: 11.5px; font-weight: 600; padding: 0 5px; flex: none; }
+.dv-icon { flex: none; }
+.dv-name { flex: 1 1 auto; min-width: 0; }
+.dv-year { color: #6b655b; font-size: 11.5px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dv-chips { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.dv-chips .chip.on { background: var(--dive); border-color: var(--dive); color: #fff; }
+.dv-power-info { margin-top: 6px; border: 1px solid var(--dive-line); background: var(--dive-bg); border-radius: 10px; padding: 8px 12px; }
+.dv-power-info p { margin: 2px 0 6px; }
+.dv-legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 2px 10px; font-size: 13px; }
+.dv-legend li { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+.dv-legend li i { width: 12px; height: 12px; border-radius: 3px; flex: none; border: 1px solid rgba(0,0,0,.2); align-self: center; }
+.dv-legend li small { display: block; flex: 1 1 auto; min-width: 0; font-size: 11px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-legend li > span, .dv-legend li > button { flex: none; white-space: nowrap; }
+.dv-story { display: inline-flex; flex-direction: column; align-items: flex-start; border: 1px solid var(--dive-line); border-radius: 10px; background: #fff; padding: 6px 10px; font: inherit; font-size: 13.5px; color: var(--dive); cursor: pointer; text-decoration: none; }
+.dv-story small { color: #6b655b; font-size: 11.5px; }
+.dv-story:hover, .dv-story:focus-visible { background: var(--dive-bg); }
+.dv-note { border-top: 1px dashed var(--dive-line); padding-top: 6px; margin-top: 12px; }
+.dive-index ul { list-style: none; margin: 0; padding: 0; }
+.di-item { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; text-align: left; border: 1px solid var(--dive-line); border-radius: 10px; background: #fff; padding: 8px 12px; margin: 6px 0; font: inherit; color: inherit; cursor: pointer; }
+.di-item:hover, .di-item:focus-visible { background: var(--dive-bg); border-color: var(--dive); outline: none; }
+.di-title { font-weight: 600; color: var(--dive); }
+.di-q { font-size: 13.5px; }
+/* 地圖上的勢力名稱 */
+.power-label { background: rgba(255,255,255,.85); border-radius: 6px; padding: 1px 6px; font-size: 11.5px; font-weight: 600; color: #2d2a26; white-space: nowrap; box-shadow: 0 0 0 1px rgba(0,0,0,.15); text-align: center; line-height: 1.25; }
+.power-label small { display: block; font-weight: 400; font-size: 10px; color: #5a544a; }
+.lg.power { background: rgba(192,57,43,.45); border: 1px solid #c0392b; }
+.lg.trail { background: #8a5a00; height: 3px; }

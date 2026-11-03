@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { Index, Filters, CardType, CivNode } from '../types';
 import { TYPE_COLOR } from '../lib/format';
 
-const TYPES: [CardType, string][] = [['war', '戰爭'], ['commodity', '物資'], ['event', '大事'], ['building', '建築'], ['tech', '技術'], ['finance', '金融']];
+const TYPES: [CardType, string][] = [['war', '戰爭'], ['commodity', '物資'], ['event', '大事'], ['building', '建築'], ['tech', '技術'], ['finance', '金融'], ['social', '社會'], ['person', '人物']];
 const toggle = <T,>(arr: T[], v: T) => (arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
 const under = (p: string, node: string) => p === node || p.startsWith(node + '/');
 

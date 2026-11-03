@@ -1,0 +1,117 @@
+# 大名勢力示意圖：1582 年 6 月（本能寺之變前夕）
+# 畫法：以「令制國」為單位，用今日都道府縣的範圍近似（一國大致對應一縣；一縣含兩國時用經度切開），
+#       所以邊界只是示意，不代表當時確切的領地線。北海道（蝦夷地）與沖繩（琉球王國）不在本圖範圍。
+# 用 npm run power 從 data/ne/japan_prefectures.geojson（Natural Earth，公有領域）拼成 power-1582.geojson。
+year: 1582
+title: 本能寺之變前夕（1582 年 6 月）
+note: 以令制國為單位、用今日縣界近似的示意圖；「從屬」指名義上已歸順織田的大名（如宇喜多）。武田家剛在 3 月滅亡，甲斐、信濃、上野由織田家臣接管。
+sources:
+  - { title: "織田信長 — Wikipedia（日本語）：天正10年時点の織田氏勢力", url: "https://ja.wikipedia.org/wiki/%E7%B9%94%E7%94%B0%E4%BF%A1%E9%95%B7", accessed: 2026-11-03, tier: 百科 }
+  - { title: "Oda Nobunaga — Wikipedia（英語）：Territory of the Oda clan in 1582", url: "https://en.wikipedia.org/wiki/Oda_Nobunaga", accessed: 2026-11-03, tier: 百科 }
+  - { title: "甲州征伐 — Wikipedia（日本語）：武田氏滅亡後的甲斐・信濃・上野・駿河分配（1582 年 3 月）", url: "https://ja.wikipedia.org/wiki/%E7%94%B2%E5%B7%9E%E5%BE%81%E4%BC%90", accessed: 2026-11-03, tier: 百科 }
+  - { title: "備中高松城の戦い — Wikipedia（日本語）：1582 年羽柴秀吉與毛利氏在備中對峙", url: "https://ja.wikipedia.org/wiki/%E5%82%99%E4%B8%AD%E9%AB%98%E6%9D%BE%E5%9F%8E%E3%81%AE%E6%88%A6%E3%81%84", accessed: 2026-11-03, tier: 百科 }
+  - { title: "Sengoku period — Wikipedia（英語）：主要大名分布", url: "https://en.wikipedia.org/wiki/Sengoku_period", accessed: 2026-11-03, tier: 百科 }
+# 每個勢力：name（中文）、en、color、prefs（都道府縣代碼；可用 lng_lt／lng_gt 只取一縣的西半或東半）、provinces（對應的令制國，只做說明）、card（有人物卡就連過去）
+powers:
+  - name: 織田信長
+    en: Oda Nobunaga
+    color: "#c0392b"
+    card: person-oda-nobunaga
+    provinces: 尾張、美濃、飛驒、伊勢、志摩、伊賀、近江、山城、大和、河內、和泉、攝津、丹波、丹後、播磨、但馬、因幡、淡路、若狹、越前、加賀、能登、越中、信濃、甲斐、上野（上野・信濃・甲斐為 1582 年 3 月甲州征伐後新領）
+    prefs: [JP-21, { pref: JP-23, lng_lt: 137.05 }, JP-24, JP-25, JP-26, JP-27, JP-29, JP-28, JP-18, JP-17, JP-16, JP-20, JP-19, JP-10, { pref: JP-31, lng_gt: 133.9 }]
+  - name: 宇喜多秀家（從屬織田）
+    en: Ukita Hideie (Oda vassal)
+    color: "#e07a5f"
+    provinces: 備前、美作（備中東部與毛利對峙中）
+    prefs: [{ pref: JP-33, lng_gt: 133.85 }]
+  - name: 德川家康（織田同盟）
+    en: Tokugawa Ieyasu (Oda ally)
+    color: "#2f855a"
+    card: person-tokugawa-ieyasu
+    provinces: 三河、遠江、駿河（駿河為 1582 年 3 月新領）
+    prefs: [{ pref: JP-23, lng_gt: 137.05 }, { pref: JP-22, lng_lt: 138.8 }]
+  - name: 北條氏政・氏直
+    en: Hōjō Ujimasa & Ujinao
+    color: "#2b6cb0"
+    provinces: 相模、伊豆、武藏、下總（千葉氏從屬）；上總・安房為里見義賴領地（1577 年房相一和後與北條和睦），本圖無法沿緯度切分千葉縣，暫併入北條範圍示意
+    prefs: [JP-14, { pref: JP-22, lng_gt: 138.8 }, JP-13, JP-11, JP-12]
+  - name: 佐竹義重
+    en: Satake Yoshishige
+    color: "#4a5568"
+    provinces: 常陸
+    prefs: [JP-08]
+  - name: 下野諸氏（宇都宮・那須・佐野）
+    en: Shimotsuke lords (Utsunomiya, Nasu, Sano)
+    color: "#a0aec0"
+    provinces: 下野
+    prefs: [JP-09]
+  - name: 上杉景勝
+    en: Uesugi Kagekatsu
+    color: "#6b46c1"
+    provinces: 越後（佐渡此時仍為本間氏割據，1589 年才被景勝征服；越中東部的魚津城於 1582 年 6 月陷落）
+    prefs: [JP-15]
+  - name: 伊達輝宗
+    en: Date Terumune
+    color: "#0f766e"
+    provinces: 陸奧南部（伊達郡・信夫郡一帶；會津蘆名、濱通相馬、宮城北部大崎・葛西等並立，本圖以兩縣整體示意）
+    prefs: [JP-04, JP-07]
+  - name: 最上義光
+    en: Mogami Yoshiaki
+    color: "#38a169"
+    provinces: 出羽南部（最上郡一帶）
+    prefs: [JP-06]
+  - name: 南部晴政・信直
+    en: Nanbu clan
+    color: "#805ad5"
+    provinces: 陸奧北部
+    prefs: [JP-03, JP-02]
+  - name: 安東（秋田）愛季
+    en: Andō (Akita) Chikasue
+    color: "#718096"
+    provinces: 出羽北部
+    prefs: [JP-05]
+  - name: 毛利輝元
+    en: Mōri Terumoto
+    color: "#b7791f"
+    provinces: 安藝、周防、長門、備後、出雲、石見、伯耆西部、備中西部
+    prefs: [JP-34, JP-35, JP-32, { pref: JP-31, lng_lt: 133.9 }, { pref: JP-33, lng_lt: 133.85 }]
+  - name: 長宗我部元親
+    en: Chōsokabe Motochika
+    color: "#dd6b20"
+    provinces: 土佐、阿波大部（十河存保仍據勝瑞城，1582 年 8 月中富川之戰後才降）、伊予東部與南部（中予河野氏得毛利援助持續抵抗，1584 年 12 月才降伏；讚岐西部香川氏自 1578 年從屬）
+    prefs: [JP-39, JP-36, JP-38]
+  - name: 十河存保（三好餘黨）
+    en: Sogō Masayasu (Miyoshi remnant)
+    color: "#cbd5e0"
+    provinces: 讚岐東部（十河城、虎丸城；西部已屬長宗我部，本圖以全縣示意）
+    prefs: [JP-37]
+  - name: 島津義久
+    en: Shimazu Yoshihisa
+    color: "#9b2c2c"
+    provinces: 薩摩、大隅、日向
+    prefs: [JP-46, JP-45]
+  - name: 大友義統
+    en: Ōtomo Yoshimune
+    color: "#3182ce"
+    provinces: 豐後（1578 年耳川之戰後勢力大減）
+    prefs: [JP-44]
+  - name: 龍造寺隆信
+    en: Ryūzōji Takanobu
+    color: "#d53f8c"
+    provinces: 肥前（有馬・大村等受其壓迫；長崎 1580 年起為耶穌會領）
+    prefs: [JP-41, JP-42]
+  - name: 筑前・筑後・豐前諸氏（秋月等）
+    en: Northern Kyūshū lords (Akizuki etc.)
+    color: "#e2e8f0"
+    provinces: 筑前、筑後、豐前（大友與龍造寺拉鋸）
+    prefs: [JP-40]
+  - name: 肥後諸氏（阿蘇・相良等）
+    en: Higo lords (Aso, Sagara etc.)
+    color: "#edf2f7"
+    provinces: 肥後（島津勢力北上中）
+    prefs: [JP-43]
+  - name: 紀伊：雜賀眾・根來寺・高野山
+    en: "Kii: Saika, Negoro, Kōyasan (autonomous)"
+    color: "#f6e05e"
+    provinces: 紀伊（自立的鐵砲傭兵與寺社勢力，1585 年才被秀吉平定）
+    prefs: [JP-30]

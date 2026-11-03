@@ -9,7 +9,7 @@ import { makeBaseScale, BREAKS, MIN_YEAR, MAX_YEAR, eraOf } from '../lib/timeSca
 import { fmtYear, TYPE_COLOR } from '../lib/format';
 import { EraBar } from './EraBar';
 
-const AXIS_H = 26, ROW_H = 20, LANE_PAD = 6, LABEL_PX = 12.5;
+const AXIS_H = 26, ROW_H = 20, LANE_PAD = 6, LABEL_PX = 13.5;
 
 interface Props {
   cards: Card[]; allCards: Card[]; year: number; setYear: (y: number) => void;
@@ -199,7 +199,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
             return (
               <g key={y} transform={`translate(${px},0)`}>
                 <line y1={AXIS_H - (major ? 8 : 4)} y2={height} className={major ? 'tick major' : 'tick'} />
-                {(major || step <= 25) && px - lastLabel >= 46 && ((lastLabel = px), true) && <text y={13} textAnchor="middle">{fmtYear(y)}</text>}
+                {(major || step <= 25) && px - lastLabel >= 50 && ((lastLabel = px), true) && <text y={13} textAnchor="middle">{fmtYear(y)}</text>}
               </g>
             );
           }); })()}
@@ -270,7 +270,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
         <g className={`cursor-tag ${curOff ? 'off' : ''}`} transform={`translate(${badgeX},0)`}
           onPointerDown={curOff ? undefined : startDrag} onClick={curOff ? () => { const a = Math.max(MIN_YEAR, year - 50), b = Math.min(MAX_YEAR, year + 50); (svgRef.current as any)?.__zoom_to?.(a, b); setEraSel(null); } : undefined}>
           {curOff && <title>目前年代不在畫面上，點一下移過去</title>}
-          <rect x={-28} y={AXIS_H - 2} width={56} height={16} rx={8} className="cursor-badge" />
+          <rect x={-30} y={AXIS_H - 2} width={60} height={17} rx={8} className="cursor-badge" />
           <text y={AXIS_H + 10} textAnchor="middle">{curOff === 'left' ? '◀ ' : ''}{fmtYear(shownYear)}{curOff === 'right' ? ' ▶' : ''}</text>
         </g>
       </svg>

@@ -11,7 +11,7 @@ import { EraBar } from '../components/EraBar';
 
 type Lane = LearnTrack | '專題';
 const ERAS: [string, number, number, string][] = ERA_LIST.map((e) => [e.name, e.a, e.b, e.color]);
-const AXIS_H = 22, ROW_H = 22, BG_H = 26, MAX_ROWS = 3, CH_W = 13, LEFT = 64;
+const AXIS_H = 22, ROW_H = 22, BG_H = 26, MAX_ROWS = 3, CH_W = 14, LEFT = 64;
 
 interface Props {
   cards: Card[]; history: History | null; year: number; setYear: (y: number) => void;
@@ -124,7 +124,7 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
   const viewA = Math.round(base.invert(t.invertX(0))), viewB = Math.round(base.invert(t.invertX(width - LEFT - 10)));
   const cx = x(year);
   const curOff = cx < LEFT ? 'left' : cx > width - 2 ? 'right' : null;
-  const badgeX = Math.max(LEFT + 26, Math.min(width - 28, cx));
+  const badgeX = Math.max(LEFT + 28, Math.min(width - 30, cx));
 
   return (
     <div className="ltimeline" ref={wrap}>
@@ -140,9 +140,9 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
           const r = svgRef.current!.getBoundingClientRect(); const y = Math.round(base.invert(t.invertX(e.clientX - r.left - LEFT)));
           setYear(Math.max(MIN_YEAR, Math.min(MAX_YEAR, y || 1)));
         }} />
-        {ticks.map((y) => { const px = x(y); if (px < LEFT || px + fmtYear(y).length * 4 + 2 > width || px - lastTick < 44) return null; lastTick = px;
+        {ticks.map((y) => { const px = x(y); if (px < LEFT || px + fmtYear(y).length * 4.5 + 2 > width || px - lastTick < 48) return null; lastTick = px;
           // 紅線年份標籤正下方的刻度字不畫，避免兩個數字疊在一起
-          const hide = Math.abs(px - badgeX) < 26 + fmtYear(y).length * 3.5 + 2;
+          const hide = Math.abs(px - badgeX) < 28 + fmtYear(y).length * 4 + 2;
           return <g key={y}><line x1={px} x2={px} y1={AXIS_H - 5} y2={height} className="tick" />{!hide && <text x={px} y={14} textAnchor="middle" className="tk">{fmtYear(y)}</text>}</g>; })}
         {lanes.map((l) => {
           const top = tops[l];
@@ -211,7 +211,7 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
         <g className={`lcursor-tag ${curOff ? 'off' : ''}`} transform={`translate(${badgeX},0)`}
           onClick={curOff ? () => zoomTo(Math.max(MIN_YEAR, year - 50), Math.min(MAX_YEAR, year + 50)) : undefined}>
           <title>{curOff ? '紅線（地圖年代）不在畫面上，點一下移過去' : '紅線＝地圖顯示的年代；點刻度列可以換年代'}</title>
-          <rect x={-26} y={3} width={52} height={16} rx={8} />
+          <rect x={-28} y={3} width={56} height={17} rx={8} />
           <text y={15} textAnchor="middle">{curOff === 'left' ? '◀ ' : ''}{fmtYear(year)}{curOff === 'right' ? ' ▶' : ''}</text>
         </g>
       </svg>

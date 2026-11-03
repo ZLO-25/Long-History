@@ -159,20 +159,20 @@
 
 /* 三軌時間軸 */
 .ltimeline { padding: 4px 0 6px; user-select: none; }
-.ltimeline .tl-head { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); padding: 0 10px 4px; flex-wrap: wrap; }
+.ltimeline .tl-head { display: flex; gap: 8px; align-items: center; font-size: 13px; color: #4a4741; padding: 0 10px 4px; flex-wrap: wrap; }
 .ltimeline svg { display: block; touch-action: none; }
-.ltimeline .tk { font-size: 11px; fill: var(--muted); pointer-events: none; }
+.ltimeline .tk { font-size: 12px; fill: #3f3b35; font-weight: 500; pointer-events: none; }
 .ltimeline .tick { stroke: #eee8db; }
 .bg-lane-bg { fill: #fbfaf7; cursor: pointer; } .bg-lane line { stroke: #d6cfc0; stroke-dasharray: 2 3; }
-.bg-label { font-size: 11px; fill: #8a8378; }
-.lane-name { font-size: 12px; fill: #6f6a62; font-weight: 700; paint-order: stroke; stroke: #fffdf8; stroke-width: 4px; pointer-events: none; }
+.bg-label { font-size: 12px; fill: #3f3b35; font-weight: 500; }
+.lane-name { font-size: 13px; fill: #3f3b35; font-weight: 700; paint-order: stroke; stroke: #fffdf8; stroke-width: 4px; pointer-events: none; }
 .main-lane-bg { fill: #fff; }
 .era { cursor: zoom-in; } .era.empty { cursor: pointer; } .era.empty.none { cursor: default; }
-.era-t.muted-t { fill: #8a8378; font-weight: 600; } .era-alt { font-size: 12px; fill: #2b6cb0; text-decoration: underline; pointer-events: none; }
-.era.empty:not(.none):hover rect { stroke: #2b6cb0; } .era-t { font-size: 13px; fill: #4a5568; font-weight: 700; pointer-events: none; }
-.lnode { cursor: pointer; } .lnode text { font-size: 12.5px; fill: var(--ink); }
+.era-t.muted-t { fill: #57524a; font-weight: 600; } .era-alt { font-size: 13px; fill: #1f5a96; text-decoration: underline; pointer-events: none; }
+.era.empty:not(.none):hover rect { stroke: #2b6cb0; } .era-t { font-size: 14px; fill: #2d3748; font-weight: 700; pointer-events: none; }
+.lnode { cursor: pointer; } .lnode text { font-size: 13.5px; fill: var(--ink); font-weight: 500; }
 .lnode.sel rect { stroke: #111; stroke-width: 2; } .lnode:hover text { font-weight: 700; }
-.cluster { cursor: zoom-in; } .cluster rect { fill: #4a5568; } .cluster text { fill: #fff; font-size: 11px; font-weight: 700; pointer-events: none; }
+.cluster { cursor: zoom-in; } .cluster rect { fill: #4a5568; } .cluster text { fill: #fff; font-size: 12px; font-weight: 700; pointer-events: none; }
 .lcursor { stroke: var(--red); stroke-width: 2; pointer-events: none; opacity: .7; }
 
 /* 手機：一次只顯示一塊，底部分頁 */
@@ -240,9 +240,13 @@
 .method-box { margin: 12px 0 18px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
 .method-box summary { cursor: pointer; font-weight: 600; }
 /* 時間軸：橫條內的名稱、紅線年份標籤 */
-.lnode text.in { fill: #fff; font-weight: 600; pointer-events: none; }
-.lcursor-tag rect { fill: var(--red); } .lcursor-tag text { fill: #fff; font-size: 11px; font-weight: 700; pointer-events: none; }
+.lnode text.in { fill: #fff; font-weight: 600; font-size: 12.5px; pointer-events: none; }
+.lcursor-tag rect { fill: var(--red); } .lcursor-tag text { fill: #fff; font-size: 12px; font-weight: 700; pointer-events: none; }
 .lcursor-tag { pointer-events: none; } .lcursor-tag.off { pointer-events: auto; cursor: pointer; } .lcursor-tag.off rect { fill: #b83232; stroke: #fff; stroke-width: 1.5; }
-.ltimeline .tl-year { color: var(--red); font-weight: 700; font-size: 12.5px; white-space: nowrap; }
+.ltimeline .tl-year { color: var(--red); font-weight: 700; font-size: 13.5px; white-space: nowrap; }
 .learn.mobile .era-seg button { padding: 5px 8px; }
 .learn.mobile .era-range { white-space: normal; }
+
+/* 時間軸文字加深（2026-11-03）：說明字也要看得清楚 */
+.ltimeline .tl-head .muted, .timeline .tl-head .muted, .econ-legend .muted { color: #4a4741; }
+.ltimeline .tl-head .small { font-size: 13px; }

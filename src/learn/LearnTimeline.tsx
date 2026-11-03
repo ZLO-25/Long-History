@@ -11,7 +11,7 @@ import { EraBar } from '../components/EraBar';
 
 type Lane = LearnTrack | '專題';
 const ERAS: [string, number, number, string][] = ERA_LIST.map((e) => [e.name, e.a, e.b, e.color]);
-const AXIS_H = 22, ROW_H = 22, BG_H = 26, MAX_ROWS = 3, CH_W = 14, LEFT = 64;
+const AXIS_H = 22, ROW_H = 22, BG_H = 18, MAX_ROWS = 3, CH_W = 14, LEFT = 64;
 
 interface Props {
   cards: Card[]; history: History | null; year: number; setYear: (y: number) => void;
@@ -155,12 +155,19 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
                 <rect x={0} width={width} height={BG_H} className="bg-lane-bg" onClick={() => setMain(l)} />
                 <line x1={LEFT} x2={width} y1={BG_H / 2} y2={BG_H / 2} />
                 <text x={6} y={BG_H / 2 + 4} className="lane-name">{label}</text>
-                {big.map((c) => {
-                  const px = x(c.time.start); if (px < LEFT || px > width) return null;
-                  const show = px > lastEnd && px + c.name.length * CH_W + 14 < width; if (show) lastEnd = px + c.name.length * CH_W + 14;
-                  return <g key={c.id} className="lnode bg" onClick={() => onOpen(c.id)}><title>{c.name}（{fmtYear(c.time.start)}）</title>
-                    <circle cx={px} cy={BG_H / 2} r={4} fill={TYPE_COLOR[c.type]} />{show && <text x={px + 6} y={BG_H / 2 - 3} className="bg-label">{c.name}</text>}</g>;
-                })}
+                {(() => {
+                  // 這條軌壓扁了，名稱改寫在圓點右邊同一行：被名稱蓋住的圓點不畫（點這條軌展開就看得到）
+                  const pts = big.map((c) => ({ c, px: x(c.time.start) })).filter((p) => p.px >= LEFT && p.px <= width).sort((p, q) => p.px - q.px);
+                  const out: { c: Card; px: number; show: boolean }[] = [];
+                  for (const p of pts) {
+                    if (p.px < lastEnd) continue;
+                    const show = p.px + p.c.name.length * CH_W + 14 < width;
+                    lastEnd = show ? p.px + p.c.name.length * CH_W + 14 : p.px + 6;
+                    out.push({ ...p, show });
+                  }
+                  return out.map(({ c, px, show }) => <g key={c.id} className="lnode bg" onClick={() => onOpen(c.id)}><title>{c.name}（{fmtYear(c.time.start)}）</title>
+                    <circle cx={px} cy={BG_H / 2} r={4} fill={TYPE_COLOR[c.type]} />{show && <text x={px + 7} y={BG_H / 2 + 4} className="bg-label">{c.name}</text>}</g>);
+                })()}
               </g>
             );
           }

@@ -164,7 +164,7 @@
 .ltimeline .tk { font-size: 12px; fill: #3f3b35; font-weight: 500; pointer-events: none; }
 .ltimeline .tick { stroke: #eee8db; }
 .bg-lane-bg { fill: #fbfaf7; cursor: pointer; } .bg-lane line { stroke: #d6cfc0; stroke-dasharray: 2 3; }
-.bg-label { font-size: 12px; fill: #3f3b35; font-weight: 500; }
+.bg-label { font-size: 12px; fill: #3f3b35; font-weight: 500; paint-order: stroke; stroke: #fbfaf7; stroke-width: 3px; }
 .lane-name { font-size: 13px; fill: #3f3b35; font-weight: 700; paint-order: stroke; stroke: #fffdf8; stroke-width: 4px; pointer-events: none; }
 .main-lane-bg { fill: #fff; }
 .era { cursor: zoom-in; } .era.empty { cursor: pointer; } .era.empty.none { cursor: default; }

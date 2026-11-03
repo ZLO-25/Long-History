@@ -26,3 +26,8 @@ ZL 回饋：時間軸字太淺，操作時看不清楚。要求：字放大 12px
 - scripts/qa/overlap.cjs：1280、390 都「全部沒有重疊」。
 - era.cjs、research.cjs、layout.cjs 通過。labels.cjs 的「地圖提示框中英並列」改之前就沒過，與本次無關。
 - 前後對照：docs/screenshots/timeline-contrast/
+
+## 追加：沒選到的軌道壓扁（ZL 2026-11-03）
+- 學習模式時間軸裡沒選到的軌（例如選臺灣時的東亞、世界）高度 26px → 18px。
+- 名稱從圓點上方改寫在圓點右邊同一行，加淺色描邊；被名稱蓋住的圓點不畫，點那條軌展開就看得到全部。
+- 對照：docs/screenshots/timeline-contrast/compact-learn-*.png

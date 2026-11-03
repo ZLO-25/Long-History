@@ -1,0 +1,181 @@
+# 大名勢力示意圖：1560 年 5 月（桶狹間之戰前夕）
+# 畫法同 power-1582.yaml：以令制國為單位、用今日都道府縣近似；一縣含兩國時用經度切開。邊界只是示意。
+# 2026-11-03 查核：抽查 32 個勢力與該年史實大致相符；新增會津蘆名盛氏（福島縣以經度 140.05 切開，西為蘆名、東為伊達），兵庫縣的攝津部分（經度 135.05 以東）改歸三好；飛驒（岐阜北部，三木・姉小路）、能登畠山、若狹武田、北近江淺井、安房上總里見仍併入鄰近勢力示意並在 provinces 註明。
+year: 1560
+title: 桶狹間之戰前夕（1560 年 5 月）
+note: 以令制國為單位、用今日縣界近似的示意圖。這時還沒有一個「全國最強」：今川義元（駿河・遠江・三河）正要西進，尾張的織田信長只是一個小大名；畿內由三好長慶掌握，將軍足利義輝在京都但沒有實權。許多縣裡有好幾個互相對抗的勢力，本圖只標當時最有力的一家，其餘寫在說明裡。
+sources:
+  - { title: "桶狭間の戦い — Wikipedia（日本語）：1560 年前後今川・織田的領國", url: "https://ja.wikipedia.org/wiki/%E6%A1%B6%E7%8B%AD%E9%96%93%E3%81%AE%E6%88%A6%E3%81%84", accessed: 2026-11-03, tier: 百科 }
+  - { title: "戦国大名 — Wikipedia（日本語）：各地戰國大名一覽", url: "https://ja.wikipedia.org/wiki/%E6%88%A6%E5%9B%BD%E5%A4%A7%E5%90%8D", accessed: 2026-11-03, tier: 百科 }
+  - { title: "Sengoku period — Wikipedia（英語）：主要大名分布", url: "https://en.wikipedia.org/wiki/Sengoku_period", accessed: 2026-11-03, tier: 百科 }
+  - { title: "三好長慶 — Wikipedia（日本語）：畿內與四國東部的三好政權", url: "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%A5%BD%E9%95%B7%E6%85%B6", accessed: 2026-11-03, tier: 百科 }
+powers:
+  - name: 今川義元
+    en: Imagawa Yoshimoto
+    color: "#2b6cb0"
+    provinces: 駿河、遠江、三河（松平元康此時是今川的從屬）
+    prefs: [{ pref: JP-22, lng_lt: 138.8 }, { pref: JP-23, lng_gt: 137.05 }]
+  - name: 織田信長
+    en: Oda Nobunaga
+    color: "#c0392b"
+    card: person-oda-nobunaga
+    provinces: 尾張（1559 年才大致統一尾張）
+    prefs: [{ pref: JP-23, lng_lt: 137.05 }]
+  - name: 齋藤義龍
+    en: Saitō Yoshitatsu
+    color: "#d69e2e"
+    provinces: 美濃（飛驒為三木・姉小路等小領主，本圖併入岐阜縣示意）
+    prefs: [JP-21]
+  - name: 武田信玄
+    en: Takeda Shingen
+    color: "#9b2c2c"
+    card: person-takeda-shingen
+    provinces: 甲斐、信濃大部（北信濃與上杉爭奪中，川中島之戰 1553–1564）
+    prefs: [JP-19, JP-20]
+  - name: 長尾景虎（上杉謙信）
+    en: Nagao Kagetora (Uesugi Kenshin)
+    color: "#6b46c1"
+    card: person-uesugi-kenshin
+    provinces: 越後（1561 年才繼承上杉姓與關東管領）
+    prefs: [JP-15]
+  - name: 北條氏康
+    en: Hōjō Ujiyasu
+    color: "#3182ce"
+    provinces: 相模、伊豆、武藏、下總一部；安房・上總為里見義堯領地（本圖無法沿緯度切分千葉縣，暫併入示意）
+    prefs: [JP-14, { pref: JP-22, lng_gt: 138.8 }, JP-13, JP-11, JP-12]
+  - name: 上野諸氏（長野業正等）
+    en: Kōzuke lords (Nagano Narimasa etc.)
+    color: "#a0aec0"
+    provinces: 上野（關東管領上杉憲政 1552 年出奔越後後，各城主在北條、武田、長尾之間搖擺）
+    prefs: [JP-10]
+  - name: 佐竹義昭
+    en: Satake Yoshiaki
+    color: "#4a5568"
+    provinces: 常陸
+    prefs: [JP-08]
+  - name: 下野諸氏（宇都宮・那須・小山）
+    en: Shimotsuke lords
+    color: "#cbd5e0"
+    provinces: 下野
+    prefs: [JP-09]
+  - name: 伊達晴宗
+    en: Date Harumune
+    color: "#0f766e"
+    provinces: 陸奧南部（伊達郡・信夫郡；濱通相馬、宮城北部大崎・葛西等並立，本圖以宮城全縣與福島縣東半示意）
+    prefs: [JP-04, { pref: JP-07, lng_gt: 140.05 }]
+  - name: 蘆名盛氏
+    en: Ashina Moriuji
+    color: "#5a67d8"
+    provinces: 會津（1550 年代起進入仙道與田村、佐竹對抗；本圖以福島縣西半示意）
+    prefs: [{ pref: JP-07, lng_lt: 140.05 }]
+  - name: 最上義守
+    en: Mogami Yoshimori
+    color: "#38a169"
+    provinces: 出羽南部
+    prefs: [JP-06]
+  - name: 南部晴政
+    en: Nanbu Harumasa
+    color: "#805ad5"
+    provinces: 陸奧北部
+    prefs: [JP-03, JP-02]
+  - name: 安東（檜山・湊）氏
+    en: Andō clan
+    color: "#718096"
+    provinces: 出羽北部
+    prefs: [JP-05]
+  - name: 朝倉義景
+    en: Asakura Yoshikage
+    color: "#2c7a7b"
+    provinces: 越前（若狹為武田氏，受朝倉影響）
+    prefs: [JP-18]
+  - name: 加賀一向一揆
+    en: Kaga Ikkō-ikki
+    color: "#f6ad55"
+    provinces: 加賀（「百姓持的國」1488–1580；能登為畠山氏）
+    prefs: [JP-17]
+  - name: 越中諸氏（神保・椎名）
+    en: Etchū lords (Jinbō, Shiina)
+    color: "#e2e8f0"
+    provinces: 越中
+    prefs: [JP-16]
+  - name: 六角義賢
+    en: Rokkaku Yoshikata
+    color: "#48bb78"
+    provinces: 近江南部（北近江為淺井氏，本圖以全縣示意）
+    prefs: [JP-25]
+  - name: 北畠具教
+    en: Kitabatake Tomonori
+    color: "#b794f4"
+    provinces: 伊勢（北伊勢有多家小領主；志摩、伊賀另有勢力）
+    prefs: [JP-24]
+  - name: 三好長慶
+    en: Miyoshi Nagayoshi
+    color: "#dd6b20"
+    provinces: 山城、攝津、河內、和泉、大和（松永久秀）、阿波、讚岐；丹波波多野、丹後一色與京都府同縣，本圖以三好示意；兵庫縣的攝津部分（神戶一帶）以經度 135.05 切出歸三好
+    prefs: [JP-26, JP-27, JP-29, JP-36, JP-37, { pref: JP-28, lng_gt: 135.05 }]
+  - name: 赤松・別所（播磨）
+    en: Akamatsu & Bessho (Harima)
+    color: "#edf2f7"
+    provinces: 播磨、但馬（山名）、淡路（安宅＝三好一族）；兵庫縣的攝津部分已切給三好
+    prefs: [{ pref: JP-28, lng_lt: 135.05 }]
+  - name: 紀伊：畠山・雜賀眾・根來寺
+    en: "Kii: Hatakeyama, Saika, Negoro"
+    color: "#f6e05e"
+    provinces: 紀伊
+    prefs: [JP-30]
+  - name: 尼子晴久
+    en: Amago Haruhisa
+    color: "#975a16"
+    provinces: 出雲、伯耆、因幡、石見（石見銀山與毛利爭奪中）
+    prefs: [JP-32, JP-31]
+  - name: 浦上宗景
+    en: Uragami Munekage
+    color: "#e9d8a6"
+    provinces: 備前、美作（與尼子、毛利夾縫中）
+    prefs: [{ pref: JP-33, lng_gt: 133.85 }]
+  - name: 三村家親
+    en: Mimura Iechika
+    color: "#fbd38d"
+    provinces: 備中（親毛利）
+    prefs: [{ pref: JP-33, lng_lt: 133.85 }]
+  - name: 毛利元就
+    en: Mōri Motonari
+    color: "#b7791f"
+    card: person-mori-motonari
+    provinces: 安藝、備後、周防、長門（1557 年滅大內後取得）
+    prefs: [JP-34, JP-35]
+  - name: 土佐諸氏（一條・長宗我部・本山）
+    en: Tosa lords
+    color: "#fbb6ce"
+    provinces: 土佐（長宗我部國親 1560 年長濱之戰後開始擴張）
+    prefs: [JP-39]
+  - name: 河野通宣
+    en: Kōno Michinobu
+    color: "#c6f6d5"
+    provinces: 伊予
+    prefs: [JP-38]
+  - name: 大友義鎮（宗麟）
+    en: Ōtomo Yoshishige (Sōrin)
+    color: "#4299e1"
+    provinces: 豐後、豐前、筑前（1559 年獲任九州探題與三國守護）
+    prefs: [JP-44, JP-40]
+  - name: 肥前諸氏（龍造寺・有馬・大村・松浦）
+    en: Hizen lords
+    color: "#d53f8c"
+    provinces: 肥前（龍造寺隆信正在崛起）
+    prefs: [JP-41, JP-42]
+  - name: 肥後諸氏（相良・阿蘇・菊池）
+    en: Higo lords
+    color: "#fed7e2"
+    provinces: 肥後
+    prefs: [JP-43]
+  - name: 島津貴久
+    en: Shimazu Takahisa
+    color: "#822727"
+    provinces: 薩摩、大隅一部
+    prefs: [JP-46]
+  - name: 伊東義祐
+    en: Itō Yoshisuke
+    color: "#f687b3"
+    provinces: 日向
+    prefs: [JP-45]

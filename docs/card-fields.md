@@ -251,6 +251,7 @@ relations: 他和其他人物卡的關係（主從／同盟／聯姻／敵對／
 | `learn.historiography` | 必填 | 史家怎麼吵：並列 2 種以上詮釋，各附來源 |
 | `learn.money_scale` | 選填 | 金額換算成「一般勞工要工作幾天」，附來源 |
 | `learn.misconceptions` | 選填 | 常見誤解 |
+| `learn.pop_culture` | 選填 | 戲劇 vs 史實：清單，每條 `{ claim: 常見說法, fact: 史料怎麼說 [sN], src: [sN] }`。大河劇、遊戲、動漫常見但史料不支持的說法放這裡（深入專題的卡建議必填） |
 | `learn.hindsight` | 金融卡必填 | 事後看很清楚的陷阱：後見之明、倖存者偏差；不構成投資建議 |
 | `learn.exaggerated` | 選填 | 著名但可能被誇大的故事，說明誰質疑、根據什麼 |
 | `crosscheck` | 學習卡必填 | `{ date, by, result: 通過｜不通過, notes }`：獨立查核者逐項核對年份、人名、數字與至少 2 個獨立來源的結果 |
@@ -274,3 +275,23 @@ relations: 他和其他人物卡的關係（主從／同盟／聯姻／敵對／
 | 故事 | `why_care` ＋ `story` ＋ 名詞白話 |
 | 理解 | 加上核心段落（戰爭 A2、A8、A9；物資 B1、B6、B7；大事 C1、C2、C6；建築 D1、D2、D5；技術 T1、T5；金融 F1、F3、F5；社會 E1、E2、E4）＋ 一手史料 |
 | 深入 | 全部段落 ＋ 史家怎麼吵 ＋ 思想家怎麼看（原「雙軌解讀」，預設收起） |
+
+## 圖片（images，選填）
+
+網站第一次放卡片圖片（2026-11-03，深入專題）。只收 **Wikimedia Commons 上標示公有領域或 CC 授權**的真實作品（屏風、肖像畫、古地圖、文書照片），不自己裁切修圖。
+
+```yaml
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/x/xx/Odanobunaga.jpg   # 直接圖檔（Commons 檔案頁「原始檔案」連結，或 thumb 的 800px 版本）
+    page: https://commons.wikimedia.org/wiki/File:Odanobunaga.jpg               # Commons 檔案頁
+    title: 織田信長像
+    creator: 狩野元秀（傳）          # 不詳寫「佚名」
+    year: 1583                      # 作品年代，不詳寫「16 世紀」
+    holder: 長興寺（愛知縣豐田市）    # 選填：收藏處
+    license: Public domain          # 照 Commons 檔案頁的授權寫
+    caption: 信長死後隔年所繪，是最常被引用的信長像。
+```
+
+validate 會檢查：url 是 upload.wikimedia.org、page 是 Commons File: 頁、title／creator／year／license／caption 都有、license 是公有領域或 CC。畫面：卡片頁頂端顯示第一張，點開看全部並附作者、年代、收藏處與 Commons 連結。
+
+授權要**實際打開 Commons 檔案頁確認**才能填。寫卡時若環境連不到 Commons，先照格式寫好，再用 `npx tsx scripts/images-pending.ts strip` 把 images 區塊抽到 `data/pending-images.yaml`，查證後 `restore <card-id>` 放回。

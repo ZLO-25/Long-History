@@ -8,6 +8,8 @@ import { TopicChips } from './Topics';
 import { AliasList } from './AliasList';
 import { CauseList, PathNav } from './Story';
 import { PersonBlock } from './Person';
+import { CardImages } from './Images';
+import { PopCulture } from './PopCulture';
 import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 interface Props {
@@ -43,7 +45,9 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
 
       <PathNav card={c} index={index} onOpen={onOpen} onStory={(id) => onStory?.(id)} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} />
       <CauseList card={c} side="causes" index={index} onOpen={onOpen} />
+      <CardImages images={c.images} />
       <PersonBlock card={c} index={index} onOpen={onOpen} onPlace={onPlace} />
+      <PopCulture card={c} render={(t) => <Markdown text={t} sources={c.sources} />} />
 
       <section className="cd-sec">
         <h3>基本資料</h3>

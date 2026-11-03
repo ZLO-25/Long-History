@@ -4,6 +4,7 @@
 import type { Card, Dive, Index, PowerMap } from '../types';
 import { fmtRange, fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import './dive.css';
+import { RelationGraph } from './RelationGraph';
 
 export function findDive(index: Index, id: string): Dive | undefined {
   return (index.dives ?? []).find((d) => d.id === id);
@@ -30,11 +31,11 @@ interface ViewProps {
   /** 勢力圖：目前打開哪一年（null＝關） */
   powerYear: number | null; setPowerYear: (y: number | null) => void;
   onOpen: (id: string) => void; onStory: (id: string) => void; onAll: () => void;
-  unitHref?: (id: string) => string; onMap?: () => void;
+  unitHref?: (id: string) => string; onUnit?: (id: string) => void; onMap?: () => void;
   canOpen?: (c: Card) => boolean; researchHref?: (id: string) => string;
 }
 
-export function DiveView({ index, id, year, setYear, currentId, powerYear, setPowerYear, onOpen, onStory, onAll, unitHref, onMap, canOpen, researchHref }: ViewProps) {
+export function DiveView({ index, id, year, setYear, currentId, powerYear, setPowerYear, onOpen, onStory, onAll, unitHref, onUnit, onMap, canOpen, researchHref }: ViewProps) {
   const d = findDive(index, id);
   if (!d) return <div className="dive-view"><p>找不到這個專題。</p><button className="link" onClick={onAll}>看全部專題</button></div>;
   const m = byIdOf(index);
@@ -91,6 +92,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       {persons.length > 0 && (
         <section className="dv-sec">
           <h3>人物<small className="muted">點開看他的一生、他當時的選擇、別人怎麼看他</small></h3>
+          <RelationGraph index={index} persons={persons} year={year} onOpen={onOpen} currentId={currentId} />
           <div className="dv-list">{persons.map((c) => cardBtn(c))}</div>
         </section>
       )}
@@ -110,7 +112,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
           <h3>照順序讀<small className="muted">故事線＝沿著前因後果走；學習單元＝有問題、有決策題的導讀</small></h3>
           <div className="dv-chips">
             {d.storylines.map((sid) => { const s = (index.storylines ?? []).find((x) => x.id === sid); return s ? <button key={sid} className="dv-story" onClick={() => onStory(sid)}>故事線《{s.title}》<small>{s.stops.length} 站</small></button> : null; })}
-            {d.units.map((uid) => { const u = (index.units ?? []).find((x) => x.id === uid); return u && unitHref ? <a key={uid} className="dv-story unit" href={unitHref(uid)}>學習單元《{u.title}》<small>{u.minutes} 分鐘</small></a> : null; })}
+            {d.units.map((uid) => { const u = (index.units ?? []).find((x) => x.id === uid); if (!u) return null; const lbl = <>學習單元《{u.title}》<small>{u.minutes} 分鐘</small></>; return onUnit ? <button key={uid} className="dv-story unit" onClick={() => onUnit(uid)}>{lbl}</button> : unitHref ? <a key={uid} className="dv-story unit" href={unitHref(uid)}>{lbl}</a> : null; })}
           </div>
         </section>
       )}

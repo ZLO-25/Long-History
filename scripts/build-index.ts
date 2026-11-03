@@ -101,6 +101,7 @@ const cards = raw.filter((c) => c.fm?.id).map((c) => {
     // 人物卡（深入專題）：person 區塊與人際關係；關係的來源解析成可點的連結
     person: type === 'person' && f.person ? { role: String(f.person.role ?? ''), faction: f.person.faction ? String(f.person.faction) : undefined, name_romaji: String(f.person.name_romaji ?? '') } : null,
     relations: (Array.isArray(f.relations) ? f.relations : []).map((r: any) => ({ id: r.id, kind: r.kind, from: r.from, to: r.to, note: r.note, sources: (r.src ?? []).map((sid: string) => { const s = (f.sources ?? []).find((y: any) => y.id === sid); return s ? { card: f.id, id: sid, title: s.title, url: s.url } : null; }).filter(Boolean) })),
+    images: (Array.isArray(f.images) ? f.images : []).map((im: any) => ({ url: im.url, page: im.page, title: String(im.title), creator: String(im.creator), year: String(im.year), holder: im.holder ? String(im.holder) : undefined, license: String(im.license), caption: String(im.caption) })),
     file: c.file,
     issues: issues.filter((i) => i.file === c.file).map((i) => ({ level: i.level, msg: i.msg })),
     backlinks: [] as string[],

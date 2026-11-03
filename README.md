@@ -170,4 +170,4 @@ sources:
 - `docs/screenshots/phase6/`：375 與 1280 寬的截圖
 - `docs/phase7-report.md`：第 7 期（美國史與金融中心的轉移）與第 8 期補充的驗收回報、生成流程與判斷
 - `docs/map-names.md`：地圖名稱改成繁中＋英文的做法、資料檔與怎麼改譯名（截圖在 `docs/screenshots/map-names/`）
-- `docs/dives.md`：深入專題（專題定義檔、人物卡、勢力示意圖、怎麼新增專題）；`docs/dive-sengoku-1.md`：日本戰國第 1 期驗收回報（截圖在 `docs/screenshots/dive/`）
+- `docs/dives.md`：深入專題（專題定義檔、人物卡、勢力示意圖、怎麼新增專題）；`docs/dive-sengoku-1.md`、`docs/dive-sengoku-2.md`：日本戰國第 1、2 期驗收回報（截圖在 `docs/screenshots/dive/`）

@@ -21,7 +21,7 @@ place:
   scale: area
 structure_tags: [精英內鬥, 合法性危機, 技術擴散, 突變事件]
 topics: [內戰, 火藥與武器]
-links: [war-onin, war-okehazama, tech-tanegashima-arquebus, war-nagashino, event-honnoji-incident, person-oda-nobunaga, event-toyotomi-unification, event-portuguese-empire, commodity-iwami-silver, war-imjin, event-sakoku]
+links: [war-onin, war-okehazama, tech-tanegashima-arquebus, war-nagashino, event-honnoji-incident, person-oda-nobunaga, event-toyotomi-unification, event-portuguese-empire, commodity-iwami-silver, war-imjin, event-sakoku, war-kawanakajima, war-ikko-ikki-ishiyama, finance-rakuichi-azuchi, person-takeda-shingen, person-uesugi-kenshin, person-hojo-soun, person-mori-motonari, person-toyotomi-hideyoshi, person-tokugawa-ieyasu, person-akechi-mitsuhide, social-taiko-kenchi-katanagari, war-sekigahara, commodity-nanban-trade, event-wokou-ningbo]
 causes:
   - { id: event-portuguese-empire, rel: 促成, why: 葡萄牙商人 1540 年代抵達種子島帶來火繩槍，日本很快大量仿製，大名需要大批步兵與槍隊，領地逐漸被併成少數大勢力。, src: [s1] }
 effects:
@@ -32,6 +32,8 @@ sources:
   - { id: s2, title: "Honnō-ji incident — Wikipedia", url: "https://en.wikipedia.org/wiki/Honn%C5%8D-ji_incident", accessed: 2026-11-02, tier: 百科 }
   - { id: s3, title: "Mark Cartwright, Sengoku Period — World History Encyclopedia（2019）", url: "https://www.worldhistory.org/Sengoku_Period/", accessed: 2026-11-02, tier: 通論 }
   - { id: s4, title: "Rômulo da Silva Ehalt, The Multilayered World of Medieval Japanese Legal History（書評）— Rechtsgeschichte / Legal History, Max Planck Institute for Legal History and Legal Theory", url: "https://rg.lhlt.mpg.de/index.php/rg/article/download/2047/2298?inline=1", accessed: 2026-11-02, tier: 學術 }
+  - { id: s5, title: "戦国時代 (日本) — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/戦国時代_(日本)", accessed: 2026-11-03, tier: 百科 }
+  - { id: s6, title: "鉄砲伝来 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/鉄砲伝来", accessed: 2026-11-03, tier: 百科 }
 importance: 3
 learn:
   histories: [日本史]
@@ -51,11 +53,15 @@ learn:
   misconceptions:
     - 本能寺之變後統一日本的不是織田信長，而是接手他勢力的豐臣秀吉；信長生前並未完成統一。[s1][s2]
     - 「戰國時代」的起訖年份沒有定論，常見的 1467 年起算只是其中一種說法。[s1]
+  pop_culture:
+    - { claim: "戰國時代一百多年天天在打仗（遊戲與大河劇給人的印象）。", fact: "日文維基明確指出戰國並非每天都在打仗，而是長期處於紛爭狀態：16 世紀前半各國守護大名仍有影響力、大致互相承認秩序，到 16 世紀中葉以後才出現以擴張領土、掠奪為手段的侵略性大名。[s5]", src: [s5] }
+    - { claim: "「下剋上」到處都是，家臣推翻主君是常態。", fact: "日文維基指出確有家臣驅逐主家而成為戰國大名的例子，但下剋上只是當時風潮中的一種，並非普遍現象；大名的權力其實建立在家臣層的「一揆」關係之上，離不開他們的同意。[s5]", src: [s5] }
+    - { claim: "1543 年葡萄牙船漂到種子島，帶來鐵砲。", fact: "《鉄炮記》記為天文 12 年（1543）8 月 25 日，但船上有明人「五峯」以筆談溝通，依葡萄牙人 Galvão 的記載他們是搭中國戎克船來的；葡萄牙文獻（Galvão）則說是 1542 年，其他史料介於 1541–1544 之間，年份仍有異論。[s6]", src: [s6] }
 crosscheck:
   date: 2026-11-02
   by: 獨立查核 agent（未參與寫作）
   result: 通過
-  notes: "核對英文維基 Sengoku period 與 WHE（Cartwright 2019）：1543 種子島、1568／1573／1575／1590、起訖年份諸說均相符。刪去來源未載的 1441 年；京都「幾乎全毀」改為「三分之二被毀」；引文註明轉引自 Huffman。中西對照改為無適當對照。分國法一點英文維基未提，依 s4 書評，因抓取額度不足未重開 s4。種子島 1542／1543 仍有分歧。"
+  notes: "核對英文維基 Sengoku period 與 WHE（Cartwright 2019）：1543 種子島、1568／1573／1575／1590、起訖年份諸說均相符。刪去來源未載的 1441 年；京都「幾乎全毀」改為「三分之二被毀」；引文註明轉引自 Huffman。中西對照改為無適當對照。分國法一點英文維基未提，依 s4 書評，因抓取額度不足未重開 s4。種子島 1542／1543 仍有分歧。 2026-11-03 第 2 期新增部分已查核：開 s5 s6，pop_culture 三條（非天天打仗、下剋上非普遍、鐵砲 1543／1542 異說）均有條目原文支持；「搭中國船」改註依 Galvão；新加 links 14 個 id 均存在。通過。"
 verification: 交叉確認
 lens_status: 無直接論述
 summary_card: true
@@ -63,7 +69,7 @@ summary_card: true
 
 ## C1 背景
 
-將軍足利義教遭家臣暗殺後，室町幕府逐漸控制不了各地大名；足利義政的弱勢領導與繼承爭議，引爆 1467–1477 年的應仁之亂，京都大半被毀。[s1][s3]
+將軍足利義教遭家臣暗殺後，室町幕府逐漸控制不了各地大名；足利義政的弱勢領導與繼承爭議，引爆 1467–1477 年的應仁之亂，京都大半被毀。[s1][s3] 這段時代有深入專題，見專題頁。[s1]
 
 ## C2 經過
 

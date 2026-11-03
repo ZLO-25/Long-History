@@ -20,7 +20,7 @@ place:
   scale: area
 structure_tags: [意外財源, 技術擴散, 關鍵原料壟斷, 商路改道]
 topics: [白銀, 絲綢與絲路]
-links: [commodity-silver-flow, commodity-manila-galleon, finance-ming-baochao, commodity-laurion-silver]
+links: [commodity-silver-flow, commodity-manila-galleon, finance-ming-baochao, commodity-laurion-silver, person-mori-motonari, event-wokou-ningbo, commodity-nanban-trade, event-sengoku-japan, event-portuguese-empire]
 causes:
   - { id: finance-ming-baochao, rel: 背景, why: "明朝寶鈔失敗後改以白銀繳稅、發軍餉，中國對銀需求極大，日本白銀才能大量運去換中國絲綢。", src: [s3, s5, s7] }
 effects:
@@ -38,6 +38,8 @@ sources:
   - { id: s8, title: "Ota Atsushi, The Dutch East India Company and the Rise of Intra-Asian Commerce — nippon.com，2013-09-18", url: "https://www.nippon.com/en/features/c00105/the-dutch-east-india-company-and-the-rise-of-intra-asian-commerce.html", accessed: 2026-10-25, tier: 學術 }
   - { id: s9, title: "Osher Map Library, An Early European Imagining of Japan（泰謝拉 1595 年日本地圖解說）", url: "https://oshermaps.org/exhibitions/map-commentaries/early-european-imagining-japan", accessed: 2026-10-25, tier: 通論 }
   - { id: s10, title: "內閣府，〈第3章 第5節 ケーススタディ2：石見銀山〉（地域の経済 2007）", url: "https://www5.cao.go.jp/j-j/cr/cr07/chr07_3-5-4.html", accessed: 2026-10-25, tier: 通論 }
+  - { id: s11, title: "石見銀山 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/石見銀山", accessed: 2026-11-03, tier: 百科 }
+  - { id: s12, title: "石見銀山ねずみ捕り — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/石見銀山ねずみ捕り", accessed: 2026-11-03, tier: 百科 }
 importance: 2
 learn:
   histories: [日本史, 錢的歷史, 中國史]
@@ -60,7 +62,11 @@ learn:
     - { history: 日本史, text: 從日本看，銀山是戰國大名爭奪的財源，後來成為德川幕府的重要收入。 }
     - { history: 中國史, text: 從中國看，日本白銀是明朝白銀經濟的重要來源之一。 }
     - { history: 錢的歷史, text: 從錢的歷史看，石見是 16 世紀全球白銀流動的東亞起點。 }
-crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "初查不通過，依查核建議修正後複查通過；小建議已修正。" }
+  pop_culture:
+    - { claim: "歌舞伎、落語和怪談裡的毒藥「石見銀山（鼠捕り）」是石見銀山出產的。", fact: "這種江戶時代的殺鼠劑主成分是亞砒酸，產地其實是石見國的笹ヶ谷鉱山（今津和野町），並不產銀；因為同屬幕府直轄、由大森代官所管轄，才借用石見銀山的名氣取名。[s12]", src: [s12] }
+    - { claim: "石見銀山一座礦就占了全世界三分之一的白銀。", fact: "日文維基的說法是：全盛期「日本」可能占世界銀產量約三分之一，石見是其中相當大的部分，但這是推定；較具體的數字是小葉田淳估計當時日本年產銀約 200 噸、石見約 38 噸。所有數字都是估計。[s11]", src: [s11] }
+    - { claim: "銀山是毛利元就「發現」或一手打下來的。", fact: "1527 年博多商人神屋壽禎在大內氏支持下開礦，1533 年引進灰吹法；之後小笠原、大內、尼子反覆爭奪，毛利要到 1562 年尼子晴久死後才透過和議取得銀山，同年獻給朝廷作為御料所。[s11]", src: [s11] }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "初查不通過，依查核建議修正後複查通過；小建議已修正。 2026-11-03 第 2 期新增部分已查核：開 s11 s12，殺鼠劑產自笹ヶ谷鉱山（亞砒酸）、日本約占世界三分之一（推定）與小葉田淳 200／38 噸、1527 神屋壽禎・1533 灰吹法・1562 毛利取得並獻為御料所均相符；links 5 個 id 均存在。通過。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

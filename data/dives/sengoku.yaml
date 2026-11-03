@@ -31,8 +31,32 @@ cards:
   - person-toyotomi-hideyoshi
   - person-tokugawa-ieyasu
   - person-akechi-mitsuhide
+  # 第 2 期新增
+  - war-kawanakajima
+  - war-ikko-ikki-ishiyama
+  - finance-rakuichi-azuchi
+  - commodity-nanban-trade
+  - event-wokou-ningbo
+  - event-takasago-koku-arima
+  - event-buke-shohatto-sankin
+  - war-shimabara
+  - person-takeda-shingen
+  - person-uesugi-kenshin
+  - person-hojo-soun
+  - person-mori-motonari
+  - person-sen-no-rikyu
+  - person-luis-frois
+  - person-ishida-mitsunari
+  - person-sanada-nobushige
+  - person-yodo-dono
+  - person-shimazu-yoshihiro
+  - person-date-masamune
 storylines: [story-sengoku, story-japan]
-units: [unit-imjin-war]
+units: [unit-sengoku-1-onin, unit-sengoku-2-gun, unit-sengoku-3-hideyoshi, unit-sengoku-4-closing, unit-imjin-war]
 # 大名勢力示意圖（data/dives/sengoku/power-<年>.yaml → npm run power）
 power_maps:
+  - { year: 1560, file: sengoku/power-1560.geojson }
   - { year: 1582, file: sengoku/power-1582.geojson }
+  - { year: 1590, file: sengoku/power-1590.geojson }
+  - { year: 1600, file: sengoku/power-1600.geojson }
+  - { year: 1615, file: sengoku/power-1615.geojson }

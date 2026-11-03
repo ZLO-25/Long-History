@@ -27,7 +27,7 @@ const fs = require('fs');
   const learn = ix.cards.filter((c) => c.learn);
   const lonely = learn.filter((c) => c.type !== 'person' && !c.causes.length && !c.effects.length); // 人物卡不寫因果（docs/dives.md）
   ok(!lonely.length, `每張學習卡（人物卡除外）都至少有一條前因或後果（${learn.length} 張）${lonely.length ? '：' + lonely.map((c) => c.id).join(' ') : ''}`);
-  const isolated = ix.cards.filter((c) => !c.causes.length && !c.effects.length);
+  const isolated = ix.cards.filter((c) => c.type !== 'person' && !c.causes.length && !c.effects.length); // 人物卡用 relations，不寫因果
   ok(isolated.length <= ix.cards.length * 0.05, `沒有前因也沒有後果的卡 ≤ 5%（${isolated.length} 張${isolated.length ? '：' + isolated.slice(0, 8).map((c) => c.id).join(' ') : ''}）`);
   // 對稱：A 的後果裡有 B ⇔ B 的前因裡有 A
   const asym = ix.cards.flatMap((c) => c.effects.filter((x) => x.id && !byId.get(x.id).causes.some((y) => y.id === c.id)).map((x) => `${c.id}→${x.id}`));

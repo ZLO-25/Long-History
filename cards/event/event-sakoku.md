@@ -22,7 +22,7 @@ place:
   scale: area
 structure_tags: [單一港口依賴, 宗教／意識形態動員, 慢變結構, 外部勢力介入]
 topics: [開港與鎖國, 宗教, 海上貿易]
-links: [event-toyotomi-unification, event-black-ships, commodity-iwami-silver, event-dutch-formosa]
+links: [event-toyotomi-unification, event-black-ships, commodity-iwami-silver, event-dutch-formosa, war-shimabara, event-buke-shohatto-sankin, commodity-nanban-trade, war-osaka-sieges, person-tokugawa-ieyasu, person-date-masamune]
 causes:
   - { id: event-toyotomi-unification, rel: 背景, why: 豐臣秀吉 1587 年就下令驅逐傳教士，德川幕府延續這種戒心，而且越來越深。, src: [s1] }
 effects:
@@ -33,6 +33,7 @@ sources:
   - { id: s2, title: "Memorandum Addressed to the Nagasaki Magistrates (1635)，收於 Constantine N. Vaporis, Voices of Early Modern Japan（2012）英譯，USC 美中學院轉載", url: "https://china.usc.edu/sites/default/files/closed_country_0.pdf", accessed: 2026-10-25, tier: 一手 }
   - { id: s3, title: "Sakoku Edict of 1635 — Wikipedia", url: "https://en.wikipedia.org/wiki/Sakoku_Edict_of_1635", accessed: 2026-10-25, tier: 百科 }
   - { id: s4, title: "Perry Expedition — Wikipedia", url: "https://en.wikipedia.org/wiki/Perry_Expedition", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "鎖国 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/鎖国", accessed: 2026-11-03, tier: 百科 }
 importance: 3
 learn:
   histories: [日本史]
@@ -55,7 +56,11 @@ learn:
   perspectives:
     - { history: 日本史, text: 從日本看，這段政策塑造了江戶時代兩百多年的對外關係與國內秩序。 }
     - { history: 世界通史, text: 從全球看，荷蘭靠出島成為唯一能和日本直接貿易的歐洲國家。 }
-crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "historiography 第一段「根據 1970 年代日本歷史學者的研究，有些學者提出挑戰」有點繞。維基原意是：1970 年代日本史家質疑「只因天主教威脅」的解釋，現在學者多用「海禁」。建議改成「1970 年代起，日本歷史學者質疑傳統說法，指出日本一直透過四口和中國、朝鮮、琉球、荷蘭往來；所以近幾十年越來越多研究改用當時文書裡的『海禁』一詞。」 小建議已修正。" }
+  pop_culture:
+    - { claim: "江戶日本「鎖國」就是完全不跟外國往來。", fact: "日文維基整理的研究指出，幕府透過長崎（荷蘭、清）、對馬（朝鮮）、薩摩（琉球）、松前（蝦夷地）持續對外往來，「四つの口」一詞由荒野泰典在 1980 年前後提出；荷蘭商館還從 1641 年到 1857 年每年提交「風說書」報告海外情勢。[s5]", src: [s5] }
+    - { claim: "「鎖國」是江戶幕府自己訂的政策名稱。", fact: "這個詞是 1801 年長崎蘭學者志筑忠雄翻譯坎普費爾《日本誌》附錄時取的書名《鎖国論》，只以抄本流傳；幕府第一次使用「鎖国」一詞是 1853 年，明治以後才普及。[s5]", src: [s5] }
+    - { claim: "荷蘭人為了做生意，每年都要踩踏聖像（踏繪）。", fact: "日文維基指出，義大利旅人 Gemelli Careri 記載荷蘭人曾踏繪、《格列佛遊記》也寫到這個傳聞，但沒有任何荷蘭人踏繪的一手史料。[s5]", src: [s5] }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "historiography 第一段「根據 1970 年代日本歷史學者的研究，有些學者提出挑戰」有點繞。維基原意是：1970 年代日本史家質疑「只因天主教威脅」的解釋，現在學者多用「海禁」。建議改成「1970 年代起，日本歷史學者質疑傳統說法，指出日本一直透過四口和中國、朝鮮、琉球、荷蘭往來；所以近幾十年越來越多研究改用當時文書裡的『海禁』一詞。」 小建議已修正。 2026-11-03 第 2 期新增部分已查核：開 s5 鎖国：荒野泰典「四つの口」約 1980 年、風說書 1641–1857、志筑忠雄 1801《鎖国論》抄本、幕府 1853 年首用、Gemelli Careri 與《格列佛遊記》荷蘭人踏繪無一手史料，均相符。links 6 個 id 均存在。通過。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

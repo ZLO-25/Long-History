@@ -22,7 +22,7 @@ place:
   scale: area
 structure_tags: [霸權挑戰, 外部勢力介入, 補給線過長, 海權對陸權, 財政枯竭]
 topics: [海戰與水戰, 對外擴張, 火藥與武器]
-links: [tech-turtle-ship, event-toyotomi-unification, event-joseon-dynasty, commodity-iwami-silver]
+links: [tech-turtle-ship, event-toyotomi-unification, event-joseon-dynasty, commodity-iwami-silver, person-toyotomi-hideyoshi, person-ishida-mitsunari, person-shimazu-yoshihiro, person-tokugawa-ieyasu, war-sekigahara, event-takasago-koku-arima, social-taiko-kenchi-katanagari, event-sengoku-japan]
 effects:
   - { id: event-ming-qing-transition, rel: 促成, why: "明朝援朝除了出兵，還送出約1700萬兩白銀與物資（估計）；有人認為這加重了明朝的財政負擔。", src: [s1, s2], disputed: true }
 counterparts: 無適當對照：同時代西方軌最接近的是 1588 年西班牙無敵艦隊，但本站還沒有這張卡；之後補卡再對照。
@@ -34,6 +34,7 @@ sources:
   - { id: s5, title: "Toyotomi Hideyoshi — Wikipedia", url: "https://en.wikipedia.org/wiki/Toyotomi_Hideyoshi", accessed: 2026-10-25, tier: 百科 }
   - { id: s6, title: "Mimizuka — Wikipedia", url: "https://en.wikipedia.org/wiki/Mimizuka", accessed: 2026-10-25, tier: 百科 }
   - { id: s7, title: "陳慶德，〈韓國民族英雄李舜臣（下）：以寡擊眾的世界戰史奇蹟「鳴梁海戰」〉— 關鍵評論網，2017-07-24", url: "https://www.thenewslens.com/article/74078", accessed: 2026-10-25, tier: 通論 }
+  - { id: s8, title: "Turtle ship — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Turtle_ship", accessed: 2026-11-03, tier: 百科 }
 importance: 3
 learn:
   histories: [朝鮮半島史, 日本史, 中國史]
@@ -56,7 +57,11 @@ learn:
     - { history: 朝鮮半島史, text: 從朝鮮看，這是國土被蹂躪、百萬人傷亡的大災難，也誕生了民族英雄李舜臣。 }
     - { history: 日本史, text: 從日本看，這是秀吉統一後的對外擴張，最後以失敗撤軍收場，京都至今仍有「耳塚」。 }
     - { history: 中國史, text: 從中國看，這是萬曆年間的三大征之一，明朝保住屬國，但也耗費大量財力。 }
-crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 引文寫「十二」，故事寫「13 艘」：維基說李舜臣上書後又多得一艘。建議在 primary_source.from 加一句「上書時有 12 艘，海戰時增為 13 艘」，免得學生以為寫錯。2) 耳塚也有 3 萬多名明朝人的鼻子（維基），A9 可加。3) 「1596 年前後和談破裂」維基沒有明寫年份，屬於一般說法，可以接受。4) 日軍總兵力維基有 32 萬與約 30 萬兩種數字，卡片用「約 32 萬」可以。 小建議已修正。" }
+  pop_culture:
+    - { claim: "龜船是世界第一艘鐵甲船（韓國電影、教科書插圖常把船身畫成鐵板包覆）。", fact: "李舜臣同時代的朝鮮史料沒有任何「鐵甲」的描述，只記載甲板上有鐵釘防止敵人登船；一部日本記錄寫三艘朝鮮船「覆以鐵」，可能指的就是釘子。Turnbull 認為 1592 年可能有少量裝甲，Hawley 則認為「鐵甲船」的說法來自 19 世紀末從朝鮮回來的西方人。[s8]", src: [s8] }
+    - { claim: "李舜臣的水軍主力就是龜船。", fact: "英文維基指出龜船的數量至今不明，作戰時與板屋船並用；一般認為主力是板屋船，龜船只有少數幾艘（見「龜船」卡）。[s1][s8]", src: [s1, s8] }
+    - { claim: "鳴梁海戰是「13 艘對 333 艘」的奇蹟。", fact: "李舜臣上書時手上有 12 艘、海戰時增為 13 艘；日軍船數各來源從 133 艘（實際投入攻擊）到約 330 艘（含未參戰者）不等，英文維基明寫實際兵力「不清楚」。數字都要當估計看。[s3][s4]", src: [s3, s4] }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 引文寫「十二」，故事寫「13 艘」：維基說李舜臣上書後又多得一艘。建議在 primary_source.from 加一句「上書時有 12 艘，海戰時增為 13 艘」，免得學生以為寫錯。2) 耳塚也有 3 萬多名明朝人的鼻子（維基），A9 可加。3) 「1596 年前後和談破裂」維基沒有明寫年份，屬於一般說法，可以接受。4) 日軍總兵力維基有 32 萬與約 30 萬兩種數字，卡片用「約 32 萬」可以。 小建議已修正。 2026-11-03 第 2 期新增部分已查核：開 s8 Turtle ship 與 s3 鳴梁條目：鐵甲爭議（無同時代朝鮮史料、日方「覆以鐵」記錄、Turnbull／Hawley 兩說）相符；鳴梁日艦改為 133 攻擊／至多約 330 總數（原「333、多為運輸船」s3 未載）；龜船數量改寫為「不明」。links 8 個 id 均存在。通過。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

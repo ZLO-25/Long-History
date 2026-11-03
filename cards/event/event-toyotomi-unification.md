@@ -20,7 +20,7 @@ place:
   scale: area
 structure_tags: [快速擴張, 精英內鬥, 合法性危機, 宗教／意識形態動員]
 topics: [統一與中央集權, 對外擴張, 宗教]
-links: [event-honnoji-incident, person-toyotomi-hideyoshi, social-taiko-kenchi-katanagari, war-imjin, war-sekigahara, event-sakoku]
+links: [event-honnoji-incident, person-toyotomi-hideyoshi, social-taiko-kenchi-katanagari, war-imjin, war-sekigahara, event-sakoku, person-sen-no-rikyu, person-ishida-mitsunari, person-yodo-dono, person-shimazu-yoshihiro, person-date-masamune, person-tokugawa-ieyasu, person-luis-frois, finance-rakuichi-azuchi, event-takasago-koku-arima, war-osaka-sieges, event-sengoku-japan]
 causes:
   - { id: event-sengoku-japan, rel: 直接引發, why: "織田信長在本能寺之變中身亡，秀吉11天後打敗明智光秀，接手信長的勢力，展開統一日本的行動。", src: [s1] }
 effects:
@@ -32,6 +32,7 @@ sources:
   - { id: s2, title: "Sword hunt — Wikipedia", url: "https://en.wikipedia.org/wiki/Sword_hunt", accessed: 2026-10-25, tier: 百科 }
   - { id: s3, title: "Asia for Educators（Columbia University）：Limitation on the Propagation of Christianity / Expulsion of Missionaries（1587，英譯）", url: "https://afe.easia.columbia.edu/main_pop/ps/ps_japan-tokugawa-edicts-christianity.htm", accessed: 2026-10-25, tier: 一手 }
   - { id: s4, title: "Imjin War — Wikipedia", url: "https://en.wikipedia.org/wiki/Imjin_War", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "豊臣秀吉 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/豊臣秀吉", accessed: 2026-11-03, tier: 百科 }
 importance: 2
 learn:
   histories: [日本史]
@@ -53,7 +54,11 @@ learn:
   perspectives:
     - { history: 日本史, text: 從日本看，秀吉結束了戰國亂世，並用刀狩、檢地等政策替後來江戶時代的身分秩序打底。 }
     - { history: 朝鮮半島史, text: 從朝鮮看，秀吉是 1592 年起兩次入侵、造成巨大破壞的人。 }
-crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "初查不通過，依建議修正後複查通過。" }
+  pop_culture:
+    - { claim: "秀吉年輕時把信長的草鞋放在懷裡暖熱，因此被賞識（大河劇、童書的經典橋段）。", fact: "日文維基只稱這是「有名な逸話」，沒有標出任何一手史料；條目能確認的是他約在 1554 年前後以小者身分侍奉信長，之後在清洲城普請等事務上出頭。來源不足：本卡查不到這個故事的同時代出處。[s5]", src: [s5] }
+    - { claim: "秀吉一夜之間蓋好墨俣城（墨俣一夜城）。", fact: "日文維基寫 1566 年「功績を上げたとされる逸話がある」，用語保留；這個故事的主要出處《武功夜話》在條目裡只被列為秀吉出身說之一的來源，其可信度本卡未能另行查證。[s5]", src: [s5] }
+    - { claim: "秀吉是「農民的兒子」，從貧農一路當到天下人。", fact: "出身說並不統一：《太閤素生記》說父親是足輕木下彌右衛門，《豐鑑》說是中村鄉下層民之子、父母名不詳，另有非農業民、水野氏等說法；連「木下」姓是否來自父系都有疑問（一說來自妻子寧寧的母家）。日文維基的結論是真相不明。[s5]", src: [s5] }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "初查不通過，依建議修正後複查通過。 2026-11-03 第 2 期新增部分已查核：開 s5，草履取り（條目僅稱「有名な逸話」、無一手出處）、墨俣 1566「とされる逸話」、出身諸說與「真相不明」均相符；links 11 個 id 均存在。通過。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

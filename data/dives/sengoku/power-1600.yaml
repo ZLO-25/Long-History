@@ -1,0 +1,196 @@
+# 大名勢力示意圖：1600 年 9 月（關原之戰前夕）
+# 畫法同 power-1582.yaml。顏色：偏藍＝東軍（德川方），偏紅＝西軍（石田・毛利方），灰＝立場不明或中途倒戈。
+# 2026-11-03 查核：秀賴石高改為「蔵入地最盛期逾 220 萬石、關原後約 65 萬石」（原寫 65 萬石為戰後數字）；筑前條目補筑後立花宗茂（西）；紀伊桑山一晴依日文維基改為東軍、整條改灰並與堀內（西）並列；新增因幡（宮部長熙 西／龜井茲矩 東，灰）補 JP-31 東半空白；其餘 31 個勢力陣營抽查無誤。
+year: 1600
+title: 關原之戰前夕（1600 年 9 月）：東軍藍、西軍紅
+note: 以令制國為單位、用今日縣界近似的示意圖。關原不是「兩塊領土打仗」，而是散布全國的大名各自選邊：同一個縣裡常常東西軍都有，本圖只標該國主要大名並以顏色表示陣營。小早川秀秋（筑前）開戰時在西軍、中途倒戈，畫成灰色。
+sources:
+  - { title: "関ヶ原の戦い — Wikipedia（日本語）：東西兩軍參戰大名與領國", url: "https://ja.wikipedia.org/wiki/%E9%96%A2%E3%83%B6%E5%8E%9F%E3%81%AE%E6%88%A6%E3%81%84", accessed: 2026-11-03, tier: 百科 }
+  - { title: "Battle of Sekigahara — Wikipedia（英語）：Order of battle", url: "https://en.wikipedia.org/wiki/Battle_of_Sekigahara", accessed: 2026-11-03, tier: 百科 }
+  - { title: "会津征伐 — Wikipedia（日本語）：1600 年上杉領與東軍北上", url: "https://ja.wikipedia.org/wiki/%E4%BC%9A%E6%B4%A5%E5%BE%81%E4%BC%90", accessed: 2026-11-03, tier: 百科 }
+  - { title: "豊臣政権 — Wikipedia（日本語）：秀吉死後的大名配置", url: "https://ja.wikipedia.org/wiki/%E8%B1%8A%E8%87%A3%E6%94%BF%E6%A8%A9", accessed: 2026-11-03, tier: 百科 }
+powers:
+  - name: 德川家康（東軍）
+    en: Tokugawa Ieyasu (Eastern Army)
+    color: "#2b6cb0"
+    card: person-tokugawa-ieyasu
+    provinces: 武藏、相模、伊豆、上總、下總、上野、下野一部（關八州約 250 萬石）
+    prefs: [JP-13, JP-11, JP-14, JP-12, JP-10, JP-09, { pref: JP-22, lng_gt: 138.8 }]
+  - name: 豐臣秀賴（名義上的主君）
+    en: Toyotomi Hideyori (nominal lord)
+    color: "#d69e2e"
+    provinces: 攝津、河內、和泉（豐臣家直轄的蔵入地散布全國、最盛期逾 220 萬石，關原後才減為約 65 萬石；兩軍都宣稱為秀賴而戰）
+    prefs: [JP-27]
+  - name: 石田三成（西軍）
+    en: Ishida Mitsunari (Western Army)
+    color: "#c53030"
+    card: person-ishida-mitsunari
+    provinces: 近江佐和山（19 萬石）；近江另有京極高次（大津，東軍）等
+    prefs: [JP-25]
+  - name: 毛利輝元（西軍總大將）
+    en: Mōri Terumoto (Western commander-in-chief)
+    color: "#9b2c2c"
+    provinces: 安藝、周防、長門、備後、出雲、石見、伯耆西部（120 萬石）
+    prefs: [JP-34, JP-35, JP-32, { pref: JP-31, lng_lt: 133.9 }]
+  - name: 因幡：宮部長熙（西）・龜井茲矩（東）
+    en: "Inaba: Miyabe Nagahiro (W), Kamei Korenori (E)"
+    color: "#a0aec0"
+    provinces: 因幡（鳥取宮部氏屬西軍、戰後改易；鹿野龜井氏屬東軍）
+    prefs: [{ pref: JP-31, lng_gt: 133.9 }]
+  - name: 宇喜多秀家（西軍）
+    en: Ukita Hideie (Western)
+    color: "#e53e3e"
+    provinces: 備前、美作、備中
+    prefs: [JP-33]
+  - name: 筑前・筑後：小早川秀秋（西→東，倒戈）・立花宗茂（西）
+    en: "Chikuzen, Chikugo: Kobayakawa Hideaki (defected to the East), Tachibana Muneshige (W)"
+    color: "#a0aec0"
+    provinces: 筑前（小早川，開戰時在西軍、中途倒戈）、筑後柳川（立花宗茂，西軍，參加大津城攻略，戰後改易）
+    prefs: [JP-40]
+  - name: 上杉景勝（西軍）
+    en: Uesugi Kagekatsu (Western)
+    color: "#c53030"
+    provinces: 會津、出羽庄內、佐渡（120 萬石）；家康的會津征伐是關原的開端
+    prefs: [JP-07]
+  - name: 伊達政宗（東軍）
+    en: Date Masamune (Eastern)
+    color: "#2c5282"
+    card: person-date-masamune
+    provinces: 陸奧（岩出山；與上杉在白石交戰）
+    prefs: [JP-04]
+  - name: 最上義光（東軍）
+    en: Mogami Yoshiaki (Eastern)
+    color: "#3182ce"
+    provinces: 出羽南部（長谷堂城之戰抵擋上杉）
+    prefs: [JP-06]
+  - name: 南部利直（東軍）
+    en: Nanbu Toshinao (Eastern)
+    color: "#4299e1"
+    provinces: 陸奧北部
+    prefs: [JP-03, JP-02]
+  - name: 秋田實季（東軍）
+    en: Akita Sanesue (Eastern)
+    color: "#63b3ed"
+    provinces: 出羽北部
+    prefs: [JP-05]
+  - name: 佐竹義宣（態度曖昧）
+    en: Satake Yoshinobu (ambivalent)
+    color: "#cbd5e0"
+    provinces: 常陸（未出兵，戰後減封秋田）
+    prefs: [JP-08]
+  - name: 前田利長（東軍）
+    en: Maeda Toshinaga (Eastern)
+    color: "#2b6cb0"
+    provinces: 加賀、能登、越中
+    prefs: [JP-17, JP-16]
+  - name: 堀秀治（東軍）
+    en: Hori Hideharu (Eastern)
+    color: "#4299e1"
+    provinces: 越後（上杉遺民一揆）
+    prefs: [JP-15]
+  - name: 信濃：真田昌幸（西）・森忠政（東）
+    en: "Shinano: Sanada Masayuki (W), Mori Tadamasa (E)"
+    color: "#a0aec0"
+    provinces: 信濃（真田在上田擋住德川秀忠；父子分屬兩軍）
+    prefs: [JP-20]
+  - name: 福島正則（東軍）
+    en: Fukushima Masanori (Eastern)
+    color: "#3182ce"
+    provinces: 尾張清洲
+    prefs: [{ pref: JP-23, lng_lt: 137.05 }]
+  - name: 池田輝政（東軍）
+    en: Ikeda Terumasa (Eastern)
+    color: "#4299e1"
+    provinces: 三河吉田
+    prefs: [{ pref: JP-23, lng_gt: 137.05 }]
+  - name: 中村一氏・山內一豐（東軍）
+    en: Nakamura Kazuuji & Yamauchi Kazutoyo (Eastern)
+    color: "#63b3ed"
+    provinces: 駿河、遠江
+    prefs: [{ pref: JP-22, lng_lt: 138.8 }]
+  - name: 織田秀信（西軍）
+    en: Oda Hidenobu (Western)
+    color: "#fc8181"
+    provinces: 美濃岐阜（開戰前被東軍攻陷）
+    prefs: [JP-21]
+  - name: 淺野幸長（東軍）
+    en: Asano Yoshinaga (Eastern)
+    color: "#63b3ed"
+    provinces: 甲斐
+    prefs: [JP-19]
+  - name: 大谷吉繼・青木一矩（西軍）
+    en: Ōtani Yoshitsugu & Aoki Kazunori (Western)
+    color: "#e53e3e"
+    provinces: 越前（敦賀・北庄）
+    prefs: [JP-18]
+  - name: 山城・丹波・丹後：細川忠興（東）等
+    en: "Yamashiro, Tanba, Tango: Hosokawa Tadaoki (E) etc."
+    color: "#a0aec0"
+    provinces: 山城（京都，奉行與公家）、丹波（小野木公鄉，西）、丹後（細川幽齋守田邊城，東）
+    prefs: [JP-26]
+  - name: 增田長盛（西軍）
+    en: Mashita Nagamori (Western)
+    color: "#fc8181"
+    provinces: 大和郡山
+    prefs: [JP-29]
+  - name: 伊勢：富田信高・古田重勝（東軍）
+    en: "Ise: Tomita Nobutaka, Furuta Shigekatsu (E)"
+    color: "#63b3ed"
+    provinces: 伊勢（安濃津城被西軍攻陷）
+    prefs: [JP-24]
+  - name: 播磨・但馬：木下家定等（曖昧）
+    en: "Harima, Tajima: Kinoshita etc."
+    color: "#cbd5e0"
+    provinces: 播磨姫路、但馬
+    prefs: [JP-28]
+  - name: 紀伊：桑山一晴（東）・堀內氏善（西）
+    en: "Kii: Kuwayama Kazuharu (E), Horiuchi Ujiyoshi (W)"
+    color: "#a0aec0"
+    provinces: 紀伊（和歌山桑山氏受家康密使歸東軍，戰後攻新宮；新宮堀內氏善屬西軍，戰後改易）
+    prefs: [JP-30]
+  - name: 蜂須賀家政（東軍）
+    en: Hachisuka Iemasa (Eastern)
+    color: "#4299e1"
+    provinces: 阿波
+    prefs: [JP-36]
+  - name: 生駒一正（東軍）
+    en: Ikoma Kazumasa (Eastern)
+    color: "#63b3ed"
+    provinces: 讚岐
+    prefs: [JP-37]
+  - name: 加藤嘉明・藤堂高虎（東軍）
+    en: Katō Yoshiaki & Tōdō Takatora (Eastern)
+    color: "#4299e1"
+    provinces: 伊予
+    prefs: [JP-38]
+  - name: 長宗我部盛親（西軍）
+    en: Chōsokabe Morichika (Western)
+    color: "#e53e3e"
+    provinces: 土佐（戰後改易）
+    prefs: [JP-39]
+  - name: 肥後：加藤清正（東）・小西行長（西）
+    en: "Higo: Katō Kiyomasa (E), Konishi Yukinaga (W)"
+    color: "#a0aec0"
+    provinces: 肥後（北加藤、南小西）
+    prefs: [JP-43]
+  - name: 豐前・豐後：黑田如水（東）等
+    en: "Buzen, Bungo: Kuroda Josui (E) etc."
+    color: "#4299e1"
+    provinces: 豐前中津（黑田）、豐後（細川飛地、大友義統為西軍再起於石垣原）
+    prefs: [JP-44]
+  - name: 鍋島直茂（西→東）
+    en: Nabeshima Naoshige (W→E)
+    color: "#a0aec0"
+    provinces: 肥前佐賀（出兵西軍後轉向東軍）
+    prefs: [JP-41]
+  - name: 肥前諸大名（有馬・大村・松浦）
+    en: Hizen lords (Arima, Ōmura, Matsura)
+    color: "#cbd5e0"
+    provinces: 肥前西部
+    prefs: [JP-42]
+  - name: 島津義弘（西軍）
+    en: Shimazu Yoshihiro (Western)
+    color: "#9b2c2c"
+    card: person-shimazu-yoshihiro
+    provinces: 薩摩、大隅、日向南部（義弘只帶約 1,500 人參戰，戰後「島津退口」）
+    prefs: [JP-46, JP-45]

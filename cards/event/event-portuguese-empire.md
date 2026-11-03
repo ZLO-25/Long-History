@@ -22,7 +22,7 @@ place:
   scale: area
 structure_tags: [海權對陸權, 商路改道, 快速擴張, 技術代差]
 topics: [航海, 香料貿易, 海上貿易, 對外擴張]
-links: [event-vasco-da-gama, event-zheng-he-voyages, event-sengoku-japan, commodity-silver-flow, finance-antwerp-bourse]
+links: [event-vasco-da-gama, event-zheng-he-voyages, event-sengoku-japan, commodity-silver-flow, finance-antwerp-bourse, tech-tanegashima-arquebus, commodity-nanban-trade, person-luis-frois, commodity-iwami-silver, commodity-manila-galleon]
 effects:
   - { id: event-sengoku-japan, rel: 促成, why: 葡萄牙商人 1540 年代抵達種子島，帶來火繩槍；日本很快大量仿製，改變了戰國大名的打法。, src: [s2, event-sengoku-japan:s1] }
 counterparts:
@@ -31,6 +31,8 @@ sources:
   - { id: s1, title: "Bartolomeu Dias — Wikipedia", url: "https://en.wikipedia.org/wiki/Bartolomeu_Dias", accessed: 2026-11-02, tier: 百科 }
   - { id: s2, title: "Portuguese Empire — Wikipedia", url: "https://en.wikipedia.org/wiki/Portuguese_Empire", accessed: 2026-11-02, tier: 百科 }
   - { id: s3, title: "Eric Axelson, Popular Fallacies about the Dias Voyage 1487–1488 — Historia（University of Pretoria）", url: "https://upjournals.up.ac.za/index.php/historia/article/download/2611/2459/10214", accessed: 2026-11-02, tier: 學術 }
+  - { id: s4, title: "Prince Henry the Navigator — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Prince_Henry_the_Navigator", accessed: 2026-11-03, tier: 百科 }
+  - { id: s5, title: "鉄砲伝来 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/鉄砲伝来", accessed: 2026-11-03, tier: 百科 }
 importance: 3
 learn:
   histories: [歐洲史, 世界通史]
@@ -48,11 +50,15 @@ learn:
   misconceptions:
     - 迪亞士沒有到印度：他繞過好望角後就折返，第一個從海路到印度的是 1498 年的達伽馬。[s1][s2]
     - 「先叫風暴角、國王再改名好望角」只是傳統說法，史家對此有不同意見。[s1][s3]
+  pop_culture:
+    - { claim: "亨利王子在薩格里什（Sagres）辦了一所「航海學校」，集合航海家與製圖師。", fact: "英文維基指出現代史家視此為誤解：沒有任何現代意義的航海科學中心或天文台存在；這個傳說是 18 世紀由 Samuel Purchas 與 Abbé Prévost 等人塑造的，Randles（1993）、Albuquerque（1990）等學者都否定「學校」的存在。[s4]", src: [s4] }
+    - { claim: "「航海家亨利」自己也常出海探險。", fact: "條目沒有他親自參加探險航行的記載，他的角色是資助、授權船長並抽取兩成（quinto）；「航海家」這個稱號在他生前與之後三百年都沒人用過，是 19 世紀德國史家 Schaefer、de Veer 創造、英國作家 Major 與 Beazley 推廣的。[s4]", src: [s4] }
+    - { claim: "1543 年一艘葡萄牙船「發現」了日本，把火槍帶到種子島。", fact: "《鉄炮記》記載的那艘船上有明人「五峯」用筆談溝通，依 Galvão 的記載葡萄牙人是搭中國戎克船抵達的；葡萄牙文獻（Galvão）記為 1542 年，其他史料介於 1541–1544 年之間。宇田川武久等人更主張火繩槍可能透過倭寇走私從東南亞傳入，不只種子島一條路。[s5]", src: [s5] }
 crosscheck:
   date: 2026-11-02
   by: 獨立查核 agent（未參與寫作）
   result: 通過
-  notes: "核對英文維基 Bartolomeu Dias／Portuguese Empire 與 Axelson 文（佩雷拉引文相符）。刪除後果→event-vasco-da-gama（與該卡後果互指形成循環，達伽馬卡已寫本卡為後果）；通行證制度刪去未能核實的 1502 年。抵日年份 1542／1543 仍有分歧，卡片寫 1540 年代。"
+  notes: "核對英文維基 Bartolomeu Dias／Portuguese Empire 與 Axelson 文（佩雷拉引文相符）。刪除後果→event-vasco-da-gama（與該卡後果互指形成循環，達伽馬卡已寫本卡為後果）；通行證制度刪去未能核實的 1502 年。抵日年份 1542／1543 仍有分歧，卡片寫 1540 年代。 2026-11-03 第 2 期新增部分已查核：開 s4 s5：薩格里什航海學校為 18 世紀 Purchas／Prévost 塑造、Randles 1993／Albuquerque 1990 否定、「航海家」稱號 19 世紀 Schaefer／de Veer 創、Major／Beazley 推廣、quinto 兩成、鐵砲 1542／1543 與宇田川說均相符；「搭中國船」改註依 Galvão。links 5 個 id 均存在。通過。"
 verification: 交叉確認
 lens_status: 無直接論述
 summary_card: true

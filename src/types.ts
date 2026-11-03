@@ -11,6 +11,7 @@ export interface Location {
 // 深入專題：人物卡
 export type RelationKind = '主從' | '同盟' | '聯姻' | '敵對' | '背叛' | '師友' | '親屬';
 export interface Relation { id: string; kind: RelationKind; from?: number; to?: number; note: string; sources: CauseSource[] }
+export interface CardImage { url: string; page: string; title: string; creator: string; year: string; holder?: string; license: string; caption: string }
 export interface Person { role: string; faction?: string; name_romaji: string }
 export interface Section {
   code: string; title: string; level: 'core' | 'deep' | 'optional';
@@ -41,6 +42,7 @@ export interface Card {
   learn: Learn | null;
   /** 人物卡才有 */
   person: Person | null; relations: Relation[];
+  images: CardImage[];
 }
 
 // 前因／後果：id＝對方卡片（null＝尚無卡片，只有 name）
@@ -59,6 +61,7 @@ export interface Learn {
   key_terms: { term: string; plain: string; example: string }[];
   primary_source: { text: string; from: string; src: string | string[] }[];
   historiography: string; money_scale?: string; misconceptions?: string[]; hindsight?: string; exaggerated?: string;
+  pop_culture?: { claim: string; fact: string; src?: string[] | string }[];
   crosscheck: { date: string; by: string; result: string; notes?: string };
 }
 export interface History {

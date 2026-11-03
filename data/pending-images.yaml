@@ -1,0 +1,190 @@
+# 暫存的卡片圖片（授權尚未查證，先不上線）。
+# 查證方式：打開每筆 page 的 Commons 檔案頁，確認授權是 Public domain／CC0／CC BY，再把 license 改成實際字樣，
+# 然後 `npx tsx scripts/images-pending.ts restore <card-id>` 放回卡片。
+# 格式：每段以「# @card <id>」開頭，內容就是該卡 frontmatter 的 images 區塊原文。
+
+# @card commodity-nanban-trade
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/a/a0/Nanbansen_Carrack_by_Kano_Naizen.jpg
+    page: https://commons.wikimedia.org/wiki/File:Nanbansen_Carrack_by_Kano_Naizen.jpg
+    title: 南蠻屏風（左隻局部）：南蠻船入港
+    creator: 狩野內膳
+    year: 1588–1616（約 1600）
+    holder: 神戶市立博物館
+    license: Public domain
+    caption: 狩野內膳畫的南蠻船（葡萄牙克拉克帆船）與黑人水手、葡萄牙商人；南蠻屏風通常一邊畫船入港、一邊畫南蠻人在港町遊行。
+
+# @card event-buke-shohatto-sankin
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/4/44/Hidetada.jpg
+    page: https://commons.wikimedia.org/wiki/File:Hidetada.jpg
+    title: 德川秀忠像
+    creator: 佚名
+    year: 17 世紀
+    license: Public domain（作品年代早於 1900；本期 Commons 檔案頁無法開啟，授權字樣待查核者確認）
+    caption: 1615 年武家諸法度以二代將軍秀忠的名義公布；起草與宣讀的是家康身邊的僧人金地院崇傳。
+  - url: https://upload.wikimedia.org/wikipedia/commons/a/a1/Daimyo_Procession_to_Edo_MET_DP-19027-012_crd.jpg
+    page: https://commons.wikimedia.org/wiki/File:Daimyo_Procession_to_Edo_MET_DP-19027-012_crd.jpg
+    title: 大名行列圖（Daimyo Procession to Edo）
+    creator: 佚名
+    year: 江戶時代
+    holder: 大都會藝術博物館（紐約）
+    license: CC0（大都會藝術博物館開放取用；本期 Commons 檔案頁無法開啟，待查核者確認）
+    caption: 參勤交代的大名行列：加賀藩一次動員約 2,500–3,000 人（估計），是江戶時代最常被描繪的場面之一。
+
+# @card event-portuguese-empire
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/a/a0/Nanbansen_Carrack_by_Kano_Naizen.jpg
+    page: https://commons.wikimedia.org/wiki/File:Nanbansen_Carrack_by_Kano_Naizen.jpg
+    title: 南蠻屏風（局部）：葡萄牙黑船入港
+    creator: 狩野內膳
+    year: 1600 年頃
+    license: Public domain（作品年代早於 1900；本期 Commons 檔案頁無法開啟，授權字樣待查核者確認）
+    caption: 日本畫家筆下的葡萄牙大帆船（黑船）與南蠻商人：16 世紀末日本人看葡萄牙帝國的樣子。
+
+# @card event-sakoku
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/e/e9/View_of_Dejima_in_Nagasaki_Bay_Folding_Screen_by_Kawahara_Keiga_c1836.jpg
+    page: https://commons.wikimedia.org/wiki/File:View_of_Dejima_in_Nagasaki_Bay_Folding_Screen_by_Kawahara_Keiga_c1836.jpg
+    title: 長崎港出島圖屏風
+    creator: 川原慶賀
+    year: 1836 年頃
+    license: Public domain（作品年代早於 1900；本期 Commons 檔案頁無法開啟，授權字樣待查核者確認）
+    caption: 長崎畫家川原慶賀所繪的出島與長崎港：扇形的人工島上是荷蘭商館，港內停著荷蘭船。
+
+# @card event-sengoku-japan
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/7/78/Kan%C5%8D_Eitoku_-_Rakuch%C5%AB_rakugai_zu_(Uesugi)_-_left_screen.jpg
+    page: https://commons.wikimedia.org/wiki/File:Kan%C5%8D_Eitoku_-_Rakuch%C5%AB_rakugai_zu_(Uesugi)_-_left_screen.jpg
+    title: 洛中洛外圖屏風（上杉本）左隻
+    creator: 狩野永德
+    year: 1565
+    holder: 米澤市上杉博物館（國寶）
+    license: Public domain（作品年代早於 1900；本期 Commons 檔案頁無法開啟，授權字樣待查核者確認）
+    caption: 戰國中期的京都：應仁之亂近百年後的市街、祭禮與武家宅邸；1574 年織田信長把這對屏風送給上杉謙信。
+
+# @card event-toyotomi-unification
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/5/5e/Toyotomi_Hideyoshi_(Kodaiji).jpg
+    page: https://commons.wikimedia.org/wiki/File:Toyotomi_Hideyoshi_(Kodaiji).jpg
+    title: 豐臣秀吉像（高台寺藏）
+    creator: 佚名
+    year: 1598 年頃
+    holder: 高台寺（京都）
+    license: Public domain（作品年代早於 1900；本期 Commons 檔案頁無法開啟，授權字樣待查核者確認）
+    caption: 秀吉死後不久所繪、由正室寧寧（北政所）創建的高台寺所藏的肖像，是最常被引用的秀吉像之一。
+
+# @card finance-rakuichi-azuchi
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/3/36/Odanobunaga.jpg
+    page: https://commons.wikimedia.org/wiki/File:Odanobunaga.jpg
+    title: 織田信長像
+    creator: 狩野元秀（傳）
+    year: 1583
+    holder: 長興寺（愛知縣豐田市）
+    license: Public domain
+    caption: 信長死後隔年所繪的畫像；加納與安土的樂市令都以他的名義發出。
+
+# @card person-date-masamune
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/5/58/Date_Masamune_by_Kano_Tanyu_(Sendai_City_Museum).jpg
+    page: https://commons.wikimedia.org/wiki/File:Date_Masamune_by_Kano_Tanyu_(Sendai_City_Museum).jpg
+    title: 伊達政宗像
+    creator: 狩野探幽（依 Commons 檔名；仙台市博物館藏本一般稱狩野安信筆，待查核）
+    year: 17 世紀
+    holder: 仙台市博物館
+    license: Public domain（作品年代早於 1900；本期 Commons 檔案頁無法開啟，授權字樣待查核者確認）
+    caption: 依政宗遺言，死後畫像一律畫成雙眼俱全；他生前沒有任何戴眼罩的紀錄。
+  - url: https://upload.wikimedia.org/wikipedia/commons/9/91/HasekuraPrayer.jpg
+    page: https://commons.wikimedia.org/wiki/File:HasekuraPrayer.jpg
+    title: 支倉常長像（祈禱姿）
+    creator: 佚名（一說 Archita Ricci）
+    year: 1615
+    holder: 仙台市博物館（國寶「慶長遣歐使節關係資料」）
+    license: Public domain（作品年代早於 1900；本期 Commons 檔案頁無法開啟，授權字樣待查核者確認）
+    caption: 1615 年在歐洲所繪的油畫，常長 1620 年帶回仙台；是日本人最早的油畫肖像之一，2001 年列為國寶。
+
+# @card person-hojo-soun
+images:
+  - { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Hojo_Soun_%28Sounji_Hakone%29.jpg/800px-Hojo_Soun_%28Sounji_Hakone%29.jpg", page: "https://commons.wikimedia.org/wiki/File:Hojo_Soun_(Sounji_Hakone).jpg", title: "北條早雲像（箱根早雲寺藏）", creator: "佚名（室町～桃山時代畫師）", year: "16 世紀", license: "Public domain（作者逝世逾 100 年；查核時無法開啟 Commons 檔案頁，授權依作品年代推定，請查核者確認）", caption: "氏綱 1521 年在箱根創建早雲寺作為父親的菩提寺，這幅畫像就藏在那裡。畫中人是出家後的「早雲庵宗瑞」；他生前從沒自稱過「北條」。" }
+
+# @card person-ishida-mitsunari
+images:
+  - { url: "https://upload.wikimedia.org/wikipedia/commons/8/80/Ishida_Mitsunari.jpg", page: "https://commons.wikimedia.org/wiki/File:Ishida_Mitsunari.jpg", title: "石田三成像（東京大學史料編纂所藏模寫）", creator: "作者不詳（近代模寫，原本為江戶時代肖像）", year: "原本江戶時代（推定）", holder: "東京大學史料編纂所", license: "Public domain（PD-Art／PD-old；本次 Commons 檔案頁無法開啟，依日文維基圖說與作品年代判定，請查核者確認）", caption: "日文維基條目所用的石田三成像，圖說為「東京大学史料編纂所所蔵」；戰國武將的傳世肖像多為後世摹本，不能當成寫真看。" }
+
+# @card person-luis-frois
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/8/85/Nanban-Screens-by-Kano-Naizen-c1600.png
+    page: https://commons.wikimedia.org/wiki/File:Nanban-Screens-by-Kano-Naizen-c1600.png
+    title: 南蠻屏風
+    creator: 狩野內膳
+    year: 約 1600（慶長年間）
+    holder: 神戶市立博物館
+    license: Public domain
+    caption: 描繪南蠻船入港與耶穌會士、葡萄牙商人在日本港市行走的屏風；佛洛伊斯就是這群黑衣教士中的一員。
+
+# @card person-sanada-nobushige
+images:
+  - { url: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Sanada_Yukimura.jpg", page: "https://commons.wikimedia.org/wiki/File:Sanada_Yukimura.jpg", title: "真田信繁（幸村）像", creator: "作者不詳", year: "江戶時代（推定）", holder: "上田市立博物館", license: "Public domain（PD-Art／PD-old；本次 Commons 檔案頁無法開啟，依作品年代判定，請查核者確認）", caption: "上田市立博物館所藏的真田信繁像，是今天最常見的「幸村」形象；這類肖像多為江戶時代所繪，不是本人生前的寫真。" }
+
+# @card person-sen-no-rikyu
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/3/36/Sen_no_Rikyu_JPN.jpg
+    page: https://commons.wikimedia.org/wiki/File:Sen_no_Rikyu_JPN.jpg
+    title: 千利休像
+    creator: 長谷川等伯（傳）、春屋宗園贊
+    year: 1595
+    holder: 表千家不審菴（京都）
+    license: Public domain
+    caption: 利休死後四年所繪、附春屋宗園 1595 年題贊的坐像，是後世所有利休像的原型。
+
+# @card person-shimazu-yoshihiro
+images:
+  - { url: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Shimazu_Yoshihiro.jpg", page: "https://commons.wikimedia.org/wiki/File:Shimazu_Yoshihiro.jpg", title: "島津義弘像", creator: "作者不詳", year: "江戶時代（推定）", holder: "尚古集成館（鹿兒島）", license: "Public domain（PD-Art／PD-old；本次 Commons 檔案頁無法開啟，依日文維基圖說「島津義弘像（尚古集成館蔵）」與作品年代判定，請查核者確認）", caption: "尚古集成館所藏的島津義弘像，日文維基條目所用；尚古集成館至今仍依系譜把他列為島津第 17 代當主，學界則多認為當主之位是由義久直接傳給忠恆。" }
+
+# @card person-takeda-shingen
+images:
+  - { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Takeda_Harunobu.jpg/800px-Takeda_Harunobu.jpg", page: "https://commons.wikimedia.org/wiki/File:Takeda_Harunobu.jpg", title: "傳武田信玄像（高野山持明院藏本）", creator: "佚名（持明院本；教科書常見的另一幅是成慶院藏、傳長谷川等伯筆）", year: "16 世紀後半（桃山時代）", license: "Public domain（作者逝世逾 100 年；查核時無法開啟 Commons 檔案頁，授權依作品年代推定，請查核者確認）", caption: "高野山持明院藏的「信玄像」。像主是不是信玄，1990 年代以來一直有爭論，近年肖像畫研究把「像主怎麼確定」本身當成課題，看圖時請把它當「傳」信玄像。" }
+
+# @card person-uesugi-kenshin
+images:
+  - { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Uesugi_Kenshin.jpg/800px-Uesugi_Kenshin.jpg", page: "https://commons.wikimedia.org/wiki/File:Uesugi_Kenshin.jpg", title: "上杉謙信像（上杉神社藏）", creator: "佚名（江戶時代以前的畫師）", year: "16–17 世紀（桃山～江戶前期）", license: "Public domain（作者逝世逾 100 年；查核時無法開啟 Commons 檔案頁，授權依作品年代推定，請查核者確認）", caption: "米澤上杉神社所藏的謙信像，頭巾僧衣是他 1570 年出家為「不識庵謙信」後的形象。畫像的年代與畫師都不確定，請當作後人心中的謙信，而不是寫真。" }
+
+# @card person-yodo-dono
+images:
+  - { url: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Yodo-dono.jpg", page: "https://commons.wikimedia.org/wiki/File:Yodo-dono.jpg", title: "傳淀殿畫像", creator: "作者不詳", year: "江戶時代（推定）", holder: "奈良縣立美術館", license: "Public domain（PD-Art／PD-old；本次 Commons 檔案頁無法開啟，依日文維基圖說與作品年代判定，請查核者確認）", caption: "奈良縣立美術館所藏《傳淀殿畫像》，日文維基條目所用；「傳」字表示畫中人是否為淀殿只是傳稱。" }
+
+# @card war-ikko-ikki-ishiyama
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/7/7c/Kennyo02.JPG
+    page: https://commons.wikimedia.org/wiki/File:Kennyo02.JPG
+    title: 顯如像
+    creator: 佚名
+    year: 16–17 世紀
+    license: Public domain
+    caption: 本願寺第 11 代法主顯如（1543–1592），石山合戰十年籠城的領導者。
+
+# @card war-imjin
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/3/34/Busanjinsunjeoldo.jpg
+    page: https://commons.wikimedia.org/wiki/File:Busanjinsunjeoldo.jpg
+    title: 釜山鎮殉節圖
+    creator: 卞璞
+    year: 1760
+    holder: 陸軍博物館（韓國，寶物第 391 號）
+    license: Public domain（作品年代早於 1900；本期 Commons 檔案頁無法開啟，授權字樣待查核者確認）
+    caption: 描繪 1592 年日軍登陸釜山、守將鄭撥戰死的場面；作於戰後一百多年，是朝鮮王朝紀念殉節者的官方繪畫。
+
+# @card war-kawanakajima
+images:
+  - { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Eiroku_yo-nen_ku-gatsu_Kawanakajima_o-kassen_%E6%B0%B8%E7%A6%84%E5%9B%9B%E5%B9%B4%E4%B9%9D%E6%9C%88%E5%B7%9D%E4%B8%AD%E5%B3%B6%E5%A4%A7%E5%90%88%E6%88%A6_%284th_Year%2C_9th_Month_of_the_Eiroku_Era%2C_Battle_of_Kawanakajima%29_%28BM_2008%2C3037.18413%29.jpg/800px-Eiroku_yo-nen_ku-gatsu_Kawanakajima_o-kassen_%E6%B0%B8%E7%A6%84%E5%9B%9B%E5%B9%B4%E4%B9%9D%E6%9C%88%E5%B7%9D%E4%B8%AD%E5%B3%B6%E5%A4%A7%E5%90%88%E6%88%A6_%284th_Year%2C_9th_Month_of_the_Eiroku_Era%2C_Battle_of_Kawanakajima%29_%28BM_2008%2C3037.18413%29.jpg", page: "https://commons.wikimedia.org/wiki/File:Eiroku_yo-nen_ku-gatsu_Kawanakajima_o-kassen_%E6%B0%B8%E7%A6%84%E5%9B%9B%E5%B9%B4%E4%B9%9D%E6%9C%88%E5%B7%9D%E4%B8%AD%E5%B3%B6%E5%A4%A7%E5%90%88%E6%88%A6_%284th_Year%2C_9th_Month_of_the_Eiroku_Era%2C_Battle_of_Kawanakajima%29_%28BM_2008%2C3037.18413%29.jpg", title: "永禄四年九月川中島大合戦（歌川國芳，大英博物館藏 2008,3037.18413）", creator: "歌川國芳（1798–1861）", year: "19 世紀前半（江戶後期）", license: "Public domain（作者逝世逾 100 年；查核時無法開啟 Commons 檔案頁，授權依作品年代推定，請查核者確認）", caption: "江戶後期浮世繪師歌川國芳畫的第四次川中島合戰。兩家都已滅亡，幕府不忌諱，所以江戶時代這類合戰圖大量流行，今天對「川中島」的印象多半來自它們，而不是當時的文書。" }
+
+# @card war-shimabara
+images:
+  - url: https://upload.wikimedia.org/wikipedia/commons/d/da/Shimabara_Rebellion_Battle_Folding_Screen_by_Saito_Shuho.jpg
+    page: https://commons.wikimedia.org/wiki/File:Shimabara_Rebellion_Battle_Folding_Screen_by_Saito_Shuho.jpg
+    title: 島原之亂圖屏風（原城攻防）
+    creator: 齋藤秋圃
+    year: 19 世紀前半
+    license: Public domain（作者 1859 年去世；本期 Commons 檔案頁無法開啟，授權字樣待查核者確認）
+    caption: 江戶後期畫家齋藤秋圃所繪的原城攻防；亂事過後約兩百年才畫，是後人想像的戰場，不是當時的紀錄。

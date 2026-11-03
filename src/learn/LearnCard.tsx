@@ -7,6 +7,8 @@ import { tierOrder } from './util';
 import { TopicChips } from '../components/Topics';
 import { CauseList, PathNav } from '../components/Story';
 import { PersonBlock } from '../components/Person';
+import { CardImages } from '../components/Images';
+import { PopCulture } from '../components/PopCulture';
 
 export type Depth = 'story' | 'understand' | 'deep';
 // 國中讀到「理解」就夠；「深入」是史家爭論與完整段落，標成高中選讀
@@ -69,6 +71,7 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
         )}
         {persp && <p className="persp">從<b>{index.histories.find((h) => h.id === viewId)?.name}</b>看：{persp.text}</p>}
       </header>
+      <CardImages images={c.images} compact={compact} />
 
       {onStory && <PathNav card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} onUnit={onUnit} onStory={onStory} hereUnit={hereUnit} />}
 
@@ -124,6 +127,7 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
         </section>
       )}
 
+      {depth !== 'story' && <PopCulture card={c} render={T} />}
       {(L.misconceptions ?? []).length > 0 && (
         <section className="lc-sec"><h3>常見誤解</h3>{(L.misconceptions ?? []).map((m, i) => <div key={i}>{T(m)}</div>)}</section>
       )}

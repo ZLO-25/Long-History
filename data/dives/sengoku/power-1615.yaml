@@ -1,0 +1,144 @@
+# 大名勢力示意圖：1615 年（大坂夏之陣後、元和偃武）
+# 2026-11-03 查核：池田忠繼已於 1615 年 3 月（夏之陣前）病死，岡山改為池田忠雄；鳥取 1615 年仍是池田長幸（6 萬石），池田光政 1617 年才入封，名稱改為因幡・伯耆諸藩；補伊予宇和島伊達秀宗（1614 年入封）、肥前唐津寺澤廣高、筑後柳川田中忠政、津輕弘前津輕氏等同縣內的大藩於說明文字。顏色與對應卡片 id 未改。
+# 畫法同 power-1582.yaml。顏色：深色＝德川幕府直轄領、親藩與譜代；其餘＝外樣大名。
+year: 1615
+title: 元和偃武（1615 年）：幕府・親藩・譜代 vs 外樣
+note: 以令制國為單位、用今日縣界近似的示意圖。豐臣家滅亡後，關東、東海、近畿與交通要地由幕府直轄或由親藩・譜代把守，外樣大名多在邊陲；同年公布武家諸法度與一國一城令。許多縣裡有好幾個藩，本圖只標石高最大的一家。
+sources:
+  - { title: "大坂の陣 — Wikipedia（日本語）：戰後處置", url: "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E3%81%AE%E9%99%A3", accessed: 2026-11-03, tier: 百科 }
+  - { title: "藩の一覧 — Wikipedia（日本語）：各國諸藩與立藩年", url: "https://ja.wikipedia.org/wiki/%E8%97%A9%E3%81%AE%E4%B8%80%E8%A6%A7", accessed: 2026-11-03, tier: 百科 }
+  - { title: "元和偃武 — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/%E5%85%83%E5%92%8C%E5%81%83%E6%AD%A6", accessed: 2026-11-03, tier: 百科 }
+  - { title: "Tokugawa shogunate — Wikipedia（英語）：Shinpan, fudai, tozama", url: "https://en.wikipedia.org/wiki/Tokugawa_shogunate", accessed: 2026-11-03, tier: 百科 }
+powers:
+  - name: 德川幕府直轄領・親藩・譜代
+    en: Tokugawa shogunate domain, shinpan & fudai
+    color: "#2b6cb0"
+    card: person-tokugawa-ieyasu
+    provinces: 關八州（武藏、相模、伊豆、上總、下總、上野、下野、常陸＝水戶德川）、駿河・遠江（駿府＝家康）、三河、尾張（尾張德川）、美濃、甲斐、信濃諸藩、越後（松平忠輝，1616 年改易）、越前（松平忠直）、近江（彥根井伊等）、山城（二條城、所司代）、大和、河內・和泉・攝津（大坂＝松平忠明，1619 年起直轄）、播磨一部
+    prefs: [JP-13, JP-11, JP-14, JP-12, JP-10, JP-09, JP-08, JP-22, JP-23, JP-21, JP-19, JP-20, JP-15, JP-18, JP-25, JP-26, JP-29, JP-27]
+  - name: 前田利常
+    en: Maeda Toshitsune
+    color: "#d69e2e"
+    provinces: 加賀、能登、越中（約 120 萬石，最大的外樣）
+    prefs: [JP-17, JP-16]
+  - name: 伊達政宗
+    en: Date Masamune
+    color: "#0f766e"
+    card: person-date-masamune
+    provinces: 陸奧仙台（62 萬石）
+    prefs: [JP-04]
+  - name: 最上家親・上杉景勝
+    en: Mogami Iechika & Uesugi Kagekatsu
+    color: "#6b46c1"
+    provinces: 出羽山形（最上，1622 年改易）、米澤（上杉 30 萬石）
+    prefs: [JP-06]
+  - name: 蒲生忠鄉
+    en: Gamō Tadasato
+    color: "#2c7a7b"
+    provinces: 會津
+    prefs: [JP-07]
+  - name: 佐竹義宣
+    en: Satake Yoshinobu
+    color: "#4a5568"
+    provinces: 出羽久保田（秋田）
+    prefs: [JP-05]
+  - name: 南部利直
+    en: Nanbu Toshinao
+    color: "#805ad5"
+    provinces: 陸奧盛岡（青森西半另有津輕氏弘前藩約 4.7 萬石）
+    prefs: [JP-03, JP-02]
+  - name: 池田利隆・忠雄（播磨・備前）
+    en: Ikeda clan (Harima, Bizen)
+    color: "#b7791f"
+    provinces: 播磨姫路（利隆）、備前岡山（忠雄；兄忠繼 1615 年 3 月病死）（池田輝政一族，與德川聯姻）
+    prefs: [JP-28, { pref: JP-33, lng_gt: 133.85 }]
+  - name: 因幡・伯耆諸藩（鳥取池田長幸等）
+    en: Inaba & Hōki domains (Ikeda Nagayoshi line at Tottori)
+    color: "#e9d8a6"
+    provinces: 因幡鳥取（池田長幸 6 萬石）與伯耆諸小藩；1617 年起池田光政入封鳥取 32 萬石
+    prefs: [JP-31]
+  - name: 備中諸藩與幕領
+    en: Bitchū small domains & shogunal land
+    color: "#cbd5e0"
+    provinces: 備中
+    prefs: [{ pref: JP-33, lng_lt: 133.85 }]
+  - name: 堀尾忠晴
+    en: Horio Tadaharu
+    color: "#a0aec0"
+    provinces: 出雲、隱岐（松江）；石見銀山為幕府直轄
+    prefs: [JP-32]
+  - name: 福島正則
+    en: Fukushima Masanori
+    color: "#ed8936"
+    provinces: 安藝、備後（廣島；1619 年因擅自修城被改易）
+    prefs: [JP-34]
+  - name: 毛利秀就
+    en: Mōri Hidenari
+    color: "#975a16"
+    provinces: 周防、長門（萩，約 37 萬石）
+    prefs: [JP-35]
+  - name: 藤堂高虎
+    en: Tōdō Takatora
+    color: "#38a169"
+    provinces: 伊勢津、伊賀
+    prefs: [JP-24]
+  - name: 淺野長晟
+    en: Asano Nagaakira
+    color: "#f6e05e"
+    provinces: 紀伊（1619 年轉封廣島，紀伊改為德川賴宣）
+    prefs: [JP-30]
+  - name: 蜂須賀至鎮
+    en: Hachisuka Yoshishige
+    color: "#dd6b20"
+    provinces: 阿波、淡路（大坂之陣後加封）
+    prefs: [JP-36]
+  - name: 生駒正俊
+    en: Ikoma Masatoshi
+    color: "#f6ad55"
+    provinces: 讚岐
+    prefs: [JP-37]
+  - name: 加藤嘉明・藤堂（伊予）
+    en: Katō Yoshiaki & Tōdō (Iyo)
+    color: "#c6f6d5"
+    provinces: 伊予松山（加藤）、今治（藤堂）；南部另有宇和島伊達秀宗 10 萬石（1614 年入封）
+    prefs: [JP-38]
+  - name: 山內忠義
+    en: Yamauchi Tadayoshi
+    color: "#9c4221"
+    provinces: 土佐
+    prefs: [JP-39]
+  - name: 黑田長政
+    en: Kuroda Nagamasa
+    color: "#4299e1"
+    provinces: 筑前福岡；筑後柳川另有田中忠政（約 32 萬石）
+    prefs: [JP-40]
+  - name: 細川忠興（豐前・豐後）
+    en: Hosokawa Tadaoki (Buzen, Bungo)
+    color: "#3182ce"
+    provinces: 豐前小倉、豐後一部（豐後另有岡・臼杵・府內等藩）
+    prefs: [JP-44]
+  - name: 鍋島勝茂
+    en: Nabeshima Katsushige
+    color: "#d53f8c"
+    provinces: 肥前佐賀
+    prefs: [JP-41]
+  - name: 肥前諸藩（唐津寺澤・大村・松浦・五島）
+    en: Hizen domains (Terasawa, Ōmura, Matsura, Gotō)
+    color: "#fbb6ce"
+    provinces: 肥前西部（唐津寺澤廣高約 12 萬石、大村、平戶松浦、五島）；長崎為幕府直轄（1639 年後唯一對外港）；有馬氏 1614 年移封日向
+    prefs: [JP-42]
+  - name: 加藤忠廣
+    en: Katō Tadahiro
+    color: "#718096"
+    provinces: 肥後熊本（1632 年改易，改為細川）
+    prefs: [JP-43]
+  - name: 島津家久
+    en: Shimazu Iehisa
+    color: "#9b2c2c"
+    provinces: 薩摩、大隅、日向南部（1609 年起控制琉球王國）
+    prefs: [JP-46]
+  - name: 日向諸藩（伊東・有馬・島津）
+    en: Hyūga domains (Itō, Arima, Shimazu)
+    color: "#f687b3"
+    provinces: 日向（飫肥伊東、延岡有馬、南部島津）
+    prefs: [JP-45]

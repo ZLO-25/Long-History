@@ -119,6 +119,14 @@ export function checkCards(
         });
       }
     } else if (f.person || f.relations) err('person／relations 只有人物卡（type: person）可以填');
+  // ---- 圖片（深入專題）：只收 Wikimedia Commons 上標示公有領域／CC 的作品，寫明作者、年代、授權 ----
+  if (f.images != null && !Array.isArray(f.images)) err('images 必須是清單');
+  (Array.isArray(f.images) ? f.images : []).forEach((im: any, i: number) => {
+    if (!im?.url || !/^https:\/\/upload\.wikimedia\.org\//.test(String(im.url))) err(`images[${i}].url 要是 upload.wikimedia.org 的直接圖檔網址`);
+    if (!im?.page || !/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(String(im.page))) err(`images[${i}].page 要是 Commons 的 File: 頁面網址`);
+    for (const k of ['title', 'creator', 'year', 'license', 'caption']) if (!im?.[k]) err(`images[${i}] 缺 ${k}`);
+    if (im?.license && !/public domain|公有領域|CC0|CC[ -]BY/i.test(String(im.license))) err(`images[${i}].license 只接受公有領域或 CC（目前「${im.license}」）`);
+  });
 
     const label = TYPE_LABEL[type];
     const parts = String(f.summary_line ?? '').split('｜');
@@ -259,6 +267,13 @@ export function checkCards(
       if (L.money_scale) needRefs(refsOf(L.money_scale), 'learn.money_scale');
       if (type === 'finance' && !L.hindsight) w('金融卡要有 hindsight（事後看很清楚的陷阱：後見之明、倖存者偏差）');
       (L.misconceptions ?? []).forEach((m: any, i: number) => { if (!refsOf(String(m)).length) warn(`learn.misconceptions[${i}] 沒有來源代號`); else needRefs(refsOf(String(m)), `learn.misconceptions[${i}]`); });
+      // 戲劇 vs 史實（深入專題）：每條＝常見說法 claim ＋ 史料怎麼說 fact ＋ 來源
+      if (L.pop_culture != null && !Array.isArray(L.pop_culture)) w('pop_culture 必須是清單');
+      (Array.isArray(L.pop_culture) ? L.pop_culture : []).forEach((m: any, i: number) => {
+        if (!m?.claim || !m?.fact) w(`pop_culture[${i}] 需要 claim（常見說法）與 fact（史料怎麼說）`);
+        const refs = [...(m?.src ? [].concat(m.src) : []), ...refsOf(String(m?.fact ?? ''))];
+        if (!refs.length) w(`pop_culture[${i}] 需要來源（src 或 fact 裡的 [sN]）`); else needRefs(refs, `learn.pop_culture[${i}]`);
+      });
       for (const p of L.perspectives ?? []) {
         if (!p?.history || !p?.text) w('perspectives 每筆需要 history 與 text');
         else if (!ctx.histories?.has(p.history)) w(`perspectives 的「${p.history}」不在 data/histories.yaml`);

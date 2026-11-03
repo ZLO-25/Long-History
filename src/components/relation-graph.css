@@ -1,0 +1,16 @@
+.rel-graph { margin: 6px 0 10px; }
+.rel-graph svg { display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto; }
+.rg-kinds { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin-bottom: 4px; }
+.rg-kinds .chip { font-size: 12px; padding: 1px 8px; }
+.rg-edge { opacity: 0.85; transition: opacity .15s, stroke-width .15s; }
+.rg-edge.dim { opacity: 0.12; }
+.rg-edge.future { opacity: 0.35; }
+.rg-edge.future.dim { opacity: 0.06; }
+.rg-node { cursor: pointer; }
+.rg-node circle { fill: #fff; stroke: #8a5a00; stroke-width: 2; }
+.rg-node.alive circle { fill: #8a5a00; }
+.rg-node.here circle { stroke: var(--dive, #7b2d26); stroke-width: 3.5; }
+.rg-node text { font-size: 14px; font-weight: 600; fill: #2d2a26; paint-order: stroke; stroke: #fff; stroke-width: 3px; }
+.rg-node.faded { opacity: 0.35; }
+.rg-node:focus-visible { outline: none; }
+.rg-node:focus-visible circle { stroke: #1a73e8; }

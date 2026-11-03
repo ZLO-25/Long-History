@@ -106,4 +106,4 @@ storylines:
     title: 日本戰國：從應仁之亂到關起門的太平
     question: 將軍還在、卻沒人聽他的日本，怎麼打了一百多年，最後被信長、秀吉、家康三個人接力收拾成一個關起門來的太平國家？
     blurb: 這條線沿著「誰接手了上一個人留下的局面」走：每一站的勝利都替下一站鋪路，也留下下一站要解決的問題。
-    stops: [war-onin, war-okehazama, war-nagashino, event-honnoji-incident, event-toyotomi-unification, war-sekigahara, war-osaka-sieges, event-sakoku]
+    stops: [war-onin, war-okehazama, war-nagashino, event-honnoji-incident, event-toyotomi-unification, war-sekigahara, war-osaka-sieges, event-buke-shohatto-sankin, war-shimabara, event-sakoku]

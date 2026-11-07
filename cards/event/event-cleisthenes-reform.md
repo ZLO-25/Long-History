@@ -29,8 +29,6 @@ counterparts:
 sources:
   - { id: s1, title: "Cleisthenes — Wikipedia", url: "https://en.wikipedia.org/wiki/Cleisthenes", accessed: 2026-10-24 }
   - { id: s2, title: "Mark Cartwright, Cleisthenes — World History Encyclopedia (2016)", url: "https://www.worldhistory.org/Cleisthenes/", accessed: 2026-10-24 }
-  - { id: s3, title: "Sapiens 想像的秩序篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-6-building-pyramids", accessed: 2026-10-24 }
-  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
   - { id: s5, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
   - { id: s6, title: "Shang Yang — Wikipedia", url: "https://en.wikipedia.org/wiki/Shang_Yang", accessed: 2026-10-24 }
   - { id: s7, title: "Guan Zhong — Wikipedia", url: "https://en.wikipedia.org/wiki/Guan_Zhong", accessed: 2026-10-25 }
@@ -73,11 +71,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：李彔沒有談克里斯提尼改革。間接相關：他把希臘城邦列為西方走向「高端政權」的一個階段 [s4]。
+無直接論述。
 
 ### 哈拉瑞
 
-依讀書筆記，哈拉瑞在《連結》中以前五至前四世紀的雅典作為古代城邦民主的代表：成年男性公民能投票、任官、參加公民大會，但女性、奴隸與外邦人被排除，只有約四分之一到三分之一的成年人擁有完整政治權利；他也提到柏拉圖與亞里斯多德認為民主只能在小城邦運作 [s5]。依公開摘要，他認為「平等」「權利」這類觀念是靠人們共同相信才成立的「想像的秩序」[s3]；以此推論，以居住地取代血緣重劃部落，就是在改寫雅典人共同相信的身分秩序。
+依讀書筆記，哈拉瑞在《連結》中以前五至前四世紀的雅典作為古代城邦民主的代表：成年男性公民能投票、任官、參加公民大會，但女性、奴隸與外邦人被排除，只有約四分之一到三分之一的成年人擁有完整政治權利；他也提到柏拉圖與亞里斯多德認為民主只能在小城邦運作 [s5]。
 
 ## C9 今日對照鉤子
 

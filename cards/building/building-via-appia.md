@@ -34,11 +34,10 @@ sources:
   - { id: s2, title: "Roman roads — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_roads", accessed: 2026-10-24 }
   - { id: s3, title: "Via Appia. Regina Viarum — worldheritagesite.org（UNESCO 2024）", url: "https://www.worldheritagesite.org/list/id/1708", accessed: 2026-10-24 }
   - { id: s4, title: "de Soto et al., Itiner-e: A high-resolution dataset of roads of the Roman Empire — Scientific Data (2025)", url: "https://www.nature.com/articles/s41597-025-06140-z", accessed: 2026-10-24 }
-  - { id: s5, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
   - { id: s6, title: "Chi Dao and Zhi Dao — the Oldest Express Way（陝西省人民政府英文網，2017-04-27）", url: "https://en.shaanxi.gov.cn/as/hac/ch/201704/t20170427_1595074.html", accessed: 2026-10-25 }
   - { id: s7, title: "Lingqu — Wikipedia", url: "https://en.wikipedia.org/wiki/Lingqu", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## D1 功能與象徵
@@ -67,7 +66,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在公開講稿中認為，大帝國形成統一的市場能促進技術傳播與社會發展，羅馬藉內海形成貿易帝國 [s5]。道路網是這種統一市場的陸上骨架（此連結為本卡推論，李彔未直接談羅馬道路）。
+無直接論述。
 
 ### 哈拉瑞
 

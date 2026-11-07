@@ -36,8 +36,6 @@ sources:
   - { id: s3, title: "Exploiting the mines by renting slaves — MoneyMuseum", url: "https://www.moneymuseum.com/en/archive/exploiting-the-mines-by-renting-slaves-88?slbox=true", accessed: 2026-10-24, tier: 通論 }
   - { id: s4, title: "Athens' rise to superpower — MoneyMuseum", url: "https://www.moneymuseum.com/en/archive/athens-rise-to-superpower--382?slbox=true", accessed: 2026-10-24, tier: 通論 }
   - { id: s5, title: "Mark Cartwright, Themistocles — World History Encyclopedia (2016)", url: "https://worldhistory.org/Themistocles", accessed: 2026-10-24, tier: 通論 }
-  - { id: s6, title: "Sapiens 金錢篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-24, tier: 摘要 }
-  - { id: s7, title: "李彔《現代化十六講》之十一（現代化的本質和鐵律），虎嗅 2014", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25, tier: 摘要 }
   - { id: s8, title: "Donald B. Wagner, Technology as seen through the case of ferrous metallurgy in Han China", url: "https://donwagner.dk/EncIt/EncIt.html", accessed: 2026-10-25, tier: 學術 }
   - { id: s9, title: "Wu Zhu — Wikipedia", url: "https://en.wikipedia.org/wiki/Wu_Zhu", accessed: 2026-10-25, tier: 百科 }
   - { id: s10, title: "希羅多德《歷史》7.144，G. C. Macaulay 英譯（1890，公有領域）— Lexundria", url: "https://lexundria.com/hdt/7.144/mcly", accessed: 2026-10-25, tier: 一手 }
@@ -69,7 +67,7 @@ learn:
   misconceptions:
   - 雅典民主常被說成「全民參政」，但支撐它的財富有一部分來自沒有任何權利的奴隸勞動。[s1][s3]
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## B1 物資與用途
@@ -104,11 +102,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：李彔沒有談勞里昂銀礦。間接相關：他指出在農業時代，政府常以國家專營控制民間商業、充實國庫 [s7]。雅典把銀礦開採權租給私人、收入歸城邦，屬於這類「國家掌握關鍵財源」的做法（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-哈拉瑞未直接談勞里昂。依公開摘要，他主張貨幣是一種人人相信才有效的「共同虛構」，讓不同文化併入同一個經濟體 [s6]。以此推論，雅典銀幣的價值除了白銀本身，也依賴各地商人對它的信任。
+無直接論述。
 
 ## B9 今日對照鉤子
 

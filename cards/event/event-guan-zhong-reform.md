@@ -29,9 +29,8 @@ sources:
   - { id: s2, title: "Qi（ancient state）— Encyclopaedia Britannica（2011）", url: "https://www.britannica.com/print/article/109988", accessed: 2026-10-25 }
   - { id: s3, title: "Qi (state) — Wikipedia", url: "https://en.wikipedia.org/wiki/Qi_(state)", accessed: 2026-10-25 }
   - { id: s4, title: "Zibo — Wikipedia", url: "https://en.wikipedia.org/wiki/Zibo", accessed: 2026-10-25 }
-  - { id: s5, title: "李彔《現代化十六講》之十一（現代化的本質和鐵律），虎嗅 2014", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -70,7 +69,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在公開講稿中說，在農業時代，政府常以國家專營控制民間商業、充實國庫 [s5]。管仲把鹽鐵山海收歸國家，是中國這種做法最早的例子之一（例子的連結為本卡推論，講稿沒有提到管仲）。
+無直接論述。
 
 ### 哈拉瑞
 

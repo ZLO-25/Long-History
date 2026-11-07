@@ -31,10 +31,8 @@ sources:
   - { id: s3, title: "票號 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/票號", accessed: 2026-10-25 }
   - { id: s4, title: "The Wall Street of the East: Ancient City of Ping Yao — Medievalists.net（2010）", url: "https://www.medievalists.net/2010/04/the-wall-street-of-the-east-ancient-city-of-ping-yao/", accessed: 2026-10-25 }
   - { id: s5, title: "Medici Bank — Wikipedia", url: "https://en.wikipedia.org/wiki/Medici_Bank", accessed: 2026-10-25 }
-  - { id: s6, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
-  - { id: s7, title: "Sapiens 第 10 章〈金錢的味道〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## F1 是什麼、解決什麼問題
@@ -68,11 +66,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔公開講稿沒有談票號或晉商。他在講稿中說，中國歷史上「每到財政出現問題的時候，商業階層就成為政府的提款機」，商業活動總是為國家政權服務 [s6]。票號後期越來越依賴替清廷匯款、借款，清朝一垮就跟著沒落，可以拿來對照這個說法（此為本卡推論）[s1]。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的摘要沒有談票號。依 LitCharts 摘要，哈拉瑞認為金錢是一種讓陌生人能合作的互相信任系統，本質是「純粹心理上的革命」[s7]。一張票號匯票能在千里外換到銀子，靠的就是大家相信票號會兌現，因此辛亥革命時信任一動搖就出現擠兌（此為本卡推論）[s1][s7]。
+無直接論述。
 
 ## F7 今日對照鉤子
 

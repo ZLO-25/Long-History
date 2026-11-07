@@ -34,7 +34,6 @@ sources:
   - { id: s6, title: "Tulip mania — Wikipedia", url: "https://en.wikipedia.org/wiki/Tulip_mania", accessed: 2026-10-25, tier: 百科 }
   - { id: s7, title: "Dave Roos, The Real Story Behind the 17th-Century 'Tulip Mania' Financial Crash — History.com（2020，2025 更新）", url: "https://www.history.com/articles/tulip-mania-financial-crash-holland", accessed: 2026-10-25, tier: 通論 }
   - { id: s8, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25, tier: 摘要 }
-  - { id: s9, title: "北風窗〈35億美元，9隻股票——李錄投資智慧全解〉— 鉅亨號（2026）", url: "https://hao.cnyes.com/post/244792", accessed: 2026-10-25, tier: 摘要 }
   - { id: s10, title: "日昇昌 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/日昇昌", accessed: 2026-10-25, tier: 百科 }
   - { id: s11, title: "Piaohao — Wikipedia", url: "https://en.wikipedia.org/wiki/Piaohao", accessed: 2026-10-25, tier: 百科 }
   - { id: s12, title: "Joseph de la Vega, Confusion de Confusiones (1688) — Hermann Kellenbenz 選譯，Baker Library, Harvard Graduate School of Business Administration, 1957（Kress Library Publication No. 13）掃描版", url: "https://www.gwern.net/doc/economics/1688-delavega-confusionofconfusions.pdf", accessed: 2026-10-25, tier: 一手 }
@@ -122,7 +121,7 @@ VOC 讓「股票可以轉手」成為常態，股東想拿回錢不必等公司�
 
 ### 李彔
 
-無直接論述：查到的資料沒有李彔談 VOC 或阿姆斯特丹交易所的內容。依鉅亨號文章的轉述，李彔強調「股票代表的是對公司的部分所有權」，不只是一張可以交易的紙；市場的存在是為你提供買賣機會，而不是告訴你什麼才有價值 [s9]。VOC 股票正是這兩件事第一次大規模結合：股份代表公司的一部分，交易所提供轉手的機會（此為本卡推論）[s2][s4]。
+無直接論述。
 
 ### 哈拉瑞
 

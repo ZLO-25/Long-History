@@ -31,8 +31,6 @@ sources:
   - { id: s2, title: "Wang Mang's Reforms — 5000yan 中華上下五千年英文版", url: "https://en.5000yan.com/history-of-china/western-han/wang-mang-reforms.html", accessed: 2026-10-25, tier: 通論 }
   - { id: s3, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-24, tier: 百科 }
   - { id: s4, title: "Wu Zhu — Wikipedia", url: "https://en.wikipedia.org/wiki/Wu_Zhu", accessed: 2026-10-25, tier: 百科 }
-  - { id: s5, title: "李彔《現代化十六講》之十一（現代化的本質和鐵律），虎嗅 2014", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25, tier: 摘要 }
-  - { id: s6, title: "Sapiens 金錢篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25, tier: 摘要 }
   - { id: s7, title: "Pan Ku's Book of the Former Han（班固《漢書》英譯節選：H. H. Dubs, The History of the Former Han Dynasty, vol. 3, ACLS / Waverly Press, 1955）— Columbia University 課程網頁", url: "https://www.columbia.edu/itc/religion/f2001/docs/pan_ku.html", accessed: 2026-10-25, tier: 一手 }
   - { id: s8, title: "Mike Dash, Emperor Wang Mang: China's First Socialist? — Smithsonian Magazine，2011-12-09", url: "https://www.smithsonianmag.com/history/emperor-wang-mang-chinas-first-socialist-2402977/", accessed: 2026-10-25, tier: 通論 }
   - { id: s9, title: "Xin dynasty coinage — Wikipedia", url: "https://en.wikipedia.org/wiki/Xin_dynasty_coinage", accessed: 2026-10-25, tier: 百科 }
@@ -66,7 +64,7 @@ learn:
     - { history: 錢的歷史, text: "從錢的歷史看，用命令讓一小塊銅錢值上千枚五銖錢，結果百姓私下照用舊錢、偷鑄新錢，這是貨幣失去信任的典型例子（見「五銖錢」卡）。[s9]" }
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "首查：兩句引用標錯來源、Dubs 觀點範圍過寬、28/37 種未說明；已修正並複查通過" }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -105,11 +103,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔公開講稿沒有談王莽。間接相關：他說農業時代的政府常以國家專營控制民間商業、充實國庫 [s5]；王莽的六項專營是這種做法推到極端的例子（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的資料沒有提到王莽。依公開摘要，哈拉瑞認為貨幣要靠人人相信才有效 [s6]；王莽廢掉大家信任的五銖，又推出多達 28 種貨幣的「寶貨制」，結果五銖照樣在私下流通、經濟陷入混亂，可以從這個角度理解（此為本卡推論）。
+無直接論述。
 
 ## C9 今日對照鉤子
 

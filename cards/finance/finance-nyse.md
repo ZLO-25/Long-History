@@ -18,7 +18,7 @@ place:
     - { name_ancient: 紐約華爾街, name_modern: 紐約曼哈頓（美國）, lat: 40.7069, lng: -74.0111, precision: schematic, role: 1792 年經紀人在華爾街簽梧桐樹協議；1903 年起交易所大樓位於 Broad Street 18 號（座標為今交易所大樓）, src: [s1, s2] }
   scale: point
 structure_tags: [金融制度創新, 慢變結構, 投機泡沫與崩盤]
-topics: [交易所, 股票與公司]
+topics: [交易所, 股票與公司, 金融中心]
 links: [finance-amsterdam-exchange, finance-great-depression, finance-2008-crisis, finance-taiwan-stock-exchange, tech-telegraph]
 causes:
   - { id: finance-hamilton-financial-plan, rel: 促成, why: 漢彌爾頓把戰爭欠債整理成可交易的聯邦公債，又成立第一銀行，紐約才有足夠的證券讓經紀人天天買賣。, src: [finance-hamilton-financial-plan:s1, finance-hamilton-financial-plan:s10] }
@@ -31,10 +31,9 @@ sources:
   - { id: s2, title: "Buttonwood Agreement — Wikipedia", url: "https://en.wikipedia.org/wiki/Buttonwood_Agreement", accessed: 2026-10-25 }
   - { id: s3, title: "This Day in History: May 17, 1792 — Mystic Stamp Company", url: "https://info.mysticstamp.com/this-day-in-history-may-17-1792/", accessed: 2026-10-25 }
   - { id: s4, title: "李彔〈全球價值投資與時代〉北京大學演講（2024 年 12 月，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/67a4f8e8160103c8a74017a7_%E5%85%A8%E7%90%83%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E4%B8%8E%E6%97%B6%E4%BB%A32024%E5%B9%B412%E6%9C%88.pdf", accessed: 2026-10-25 }
-  - { id: s5, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25 }
   - { id: s6, title: "臺灣證券交易所 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/臺灣證券交易所", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## F1 是什麼、解決什麼問題
@@ -70,11 +69,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在 2024 年北大演講中說，資本市場提供的不只是資金，「更重要的是信用體系」，能把普通儲蓄者的小錢集中成巨大的投資力量；他也稱資本市場是現代經濟的「必要前提和基石」[s4]。他沒有專門談紐交所的起源；以紐交所來看，梧桐樹協議正是一群經紀人先建立彼此的信用規則（本卡推論）[s2][s4]。
+無直接論述。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞認為資本主義靠的是對「未來」的信任：人們相信未來會更好，才願意借錢、投資股份公司 [s5]。他也提到荷蘭西印度公司殖民的地方後來成為紐約 [s5]。他沒有直接談紐交所；交易所可以看成讓這種「信任」能被買賣的場所（本卡推論）。
+無直接論述。
 
 ## F7 今日對照鉤子
 

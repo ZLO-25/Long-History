@@ -32,10 +32,8 @@ sources:
   - { id: s2, title: "Discourses on Salt and Iron — Wikipedia", url: "https://en.wikipedia.org/wiki/Discourses_on_Salt_and_Iron", accessed: 2026-10-25 }
   - { id: s3, title: "Salt and Iron Debate — 5000yan 中華上下五千年英文版", url: "https://en.5000yan.com/history-of-china/western-han/salt-iron-debate.html", accessed: 2026-10-25 }
   - { id: s4, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-24 }
-  - { id: s5, title: "李彔《現代化十六講》之十一（現代化的本質和鐵律），虎嗅 2014", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25 }
-  - { id: s6, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## B1 物資與用途
@@ -70,7 +68,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在公開講稿中說，在農業時代，政府常以國家專營控制民間商業、充實國庫 [s5]；又說漢代建立帝國後，中國政權長期要應付游牧民族入侵，財政吃緊時商人就成了政府的「提款機」[s6]。漢代鹽鐵官營正是為了支付對匈奴的戰爭而把商人的利潤收歸國庫，與這兩點吻合（例子的連結為本卡推論，講稿沒有直接提鹽鐵）。
+無直接論述。
 
 ### 哈拉瑞
 

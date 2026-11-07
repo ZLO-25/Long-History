@@ -28,10 +28,8 @@ sources:
   - { id: s1, title: "History of silk — Wikipedia", url: "https://en.wikipedia.org/wiki/History_of_silk", accessed: 2026-10-25 }
   - { id: s2, title: "Mark Cartwright, Silk in Antiquity — World History Encyclopedia（2017）", url: "https://www.worldhistory.org/Silk/", accessed: 2026-10-25 }
   - { id: s3, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-24 }
-  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
-  - { id: s5, title: "Sapiens 金錢篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## B1 物資與用途
@@ -66,11 +64,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：李彔的公開講稿談秦漢時沒有談絲綢；他只在談伊斯蘭世界時提到，穆斯林控制的草原通道形成「絲綢之路」，中國的瓷器、絲綢由此輸出 [s4]（指的是較晚的時代）。
+無直接論述。
 
 ### 哈拉瑞
 
-哈拉瑞未直接談絲綢。依公開摘要，他主張貨幣是人人相信才有效的「共同虛構」[s5]；漢代把一匹絹當成價值標準、拿來發薪繳稅，可以這樣理解（此為本卡推論）。
+無直接論述。
 
 ## B9 今日對照鉤子
 

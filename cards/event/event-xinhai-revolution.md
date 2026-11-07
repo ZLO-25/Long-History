@@ -34,9 +34,8 @@ sources:
   - { id: s2, title: "辛亥革命 — 維基百科", url: "https://zh.wikipedia.org/zh-tw/辛亥革命", accessed: 2026-10-25 }
   - { id: s3, title: "Railway Protection Movement — Wikipedia", url: "https://en.wikipedia.org/wiki/Railway_Protection_Movement", accessed: 2026-10-25 }
   - { id: s4, title: "烏海市烏達區人民法院，〈辛亥革命〉— 澎湃新聞澎湃號（2021）", url: "https://m.thepaper.cn/newsDetail_forward_11794479", accessed: 2026-10-25 }
-  - { id: s5, title: "王雅，〈從「李約瑟之問」到「李錄之答」 政治賢能制能否推動中國現代化〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -79,7 +78,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的公開資料沒有李彔專談辛亥革命的內容。依香港01的轉述，李彔認為中國近代沒能完成現代化，根本在於政治制度兩千年沒有改變。[s5] 若用他的框架來看，辛亥革命推翻帝制是制度上的大轉折，但革命後的軍閥割據顯示，換掉皇帝不等於建立新制度（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 

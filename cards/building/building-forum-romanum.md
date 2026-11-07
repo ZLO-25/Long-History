@@ -27,10 +27,9 @@ counterparts:
 sources:
   - { id: s1, title: "Roman Forum — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_Forum", accessed: 2026-10-24 }
   - { id: s2, title: "Roman Forum — Encyclopaedia Britannica", url: "https://www.britannica.com/topic/Roman-Forum", accessed: 2026-10-24 }
-  - { id: s3, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
   - { id: s4, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## D1 功能與象徵
@@ -61,7 +60,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 哈拉瑞
 
-哈拉瑞未直接談羅馬廣場。依讀書筆記，他在《連結》中描述羅馬共和以執政官、元老院、公民大會與保民官互相制衡 [s3]；這些機構開會、選舉與演說的地方，正是羅馬廣場（此連結為本卡推論）。
+無直接論述。
 
 ## D7 今日對照鉤子
 

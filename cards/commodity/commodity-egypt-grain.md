@@ -38,7 +38,6 @@ sources:
   - { id: s2, title: "Puteoli: Alexandrian ships — Ostia Antica（ostia-antica.org）", url: "https://ostia-antica.org/dict/topics/puteoli/presentation/puteoli-ships.htm", accessed: 2026-10-24, tier: 通論 }
   - { id: s3, title: "Battle of Actium — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Actium", accessed: 2026-10-24, tier: 百科 }
   - { id: s4, title: "10 Facts About the Fall of the Roman Empire — History Hit", url: "https://historyhit.com/facts-about-the-fall-of-the-roman-empire", accessed: 2026-10-24, tier: 通論 }
-  - { id: s5, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24, tier: 摘要 }
   - { id: s6, title: "Donald B. Wagner, Technology as seen through the case of ferrous metallurgy in Han China", url: "https://donwagner.dk/EncIt/EncIt.html", accessed: 2026-10-25, tier: 學術 }
   - { id: s7, title: "Suetonius, The Life of Augustus — Loeb Classical Library（1913）英譯，LacusCurtius（penelope.uchicago.edu）", url: "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Augustus*.html", accessed: 2026-10-25, tier: 一手 }
   - { id: s8, title: "Peter Garnsey & Dominic Rathbone, The Background to the Grain Law of Gaius Gracchus, The Journal of Roman Studies 75 (1985), pp. 20–25", url: "https://faculty.uml.edu/ethan_Spanier/Teaching/documents/rathboneGGracchus.pdf", accessed: 2026-10-25, tier: 學術 }
@@ -78,7 +77,7 @@ learn:
     - { history: 錢的歷史, text: 從錢的歷史看，糧食配給是羅馬國家長期的大筆支出，也是用物資換取政治支持的例子。 }
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "首查：頂帆屬郵船非糧船、配給停止連到經濟分裂而非人口；已修正並複查通過" }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## B1 物資與用途
@@ -113,7 +112,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在公開講稿中認為，貿易分工能讓不同地區優化資源配置，羅馬憑藉地中海這片內海形成貿易帝國 [s5]。埃及穀物經海路供應羅馬，正是這種內海分工的例子（此連結為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 

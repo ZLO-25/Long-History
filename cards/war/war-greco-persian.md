@@ -39,8 +39,6 @@ sources:
   - { id: s2, title: "Battle of Salamis — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Salamis", accessed: 2026-10-24, tier: 百科 }
   - { id: s3, title: "Mark Cartwright, Themistocles — World History Encyclopedia (2016)", url: "https://worldhistory.org/Themistocles", accessed: 2026-10-24, tier: 通論 }
   - { id: s4, title: "Themistocles summary — Encyclopaedia Britannica", url: "https://www.britannica.com/summary/Themistocles", accessed: 2026-10-24, tier: 百科 }
-  - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24, tier: 摘要 }
-  - { id: s6, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25, tier: 摘要 }
   - { id: s7, title: "Battle of Red Cliffs — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Red_Cliffs", accessed: 2026-10-25, tier: 百科 }
   - { id: s8, title: "Battle of Fei River — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Fei_River", accessed: 2026-10-25, tier: 百科 }
   - { id: s9, title: "希羅多德《歷史》7.144，G. C. Macaulay 英譯（1890，公有領域）— Lexundria", url: "https://lexundria.com/hdt/7.144/mcly", accessed: 2026-10-25, tier: 一手 }
@@ -79,7 +77,7 @@ learn:
     text: 從波斯看，這只是帝國西邊邊境的一次失利；波斯帝國之後又延續了大約 150 年，直到亞歷山大東征。
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "『名義上』帶有『埃吉納只是藉口』的詮釋，這是 WHE 的說法；希羅多德本人只說是為了埃吉納戰爭。可接受，但也可以改成『當時的理由是要對付鄰近的埃伊納島』，比較中性。" }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## A1 交戰方與聯盟結構
@@ -127,11 +125,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在公開講稿中把波斯帝國（以大流士為代表）與希臘城邦，列為西方走向「高端政權」的兩個階段，最後在羅馬帝國達到頂點 [s6]。他沒有細談這場戰爭本身。
+無直接論述。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞以波斯居魯士大帝為例，說明帝國常宣稱是「為了所有臣民的福祉」建立統一秩序，與「我們對他們」的族群思維相對 [s5]。這張卡的希臘一方，則代表拒絕被納入這種普世帝國的城邦（此為本卡推論）。
+無直接論述。
 
 ## A11 今日對照鉤子
 

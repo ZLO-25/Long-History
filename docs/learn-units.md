@@ -34,7 +34,7 @@
 | type | 做什麼 | 主要欄位 |
 |---|---|---|
 | `hook` | 開場，用學生熟悉的事比喻 | `text` |
-| `card` | 讀一張卡 | `id`、`depth`（`story` 故事／`understand` 理解／`deep` 深入）、`prompt`（讀的時候注意什麼） |
+| `card` | 讀一張卡 | `id`、`depth`（舊欄位，2026-11-07 起卡片只有一個詳細版，寫了也不影響顯示）、`prompt`（讀的時候注意什麼） |
 | `source` | 讀一段一手史料 | `card`、`idx`（第幾筆 primary_source，從 0 起）、`question`、`options`、`answer`（從 0 起）、`explain`、`hints`、`ref` |
 | `chain` | 把事件排成因果鏈 | `prompt`、`items`（**寫正確順序**，畫面會打亂）、`explain`、`hints`、`ref` |
 | `compare` | 兩張卡並排比較 | `cards`（剛好 2 張）、`rows`（`aspect`、`a`、`b`）、`question`、`model_answer`、`hints` |

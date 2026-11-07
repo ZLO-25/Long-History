@@ -27,9 +27,8 @@ counterparts:
 sources:
   - { id: s1, title: "Yungang Grottoes — Wikipedia", url: "https://en.wikipedia.org/wiki/Yungang_Grottoes", accessed: 2026-10-25 }
   - { id: s2, title: "Yungang Grottoes — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/1039/", accessed: 2026-10-25 }
-  - { id: s3, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## D1 功能與象徵
@@ -58,7 +57,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在公開講稿中說，漢朝衰落後東方陷入約四百年的戰亂與分裂，佛教在這段苦難時期經過簡化後廣泛傳入中國，幾乎成為國教，主要提供對現世痛苦的慰藉 [s3]。雲岡石窟就是這個時期由皇室支持的佛教工程（例子的連結為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 

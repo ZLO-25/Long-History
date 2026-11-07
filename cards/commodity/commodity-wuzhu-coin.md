@@ -30,7 +30,6 @@ sources:
   - { id: s1, title: "Wu Zhu — Wikipedia", url: "https://en.wikipedia.org/wiki/Wu_Zhu", accessed: 2026-10-25, tier: 百科 }
   - { id: s2, title: "林彥岑，西漢 郡國五銖 第五型 — Legends Museum 數位博物館", url: "https://www.legends.com.tw/2026/02/11/western-han-dynasty-wu-zhu-of-kingdoms-type-v-%E8%A5%BF%E6%BC%A2-%E9%83%A1%E5%9C%8B%E4%BA%94%E9%8A%96-%E7%AC%AC%E4%BA%94%E5%9E%8B/", accessed: 2026-10-25, tier: 通論 }
   - { id: s3, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-24, tier: 百科 }
-  - { id: s4, title: "Sapiens 金錢篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25, tier: 摘要 }
   - { id: s5, title: "James A. Dorn, Monetary Freedom: Lessons from the Western Han Dynasty — Cato at Liberty（Cato Institute），2017-10-17（引《鹽鐵論》，英譯出自 Richard von Glahn, Fountain of Fortune）", url: "https://cato.org/blog/monetary-freedom-lessons-western-han-dynasty", accessed: 2026-10-25, tier: 通論 }
   - { id: s6, title: "Chen Yen-liang, Long-term Inflation in the Eastern Han Dynasty: An Analysis Based on Archeological Evidence, Tsing Hua Journal of Chinese Studies（國立清華大學）41 卷，2011，頁 669–714（摘要頁）", url: "https://thjcs.site.nthu.edu.tw/p/16-1452-42276.php?Lang=en", accessed: 2026-10-25, tier: 學術 }
 importance: 2
@@ -60,7 +59,7 @@ learn:
     - { history: 錢的歷史, text: "從錢的歷史看，「誰能鑄錢」和「錢夠不夠重」決定大家信不信這種錢；王莽廢五銖、百姓卻私下照用，就是例子（見「王莽改制」卡）。[s1][s5]" }
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "桑弘羊引文與《鹽鐵論・錯幣》原文相符（經 Cato 轉引 von Glahn 英譯）；已補原文" }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## B1 物資與用途
@@ -99,7 +98,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 哈拉瑞
 
-哈拉瑞未直接談五銖錢。依公開摘要，他主張貨幣是人人相信才有效的「共同虛構」[s4]。王莽禁用五銖、人們卻私下照用，可以視為「民間信任」比「官方命令」更能決定什麼是錢的例子（此為本卡推論）。
+無直接論述。
 
 ## B9 今日對照鉤子
 

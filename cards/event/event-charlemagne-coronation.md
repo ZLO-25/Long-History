@@ -33,10 +33,8 @@ counterparts:
 sources:
   - { id: s1, title: "Charlemagne — Wikipedia", url: "https://en.wikipedia.org/wiki/Charlemagne", accessed: 2026-10-25 }
   - { id: s2, title: "Joshua J. Mark, Charlemagne — World History Encyclopedia", url: "https://www.worldhistory.org/Charlemagne/", accessed: 2026-10-25 }
-  - { id: s3, title: "Harari 論帝國（Sapiens 摘錄）— The Victorian Web", url: "https://victorianweb.org/history/empire/harari3.html", accessed: 2026-10-25 }
-  - { id: s4, title: "李錄：現代化十六講（之五、六）— 虎嗅網（2014-07-20）", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -76,11 +74,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔講稿沒有談查理曼。他描述西歐在羅馬衰落後長期處於幾百個封建王國之間、教宗與王國之間「無窮無盡的戰爭」[s4]；查理曼加冕正是教宗與國王關係的起點之一（此對照為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的摘錄沒有提到查理曼。哈拉瑞認為過去 2,500 年大多數人都生活在帝國裡，所有人類文化至少部分是帝國的遺產 [s3]；法蘭克國王在西羅馬滅亡三百年後仍要借「羅馬皇帝」的名號，可視為帝國遺產的一個例子（此為本卡推論）。
+無直接論述。
 
 ## C9 今日對照鉤子
 

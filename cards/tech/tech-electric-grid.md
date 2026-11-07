@@ -37,9 +37,8 @@ sources:
   - { id: s6, title: "Electrification — Wikipedia", url: "https://en.wikipedia.org/wiki/Electrification", accessed: 2026-10-25 }
   - { id: s7, title: "Rural Electrification Administration — EBSCO Research Starters", url: "https://www.ebsco.com/research-starters/law/rural-electrification-administration", accessed: 2026-10-25 }
   - { id: s8, title: "Sapiens Chapter 17 The Wheels of Industry 摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-17-the-wheels-of-industry", accessed: 2026-10-25 }
-  - { id: s9, title: "王雅〈從「李約瑟之問」到「李錄之答」〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## T1 是什麼、解決什麼問題
@@ -77,11 +76,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的公開摘要沒有談電力。依香港01的摘要，李彔把現代化定義為現代科技與市場經濟結合後產生的持續累進增長。[s9] 交直流之爭由西屋、愛迪生兩家公司在市場上競標、互相競爭，最後由成本與效率決定勝負，可視為這種結合的例子（此對照為本卡推論）。[s3][s4]
+無直接論述。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞在《人類大歷史》談工業革命時說，人類學會用蒸汽轉動被磁鐵包圍的銅線圈來發電，並把工業革命看成一場「能源轉換」的革命。[s8] 這段直接說明了電力在他敘事中的位置；但摘要沒有提到電網或交直流之爭。
+無直接論述。
 
 ## T7 今日對照鉤子
 

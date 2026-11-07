@@ -36,10 +36,8 @@ sources:
   - { id: s6, title: "Gunpowder engine — Wikipedia", url: "https://en.wikipedia.org/wiki/Gunpowder_engine", accessed: 2026-10-25 }
   - { id: s7, title: "Tank — Wikipedia", url: "https://en.wikipedia.org/wiki/Tank", accessed: 2026-10-25 }
   - { id: s8, title: "Effects of cars — Wikipedia", url: "https://en.wikipedia.org/wiki/Effects_of_cars", accessed: 2026-10-25 }
-  - { id: s9, title: "Sapiens Chapter 17 The Wheels of Industry 摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-17-the-wheels-of-industry", accessed: 2026-10-25 }
-  - { id: s10, title: "王雅〈從「李約瑟之問」到「李錄之答」〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## T1 是什麼、解決什麼問題
@@ -79,11 +77,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的公開摘要沒有談汽車。依香港01的摘要，李彔把現代化定義為現代科技與市場經濟結合後的持續累進增長。[s10] 福特用流水線把成本壓低、價格一路下降、銷量變大，是「技術加市場」互相放大的典型例子（此對照為本卡推論）。[s4][s5]
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述（摘要未提內燃機）。依公開摘要，哈拉瑞把工業革命看成人類學會把一種能源轉成另一種，並發現化石燃料等幾乎無窮的能源。[s9] 內燃機把石油的化學能直接變成車輪的轉動，是這種能源轉換的延伸（此對照為本卡推論）。
+無直接論述。
 
 ## T7 今日對照鉤子
 

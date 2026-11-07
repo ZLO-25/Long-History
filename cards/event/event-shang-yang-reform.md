@@ -31,9 +31,6 @@ sources:
   - { id: s1, title: "Shang Yang — Wikipedia", url: "https://en.wikipedia.org/wiki/Shang_Yang", accessed: 2026-10-24, tier: 百科 }
   - { id: s2, title: "Sarah Schneewind, Shang Yang's Legalist Policies in Qin — LibreTexts（An Outline History of East Asia to 1200）", url: "https://human.libretexts.org/Bookshelves/History/World_History/An_Outline_History_of_East_Asia_to_1200_(Schneewind)/03:_From_Warring_States_Two_Empire_(480_BC_-207_BC)/3.04:_Shang_Yangs_Legalist_Policies_in_Qin", accessed: 2026-10-24, tier: 通論 }
   - { id: s3, title: "Xianyang — Wikipedia", url: "https://en.wikipedia.org/wiki/Xianyang", accessed: 2026-10-24, tier: 百科 }
-  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25, tier: 摘要 }
-  - { id: s5, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25, tier: 摘要 }
-  - { id: s6, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25, tier: 摘要 }
   - { id: s7, title: "Shang Yang — Encyclopaedia Britannica", url: "https://www.britannica.com/biography/Shang-Yang", accessed: 2026-10-25, tier: 百科 }
   - { id: s8, title: "司馬遷《史記．商君列傳》原文 — 中國哲學書電子化計劃（ctext.org；本環境連線被擋（proxy 403）未能開啟，不作唯一依據；引句經 s11 學者論文轉引逐字核對）", url: "https://ctext.org/shiji/shang-jun-lie-zhuan/zh", accessed: 2026-11-01, tier: 一手 }
   - { id: s9, title: "商鞅 — 中文維基百科（含《史記．商君列傳》引文與歷代評價）", url: "https://zh.wikipedia.org/wiki/商鞅", accessed: 2026-11-01, tier: 百科 }
@@ -68,7 +65,7 @@ learn:
     - { history: 中國史, text: "從中國史看，商鞅變法把秦國改造成能動員全國人力種田、打仗的國家，被視為秦後來滅六國、統一中國的基礎。[s1][s7]" }
 crosscheck: { date: 2026-11-01, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "ctext 在本環境打不開，改以 s11 朱維錚〈重考商鞅變法〉（學術，可開啟）逐句核對兩段一手引文，都出自〈商君列傳〉；s1、s2、s7、s9、s10 均已開啟。修正：C2／C9／C10 客舍拒宿改為〈商君列傳〉原文（「舍人無驗者坐之」），並註明英文維基歸於《戰國策》；C4「兩個以上成年兒子」改為原文「二男以上不分異者，倍其賦」並並列維基說法；度量衡補〈商君列傳〉「平斗桶權衡丈尺」；「全民兵役」改「強制兵役」（大英原文）；呂世浩改寫為課程單元介紹文字、非其論點；Pines 一句改為維基引其研究的說法；historiography 補朱維錚觀點。保留：s8 ctext 只作輔助。" }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -109,11 +106,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：李彔沒有談商鞅。間接相關：他說秦、漢開啟了中央集權的跨區域大帝國 [s4]；又說自漢代建立帝國後，中國政府不可能不介入經濟，財政吃緊時商人就成了政府的「提款機」[s5]。商鞅的重農抑商、編戶齊民，可視為這個傳統的起點（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-依讀書筆記，哈拉瑞在《連結》中把秦帝國稱為近代以前最有野心的極權實驗：試圖以軍事方式組織數千萬人，嚴刑峻法、壓制地方菁英、重稅與徵兵，導致前 209 年起的叛亂；資訊技術有限，也讓它管不到遠方 [s6]。筆記未提到商鞅之名，商鞅變法是這套制度的設計起點（此連結為本卡推論）。
+無直接論述。
 
 ## C9 今日對照鉤子
 

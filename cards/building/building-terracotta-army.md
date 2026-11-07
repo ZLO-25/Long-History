@@ -27,9 +27,8 @@ counterparts:
 sources:
   - { id: s1, title: "Terracotta Army — Wikipedia", url: "https://en.wikipedia.org/wiki/Terracotta_Army", accessed: 2026-10-25 }
   - { id: s2, title: "Mausoleum of the First Qin Emperor — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/441/", accessed: 2026-10-25 }
-  - { id: s3, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## D1 功能與象徵
@@ -62,7 +61,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 哈拉瑞
 
-無直接論述：查到的資料沒有提到兵馬俑。依讀書筆記，哈拉瑞在《連結》中把秦帝國稱為近代以前最有野心的極權實驗，能以軍事方式組織數千萬人並壟斷資源 [s3]；動員 70 萬人替一個人修陵、讓作坊在每件產品上留名以便追責，可以視為這種組織能力的物證（此為本卡推論）。
+無直接論述。
 
 ## D7 今日對照鉤子
 

@@ -30,9 +30,8 @@ sources:
   - { id: s1, title: "Yellow Turban Rebellion — Wikipedia", url: "https://en.wikipedia.org/wiki/Yellow_Turban_Rebellion", accessed: 2026-10-25 }
   - { id: s2, title: "Gayla Koerting, Yellow Turbans Rebellion — EBSCO Research Starters（2022）", url: "https://www.ebsco.com/research-starters/history/yellow-turbans-rebellion", accessed: 2026-10-25 }
   - { id: s3, title: "Pingxiang County — Wikipedia", url: "https://en.wikipedia.org/wiki/Pingxiang_County", accessed: 2026-10-25 }
-  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -69,7 +68,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：李彔沒有談黃巾之亂。間接相關：他在公開講稿中說，秦漢與羅馬大約同時達到農業文明的第一個高峰，之後因饑荒、人口流動與戰爭、瘟疫、氣候變化與政權失敗這五大挑戰而衰落 [s4]。黃巾之亂的背景（饑荒、瘟疫、朝政腐敗）幾乎集齊了這些因素（此連結為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 

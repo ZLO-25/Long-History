@@ -1,7 +1,7 @@
 // 單元播放器：謎題 → 一步一步（進度條）→ 自我檢查 → 回顧 → 接下來可以挖
 import { useEffect, useRef, useState } from 'react';
 import type { Index, Step, Unit } from '../types';
-import { LearnCard, type Depth } from './LearnCard';
+import { LearnCard } from './LearnCard';
 import { LearnText } from './LearnText';
 import { Choice, CheckQ, CompareTable, Decision, Hints, Order, RefLink, Reflect, Short } from './Steps';
 import { SimView } from './sims/SimView';
@@ -103,7 +103,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
       case 'hook': return <div className="hook-step"><LearnText text={s.text} sources={[]} /></div>;
       case 'card': {
         const c = byId(s.id);
-        return c?.learn ? <>{s.prompt && <p className="prompt">👉 {s.prompt}</p>}<LearnCard key={c.id} card={c} index={index} history={null} depth={s.depth as Depth} onOpen={(id) => onCard(id)} onTopic={onTopic} topicCount={topicCount} onStory={onStory} onUnit={onUnit} hereUnit={u.id} compact /></> : <p>找不到卡片 {s.id}</p>;
+        return c?.learn ? <>{s.prompt && <p className="prompt">👉 {s.prompt}</p>}<LearnCard key={c.id} card={c} index={index} history={null} onOpen={(id) => onCard(id)} onTopic={onTopic} topicCount={topicCount} onStory={onStory} onUnit={onUnit} hereUnit={u.id} compact /></> : <p>找不到卡片 {s.id}</p>;
       }
       case 'source': {
         const c = byId(s.card)!;

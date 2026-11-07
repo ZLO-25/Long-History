@@ -31,7 +31,6 @@ counterparts:
 sources:
   - { id: s1, title: "Hadrian's Wall — Wikipedia", url: "https://en.wikipedia.org/wiki/Hadrian%27s_Wall", accessed: 2026-10-24, tier: 百科 }
   - { id: s2, title: "History of Hadrian's Wall — English Heritage", url: "https://www.english-heritage.org.uk/visit/places/hadrians-wall/hadrians-wall-history-and-stories/history/", accessed: 2026-10-24, tier: 通論 }
-  - { id: s3, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25, tier: 摘要 }
   - { id: s4, title: "Great Wall of China — Wikipedia", url: "https://en.wikipedia.org/wiki/Great_Wall_of_China", accessed: 2026-10-25, tier: 百科 }
   - { id: s5, title: "Tab.Vindol. 164. Ink writing tablet — Roman Inscriptions of Britain（據 Bowman & Thomas 1987 版）", url: "https://romaninscriptionsofbritain.org/inscriptions/TabVindol164", accessed: 2026-10-25, tier: 一手 }
   - { id: s6, title: "Tab.Vindol. 291. Birthday Invitation of Sulpicia Lepidina — Roman Inscriptions of Britain", url: "https://romaninscriptionsofbritain.org/inscriptions/TabVindol291", accessed: 2026-10-25, tier: 一手 }
@@ -72,7 +71,7 @@ learn:
     - { history: 歐洲史, text: 從英國看，這是羅馬統治不列顛最醒目的遺跡，1987 年列入世界遺產。 }
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "首查：「約 14 座堡壘」無來源，改為十幾座；複查通過" }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## D1 功能與象徵
@@ -99,7 +98,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：李彔沒有談哈德良長城。間接相關：他認為農耕社會與周邊流動人群之間的爭奪，是農業時代長期戰爭的主要原因之一，游牧民族入侵也是羅馬最終失敗的原因之一 [s3]。長城就是農耕帝國對這種壓力的固定防線（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 

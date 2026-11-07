@@ -36,10 +36,8 @@ sources:
   - { id: s5, title: "股市時光機：一張舊報紙回到「台灣錢淹腳目」的瘋狂年代 — Smart 自學網（商業周刊），2019-04-29", url: "https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?ID=38490", accessed: 2026-10-25, tier: 通論 }
   - { id: s6, title: "蔡明彰觀點：挑戰 12682 天價的危與機 — 鉅亨網，2020-07-23", url: "https://news.cnyes.com/news/id/4508251", accessed: 2026-10-25, tier: 通論 }
   - { id: s7, title: "劉泰英稱台股藏崩盤危機　謝金河：這 5 家公司貢獻 4 分之 3 漲幅 — 今周刊，2021-01-26", url: "https://www.businesstoday.com.tw/article/category/183008/post/202101260049/", accessed: 2026-10-25, tier: 通論 }
-  - { id: s8, title: "李彔〈價值投資在中國的展望〉北京大學演講（2015-10-23，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/5f0936c4321954706fa9eca2_%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%B1%95%E6%9C%9B-%E6%9D%8E%E5%BD%952015-10-23%E5%8C%97%E5%A4%A7%E6%BC%94%E8%AE%B2.pdf", accessed: 2026-10-25, tier: 摘要 }
   - { id: s9, title: "New York Stock Exchange — Wikipedia", url: "https://en.wikipedia.org/wiki/New_York_Stock_Exchange", accessed: 2026-10-25, tier: 百科 }
   - { id: s10, title: "Shanghai Stock Exchange — Wikipedia", url: "https://en.wikipedia.org/wiki/Shanghai_Stock_Exchange", accessed: 2026-10-25, tier: 百科 }
-  - { id: s11, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25, tier: 摘要 }
   - { id: s12, title: "臺灣證券交易所，〈沿革與組織〉（第 1 章，證交所六十週年刊物，資料截至 2021-07-31）", url: "https://www.twse.com.tw/staticFiles/product/publication/twse60/P1.pdf", accessed: 2026-10-25, tier: 一手 }
   - { id: s13, title: "陳南光，〈台灣的資產價格波動──1973~1992 股價與房地產價格的實證研究〉，行政院國家科學委員會專題研究計畫成果報告 NSC 87-2418-H-002-011，國立臺灣大學經濟學系，1998", url: "https://scholars.lib.ntu.edu.tw/bitstream/123456789/50980/1/872418H002011.pdf", accessed: 2026-10-25, tier: 學術 }
 importance: 2
@@ -74,7 +72,7 @@ learn:
     - { history: 錢的歷史, text: "從錢的歷史看，1990 年台股和 1929 年紐約股市一樣，都是借錢買股、信心崩潰後的大崩盤（見「紐約證券交易所」卡）。[s6][s9]" }
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "證交所 60 週年史兩段引文、77年9月24日與連跌 19 天皆相符；有後見之明、倖存者偏差與不構成投資建議" }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## F1 是什麼、解決什麼問題
@@ -110,11 +108,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔講稿沒有談臺灣股市或 1990 年崩盤。他在 2015 年北大演講中談的是中國大陸市場：約七成是散戶、以短期交易為主，價格常大幅偏離內在價值 [s8]。1990 年臺灣「籌碼少、資金多、作手炒作」的描述，與這種散戶短線市場的結構相近（本卡推論）[s5][s8]。
+無直接論述。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞舉法國密西西比公司為例：股票被炒高，信心一崩就引發股災與全國衰退 [s11]。他沒有談臺灣；1990 年台股的暴漲暴跌可以看成同一種「信心推動價格」的例子（本卡推論）。
+無直接論述。
 
 ## F7 今日對照鉤子
 

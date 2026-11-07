@@ -31,12 +31,9 @@ counterparts:
 sources:
   - { id: s1, title: "Vasco da Gama — Wikipedia", url: "https://en.wikipedia.org/wiki/Vasco_da_Gama", accessed: 2026-10-25 }
   - { id: s2, title: "Vasco da Gama — World History Encyclopedia", url: "https://www.worldhistory.org/Vasco_da_Gama/", accessed: 2026-10-25 }
-  - { id: s3, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
-  - { id: s4, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25 }
   - { id: s5, title: "Zheng He — Wikipedia", url: "https://en.wikipedia.org/wiki/Zheng_He", accessed: 2026-10-25 }
-  - { id: s6, title: "Sapiens 第 15 章〈科學與帝國的聯姻〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-15-the-marriage-of-science-and-empire", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -81,11 +78,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔沒有直接談達伽馬。他提到蒙古時代之後，西方出現第一次真正的「中國熱」、開始尋求東方的財富，「為下一次的大航海運動提供了根本性的動力」。[s3] 達伽馬找尋香料之路，可看成這股動力的一部分（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的摘要沒有提到達伽馬。依《人類大歷史》摘要，哈拉瑞說哥倫布像創業家一樣向各國君主推銷計畫，歐洲國王必須「像商人一樣思考」來資助航海；[s4] 而亞洲國家原本不太在意歐洲的征服，直到歐洲人開始滲入亞洲。[s6] 葡萄牙國王出資找香料航線，符合這種「國家像投資人」的模式（此為本卡推論）。
+無直接論述。
 
 ## C9 今日對照鉤子
 

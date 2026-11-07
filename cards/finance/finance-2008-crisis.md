@@ -30,7 +30,6 @@ sources:
   - { id: s4, title: "Bankruptcy of Lehman Brothers — Wikipedia", url: "https://en.wikipedia.org/wiki/Bankruptcy_of_Lehman_Brothers", accessed: 2026-10-25, tier: 百科 }
   - { id: s5, title: "李彔〈全球價值投資與時代〉北京大學演講（2024 年 12 月，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/67a4f8e8160103c8a74017a7_%E5%85%A8%E7%90%83%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E4%B8%8E%E6%97%B6%E4%BB%A32024%E5%B9%B412%E6%9C%88.pdf", accessed: 2026-10-25, tier: 摘要 }
   - { id: s6, title: "李錄書評：中國仍然處在黃金發展的機遇期（評辜朝明《大衰退年代》）— 虎嗅網，2019-11-20", url: "https://www.huxiu.com/article/327249.html", accessed: 2026-10-25, tier: 摘要 }
-  - { id: s7, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25, tier: 摘要 }
   - { id: s8, title: "Conclusions of the Financial Crisis Inquiry Commission（The Financial Crisis Inquiry Report, pp. xv–xxviii），2011", url: "https://cybercemetery.unt.edu/archive/fcic/20110310173539/https://c0182732.cdn1.cloudfiles.rackspacecloud.com/fcic_final_report_conclusions.pdf", accessed: 2026-10-25, tier: 一手 }
   - { id: s9, title: "Douglas Holtz-Eakin, The Financial Crisis Inquiry Commission（眾議院金融服務委員會證詞，說明 Hennessey、Holtz-Eakin、Thomas 的不同意見書），2011-02-16", url: "https://financialservices.house.gov/uploadedfiles/021611holtzeakin.pdf", accessed: 2026-10-25, tier: 一手 }
   - { id: s10, title: "Frank Byrt, The Repo Market and the Start of the Financial Crisis（介紹 Gorton & Metrick, Securitized Banking and the Run on Repo, NBER w15223）— NBER Digest, 2009-12-01", url: "https://www.nber.org/digest/dec09/repo-market-and-start-financial-crisis", accessed: 2026-10-25, tier: 學術 }
@@ -127,7 +126,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞說現代經濟靠「信用」——相信未來會更好才願意借貸；他也認為詐欺和謊言會讓市場崩盤，因此政府應該監管 [s7]。他在該章沒有直接談 2008 年 [s7]；次貸危機中「大家不再相信對方帳上的資產」可以看成信任崩解的例子（本卡推論）。
+無直接論述。
 
 ## F7 今日對照鉤子
 

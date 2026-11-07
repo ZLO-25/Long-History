@@ -36,9 +36,8 @@ sources:
   - { id: s3, title: "10.14: Decline of the Tang Dynasty — LibreTexts（Lumen Early World Civilizations）", url: "https://human.libretexts.org/Bookshelves/History/World_History/Early_World_Civilizations_(Lumen)/10%3A_Chinese_Dynasties/10.14%3A_Decline_of_the_Tang_Dynasty", accessed: 2026-10-25 }
   - { id: s4, title: "Salt Commission — Wikipedia", url: "https://en.wikipedia.org/wiki/Salt_Commission", accessed: 2026-10-25 }
   - { id: s5, title: "Two-tax system — Wikipedia", url: "https://en.wikipedia.org/wiki/Two-tax_system", accessed: 2026-10-25 }
-  - { id: s6, title: "李錄：現代化十六講（之五、六）— 虎嗅網（2014-07-20）", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## A1 交戰方與聯盟結構
@@ -91,7 +90,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔講稿沒有談安史之亂。他把唐、宋並稱為東方農業文明的「黃金時代」，認為宋朝是第二次衝上農業文明的頂峰 [s6]；安史之亂正好發生在這兩者之間，可視為這段上升過程中的一次重挫（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 

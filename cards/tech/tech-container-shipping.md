@@ -33,11 +33,9 @@ sources:
   - { id: s3, title: "Marc Levinson，The Shipping Container Was an Idea Before Its Time — Smithsonian Magazine", url: "https://www.smithsonianmag.com/innovation/shipping-container-idea-before-time-180963730/", accessed: 2026-10-25 }
   - { id: s4, title: "2021 Suez Canal obstruction — Wikipedia", url: "https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction", accessed: 2026-10-25 }
   - { id: s5, title: "Port of Shanghai — Wikipedia", url: "https://en.wikipedia.org/wiki/Port_of_Shanghai", accessed: 2026-10-25 }
-  - { id: s6, title: "Sapiens: A Brief History of Humankind — Wikipedia", url: "https://en.wikipedia.org/wiki/Sapiens:_A_Brief_History_of_Humankind", accessed: 2026-10-25 }
   - { id: s8, title: "Chinese economic reform — Wikipedia", url: "https://en.wikipedia.org/wiki/Chinese_economic_reform", accessed: 2026-10-25 }
-  - { id: s7, title: "王雅〈從「李約瑟之問」到「李錄之答」〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## T1 是什麼、解決什麼問題
@@ -75,11 +73,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的公開摘要沒有談貨櫃。依香港01的摘要，李彔認為現代科技與市場經濟結合會產生持續累進的增長。[s7] 貨櫃本身技術很簡單，真正的關鍵是統一標準讓全球市場連成一片（此對照為本卡推論）。[s3]
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述（未查到他談貨櫃）。依公開摘要，哈拉瑞認為人類社會在政治與經濟上越來越互相連結，資本主義全球化正把世界推向單一的全球秩序。[s6] 貨櫃讓「把全世界當成一個工廠」在成本上變得可行，可以看成這股趨勢的物質基礎之一（此對照為本卡推論）。[s3]
+無直接論述。
 
 ## T7 今日對照鉤子
 

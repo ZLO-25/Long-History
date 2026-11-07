@@ -32,7 +32,6 @@ counterparts:
 sources:
   - { id: s1, title: "Principate — Wikipedia", url: "https://en.wikipedia.org/wiki/Principate", accessed: 2026-10-24 }
   - { id: s2, title: "Donald L. Wasson, The Principate of Augustus — World History Encyclopedia (2024)", url: "https://www.worldhistory.org/article/2363/the-principate-of-augustus/", accessed: 2026-10-24 }
-  - { id: s3, title: "李彔：現代化十六講（之五、六）— 虎嗅網", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-24 }
   - { id: s4, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24 }
   - { id: s5, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
   - { id: s6, title: "Han dynasty — Wikipedia", url: "https://en.wikipedia.org/wiki/Han_dynasty", accessed: 2026-10-25 }
@@ -74,11 +73,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在公開講稿中認為，羅馬藉地中海這片內海形成貿易帝國，社會發展首次達到農業文明的頂峰；他也指出這類高端政權的弱點在於皇位靠血緣傳承，無法保證繼任者的能力 [s3]。奧古斯都建立的長期和平與他留下的繼承問題，正好對應這兩點（此連結為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-依讀書筆記，哈拉瑞在《連結》中舉奧古斯都等皇帝為例，認為羅馬失去民主不是皇帝刻意破壞，而是帝國太大、資訊技術無法支撐有意義的公共討論；羅馬的宣傳也把皇帝塑造成神聖、不會犯錯 [s5]。元首制保留共和外殼、實為一人統治，正好說明「形式」與「實際權力」可以分離（此為本卡推論）。依公開摘要，他也把帝國看成能跨越疆域與統治者更替而延續的「強大虛構」[s4]。
+依讀書筆記，哈拉瑞在《連結》中舉奧古斯都等皇帝為例，認為羅馬失去民主不是皇帝刻意破壞，而是帝國太大、資訊技術無法支撐有意義的公共討論；羅馬的宣傳也把皇帝塑造成神聖、不會犯錯 [s5]。依公開摘要，他也把帝國看成能跨越疆域與統治者更替而延續的「強大虛構」[s4]。
 
 ## C9 今日對照鉤子
 

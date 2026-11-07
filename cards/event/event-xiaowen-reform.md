@@ -29,9 +29,8 @@ sources:
   - { id: s2, title: "Charles Xingzhong Li, Xiaowen Di — EBSCO Research Starters（2022）", url: "https://www.ebsco.com/research-starters/history/xiaowen-di", accessed: 2026-10-25 }
   - { id: s3, title: "Datong — Wikipedia", url: "https://en.wikipedia.org/wiki/Datong", accessed: 2026-10-25 }
   - { id: s4, title: "Luoyang — Wikipedia", url: "https://en.wikipedia.org/wiki/Luoyang", accessed: 2026-10-25 }
-  - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -75,7 +74,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 哈拉瑞
 
-無直接論述：查到的資料沒有提到孝文帝。依公開摘要，哈拉瑞說帝國會把許多不同的文化整合成一個更大的文化；被統治的外人努力融入，久了也會推動帝國本身改變 [s5]。北魏的情況方向相反：是統治的鮮卑人主動改採被統治者漢人的語言與姓氏（此對照為本卡推論）。
+無直接論述。
 
 ## C9 今日對照鉤子
 

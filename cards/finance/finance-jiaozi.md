@@ -26,12 +26,10 @@ sources:
   - { id: s1, title: "Jiaozi (currency) — Wikipedia", url: "https://en.wikipedia.org/wiki/Jiaozi_(currency)", accessed: 2026-10-25 }
   - { id: s2, title: "交子 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/交子", accessed: 2026-10-25 }
   - { id: s3, title: "Provincial China 期刊論文（UTS ePress，僅依搜尋摘要引用）", url: "https://epress.lib.uts.edu.au/journals/index.php/provincial_china/article/view/2844/pdf", accessed: 2026-10-25 }
-  - { id: s4, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
-  - { id: s5, title: "Sapiens 第 10 章〈金錢的味道〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25 }
   - { id: s6, title: "Bank of England — Wikipedia", url: "https://en.wikipedia.org/wiki/Bank_of_England", accessed: 2026-10-25 }
   - { id: s7, title: "Bank of England note issues — Wikipedia", url: "https://en.wikipedia.org/wiki/Bank_of_England_note_issues", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## F1 是什麼、解決什麼問題
@@ -63,11 +61,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔公開講稿沒有談交子或紙幣。他指出中國四大發明中有三項出現在宋代 [s4]，但也說中國歷史上「每到財政出現問題的時候，商業階層就成為政府的提款機」，商業活動總是為國家政權服務 [s4]。交子由商人發明、後來被朝廷接手並為了籌錢大量增發而貶值，可以拿來對照這個說法（此為本卡推論）[s2]。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的摘要沒有提到交子。依 LitCharts 摘要，哈拉瑞認為金錢是讓陌生人能大規模合作的互相信任系統，什麼東西都能當錢，只要大家同意它有價值，他稱之為「純粹心理上的革命」[s5]。交子本身只是一張紙，它能代表大筆鐵錢，正是這種信任的例子；1020 年私交子擠兌，則是信任崩潰的樣子（此為本卡推論）[s2][s5]。
+無直接論述。
 
 ## F7 今日對照鉤子
 

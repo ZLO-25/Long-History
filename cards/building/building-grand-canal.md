@@ -37,9 +37,8 @@ sources:
   - { id: s3, title: "Grand Canal — EBSCO Research Starters", url: "https://www.ebsco.com/research-starters/history/grand-canal/", accessed: 2026-10-25 }
   - { id: s4, title: "Emperor Yang of Sui — Wikipedia", url: "https://en.wikipedia.org/wiki/Emperor_Yang_of_Sui", accessed: 2026-10-25 }
   - { id: s5, title: "Salt Commission — Wikipedia", url: "https://en.wikipedia.org/wiki/Salt_Commission", accessed: 2026-10-25 }
-  - { id: s6, title: "李錄：現代化十六講（之一、二）— 虎嗅網（2014-07-16）", url: "https://www.huxiu.com/article/37818.html", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## D1 功能與象徵
@@ -72,7 +71,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔公開講稿沒有談大運河或隋朝。他在《現代化十六講》提到東方文明的中心從黃河流域移向長江流域 [s6]；大運河正是把這兩個區域接起來、讓北方政治中心吃到南方糧食的工程（此對照為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 

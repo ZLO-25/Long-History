@@ -29,9 +29,8 @@ sources:
   - { id: s2, title: "Yumen Pass — Wikipedia", url: "https://en.wikipedia.org/wiki/Yumen_Pass", accessed: 2026-10-25 }
   - { id: s3, title: "Emily Mark, Great Wall of China — World History Encyclopedia（2015）", url: "https://www.worldhistory.org/Great_Wall_of_China/", accessed: 2026-10-25 }
   - { id: s4, title: "Qin's wars of unification — Wikipedia", url: "https://en.wikipedia.org/wiki/Qin%27s_wars_of_unification", accessed: 2026-10-25 }
-  - { id: s5, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## D1 功能與象徵
@@ -58,7 +57,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：李彔沒有談長城。間接相關：他在公開講稿中說，北方游牧民族是中國與歐洲農業文明的共同威脅，中國與游牧民族的爭奪持續了數千年 [s5]。長城可以看作這場長期爭奪在地面上留下的痕跡（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 

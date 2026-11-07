@@ -42,11 +42,9 @@ sources:
   - { id: s6, title: "Woosung Road — Wikipedia", url: "https://en.wikipedia.org/wiki/Woosung_Road", accessed: 2026-10-25 }
   - { id: s7, title: "臺灣鐵路 (清朝) — 維基百科", url: "https://zh.wikipedia.org/zh-tw/臺灣鐵路_(清朝)", accessed: 2026-10-25 }
   - { id: s8, title: "Railway time — Wikipedia", url: "https://en.wikipedia.org/wiki/Railway_time", accessed: 2026-10-25 }
-  - { id: s9, title: "Sapiens Chapter 18 A Permanent Revolution 摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-18-a-permanent-revolution", accessed: 2026-10-25 }
-  - { id: s10, title: "王雅〈從「李約瑟之問」到「李錄之答」〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25 }
   - { id: s11, title: "Grand Canal (China) — Wikipedia", url: "https://en.wikipedia.org/wiki/Grand_Canal_(China)", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## T1 是什麼、解決什麼問題
@@ -86,11 +84,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的公開摘要沒有談鐵路。依香港01的摘要，李彔認為「現代化」是現代科技與市場經濟結合後，產生持續累進的經濟增長。[s10] 早期英國鐵路正是民間公司集資、靠運費和股利運作的例子 [s3]；而吳淞鐵路被清廷買下拆除 [s6]，可以拿來思考「只有技術、沒有接納它的制度」會怎樣（此對照為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述（未查到公開摘要提及鐵路）。依公開摘要，哈拉瑞指出工業時代讓時鐘精確管理每一分鐘，取代農業社會鬆散的季節節奏。[s9] 鐵路時刻表逼出全國統一時間，就是這種「工業時間」的具體例子（此對照為本卡推論）。[s8]
+無直接論述。
 
 ## T7 今日對照鉤子
 

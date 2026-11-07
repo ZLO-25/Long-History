@@ -30,10 +30,8 @@ sources:
   - { id: s1, title: "Battle of Changping — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Changping", accessed: 2026-10-25 }
   - { id: s2, title: "Mass Grave From Ancient Battle Earmarked for Shanxi Cultural Park — Sixth Tone（2020-07-23）", url: "https://sixthtone.com/news/1005971", accessed: 2026-10-25 }
   - { id: s3, title: "Gaoping — Wikipedia", url: "https://en.wikipedia.org/wiki/Gaoping", accessed: 2026-10-25 }
-  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
-  - { id: s5, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## A1 交戰方與聯盟結構
@@ -80,11 +78,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：李彔的公開講稿沒有談長平之戰。間接相關：他說農業文明總能量有上限，社會反覆陷入爭奪人口與土地的戰爭 [s4]；長平正是兩個大國把全國成年男子投入一場消耗戰的例子（此連結為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的資料沒有提到長平。依讀書筆記，哈拉瑞把秦帝國描述為試圖以軍事方式組織數千萬人的極權實驗 [s5]；長平之戰中秦國徵發全國 15 歲以上男子，可視為這套動員能力的一個例子（此連結為本卡推論）。
+無直接論述。
 
 ## A11 今日對照鉤子
 

@@ -29,11 +29,9 @@ sources:
   - { id: s2, title: "Excerpts from the Magna Carta (Annotated) — Bill of Rights Institute", url: "https://billofrightsinstitute.org/activities/excerpts-from-the-magna-carta-annotated/", accessed: 2026-10-25 }
   - { id: s3, title: "Magna Carta and counselling the king — History of Government blog（GOV.UK, 2015）", url: "https://history.blog.gov.uk/2015/06/15/magna-carta-and-counselling-the-king/", accessed: 2026-10-25 }
   - { id: s4, title: "Magna Carta 1215, Clause 12 — The Magna Carta Project", url: "https://magnacartaresearch.org/read/magna_carta_1215/Clause_12", accessed: 2026-10-25 }
-  - { id: s5, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
-  - { id: s6, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
   - { id: s7, title: "Wang Anshi — Wikipedia", url: "https://en.wikipedia.org/wiki/Wang_Anshi", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -74,11 +72,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔講稿沒有提到大憲章。他說英國是「傳統君權最弱的政體」，後來發展出為商人服務的有限政府，這在中國無法想像。[s5] 大憲章限制國王收稅與抓人的權力，可看成這種「弱君權」的早期例子（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的公開摘要沒有提到大憲章。依《連結》讀書筆記，哈拉瑞重視「自我修正機制」，例如選舉、制衡，讓制度能承認錯誤。[s6] 第 61 條的 25 人委員會，可看成很早期、也很粗糙的制衡設計（此為本卡推論）。[s1]
+無直接論述。
 
 ## C9 今日對照鉤子
 

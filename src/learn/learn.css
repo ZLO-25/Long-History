@@ -57,11 +57,6 @@
 .why { font-size: 1.05em; background: #fffbea; border-radius: 8px; padding: 8px 10px; margin: 8px 0; line-height: 1.6; }
 .persp-switch { font-size: .88em; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 2px; }
 .persp { background: #ebf8ff; border-radius: 8px; padding: 6px 10px; font-size: .95em; }
-.depth-tabs { display: flex; gap: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 10px 0; }
-.depth-tabs button { flex: 1; border: 0; background: #fff; padding: 8px 4px; font-size: .95em; display: flex; flex-direction: column; align-items: center; }
-.depth-tabs button small { font-size: .72em; color: var(--muted); }
-.deep-note { background: #faf5ff; border: 1px solid #d6bcfa; border-radius: 8px; padding: 6px 10px; font-size: .92em; line-height: 1.6; }
-.depth-tabs button.on { background: #2f855a; color: #fff; font-weight: 700; } .depth-tabs button.on small { color: #e6fffa; }
 .lc-sec { border-top: 1px solid var(--line); padding: 8px 0; }
 .lc-sec h3 { font-size: 1.05em; margin: 4px 0 6px; }
 .lc-sec.story { border-top: 0; font-size: 1.08em; }

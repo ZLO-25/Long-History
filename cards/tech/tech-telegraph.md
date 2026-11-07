@@ -37,10 +37,8 @@ sources:
   - { id: s4, title: "Transatlantic telegraph cable — Wikipedia", url: "https://en.wikipedia.org/wiki/Transatlantic_telegraph_cable", accessed: 2026-10-25 }
   - { id: s5, title: "天下雜誌專文（清代臺灣電報建設）", url: "https://www.cw.com.tw/index.php/article/5106636", accessed: 2026-10-25 }
   - { id: s6, title: "丁日昌 — 維基百科", url: "https://zh.wikipedia.org/zh-tw/丁日昌", accessed: 2026-10-25 }
-  - { id: s7, title: "Nexus: A Brief History of Information Networks from the Stone Age to AI — Wikipedia", url: "https://en.wikipedia.org/wiki/Nexus:_A_Brief_History_of_Information_Networks_from_the_Stone_Age_to_AI", accessed: 2026-10-25 }
-  - { id: s8, title: "王雅〈從「李約瑟之問」到「李錄之答」〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## T1 是什麼、解決什麼問題
@@ -80,11 +78,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的公開摘要沒有談電報。依香港01的摘要，李彔認為有解釋力的知識要和社會組織形式結合，才會轉化成技術。[s8] 電報從實驗室裡的電學（高斯、韋伯）走到由國會撥款、企業經營的全國網絡，可以看成這種轉化的一例（此對照為本卡推論）。[s1][s2]
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述（查到的《連結》公開摘要沒有提電報）。依摘要，哈拉瑞認為以為「資訊越多、越快，社會就自然越接近真相」是天真的想法。[s7] 電報讓訊息傳得更快，但不保證訊息更正確（此對照為本卡推論）。
+無直接論述。
 
 ## T7 今日對照鉤子
 

@@ -30,7 +30,6 @@ sources:
   - { id: s3, title: "World Wide Web — Wikipedia", url: "https://en.wikipedia.org/wiki/World_Wide_Web", accessed: 2026-10-25, tier: 百科 }
   - { id: s4, title: "Internet — Wikipedia", url: "https://en.wikipedia.org/wiki/Internet", accessed: 2026-10-25, tier: 百科 }
   - { id: s5, title: "Nexus: A Brief History of Information Networks from the Stone Age to AI — Wikipedia", url: "https://en.wikipedia.org/wiki/Nexus:_A_Brief_History_of_Information_Networks_from_the_Stone_Age_to_AI", accessed: 2026-10-25, tier: 百科 }
-  - { id: s6, title: "王雅〈從「李約瑟之問」到「李錄之答」〉— 香港01（2020）", url: "https://www.hk01.com/article/471578", accessed: 2026-10-25, tier: 通論 }
   - { id: s7, title: "Movable type — Wikipedia", url: "https://en.wikipedia.org/wiki/Movable_type", accessed: 2026-10-25, tier: 百科 }
   - { id: s8, title: "Tim Berners-Lee, Information Management: A Proposal, CERN, 1989-03（1990-05 修訂）— W3C", url: "https://www.w3.org/History/1989/proposal.html", accessed: 2026-10-25, tier: 一手 }
   - { id: s9, title: "Ina Fourie, Review of Janet Abbate, Inventing the Internet, Online Information Review 25(4), 2001", url: "https://www.emeraldinsight.com/insight/content/doi/10.1108/oir.2001.25.4.271.2/full/html", accessed: 2026-10-25, tier: 學術 }
@@ -67,7 +66,7 @@ learn:
     - { history: 歐洲史, text: "從歐洲看，全球資訊網誕生在日內瓦附近的歐洲核子研究組織，1993 年宣布技術免費開放給所有人。[s3]" }
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "Berners-Lee 1989 提案兩段引文相符；核戰傳言誤解措辭已依建議修正" }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## T1 是什麼、解決什麼問題
@@ -100,17 +99,17 @@ lens_status: 依公開資料推論，未對照原書
 - **經濟**：1995 年商業化後，網路從學術工具變成商業平台。[s2][s4]
 - **知識取得**：全球資訊網免費開放後，任何人都能架網頁、讀網頁，發布資訊的門檻大降。[s3]
 - **治理模式**：網際網路的規則由政府、企業和學界長期合作制定，不是由單一公司擁有。[s2]
-- **資訊品質**：資訊變多變快，但假訊息也跟著擴散，這成為今天的社會問題（見下方哈拉瑞）。[s5]
+- **資訊品質**：資訊變多變快，但假訊息也跟著擴散，這成為今天的社會問題。[s5]
 
 ## T6 雙軌解讀
 
 ### 李彔
 
-無直接論述：查到的公開摘要沒有談網際網路。依香港01的摘要，李彔認為有解釋力的知識要和社會組織形式結合，才會轉化成技術，而現代科技與市場經濟結合會帶來持續累進的增長。[s6] 網際網路先由政府出資、大學研究，1995 年後交給市場經營，可視為這種結合的例子（此對照為本卡推論）。[s2][s4]
+無直接論述。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞在《連結》中說，以為「資訊越多，社會就自然更有力量、更接近真相」是天真的想法；吸引人的故事常比真相更有影響力，他也強調科學與民主這類能「自我修正」的機制。[s5] 摘要沒有直接談網際網路的歷史，但這個觀點常被用來討論網路上的假訊息（此對照為本卡推論）。
+無直接論述。
 
 ## T7 今日對照鉤子
 

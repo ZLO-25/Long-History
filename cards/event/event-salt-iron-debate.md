@@ -29,9 +29,8 @@ sources:
   - { id: s2, title: "Salt and Iron Debate — 5000yan 中華上下五千年英文版", url: "https://en.5000yan.com/history-of-china/western-han/salt-iron-debate.html", accessed: 2026-10-25 }
   - { id: s3, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-24 }
   - { id: s4, title: "Donald B. Wagner, Technology as seen through the case of ferrous metallurgy in Han China", url: "https://donwagner.dk/EncIt/EncIt.html", accessed: 2026-10-25 }
-  - { id: s5, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -70,7 +69,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在公開講稿中說，自漢代建立帝國以後，中國政府不可能不介入經濟；政權長期要應付游牧民族入侵，財政出問題時商人就成了政府的「提款機」，商業總是服務於國家的目標 [s5]。鹽鐵會議上桑弘羊的論點（國家要掌握經濟才能抵禦外敵）幾乎就是這個說法的當事人版本（此連結為本卡推論，講稿沒有提到鹽鐵會議）。
+無直接論述。
 
 ### 哈拉瑞
 

@@ -30,7 +30,6 @@ sources:
   - { id: s1, title: "Burning of books and burying of scholars — Wikipedia", url: "https://en.wikipedia.org/wiki/Burning_of_books_and_burying_of_scholars", accessed: 2026-10-25, tier: 百科 }
   - { id: s2, title: "Li Ssu（李斯）— New World Encyclopedia", url: "https://www.newworldencyclopedia.org/entry/Li_Ssu", accessed: 2026-10-25, tier: 百科 }
   - { id: s3, title: "Xianyang — Wikipedia", url: "https://en.wikipedia.org/wiki/Xianyang", accessed: 2026-10-24, tier: 百科 }
-  - { id: s4, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25, tier: 摘要 }
   - { id: s5, title: "司馬遷《史記．秦始皇本紀》原文 — 中國哲學書電子化計劃（ctext.org；本環境連線被擋（proxy 403）未能開啟，不作唯一依據；引句經 s6、s7、s8 核對）", url: "https://ctext.org/shiji/qin-shi-huang-ben-ji/zh", accessed: 2026-11-01, tier: 一手 }
   - { id: s6, title: "焚書坑儒 — 中文維基百科（含《史記》引文與學者觀點）", url: "https://zh.wikipedia.org/wiki/焚书坑儒", accessed: 2026-11-01, tier: 百科 }
   - { id: s7, title: "王子今〈秦文化的實用之風〉，原載《光明日報》— 愛思想轉載（引《史記》卷六〈秦始皇本紀〉焚書令與卷八七〈李斯列傳〉）", url: "https://www.aisixiang.com/data/139553.html", accessed: 2026-11-01, tier: 通論 }
@@ -63,7 +62,7 @@ learn:
     - { history: 中國史, text: "從中國史看，焚書坑儒成為後世批評秦朝暴政、也拿來對照漢代尊崇儒學的代表故事。[s1]" }
 crosscheck: { date: 2026-11-01, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "ctext 打不開。焚書令「臣請史官非秦記皆燒之……以古非今者族」經 s7 王子今文核對，明確出自《史記》卷六〈秦始皇本紀〉（始皇三十四年），〈李斯列傳〉是文字較簡的另一版本（「諸有文學詩書百家語者，蠲除去之」），已在 from 註明；另補 s8 楊憲益英譯（一手，可開啟）。「四百六十餘人，皆阬之咸陽」經 s6 註腳核對出自〈秦始皇本紀〉。s1、s6 已核對 Neininger（《劍橋中國秦漢史》採信見 s6）、Nylan、Kern、李開元、4 世紀初四字連用、衛宏 700 人。historiography 兩題各有正反並列與來源。保留：s7 是報刊文章，列為通論。" }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -109,7 +108,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 哈拉瑞
 
-依讀書筆記，哈拉瑞在《連結》中把秦帝國稱為近代以前最有野心的極權實驗，指出它嚴刑峻法、敵視地方菁英，最後因為規模與強度太大而崩潰 [s4]。焚書是這種「把資訊集中到中央、不容挑戰」做法的典型（此連結為本卡推論；筆記沒有提到焚書）。
+無直接論述。
 
 ## C9 今日對照鉤子
 

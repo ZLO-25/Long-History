@@ -11,6 +11,7 @@ import { PersonBlock } from './Person';
 import { CardImages } from './Images';
 import { PopCulture } from './PopCulture';
 import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { directLens } from '../lib/lens';
 
 interface Props {
   card: Card; index: Index; byId: Map<string, Card>;
@@ -80,14 +81,14 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
         </dl>
       </section>
 
-      {c.sections.map((s) => (
+      {c.sections.filter((s) => s.role !== 'lens' || directLens(s).length > 0).map((s) => (
         <section key={s.code} className={`cd-sec ${s.text ? '' : 'empty'}`}>
           <h3><span className="code">{s.code}</span>{s.title}<span className={`lvl lvl-${s.level}`}>{LEVEL[s.level]}</span></h3>
           {!s.text ? <p className="muted">（未填）</p> : s.role === 'lens' && s.sub ? (
             <div className="lens">
-              <p className="lens-status">⚠ {c.lens_status}</p>
-              {['李彔', '哈拉瑞'].map((k) => (
-                <div key={k} className="lens-col"><h4>{k}</h4><Markdown text={s.sub![k]?.text ?? '（未填）'} sources={c.sources} /></div>
+              <p className="lens-status">⚠ 只收他們直接談到的話，依公開資料整理，未對照原書</p>
+              {directLens(s).map(([k, t]) => (
+                <div key={k} className="lens-col"><h4>{k}</h4><Markdown text={t} sources={c.sources} /></div>
               ))}
             </div>
           ) : <Markdown text={s.text} sources={c.sources} />}

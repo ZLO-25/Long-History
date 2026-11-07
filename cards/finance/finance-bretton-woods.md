@@ -33,8 +33,6 @@ sources:
   - { id: s3, title: "Nixon and the End of the Bretton Woods System, 1971–1973 — Office of the Historian, U.S. Department of State", url: "https://history.state.gov/milestones/1969-1976/nixon-shock", accessed: 2026-10-25, tier: 通論 }
   - { id: s4, title: "Nixon Ends Convertibility of US Dollars to Gold and Announces Wage/Price Controls — Federal Reserve History", url: "https://www.federalreservehistory.org/essays/gold-convertibility-ends", accessed: 2026-10-25, tier: 通論 }
   - { id: s5, title: "Mount Washington Hotel — Wikipedia", url: "https://en.wikipedia.org/wiki/Mount_Washington_Hotel", accessed: 2026-10-25, tier: 百科 }
-  - { id: s6, title: "李彔〈全球價值投資與時代〉北京大學演講（2024 年 12 月，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/67a4f8e8160103c8a74017a7_%E5%85%A8%E7%90%83%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E4%B8%8E%E6%97%B6%E4%BB%A32024%E5%B9%B412%E6%9C%88.pdf", accessed: 2026-10-25, tier: 摘要 }
-  - { id: s7, title: "Sapiens 第 10 章〈金錢的味道〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25, tier: 摘要 }
   - { id: s8, title: "Articles of Agreement of the International Monetary Fund, 1944-07-22（節錄，After the Gold Standard 1931–1999, Vol. III）— World Gold Council 網站", url: "https://www.gold.org/sites/default/files/documents/after-the-gold-standard/1944jul22.pdf", accessed: 2026-10-25, tier: 一手 }
   - { id: s9, title: "Michael D. Bordo, The Operation and Demise of the Bretton Woods System; 1958 to 1971, NBER Working Paper No. 23189, 2017（RePEc 摘要頁）", url: "https://ideas.repec.org/p/nbr/nberwo/23189.html", accessed: 2026-10-25, tier: 學術 }
 importance: 3
@@ -73,7 +71,7 @@ learn:
     - { history: 錢的歷史, text: "從錢的歷史看，1971 年後美元不再能換黃金，價值完全靠大家對政府的信任，成為法定貨幣。[s4]" }
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "首查：協定第 4 條引文截斷漏掉美元；已補全並複查通過" }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## F1 是什麼、解決什麼問題
@@ -109,11 +107,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔提到凱因斯對戰後布雷頓森林體系與全球金融體系設計的貢獻，但他的重點是凱因斯同時是一位優秀的價值投資人，從 1921 年到 1946 年管理劍橋國王學院的捐贈基金 [s6]。除此之外，查到的講稿沒有直接評論這個體系，不再推論。
+無直接論述。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞認為金錢是一種「共同相信」的虛構，價值來自大家的集體信任 [s7]。他在該章沒有談金本位或美元 [s7]；以本卡來看，1971 年以前美元的信用一部分靠「能換黃金」的承諾，之後完全靠對美國政府的信任（本卡推論）[s4]。
+無直接論述。
 
 ## F7 今日對照鉤子
 

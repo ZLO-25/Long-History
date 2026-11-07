@@ -30,11 +30,9 @@ sources:
   - { id: s1, title: "Wang Anshi — Wikipedia", url: "https://en.wikipedia.org/wiki/Wang_Anshi", accessed: 2026-10-25 }
   - { id: s2, title: "熙寧變法 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/王安石變法", accessed: 2026-10-25 }
   - { id: s3, title: "Kaifeng — Wikipedia", url: "https://en.wikipedia.org/wiki/Kaifeng", accessed: 2026-10-25 }
-  - { id: s4, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
   - { id: s5, title: "Magna Carta — Wikipedia", url: "https://en.wikipedia.org/wiki/Magna_Carta", accessed: 2026-10-25 }
-  - { id: s6, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## C1 背景
@@ -79,11 +77,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔沒有專門評論變法本身，只順帶提到「王安石時代」的科舉還考天文、歷史、地理、經濟，後來卻只考古典。[s4] 他也說，中國每到財政出問題，商業階層就成為「政府的提款機」。[s4] 依此推論：市易法這類由官方經營買賣的做法，正好符合他說的「商業為國家目標服務」的模式（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的公開摘要沒有提到王安石。依《連結》讀書筆記，哈拉瑞認為官僚系統擅長把資訊分類，但容易「重秩序、輕真相」。[s6] 青苗法用收入考核官員，結果官員強迫農民借錢，可看成這種現象的例子（此為本卡推論）。[s1]
+無直接論述。
 
 ## C9 今日對照鉤子
 

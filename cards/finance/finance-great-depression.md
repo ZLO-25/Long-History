@@ -35,7 +35,6 @@ sources:
   - { id: s5, title: "U.S. Securities and Exchange Commission — Wikipedia", url: "https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission", accessed: 2026-10-25, tier: 百科 }
   - { id: s6, title: "李彔〈全球價值投資與時代〉北京大學演講（2024 年 12 月，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/67a4f8e8160103c8a74017a7_%E5%85%A8%E7%90%83%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E4%B8%8E%E6%97%B6%E4%BB%A32024%E5%B9%B412%E6%9C%88.pdf", accessed: 2026-10-25, tier: 摘要 }
   - { id: s7, title: "李錄書評：中國仍然處在黃金發展的機遇期（評辜朝明《大衰退年代》）— 虎嗅網，2019-11-20", url: "https://www.huxiu.com/article/327249.html", accessed: 2026-10-25, tier: 摘要 }
-  - { id: s8, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25, tier: 摘要 }
   - { id: s9, title: "股市時光機：一張舊報紙回到「台灣錢淹腳目」的瘋狂年代 — Smart 自學網（商業周刊），2019-04-29", url: "https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?ID=38490", accessed: 2026-10-25, tier: 通論 }
   - { id: s10, title: "蔡明彰觀點：挑戰 12682 天價的危與機 — 鉅亨網，2020-07-23", url: "https://news.cnyes.com/news/id/4508251", accessed: 2026-10-25, tier: 通論 }
   - { id: s11, title: "李彔〈價值投資在中國的展望〉北京大學演講（2015-10-23，喜馬拉雅資本官網 PDF）", url: "https://cdn.prod.website-files.com/5ef3c7300432b40ed865991a/5f0936c4321954706fa9eca2_%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%B1%95%E6%9C%9B-%E6%9D%8E%E5%BD%952015-10-23%E5%8C%97%E5%A4%A7%E6%BC%94%E8%AE%B2.pdf", accessed: 2026-10-25, tier: 摘要 }
@@ -126,7 +125,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞認為「完全自由放任」的市場觀很天真：資本主義需要信任，詐欺和謊言會讓市場崩盤，所以政府應該管理市場 [s8]。他在該章沒有直接談大蕭條 [s8]；1934 年成立 SEC、要求資訊公開，可以看成這個觀點的實例（本卡推論）[s5]。
+無直接論述。
 
 ## F7 今日對照鉤子
 

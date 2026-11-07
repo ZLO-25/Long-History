@@ -31,10 +31,8 @@ counterparts:
 sources:
   - { id: s1, title: "Crusades — Wikipedia", url: "https://en.wikipedia.org/wiki/Crusades", accessed: 2026-10-25 }
   - { id: s2, title: "Crusades — HISTORY（A&E Television Networks）", url: "https://www.history.com/articles/crusades", accessed: 2026-10-25 }
-  - { id: s3, title: "Origin of Monotheism（Sapiens 摘要）— Shortform", url: "https://www.shortform.com/blog/origin-of-monotheism/", accessed: 2026-10-25 }
-  - { id: s4, title: "李錄：現代化十六講（之五、六）— 虎嗅網（2014-07-20）", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## A1 交戰方與聯盟結構
@@ -92,11 +90,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔講稿沒有談十字軍。他描述中世紀歐洲在封建王國之間、教宗與王國之間進行了上千年「無窮無盡的戰爭」[s4]，十字軍可視為這種歐洲內部權力結構向外輸出的例子（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的摘要沒有提到十字軍。依公開摘要，哈拉瑞認為一神教本質上比多神教更不寬容，信徒覺得必須否定其他宗教、讓別人改宗 [s3]；十字軍以「為唯一的神而戰」為號召，可作為這個論點的例子（此為本卡推論）。
+無直接論述。
 
 ## A11 今日對照鉤子
 

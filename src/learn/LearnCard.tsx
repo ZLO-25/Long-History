@@ -1,5 +1,5 @@
-// 學習模式的卡片：故事 → 理解 → 深入 三層，學生自己決定讀多深
-import { useEffect, useMemo, useState } from 'react';
+// 學習模式的卡片：只有一個詳細版（故事、史料、完整段落、史家爭論一次讀完；2026-11-07 起不再分國中／高中）
+import { useMemo, useState } from 'react';
 import type { Card, History, Index } from '../types';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import { LearnText, SourceList, TermPop, type Term } from './LearnText';
@@ -9,25 +9,20 @@ import { CauseList, PathNav } from '../components/Story';
 import { PersonBlock } from '../components/Person';
 import { CardImages } from '../components/Images';
 import { PopCulture } from '../components/PopCulture';
+import { directLens } from '../lib/lens';
 
-export type Depth = 'story' | 'understand' | 'deep';
-// 國中讀到「理解」就夠；「深入」是史家爭論與完整段落，標成高中選讀
-const DEPTHS: [Depth, string, string][] = [['story', '故事', '3 分鐘・國中'], ['understand', '理解', '10 分鐘・國中'], ['deep', '深入', '高中選讀']];
 const learnOk = (x: Card) => !!x.learn;
 const researchHref = (id: string) => `${location.pathname}?mode=research&card=${encodeURIComponent(id)}`;
-const textLen = (t?: string) => (t ?? '').replace(/\[s\d+\]|\*\*/g, '').length;
 
 interface Props {
-  card: Card; index: Index; history: History | null; depth?: Depth; onDepth?: (d: Depth) => void;
+  card: Card; index: Index; history: History | null;
   onOpen: (id: string) => void; onHistory?: (id: string) => void; compact?: boolean;
   onTopic?: (name: string) => void; topicCount?: (t: { cards: string[] }) => number;
   /** 這張卡在哪些單元／故事線（上一站、下一站）；hereUnit＝正在讀的單元，不重複列 */
   onStory?: (id: string) => void; onUnit?: (id: string) => void; hereUnit?: string;
 }
 
-export function LearnCard({ card: c, index, history, depth: depth0 = 'story', onDepth, onOpen, onHistory, compact, onTopic, topicCount, onStory, onUnit, hereUnit }: Props) {
-  const [depth, setDepth] = useState<Depth>(depth0);
-  useEffect(() => setDepth(depth0), [depth0, c.id]);
+export function LearnCard({ card: c, index, history, onOpen, onHistory, compact, onTopic, topicCount, onStory, onUnit, hereUnit }: Props) {
   const [term, setTerm] = useState<Term | null>(null);
   const L = c.learn!;
   // 從哪個史看：預設是目前選的史（如果這張卡屬於它）
@@ -39,15 +34,13 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
     .map((t) => ({ term: t.tag, plain: t.plain!, example: t.example! })), [index, c]);
   // 名詞小抄：結構標籤的白話解釋和卡片自己的名詞重複時（例如「主權違約」），只留卡片的
   const terms = [...L.key_terms, ...tagTerms.filter((t) => !L.key_terms.some((k) => k.term === t.term))];
-  const set = (d: Depth) => { setDepth(d); onDepth?.(d); };
   const sec = (code: string) => c.sections.find((s) => s.code === code);
   const today = c.sections.find((s) => s.role === 'today_hook');
   const nonAn = c.sections.find((s) => s.role === 'non_analogous');
   const lens = c.sections.find((s) => s.role === 'lens');
   const isFin = c.type === 'finance';
-  // 「深入」層多出來的字數（給學生判斷要不要讀）
-  const deepChars = useMemo(() => textLen(L.historiography) + textLen(L.exaggerated)
-    + c.sections.filter((x) => x.text && !L.understand.includes(x.code) && x.role !== 'lens' && x.role !== 'today_hook' && x.role !== 'non_analogous').reduce((n, x) => n + textLen(x.text), 0), [c, L]);
+  // 李彔、哈拉瑞：只留他們直接談到的；兩人都沒談就整塊不出現
+  const thinkers = directLens(lens);
   const causal = new Set([...(c.causes ?? []), ...(c.effects ?? [])].map((x) => x.id).filter(Boolean) as string[]);
   const ext = [...c.links, ...c.backlinks, ...c.counterparts.map((x) => x.id)].filter((id, i, a) => a.indexOf(id) === i && !causal.has(id))
     .map((id) => index.cards.find((x) => x.id === id)).filter((x): x is Card => !!x?.learn);
@@ -75,44 +68,32 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
 
       {onStory && <PathNav card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} onUnit={onUnit} onStory={onStory} hereUnit={hereUnit} />}
 
-      <div className="depth-tabs" role="tablist" aria-label="閱讀深度">
-        {DEPTHS.map(([d, l, hint]) => (
-          <button key={d} role="tab" aria-selected={depth === d} className={depth === d ? 'on' : ''} onClick={() => set(d)}>{l}<small>{hint}</small></button>
-        ))}
-      </div>
-
-      {depth === 'deep' && (
-        <p className="deep-note">🎓 <b>高中選讀</b>：這一層收錄完整段落和史家的爭論，約 {Math.max(1, Math.round(deepChars / 400))} 分鐘（{deepChars.toLocaleString()} 字）。國中生讀完「理解」就夠了；想挑戰再往下讀。</p>
-      )}
       <CauseList card={c} side="causes" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />
       <section className="lc-sec story">{T(L.story)}</section>
       {c.type === 'person' && <PersonBlock card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />}
 
-      {depth !== 'story' && <>
+      <>
         {L.primary_source.map((p, i) => (
           <figure key={i} className="primary">
             <blockquote>{p.text}</blockquote>
             <figcaption>— {p.from} <SourceList ids={[].concat(p.src as any)} sources={c.sources} /></figcaption>
           </figure>
         ))}
-        {(depth === 'understand' ? L.understand : c.sections.filter((s) => s.text && s.role !== 'lens' && s.role !== 'today_hook' && s.role !== 'non_analogous').map((s) => s.code)).map((code) => {
+        {(c.sections.filter((s) => s.text && s.role !== 'lens' && s.role !== 'today_hook' && s.role !== 'non_analogous').map((s) => s.code)).map((code) => {
           const s = sec(code);
           return s?.text ? <section key={code} className="lc-sec"><h3>{s.title}</h3>{T(s.text)}</section> : null;
         })}
         {L.money_scale && <section className="lc-sec money"><h3>💰 換算成工作天</h3>{T(L.money_scale)}</section>}
-      </>}
-
-      {depth === 'deep' && <>
         <section className="lc-sec debate"><h3>⚖ 史家怎麼吵</h3>{T(L.historiography)}</section>
         {L.exaggerated && <section className="lc-sec warn"><h3>⚠ 這個故事可能被誇大了</h3>{T(L.exaggerated)}</section>}
-        {lens?.sub && (
+        {thinkers.length > 0 && (
           <details className="lc-sec thinkers">
-            <summary>選讀：思想家怎麼看（李彔、哈拉瑞）</summary>
-            <p className="muted small">他們不是歷史學家，以下依公開演講與書摘整理，未對照原書。</p>
-            {['李彔', '哈拉瑞'].map((k) => <div key={k}><h4>{k}</h4>{T(lens.sub![k]?.text ?? '')}</div>)}
+            <summary>選讀：思想家怎麼看（{thinkers.map(([k]) => k).join('、')}）</summary>
+            <p className="muted small">他們不是歷史學家，以下只收他們直接談到的話，依公開演講與書摘整理，未對照原書。</p>
+            {thinkers.map(([k, t]) => <div key={k}><h4>{k}</h4>{T(t)}</div>)}
           </details>
         )}
-      </>}
+      </>
 
       {isFin && L.hindsight && <section className="lc-sec warn"><h3>🔍 事後看很清楚的陷阱</h3>{T(L.hindsight)}<p className="muted small">本站內容是歷史學習，不構成投資建議。</p></section>}
 
@@ -127,7 +108,7 @@ export function LearnCard({ card: c, index, history, depth: depth0 = 'story', on
         </section>
       )}
 
-      {depth !== 'story' && <PopCulture card={c} render={T} />}
+      <PopCulture card={c} render={T} />
       {(L.misconceptions ?? []).length > 0 && (
         <section className="lc-sec"><h3>常見誤解</h3>{(L.misconceptions ?? []).map((m, i) => <div key={i}>{T(m)}</div>)}</section>
       )}

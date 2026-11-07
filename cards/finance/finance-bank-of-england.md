@@ -34,12 +34,10 @@ sources:
   - { id: s3, title: "Bank of England note issues — Wikipedia", url: "https://en.wikipedia.org/wiki/Bank_of_England_note_issues", accessed: 2026-10-25 }
   - { id: s4, title: "History of the British national debt — Wikipedia", url: "https://en.wikipedia.org/wiki/History_of_the_British_national_debt", accessed: 2026-10-25 }
   - { id: s5, title: "Davis Kedrosky, 1689: Uncovering the World New Institutionalism Created（轉述 North & Weingast 1989 及其批評）— LessWrong 2022", url: "https://www.lesswrong.com/posts/iDrqZ7fa9pDKBzKuu/1689-uncovering-the-world-new-institutionalism-created", accessed: 2026-10-25 }
-  - { id: s6, title: "李彔《現代化十六講》之九（現代化有沒有可能在中國誕生），虎嗅 2014", url: "https://www.huxiu.com/article/38364.html", accessed: 2026-10-25 }
   - { id: s7, title: "Jiaozi (currency) — Wikipedia", url: "https://en.wikipedia.org/wiki/Jiaozi_(currency)", accessed: 2026-10-25 }
   - { id: s8, title: "Piaohao — Wikipedia", url: "https://en.wikipedia.org/wiki/Piaohao", accessed: 2026-10-25 }
-  - { id: s9, title: "Sapiens 第 16 章〈資本主義教條〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## F1 是什麼、解決什麼問題
@@ -75,11 +73,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在講稿中說，大西洋歐洲一側的英國是「傳統君權最弱的政體」，並由此發展出由商人代表的「商人政府」，他認為這在中國完全無法想象 [s6]。英格蘭銀行由商人出資、透過國會立法借錢給國家，可視為這種「商人政府」在財政上的具體樣子（此為本卡推論）[s1]。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的摘要沒有提到英格蘭銀行。依 LitCharts 摘要，哈拉瑞認為信用建立在「對未來的信任」上，而荷蘭能借到比西班牙更多的錢，是因為準時還債、保護私有財產 [s9]。英格蘭在 1690 年代用國會擔保國債利息，走的是同一條「先建立還債信譽、再借大錢」的路（此為本卡推論）[s1][s9]。
+無直接論述。
 
 ## F7 今日對照鉤子
 

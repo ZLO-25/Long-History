@@ -33,10 +33,8 @@ sources:
   - { id: s2, title: "Matthew A. McIntosh, The Medici Bank: Rise and Fall in Florence — Brewminate", url: "https://brewminate.com/medici-bank-rise-fall-florence/", accessed: 2026-10-25 }
   - { id: s3, title: "麥地奇銀行 — 維基百科（中文）", url: "https://zh.wikipedia.org/zh-tw/美第奇銀行", accessed: 2026-10-25 }
   - { id: s4, title: "Piaohao — Wikipedia", url: "https://en.wikipedia.org/wiki/Piaohao", accessed: 2026-10-25 }
-  - { id: s5, title: "Sapiens 第 10 章〈金錢的味道〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money", accessed: 2026-10-25 }
-  - { id: s6, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## F1 是什麼、解決什麼問題
@@ -72,11 +70,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔公開講稿沒有談梅迪奇銀行或複式簿記。講稿只提到 15 世紀以後，威尼斯、佛羅倫斯出現了文藝復興，西歐呈現新活力 [s6]；梅迪奇銀行就是在這個時代、這座城市壯大起來的（此連結為本卡推論）[s1]。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的摘要沒有提到梅迪奇。依 LitCharts 摘要，哈拉瑞認為金錢是讓陌生人能大規模合作的「互相信任系統」，十字軍時期基督徒與穆斯林彼此打仗，卻都接受對方的金幣 [s5]。匯票能在不同國家兌現，靠的正是這種跨越國界與信仰的信任（此為本卡推論）[s1][s5]。
+無直接論述。
 
 ## F7 今日對照鉤子
 

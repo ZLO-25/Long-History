@@ -29,7 +29,6 @@ sources:
   - { id: s1, title: "Battle of the Teutoburg Forest — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_the_Teutoburg_Forest", accessed: 2026-10-24, tier: 百科 }
   - { id: s2, title: "Karen Schousboe, Battle of Teutoburg Forest — World History Encyclopedia (2017)", url: "https://worldhistory.org/article/1010", accessed: 2026-10-24, tier: 通論 }
   - { id: s3, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-24, tier: 摘要 }
-  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25, tier: 摘要 }
   - { id: s5, title: "Han–Xiongnu wars — Wikipedia", url: "https://en.wikipedia.org/wiki/Han%E2%80%93Xiongnu_wars", accessed: 2026-10-25, tier: 百科 }
   - { id: s6, title: "Tacitus on the Teutoburg Forest（Annals 1.61–62，A. J. Church & W. J. Brodribb 英譯）— Livius.org", url: "https://www.livius.org/sources/content/tacitus/tacitus-on-the-teutoburg-forest/", accessed: 2026-10-25, tier: 一手 }
   - { id: s7, title: "Paterculus on the Battle in the Teutoburg Forest（Velleius Paterculus 2.117–119，F. W. Shipley 英譯）— Livius.org", url: "https://www.livius.org/sources/content/paterculus-on-the-battle-in-the-teutoburg-forest/", accessed: 2026-10-25, tier: 一手 }
@@ -71,7 +70,7 @@ learn:
     - { history: 歐洲史, text: 從德國看，阿米尼烏斯在 19 世紀被塑造成民族英雄，1987 年後在卡爾克里澤出土大量羅馬遺物，被推定為主戰場。 }
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "塔西佗 1.61、維萊烏斯 2.117、蘇埃托尼烏斯〈奧古斯都傳〉23 引文皆與譯本相符" }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## A1 交戰方與聯盟結構
@@ -117,11 +116,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：李彔沒有談條頓堡戰役。間接相關：他認為農耕社會與周邊流動人群之間的爭奪，是農業時代長期戰爭的主要原因之一 [s4]。條頓堡之後羅馬停在萊茵河一線，可視為這種農耕帝國與外圍人群之間的邊界（此為本卡推論；日耳曼部族並非李彔所說的草原游牧民）。
+無直接論述。
 
 ### 哈拉瑞
 
-依公開摘要，哈拉瑞指出羅馬人習慣打敗仗，帝國能承受打擊仍然存續 [s3]。這場慘敗沒有動搖帝國本身，卻改變了擴張的邊界（此為本卡推論）。
+無直接論述。
 
 ## A11 今日對照鉤子
 

@@ -38,11 +38,9 @@ sources:
   - { id: s5, title: "Chinese Labour Corps — Wikipedia", url: "https://en.wikipedia.org/wiki/Chinese_Labour_Corps", accessed: 2026-10-25 }
   - { id: s6, title: "May Fourth Movement — Wikipedia", url: "https://en.wikipedia.org/wiki/May_Fourth_Movement", accessed: 2026-10-25 }
   - { id: s7, title: "The World Remembers — National WWI Museum and Memorial", url: "https://theworldwar.org/exhibitions/world-remembers", accessed: 2026-10-25 }
-  - { id: s8, title: "李录：现代化十六讲（之十，现代化的传播与现代化的道路之争）— 虎嗅網，2014-07-24", url: "https://www.huxiu.com/article/38460.html", accessed: 2026-10-25 }
   - { id: s9, title: "1911 Revolution — Wikipedia", url: "https://en.wikipedia.org/wiki/1911_Revolution", accessed: 2026-10-25 }
-  - { id: s10, title: "Yuval Noah Harari argues that what's at stake in Ukraine is the direction of human history — The Economist，2022-02-09", url: "https://www.economist.com/by-invitation/2022/02/09/yuval-noah-harari-argues-that-whats-at-stake-in-ukraine-is-the-direction-of-human-history", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## A1 交戰方與聯盟結構
@@ -114,11 +112,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-李彔在〈現代化十六講〉第十講談「現代化道路之爭」；該講導讀說，各國主動或被動進入現代化的過程，在 20 世紀演化成道路之爭，「引發兩次世界大戰及東西冷戰」。[s8] 他也說英國主導的工業革命首次建立了以英國為主體的全球市場體系。[s8] 依此推論，一戰可以看成「後起工業強國（德國）挑戰既有體系」的結果（本卡推論，李彔講稿未專門分析一戰）。
+無直接論述。
 
 ### 哈拉瑞
 
-無直接論述：查到的公開資料沒有哈拉瑞專門分析一戰。間接相關：他在 2022 年《經濟學人》文章中說，1945 年以後國際邊界很少被外國入侵改變，「戰爭的減少」是人類最大的政治成就。[s10] 一戰正好是相反的例子：戰後歐洲與中東的邊界被大幅重畫（此對照為本卡推論）。[s1]
+無直接論述。
 
 ## A11 今日對照鉤子
 

@@ -29,7 +29,6 @@ counterparts:
 sources:
   - { id: s1, title: "Crossing of the Rubicon — Wikipedia", url: "https://en.wikipedia.org/wiki/Crossing_of_the_Rubicon", accessed: 2026-10-24 }
   - { id: s2, title: "Jona Lendering, Rubico (49 BCE) — Livius.org", url: "https://www.livius.org/articles/battle/rubico-49-bce/", accessed: 2026-10-24 }
-  - { id: s3, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
   - { id: s4, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25 }
   - { id: s5, title: "Reason 書評〈The Fantastical Scenarios of Yuval Noah Harari: From the Roman Past to the AI Future〉（AOL 轉載）", url: "https://aol.com/news/fantastical-scenarios-yuval-noah-harari-110048001.html", accessed: 2026-10-25 }
   - { id: s6, title: "Partition of Jin — Wikipedia", url: "https://en.wikipedia.org/wiki/Partition_of_Jin", accessed: 2026-10-25 }
@@ -65,7 +64,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：李彔沒有談凱撒或羅馬共和末期。間接相關：他說羅馬帝國是西方「高端政權」的代表 [s3]。
+無直接論述。
 
 ### 哈拉瑞
 

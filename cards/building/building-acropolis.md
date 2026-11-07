@@ -30,7 +30,6 @@ sources:
   - { id: s2, title: "Athens' rise to superpower — MoneyMuseum", url: "https://www.moneymuseum.com/en/archive/athens-rise-to-superpower--382?slbox=true", accessed: 2026-10-24, tier: 通論 }
   - { id: s3, title: "Acropolis of Athens — New World Encyclopedia", url: "https://www.newworldencyclopedia.org/entry/Acropolis_of_Athens", accessed: 2026-10-24, tier: 百科 }
   - { id: s4, title: "Acropolis, Athens — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/404/maps", accessed: 2026-10-24, tier: 通論 }
-  - { id: s5, title: "Sapiens 帝國篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions", accessed: 2026-10-25, tier: 摘要 }
   - { id: s6, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-25, tier: 百科 }
   - { id: s7, title: "普魯塔克《伯里克利傳》第 12 章，Bernadotte Perrin 英譯（1916，公有領域）— Lexundria", url: "https://lexundria.com/plut_per/12/prr", accessed: 2026-10-25, tier: 一手 }
 importance: 2
@@ -58,7 +57,7 @@ learn:
   - 帕德嫩原本是彩色的，有彩繪雕刻；今天看到的純白大理石，是顏料褪去後的樣子。[s1]
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "從前 432 年算到西元 5、6 世紀末約 900–1,000 年，『大約一千年後』合理。" }
 verification: 交叉確認
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## D1 功能與象徵
@@ -89,7 +88,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 哈拉瑞
 
-哈拉瑞未直接談衛城。依公開摘要，他把雅典帝國當作「起初是自願加入的同盟」的例子 [s5]。衛城的重建經費有一部分來自提洛同盟的貢金，正好顯示這個同盟後來如何變成盟主的財源（此為本卡推論）。
+無直接論述。
 
 ## D7 今日對照鉤子
 

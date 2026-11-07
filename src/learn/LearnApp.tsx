@@ -163,7 +163,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         : <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => {}} />;
       case 'unit': return unit ? <UnitPlayer key={unit.id} unit={unit} index={index} prog={p.units[unit.id]} setProg={(x) => setUnit(unit.id, x)}
         onCard={openCard} onUnit={openUnit} onSim={(id) => push({ kind: 'sim', id })} onFocus={setFocus} onHome={() => setStack([{ kind: 'home' }])} onTopic={openTopic} topicCount={learnCount} onStory={openStory} /> : <p>找不到這個單元（可能還在查核中）。</p>;
-      case 'card': { const c = byId(view.id); return c?.learn ? <LearnCard key={c.id} card={c} index={index} history={h} depth={view.section ? 'deep' : 'story'} onOpen={openCard} onHistory={(id) => setHid(id)} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} /> : <p>這張卡還不在學習模式裡（需要通過交叉查核）。</p>; }
+      case 'card': { const c = byId(view.id); return c?.learn ? <LearnCard key={c.id} card={c} index={index} history={h} onOpen={openCard} onHistory={(id) => setHid(id)} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} /> : <p>這張卡還不在學習模式裡（需要通過交叉查核）。</p>; }
       case 'mymap': return <MyMap index={index} cards={all} p={p} onCard={openCard} onUnit={openUnit} onRecord={() => push({ kind: 'record' })} />;
       case 'record': return <LearnRecord index={index} p={p} onUnit={openUnit} onReset={() => { reset(); setStack([{ kind: 'home' }]); }} />;
       case 'sim': return <SimView id={view.id} index={index} onCard={openCard} />;

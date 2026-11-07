@@ -40,7 +40,6 @@ sources:
   - { id: s6, title: "Deng Xiaoping's southern tour — Wikipedia", url: "https://en.wikipedia.org/wiki/Deng_Xiaoping%27s_southern_tour", accessed: 2026-10-25 }
   - { id: s7, title: "李录：现代化十六讲（之十，现代化的传播与现代化的道路之争）— 虎嗅網，2014-07-24", url: "https://www.huxiu.com/article/38460.html", accessed: 2026-10-25 }
   - { id: s8, title: "李录：现代化十六讲（之十一，现代化的本质和铁律）— 虎嗅網，2014-07-25", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25 }
-  - { id: s9, title: "Yuval Noah Harari, Homo Deus 引文：capitalism won the Cold War because distributed data processing works better… — Quotepark", url: "https://quotepark.com/quotes/1812589-yuval-noah-harari-capitalism-did-not-defeat-communism-because-capita/", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -95,7 +94,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 哈拉瑞
 
-無直接論述：查到的資料沒有哈拉瑞專門談中國改革開放。間接相關：他在《人類大命運》中說，資本主義贏得冷戰，是因為「分散式資料處理」比「集中式資料處理」更有效。[s9] 依此推論，包產到戶、價格雙軌制，都是把決策從中央分散到農戶與企業（此連結為本卡推論）。[s1]
+無直接論述。
 
 ## C9 今日對照鉤子
 

@@ -35,7 +35,6 @@ sources:
   - { id: s4, title: "Printing Press（主題頁）— World History Encyclopedia", url: "https://www.worldhistory.org/Printing_Press/", accessed: 2026-10-25 }
   - { id: s5, title: "Movable type — Wikipedia", url: "https://en.wikipedia.org/wiki/Movable_type", accessed: 2026-10-25 }
   - { id: s6, title: "Craig Bellamy, Review: Yuval Noah Harari's Nexus（2024）", url: "https://www.craigbellamy.net/2024/10/03/review-yuval-noah-hararis-nexus-a-brief-history-of-information-networks-from-the-stone-age-to-ai-2024/", accessed: 2026-10-25 }
-  - { id: s7, title: "李彔《現代化十六講》之十一（現代化的本質和鐵律），虎嗅 2014", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -69,11 +68,11 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔公開講稿沒有談古騰堡或印刷機。間接相關：他認為人類知識的積累「比較容易」，現代科技文明的特點是科技知識與產品無縫對接 [s7]；印刷機正是讓知識更容易累積與流通的工具（此連結為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 
-依書評摘要，哈拉瑞在《連結》（Nexus）中用獵巫書籍《女巫之槌》（1486 年）在歐洲流傳、讓獵巫合法化的例子，說明「資訊變多」不等於「更接近真相、更好的決策」[s6]。這本書是印刷時代的出版品，因此可以看出他不把印刷機簡單看成「帶來啟蒙」的機器（此連結為本卡推論）。
+依書評摘要，哈拉瑞在《連結》（Nexus）中用獵巫書籍《女巫之槌》（1486 年）在歐洲流傳、讓獵巫合法化的例子，說明「資訊變多」不等於「更接近真相、更好的決策」[s6]。
 
 ## T7 今日對照鉤子
 

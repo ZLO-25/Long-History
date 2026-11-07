@@ -143,8 +143,7 @@ const fs = require('fs');
   const popCard = withPop.find((c) => c.learn);
   if (popCard) {
     await ld.goto(base + `?mode=learn&card=${popCard.id}`, { waitUntil: 'networkidle' }); await ld.waitForTimeout(1200);
-    await ld.click('.depth-tabs button:nth-child(2)'); await ld.waitForTimeout(400);
-    ok((await ld.$$('.lcard .pop-culture dt')).length >= 1, `學習模式「理解」層有「戲劇 vs 史實」（${popCard.id}）`);
+    ok((await ld.$$('.lcard .pop-culture dt')).length >= 1, `學習模式卡片有「戲劇 vs 史實」（${popCard.id}）`);
     await ld.screenshot({ path: `${out}/pop-culture-learn-1280.png` });
   }
   await ld.close();

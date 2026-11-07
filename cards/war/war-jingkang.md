@@ -34,9 +34,8 @@ sources:
   - { id: s2, title: "靖康之變 — 維基百科", url: "https://zh.wikipedia.org/zh-tw/靖康之變", accessed: 2026-10-25 }
   - { id: s3, title: "Jin–Song wars — Wikipedia", url: "https://en.wikipedia.org/wiki/Jin%E2%80%93Song_wars", accessed: 2026-10-25 }
   - { id: s4, title: "Mark Cartwright, Song Dynasty — World History Encyclopedia", url: "https://www.worldhistory.org/Song_Dynasty/", accessed: 2026-10-25 }
-  - { id: s5, title: "李錄：現代化十六講（之五、六）— 虎嗅網（2014-07-20）", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 爭議
-lens_status: 依公開資料推論，未對照原書
+lens_status: 無直接論述
 ---
 
 ## A1 交戰方與聯盟結構
@@ -85,7 +84,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 李彔
 
-無直接論述：查到的李彔講稿沒有具體談靖康之變。他認為唐宋是東方農業文明的黃金時代，宋朝第二次衝上農業文明頂峰，但「游牧民族政權加上瘟疫流行」讓這次衝頂失敗 [s5]；他指的主要是後來的蒙古，金國南侵可視為同一結構的前一波（此為本卡推論）。
+無直接論述。
 
 ### 哈拉瑞
 

@@ -111,6 +111,7 @@ public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
 - 三國（2026-11-07）：13 張新卡（含 5 位人物）、升級黃巾與赤壁、200／208／222／262 勢力圖（底圖 `npm run basemap -- CN`：中國省界＋越南、北韓整國）、故事線 `story-three-kingdoms`、2 個單元。報告 `docs/dive-three-kingdoms.md`。
 - 法國大革命（2026-11-07）：17 張新卡（含 5 位人物）、升級法國大革命總卡、1789／1797／1812 歐洲勢力圖（底圖 `npm run basemap -- EU`：歐洲 45 國）、故事線 `story-french-revolution`、2 個單元；另加曲線主視覺（第八節）與全世界底圖 `npm run basemap -- WORLD`。報告 `docs/dive-french-revolution.md`。
 - 日本失落 30 年（2026-11-07）：10 張新卡、第一個曲線主視覺專題（每人平均產值、物價漲幅、人口三條曲線＋10 條事件線）、故事線 `story-japan-lost-decades`、2 個單元。報告 `docs/dive-japan-lost-decades.md`。
+- 冷戰（2026-11-07）：15 張新卡（含 6 位人物）、升級冷戰結束卡、1955／1962／1980 陣營圖（底圖 `npm run basemap -- WORLD`）、故事線 `story-cold-war-berlin`＋既有 `story-cold-war`、2 個單元。報告 `docs/dive-cold-war.md`。
 
 ## 七、讀書專題（book，2026-11-07 起，第一個是《人類大歷史》）
 

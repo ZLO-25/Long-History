@@ -141,3 +141,8 @@ storylines:
     question: 一次匯率協議怎麼吹出史上最大的資產泡沫？泡沫破了以後，銀行和日本銀行為什麼一路走到零利率、負利率，花了快四十年才回到「正常」？
     blurb: 這條線沿著「錢」走：日圓升值後低利率吹出泡沫，泡沫破掉留下壞帳，壞帳拖垮銀行，銀行倒閉逼日本銀行把利率降到零，再到安倍經濟學的大規模寬鬆，最後 2024 年才結束負利率。每一站都是上一站留下的問題。
     stops: [finance-plaza-accord, finance-japan-bubble, finance-japan-lost-decade, finance-japan-banking-crisis-1997, finance-boj-zero-rate-qe, finance-abenomics, finance-japan-2024-negative-rate-end]
+  - id: story-cold-war-berlin
+    title: 冷戰的前線：一座被切成兩半的城市
+    question: 二戰後被四國分區占領的柏林，為什麼先被封鎖、再被一道牆切開，又在 1989 年一夜之間打開？這座城市的命運，怎麼跟整個冷戰綁在一起？
+    blurb: 這條線跟著柏林走：戰後歐洲重建的錢（馬歇爾計畫）讓東西兩邊越走越遠，蘇聯封鎖西柏林，西方用飛機運補撐了快一年；十多年後東德築起圍牆擋住逃亡潮；到了 1989 年，圍牆倒下，東歐各國的共產政權接連垮台，冷戰走到終點。
+    stops: [war-world-war-two, event-marshall-plan, event-berlin-blockade-1948, event-berlin-wall-1961, event-end-of-cold-war]

@@ -1,0 +1,50 @@
+# 深入專題：冷戰。怎麼新增一個專題見 docs/dives.md；陣營圖的切線與來源見 docs/dive-cold-war.md
+id: dive-cold-war
+title: 冷戰：沒有正面開打的四十年
+question: 1945 年一起打敗德國和日本的美國與蘇聯，為什麼不到幾年就變成敵人？兩個都握有核子武器的超級強權，四十多年沒有直接開戰，卻在柏林、古巴、朝鮮、越南、阿富汗一次次逼近邊緣。最後為什麼是蘇聯先撐不下去？
+blurb: 這個專題把 1945 年到 1991 年放大來看：歐洲怎麼被一道「鐵幕」切成兩半，柏林怎麼變成冷戰的前線，古巴飛彈危機怎麼讓世界離核戰只差一步，太空與核武競賽怎麼變成另一種戰場，以及戈巴契夫的改革怎麼讓整個東歐陣營在兩年內崩解。六位領導人都放上「從另一邊看他」；臺灣在這四十年裡的位置，也在卡片裡。
+# 1945 年第二次世界大戰結束；1991 年 12 月蘇聯解體
+range: { start: 1945, end: 1991 }
+histories: [歐洲史, 美國史]
+visual: power
+power_ui:
+  title: 陣營圖
+  subtitle: 誰站在哪一邊
+  caveat: 以今日國界近似當時的國家；一國分成兩邊時（東西德、南北越）用經線或緯線切開，邊界只是示意。只塗正式加入同盟、或由共產黨執政的國家；沒有塗色的國家不屬於這幾個陣營（中立國、不結盟國家，或依條件改變立場的國家）。拉丁美洲 1947 年的《美洲國家間互助條約》（里約條約）沒有畫出來。
+  legend: 今日國
+lanes:
+  - { name: 歐洲與蘇聯, types: [event, social] }
+  - { name: 戰爭與科技, types: [war, tech] }
+  - { name: 人物（在世期間）, types: [person] }
+cards:
+  - war-world-war-two
+  - event-containment-nato
+  - event-marshall-plan
+  - event-berlin-blockade-1948
+  - war-korean-war
+  - event-us-taiwan-defense
+  - event-hungary-1956-prague-1968
+  - event-sino-soviet-split
+  - event-berlin-wall-1961
+  - social-cold-war-daily-life
+  - tech-space-race
+  - event-cuban-missile-crisis-1962
+  - tech-nuclear-arms-race
+  - war-vietnam-war
+  - event-nixon-china
+  - war-soviet-afghan
+  - event-gorbachev-reform
+  - event-end-of-cold-war
+  - event-soviet-collapse-1991
+  - person-stalin
+  - person-truman
+  - person-khrushchev
+  - person-kennedy
+  - person-reagan
+  - person-gorbachev
+storylines: [story-cold-war-berlin, story-cold-war]
+units: [unit-cold-war-1, unit-cold-war-2]
+power_maps:
+  - { year: 1955, file: cold-war/power-1955.geojson }
+  - { year: 1962, file: cold-war/power-1962.geojson }
+  - { year: 1980, file: cold-war/power-1980.geojson }

@@ -1,0 +1,18 @@
+year: 1955
+basemap: world_countries
+title: 兩大陣營成形（1955 年底：華沙公約成立之後）
+note: 1949 年北大西洋公約組織（北約）成立，1955 年西德加入；同年 5 月蘇聯與東歐七國簽下華沙公約。德國分成西德（北約）與東德（華沙公約），朝鮮半島在 1953 年停戰後以停戰線分成南北，越南 1954 年以北緯 17 度暫時分成南北。美國在亞太另外和日本、南韓、中華民國（臺灣）、菲律賓、澳洲、紐西蘭等國簽了防禦條約。沒有塗色的國家不屬於這幾個陣營（例如中立的瑞典、瑞士、奧地利，或剛獨立的印度、印尼）。以今日國界近似，邊界只是示意。
+view: [[-45, -130], [72, 160]]
+sources:
+  - { title: "Member states of NATO — Wikipedia（各國加入年份：1949 創始 12 國、1952 希臘土耳其、1955 西德、1982 西班牙）", url: "https://en.wikipedia.org/wiki/Member_states_of_NATO", accessed: 2026-11-07, tier: 百科 }
+  - { title: "Warsaw Pact — Wikipedia（1955 年 5 月成立的 8 國；阿爾巴尼亞 1961 年起不參與、1968 年退出）", url: "https://en.wikipedia.org/wiki/Warsaw_Pact", accessed: 2026-11-07, tier: 百科 }
+  - { title: "U.S. Collective Defense Arrangements — U.S. Department of State（美日、美韓、美菲、澳紐美、東南亞公約等條約）", url: "https://2009-2017.state.gov/s/l/treaty/collectivedefense/index.htm", accessed: 2026-11-07, tier: 一手 }
+  - { title: "List of communist states — Wikipedia（各共產政權起訖日期：古巴 1959、南葉門 1970、衣索比亞 1974、安哥拉與莫三比克 1975、寮國 1975、阿富汗 1978 等）", url: "https://en.wikipedia.org/wiki/List_of_communist_states", accessed: 2026-11-07, tier: 百科 }
+  - { title: "Southeast Asia Treaty Organization — Wikipedia（1954 年簽約，成員含泰國、巴基斯坦；巴基斯坦 1973 年退出，組織 1977 年 6 月解散）", url: "https://en.wikipedia.org/wiki/Southeast_Asia_Treaty_Organization", accessed: 2026-11-07, tier: 百科 }
+powers:
+  - { name: 北約（北大西洋公約組織）, en: "NATO", color: "#2f5aa8", card: event-containment-nato, area: 美國、加拿大、英國、法國、西德、義大利、比利時、荷蘭、盧森堡、丹麥、挪威、冰島、葡萄牙、希臘、土耳其, regions: [US, CA, GB, FR, BE, NL, LU, DK, NO, IS, IT, PT, GR, TR, { code: DE, lng_lt: 10.0 }, { code: DE, lng_gt: 10.0, lng_lt: 11.0, lat_lt: 50.4 }, { code: DE, lng_gt: 10.0, lng_lt: 10.75, lat_gt: 51.5 }, { code: DE, lng_gt: 10.75, lng_lt: 11.0, lat_gt: 52.0, lat_lt: 53.12 }, { code: DE, lng_gt: 11.0, lng_lt: 11.5, lat_gt: 52.9, lat_lt: 53.12 }, { code: DE, lng_gt: 11.0, lat_lt: 50.3 }] }
+  - { name: 華沙公約（蘇聯與東歐）, en: "Warsaw Pact", color: "#c0392b", area: 蘇聯（今日俄羅斯、烏克蘭、白俄羅斯、波羅的海三國、高加索與中亞各國等 15 國）、波蘭、東德、捷克斯洛伐克、匈牙利、羅馬尼亞、保加利亞、阿爾巴尼亞, regions: [RU, UA, BY, LT, LV, EE, MD, GE, AM, AZ, KZ, UZ, TM, KG, TJ, PL, CZ, SK, HU, RO, BG, AL, { code: DE, lng_gt: 10.0, lng_lt: 11.0, lat_gt: 50.4, lat_lt: 51.5 }, { code: DE, lng_gt: 10.75, lng_lt: 11.0, lat_gt: 51.5, lat_lt: 52.0 }, { code: DE, lng_gt: 10.75, lng_lt: 11.0, lat_gt: 53.12 }, { code: DE, lng_gt: 11.0, lat_gt: 50.3, lat_lt: 52.9 }, { code: DE, lng_gt: 11.5, lat_gt: 52.9, lat_lt: 53.12 }, { code: DE, lng_gt: 11.0, lat_gt: 53.12 }] }
+  - { name: 其他共產國家（與蘇聯結盟）, en: "Other communist states", color: "#e8836f", area: 中華人民共和國、蒙古、北韓、北越（北緯 17 度以北）, regions: [CN, MN, KP, { code: VN, lat_gt: 17 }] }
+  - { name: 南斯拉夫（共產但不聽蘇聯）, en: "Yugoslavia", color: "#d9a3a3", minor: true, area: 今日斯洛維尼亞、克羅埃西亞、波士尼亞、塞爾維亞、蒙特內哥羅、北馬其頓、科索沃；1948 年與蘇聯決裂, regions: [SI, HR, BA, RS, ME, MK, XK] }
+  - { name: 美國在亞太的條約盟友, en: "U.S. treaty allies in Asia-Pacific", color: "#7fa6dc", area: 日本、南韓、中華民國（臺灣）、菲律賓、澳洲、紐西蘭，以及 1954 年東南亞公約組織的泰國、巴基斯坦, regions: [JP, KR, TW, PH, AU, NZ, TH, PK] }
+  - { name: 南越（越南共和國，美國支持）, en: "South Vietnam", color: "#a9c3ea", minor: true, area: 北緯 17 度以南；1955 年成立越南共和國，受東南亞公約組織保護、美國援助, regions: [{ code: VN, lat_lt: 17 }] }

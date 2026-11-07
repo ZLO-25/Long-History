@@ -1,0 +1,21 @@
+year: 1962
+basemap: world_countries
+title: 古巴飛彈危機的那一年（1962 年 10 月）
+note: 1959 年古巴革命後，卡斯楚政權倒向蘇聯；1962 年 10 月美國發現蘇聯在古巴部署飛彈，雙方一度逼近核戰。1961 年東德築起柏林圍牆。這時中國和蘇聯已經公開交惡，阿爾巴尼亞站在中國那一邊、不再參加華沙公約的活動（1968 年正式退出）。以今日國界近似，邊界只是示意。
+view: [[-45, -130], [72, 160]]
+sources:
+  - { title: "Member states of NATO — Wikipedia（各國加入年份：1949 創始 12 國、1952 希臘土耳其、1955 西德、1982 西班牙）", url: "https://en.wikipedia.org/wiki/Member_states_of_NATO", accessed: 2026-11-07, tier: 百科 }
+  - { title: "Warsaw Pact — Wikipedia（1955 年 5 月成立的 8 國；阿爾巴尼亞 1961 年起不參與、1968 年退出）", url: "https://en.wikipedia.org/wiki/Warsaw_Pact", accessed: 2026-11-07, tier: 百科 }
+  - { title: "U.S. Collective Defense Arrangements — U.S. Department of State（美日、美韓、美菲、澳紐美、東南亞公約等條約）", url: "https://2009-2017.state.gov/s/l/treaty/collectivedefense/index.htm", accessed: 2026-11-07, tier: 一手 }
+  - { title: "List of communist states — Wikipedia（各共產政權起訖日期：古巴 1959、南葉門 1970、衣索比亞 1974、安哥拉與莫三比克 1975、寮國 1975、阿富汗 1978 等）", url: "https://en.wikipedia.org/wiki/List_of_communist_states", accessed: 2026-11-07, tier: 百科 }
+  - { title: "Southeast Asia Treaty Organization — Wikipedia（1954 年簽約，成員含泰國、巴基斯坦；巴基斯坦 1973 年退出，組織 1977 年 6 月解散）", url: "https://en.wikipedia.org/wiki/Southeast_Asia_Treaty_Organization", accessed: 2026-11-07, tier: 百科 }
+powers:
+  - { name: 北約（北大西洋公約組織）, en: "NATO", color: "#2f5aa8", card: event-containment-nato, area: 美國、加拿大、英國、法國、西德、義大利、比利時、荷蘭、盧森堡、丹麥、挪威、冰島、葡萄牙、希臘、土耳其, regions: [US, CA, GB, FR, BE, NL, LU, DK, NO, IS, IT, PT, GR, TR, { code: DE, lng_lt: 10.0 }, { code: DE, lng_gt: 10.0, lng_lt: 11.0, lat_lt: 50.4 }, { code: DE, lng_gt: 10.0, lng_lt: 10.75, lat_gt: 51.5 }, { code: DE, lng_gt: 10.75, lng_lt: 11.0, lat_gt: 52.0, lat_lt: 53.12 }, { code: DE, lng_gt: 11.0, lng_lt: 11.5, lat_gt: 52.9, lat_lt: 53.12 }, { code: DE, lng_gt: 11.0, lat_lt: 50.3 }] }
+  - { name: 華沙公約（蘇聯與東歐）, en: "Warsaw Pact", color: "#c0392b", area: 蘇聯、波蘭、東德、捷克斯洛伐克、匈牙利、羅馬尼亞、保加利亞, regions: [RU, UA, BY, LT, LV, EE, MD, GE, AM, AZ, KZ, UZ, TM, KG, TJ, PL, CZ, SK, HU, RO, BG, { code: DE, lng_gt: 10.0, lng_lt: 11.0, lat_gt: 50.4, lat_lt: 51.5 }, { code: DE, lng_gt: 10.75, lng_lt: 11.0, lat_gt: 51.5, lat_lt: 52.0 }, { code: DE, lng_gt: 10.75, lng_lt: 11.0, lat_gt: 53.12 }, { code: DE, lng_gt: 11.0, lat_gt: 50.3, lat_lt: 52.9 }, { code: DE, lng_gt: 11.5, lat_gt: 52.9, lat_lt: 53.12 }, { code: DE, lng_gt: 11.0, lat_gt: 53.12 }] }
+  - { name: 古巴（倒向蘇聯）, en: "Cuba", color: "#e8836f", card: event-cuban-missile-crisis-1962, area: 1959 年革命後由卡斯楚執政，1961 年宣布走社會主義, regions: [CU] }
+  - { name: 其他共產國家, en: "Other communist states", color: "#e8836f", area: 蒙古（緊跟蘇聯）、北韓、北越（北緯 17 度以北；北韓與北越在中蘇之間游移）, regions: [MN, KP, { code: VN, lat_gt: 17 }] }
+  - { name: 中華人民共和國（與蘇聯交惡）, en: "People's Republic of China", color: "#b5651d", card: event-sino-soviet-split, area: 1950 年代末起與蘇聯公開爭吵，1960 年蘇聯撤走專家, regions: [CN] }
+  - { name: 阿爾巴尼亞（站在中國這邊）, en: "Albania", color: "#d4a373", minor: true, area: 1961 年起不參加華沙公約活動，1968 年正式退出, regions: [AL] }
+  - { name: 南斯拉夫（共產但不結盟）, en: "Yugoslavia", color: "#d9a3a3", minor: true, area: 1961 年在貝爾格勒主辦第一次不結盟運動會議, regions: [SI, HR, BA, RS, ME, MK, XK] }
+  - { name: 美國在亞太的條約盟友, en: "U.S. treaty allies in Asia-Pacific", color: "#7fa6dc", area: 日本、南韓、中華民國（臺灣）、菲律賓、澳洲、紐西蘭、泰國、巴基斯坦, regions: [JP, KR, TW, PH, AU, NZ, TH, PK] }
+  - { name: 南越（越南共和國，美國支持）, en: "South Vietnam", color: "#a9c3ea", minor: true, area: 北緯 17 度以南；1955 年成立越南共和國，受東南亞公約組織保護、美國援助, regions: [{ code: VN, lat_lt: 17 }] }

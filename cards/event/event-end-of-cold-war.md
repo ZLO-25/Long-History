@@ -19,28 +19,56 @@ place:
     - { name_ancient: 華沙, name_modern: 華沙（波蘭）, lat: 52.2297, lng: 21.0122, precision: schematic, role: 1989 年 6 月波蘭選舉，團結工聯大勝（座標為今華沙市中心，代表波蘭）, src: [s3] }
     - { name_ancient: 瓦萊塔（馬爾他）, name_modern: 瓦萊塔（馬爾他）, lat: 35.8989, lng: 14.5146, precision: schematic, role: 1989 年 12 月美蘇馬爾他高峰會（座標為今瓦萊塔，會談實際在外海船上舉行）, src: [s2, s3] }
     - { name_ancient: 莫斯科, name_modern: 莫斯科（俄羅斯）, lat: 55.7558, lng: 37.6173, precision: schematic, role: 1991 年 8 月政變失敗；12 月 25 日戈巴契夫辭職（座標為今克里姆林宮一帶）, src: [s1, s2] }
-    - { name_ancient: 別洛韋日森林, name_modern: 白俄羅斯布列斯特州（白俄羅斯）, lat: 52.0976, lng: 23.7341, precision: schematic, role: 1991 年 12 月 8 日俄、烏、白簽署協議成立獨立國協（座標為布列斯特市，實際簽約地在其北方的森林別墅）, src: [s1, s2] }
+    - { name_ancient: 別洛韋日森林, name_modern: 別洛韋日森林（白俄羅斯布列斯特州）, lat: 52.5700, lng: 23.8000, precision: schematic, role: 1991 年 12 月 8 日俄、烏、白在森林中的維斯庫利別墅簽署協議成立獨立國協（座標為森林別墅一帶示意）, src: [s1, s2] }
   scale: area
 structure_tags: [革命與政權更替, 合法性危機, 臨界點, 聯盟破裂, 財政枯竭, 突變事件]
 topics: [革命, 帝國的衰亡, 冷戰]
-links: [war-world-war-two, event-reform-and-opening, tech-internet]
+links: [war-world-war-two, event-reform-and-opening, tech-internet, event-gorbachev-reform, event-soviet-collapse-1991, event-berlin-wall-1961, event-containment-nato, event-hungary-1956-prague-1968, war-soviet-afghan, person-gorbachev, person-reagan]
+causes:
+  - { id: event-gorbachev-reform, rel: 促成, why: 戈巴契夫放鬆對東歐的控制、在蘇聯開放競爭性選舉，東歐各國相繼脫離蘇聯陣營。, src: [s1, s2] }
+  - { id: tech-nuclear-arms-race, rel: 背景, why: 長期經濟停滯加上軍備競賽與對外戰爭的沉重開支，讓蘇聯到 1980 年代越來越撐不下去。, src: [s1] }
 effects:
   - { id: event-reform-and-opening, rel: 背景, why: 改革開放 1978 年就開始；東歐劇變與蘇聯解體讓中共保守派更反對市場化，改革一度放慢，鄧小平 1992 年南巡才讓它重新加速。, src: [event-reform-and-opening:s6] }
 counterparts:
   - { id: event-reform-and-opening, note: "相似：中蘇兩大共產國家在 1980 年代都面對計畫經濟停滯，都嘗試改革。不同：蘇聯在戈巴契夫下同時放寬政治與言論，最後聯盟瓦解；中國只改經濟、維持共產黨統治，1989 年鎮壓天安門抗議，1992 年後加速市場化。", src: [s1, s3, s11] }
 sources:
-  - { id: s1, title: "Dissolution of the Soviet Union — Wikipedia", url: "https://en.wikipedia.org/wiki/Dissolution_of_the_Soviet_Union", accessed: 2026-10-25 }
-  - { id: s2, title: "The Collapse of the Soviet Union — Office of the Historian, U.S. Department of State", url: "https://history.state.gov/milestones/1989-1992/collapse-soviet-union", accessed: 2026-10-25 }
-  - { id: s3, title: "Revolutions of 1989 — Wikipedia", url: "https://en.wikipedia.org/wiki/Revolutions_of_1989", accessed: 2026-10-25 }
-  - { id: s4, title: "Fall of the Berlin Wall — Wikipedia", url: "https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall", accessed: 2026-10-25 }
-  - { id: s5, title: "The wild nineties — Wikipedia", url: "https://en.wikipedia.org/wiki/The_wild_nineties", accessed: 2026-10-25 }
-  - { id: s6, title: "Friedrich Asschenfeldt, The noble failure of Russia's liberal reformers — Engelsberg Ideas，2026-08-17", url: "https://engelsbergideas.com/?p=25194", accessed: 2026-10-25 }
-  - { id: s7, title: "李录：现代化十六讲（之十，现代化的传播与现代化的道路之争）— 虎嗅網，2014-07-24", url: "https://www.huxiu.com/article/38460.html", accessed: 2026-10-25 }
-  - { id: s8, title: "李录：现代化十六讲（之十一，现代化的本质和铁律）— 虎嗅網，2014-07-25", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25 }
-  - { id: s9, title: "Yuval Noah Harari, Homo Deus 引文：capitalism won the Cold War because distributed data processing works better… — Quotepark", url: "https://quotepark.com/quotes/1812589-yuval-noah-harari-capitalism-did-not-defeat-communism-because-capita/", accessed: 2026-10-25 }
-  - { id: s10, title: "Sapiens 第 18 章〈永遠的革命〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-18-a-permanent-revolution", accessed: 2026-10-25 }
-  - { id: s11, title: "Deng Xiaoping's southern tour — Wikipedia", url: "https://en.wikipedia.org/wiki/Deng_Xiaoping%27s_southern_tour", accessed: 2026-10-25 }
+  - { id: s1, title: "Dissolution of the Soviet Union — Wikipedia", url: "https://en.wikipedia.org/wiki/Dissolution_of_the_Soviet_Union", accessed: 2026-11-07, tier: 百科 }
+  - { id: s2, title: "The Collapse of the Soviet Union — Office of the Historian, U.S. Department of State", url: "https://history.state.gov/milestones/1989-1992/collapse-soviet-union", accessed: 2026-11-07, tier: 通論 }
+  - { id: s3, title: "Revolutions of 1989 — Wikipedia", url: "https://en.wikipedia.org/wiki/Revolutions_of_1989", accessed: 2026-10-25, tier: 百科 }
+  - { id: s4, title: "Fall of the Berlin Wall — Wikipedia", url: "https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "The wild nineties — Wikipedia", url: "https://en.wikipedia.org/wiki/The_wild_nineties", accessed: 2026-11-07, tier: 百科 }
+  - { id: s6, title: "Friedrich Asschenfeldt, The noble failure of Russia's liberal reformers — Engelsberg Ideas，2026-08-17", url: "https://engelsbergideas.com/?p=25194", accessed: 2026-10-25, tier: 通論 }
+  - { id: s7, title: "李录：现代化十六讲（之十，现代化的传播与现代化的道路之争）— 虎嗅網，2014-07-24", url: "https://www.huxiu.com/article/38460.html", accessed: 2026-11-07, tier: 摘要 }
+  - { id: s8, title: "李录：现代化十六讲（之十一，现代化的本质和铁律）— 虎嗅網，2014-07-25", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-11-07, tier: 摘要 }
+  - { id: s9, title: "Yuval Noah Harari, Homo Deus 引文：capitalism won the Cold War because distributed data processing works better… — Quotepark", url: "https://quotepark.com/quotes/1812589-yuval-noah-harari-capitalism-did-not-defeat-communism-because-capita/", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s10, title: "Sapiens 第 18 章〈永遠的革命〉摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-18-a-permanent-revolution", accessed: 2026-11-07, tier: 摘要 }
+  - { id: s11, title: "Deng Xiaoping's southern tour — Wikipedia", url: "https://en.wikipedia.org/wiki/Deng_Xiaoping%27s_southern_tour", accessed: 2026-10-25, tier: 百科 }
+  - { id: s12, title: "Mikhail Gorbachev, Resignation Speech（1991-12-25，英譯）— Marxists Internet Archive", url: "https://www.marxists.org/archive/gorbachev/1991/december-25.htm", accessed: 2026-11-07, tier: 一手 }
+importance: 3
+learn:
+  histories: [歐洲史, 美國史, 世界通史]
+  why_care: 從 1989 年到 1991 年，短短兩年多，東歐的共產政權接連垮台、柏林圍牆打開、德國統一、蘇聯解散；今天東歐與前蘇聯地區的國家版圖，大多是在這兩年多裡定下來的。[s1][s3][s4]
+  story: |
+    1985 年後，蘇聯領導人戈巴契夫推動經濟改革與「開放政策」，也放鬆了對東歐的控制。[s1][s2] 1989 年 6 月，波蘭團結工聯在選舉中大勝，共產政權和平交出權力；匈牙利開始拆除與奧地利邊界的鐵絲網。[s3] 8 月，波羅的海三國超過四分之一的人口手牽手組成「人鏈」。[s3] 11 月 9 日，東德官員在記者會上誤把新出境規定說成「立即生效」，群眾湧向邊界，柏林圍牆當晚開放。[s4] 年底美蘇領袖在馬爾他會談，常被視為冷戰結束的象徵。[s2][s3] 1990 年 10 月東西德統一。[s4] 1991 年 8 月強硬派政變失敗，12 月蘇聯解散。[s1][s2]
+  key_terms:
+    - { term: 東歐劇變, plain: 1989 年東歐各國共產黨政權在一年內接連下台，大多是和平轉移。, example: 骨牌一張倒下，旁邊一整排很快跟著倒。 }
+    - { term: 天鵝絨革命, plain: 1989 年捷克斯洛伐克以和平示威讓共產政權下台，名稱比喻過程像天鵝絨一樣柔和。, example: 全班安靜地集體拒交作業，老師最後同意換一種上課方式。 }
+    - { term: 獨立國協, plain: 蘇聯解散時，多個前加盟共和國組成的鬆散聯合組織。, example: 社團解散後，幾個前社員另組一個不太管事的聯誼群組。 }
+  primary_source:
+    - text: "The old system collapsed before the new one had time to begin working and the crisis in the society became even more acute.（舊體制在新體制還來不及運作之前就崩潰了，社會危機變得更加尖銳。）"
+      from: 戈巴契夫辭職演說，1991 年 12 月 25 日（英譯本，中文為本站摘譯）
+      src: s12
+  historiography: |
+    **冷戰哪一天結束？** 有人以 1989 年 12 月的馬爾他會談為準，也有許多史家以 1991 年蘇聯解體為準。[s3]
+    **蘇聯陣營為什麼輸？** 一種看法強調經濟結構：蘇聯與華約的市場不是自由市場，效率長期落後西方（李彔）。[s8] 另一種看法把資本主義和共產主義看成兩種資料處理系統，認為分散式的處理比集中式更能應付快速變化（哈拉瑞）。[s9] 也有看法強調戈巴契夫自己的選擇：他放寬言論與選舉後，中央再也控制不住各共和國。[s1][s2]
+    **轉型為什麼這麼痛？** 俄羅斯 1990 年代的經濟衰退，該怪「休克療法」，還是法治與國家制度的崩潰，至今仍有爭議。[s6]
+  misconceptions:
+    - 1989 年東歐劇變並不全是和平的：羅馬尼亞是唯一以暴力推翻共黨政權的國家。[s3]
+    - 美國沒有積極推動蘇聯瓦解：老布希支持東歐民主運動，但避免削弱戈巴契夫，態度相對謹慎。[s2]
+  pop_culture:
+    - { claim: "「雷根一聲令下，柏林圍牆就倒了。」", fact: "1989 年 11 月 9 日圍牆開放的直接導火線，是東德官員在記者會上把新出境規定誤說成「立即生效」。[s4]", src: [s4] }
 verification: 交叉確認
+crosscheck: { date: 2026-11-07, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 李彔直接論述屬實：實際打開 s8 虎嗅（之十一），「苏联华约组织市场一度也很大，但不是自由市场机制，效率远不如……最后在冷战中失败，被迫加入到一个大的全球市场」逐字相符；s7（之十）「二战以及其后冷战的胜利，最终让英美经济模式取得了彻底的胜利」「苏联解体之后，前苏联、东欧国家加入全球市场」相符，故保留。2) 哈拉瑞：s10 LitCharts 摘要寫蘇聯在發現共產經濟崩潰後 somewhat peacefully 退出權力、並在巴爾幹引發區域衝突；原卡「承認共產經濟失敗」「前蘇聯地區出現多場區域衝突」超出摘要，已改成摘要原意。s9 Quotepark 的《人類大命運》引文（分散式資料處理勝過集中式）與筆者所知原書文字一致，但本次未能打開該頁（WebFetch 額度用完），lens_status 維持「依公開資料推論，未對照原書」。3) s1、s2、s12 與「蘇聯解體」卡同次核對：12 月 8 日、21 日、25 日交出核武密碼、26 日解散、繼承國、老布希承認 12 國與謹慎態度、納恩－魯格、1989 年 12 月馬爾他會面相符；原寫「允許多黨選舉」改為 s1 所寫的競爭性選舉。s12 辭職演說引文逐字相符。4) s5：GDP 到 1996 年剩一半以下、寡頭、男性壽命降將近 6 歲相符；原卡 64 歲→不到 58 歲的具體數字 s5 沒有，已刪；s6 的 1991–1998 萎縮約 40% 未能重新核對。5) s3、s4（1989 年革命、柏林圍牆倒塌）本次未重新打開，波蘭 6 月選舉、人鏈四分之一人口、記者會口誤、羅馬尼亞唯一暴力等沿用原寫作者核對結果。6) 座標抽查：布蘭登堡門、華沙、瓦萊塔、克里姆林宮誤差 <2 km；別洛韋日原座標為布列斯特市，與森林中的簽約地相距約 50 km（>20 km），已改為森林別墅一帶 52.57N 23.80E，與「蘇聯解體」卡一致。" }
 lens_status: 依公開資料推論，未對照原書
 ---
 
@@ -50,7 +78,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ## C2 經過
 
-- **1985 年後**：戈巴契夫推動「改革重建」（perestroika，經濟改革）與「開放政策」（glasnost，放寬言論），也放鬆對東歐的控制，並允許多黨選舉。[s1][s2]
+- **1985 年後**：戈巴契夫推動「改革重建」（perestroika，經濟改革）與「開放政策」（glasnost，放寬言論），也放鬆對東歐的控制；1989 年起蘇聯開放有限度的競爭性選舉。[s1][s2]
 - **1989 年 6 月**：波蘭團結工聯在選舉中大勝，共產政權和平交出權力。[s3] 匈牙利開始拆除與奧地利邊界的鐵絲網，引發連鎖反應。[s3]
 - **1989 年 11 月 9 日**：東德官員在記者會上誤把新的出境規定說成「立即生效」，群眾湧向邊界，柏林圍牆當晚開放。[s4] 捷克斯洛伐克發生「天鵝絨革命」；羅馬尼亞是唯一以暴力推翻共黨政權的國家。[s3]
 - **1989 年 12 月**：美蘇領袖在馬爾他會談，常被視為冷戰結束的象徵。[s2][s3]
@@ -80,8 +108,8 @@ lens_status: 依公開資料推論，未對照原書
 ## C6 直接結果
 
 - 俄羅斯 GDP 到 1996 年只剩十年前的一半或更少（英文維基百科）；另一估計為 1991–1998 年萎縮約 40%。[s5][s6]
-- 男性平均壽命下降近 6 歲：約從 1990 年的 64 歲降到 1994 年不到 58 歲（估計）。[s5][s6]
-- 前蘇聯地區出現多場區域衝突，巴爾幹半島也陷入戰亂。[s10]
+- 男性平均壽命下降將近 6 歲。[s5]
+- 依《人類大歷史》的公開摘要，共產陣營瓦解也在巴爾幹地區引發多場區域衝突。[s10]
 
 ## C7 長期影響
 
@@ -97,7 +125,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ### 哈拉瑞
 
-哈拉瑞在《人類大命運》中把資本主義和共產主義看成兩種「資料處理系統」：資本主義贏得冷戰，是因為分散式資料處理比集中式更有效（至少在科技快速變化的時代）。[s9] 依《人類大歷史》的公開摘要，他也認為蘇聯在承認共產經濟失敗後，相對和平地放棄權力，但解體仍引發區域衝突。[s10]
+哈拉瑞在《人類大命運》中把資本主義和共產主義看成兩種「資料處理系統」：資本主義贏得冷戰，是因為分散式資料處理比集中式更有效（至少在科技快速變化的時代）。[s9] 依《人類大歷史》的公開摘要，他也認為蘇聯在發現共產經濟已經崩潰後，相對和平地退出權力，但這場瓦解也在巴爾幹引發多場區域衝突。[s10]
 
 ## C9 今日對照鉤子
 

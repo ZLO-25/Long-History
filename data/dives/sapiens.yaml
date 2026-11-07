@@ -1,0 +1,584 @@
+# 深入專題：《人類大歷史》（讀書專題）。書的論點寫在 book.chapters；卡片只當證據。說明見 docs/dives.md 第七節
+id: dive-sapiens
+title: 《人類大歷史》：用證據讀一本暢銷書
+question: 一本說「人類靠虛構的故事稱霸地球」的暢銷書，它的大論點有哪些證據？哪些學者不同意？
+blurb: 哈拉瑞的《人類大歷史》用四次「革命」講完 250 萬年。這個專題照書的 20 章排成 20 站：每站先讓你自己想一想，再看書裡怎麼說、網站上哪些卡片是證據、哪些學者有不同看法。目的不是背金句，而是練習判斷一本書的說法站不站得住。
+range:
+  start: -2500000
+  end: 2025
+focus_year: -68000
+histories:
+  - 世界通史
+lanes:
+  - name: 人類與社會
+    types:
+      - event
+      - social
+      - war
+  - name: 錢與貿易
+    types:
+      - finance
+      - commodity
+  - name: 技術與建築
+    types:
+      - tech
+      - building
+cards:
+  - event-homo-species
+  - event-cognitive-revolution
+  - event-out-of-africa
+  - event-megafauna-extinction
+  - event-peopling-americas
+  - event-fertile-crescent-agriculture
+  - building-gobekli-tepe
+  - event-east-asia-agriculture
+storylines: []
+units: []
+book:
+  title: 人類大歷史：從野獸到扮演上帝
+  author: 哈拉瑞（Yuval Noah Harari）
+  note: 「書裡怎麼說」都是本站用自己的話寫的摘要，根據公開的章節摘要與書評（見最下面的來源），不是原書文字，也沒有對照實體書頁碼。想知道作者原話，請讀原書（中文版：天下文化，林俊宏 譯）。
+  parts:
+    - no: 1
+      name: 認知革命
+      span: 約 7 萬年前起
+      blurb: 智人學會說故事、相信共同的想像，於是能和陌生人大規模合作，走出非洲遍布全球。
+      from: -2500000
+      to: -10000
+    - no: 2
+      name: 農業革命
+      span: 約 1 萬 2 千年前起
+      blurb: 人類開始種田養牲畜，人口暴增，但哈拉瑞問：大多數人的日子真的變好了嗎？
+      from: -10000
+      to: -1000
+    - no: 3
+      name: 人類的融合統一
+      span: 約前 1000 年起
+      blurb: 金錢、帝國與普世宗教，把原本分散的人群一步步連成一個世界。
+      from: -1000
+      to: 1500
+    - no: 4
+      name: 科學革命
+      span: 約 500 年前起
+      blurb: 人類承認自己無知、開始找新知識，科學、帝國與資本主義聯手改變了地球。
+      from: 1500
+      to: 2025
+  chapters:
+    - no: 1
+      part: 1
+      title: 地球上曾經不只一種人？
+      en: An Animal of No Significance
+      claim: |
+        哈拉瑞提醒我們：人類本來只是一種普通的動物，大約 200 萬年前到 1 萬年前，地球上同時住著尼安德塔人、直立人、弗洛勒斯人等好幾種「人」，智人只是其中之一 [b1][b23]。人類腦袋大、很耗能，長期只在食物鏈中段，直到大約 10 萬年前才突然爬到頂端 [b1][b23]。其他人種為什麼消失？書裡並列「取代說」和「混血說」，並指出 DNA 研究發現現代歐亞人身上帶有少量尼安德塔人基因 [b1]。
+      cards:
+        - event-homo-species
+        - event-out-of-africa
+      debate:
+        - who: 莎莉・麥克布里蒂與艾莉森・布魯克斯（Sally McBrearty & Alison S. Brooks）
+          text: 她們整理非洲化石紀錄後認為，非洲的人類化石大致連續、可能有好幾個候選祖先；若把被歸為 H. helmei 的化石也算進智人，智人的起源可推到約 25 萬到 30 萬年前，比一般說法更早也更漸進 [b31]。
+          src:
+            - b31
+        - who: 較新的化石發現（摩洛哥傑貝爾依羅，2017 年發表）
+          text: 摩洛哥的化石用熱釋光法測得約 31.5 萬年前，被許多學者看成最早的智人之一，所以智人出現的時間和地點可能比過去以為的更早、範圍也不只東非；不過也有學者質疑這些化石該不該算智人，因為化石抽不到 DNA，人屬物種的界線本來就模糊 [b38]。
+          src:
+            - b38
+      think: 書上說智人約 10 萬年前「突然」登上食物鏈頂端。看看「地球上的多種人類」和「走出非洲」兩張卡的年代，你覺得這是突然發生，還是花了很久？證據夠讓我們下結論嗎？
+    - no: 2
+      part: 1
+      title: 會說故事，為什麼能稱霸？
+      en: The Tree of Knowledge
+      claim: |
+        哈拉瑞認為，大約 7 萬年前智人的思考和溝通方式出現大躍進（他稱為「認知革命」），可能來自偶然的基因突變；之後才出現船、油燈、弓箭等新東西 [b2]。語言讓人能講八卦、判斷誰可信，更關鍵的是能談「不存在的東西」，例如神、國家、公司 [b2][b22]。哈拉瑞認為，只要大家相信同一個故事，成千上萬互不認識的人也能合作；黑猩猩靠彼此熟識維持群體，群體大到一定程度就會分裂；人類光靠八卦和私交，能互相信任的人數也有限，但靠共同的想像突破了這個限制 [b2]。
+      cards:
+        - event-cognitive-revolution
+        - event-out-of-africa
+        - event-french-revolution
+      debate:
+        - who: 莎莉・麥克布里蒂與艾莉森・布魯克斯（Sally McBrearty & Alison S. Brooks）
+          text: 〈沒有發生的革命〉一文主張：所謂 4 到 5 萬年前「突然出現」的現代行為，如骨器、顏料加工、遠距交易、裝飾品，其實在非洲中石器時代早了好幾萬年就零星出現，是慢慢累積而成，不是一次突變 [b31][b32]。
+          src:
+            - b31
+            - b32
+        - who: 南非布隆伯斯洞穴（Blombos Cave）的考古發現（維基百科整理）
+          text: 洞穴裡有約 10 萬年前的顏料作坊、約 7 萬 7 千年前刻有幾何紋的赭石、約 7 萬 5 千年前的貝殼珠；曾被拿來解釋「認知革命」的 FOXP2 基因說法，後來也受到質疑 [b32]。
+          src:
+            - b32
+        - who: 達珊娜・納拉亞南（Darshana Narayanan，神經科學家）
+          text: 她和幾位生物學家一起查核《人類大歷史》，認為書裡的錯誤「又多又重大」。例如本章說「所有猿類和猴子都有口語語言」，她認為照語言學的定義，有規則的符號語言是人類獨有；本章又說黑猩猩會並肩對抗狒狒和獵豹，但生物學家指出黑猩猩和獵豹在非洲的分布範圍並不重疊，作者可能把獵豹和花豹搞混了 [b29]。
+          src:
+            - b29
+      think: 「認知革命」如果是 7 萬年前一次突變，考古上應該看到什麼？如果是慢慢累積，又應該看到什麼？對照「認知革命」卡上的出土證據，你比較相信哪一種？
+    - no: 3
+      part: 1
+      title: 採集時代的人過得比較好？
+      en: A Day in the Life of Adam and Eve
+      claim: |
+        哈拉瑞拿採集者和後來的農民比較，認為採集者吃得更多樣、傳染病較少、每週工作時間也較短：就連住在喀拉哈里沙漠這類嚴苛環境的現代採集者，平均每週也只工作約 35 到 45 小時，比不少現代人少 [b3][b37]。但他也承認採集生活有嬰兒死亡率高、意外多、跟不上的人可能被拋下等艱苦面 [b3]。他一再提醒：這段時期留下的證據很少，現代的採集部落又差異很大，我們對當時的信仰、階層和暴力程度所知有限 [b3]。
+      cards:
+        - event-out-of-africa
+        - event-peopling-americas
+        - building-gobekli-tepe
+      debate:
+        - who: 賈德・戴蒙（Jared Diamond，演化生物學家、地理學家）
+          text: 他 1987 年的文章〈人類史上最大的錯誤〉早就提出類似看法：骨骸顯示採集者比後來的農民高、較少營養不良；喀拉哈里沙漠的採集者每週只花約 12 到 19 小時找食物——這個數字和哈拉瑞書中的說法並不一樣 [b30]。
+          src:
+            - b30
+        - who: 大衛・格雷伯與大衛・溫格羅（David Graeber & David Wengrow）
+          text: 《萬物的黎明》認為史前人類的社會組織比想像中多樣，有些群體一年中會在階層嚴明和平等共治之間季節性地切換，所以不能用單一的「採集者生活」來概括 [b35]。
+          src:
+            - b35
+      think: 哈拉瑞自己也說證據很少。如果要判斷「採集者比較快樂」，你會想要哪些證據（骨骸？工具？遺址規模？）？「哥貝克力石陣」這張卡能告訴我們採集者的什麼事？
+    - no: 4
+      part: 1
+      title: 巨獸滅絕，人類是兇手？
+      en: The Flood
+      claim: |
+        哈拉瑞認為，智人坐船抵達澳洲後幾千年內，巨型有袋動物等大型動物大量消失；美洲大約 1 萬 6 千年前人類到達時也出現同樣的情況，紐西蘭的動物撐過了 4 萬 5 千年的氣候變化，卻在約 800 年前人類登島之後，失去大約六成鳥種 [b4]。他認為這些動物撐過了以前的冰期，而且同期海洋生物變化不大，所以主因是人類而非氣候 [b4]。他把人類比喻成吞沒其他物種的「大洪水」，並警告大型動物的滅絕還沒結束 [b4]。
+      cards:
+        - event-megafauna-extinction
+        - event-peopling-americas
+        - event-out-of-africa
+      debate:
+        - who: 第四紀滅絕事件研究的另一派（維基百科整理）
+          text: 澳洲的大型動物化石稀少、年代也難以精準測定；2010 年代後的研究發現不少物種其實和人類共存了一段時間，部分學者仍主張氣候變遷才是主因；2025 年的文獻回顧指出學界仍深度分裂 [b33]。
+          src:
+            - b33
+        - who: 托比亞斯・安德曼（Tobias Andermann）等人 2020 年研究
+          text: 他們分析 12 萬 6 千年來的哺乳動物滅絕，認為約 96% 主要是人類活動造成，滅絕常在人類初抵各大陸時成批發生——比較支持哈拉瑞；也有不少學者主張「人類狩獵加上氣候壓力」共同作用 [b33]。
+          src:
+            - b33
+      think: 要證明「人類是兇手」，至少需要哪兩件事在時間上對得上？對照「大型動物滅絕」和「人類抵達美洲」兩張卡的年代，你覺得目前的證據足夠定罪嗎？還缺什麼？
+    - no: 5
+      part: 2
+      title: 種田是一場大騙局？
+      en: History's Biggest Fraud
+      claim: |
+        哈拉瑞指出，大約 1 萬 2 千到 1 萬年前，中東、中美洲和中國各自獨立開始農業 [b5]。他認為農業讓人口變多，卻讓多數人更辛苦：工作更久、飲食變單調、更容易生病和鬧饑荒，所以稱之為「史上最大騙局」（第 5 章）；甚至可以說是小麥馴化了人類 [b5][b24][b22]。他也拿哥貝克力石陣為例，認為可能是先有大型宗教建築，人們才為了供應建造者而開始耕作 [b5]。
+      cards:
+        - event-fertile-crescent-agriculture
+        - building-gobekli-tepe
+        - event-east-asia-agriculture
+      debate:
+        - who: 賈德・戴蒙（Jared Diamond）
+          text: 他用骨骸證據支持類似看法：伊利諾州、俄亥俄州出土的玉米農民骨骸顯示更多營養不良、貧血和傳染病；農業讓少數菁英能拿走別人的糧食，也加重了女性的負擔 [b30]。
+          src:
+            - b30
+        - who: 詹姆斯・斯科特（James C. Scott，《反穀》作者）
+          text: 他認為定居早於農業，常發生在資源豐富的濕地；從馴化作物到美索不達米亞出現國家，中間隔了四千多年；穀物同時成熟、容易被看見和收稅，所以特別適合國家控制人民 [b34]。
+          src:
+            - b34
+        - who: 哥貝克力石陣的新考古發現（維基百科整理）
+          text: 2019 年起發現住屋、蓄水池和日常工具，學者已大致放下「只是神廟、沒人住」的看法，認為儀式和日常生活並存；遺址有大量磨石，但還無法確定加工的是野生還是栽培穀物 [b36]。
+          src:
+            - b36
+      think: 「哥貝克力石陣」卡上的新發現（有住屋、有水池）會讓「先有神廟才有農業」的說法更強還是更弱？再看「肥沃月彎」和「東亞農業」兩張卡，各地開始農業的過程一樣嗎？
+    - no: 6
+      part: 2
+      title: 人人平等也是想像出來的？
+      en: Building Pyramids
+      claim: |
+        哈拉瑞認為農業時代的人口太多，已經回不去採集生活；剩餘糧食養活了菁英，一般人反而更焦慮、更辛苦 [b6]。他把約 3,800 年前的《漢摩拉比法典》和美國《獨立宣言》並列，指出前者說神定下了貴賤高低，後者說造物主讓人人平等 [b6]。哈拉瑞認為這兩者都是「想像的秩序」：人權不是生物學上的事實，而是讓陌生人能合作的共同信念；只要夠多人一起改變想法，秩序就會改變 [b6][b24]。
+      cards:
+        - finance-mesopotamia-credit
+        - event-declaration-of-independence
+        - event-american-founding-philosophy
+      debate:
+        - who: 大衛・格雷伯與大衛・溫格羅（David Graeber & David Wengrow）
+          text: 他們指出有些早期城市幾乎看不到宮殿、神廟或中央倉庫，例如特奧蒂瓦坎後來轉向多數居民住平等的住宅；所以農業與城市不一定帶來由上而下的階層，人類其實一直在選擇不同的社會安排 [b35]。
+          src:
+            - b35
+        - who: 詹姆斯・斯科特（James C. Scott）
+          text: 他強調早期國家要把人「固定」在土地上才能收稅、徵兵，城牆可能是為了把納稅人關在裡面；換句話說，維持秩序的不只是共同的信念，還有強制力 [b34]。
+          src:
+            - b34
+      think: 哈拉瑞認為「人權是想像的秩序」。讀「美索不達米亞神廟借貸與漢摩拉比法典」和「獨立宣言」兩張卡：兩種秩序各靠什麼讓人遵守——信念、法律，還是武力？「想像出來的」是否就等於「不重要」或「可以不遵守」？
+    - no: 7
+      part: 2
+      title: 文字是為了記帳而發明？
+      en: Memory Overload
+      claim: |
+        哈拉瑞指出，人類的大腦不擅長記大量數字和帳目，而大型社會偏偏需要記錄稅收、財產和交易 [b7][b24]。蘇美人約在西元前 3500 年發展出文字，最初用來記帳收稅，後來才慢慢能寫法令、書信和詩 [b7]。他也談到印加人用結繩記錄、阿拉伯數字源自印度，並認為今天電腦用的二進位是更具革命性的「文字」 [b7][b24]。
+      cards:
+        - tech-cuneiform
+        - finance-mesopotamia-credit
+        - tech-internet
+      debate: []
+      think: 看「楔形文字」卡：最早的泥板記的是什麼內容？這些證據支持「文字為記帳而生」嗎？中國的甲骨文最早拿來做什麼，可以當反例嗎？
+    - no: 8
+      part: 2
+      title: 不平等是天生的嗎？
+      en: There Is No Justice in History
+      claim: |
+        哈拉瑞認為，想像的秩序讓大家能合作，卻一點也不公平：印度種姓、美洲的種族階級、幾乎普世的男尊女卑，都缺乏生物學根據 [b8][b24]。他主張這些階級常起於偶然，例如歐洲人到非洲買奴隸，部分只是因為從非洲運過去比較便宜，之後再編出「天生低劣」的說法 [b8]。歧視讓弱勢者得不到教育，又反過來「證明」了偏見，形成惡性循環，使不平等延續好幾百年 [b8]。
+      cards:
+        - event-reconstruction
+        - event-conflict-of-orders
+        - event-haitian-revolution
+        - event-imperial-exam
+      debate: []
+      think: 「美國重建時期」卡上，奴隸制廢除後歧視為什麼還能延續？這支持書裡的「惡性循環」嗎？「科舉制度」讓平民有機會當官，算不算打破了這種循環的反例？
+    - no: 9
+      part: 3
+      title: 世界為什麼越來越像一家？
+      en: The Arrow of History
+      claim: |
+        哈拉瑞認為，每個文化內部都有互相矛盾的價值（例如自由與平等），這些矛盾讓文化不斷變動 [b9][b25]。從長期來看，原本互不相識的人群一直在合併，歷史的方向是走向單一的全球文化；所謂「道地」的文化其實很可疑，像義大利菜少不了的番茄就來自美洲 [b9]。他認為約西元前 1000 年起，金錢、帝國和普世宗教成為三種讓全人類統一的力量 [b9][b22]。
+      cards:
+        - commodity-silk
+        - commodity-manila-galleon
+        - event-buddhism-china
+        - event-vasco-da-gama
+      debate: []
+      think: 「絲綢」和「馬尼拉大帆船」兩張卡顯示的貿易網，是讓世界更統一，還是同時製造新的衝突？你能從卡片裡各找一個例子嗎？
+    - no: 10
+      part: 3
+      title: 錢為什麼人人都信？
+      en: The Scent of Money
+      claim: |
+        哈拉瑞指出，以物易物很不方便，金錢讓人用任何大家都同意的東西（貝殼、鹽、硬幣）來代表價值，是一場「純粹心理上的革命」 [b10]。他認為金錢的價值完全建立在大家的信任上，所以能跨越宗教和文化：十字軍時代的基督徒和穆斯林照樣互相使用對方的金幣 [b10][b22]。不過他也提醒，金錢讓人信任制度而不是彼此，可能讓奴隸貿易這類傷害變得更容易 [b10]。
+      cards:
+        - finance-mesopotamia-credit
+        - finance-lydian-coinage
+        - finance-islamic-dinar
+        - finance-byzantine-solidus
+        - commodity-silver-flow
+      debate: []
+      think: 「美索不達米亞神廟借貸」卡出現在「呂底亞鑄幣」卡之前很久。先有借貸記帳、後有硬幣，這對「金錢從以物易物發展而來」的說法有什麼影響？
+    - no: 11
+      part: 3
+      title: 帝國是壞東西嗎？
+      en: Imperial Visions
+      claim: |
+        哈拉瑞把帝國定義為統治多種文化、疆界可以伸縮的政治體，並認為它是歷史上最常見、也相當穩定的政治形式 [b11][b22]。他承認帝國常靠戰爭、奴役甚至屠殺建立，但也主張帝國留下了共同語言、文化交流等長遠影響，例如努曼西亞人寧可燒城自盡也不向羅馬投降，但後來的西班牙人是用源自拉丁文的西班牙語來歌頌這段抵抗 [b11]。他也舉秦始皇、波斯居魯士追求天下一統為例 [b11]。
+      cards:
+        - event-qin-unification
+        - event-pax-romana
+        - event-constitutio-antoniniana
+        - event-fall-western-rome
+      debate:
+        - who: 詹姆斯・斯科特（James C. Scott）
+          text: 他認為早期國家其實很脆弱，常因疾病和作物單一而崩潰；國家崩潰後的「黑暗時代」對一般人的福祉未必是壞事，許多人還主動逃離國家統治，去當所謂的「蠻族」 [b34]。
+          src:
+            - b34
+      think: 哈拉瑞說帝國「穩定」。比較「羅馬和平」和「西羅馬滅亡」兩張卡，羅馬帝國到底穩不穩？「卡拉卡拉敕令」讓帝國內的自由人都成為公民，這是融合還是統治的手段？
+    - no: 12
+      part: 3
+      title: 主義也算一種宗教？
+      en: The Law of Religion
+      claim: |
+        哈拉瑞把宗教看成第三種統一人類的力量，定義為「建立在超人類秩序上的一套價值」；他認為能向外傳教的普世宗教，比早期的地方信仰能團結更多人 [b12][b22]。他依序介紹泛靈信仰、多神教、一神教和佛教，並認為一神教比多神教更不寬容 [b12]。哈拉瑞還認為，自由主義、共產主義、資本主義、民族主義等現代意識形態，運作起來也像宗教 [b12]。
+      cards:
+        - event-christian-empire
+        - event-buddhism-china
+        - event-reformation
+        - war-thirty-years
+      debate:
+        - who: 蓋倫・史卓森（Galen Strawson，哲學家，《衛報》書評）
+          text: 他認為哈拉瑞對「現代自由主義文化」的抨擊像一幅「漫畫」，並直說書中「自由人文主義是一種宗教」的說法很「傻」；他整體上認為這本書越往後讀，吸引人的優點越被粗心、誇張和聳動壓過 [b27][b22]。
+          src:
+            - b27
+            - b22
+      think: 哈拉瑞認為一神教比多神教更不寬容。讀「三十年戰爭」和「佛教傳入中國」兩張卡：宗教衝突的原因只有信仰嗎？政治、土地和權力扮演什麼角色？這些證據夠不夠支持書的說法？
+    - no: 13
+      part: 3
+      title: 歷史會選對的路嗎？
+      en: The Secrets of Success
+      claim: |
+        哈拉瑞指出，事後回頭看歷史，好像一切都理所當然，但當時其實充滿各種可能；例如君士坦丁為什麼讓羅馬帝國改信基督教，而不是別的信仰，他說很難解釋 [b13]。他認為今天主流的觀念很多是偶然勝出的，不一定最好；它們像傳染病一樣散布，能延續是因為有助於合作，而不是因為對人類有益 [b13]。
+      cards:
+        - event-christian-empire
+        - event-honnoji-incident
+      debate: []
+      think: 讀「基督教成為羅馬國教」卡：基督教勝出，比較像偶然，還是有可以說明的原因？再看「本能寺之變」，一次意外如何改變日本的走向？「偶然」和「原因」能同時成立嗎？
+    - no: 14
+      part: 4
+      title: 承認無知，竟是力量？
+      en: The Discovery of Ignorance
+      claim: |
+        哈拉瑞認為，科學和過去傳統最大的不同，是願意承認「我們不知道」，並透過觀察和數學不斷修正理論，而不是相信答案早已寫在經典裡 [b14][b26][b22]。他也強調科學從來不中立：研究很花錢，誰出錢就決定研究什麼，國王和政府常為了征服和打仗資助研究 [b14][b26]。他把現代醫學追求延長壽命比喻成古代吉爾伽美什追求永生，但懷疑活得久就會更快樂 [b14]。
+      cards:
+        - event-scientific-revolution
+        - tech-printing-press
+        - event-enlightenment
+      debate: []
+      think: 「科學革命」卡上的科學家，研究經費和動機從哪裡來？這支持「科學從不中立」的說法嗎？印刷機在「承認無知、不斷修正」的過程中扮演什麼角色？
+    - no: 15
+      part: 4
+      title: 歐洲為何能稱霸世界？
+      en: The Marriage of Science and Empire
+      claim: |
+        哈拉瑞以庫克船長的航行為例，指出科學考察和帝國擴張常常綁在一起 [b15]。他認為歐洲當時的技術不一定比中國、印度或中東強，但歐洲人更有探索和征服的衝勁，這套重視科學與資本的價值觀讓小國建起全球帝國 [b15][b26]。他拿鄭和下西洋不以征服為目的做對照，並描述西班牙人征服阿茲特克和印加的過程 [b15]。
+      cards:
+        - event-zheng-he-voyages
+        - event-portuguese-empire
+        - event-vasco-da-gama
+        - commodity-potosi
+      debate: []
+      think: 比較「鄭和下西洋」和「達伽馬開闢印度航路」兩張卡：兩支船隊的目的、規模和後果有什麼不同？差別真的只是「價值觀」，還是也和地理、資源有關？
+    - no: 16
+      part: 4
+      title: 借錢為什麼能致富？
+      en: The Capitalist Creed
+      claim: |
+        哈拉瑞認為，信用（借貸）建立在「相信未來會更好」上：銀行能借出比手上現金多很多的錢，而科學帶來的進步信念讓人更願意放款投資 [b16][b26]。他介紹亞當・斯密《國富論》把利潤再投資看成造福大家的方式，並以荷蘭東印度公司、法國密西西比公司為例，說明公司和資本如何推動殖民與泡沫 [b16]。他也指出商人遊說政府發動鴉片戰爭、販奴貿易和比利時國王在剛果的暴行，提醒資本主義同樣可能帶來巨大苦難 [b16]。
+      cards:
+        - finance-amsterdam-exchange
+        - event-dutch-formosa
+        - finance-mississippi-bubble
+        - war-opium-war
+        - finance-bank-of-england
+      debate:
+        - who: 蓋倫・史卓森（Galen Strawson，哲學家，《衛報》書評）
+          text: 他批評書中又一次把亞當・斯密描繪成「貪婪的使徒」，認為這是對斯密思想的誤讀 [b27][b22]。
+          src:
+            - b27
+            - b22
+      think: 「荷蘭東印度公司統治臺灣」這張卡裡，公司靠什麼在大員做生意——信用、武力，還是兩者都有？這支持哈拉瑞說的「資本與帝國聯手」嗎？
+    - no: 17
+      part: 4
+      title: 工業革命讓人更快樂？
+      en: The Wheels of Industry
+      claim: |
+        哈拉瑞指出，工業革命以前，經濟成長受限於太陽能、人力和獸力；蒸汽機等技術讓人類能把煤、石油等能源轉成動力，成長才突然加速 [b17][b26]。他認為工業化在某種意義上是「第二次農業革命」，用更快的方式向自然索取資源 [b17]。他特別批評工廠化養殖讓數百億動物受苦，也指出消費主義把「買東西」包裝成追求幸福 [b17]。
+      cards:
+        - tech-steam-engine
+        - tech-railway
+        - tech-electric-grid
+        - tech-internal-combustion
+      debate: []
+      think: 「蒸汽機」和「電力與電網」兩張卡帶來了哪些生活改變？哪些讓人更輕鬆，哪些讓人更忙？你能用卡片內容判斷「工業化沒有讓人更快樂」這句話嗎？
+    - no: 18
+      part: 4
+      title: 現代真的比較和平嗎？
+      en: A Permanent Revolution
+      claim: |
+        哈拉瑞指出，過去照顧人的是家族和村落；現代國家和市場接手了這些工作，讓人變成「個人」，但他懷疑這是否讓人更快樂 [b18]。他把國家稱為「想像的共同體」，靠國旗、神話和象徵把陌生人連在一起 [b18]。他也認為核武讓大戰形同集體自殺，而貿易比戰爭更有利可圖，所以國際大戰變少、多數人活在相對和平中，但未來仍可能逆轉 [b18][b26]。
+      cards:
+        - war-world-war-one
+        - war-world-war-two
+        - event-end-of-cold-war
+        - war-war-on-terror
+      debate:
+        - who: 達珊娜・納拉亞南（Darshana Narayanan，神經科學家）
+          text: 書中「和平時代」一節把暴力減少主要歸功於國家興起，並拿「住在亞馬遜森林深處、沒有軍隊、警察和監獄」的厄瓜多瓦奧拉尼人當沒有國家的例子；她指出瓦奧拉尼人自 1970 年代初以來大致過著和平生活，這個例子用得不妥 [b29]。
+          src:
+            - b29
+      think: 哈拉瑞認為核武和貿易讓大國之間的戰爭變得不划算。讀「第一次世界大戰」卡：當時沒有核武，各國靠什麼維持和平，結果如何？再對照「冷戰結束」卡，你覺得是什麼讓美蘇沒有直接開戰——核武、貿易，還是別的？
+    - no: 19
+      part: 4
+      title: 我們比祖先更快樂嗎？
+      en: And They Lived Happily Ever After
+      claim: |
+        哈拉瑞指出，歷史學很少問「人類有沒有變快樂」，而他認為答案可能是沒有，甚至採集者還更快樂 [b19][b22]。他主張快樂主要取決於期望，而不是客觀條件：生活一改善，期望就跟著膨脹 [b19]。他也討論快樂的生化基礎、宗教給人的意義感，並介紹佛教「放下對感受的追逐」的觀點 [b19][b26]。
+      cards: []
+      debate: []
+      think: （討論題）如果快樂主要取決於期望，那麼「生活水準提高」還值得追求嗎？請舉一個你自己或家人的例子，說明期望和滿足感的關係，再想想：歷史學家能用什麼證據比較古人和今人的快樂？
+    - no: 20
+      part: 4
+      title: 智人會被自己取代嗎？
+      en: The End of Homo Sapiens
+      claim: |
+        哈拉瑞指出，生命靠天擇演化了約 40 億年，而人類正開始用基因工程、人機結合（生化人）和人工智慧，自己設計下一步 [b20][b26][b22]。他舉出被植入水母基因而會發光的兔子、裝了晶片的昆蟲等例子，並擔心政府或企業可能打造出「超人菁英」 [b20]。他承認這些多屬推測，但呼籲大眾趁早參與決定科學研究的方向 [b20][b26]。
+      cards: []
+      debate:
+        - who: 達珊娜・納拉亞南（Darshana Narayanan，神經科學家）
+          text: 她批評書的最後一章（「為什麼不重新設計更好的智人？」）把基因看得太有決定性；她舉 MAO-A 基因為例，說明基因和攻擊性的關聯並不是一對一；她強調發育和環境都會影響基因如何表現，所以「改幾個基因就能設計人」的想像過於簡化 [b29]。
+          src:
+            - b29
+        - who: 克里斯多福・哈派克（Christopher R. Hallpike，人類學家）
+          text: 他在書評中指出，這本書以「令人毛骨悚然」的人類命運預言作結（例如人類最後會被智慧機器取代），並認為不該把它當成嚴肅的知識貢獻，而應看作「資訊娛樂」（infotainment）；本站只讀到這篇書評的轉載節錄 [b28][b22]。
+          src:
+            - b28
+            - b22
+      think: （討論題）如果有一天可以用基因工程讓孩子更聰明，誰應該決定能不能做？請列出支持和反對的理由各一個，並想想：你的理由是根據證據，還是根據價值觀？
+  sources:
+    - id: b1
+      title: "LitCharts – Sapiens Chapter 1: An Animal of No Significance"
+      url: https://www.litcharts.com/lit/sapiens/chapter-1-an-animal-of-no-significance
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b2
+      title: "LitCharts – Sapiens Chapter 2: The Tree of Knowledge"
+      url: https://www.litcharts.com/lit/sapiens/chapter-2-the-tree-of-knowledge
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b3
+      title: "LitCharts – Sapiens Chapter 3: A Day in the Life of Adam and Eve"
+      url: https://www.litcharts.com/lit/sapiens/chapter-3-a-day-in-the-life-of-adam-and-eve
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b4
+      title: "LitCharts – Sapiens Chapter 4: The Flood"
+      url: https://www.litcharts.com/lit/sapiens/chapter-4-the-flood
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b5
+      title: "LitCharts – Sapiens Chapter 5: History's Biggest Fraud"
+      url: https://www.litcharts.com/lit/sapiens/chapter-5-history-s-biggest-fraud
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b6
+      title: "LitCharts – Sapiens Chapter 6: Building Pyramids"
+      url: https://www.litcharts.com/lit/sapiens/chapter-6-building-pyramids
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b7
+      title: "LitCharts – Sapiens Chapter 7: Memory Overload"
+      url: https://www.litcharts.com/lit/sapiens/chapter-7-memory-overload
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b8
+      title: "LitCharts – Sapiens Chapter 8: There Is No Justice in History"
+      url: https://www.litcharts.com/lit/sapiens/chapter-8-there-is-no-justice-in-history
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b9
+      title: "LitCharts – Sapiens Chapter 9: The Arrow of History"
+      url: https://www.litcharts.com/lit/sapiens/chapter-9-the-arrow-of-history
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b10
+      title: "LitCharts – Sapiens Chapter 10: The Scent of Money"
+      url: https://www.litcharts.com/lit/sapiens/chapter-10-the-scent-of-money
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b11
+      title: "LitCharts – Sapiens Chapter 11: Imperial Visions"
+      url: https://www.litcharts.com/lit/sapiens/chapter-11-imperial-visions
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b12
+      title: "LitCharts – Sapiens Chapter 12: The Law of Religion"
+      url: https://www.litcharts.com/lit/sapiens/chapter-12-the-law-of-religion
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b13
+      title: "LitCharts – Sapiens Chapter 13: The Secrets of Success"
+      url: https://www.litcharts.com/lit/sapiens/chapter-13-the-secrets-of-success
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b14
+      title: "LitCharts – Sapiens Chapter 14: The Discovery of Ignorance"
+      url: https://www.litcharts.com/lit/sapiens/chapter-14-the-discovery-of-ignorance
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b15
+      title: "LitCharts – Sapiens Chapter 15: The Marriage of Science and Empire"
+      url: https://www.litcharts.com/lit/sapiens/chapter-15-the-marriage-of-science-and-empire
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b16
+      title: "LitCharts – Sapiens Chapter 16: The Capitalist Creed"
+      url: https://www.litcharts.com/lit/sapiens/chapter-16-the-capitalist-creed
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b17
+      title: "LitCharts – Sapiens Chapter 17: The Wheels of Industry"
+      url: https://www.litcharts.com/lit/sapiens/chapter-17-the-wheels-of-industry
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b18
+      title: "LitCharts – Sapiens Chapter 18: A Permanent Revolution"
+      url: https://www.litcharts.com/lit/sapiens/chapter-18-a-permanent-revolution
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b19
+      title: "LitCharts – Sapiens Chapter 19: And They Lived Happily Ever After"
+      url: https://www.litcharts.com/lit/sapiens/chapter-19-and-they-lived-happily-ever-after
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b20
+      title: "LitCharts – Sapiens Chapter 20: The End of Homo Sapiens"
+      url: https://www.litcharts.com/lit/sapiens/chapter-20-the-end-of-homo-sapiens
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b21
+      title: LitCharts – Sapiens 章節目錄
+      url: https://www.litcharts.com/lit/sapiens/
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b22
+      title: "Wikipedia – Sapiens: A Brief History of Humankind（含四部分、論點與評價）"
+      url: https://en.wikipedia.org/wiki/Sapiens:_A_Brief_History_of_Humankind
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b23
+      title: SuperSummary – Sapiens Part 1 Summary（僅第 1 章可讀）
+      url: https://www.supersummary.com/sapiens/part-1/
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b24
+      title: SuperSummary – Sapiens Part 2 Summary（第 5–8 章）
+      url: https://www.supersummary.com/sapiens/part-2/
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b25
+      title: SuperSummary – Sapiens Part 3 Summary（僅第 9–10 章可讀）
+      url: https://www.supersummary.com/sapiens/part-3/
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b26
+      title: SuperSummary – Sapiens Part 4 Summary（第 14–20 章）
+      url: https://www.supersummary.com/sapiens/part-4/
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b27
+      title: Galen Strawson, Sapiens review（The Guardian, 2014-09-11；經 inkl 轉載頁閱讀，《衛報》原站被擋）
+      url: https://www.inkl.com/news/sapiens-a-brief-history-of-humankind-by-yuval-noah-harari-review
+      accessed: 2026-11-07
+      tier: 通論
+    - id: b28
+      title: "C. R. Hallpike, Sapiens: Infotainment Posing as Knowledge（Capitalism Review 轉載節錄；原刊 New English Review 2017）"
+      url: https://review.capitalismmagazine.com/2018/05/sapiens-infotainment-posing-as-knowledge
+      accessed: 2026-11-07
+      tier: 通論
+    - id: b29
+      title: Darshana Narayanan, The Dangerous Populist Science of Yuval Noah Harari（Current Affairs, 2022-07-06）
+      url: https://www.currentaffairs.org/news/2022/07/the-dangerous-populist-science-of-yuval-noah-harari
+      accessed: 2026-11-07
+      tier: 通論
+    - id: b30
+      title: Jared Diamond, The Worst Mistake in the History of the Human Race（Discover, 1987；大學課程網頁轉載全文）
+      url: https://hettingern.people.charleston.edu/150_Spring_2015/Diamond_Worst_Mistake.htm
+      accessed: 2026-11-07
+      tier: 通論
+    - id: b31
+      title: McBrearty & Brooks 2000, The revolution that wasn't（Journal of Human Evolution 39(6):453–563，摘要頁）
+      url: https://www.sciencedirect.com/science/article/abs/pii/S0047248400904354
+      accessed: 2026-11-07
+      tier: 學術
+    - id: b32
+      title: Wikipedia – Behavioral modernity（含漸進說與布隆伯斯洞穴）
+      url: https://en.wikipedia.org/wiki/Behavioral_modernity
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b33
+      title: Wikipedia – Quaternary extinction event（人類 vs 氣候之爭）
+      url: https://en.wikipedia.org/wiki/Quaternary_extinction_event
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b34
+      title: Alex Sager, Review of Against the Grain by James C. Scott（LSE Review of Books, 2017）
+      url: https://researchonline.lse.ac.uk/id/eprint/85530/1/lsereviewofbooks-2017-10-30-book-review-against-the-grain-by-james-c.pdf
+      accessed: 2026-11-07
+      tier: 學術
+    - id: b35
+      title: Wikipedia – The Dawn of Everything（Graeber & Wengrow）
+      url: https://en.wikipedia.org/wiki/The_Dawn_of_Everything
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b36
+      title: Wikipedia – Göbekli Tepe
+      url: https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b37
+      title: Goodreads – Sapiens 書中引文（第 3 章：喀拉哈里採集者每週工作 35–45 小時）
+      url: https://www.goodreads.com/quotes/12066696-while-people-in-today-s-affluent-societies-work-an-average-of
+      accessed: 2026-11-07
+      tier: 摘要
+    - id: b38
+      title: Jebel Irhoud — Wikipedia
+      url: https://en.wikipedia.org/wiki/Jebel_Irhoud
+      accessed: 2026-11-07
+      tier: 百科

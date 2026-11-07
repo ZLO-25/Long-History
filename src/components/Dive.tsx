@@ -5,6 +5,7 @@ import type { Card, Dive, Index, PowerMap } from '../types';
 import { fmtRange, fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import './dive.css';
 import { RelationGraph } from './RelationGraph';
+import { BookView, DeepTimeline } from './DiveBook';
 
 export function findDive(index: Index, id: string): Dive | undefined {
   return (index.dives ?? []).find((d) => d.id === id);
@@ -18,6 +19,15 @@ export function diveMarks(index: Index, id: string) {
   const m = byIdOf(index);
   return d.cards.map((cid) => m.get(cid)).filter((c): c is Card => !!c && c.type !== 'person' && !!c.place.locations[0])
     .map((c, i) => ({ key: c.place.locations[0].key, n: i + 1, name: c.name }));
+}
+
+/** 打開專題時年代跳到哪：第一張勢力圖 → 專題指定的 focus_year → 專題起點 */
+export function diveYear(d: Dive): number {
+  return powerFor(d, d.range.end)?.year ?? d.focus_year ?? d.range.start;
+}
+/** 史前按鈕要打開的專題：第一個從史前開始的專題（時間軸裝不下的卡都在那裡） */
+export function prehistDive(index: Index): Dive | undefined {
+  return (index.dives ?? []).find((d) => d.range.start < -800);
 }
 
 /** 目前年代該顯示哪一張勢力圖：不晚於該年的最近一張；都比該年晚就用第一張 */
@@ -59,7 +69,15 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       <h2>{d.title}</h2>
       <p className="dv-q">❓ {d.question}</p>
       {d.blurb && <p className="dv-blurb">{d.blurb}</p>}
-      <p className="muted small">{fmtRange(d.range.start, d.range.end)}・{events.length} 張卡、{persons.length} 位人物・時間軸已放大到這段年代{onMap && <>・<button className="link" onClick={onMap}>在地圖上看</button></>}</p>
+      <p className="muted small">{fmtRange(d.range.start, d.range.end)}・{events.length} 張卡{persons.length > 0 && `、${persons.length} 位人物`}・{d.range.start < -800 ? '年代太長，大時間軸放不下，看下面的深時間軸' : '時間軸已放大到這段年代'}{onMap && <>・<button className="link" onClick={onMap}>在地圖上看</button></>}</p>
+
+      {d.book && (
+        <section className="dv-sec">
+          <h3>深時間軸<small className="muted">{fmtRange(d.range.start, d.range.end)}</small></h3>
+          <DeepTimeline dive={d} book={d.book} cards={events} year={year} setYear={setYear} onOpen={onOpen} currentId={currentId} />
+        </section>
+      )}
+      {d.book && <BookView dive={d} book={d.book} byId={m} cardBtn={(c) => cardBtn(c)} />}
 
       {d.power_maps.length > 0 && (
         <section className="dv-sec dv-power">
@@ -135,7 +153,7 @@ export function DiveIndex({ index, onDive }: { index: Index; onDive: (id: string
               <button className="di-item" onClick={() => onDive(d.id)}>
                 <span className="di-title">{d.title}</span>
                 <span className="di-q">{d.question}</span>
-                <span className="di-meta muted small">{fmtRange(d.range.start, d.range.end)}・{d.cards.length - persons} 張卡、{persons} 位人物{d.power_maps.length ? `・${d.power_maps.length} 張勢力圖` : ''}</span>
+                <span className="di-meta muted small">{fmtRange(d.range.start, d.range.end)}・{d.cards.length - persons} 張卡{persons ? `、${persons} 位人物` : ''}{d.power_maps.length ? `・${d.power_maps.length} 張勢力圖` : ''}{d.book ? `・照書讀 ${d.book.chapters.length} 站` : ''}</span>
               </button>
             </li>
           );

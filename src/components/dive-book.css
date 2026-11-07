@@ -1,0 +1,37 @@
+/* 讀書專題：深時間軸＋每章一站（docs/dives.md 第七節） */
+.deep-tl svg { max-width: 100%; display: block; background: #fffdf9; border: 1px solid var(--dive-line); border-radius: 8px; }
+.dt-axis { stroke: #8a8173; stroke-width: 1; }
+.dt-tick { font-size: 12px; fill: #3a362f; }
+.dt-part { cursor: pointer; }
+.dt-part-label { font-size: 13px; fill: #3a362f; font-weight: 600; }
+.dt-card { cursor: pointer; }
+.dt-card rect { opacity: .85; }
+.dt-card:hover rect, .dt-card.here rect { opacity: 1; stroke: #1f1c17; stroke-width: 1.5; }
+.dt-now { stroke: #c0392b; stroke-width: 2; }
+.dt-note { margin: 4px 0 0; }
+.bk-note { background: var(--dive-bg); border: 1px solid var(--dive-line); border-radius: 8px; padding: 6px 10px; }
+.bk-part { margin: 10px 0 4px; }
+.bk-part h4 { margin: 8px 0 2px; font-size: 14px; color: #3a362f; border-left: 6px solid; padding-left: 8px; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.bk-part h4 small { font-weight: 400; font-size: 12px; }
+.bk-blurb { margin: 2px 0 6px 14px; color: #3a362f; }
+.bk-ch { border: 1px solid var(--line); border-radius: 10px; background: #fff; margin: 5px 0; }
+.bk-ch > summary { cursor: pointer; padding: 6px 10px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; list-style: none; }
+.bk-ch > summary::-webkit-details-marker { display: none; }
+.bk-ch[open] > summary { border-bottom: 1px dashed var(--dive-line); background: var(--dive-bg); border-radius: 10px 10px 0 0; }
+.bk-no { background: var(--dive); color: #fff; border-radius: 999px; min-width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; font-weight: 600; flex: none; }
+.bk-title { font-weight: 600; flex: 1 1 auto; }
+.bk-ch summary small { font-size: 11.5px; }
+.bk-body { padding: 6px 12px 10px; }
+.bk-cell { margin: 6px 0 8px; }
+.bk-cell h5 { margin: 0 0 3px; font-size: 13px; color: var(--dive); }
+.bk-cell h5 small { font-weight: 400; font-size: 11.5px; }
+.bk-cell p { margin: 0; }
+.bk-think { background: #fff8e6; border: 1px solid #f0dca8; border-radius: 8px; padding: 6px 10px; }
+.bk-think .btn { margin-top: 6px; }
+.bk-claim p { border-left: 3px solid var(--dive-line); padding-left: 8px; }
+.bk-debate ul { margin: 0; padding-left: 18px; }
+.bk-debate li { margin: 2px 0; }
+.bk-ref { margin-left: 2px; font-size: 10.5px; color: var(--dive); text-decoration: none; padding: 0 1px; }
+.bk-sources ol { padding-left: 18px; }
+.bk-sources li { margin: 2px 0; word-break: break-word; }
+.bk-sources li.flash { background: #fff0b3; }

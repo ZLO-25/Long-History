@@ -11,7 +11,7 @@ import { MapView } from '../components/MapView';
 import { createSearch, matchTopics, useSearchLibs } from '../lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from '../components/Story';
-import { DiveView, DiveIndex, diveMarks, findDive, powerFor } from '../components/Dive';
+import { DiveView, DiveIndex, diveMarks, findDive, powerFor, diveYear, prehistDive } from '../components/Dive';
 import { useIsMobile } from '../lib/useIsMobile';
 import { LearnHome } from './LearnHome';
 import { HistoryPage } from './HistoryPage';
@@ -79,7 +79,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const byId = useCallback((id: string) => index.cards.find((c) => c.id === id), [index]);
   const unit = view.kind === 'unit' ? index.units.find((u) => u.id === view.id) : undefined;
   const selected = view.kind === 'card' ? byId(view.id) : focus ? byId(focus) : undefined;
-  const [year, setYear] = useState(() => (view.kind === 'card' ? byId(view.id)?.time.start : view.kind === 'dive' ? (() => { const dv = findDive(index, view.id); return dv ? powerFor(dv, dv.range.end)?.year ?? dv.range.start : undefined; })() : undefined) ?? 1);
+  const [year, setYear] = useState(() => (view.kind === 'card' ? byId(view.id)?.time.start : view.kind === 'dive' ? (() => { const dv = findDive(index, view.id); return dv ? diveYear(dv) : undefined; })() : undefined) ?? 1);
   useEffect(() => { if (selected) setYear(selected.time.start); }, [selected?.id]);
   const fs = p.fontScale ?? 1;
   // 桌機的時間軸可以收起來，讀單元時留更多空間給文字；記在瀏覽器
@@ -129,7 +129,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const diveBelow = (() => { for (let i = stack.length - 1; i >= 0; i--) { const v = stack[i]; if (v.kind === 'dive') return v.id; if (v.kind !== 'card') return null; } return null; })();
   const activeDive = diveBelow ? findDive(index, diveBelow) ?? null : null;
   const activePower = activeDive && powerYear != null ? activeDive.power_maps.find((x) => x.year === powerYear) ?? null : null;
-  const openDive = (id: string) => { setQuery(''); const dv = findDive(index, id); if (dv) { const pm = powerFor(dv, year); if (pm) { setPowerYear(pm.year); if (year < dv.range.start || year > dv.range.end) setYear(pm.year); } } push({ kind: 'dive', id }); };
+  const openDive = (id: string) => { setQuery(''); const dv = findDive(index, id); if (dv) { const pm = powerFor(dv, year); if (pm) { setPowerYear(pm.year); if (year < dv.range.start || year > dv.range.end) setYear(pm.year); } else if (year < dv.range.start || year > dv.range.end || dv.focus_year != null) setYear(diveYear(dv)); } push({ kind: 'dive', id }); };
   const allTopics = useMemo(() => (index.topicLayers ?? []).flatMap((l) => l.topics), [index]);
   // 學習模式的標籤數字只算學習版的卡（和路徑頁「你讀過 n／m」的 m 一致）
   const learnCount = (t: { cards: string[] }) => t.cards.filter((id) => !!byId(id)?.learn).length;
@@ -189,7 +189,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     highlight={hl} power={activePower ? { file: activePower.file, title: activePower.title } : null} onCard={(id) => openCard(id)}
     trail={selected?.type === 'person' ? selected.place.locations.filter((l) => typeof l.year === 'number').map((l) => ({ lat: l.lat, lng: l.lng, year: l.year!, name: l.name_ancient })) : null}
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}} />;
-  const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} />;
+  const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
   const cardTab = lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} /> : <p className="muted">還沒打開任何卡片。</p>;
 
   const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '單元', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題' } as Record<View['kind'], string>)[view.kind];

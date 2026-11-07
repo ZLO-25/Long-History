@@ -77,12 +77,14 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   // 疆域：選「不晚於目前年代」的最近快照
   const snap = useMemo(() => {
     const s = [...index.borders.snapshots].sort((a, b) => a.year - b.year);
-    return s.filter((x) => x.year <= year).pop() ?? s[0];
+    // 比最早的快照還早 200 年以上（例如史前）就不畫疆域，免得把後來的國家畫到幾萬年前
+    return s.filter((x) => x.year <= year).pop() ?? (s[0] && year >= s[0].year - 200 ? s[0] : null);
   }, [index, year]);
   useEffect(() => {
     let cancelled = false;
     // 今日對照層打開時，不畫古代疆域，避免把古代邊界誤認為今天的國界
     if (todayOn) { layers.current?.borders.clearLayers(); setSnapLabel('今日對照層：已隱藏古代疆域'); return; }
+    if (!snap) { layers.current?.borders.clearLayers(); setSnapLabel(`${fmtYear(year)}：還沒有國家，不畫疆域`); return; }
     loadBorders(snap.file).then((gj) => {
       if (cancelled || !layers.current) return;
       const g = layers.current.borders;
@@ -99,7 +101,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       setSnapLabel(`疆域示意：${fmtYear(snap.year)} 年快照`);
     });
     return () => { cancelled = true; };
-  }, [snap, todayOn]);
+  }, [snap, todayOn, snap ? 0 : year]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Itiner-e 精細道路（若已用 npm run roads 下載）
   useEffect(() => {

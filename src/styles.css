@@ -69,6 +69,7 @@ a { color: var(--accent); }
 .axis-bg { fill: #f1ede4; cursor: pointer; }
 .axis text { font-size: 12px; fill: #3f3b35; font-weight: 500; pointer-events: none; }
 .tick { stroke: #e9e4d9; } .tick.major { stroke: #d8d1c2; }
+.lane { fill: transparent; }
 .lane-west { fill: transparent; } .lane-china { fill: #faf3ea; }
 .lane-label { font-size: 12px; fill: #3f3b35; font-weight: 600; paint-order: stroke; stroke: #fffdf8; stroke-width: 4px; pointer-events: none; }
 .node { cursor: pointer; }

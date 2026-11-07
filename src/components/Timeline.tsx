@@ -6,7 +6,7 @@ import type { Card, Econ } from '../types';
 import { scaleLinear, scaleLog } from 'd3-scale';
 import { fmtEcon, ENTITY_COLORS } from '../lib/format';
 import { makeBaseScale, BREAKS, MIN_YEAR, MAX_YEAR, eraOf } from '../lib/timeScale';
-import { fmtYear, TYPE_COLOR } from '../lib/format';
+import { fmtYear, yr, TYPE_COLOR } from '../lib/format';
 import { EraBar } from './EraBar';
 
 const AXIS_H = 26, ROW_H = 20, LANE_PAD = 6, LABEL_PX = 13.5;
@@ -21,9 +21,14 @@ interface Props {
   /** 深入專題：改用專題自己的軌道（依卡片類型分），不分中西 */
   lanesDef?: { name: string; types: string[] }[] | null;
   econ?: Econ; onEcon?: (series: string, point: number) => void; econSel?: { series: string; point: number } | null;
+  /** 史前卡（整張卡都早於 MIN_YEAR）不畫在軸上，改成左上角一顆「史前」按鈕；點了打開史前的專題或清單 */
+  onPrehistory?: () => void;
 }
 
-export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, econ, onEcon, econSel, focusIds, range, lanesDef }: Props) {
+export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, onOpen, econ, onEcon, econSel, focusIds, range, lanesDef, onPrehistory }: Props) {
+  // 史前卡（例如 7 萬年前的認知革命）擠在軸的最左端會疊成一團，所以拿出來，另外放一顆按鈕
+  const prehist = useMemo(() => cardsIn.filter((c) => c.time.end < MIN_YEAR), [cardsIn]);
+  const cards = useMemo(() => cardsIn.filter((c) => c.time.end >= MIN_YEAR), [cardsIn]);
   const [metric, setMetric] = useState<string | null>(null);
   const ECON_H = metric ? 150 : 0, EPAD = 14;
   const wrap = useRef<HTMLDivElement>(null);
@@ -82,7 +87,7 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
   useEffect(() => {
     const svg = svgRef.current as any;
     if (!svg) return;
-    if (range) { svg.__zoom_to?.(range.start, range.end); setEraSel(null); }
+    if (range) { if (range.start < MIN_YEAR) svg.__zoom_reset?.(); else svg.__zoom_to?.(range.start, range.end); setEraSel(null); }
     else if (rangeKey === '' && era.current) svg.__zoom_reset?.();
   }, [rangeKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -196,7 +201,8 @@ export function Timeline({ cards, allCards, year, setYear, selectedId, onOpen, e
   return (
     <div className="timeline" ref={wrap}>
       <div className="tl-head">
-        <span className="tl-year" title="地圖與清單顯示的年代（紅線）">紅線：{fmtYear(shownYear)} 年・{eraOf(shownYear)}</span>
+        <span className="tl-year" title="地圖與清單顯示的年代（紅線）">紅線：{yr(shownYear)}・{eraOf(shownYear)}</span>
+        {prehist.length > 0 && <button className="chip tl-prehist" onClick={onPrehistory} disabled={!onPrehistory} title={`比前 800 年更早的 ${prehist.length} 張卡（${prehist.map((c) => c.name).join('、')}）：時間太長，畫在專題的「深時間軸」`}>◂ 史前 {prehist.length}</button>}
         <EraBar active={eraSel} range={[viewA, viewB]} onAll={() => (svgRef.current as any)?.__zoom_reset?.()} onEra={goEra} />
         <span className="tl-hint" title="滾輪縮放、拖曳平移；拖動紅線或點刻度列改變年代">ⓘ 怎麼操作</span>
         {econ && <span className="econ-toggle">經濟曲線：

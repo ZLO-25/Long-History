@@ -1,7 +1,7 @@
 // 搜尋結果（高亮命中欄位）或依年代排列的全部卡片（手機版的「垂直時間軸」）
 import type { Card } from '../types';
 import type { Hit } from '../lib/search';
-import { activeAt, fmtRange, fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { activeAt, fmtRange, fmtYear, yr, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 interface Props {
   query: string; result: { converted: string; year: number | null }; hits: Hit[];
@@ -61,7 +61,7 @@ export function ResultList({ query, result, hits, cards, year, onOpen, topics, o
   }
   return (
     <div className="results vlist">
-      <p className="muted small">共 {cards.length} 張卡，依年代排列。亮色表示在目前年代（{fmtYear(year)} 年）正在發生或已存在。</p>
+      <p className="muted small">共 {cards.length} 張卡，依年代排列。亮色表示在目前年代（{yr(year)}）正在發生或已存在。</p>
       {[...groups].map(([g, list]) => (
         <div key={g} className="vgroup">
           <h4>{g}</h4>

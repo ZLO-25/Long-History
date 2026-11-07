@@ -1,6 +1,11 @@
 // 年份與通用格式
-export const fmtYear = (y: number) => (y < 0 ? `前${-y}` : `${y}`);
-export const fmtRange = (s: number, e: number) => (s === e ? `${fmtYear(s)} 年` : `${fmtYear(s)}–${fmtYear(e)} 年`);
+// 史前（西元前 1 萬年以前）改寫成「約 X 萬年前」：距今年數 ≈ 2000 − 年份，取到萬年（不滿 10 萬取到 0.1 萬）
+export const DEEP_YEAR = -10000;
+const deep = (y: number) => { const w = (2000 - y) / 10000; return `${w >= 10 ? Math.round(w) : Math.round(w * 10) / 10} 萬年前`; };
+export const fmtYear = (y: number) => (y < DEEP_YEAR ? deep(y) : y < 0 ? `前${-y}` : `${y}`);
+/** 「前 500 年」「7 萬年前」：一般年份加「年」，史前不加 */
+export const yr = (y: number) => (y < DEEP_YEAR ? fmtYear(y) : `${fmtYear(y)} 年`);
+export const fmtRange = (s: number, e: number) => (s === e ? yr(s) : e < DEEP_YEAR ? `${fmtYear(s)}–${fmtYear(e)}` : `${fmtYear(s)}–${yr(e)}`);
 export const PRECISION_LABEL: Record<string, string> = {
   exact: '確切', approx: '約略', disputed: '有爭議', schematic: '示意', unknown: '未知',
 };

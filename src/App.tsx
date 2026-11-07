@@ -4,7 +4,7 @@ import type { Index, Card, Filters } from './types';
 import { createSearch, matchTopics, useSearchLibs } from './lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from './components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from './components/Story';
-import { DiveView, DiveIndex, diveMarks, findDive, powerFor } from './components/Dive';
+import { DiveView, DiveIndex, diveMarks, findDive, powerFor, diveYear, prehistDive } from './components/Dive';
 import { activeAt } from './lib/format';
 import { Timeline } from './components/Timeline';
 import { MapView } from './components/MapView';
@@ -85,7 +85,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     if (cd) return cd.time.start;
     // ?dive= 打開深入專題時，年代跳到第一張勢力圖的年份（沒有就專題起點）
     const dv = findDive(index, params.get('dive') ?? '');
-    if (dv) return powerFor(dv, dv.range.end)?.year ?? dv.range.start;
+    if (dv) return diveYear(dv);
     // ?topic= 打開主題路徑時，年代跳到路徑第一張卡
     const tp = findTopic(index, params.get('topic') ?? '')?.topic.cards[0];
     const tc = tp ? index.cards.find((c) => c.id === tp) : undefined;
@@ -187,7 +187,8 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     const d = findDive(index, id);
     if (!d) return;
     const y = powerFor(d, year)?.year ?? null;
-    if (year < d.range.start || year > d.range.end) { const y0 = powerFor(d, d.range.end)?.year ?? d.range.start; setYear(y0); setPowerYear(powerFor(d, y0)?.year ?? null); }
+    // 讀書專題（沒有勢力圖、有 focus_year）一打開就跳到起點，例如《人類大歷史》跳到 7 萬年前
+    if (year < d.range.start || year > d.range.end || (d.focus_year != null && !d.power_maps.length)) { const y0 = diveYear(d); setYear(y0); setPowerYear(powerFor(d, y0)?.year ?? null); }
     else setPowerYear(y);
     open({ kind: 'dive', id });
   }, [open, index, year]);
@@ -293,7 +294,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
             tl: { title: '時間軸', cls: 'timeline-wrap', extra: tlInC && <button className="tl-toggle" onClick={() => setLayout({ rTlOpen: !tlOpen })} aria-expanded={tlOpen}>{tlOpen ? '▾ 收起' : '▸ 展開'}</button>,
               node: (tlOpen || !tlInC) && <Timeline cards={activeDive ? visible.filter((c) => activeDive.cards.includes(c.id)) : visible} allCards={index.cards} year={year} setYear={setYear} lanesDef={activeDive ? activeDive.lanes : null}
                 selectedId={selectedCard?.id ?? null} onOpen={openCard} focusIds={panel.kind === 'topic' ? findTopic(index, panel.name)?.topic.cards ?? null : panel.kind === 'story' ? findStory(index, panel.id)?.stops.map((x) => x.id) ?? null : activeDive ? activeDive.cards : null}
-                range={activeDive ? activeDive.range : null}
+                range={activeDive ? activeDive.range : null} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined}
                 econ={index.econ} onEcon={openEcon} econSel={panel.kind === 'econ' ? { series: panel.series, point: panel.point } : null} /> },
           }}
           colA={() => 'minmax(0, 1fr)'} colB={(px) => colSize(px, 'minmax(360px, 34%)')} colSized="b" colMin={280} colMaxPct={65}

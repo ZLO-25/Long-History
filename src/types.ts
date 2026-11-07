@@ -111,7 +111,15 @@ export interface PowerMap { year: number; file: string; title: string; note: str
 export interface Dive {
   id: string; title: string; question: string; blurb: string; range: { start: number; end: number }; histories: string[];
   lanes: { name: string; types: string[] }[]; cards: string[]; storylines: string[]; units: string[]; power_maps: PowerMap[];
+  /** 打開專題時跳到的年份（沒有勢力圖的專題用） */
+  focus_year?: number;
+  /** 讀書專題（例如《人類大歷史》）：書分幾部、每章一站 */
+  book?: DiveBook | null;
 }
+export interface DiveSource { id: string; title: string; url: string; accessed: string; tier?: string }
+export interface DivePart { no: number; name: string; span: string; blurb: string; from: number; to: number }
+export interface DiveChapter { no: number; part: number; title: string; en: string; claim: string; cards: string[]; debate: { who: string; text: string; src: string[] }[]; think: string }
+export interface DiveBook { title: string; author: string; note: string; parts: DivePart[]; chapters: DiveChapter[]; sources: DiveSource[] }
 export interface Index {
   generated: string; cards: Card[]; tagCategories: TagCategory[]; topicLayers: TopicLayer[]; fieldOptions: string[];
   civTree: CivNode[]; frameworks: Framework[]; routes: Route[];

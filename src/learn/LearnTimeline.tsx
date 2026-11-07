@@ -6,7 +6,7 @@ import { select } from 'd3-selection';
 import { zoom as d3zoom, zoomIdentity, type ZoomTransform } from 'd3-zoom';
 import type { Card, History, LearnTrack } from '../types';
 import { makeBaseScale, MIN_YEAR, MAX_YEAR, ERAS as ERA_LIST, eraOf } from '../lib/timeScale';
-import { fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtYear, yr, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import { EraBar } from '../components/EraBar';
 
 type Lane = LearnTrack | '專題';
@@ -16,9 +16,13 @@ const AXIS_H = 22, ROW_H = 22, BG_H = 18, MAX_ROWS = 3, CH_W = 14, LEFT = 64;
 interface Props {
   cards: Card[]; history: History | null; year: number; setYear: (y: number) => void;
   selectedId: string | null; onOpen: (id: string) => void; inHistory: (c: Card) => boolean;
+  /** 史前卡不畫在軸上，改成一顆「史前」按鈕（同研究模式時間軸） */
+  onPrehistory?: () => void;
 }
 
-export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpen, inHistory }: Props) {
+export function LearnTimeline({ cards: cardsIn, history, year, setYear, selectedId, onOpen, inHistory, onPrehistory }: Props) {
+  const prehist = useMemo(() => cardsIn.filter((c) => c.time.end < MIN_YEAR && inHistory(c)), [cardsIn, inHistory]);
+  const cards = useMemo(() => cardsIn.filter((c) => c.time.end >= MIN_YEAR), [cardsIn]);
   const wrap = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const [width, setWidth] = useState(900);
@@ -130,8 +134,9 @@ export function LearnTimeline({ cards, history, year, setYear, selectedId, onOpe
     <div className="ltimeline" ref={wrap}>
       <div className="tl-head">
         <span>時間軸：{lanes.map((l) => <button key={l} className={`chip ${l === main ? 'on' : ''}`} onClick={() => setMain(l)} title="點一下讓這條軌展開">{l === '專題' ? history?.name : l}</button>)}</span>
+        {prehist.length > 0 && <button className="chip tl-prehist" onClick={onPrehistory} disabled={!onPrehistory} title={`比前 800 年更早的 ${prehist.length} 張卡：時間太長，畫在專題的「深時間軸」`}>◂ 史前 {prehist.length}</button>}
         <EraBar active={eraSel} range={[viewA, viewB]} onAll={() => (svgRef.current as any)?.__zoom_reset?.()} onEra={goEra} />
-        <span className="tl-year" title="地圖顯示的年代（紅線）">紅線：{fmtYear(year)} 年・{eraOf(year)}</span>
+        <span className="tl-year" title="地圖顯示的年代（紅線）">紅線：{yr(year)}・{eraOf(year)}</span>
         <span className="muted small">{overview ? '拉近（滾輪或兩指）看卡片；點時代色塊直接放大' : '細線＝其他軌的大事'}</span>
       </div>
       <svg ref={svgRef} width={width} height={height} role="img" aria-label="三軌時間軸">

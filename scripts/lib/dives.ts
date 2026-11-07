@@ -11,6 +11,41 @@ export interface DiveDef {
   range: { start: number; end: number }; histories?: string[];
   lanes?: DiveLane[]; cards: string[]; storylines?: string[]; units?: string[];
   power_maps?: { year: number; file: string }[];
+  focus_year?: number;
+  book?: BookDef;
+}
+// 讀書專題（例如《人類大歷史》）：書的每一章是一站。書的論點寫在這裡，卡片只當證據（docs/dives.md 第七節）
+export interface BookDef {
+  title: string; author: string; note?: string;
+  parts: { no: number; name: string; span: string; blurb?: string; from: number; to: number }[];
+  chapters: { no: number; part: number; title: string; en?: string; claim: string; cards?: string[]; debate?: { who: string; text: string; src: string[] }[]; think?: string }[];
+  sources: { id: string; title: string; url: string; accessed: string; tier?: string }[];
+}
+
+const allCards = (d: DiveDef) => [...new Set([...(d.cards ?? []), ...(d.book?.chapters ?? []).flatMap((c) => c.cards ?? [])])];
+
+function checkBook(b: BookDef, byId: Map<string, any>, err: (m: string) => void, warn: (m: string) => void) {
+  for (const k of ['title', 'author'] as const) if (!b[k]) err(`book 缺 ${k}`);
+  const src = new Set((b.sources ?? []).map((x) => x.id));
+  for (const x of b.sources ?? []) if (!x.id || !x.title || !x.url || !x.accessed) err(`book.sources 的 ${x.id ?? '?'} 要有 id、title、url、accessed`);
+  const parts = new Set((b.parts ?? []).map((p) => p.no));
+  for (const p of b.parts ?? []) if (typeof p.from !== 'number' || typeof p.to !== 'number' || p.from >= p.to) err(`book.parts 第 ${p.no} 部要有 from < to（年份）`);
+  const refs = (t: string) => [...(t ?? '').matchAll(/\[(b\d+)\]/g)].map((m) => m[1]);
+  (b.chapters ?? []).forEach((c, i) => {
+    const w = `第 ${c.no ?? i + 1} 章`;
+    if (!parts.has(c.part)) err(`${w}：part ${c.part} 不在 book.parts`);
+    if (!c.title || !c.claim) err(`${w}：缺 title 或 claim`);
+    const r = refs(c.claim);
+    if (!r.length) err(`${w}：claim（書裡怎麼說）要附來源 [bN]`);
+    for (const id of r) if (!src.has(id)) err(`${w}：claim 引用的 ${id} 不在 book.sources`);
+    for (const id of c.cards ?? []) if (!byId.has(id)) err(`${w}：證據卡 ${id} 不存在`);
+    for (const d of c.debate ?? []) {
+      if (!d.who || !d.text || !d.src?.length) err(`${w}：debate 每條要有 who、text、src`);
+      for (const id of [...(d.src ?? []), ...refs(d.text)]) if (!src.has(id)) err(`${w}：debate 引用的 ${id} 不在 book.sources`);
+    }
+    if (!c.think) warn(`${w}：沒有「想一想」`);
+    if (!(c.cards ?? []).length && !(c.debate ?? []).length) warn(`${w}：沒有證據卡也沒有另一種看法`);
+  });
 }
 
 export function loadDives(): { file: string; dive: DiveDef }[] {
@@ -34,12 +69,13 @@ export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawC
     for (const k of ['title', 'question'] as const) if (!d[k]) err(`缺 ${k}`);
     if (!d.range || typeof d.range.start !== 'number' || typeof d.range.end !== 'number' || d.range.start >= d.range.end) err('range 要有 start < end（數字年份）');
     for (const h of d.histories ?? []) if (!histories.has(h)) err(`histories 的「${h}」不在 data/histories.yaml`);
-    if (!Array.isArray(d.cards) || d.cards.length < 6) err('cards 至少 6 張');
-    const ids = d.cards ?? [];
+    // 讀書專題：每章的證據卡也算進專題（不必在 cards 再列一次）
+    const ids = allCards(d);
+    if (ids.length < 6) err('cards 至少 6 張');
     ids.forEach((id, i) => {
       const c = byId.get(id);
       if (!c) { err(`cards[${i}] ${id} 不存在`); return; }
-      if (ids.indexOf(id) !== i) warn(`${id} 重複列出`);
+      if ((d.cards ?? []).indexOf(id) !== (d.cards ?? []).lastIndexOf(id)) warn(`${id} 重複列出`);
       if (d.range && (c.time.end < d.range.start || c.time.start > d.range.end)) warn(`${id}（${c.time.start}–${c.time.end}）完全在專題年代 ${d.range.start}–${d.range.end} 之外`);
     });
     for (const s of d.storylines ?? []) if (!storyIds.has(s)) err(`storylines 指向不存在的故事線：${s}`);
@@ -55,7 +91,10 @@ export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawC
         for (const f of gj.features ?? []) if (f.properties?.card && !byId.has(f.properties.card)) err(`${pm.file}：勢力「${f.properties.name}」的 card ${f.properties.card} 不存在`);
       }
     }
-    if (!(d.power_maps ?? []).length) warn('沒有勢力圖（power_maps）');
+    if (d.book) checkBook(d.book, byId, err, warn);
+    if (d.focus_year != null && (typeof d.focus_year !== 'number' || (d.range && (d.focus_year < d.range.start || d.focus_year > d.range.end)))) err('focus_year 要是專題年代內的年份');
+    // 不是每個專題都需要勢力圖（docs/dives.md 第五節）；讀書專題的主視覺是深時間軸，不警告
+    if (!(d.power_maps ?? []).length && !d.book) warn('沒有勢力圖（power_maps）');
   }
   return out;
 }
@@ -66,8 +105,11 @@ export function buildDives(dives: { file: string; dive: DiveDef }[], cards: { id
   return dives.map(({ dive: d }) => ({
     id: d.id, title: d.title, question: d.question, blurb: d.blurb ?? '', range: d.range, histories: d.histories ?? [],
     lanes: d.lanes ?? [],
-    cards: (d.cards ?? []).filter((id) => has.has(id)).sort((a, b) => has.get(a)!.time.start - has.get(b)!.time.start || has.get(a)!.time.end - has.get(b)!.time.end),
+    cards: allCards(d).filter((id) => has.has(id)).sort((a, b) => has.get(a)!.time.start - has.get(b)!.time.start || has.get(a)!.time.end - has.get(b)!.time.end),
     storylines: d.storylines ?? [], units: d.units ?? [],
+    focus_year: d.focus_year, book: d.book ? { title: d.book.title, author: d.book.author, note: d.book.note ?? '', sources: d.book.sources ?? [],
+      parts: (d.book.parts ?? []).map((p) => ({ ...p, blurb: p.blurb ?? '' })),
+      chapters: (d.book.chapters ?? []).map((c) => ({ no: c.no, part: c.part, title: c.title, en: c.en ?? '', claim: c.claim, cards: (c.cards ?? []).filter((id) => has.has(id)), debate: c.debate ?? [], think: c.think ?? '' })) } : null,
     power_maps: (d.power_maps ?? []).map((pm) => {
       const p = path.join(ROOT, 'data', 'dives', pm.file);
       const gj = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : null;

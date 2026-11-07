@@ -16,12 +16,12 @@ import { directLens } from '../lib/lens';
 interface Props {
   card: Card; index: Index; byId: Map<string, Card>;
   onOpen: (id: string) => void; onTag: (t: string) => void; onTopic?: (name: string) => void; onPlace: (key: string) => void; onRoute: (id: string) => void; onChain?: (id: string) => void; onToday?: (id: string) => void;
-  onStory?: (id: string) => void;
+  onStory?: (id: string) => void; onDive?: (id: string) => void;
 }
 const LEVEL = { core: '核心', deep: '深入', optional: '選填' };
 const VERIF_CLASS: Record<string, string> = { '交叉確認': 'ok', 'AI草稿': 'draft', '爭議': 'dispute' };
 
-export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPlace, onRoute, onChain, onToday, onStory }: Props) {
+export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPlace, onRoute, onChain, onToday, onStory, onDive }: Props) {
   const chains = (index.chains ?? []).filter((x) => x.card === c.id);
   const fws = index.frameworks.filter((f) => c.frameworks.includes(f.id));
   // 已經寫在「從哪裡來／往哪裡去」的卡，不在「其他相關卡片」重複列
@@ -44,7 +44,7 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
         {onTopic && <TopicChips card={c} index={index} onTopic={onTopic} />}
       </div>
 
-      <PathNav card={c} index={index} onOpen={onOpen} onStory={(id) => onStory?.(id)} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} />
+      <PathNav card={c} index={index} onOpen={onOpen} onStory={(id) => onStory?.(id)} onDive={onDive} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} />
       <CauseList card={c} side="causes" index={index} onOpen={onOpen} />
       <CardImages images={c.images} />
       <PersonBlock card={c} index={index} onOpen={onOpen} onPlace={onPlace} />

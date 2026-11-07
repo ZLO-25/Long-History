@@ -89,12 +89,12 @@ powers:
     prefs: [JP-30]
   - name: 蜂須賀至鎮
     en: Hachisuka Yoshishige
-    color: "#dd6b20"
+    color: "#b83280"
     provinces: 阿波、淡路（大坂之陣後加封）
     prefs: [JP-36]
   - name: 生駒正俊
     en: Ikoma Masatoshi
-    color: "#f6ad55"
+    color: "#14b8a6"
     provinces: 讚岐
     prefs: [JP-37]
   - name: 加藤嘉明・藤堂（伊予）
@@ -114,7 +114,7 @@ powers:
     prefs: [JP-40]
   - name: 細川忠興（豐前・豐後）
     en: Hosokawa Tadaoki (Buzen, Bungo)
-    color: "#3182ce"
+    color: "#1a365d"
     provinces: 豐前小倉、豐後一部（豐後另有岡・臼杵・府內等藩）
     prefs: [JP-44]
   - name: 鍋島勝茂
@@ -125,7 +125,7 @@ powers:
   - name: 肥前諸藩（唐津寺澤・大村・松浦・五島）
     en: Hizen domains (Terasawa, Ōmura, Matsura, Gotō)
     color: "#fbb6ce"
-    provinces: 肥前西部（唐津寺澤廣高約 12 萬石、大村、平戶松浦、五島）；長崎為幕府直轄（1639 年後唯一對外港）；有馬氏 1614 年移封日向
+    provinces: 肥前西部（唐津寺澤廣高約 12 萬石、大村、平戶松浦、五島）；長崎為幕府直轄（1641 年荷蘭人從平戶遷到長崎出島之後，才成為對歐洲唯一的窗口，那是這張圖之後的事）；有馬氏 1614 年移封日向
     prefs: [JP-42]
   - name: 加藤忠廣
     en: Katō Tadahiro

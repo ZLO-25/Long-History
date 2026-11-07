@@ -99,7 +99,7 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
     const lane = (track: 'west' | 'china' | 'tech' | 'finance') => cards.filter((c) => (track === 'tech' || track === 'finance' ? c.type === track : !own(c) && (track === 'china' ? c.track === 'china' || c.track === 'east' : c.track !== 'china' && c.track !== 'east')));
     // 深入專題：依專題定義的軌道（卡片類型）分軌；沒對到的放「其他」
     const defs: { track: string; label: string; items: Card[] }[] = lanesDef
-      ? (() => { const used = new Set<string>(); const out = lanesDef.map((l) => { const items = cards.filter((c) => l.types.includes(c.type)); items.forEach((c) => used.add(c.id)); return { track: `dive-${l.name}`, label: l.name, items }; }); const rest = cards.filter((c) => !used.has(c.id)); if (rest.length) out.push({ track: 'dive-other', label: '其他', items: rest }); return out; })()
+      ? (() => { const used = new Set<string>(); const out = lanesDef.map((l, i) => { const items = cards.filter((c) => l.types.includes(c.type)); items.forEach((c) => used.add(c.id)); return { track: `dive-${i % 2}`, label: l.name, items }; }); const rest = cards.filter((c) => !used.has(c.id)); if (rest.length) out.push({ track: `dive-${out.length % 2}`, label: '其他', items: rest }); return out; })()
       : (['west', 'china', 'tech', 'finance'] as const).map((track) => ({ track, label: { china: '中國與東亞', west: '西方', tech: '技術（發明→普及）', finance: '金融' }[track], items: lane(track) }));
     return defs.map(({ track, label: laneLabel, items: all }) => {
       // 只排目前畫面內的卡：放大到某個時代時，軌道高度只依畫面內的卡數，技術軌與金融軌才不會被擠到下面看不到
@@ -108,7 +108,7 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
       const rowEnds: number[] = [];
       const placed = items.map((c) => {
         const x0 = x(c.time.start), x1 = Math.max(x(c.time.end), x0 + 6);
-        const label = showFull ? c.summary_line : c.name;
+        const label = showFull && !lanesDef ? c.summary_line : c.name;
         // 橫條從畫面左邊外面開始時，文字改貼在畫面左緣，不要被切掉一半
         const lx = Math.max(x1 + 4, 4);
         const end = lx + label.length * LABEL_PX + 8;
@@ -231,13 +231,14 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
           return (
             <g key={ln.track} transform={`translate(0,${top})`}>
               <rect x={0} y={0} width={width} height={h} className={`lane lane-${ln.track}`} />
+              {lanesDef && <rect x={0} y={0} width={3} height={h} className="lane-bar" />}
               {ln.placed.map(({ c, x0, x1, row, label, lx }) => {
                 if (x1 < -200 || x0 > width + 10) return null;
                 const y = LANE_PAD + row * ROW_H + 2;
                 const sel = c.id === selectedId;
                 const rel = related.has(c.id);
                 return (
-                  <g key={c.id} className={`node ${sel ? 'sel' : ''} ${rel ? 'rel' : ''} ${fc ? (!sel && !rel && c.id !== focus ? 'dim' : '') : focusIds && !focusIds.includes(c.id) ? 'dim' : focusIds ? 'rel' : ''}`} onClick={() => onOpen(c.id)}
+                  <g key={c.id} className={`node ${sel ? 'sel' : ''} ${rel ? 'rel' : ''} ${fc ? (!sel && !rel && c.id !== focus ? 'dim' : '') : focusIds && !focusIds.includes(c.id) ? 'dim' : focusIds && !lanesDef ? 'rel' : ''}`} onClick={() => onOpen(c.id)}
                     onMouseEnter={() => setHover(c.id)} onMouseLeave={() => setHover(null)} transform={`translate(${x0},${y})`}>
                     <title>{`${c.summary_line}\n${fmtYear(c.time.start)}–${fmtYear(c.time.end)}`}</title>
                     <rect width={x1 - x0} height={ROW_H - 6} rx={3} fill={TYPE_COLOR[c.type]} opacity={sel ? 1 : 0.85} />

@@ -8,11 +8,3 @@
 .card-img .img-credit { display: block; }
 .card-images.compact .card-img img { max-height: 200px; }
 .more-images summary { cursor: pointer; font-size: 13px; color: #5a544a; margin: 2px 0 6px; }
-/* 戲劇 vs 史實 */
-.pop-culture { margin: 10px 0; border: 1px solid #e6d9c2; background: #fdf8ee; border-radius: 10px; padding: 8px 12px; }
-.pop-culture h3 { margin: 0 0 6px; font-size: 1em; }
-.pop-culture dl { margin: 0; }
-.pop-culture dt { font-weight: 600; margin-top: 6px; }
-.pop-culture dt::before { content: '🎬 常見說法：'; font-weight: 400; color: #8a5a00; }
-.pop-culture dd { margin: 2px 0 0 0; }
-.pop-culture dd::before { content: '📜 史料怎麼說：'; color: #5a544a; }

@@ -13,6 +13,10 @@ export interface DiveDef {
   power_maps?: { year: number; file: string }[];
   focus_year?: number;
   book?: BookDef;
+  /** 主視覺種類：power＝勢力圖／領土圖（預設）；curve＝曲線（畫面尚未做）；none＝沒有主視覺 */
+  visual?: 'power' | 'curve' | 'none';
+  /** 主視覺的畫面文字（標題、副標、「這張圖怎麼畫的」說明、圖例小字的前綴） */
+  power_ui?: { title: string; subtitle?: string; caveat?: string; legend?: string };
 }
 // 讀書專題（例如《人類大歷史》）：書的每一章是一站。書的論點寫在這裡，卡片只當證據（docs/dives.md 第七節）
 export interface BookDef {
@@ -93,8 +97,11 @@ export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawC
     }
     if (d.book) checkBook(d.book, byId, err, warn);
     if (d.focus_year != null && (typeof d.focus_year !== 'number' || (d.range && (d.focus_year < d.range.start || d.focus_year > d.range.end)))) err('focus_year 要是專題年代內的年份');
-    // 不是每個專題都需要勢力圖（docs/dives.md 第五節）；讀書專題的主視覺是深時間軸，不警告
-    if (!(d.power_maps ?? []).length && !d.book) warn('沒有勢力圖（power_maps）');
+    if (d.visual !== undefined && !['power', 'curve', 'none'].includes(d.visual)) err(`visual 只能是 power、curve、none：「${d.visual}」`);
+    if (d.power_ui && !d.power_ui.title) err('power_ui 要有 title');
+    if (!(d.power_maps ?? []).length && (d.visual ?? 'power') === 'power' && !d.book) warn('沒有勢力圖（power_maps）；若這個專題不用地圖主視覺，請寫 visual: none 或 curve');
+    if ((d.power_maps ?? []).length && !d.power_ui) warn('沒有 power_ui，畫面會用預設文字「勢力圖」');
+    if (!d.book && !ids.some((id) => byId.get(id)?.type === 'person')) warn('這個專題沒有人物卡：人物區與關係網會自動隱藏');
   }
   return out;
 }
@@ -104,7 +111,7 @@ export function buildDives(dives: { file: string; dive: DiveDef }[], cards: { id
   const has = new Map(cards.map((c) => [c.id, c]));
   return dives.map(({ dive: d }) => ({
     id: d.id, title: d.title, question: d.question, blurb: d.blurb ?? '', range: d.range, histories: d.histories ?? [],
-    lanes: d.lanes ?? [],
+    lanes: d.lanes ?? [], visual: d.visual ?? (d.book ? 'none' : 'power'), power_ui: d.power_ui ?? null,
     cards: allCards(d).filter((id) => has.has(id)).sort((a, b) => has.get(a)!.time.start - has.get(b)!.time.start || has.get(a)!.time.end - has.get(b)!.time.end),
     storylines: d.storylines ?? [], units: d.units ?? [],
     focus_year: d.focus_year, book: d.book ? { title: d.book.title, author: d.book.author, note: d.book.note ?? '', sources: d.book.sources ?? [],
@@ -113,8 +120,8 @@ export function buildDives(dives: { file: string; dive: DiveDef }[], cards: { id
     power_maps: (d.power_maps ?? []).map((pm) => {
       const p = path.join(ROOT, 'data', 'dives', pm.file);
       const gj = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : null;
-      return { year: pm.year, file: pm.file, title: gj?.title ?? String(pm.year), note: gj?.note ?? '', sources: gj?.sources ?? [],
-        powers: (gj?.features ?? []).map((f: any) => ({ name: f.properties.name, en: f.properties.en, color: f.properties.color, provinces: f.properties.provinces, card: f.properties.card })) };
+      return { year: pm.year, file: pm.file, view: gj?.view ?? null, title: gj?.title ?? String(pm.year), note: gj?.note ?? '', sources: gj?.sources ?? [],
+        powers: (gj?.features ?? []).map((f: any) => ({ name: f.properties.name, en: f.properties.en, color: f.properties.color, provinces: f.properties.provinces, card: f.properties.card, minor: !!f.properties.minor })) };
     }),
   }));
 }

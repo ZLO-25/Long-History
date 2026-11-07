@@ -29,9 +29,11 @@
 | `lanes` | 建議 | 專題時間軸的軌道：`{ name, types }`，依卡片類型分軌；沒對到的卡放「其他」 |
 | `cards` | 必填 | 收錄的卡片 id（人物卡也列在這裡），至少 6 張；畫面會依年份重排 |
 | `storylines`、`units` | 選填 | 專題頁「照順序讀」要列的故事線與學習單元 |
-| `power_maps` | 建議 | `{ year, file }`：勢力示意圖，見第三節 |
+| `power_maps` | 建議 | `{ year, file }`：主視覺（勢力圖／領土圖），見第三節 |
+| `visual` | 選填 | 主視覺種類：`power`（預設，地圖）、`curve`（曲線，畫面還沒做）、`none`。沒寫 `power_maps` 又是 `power` 會有 validate 警告 |
+| `power_ui` | 建議 | 主視覺的畫面文字：`title`（區塊標題與「N 張○○圖」）、`subtitle`、`caveat`（「這張圖怎麼畫的」裡的說明）、`legend`（圖例小字前綴，例如「令制國」「今日州」）。沒寫會用預設「勢力圖」；validate 會警告 |
 
-`npm run validate` 會檢查：卡片、故事線、單元都存在；卡片年代落在 `range` 內（否則警告）；勢力圖檔存在、有來源。
+`npm run validate` 會檢查：卡片、故事線、單元都存在；卡片年代落在 `range` 內（否則警告）；勢力圖檔存在、有來源。專題沒有任何人物卡也可以成立：專題頁的人物區、人物關係網、「N 位人物」字樣會自動隱藏，validate 只給一條警告提醒編輯者。
 
 ## 二、人物卡（type: person）
 
@@ -42,30 +44,47 @@
 - 底線：**不寫成英雄傳**。P5「從另一邊看他」、P6「評價怎麼變」必填；P3「關鍵決定」寫他當時看得到的選項，給決策題用。
 - 人物卡不寫 causes／effects（人不是事件），用 `links` 連事件卡；validate 不會對人物卡發「沒有因果」的警告。
 
-## 三、勢力示意圖（power maps）
+## 三、主視覺：勢力圖／領土圖（power maps）
 
-historical-basemaps 的世界底圖在 1500／1600 年只有一整個「日本」，沒有國內勢力，所以勢力圖要自己拼。
+historical-basemaps 的世界底圖在 1500／1600 年只有一整個「日本」，沒有國內勢力，所以勢力圖要自己拼。美國的領土擴張圖也是同一套流程，只是底圖換成州界。
 
 ```
-data/dives/sengoku/power-1582.yaml   勢力 → 都道府縣（可用 lng_lt／lng_gt 把一縣切成東西半）
+data/dives/<專題>/power-<年>.yaml   勢力 → 底圖區域（可用 lng_lt／lng_gt／lat_lt／lat_gt 把一個區域切開）
             │  npm run power
             ▼
-data/dives/sengoku/power-1582.geojson   每個勢力一個 MultiPolygon（name、en、color、provinces、card）
+data/dives/<專題>/power-<年>.geojson   每個區塊一個 MultiPolygon（name、en、color、provinces、card、minor）
             │  npm run build:index
             ▼
-public/data/dives/sengoku/power-1582.geojson   地圖的「勢力」圖層
+public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
 ```
 
-- 底圖多邊形：`data/ne/japan_prefectures.geojson`（Natural Earth 10m admin-1，公有領域，只留日本 47 都道府縣、座標取到小數點後 3 位）。
-- 畫法是**以令制國為單位、用今日縣界近似**：一國大致對應一縣；一縣含兩國時用一條經線切開（愛知＝尾張 137.05°E 三河；靜岡＝駿河遠江 138.8°E 伊豆；鳥取＝伯耆 133.9°E 因幡；岡山＝備中 133.85°E 備前美作）。所以邊界只是示意，圖例、提示框、說明都寫明。
-- 每張圖的 YAML 要列 `sources`（根據哪些條目或地圖判斷勢力範圍），`card` 可連到人物卡（地圖上點勢力名稱就打開）。
-- 地圖上縮小時只標主要勢力的名稱，放大到 zoom 7 以上才全部標，避免疊字。
-- 北海道（蝦夷地）與沖繩（琉球王國）不在圖內。
+`power-<年>.yaml` 欄位：
+
+| 欄位 | 說明 |
+|---|---|
+| `year`、`title`、`note`、`sources` | 年份、標題、說明（日期寫簽約日，需要時加生效日）、來源（至少 2 筆） |
+| `basemap` | 選填，底圖檔名（`data/ne/<名>.geojson`）。預設 `japan_prefectures`；美國用 `us_states`。底圖的每個 feature 用 `properties.code`（ISO 3166-2，例 `JP-23`、`US-TX`）當鍵 |
+| `view` | 選填，`[[南緯度, 西經度], [北緯度, 東經度]]`。地圖初始視野；沒寫就用所有區塊的外框。外框會被遠方的小塊（例：阿拉斯加、夏威夷）撐大時要寫 |
+| `powers[]` | 每個區塊：`name`、`en`、`color`、`card`（選填，點名稱打開那張卡）、`area`（圖例小字；舊檔的 `provinces` 仍可用）、`minor: true`（較小的區塊：縮小時不標名稱、放大到 zoom 7 才標）、`regions` |
+| `regions` | 底圖區域清單：字串 `US-TX`，或 `{ code: US-WY, lat_gt: 42, lng_gt: -109.5 }`。切線 `lng_lt`／`lng_gt`（經線）與 `lat_lt`／`lat_gt`（緯線）可在同一個項目同時出現（取交集）。舊檔的 `prefs`／`pref` 仍可用 |
+
+**注意**：yaml 的 `{ }` 行內寫法裡，含半形逗號的值（例如 `en: "United States (Treaty of Paris, 1783)"`）一定要加雙引號，否則會被拆成多個鍵。
+
+**底圖怎麼來**：`npm run basemap -- US`（`scripts/fetch-basemap.ts`）從 Natural Earth 50m admin-1 下載、只留美國 50 州與哥倫比亞特區，存成 `data/ne/us_states.geojson`（約 200 KB）。要別的國家就在腳本的 `BASEMAPS` 加一列。日本的 `japan_prefectures.geojson`（Natural Earth 10m，47 都道府縣）是第 1 期做好的。兩者都是公有領域。
+
+**日本戰國**：以令制國為單位、用今日縣界近似：一國大致對應一縣；一縣含兩國時用一條經線切開（愛知＝尾張 137.05°E 三河；靜岡＝駿河遠江 138.8°E 伊豆；鳥取＝伯耆 133.9°E 因幡；岡山＝備中 133.85°E 備前美作）。北海道（蝦夷地）與沖繩（琉球王國）不在圖內。名稱含「諸氏、餘黨、從屬、自立、雜賀」的區塊都標 `minor: true`。
+
+**美國崛起**：以今日州界近似當時疆域，顏色＝那塊土地哪一年成為美國的；切線與理由見 `docs/dive-usa.md`。
+
+- 邊界只是示意，`power_ui.caveat`、地圖圖例、提示框都寫明。
+- 每張圖的 YAML 要列 `sources`；`card` 可連到卡片（地圖上點區塊名稱就打開）。
+- 地圖上縮小時只標主要區塊（不是 `minor`）的名稱，放大到 zoom 7 以上才全部標，避免疊字。
+- 地圖圖例的「疆域示意」年份是目前選的年份；世界疆域快照沒有那一年時，會註明用的是最接近的哪一年。
 
 ## 四、畫面
 
 - 研究模式：頂端「專題」按鈕 → 專題清單 → 專題頁；網址 `?dive=dive-sengoku`。打開專題時：時間軸放大到 `range` 並改用專題軌道、地圖標卡片編號、自動打開最接近目前年代的勢力圖；年代不在範圍內時跳到最近一張勢力圖的年份。從專題頁點進卡片時，時間軸維持放大（上面只疊著卡片就算還在專題裡）。
-- 勢力圖年份：專題頁的年份膠囊（關／1560／1582／…）；切年份時時間軸紅線跟著跳。地圖縮小時只標最大的 6 個勢力名稱，放大到 zoom 6 標全部主要勢力、zoom 7 以上全標。
+- 主視覺年份：專題頁的年份膠囊（關／1560／1582／…）；切年份時時間軸紅線跟著跳。地圖縮小時只標最大的 6 個勢力名稱，放大到 zoom 6 標全部主要勢力、zoom 7 以上全標。
 - 人物關係網（`src/components/RelationGraph.tsx`）：專題頁「人物」區，人物依出生年排成一圈，關係畫成弧線，顏色＝主從／同盟／聯姻／敵對／背叛／師友／親屬；實心＝目前年代在世、虛線＝關係在目前年代還沒開始；滑鼠移到人名只看他的關係、點人名開卡、膠囊可只看某幾種關係。不用力導向圖：人數少、圓排每次長一樣，學生比較好認。
 - 手機：在「故事／主題」分頁，故事線清單底部有「看深入專題」；專題頁有「在地圖上看」。
 - 人物卡頁：標題下羅馬字、「人物資料」區塊（是誰、人生軌跡、和誰有關係），地圖畫人生軌跡。
@@ -73,7 +92,7 @@ public/data/dives/sengoku/power-1582.geojson   地圖的「勢力」圖層
 - 戲劇 vs 史實（`learn.pop_culture`）：研究模式卡片頁、學習模式「理解」與「深入」層各有一區，每條＝常見說法 → 史料怎麼說。
 - 學習模式：頂端「專題」按鈕或 `?mode=learn&dive=dive-sengoku`；專題頁只列已通過查核的卡（沒通過的灰字連到研究模式）、單元按鈕直接開單元、地圖疊勢力圖與人生軌跡。學習模式的時間軸不放大（它本來就是依史分軌的簡版）。
 
-測試：`node scripts/qa/dive.cjs http://localhost:5173/`
+測試：`node scripts/qa/dive.cjs http://localhost:5173/ [截圖資料夾] [只測某個專題 id]`。每個專題都跑一輪通用檢查（門檻由資料推出：有沒有人物卡、有幾張圖、哪些卡還沒進學習模式），戰國另有加碼門檻。
 
 ## 五、怎麼新增一個專題
 
@@ -81,13 +100,14 @@ public/data/dives/sengoku/power-1582.geojson   地圖的「勢力」圖層
 2. 補卡（撰寫 → 獨立查核），人物卡照 5e 節；因果邊先想好，故事線才接得起來。
 3. 寫 `data/dives/<短名>.yaml`；需要勢力圖就寫 `power-<年>.yaml`、`npm run power`。
 4. `npm run validate`、`npm run build:index`、`node scripts/qa/dive.cjs`。
-5. 不是每個專題都適合勢力圖：經濟類專題（例如日本失落 30 年）主視覺應該是經濟曲線，`power_maps` 留空即可。
+5. 不是每個專題都適合地圖：經濟類專題（例如日本失落 30 年）主視覺應該是經濟曲線，寫 `visual: curve`（畫面本期還沒做）或 `visual: none`，`power_maps` 留空即可。
+6. 沒有人物卡也可以成立專題（人物區與關係網會自動隱藏，validate 只給 warning）。
 
 ## 六、進度
 
 - 第 1 期（2026-11-03）：人物卡類型、專題定義檔與專題頁、勢力圖流程、人生軌跡、專題時間軸軌道；日本戰國 12 張新卡、故事線 `story-sengoku`、1582 年勢力圖。報告 `docs/dive-sengoku-1.md`。
 - 第 2 期（2026-11-03 完成）：其餘 19 張新卡（含 11 位人物）、升級 6 張既有卡、4 個學習單元、1560／1590／1600／1615 勢力圖、人物關係網、戲劇 vs 史實、學習模式專題頁、主題標籤「海盜與海商」「身分制度」。圖片欄位做好了但 21 張圖的授權還沒查證，先抽到 `data/pending-images.yaml`（`scripts/images-pending.ts`）。報告 `docs/dive-sengoku-2.md`。
-- 第 3 期（預定）：Fable 以歷史老師＋教學者＋UIUX 三個角色複查；用既有美國史卡片試套第二個專題，驗證模板沒有為戰國寫死。
+- 第 3 期：複查後的介面與內容修正；模板去戰國化（底圖、切線、文字、`minor`、`view`、人物區自動隱藏、QA 對每個專題都跑）；用既有美國史卡片套出第二個專題「美國崛起」（`?dive=dive-usa`，五張領土擴張圖，沒寫新卡）。報告 `docs/dive-sengoku-3.md`、`docs/dive-usa.md`。
 
 ## 七、讀書專題（book，2026-11-07 起，第一個是《人類大歷史》）
 

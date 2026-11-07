@@ -15,6 +15,7 @@
     "borders": "tsx scripts/fetch-borders.ts",
     "labels": "tsx scripts/build-labels.ts",
     "power": "tsx scripts/build-power.ts",
+    "basemap": "tsx scripts/fetch-basemap.ts",
     "typecheck": "tsc -p tsconfig.json"
   },
   "engines": {

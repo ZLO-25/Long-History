@@ -107,7 +107,9 @@ export interface Topic { name: string; plain: string; path: string; see: string[
 export interface TopicLayer { name: string; icon: string; topics: Topic[] }
 export interface CivNode { name: string; path: string; children: CivNode[] }
 // 深入專題（data/dives/*.yaml）：把一段時代的卡片、人物、故事線、勢力圖聚在一起（docs/dives.md）
-export interface PowerMap { year: number; file: string; title: string; note: string; sources: Source[]; powers: { name: string; en: string; color: string; provinces: string; card: string | null }[] }
+export interface PowerMap { year: number; file: string; view: [[number, number], [number, number]] | null; title: string; note: string; sources: Source[]; powers: { name: string; en: string; color: string; provinces: string; card: string | null; minor?: boolean }[] }
+/** 專題主視覺（勢力圖／領土圖）的畫面文字，由 data/dives/<專題>.yaml 的 power_ui 決定 */
+export interface PowerUi { title: string; subtitle?: string; caveat?: string; legend?: string }
 export interface Dive {
   id: string; title: string; question: string; blurb: string; range: { start: number; end: number }; histories: string[];
   lanes: { name: string; types: string[] }[]; cards: string[]; storylines: string[]; units: string[]; power_maps: PowerMap[];
@@ -115,6 +117,7 @@ export interface Dive {
   focus_year?: number;
   /** 讀書專題（例如《人類大歷史》）：書分幾部、每章一站 */
   book?: DiveBook | null;
+  visual: 'power' | 'curve' | 'none'; power_ui: PowerUi | null;
 }
 export interface DiveSource { id: string; title: string; url: string; accessed: string; tier?: string }
 export interface DivePart { no: number; name: string; span: string; blurb: string; from: number; to: number }

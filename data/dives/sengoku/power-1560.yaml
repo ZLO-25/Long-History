@@ -1,8 +1,8 @@
-# 大名勢力示意圖：1560 年 5 月（桶狹間之戰前夕）
+# 大名勢力示意圖：1560 年 6 月（舊曆 5 月）（桶狹間之戰前夕）
 # 畫法同 power-1582.yaml：以令制國為單位、用今日都道府縣近似；一縣含兩國時用經度切開。邊界只是示意。
 # 2026-11-03 查核：抽查 32 個勢力與該年史實大致相符；新增會津蘆名盛氏（福島縣以經度 140.05 切開，西為蘆名、東為伊達），兵庫縣的攝津部分（經度 135.05 以東）改歸三好；飛驒（岐阜北部，三木・姉小路）、能登畠山、若狹武田、北近江淺井、安房上總里見仍併入鄰近勢力示意並在 provinces 註明。
 year: 1560
-title: 桶狹間之戰前夕（1560 年 5 月）
+title: 桶狹間之戰前夕（1560 年 6 月，舊曆 5 月）
 note: 以令制國為單位、用今日縣界近似的示意圖。這時還沒有一個「全國最強」：今川義元（駿河・遠江・三河）正要西進，尾張的織田信長只是一個小大名；畿內由三好長慶掌握，將軍足利義輝在京都但沒有實權。許多縣裡有好幾個互相對抗的勢力，本圖只標當時最有力的一家，其餘寫在說明裡。
 sources:
   - { title: "桶狭間の戦い — Wikipedia（日本語）：1560 年前後今川・織田的領國", url: "https://ja.wikipedia.org/wiki/%E6%A1%B6%E7%8B%AD%E9%96%93%E3%81%AE%E6%88%A6%E3%81%84", accessed: 2026-11-03, tier: 百科 }
@@ -44,6 +44,7 @@ powers:
     provinces: 相模、伊豆、武藏、下總一部；安房・上總為里見義堯領地（本圖無法沿緯度切分千葉縣，暫併入示意）
     prefs: [JP-14, { pref: JP-22, lng_gt: 138.8 }, JP-13, JP-11, JP-12]
   - name: 上野諸氏（長野業正等）
+    minor: true
     en: Kōzuke lords (Nagano Narimasa etc.)
     color: "#a0aec0"
     provinces: 上野（關東管領上杉憲政 1552 年出奔越後後，各城主在北條、武田、長尾之間搖擺）
@@ -54,6 +55,7 @@ powers:
     provinces: 常陸
     prefs: [JP-08]
   - name: 下野諸氏（宇都宮・那須・小山）
+    minor: true
     en: Shimotsuke lords
     color: "#cbd5e0"
     provinces: 下野
@@ -80,12 +82,12 @@ powers:
     prefs: [JP-03, JP-02]
   - name: 安東（檜山・湊）氏
     en: Andō clan
-    color: "#718096"
+    color: "#d98880"
     provinces: 出羽北部
     prefs: [JP-05]
   - name: 朝倉義景
     en: Asakura Yoshikage
-    color: "#2c7a7b"
+    color: "#00a3c4"
     provinces: 越前（若狹為武田氏，受朝倉影響）
     prefs: [JP-18]
   - name: 加賀一向一揆
@@ -94,6 +96,7 @@ powers:
     provinces: 加賀（「百姓持的國」1488–1580；能登為畠山氏）
     prefs: [JP-17]
   - name: 越中諸氏（神保・椎名）
+    minor: true
     en: Etchū lords (Jinbō, Shiina)
     color: "#e2e8f0"
     provinces: 越中
@@ -119,6 +122,7 @@ powers:
     provinces: 播磨、但馬（山名）、淡路（安宅＝三好一族）；兵庫縣的攝津部分已切給三好
     prefs: [{ pref: JP-28, lng_lt: 135.05 }]
   - name: 紀伊：畠山・雜賀眾・根來寺
+    minor: true
     en: "Kii: Hatakeyama, Saika, Negoro"
     color: "#f6e05e"
     provinces: 紀伊
@@ -145,6 +149,7 @@ powers:
     provinces: 安藝、備後、周防、長門（1557 年滅大內後取得）
     prefs: [JP-34, JP-35]
   - name: 土佐諸氏（一條・長宗我部・本山）
+    minor: true
     en: Tosa lords
     color: "#fbb6ce"
     provinces: 土佐（長宗我部國親 1560 年長濱之戰後開始擴張）
@@ -160,11 +165,13 @@ powers:
     provinces: 豐後、豐前、筑前（1559 年獲任九州探題與三國守護）
     prefs: [JP-44, JP-40]
   - name: 肥前諸氏（龍造寺・有馬・大村・松浦）
+    minor: true
     en: Hizen lords
     color: "#d53f8c"
     provinces: 肥前（龍造寺隆信正在崛起）
     prefs: [JP-41, JP-42]
   - name: 肥後諸氏（相良・阿蘇・菊池）
+    minor: true
     en: Higo lords
     color: "#fed7e2"
     provinces: 肥後

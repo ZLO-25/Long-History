@@ -17,13 +17,13 @@ place:
   locations:
     - { name_ancient: 寧波（市舶司）, name_modern: "寧波市（中國浙江省）", lat: 29.8683, lng: 121.5440, precision: exact, role: "1523 年大內、細川兩支日本貢使在此火併，史稱寧波之亂", src: [s1, s2, s4] }
     - { name_ancient: 雙嶼, name_modern: "舟山市六橫島一帶（中國浙江省）", lat: 29.7000, lng: 122.1300, precision: schematic, role: "1540 年代中、日、葡走私商人的最大據點，1548 年被朱紈攻毀", src: [s3, s5] }
-    - { name_ancient: 平戶, name_modern: "平戶市（日本長崎縣）", lat: 33.3680, lng: 129.5536, precision: exact, role: "王直 1542 年起受松浦隆信之邀在此設據點，另有五島", src: [s5] }
+    - { name_ancient: 平戶, name_modern: "平戶市（日本長崎縣）", lat: 33.3680, lng: 129.5536, precision: exact, role: "王直 1542 年起受松浦隆信之邀在此設據點，另有五島；17 世紀初華人首領李旦、鄭芝龍也在此活動", src: [s5, s9] }
     - { name_ancient: 興化府, name_modern: "莆田市（中國福建省）", lat: 25.4540, lng: 119.0080, precision: schematic, role: "1562 年倭寇攻陷興化府城，1563 年戚繼光等收復", src: [s3, s4] }
     - { name_ancient: 月港, name_modern: "漳州市龍海區海澄鎮（中國福建省）", lat: 24.4300, lng: 117.8600, precision: schematic, role: "1567 年隆慶開海後唯一合法出海口，但仍禁止前往日本", src: [s6] }
   scale: area
 structure_tags: [商路改道, 邊疆防線, 經濟施壓與制裁, 臨界點, 外部勢力介入]
 topics: [海盜與海商, 海上貿易, 開港與鎖國, 白銀, 關稅與貿易戰]
-links: [event-ming-founding, commodity-iwami-silver, commodity-nanban-trade, tech-tanegashima-arquebus, commodity-manila-galleon, event-sengoku-japan]
+links: [event-ming-founding, commodity-iwami-silver, commodity-nanban-trade, tech-tanegashima-arquebus, commodity-manila-galleon, event-sengoku-japan, event-koxinga-taiwan]
 causes:
   - { id: event-ming-founding, rel: 背景, why: "洪武帝 1371 年起禁止民間出海、只准朝貢貿易，中日之間合法往來只剩十年一次的勘合船，想做生意的人只能走私，一百五十年後在寧波爆開。", src: [s3, s6] }
 effects:
@@ -39,6 +39,7 @@ sources:
   - { id: s6, title: "海禁 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/海禁", accessed: 2026-11-03, tier: 百科 }
   - { id: s7, title: "劉婷玉，〈「朱紈之死」與閩南士紳林希元：兼論嘉靖年間閩南區域秩序之變遷〉，《明代研究》第 20 期，2013-06，頁 35–58", url: "https://ming.cnhis.ncnu.edu.tw/wp-content/uploads/2013/06/ming20_02Liu_full.pdf", accessed: 2026-11-03, tier: 學術 }
   - { id: s8, title: "Wokou — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Wokou", accessed: 2026-11-03, tier: 百科 }
+  - { id: s9, title: "Zheng Zhilong — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Zheng_Zhilong", accessed: 2026-11-04, tier: 百科 }
 importance: 3
 learn:
   histories: [中國史, 日本史, 世界通史]
@@ -69,7 +70,7 @@ learn:
     - { history: 世界通史, text: 從全球史看，雙嶼是 1540 年代中、日、葡三方走私的交會點，葡萄牙人正是從這裡摸到日本的航線。 }
 verification: 交叉確認
 lens_status: 無直接論述
-crosscheck: { date: 2026-11-03, by: 獨立查核 agent（第 2 期，未參與寫作）, result: 通過, notes: "1) 《明史》卷 322「執指揮袁璡」「大抵真倭十之三，從倭者十之七」「連艦數百，蔽海而至」（嘉靖三十二年）「驅其所掠之人為軍鋒」逐字核對維基文庫，無誤。2) 英維：1555 年 2 萬人、浙江 11 府 8 府遭劫、徐海萬餘人登乍浦、1557-10-17 入舟山、1560-01-22 處斬、胡宗憲 1565 獄死均核實；朱紈自盡為 1550 年 1 月（原寫 1549），已改。王本固之名 s3／s5／コトバンク均未載，已改為「巡按御史」。3) 日維海禁：1371、1567 涂澤民、月港 43 港、文引、禁日本琉球、稅銀 3,000→2 萬兩（1582）核實。4) 劉婷玉 2013 書目、走馬溪 96 人、衣冠之盜、與隆慶開海的連結核實。5) C7「20 世紀重新強調」改為田中健夫／村井章介之說。6) 月港座標由 24.38/117.83 改為海澄鎮 24.43/117.86（原偏約 6 km）。圖片欄未查。" }
+crosscheck: { date: 2026-11-03, by: 獨立查核 agent（第 2 期，未參與寫作）, result: 通過, notes: "1) 《明史》卷 322「執指揮袁璡」「大抵真倭十之三，從倭者十之七」「連艦數百，蔽海而至」（嘉靖三十二年）「驅其所掠之人為軍鋒」逐字核對維基文庫，無誤。2) 英維：1555 年 2 萬人、浙江 11 府 8 府遭劫、徐海萬餘人登乍浦、1557-10-17 入舟山、1560-01-22 處斬、胡宗憲 1565 獄死均核實；朱紈自盡為 1550 年 1 月（原寫 1549），已改。王本固之名 s3／s5／コトバンク均未載，已改為「巡按御史」。3) 日維海禁：1371、1567 涂澤民、月港 43 港、文引、禁日本琉球、稅銀 3,000→2 萬兩（1582）核實。4) 劉婷玉 2013 書目、走馬溪 96 人、衣冠之盜、與隆慶開海的連結核實。5) C7「20 世紀重新強調」改為田中健夫／村井章介之說。6) 月港座標由 24.38/117.83 改為海澄鎮 24.43/117.86（原偏約 6 km）。圖片欄未查。 2026-11-04 第 3 期依複查修改：平戶 location role 補李旦、鄭芝龍，links 加鄭成功，新增 s9；2026-11-07 第 3 期修改已查核：開 s9 英維 Zheng Zhilong，李旦為平戶甲必丹、鄭芝龍曾到平戶並結識李旦均相符（條目未給年份，「17 世紀初」依 1622 年澎湖事可接受）。" }
 ---
 
 ## C1 背景

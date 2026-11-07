@@ -22,7 +22,7 @@ place:
   scale: area
 structure_tags: [外部勢力介入, 擴大稅基, 商路改道]
 topics: [東印度公司, 海戰與水戰, 移民與移墾, 科舉與教育]
-links: [event-dutch-formosa, social-siraya-deer, event-spanish-north-taiwan, event-qing-taiwan-frontier]
+links: [event-dutch-formosa, social-siraya-deer, event-spanish-north-taiwan, event-qing-taiwan-frontier, event-sakoku, commodity-nanban-trade, event-takasago-koku-arima]
 causes:
   - { id: event-ming-qing-transition, rel: 背景, why: 清軍入關後，鄭成功擁明抗清，以廈門、金門為基地、靠海上貿易養軍，才有後來能渡海的大軍。, src: [s2] }
   - { id: event-dutch-formosa, rel: 背景, why: 荷蘭時期已有數萬漢人在西南部開墾，鄭家來臺後能在現成的農業社會上屯田養兵。, src: [event-dutch-formosa:s1, event-dutch-formosa:s4] }
@@ -36,6 +36,7 @@ sources:
   - { id: s4, title: "Robert Hoppens, Review of Tonio Andrade, Lost Colony (Princeton UP, 2011) — Education About Asia 18:1 (2013)", url: "https://www.asianstudies.org/wp-content/uploads/lost-colony-the-untold-story-of-chinas-first-great-victory-over-the-west.pdf", accessed: 2026-10-25, tier: 學術 }
   - { id: s6, title: "劉翠溶，〈漢人拓墾與聚落之形成：臺灣環境變遷之起始〉，收於《積漸所至：中國環境史論文集》，中央研究院經濟研究所，1995，頁 295–347", url: "https://idv.sinica.edu.tw/ectjliu/%E5%8A%89%E7%BF%A0%E6%BA%B6%E5%AD%B8%E8%A1%93%E8%91%97%E4%BD%9C/W9-%E7%92%B0%E5%A2%83%E5%8F%B21pdf/1995%E6%BC%A2%E4%BA%BA%E6%8B%93%E5%A2%BE%E8%88%87%E8%81%9A%E8%90%BD%E4%B9%8B%E5%BD%A2%E6%88%90.pdf", accessed: 2026-10-25, tier: 學術 }
   - { id: s5, title: "Anne Gerritsen, Review of Tonio Andrade, How Taiwan Became Chinese (Columbia UP, 2008) — Reviews in History, Institute of Historical Research", url: "https://reviews.history.ac.uk/review/864", accessed: 2026-10-25, tier: 學術 }
+  - { id: s7, title: "Zheng Zhilong — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Zheng_Zhilong", accessed: 2026-11-04, tier: 百科 }
 importance: 3
 learn:
   histories: [臺灣史, 中國史, 日本史]
@@ -58,14 +59,14 @@ learn:
     - { history: 臺灣史, text: 從臺灣看，這是第一個以臺灣為中心的漢人政權，很多地名、廟宇和開墾都從這時開始。 }
     - { history: 中國史, text: 從中國看，這是明朝最後一股抵抗力量，1683 年清朝收臺代表反清勢力結束。 }
     - { history: 日本史, text: 從日本看，鄭成功生於平戶、母親是日本人，江戶時代還有以他為主角的戲劇。 }
-crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "C6「也有全臺總人口約 20 萬人以上的估計 [s1][s6]」：s6（劉翠溶）沒有 20 萬的說法（文中的 3 萬家、10 萬人是荷蘭時期末年外國文獻的數字），建議只引 [s1]。C10 仍然引 [s4]（Hoppens 書評）來支持「家族軍事政權」的說法，力道偏弱，建議改引 s1。 小建議已修正。" }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "C6「也有全臺總人口約 20 萬人以上的估計 [s1][s6]」：s6（劉翠溶）沒有 20 萬的說法（文中的 3 萬家、10 萬人是荷蘭時期末年外國文獻的數字），建議只引 [s1]。C10 仍然引 [s4]（Hoppens 書評）來支持「家族軍事政權」的說法，力道偏弱，建議改引 s1。 小建議已修正。 2026-11-04 第 3 期依複查修改：links 加鎖國、南蠻貿易、高山國；C1 補鄭芝龍在平戶、李旦、荷蘭人與鄭成功出生的連結，新增 s7；2026-11-07 第 3 期修改已查核：開 s7 英維 Zheng Zhilong，李旦為平戶甲必丹、安排鄭芝龍為荷蘭人通譯、1622 澎湖和談任翻譯、荷蘭據臺後成私掠船主、田川松 1624 年生鄭成功（鄭芝龍已先離日）均相符；原寫「在李旦手下當通譯」「1624 年同一年與田川松生下」措辭已依來源改寫。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
 
 ## C1 背景
 
-1644 年清軍入關後，鄭成功在福建沿海以廈門、金門為基地擁明抗清，靠海上貿易維持軍隊。[s2] 1659 年他北攻南京失敗，清朝從 1661 年起頒布遷界令，逼沿海居民內遷，切斷鄭家補給。[s1][s2] 鄭成功因此把目光轉向荷蘭人控制的臺灣。[s1]
+1644 年清軍入關後，鄭成功在福建沿海以廈門、金門為基地擁明抗清，靠海上貿易維持軍隊。[s2] 這張海上貿易網是父親鄭芝龍傳下來的：鄭芝龍年輕時到日本平戶，結識當地的華人甲必丹（華人首領）李旦，由李旦安排替荷蘭人當通譯；1622 年荷蘭人占領澎湖，李旦派他去荷蘭與明朝的和談中當翻譯，荷蘭人轉到臺灣後，他正式成為荷蘭東印度公司的私掠船主。[s7] 他在日本娶了田川松，離開日本後，田川松在 1624 年生下鄭成功。[s7] 所以日本平戶、荷蘭人的大員與福建海商，在鄭成功出生前就已連成一張網（日本商人在臺灣的活動見 event-takasago-koku-arima 卡）。[s7] 1659 年他北攻南京失敗，清朝從 1661 年起頒布遷界令，逼沿海居民內遷，切斷鄭家補給。[s1][s2] 鄭成功因此把目光轉向荷蘭人控制的臺灣。[s1]
 
 ## C2 經過
 

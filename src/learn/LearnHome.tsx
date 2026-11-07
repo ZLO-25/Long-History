@@ -2,6 +2,7 @@
 import type { History, Index, Unit } from '../types';
 import type { Progress } from './progress';
 import { learnCards, unitsOf } from './util';
+import { DiveEntries } from '../components/Dive';
 
 // 首頁推薦的主題標籤：橫跨古今、國高中課本常見
 const FEATURED = ['交易所', '紙幣', '白銀', '殖民統治', '民主與參政', '工業化', '原住民族', '疫病'];
@@ -10,9 +11,9 @@ const GROUPS: [string, (h: History) => boolean][] = [
   ['臺灣', (h) => h.track === '臺灣'], ['東亞', (h) => h.track === '東亞'], ['世界', (h) => h.track === '世界' || h.track === '全部'], ['專題（跨地區）', (h) => h.track === '專題'],
 ];
 
-export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, onRecord, onTopic, onTopics, onStory }: {
+export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, onRecord, onTopic, onTopics, onStory, onDive }: {
   index: Index; p: Progress; onHistory: (id: string) => void; onUnit: (id: string) => void; onRandom: () => void; onIntroSeen: () => void; onRecord?: () => void;
-  onTopic?: (name: string) => void; onTopics?: () => void; onStory?: (id: string) => void;
+  onTopic?: (name: string) => void; onTopics?: () => void; onStory?: (id: string) => void; onDive?: (id: string) => void;
 }) {
   const cards = learnCards(index);
   // 上次做到一半的單元：放在最上面，一鍵接著做
@@ -75,6 +76,13 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
           <p>時間軸分成「臺灣／東亞／世界」三條，也只是為了方便閱讀，不代表它們彼此無關。</p>
         </details>
       </section>
+      {onDive && (index.dives ?? []).length > 0 && (
+        <section className="home-dives">
+          <h2>深入專題：花幾課，把一段歷史看透</h2>
+          <p className="muted">不是一個謎題，而是一整串：從一個大問題出發，照順序讀幾個單元，還有一張會隨年份變化的地圖和相關的卡片。</p>
+          <DiveEntries index={index} onDive={onDive} />
+        </section>
+      )}
       {onTopic && onTopics && (
         <section className="home-topics">
           <h2>2. 或者，順著一條故事線、一個主題往下走</h2>

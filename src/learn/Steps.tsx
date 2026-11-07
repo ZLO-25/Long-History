@@ -200,7 +200,15 @@ export function CompareTable({ a, b, rows }: { a: Card; b: Card; rows: { aspect:
 }
 
 // 決策：先「掩卷自思」寫下自己的想法，再看選項與結果（讀史方法見 docs/lu-method.md）
-export function Decision({ role, situation, options, actual, note, after, saved, onSave }: { role: string; situation: string; options: { label: string; result: string }[]; actual: string; note?: string; after?: ReactNode; saved?: string; onSave?: (t: string) => void }) {
+/** 決策題的選項順序：依單元 id＋步驟序號做決定性洗牌（同一題每次一樣、不同題不同），避免歷史上實際的選擇永遠排在 A */
+export function shuffleOptions<T>(items: T[], seed: string): T[] {
+  const r = seeded(seed); const a = [...items];
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+
+export function Decision({ role, situation, options: rawOptions, seed, actual, note, after, saved, onSave }: { role: string; situation: string; options: { label: string; result: string }[]; seed: string; actual: string; note?: string; after?: ReactNode; saved?: string; onSave?: (t: string) => void }) {
+  const options = useMemo(() => shuffleOptions(rawOptions, seed), [rawOptions, seed]);
   const [pick, setPick] = useState<number | null>(null);
   const [thought, setThought] = useState(saved ?? '');
   const [open, setOpen] = useState(!!saved);

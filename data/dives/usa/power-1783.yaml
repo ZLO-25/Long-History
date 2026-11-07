@@ -1,0 +1,18 @@
+# 領土擴張示意圖：以今日美國州界近似當時疆域；一州跨兩個年代時用經線（lng_lt／lng_gt）或緯線（lat_lt／lat_gt）切開。只畫今日美國國境內。
+# npm run power 會從 data/ne/us_states.geojson（Natural Earth 50m admin-1，公有領域）拼成同名 .geojson。切線與顏色的理由見 docs/dive-usa.md。
+year: 1783
+basemap: us_states
+title: 獨立：巴黎條約承認的美國（1783 年 9 月）
+note: 1783 年 9 月 3 日巴黎條約：英國承認美國獨立，疆域西到密西西比河、南到北緯 31°、北到五大湖；佛羅里達同年由英國還給西班牙（北界沒講清楚，1795 年才定在 31°），密西西比河以西是西屬路易斯安那（1762 年起）。英國到 1796 年才撤出五大湖一帶的 8 座堡壘；緬因與明尼蘇達的北界到 1842 年才定案；明尼蘇達西北角（紅河谷）1818 年才劃給美國，本圖以經線近似。條約是英國與美國簽的，沒有問過住在俄亥俄河谷與南方腹地的各原住民族。
+view: [[24, -126], [50, -66]]
+sources:
+  - { title: "Treaty of Paris (1783) — Wikipedia：簽約日期、第 2 條疆界（密西西比河、北緯 31°）、佛羅里達還給西班牙、英軍堡壘", url: "https://en.wikipedia.org/wiki/Treaty_of_Paris_(1783)", accessed: 2026-11-04, tier: 百科 }
+  - { title: "Territorial evolution of the United States — Wikipedia：1784 年條目（承認獨立、31° 線 1800 年完成測量）", url: "https://en.wikipedia.org/wiki/Territorial_evolution_of_the_United_States", accessed: 2026-11-04, tier: 百科 }
+powers:
+  - { name: 美國（1783 年巴黎條約承認的疆域）, en: "United States (Treaty of Paris, 1783)", color: "#1f4e79", card: war-american-revolution, area: 今日東部 24 州與華府，加上明尼蘇達東部、阿拉巴馬與密西西比北緯 31° 以北, regions: [US-ME, US-NH, US-VT, US-MA, US-RI, US-CT, US-NY, US-NJ, US-PA, US-DE, US-MD, US-DC, US-VA, US-WV, US-NC, US-SC, US-GA, US-KY, US-TN, US-OH, US-IN, US-IL, US-MI, US-WI, { code: US-MN, lng_gt: -94 }, { code: US-AL, lat_gt: 31 }, { code: US-MS, lat_gt: 31 }] }
+  - { name: 西屬佛羅里達, en: "Spanish Florida", color: "#c9b891", area: 今日佛羅里達全州，阿拉巴馬與密西西比南端（西佛羅里達）, regions: [US-FL, { code: US-AL, lat_lt: 31 }, { code: US-MS, lat_lt: 31 }] }
+  - { name: 西屬路易斯安那（1762 年起）, en: "Spanish Louisiana", color: "#c9b891", card: event-westward-expansion, area: 密西西比河以西到洛磯山分水嶺的大平原；邊界當時沒有明確劃定, regions: [US-LA, US-AR, US-MO, US-IA, US-ND, US-SD, US-NE, US-KS, US-OK, { code: US-MN, lng_lt: -94 }, { code: US-MT, lng_gt: -112.5 }, { code: US-WY, lat_gt: 42, lng_gt: -109.5 }, { code: US-WY, lat_lt: 42, lng_gt: -107.5 }, { code: US-CO, lat_gt: 38, lng_gt: -106 }] }
+  - { name: 西屬新西班牙（德克薩斯・新墨西哥・加利福尼亞）, en: "New Spain (Texas, New Mexico, California)", color: "#c9b891", area: 今日西南各州；實際控制只有少數傳教站與據點, regions: [US-TX, { code: US-CO, lat_lt: 38, lng_gt: -106 }, US-CA, US-NV, US-UT, { code: US-AZ, lat_gt: 33 }, { code: US-NM, lat_gt: 32.4 }, { code: US-NM, lat_lt: 32.4, lng_gt: -106.6 }, { code: US-CO, lng_lt: -106 }, { code: US-WY, lat_lt: 42, lng_lt: -107.5 }, { code: US-AZ, lat_lt: 33 }, { code: US-NM, lat_lt: 32.4, lng_lt: -106.6 }] }
+  - { name: 太平洋西北（西・英・俄・美都說是自己的）, en: "Pacific Northwest (contested)", color: "#a3b18a", minor: true, area: 今日華盛頓、奧勒岡、愛達荷，蒙大拿與懷俄明西北部, regions: [US-WA, US-OR, US-ID, { code: US-MT, lng_lt: -112.5 }, { code: US-WY, lat_gt: 42, lng_lt: -109.5 }] }
+  - { name: 俄羅斯勢力範圍（阿拉斯加，1784 年起設點）, en: "Russian Alaska", color: "#c6c3de", minor: true, area: 今日阿拉斯加（最西端阿留申群島未畫）, regions: [{ code: US-AK, lng_gt: -170 }] }
+  - { name: 夏威夷諸島（各酋邦，1810 年才統一為王國）, en: "Hawaiian chiefdoms", color: "#f4c7dd", minor: true, area: 今日夏威夷主要島, regions: [{ code: US-HI, lng_gt: -161 }] }

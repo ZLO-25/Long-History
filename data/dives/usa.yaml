@@ -1,0 +1,74 @@
+# 深入專題：美國崛起。全部用既有卡片組成（第 3 期，不寫新卡），驗證專題模板不是為日本戰國寫死的。
+# 怎麼新增一個專題見 docs/dives.md；領土圖的切線與來源見 docs/dive-usa.md
+id: dive-usa
+title: 美國崛起：從十三個殖民地到超級強權
+question: 一群不想繳稅的殖民地，怎麼在兩百年內變成一塊大陸、一套制度、一種全世界都在用的貨幣——這一路上，是誰付了帳？
+blurb: 這個專題把美國兩百多年的「變強」拆開來看：領土怎麼一塊一塊買來、打來、併來；制度與財政怎麼讓新國家借得到錢、撐得過內戰；美元怎麼在兩次大戰後坐上世界的中心；以及這段歷史和日本開國、韓戰、臺灣的美援與協防有什麼關係。每一步都有人得利、有人付出代價，專題頁把兩面放在一起看。
+# 1763 年七年戰爭結束：英國開始要殖民地分擔軍費，是「不想繳稅」的起點；
+# 1991 年冷戰結束：美國成為唯一的超級強權，「崛起」在這裡收尾（之後的反恐戰爭、金融海嘯、貿易戰是「超強之後」，留給別的專題）。
+range: { start: 1763, end: 1991 }
+histories: [美國史, 美洲史]
+visual: power
+power_ui:
+  title: 領土擴張圖
+  subtitle: 一塊一塊買來、打來、併來的大陸
+  caveat: 以今日美國各州的範圍近似當時的疆域；一州跨兩個年代取得時，用一條經線或緯線切開，所以邊界只是示意，不是當時的實際界線。圖上只畫今日美國國境內的土地（英屬北美與墨西哥本土不畫）。各原住民族的土地與實際控制範圍，這種圖畫不出來，請搭配「西進擴張」卡的「代價」一起讀。
+  legend: 今日州
+# 專題時間軸的軌道：依卡片類型分軌（沒列到的放「其他」）。不列人物軌：這個專題沒有人物卡，Timeline 會把空軌畫出來。
+lanes:
+  - { name: 建國、制度與對外, types: [event, social] }
+  - { name: 戰爭, types: [war] }
+  - { name: 財政與美元, types: [finance] }
+  - { name: 技術與產業, types: [tech, commodity] }
+# 收錄的卡（順序不重要，畫面依年份排）。全部是既有卡；標 ※ 的 3 張還沒進學習模式，學習模式會以灰字連到研究模式。
+cards:
+  # 殖民地到建國
+  - event-thirteen-colonies
+  - war-seven-years
+  - event-american-founding-philosophy
+  - event-no-taxation
+  - war-american-revolution
+  - event-declaration-of-independence
+  - event-us-constitution
+  - finance-hamilton-financial-plan
+  # 大陸擴張與內戰
+  - event-westward-expansion
+  - event-monroe-doctrine
+  - event-black-ships
+  - war-american-civil-war
+  - event-reconstruction
+  - event-gilded-age-industrialization
+  - tech-electric-grid            # ※
+  - war-spanish-american
+  # 世界強權
+  - finance-federal-reserve
+  - war-world-war-one             # ※
+  - finance-new-york-overtakes-london
+  - event-versailles-treaty
+  - finance-great-depression
+  - event-new-deal
+  - war-world-war-two             # ※
+  - event-american-century
+  - finance-bretton-woods
+  - finance-dollar-reserve-currency
+  # 冷戰與臺灣
+  - event-containment-nato
+  - event-marshall-plan
+  - finance-us-aid-taiwan
+  - war-korean-war
+  - event-us-taiwan-defense
+  - war-vietnam-war
+  - tech-internet
+  - event-nixon-china
+  - finance-petrodollar
+  - finance-plaza-accord
+  - war-gulf-war
+storylines: [story-america, story-cold-war]
+units: [unit-america-rise, unit-america-rise-2, unit-financial-centers-2]
+# 領土擴張示意圖（data/dives/usa/power-<年>.yaml → npm run power）
+power_maps:
+  - { year: 1783, file: usa/power-1783.geojson }
+  - { year: 1803, file: usa/power-1803.geojson }
+  - { year: 1821, file: usa/power-1821.geojson }
+  - { year: 1848, file: usa/power-1848.geojson }
+  - { year: 1898, file: usa/power-1898.geojson }

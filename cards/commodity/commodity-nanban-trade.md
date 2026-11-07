@@ -23,7 +23,7 @@ place:
   scale: line
 structure_tags: [商路改道, 技術擴散, 關鍵原料壟斷, 宗教／意識形態動員, 單一港口依賴]
 topics: [海上貿易, 白銀, 絲綢與絲路, 火藥與武器, 宗教, 開港與鎖國, 海盜與海商]
-links: [commodity-iwami-silver, commodity-manila-galleon, event-christian-empire, event-portuguese-empire, tech-tanegashima-arquebus, event-sakoku, event-wokou-ningbo, person-luis-frois]
+links: [commodity-iwami-silver, commodity-manila-galleon, event-christian-empire, event-portuguese-empire, tech-tanegashima-arquebus, event-sakoku, event-wokou-ningbo, person-luis-frois, event-takasago-koku-arima, event-koxinga-taiwan]
 causes:
   - { id: event-portuguese-empire, rel: 直接引發, why: "葡萄牙人繞過好望角、占領麻六甲與澳門後，順著亞洲既有的航線北上，1543 年搭中國海商的船到了種子島，葡日貿易由此開始。", src: [s1, s2] }
   - { id: tech-tanegashima-arquebus, rel: 背景, why: "鐵砲傳入後戰國大名需要硝石、鉛和新式武器，這些多靠葡萄牙船運來，讓大名有理由歡迎南蠻船停泊自己的港口。", src: [s1, s3] }
@@ -41,6 +41,8 @@ sources:
   - { id: s8, title: "Red seal ships — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Red_seal_ships", accessed: 2026-11-03, tier: 百科 }
   - { id: s9, title: "海禁 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/海禁", accessed: 2026-11-03, tier: 百科 }
   - { id: s10, title: "南蛮屏風 — コトバンク（日本大百科全書、山川日本史小辞典、百科事典マイペディア等）", url: "https://kotobank.jp/word/南蛮屏風", accessed: 2026-11-03, tier: 百科 }
+  - { id: s11, title: "Red seal ships — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Red_seal_ships", accessed: 2026-11-04, tier: 百科 }
+  - { id: s12, title: "Zheng Zhilong — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Zheng_Zhilong", accessed: 2026-11-04, tier: 百科 }
 importance: 3
 learn:
   histories: [日本史, 錢的歷史, 世界通史]
@@ -72,7 +74,7 @@ learn:
     - { history: 世界通史, text: 從全球史看，葡萄牙人靠當中日之間的中間人賺錢，是 16 世紀「歐洲人嵌入亞洲既有貿易網」的典型。 }
 verification: 交叉確認
 lens_status: 無直接論述
-crosscheck: { date: 2026-11-03, by: 獨立查核 agent（第 2 期，未參與寫作）, result: 通過, notes: "1) 伴天連追放令第 1、4 條英譯與 Asia for Educators 頁面逐字相符；岡 2008 頁 51 的 500–600 擔、80 兩／140–150 兩確認。2) 英維 18–20 噸引 Boxer 但「全球 1/3」未註出處、日維並無「沒有可靠數字」之語，已改寫史家段與 B5。3) 耶穌會「貿易代理人在長崎存貨、絆腳石」在 s4 查無，已刪；改寫為 s1／s4 能支持的 1579 契約（50 擔）。4) 南蠻屏風舊說不在 s2，新增 s10 コトバンク（16 世紀末–17 世紀、狩野派、約 60 件、實地觀察說受質疑）並改寫。5) 長崎 1570 協議／1571 首入港／1588 鍋島直茂代官、糸割符 1604、朱印船 350 艘（1604–35）與臺灣 35 艘、1571 葡王禁奴、1639 禁葡船均核實；鉛為輸入品依コトバンク（旺文社）。6) 座標抽查種子島、澳門、長崎無誤。圖片欄未查。" }
+crosscheck: { date: 2026-11-03, by: 獨立查核 agent（第 2 期，未參與寫作）, result: 通過, notes: "1) 伴天連追放令第 1、4 條英譯與 Asia for Educators 頁面逐字相符；岡 2008 頁 51 的 500–600 擔、80 兩／140–150 兩確認。2) 英維 18–20 噸引 Boxer 但「全球 1/3」未註出處、日維並無「沒有可靠數字」之語，已改寫史家段與 B5。3) 耶穌會「貿易代理人在長崎存貨、絆腳石」在 s4 查無，已刪；改寫為 s1／s4 能支持的 1579 契約（50 擔）。4) 南蠻屏風舊說不在 s2，新增 s10 コトバンク（16 世紀末–17 世紀、狩野派、約 60 件、實地觀察說受質疑）並改寫。5) 長崎 1570 協議／1571 首入港／1588 鍋島直茂代官、糸割符 1604、朱印船 350 艘（1604–35）與臺灣 35 艘、1571 葡王禁奴、1639 禁葡船均核實；鉛為輸入品依コトバンク（旺文社）。6) 座標抽查種子島、澳門、長崎無誤。圖片欄未查。 2026-11-04 第 3 期依複查修改：B4 補平戶荷英商館與李旦、鄭芝龍，links 加高山國、鄭成功，新增 s11 s12；2026-11-07 第 3 期修改已查核：開 s11 Red seal ships 確認 1609 荷蘭、1613 英國在平戶設商館；開 s12 Zheng Zhilong 確認李旦（平戶甲必丹）、鄭芝龍在平戶與田川松生鄭成功。通過。" }
 ---
 
 ## B1 物資與用途
@@ -89,7 +91,7 @@ crosscheck: { date: 2026-11-03, by: 獨立查核 agent（第 2 期，未參與�
 
 ## B4 運輸路線與咽喉
 
-路線是果阿—麻六甲—澳門—長崎，季風決定一年只能跑一趟；日本端的港口從平戶、橫瀨浦、福田浦換到長崎，是因為領主改宗與港灣條件。[s1][s2][s6] 1567 年明朝開放月港後仍禁止前往日本，所以中日之間的合法管道只有葡萄牙人（和後來的荷蘭人、琉球）。[s9]
+路線是果阿—麻六甲—澳門—長崎，季風決定一年只能跑一趟；日本端的港口從平戶、橫瀨浦、福田浦換到長崎，是因為領主改宗與港灣條件。[s1][s2][s6] 1567 年明朝開放月港後仍禁止前往日本，所以中日之間的合法管道只有葡萄牙人（和後來的荷蘭人、琉球）。[s9] 17 世紀初平戶又成為荷蘭（1609 年）與英國（1613 年）商館所在，並有李旦、鄭芝龍等華人海商活動；鄭成功就是鄭芝龍與日本女子田川松所生，見 event-koxinga-taiwan 卡。[s11][s12]
 
 ## B5 規模與數量
 

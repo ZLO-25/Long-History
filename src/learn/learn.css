@@ -245,3 +245,9 @@
 /* 時間軸文字加深（2026-11-03）：說明字也要看得清楚 */
 .ltimeline .tl-head .muted, .timeline .tl-head .muted, .econ-legend .muted { color: #4a4741; }
 .ltimeline .tl-head .small { font-size: 13px; }
+
+.unit-dive { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 0 0 2px; font-size: 13px; }
+.ud-pos { background: #fbf3f1; color: #7b2d26; border: 1px solid #ebcdc7; border-radius: 999px; padding: 1px 10px; font-weight: 600; }
+.ud-next { border-color: #7b2d26; color: #7b2d26; }
+.ud-recap-next { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+@media (pointer: coarse) { .ud-next { min-height: 44px; } .unit-dive .link { min-height: 44px; } }

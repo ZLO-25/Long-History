@@ -11,7 +11,7 @@ import { MapView } from '../components/MapView';
 import { createSearch, matchTopics, useSearchLibs } from '../lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from '../components/Story';
-import { DiveView, DiveIndex, diveMarks, findDive, powerFor, diveYear, prehistDive } from '../components/Dive';
+import { DiveView, DiveIndex, diveMarks, findDive, hasPowerVisual, powerFor, diveYear, prehistDive } from '../components/Dive';
 import { useIsMobile } from '../lib/useIsMobile';
 import { LearnHome } from './LearnHome';
 import { HistoryPage } from './HistoryPage';
@@ -125,11 +125,20 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const openTopic = (name: string) => { setQuery(''); push({ kind: 'topic', name }); };
   const openStory = (id: string) => { setQuery(''); push({ kind: 'story', id }); };
   // 深入專題（docs/dives.md）：學習模式也能打開專題頁；勢力圖疊在地圖上
-  const [powerYear, setPowerYear] = useState<number | null>(() => { const dv = findDive(index, params.get('dive') ?? ''); return dv ? powerFor(dv, dv.range.end)?.year ?? null : null; });
+  const [powerYear, setPowerYear] = useState<number | null>(() => { const dv = findDive(index, params.get('dive') ?? ''); return dv ? powerFor(dv, dv.range.start)?.year ?? null : null; });
   const diveBelow = (() => { for (let i = stack.length - 1; i >= 0; i--) { const v = stack[i]; if (v.kind === 'dive') return v.id; if (v.kind !== 'card') return null; } return null; })();
   const activeDive = diveBelow ? findDive(index, diveBelow) ?? null : null;
-  const activePower = activeDive && powerYear != null ? activeDive.power_maps.find((x) => x.year === powerYear) ?? null : null;
-  const openDive = (id: string) => { setQuery(''); const dv = findDive(index, id); if (dv) { const pm = powerFor(dv, year); if (pm) { setPowerYear(pm.year); if (year < dv.range.start || year > dv.range.end) setYear(pm.year); } else if (year < dv.range.start || year > dv.range.end || dv.focus_year != null) setYear(diveYear(dv)); } push({ kind: 'dive', id }); };
+  const activePower = activeDive && hasPowerVisual(activeDive) && powerYear != null ? activeDive.power_maps.find((x) => x.year === powerYear) ?? null : null;
+  const openDive = (id: string) => {
+    setQuery('');
+    const dv = findDive(index, id);
+    if (dv) {
+      // 年代不在專題範圍內就跳到專題的第一張圖（沒有圖就跳到專題起點）；沒有圖的專題要清掉上一個專題殘留的年份
+      if (year < dv.range.start || year > dv.range.end || (dv.focus_year != null && !dv.power_maps.length)) { const y0 = diveYear(dv); setYear(y0); setPowerYear(powerFor(dv, y0)?.year ?? null); }
+      else setPowerYear(powerFor(dv, year)?.year ?? null);
+    }
+    push({ kind: 'dive', id });
+  };
   const allTopics = useMemo(() => (index.topicLayers ?? []).flatMap((l) => l.topics), [index]);
   // 學習模式的標籤數字只算學習版的卡（和路徑頁「你讀過 n／m」的 m 一致）
   const learnCount = (t: { cards: string[] }) => t.cards.filter((id) => !!byId(id)?.learn).length;
@@ -158,12 +167,12 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
       </div>
     );
     switch (view.kind) {
-      case 'home': return <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => update((o) => ({ ...o, seenIntro: true }))} onRecord={() => push({ kind: 'record' })} onTopic={openTopic} onTopics={() => push({ kind: 'topics' })} onStory={openStory} />;
-      case 'history': return h ? <HistoryPage index={index} h={h} cards={histCards} p={p} onUnit={openUnit} onCard={openCard} onHistory={chooseHistory} onSim={(id) => push({ kind: 'sim', id })} />
+      case 'home': return <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => update((o) => ({ ...o, seenIntro: true }))} onRecord={() => push({ kind: 'record' })} onTopic={openTopic} onTopics={() => push({ kind: 'topics' })} onStory={openStory} onDive={openDive} />;
+      case 'history': return h ? <HistoryPage index={index} h={h} cards={histCards} p={p} onUnit={openUnit} onCard={openCard} onHistory={chooseHistory} onSim={(id) => push({ kind: 'sim', id })} onDive={openDive} />
         : <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => {}} />;
       case 'unit': return unit ? <UnitPlayer key={unit.id} unit={unit} index={index} prog={p.units[unit.id]} setProg={(x) => setUnit(unit.id, x)}
-        onCard={openCard} onUnit={openUnit} onSim={(id) => push({ kind: 'sim', id })} onFocus={setFocus} onHome={() => setStack([{ kind: 'home' }])} onTopic={openTopic} topicCount={learnCount} onStory={openStory} /> : <p>找不到這個單元（可能還在查核中）。</p>;
-      case 'card': { const c = byId(view.id); return c?.learn ? <LearnCard key={c.id} card={c} index={index} history={h} onOpen={openCard} onHistory={(id) => setHid(id)} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} /> : <p>這張卡還不在學習模式裡（需要通過交叉查核）。</p>; }
+        onCard={openCard} onUnit={openUnit} onSim={(id) => push({ kind: 'sim', id })} onFocus={setFocus} onHome={() => setStack([{ kind: 'home' }])} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onDive={openDive} /> : <p>找不到這個單元（可能還在查核中）。</p>;
+      case 'card': { const c = byId(view.id); return c?.learn ? <LearnCard key={c.id} card={c} index={index} history={h} onOpen={openCard} onHistory={(id) => setHid(id)} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p>這張卡還不在學習模式裡（需要通過交叉查核）。</p>; }
       case 'mymap': return <MyMap index={index} cards={all} p={p} onCard={openCard} onUnit={openUnit} onRecord={() => push({ kind: 'record' })} />;
       case 'record': return <LearnRecord index={index} p={p} onUnit={openUnit} onReset={() => { reset(); setStack([{ kind: 'home' }]); }} />;
       case 'sim': return <SimView id={view.id} index={index} onCard={openCard} />;
@@ -174,7 +183,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onMap={isMobile ? () => setTab('map') : undefined} />;
       case 'stories': return <StorylineIndex index={index} onStory={openStory} onTopics={() => push({ kind: 'topics' })} onDives={(index.dives ?? []).length ? () => push({ kind: 'dives' }) : undefined} />;
       case 'dive': return <DiveView key={view.id} index={index} id={view.id} year={year} setYear={setYear} currentId={lastCard} powerYear={powerYear} setPowerYear={setPowerYear}
-        onOpen={(id) => openCard(id)} onStory={openStory} onAll={() => push({ kind: 'dives' })} onUnit={openUnit} canOpen={(c) => !!c.learn} researchHref={researchHref} onMap={isMobile ? () => setTab('map') : undefined} />;
+        onOpen={(id) => openCard(id)} onStory={openStory} onAll={() => push({ kind: 'dives' })} onUnit={openUnit} canOpen={(c) => !!c.learn} researchHref={researchHref} onMap={isMobile ? () => setTab('map') : undefined} learn />;
       case 'dives': return <DiveIndex index={index} onDive={openDive} />;
     }
     return null;
@@ -186,11 +195,11 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const hl = useMemo(() => diveId ? { keys: [], routes: [], marks: diveMarks(index, diveId) } : storyId ? { keys: [], routes: [], marks: storyMarks(index, storyId) } : topicName ? { keys: [], routes: [], marks: topicMarks(index, topicName) }
     : { keys: selected?.place.locations.map((l) => l.key) ?? [], routes: selected?.routes ?? [] }, [topicName, storyId, diveId, selected?.id, index]);
   const map = <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={isMobile} home={home}
-    highlight={hl} power={activePower ? { file: activePower.file, title: activePower.title } : null} onCard={(id) => openCard(id)}
+    highlight={hl} power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend } : null} onCard={(id) => openCard(id)}
     trail={selected?.type === 'person' ? selected.place.locations.filter((l) => typeof l.year === 'number').map((l) => ({ lat: l.lat, lng: l.lng, year: l.year!, name: l.name_ancient })) : null}
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}} />;
   const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
-  const cardTab = lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} /> : <p className="muted">還沒打開任何卡片。</p>;
+  const cardTab = lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
 
   const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '單元', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題' } as Record<View['kind'], string>)[view.kind];
   const header = (
@@ -206,7 +215,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
       </div>
       {!isMobile && <button className="btn sm" onClick={random} title="隨機一個謎題" aria-label="隨機一個謎題">🎲</button>}
       {(index.storylines ?? []).length > 0 && <button className={`btn sm ${view.kind === 'story' || view.kind === 'stories' ? 'on' : ''}`} onClick={() => { setQuery(''); push({ kind: 'stories' }); }} title="故事線：沿著前因 → 後果，把不同時代的事件接成一條路" aria-label="故事線">{isMobile ? '故事線' : '〰 故事線'}</button>}
-      {(index.dives ?? []).length > 0 && <button className={`btn sm ${view.kind === 'dive' || view.kind === 'dives' ? 'on' : ''}`} onClick={() => { setQuery(''); push({ kind: 'dives' }); }} title="深入專題：把一段時代放大來看（人物、勢力圖、故事線、單元）" aria-label="深入專題">{isMobile ? '專題' : '🔍 專題'}</button>}
+      {(index.dives ?? []).length > 0 && <button className={`btn sm ${view.kind === 'dive' || view.kind === 'dives' ? 'on' : ''}`} onClick={() => { setQuery(''); push({ kind: 'dives' }); }} title="深入專題：把一段時代放大來看（地圖、卡片、故事線、單元）" aria-label="深入專題">{isMobile ? '專題' : '🔍 專題'}</button>}
       <button className={`btn sm ${view.kind === 'topic' || view.kind === 'topics' ? 'on' : ''}`} onClick={() => { setQuery(''); push({ kind: 'topics' }); }} title="主題標籤：把同一個主題的卡片依年代串成歷史路徑" aria-label="主題標籤">#{!isMobile && ' 主題標籤'}</button>
       <button className="btn sm" onClick={() => push({ kind: 'mymap' })} title="我的歷史地圖">🗺{!isMobile && ' 我的地圖'}</button>
       <button className="btn sm" onClick={() => push({ kind: 'record' })} title="我的學習紀錄：進度、答對率、寫過的回答">📒{!isMobile && ' 紀錄'}</button>

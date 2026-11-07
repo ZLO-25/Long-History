@@ -190,6 +190,7 @@ const index = {
   for (const ch of index.chains) { need(ch.name); ch.steps.forEach((x: any) => need(x.name)); }
   for (const p of index.today.chokepoints) need(p.name);
   for (const ch of index.today.chains) { need(ch.name); ch.steps.forEach((x: any) => need(x.name)); }
+  if (process.env.LIST_MISSING) console.log([...missing].join("\n"));
   if (missing.size) console.warn(`注意：${missing.size} 個地名還沒有中英對照（地圖上先只顯示一種語言），請補到 data/labels/names-en.yaml：${[...missing].slice(0, 12).join('、')}${missing.size > 12 ? '…' : ''}`);
 }
 const unitIssues = checkUnits(loadUnits(), raw, histories, eligible).filter((i) => i.level === 'error');

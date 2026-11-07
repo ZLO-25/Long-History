@@ -19,7 +19,7 @@ place:
   scale: area
 structure_tags: [霸權挑戰, 補給線過長, 外部勢力介入, 突變事件, 地形險阻]
 topics: [海戰與水戰, 疫病]
-links: [event-yellow-turban, war-feishui, war-chu-han]
+links: [event-yellow-turban, war-feishui, war-chu-han, event-three-kingdoms, war-guandu, war-yiling, person-cao-cao, person-liu-bei, person-sun-quan, person-zhuge-liang]
 causes:
   - { id: event-yellow-turban, rel: 背景, why: 黃巾之亂後中央失去控制、軍閥割據，曹操統一北方後才有實力南下。, src: [s1, s2, "event-yellow-turban:s2"] }
 effects:
@@ -27,16 +27,47 @@ effects:
 counterparts:
   - { id: war-greco-persian, note: "相似：兵力佔優的入侵者在水戰中被較小的聯軍擊敗，主力隨即撤退，戰後格局被固定下來。不同：波斯帝國戰後依然強大；曹操是在東漢崩解後想重新統一，赤壁讓中國分裂成三國。", src: [s1, s2] }
 sources:
-  - { id: s1, title: "Battle of Red Cliffs — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Red_Cliffs", accessed: 2026-10-25 }
-  - { id: s2, title: "Joshua J. Mark, Battle of Red Cliffs — World History Encyclopedia（2020）", url: "https://www.worldhistory.org/Battle_of_Red_Cliffs/", accessed: 2026-10-25 }
-  - { id: s3, title: "Chibi, Hubei — Wikipedia", url: "https://en.wikipedia.org/wiki/Chibi,_Hubei", accessed: 2026-10-25 }
+  - { id: s1, title: "Battle of Red Cliffs — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Red_Cliffs", accessed: 2026-11-07, tier: 百科 }
+  - { id: s2, title: "Joshua J. Mark, Battle of Red Cliffs — World History Encyclopedia（2020）", url: "https://www.worldhistory.org/Battle_of_Red_Cliffs/", accessed: 2026-10-25, tier: 通論 }
+  - { id: s3, title: "Chibi, Hubei — Wikipedia", url: "https://en.wikipedia.org/wiki/Chibi,_Hubei", accessed: 2026-10-25, tier: 百科 }
+  - { id: s4, title: "Rafe de Crespigny, The Three Kingdoms and Western Jin: A History of China in the Third Century AD, East Asian History 1（1991），ANU Open Research（PDF）", url: "https://openresearch-repository.anu.edu.au/bitstreams/665f1337-89af-4cf2-a785-3cc5639bda80/download", accessed: 2026-11-07, tier: 學術 }
+  - { id: s5, title: "孫勇進〈「華容放曹」有無此事？〉，節錄自《〈三國演義〉趣談與索解》（春風文藝出版社，1997），香港教育局中國語文教育資源（PDF）", url: "https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/chi-edu/resources/lit/29_3688.pdf", accessed: 2026-11-07, tier: 通論 }
+  - { id: s6, title: "三國演義與史書記載的差異 — 維基百科（中文；赤壁段）", url: "https://zh.wikipedia.org/wiki/%E4%B8%89%E5%9C%8B%E6%BC%94%E7%BE%A9%E8%88%87%E5%8F%B2%E6%9B%B8%E8%A8%98%E8%BC%89%E7%9A%84%E5%B7%AE%E7%95%B0", accessed: 2026-11-07, tier: 百科 }
+importance: 2
+learn:
+  histories: [中國史]
+  why_care: 曹操統一天下最接近成功的一次，就在長江上被一把火和一場疫病打斷；「三國」能不能出現，就看這一戰。
+  story: |
+    208 年，曹操已經統一北方，南下取得荊州，順著長江往東推進，還寫信給孫權號稱有八十萬水軍。[s1][s2] 劉備兵敗後派諸葛亮去見孫權，孫權決定聯合劉備抵抗，由周瑜、程普率軍，聯軍大約五萬人。[s1][s2] 周瑜估計曹軍只有二十多萬，其中七、八萬是剛投降的荊州兵。[s1] 北方士兵不習慣水土，暈船、生病的人很多。[s1][s4] 周瑜的部將黃蓋發現曹軍的船首尾相連，就寫信詐降，把裝滿柴草、灌上油的戰船開到江心點火，順著東南風衝進曹軍船隊。[s1][s2] 曹軍大敗，沿著泥濘的華容道撤回北方，途中又因疾病與飢餓死了很多人。[s1][s2] 曹操後來卻說，是因為軍中有病，他才自己燒船退兵。[s1]
+  key_terms:
+    - { term: 詐降, plain: 假裝投降，騙對方放鬆戒心，再趁機攻擊。, example: 黃蓋寫信說要投降曹操，船開到近處才點火。 }
+    - { term: 火攻, plain: 用火燒敵人的營寨或船隻，在木造船隊密集時威力特別大。, example: 一整排木頭攤位靠在一起，一攤著火就全燒起來。 }
+    - { term: 聯軍, plain: 兩個以上的勢力為了對抗共同敵人暫時合作的軍隊。, example: 兩個平常競爭的社團，為了對抗學校要合併社辦而暫時聯手。 }
+  primary_source:
+    - { text: "今治水軍八十萬衆", from: "曹操致孫權書，見虞溥《江表傳》（裴松之注《三國志》所引；字句轉引自英文維基百科〈Battle of Red Cliffs〉註釋，未對照原書）", src: s1 }
+  historiography: |
+    **曹操是被火燒敗，還是被病拖垮？** 吳方史料把勝利歸功於黃蓋詐降與火攻；曹操自己則說是因為軍中疾病，才燒船退兵。[s1] de Crespigny 認為火攻在適當條件下確實能造成大規模破壞，曹軍又剛經歷長途強行軍、營中有病，但「曹操戰敗的記載很可能被誇大了」。[s4]
+    **戰場在哪、何時打？** 維基百科依建安十三年的曆法換算，戰事在 208–209 年冬，de Crespigny 認為大約在 208 年底；《世界歷史百科》則說在 208 年夏末。[s1][s2] 戰場確切地點也沒有定論，今湖北赤壁市是 1998 年才由蒲圻改名的。[s1][s3]
+  misconceptions:
+    - 常見說法：「赤壁之戰就發生在今天的湖北赤壁市。」→ 史料怎麼說：赤壁市是 1998 年由蒲圻改名，學者多認為不一定是原址，主流推測在武漢西南或岳陽東北。[s1][s3]
+  pop_culture:
+    - { claim: "「曹操率八十三萬大軍南下。」（演義、戲劇常見）", fact: "「八十三萬」是《三國演義》的數字，研究演義的孫勇進就用「一把火將八十三萬曹軍燒得灰飛煙滅」概括小說情節。[s5] 史書裡的八十萬是曹操寫給孫權信中的自稱，本身就是心理戰；周瑜估計約二十二到二十四萬，現代學者估計約二十五萬。[s1][s2]", src: [s5, s1, s2] }
+    - { claim: "「諸葛亮草船借箭。」", fact: "中文維基整理指出赤壁並無此事；相似的事發生在 213 年前後孫權與曹操的濡須之戰，用這一招的是孫權。[s6]《世界歷史百科》也說這類情節多半來自 14 世紀的小說《三國演義》。[s2]", src: [s6, s2] }
+    - { claim: "「諸葛亮設壇借東風。」", fact: "純屬虛構：中文維基指出江東冬季本來就常有東南風；史書記載的火攻是黃蓋提出、順風施行。[s6][s1]", src: [s6, s1] }
+    - { claim: "「龐統獻連環計，騙曹操把戰船鎖在一起。」", fact: "中文維基指出把船相連是曹操自己的決策，龐統沒有參與赤壁之戰；英文維基推測相連可能是為了減輕士兵暈船。黃蓋正是看到曹軍船隻首尾相連才提議火攻。[s6][s1]", src: [s6, s1] }
+    - { claim: "「蔣幹過江盜書，害曹操誤殺蔡瑁、張允。」", fact: "蔣幹確有其人，史書說他「有儀容，以才辯見稱」，曾奉命遊說周瑜而無功；盜書的情節是小說安排，他也不像演義寫的那麼無能。[s6]", src: [s6] }
+    - { claim: "「黃蓋用苦肉計騙過曹操。」", fact: "黃蓋詐降是真的，但挨打的苦肉計應該沒有。[s6][s1]", src: [s6, s1] }
+    - { claim: "「赤壁之戰是諸葛亮一手策劃的。」", fact: "聯軍由周瑜、程普指揮，魯肅參與決策；de Crespigny 認為抵抗曹操主要是由劉備推動、聯合江東反對投降的人；史書中諸葛亮的角色是出使說服孫權，不是指揮作戰。[s1][s4]", src: [s1, s4] }
+  perspectives:
+    - { history: 中國史, text: 從中國史看，赤壁是東漢末年重新統一的最後機會，de Crespigny 說它是「此後許多年裡統一帝國的最後機會」。 }
 verification: 爭議
 lens_status: 無直接論述
+crosscheck: { date: 2026-11-07, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "舊卡升級查核。1) 打開 de Crespigny 1991（ANU PDF）確認：營中有病（there was sickness in the camp）、周瑜以火船進攻、It is very likely that the account of Cao Cao's defeat has been exaggerated，與 s4 引用相符。2) pop_culture 補來源：「八十三萬」以孫勇進《〈三國演義〉趣談與索解》節錄（香港教育局 PDF，新增 s5）證明是演義數字；草船借箭（赤壁無此事，類似事件為孫權在濡須）、借東風（虛構、江東冬季多東南風）、連環為曹操決策且龐統未參戰、蔣幹「有儀容，以才辯見稱」、黃蓋詐降屬實而苦肉計應無，皆依中文維基〈三國演義與史書記載的差異〉（新增 s6）核對；拆成獨立條目。3) 「草船借箭原型出自《魏略》」：查到的中文維基段落只說濡須之戰孫權用此計，沒寫出處，卡片未寫《魏略》。4) 八十萬自稱、周瑜估計 22–24 萬、聯軍約 5 萬、赤壁市 1998 年改名、208–209 冬與 WHE 夏末說的分歧：查核額度有限，s1–s3 未由查核者重新打開，沿用作者的引用；與 de Crespigny 1991 的敘述（208 年底、火船、疾病）沒有矛盾。座標赤壁市標為 disputed，合理。" }
 ---
 
 ## A1 交戰方與聯盟結構
 
-曹操的北方大軍，對上孫權、劉備（與劉琦）的南方聯軍；聯軍由周瑜、程普、魯肅指揮。[s1][s2] 曹操軍中有 7–8 萬是新收編、忠誠度不明的荊州降兵。[s1]
+曹操的北方大軍，對上孫權、劉備（與劉琦）的南方聯軍；聯軍由周瑜、程普、魯肅指揮。[s1][s2] de Crespigny 認為抵抗主要由劉備推動，他試圖聯合反對投降的人，在長江上建立防線。[s4] 曹操軍中有 7–8 萬是新收編、忠誠度不明的荊州降兵。[s1]
 
 ## A2 起因：結構與導火線
 
@@ -70,7 +101,7 @@ lens_status: 無直接論述
 
 ## A8 結果
 
-聯軍大勝，曹操退回北方；劉備之後取得荊州大部分。[s1][s2]
+聯軍大勝，曹操退回北方；劉備之後取得荊州大部分。[s1][s2] 曹操自己的說法是因為軍中疾病才燒船撤退；de Crespigny 則認為曹操戰敗的記載很可能被誇大。[s1][s4]
 
 ## A9 長期影響
 
@@ -92,4 +123,4 @@ lens_status: 無直接論述
 
 ## A12 不可類比的差異
 
-今天大家熟悉的赤壁故事（借東風、草船借箭）多半來自 14 世紀的小說《三國演義》，不是史書。[s2] 史書之間對船數、劉備位置、戰場地點都有矛盾，細節不宜當成確定的事實。[s1]
+今天大家熟悉的赤壁故事（借東風、草船借箭、連環計、蔣幹盜書）多半來自 14 世紀的小說《三國演義》，不是史書。[s2][s6] 史書之間對船數、劉備位置、戰場地點都有矛盾，細節不宜當成確定的事實。[s1]

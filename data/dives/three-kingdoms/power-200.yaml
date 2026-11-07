@@ -1,0 +1,24 @@
+# 三國勢力示意圖：以今日中國省級行政區（加越南、北韓整國）近似東漢的州郡；一省跨兩個勢力時用經線（lng_lt／lng_gt）或緯線（lat_lt／lat_gt）切開。
+# npm run power 會從 data/ne/china_provinces.geojson（Natural Earth 50m，公有領域）拼成同名 .geojson。切線與理由見 docs/dive-three-kingdoms.md。
+year: 200
+basemap: china_provinces
+title: 官渡之戰前夕：北方兩強對決（200 年）
+note: 200 年曹操「挾天子」據兗、豫、徐與司隸，在官渡（今河南中牟）迎戰據有冀、青、幽、并四州的袁紹。孫策同年遇刺身亡，由弟弟孫權接手江東。荊州劉表、益州劉璋、漢中張魯、關中與涼州的馬騰、韓遂等將領各自觀望；遼東公孫度（189 年底起任遼東太守）、交州士燮名義上服從朝廷，實際自治；遼寧東北山區與北韓北部屬高句麗，圖上留白。以今日省界近似，邊界只是示意。
+view: [[17, 96], [44, 127]]
+sources:
+  - { title: "Battle of Guandu — Wikipedia：200 年官渡對峙、劉備奔袁紹", url: "https://en.wikipedia.org/wiki/Battle_of_Guandu", accessed: 2026-11-07, tier: 百科 }
+  - { title: "官渡之戰 — 維基百科（中文）：袁紹步兵十餘萬、騎兵一萬自陽武南下", url: "https://zh.wikipedia.org/wiki/%E5%AE%98%E6%B8%A1%E4%B9%8B%E6%88%98", accessed: 2026-11-07, tier: 百科 }
+  - { title: "Rafe de Crespigny, The Three Kingdoms and Western Jin, East Asian History 1（1991），ANU Open Research（PDF）：公孫度在遼東自成一國、曹軍兵力遠少於袁紹", url: "https://openresearch-repository.anu.edu.au/bitstreams/665f1337-89af-4cf2-a785-3cc5639bda80/download", accessed: 2026-11-07, tier: 學術 }
+  - { title: "Three Kingdoms — Wikipedia：200 年孫策遇刺", url: "https://en.wikipedia.org/wiki/Three_Kingdoms", accessed: 2026-11-07, tier: 百科 }
+  - { title: "Gongsun Kang — Wikipedia：公孫氏控制遼東、玄菟、樂浪，東邊與高句麗相鄰", url: "https://en.wikipedia.org/wiki/Gongsun_Kang", accessed: 2026-11-07, tier: 百科 }
+  - { title: "Sima Yi's Liaodong campaign — Wikipedia：公孫氏自 189 年底公孫度任遼東太守起割據", url: "https://en.wikipedia.org/wiki/Sima_Yi%27s_Liaodong_campaign", accessed: 2026-11-07, tier: 百科 }
+powers:
+  - { name: 曹操（挾漢獻帝）, en: "Cao Cao (with Emperor Xian)", color: "#3b6ea8", card: person-cao-cao, area: 兗州、豫州、徐州、司隸（今河南全境，山東西南、江蘇與安徽北部、山西南部）, regions: [CN-HA, { code: CN-SD, lng_lt: 117.5 }, { code: CN-SD, lng_gt: 117.5, lat_lt: 36.3 }, { code: CN-JS, lat_gt: 32.25 }, { code: CN-AH, lat_gt: 31.6 }, { code: CN-SX, lat_lt: 35.6 }] }
+  - { name: 袁紹, en: "Yuan Shao", color: "#c9a227", card: war-guandu, area: 冀州、青州、幽州、并州（今河北、北京、天津、山西中北部、山東東北部、遼寧西部）, regions: [CN-HE, CN-BJ, CN-TJ, { code: CN-SX, lat_gt: 35.6 }, { code: CN-SD, lng_gt: 117.5, lat_gt: 36.3 }, { code: CN-LN, lng_lt: 122 }] }
+  - { name: 孫策→孫權（江東）, en: "Sun Ce / Sun Quan (Jiangdong)", color: "#c0503b", card: person-sun-quan, area: 揚州江南部分與廬江（今江蘇與安徽長江以南、上海、浙江、江西；福建只是名義）, regions: [{ code: CN-JS, lat_lt: 32.25 }, CN-SH, CN-ZJ, { code: CN-AH, lat_lt: 31.6 }, CN-JX, CN-FJ] }
+  - { name: 劉表（荊州）, en: "Liu Biao (Jing Province)", color: "#8e6bb0", area: 荊州（今湖北、湖南）, regions: [CN-HB, CN-HN] }
+  - { name: 劉璋（益州）, en: "Liu Zhang (Yi Province)", color: "#8fae5d", area: 益州（今四川盆地、重慶、貴州；雲南南中只是名義）, regions: [{ code: CN-SC, lng_gt: 101.8 }, CN-CQ, CN-GZ, { code: CN-YN, lng_gt: 98.5 }] }
+  - { name: 張魯（漢中）, en: "Zhang Lu (Hanzhong)", color: "#d39b6a", minor: true, area: 漢中（今陝西南部）, regions: [{ code: CN-SN, lat_lt: 33.7 }] }
+  - { name: 關中、涼州諸將（馬騰、韓遂等）, en: "Guanzhong & Liang warlords (Ma Teng, Han Sui)", color: "#a3a07a", minor: true, area: 關中與涼州（今陝西中北部、甘肅、寧夏、青海東部）；名義上服從朝廷, regions: [{ code: CN-SN, lat_gt: 33.7 }, CN-GS, CN-NX, { code: CN-QH, lng_gt: 100.5, lat_gt: 35.5 }] }
+  - { name: 公孫度（遼東）, en: "Gongsun Du (Liaodong)", color: "#7f9fb3", minor: true, area: 遼東、玄菟、樂浪（今遼寧東部、北韓西北部）；實際自治, regions: [{ code: CN-LN, lng_gt: 122, lng_lt: 124.5 }, { code: CN-LN, lng_gt: 124.5, lat_lt: 40.8 }, { code: KP, lat_lt: 39.8 }] }
+  - { name: 士燮（交州）, en: "Shi Xie (Jiao Province)", color: "#c7a9a0", minor: true, area: 交州（今廣東、廣西、越南北中部）；名義上服從朝廷, regions: [CN-GD, CN-GX, { code: VN, lat_gt: 16 }] }

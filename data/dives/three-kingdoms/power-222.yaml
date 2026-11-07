@@ -1,0 +1,15 @@
+# 畫法同 power-200.yaml
+year: 222
+basemap: china_provinces
+title: 夷陵之戰後：三分天下（222 年）
+note: 219 年劉備奪下漢中，同年關羽北攻襄樊時被孫權偷襲，荊州落入吳手。220 年曹丕篡漢建魏，221 年劉備在成都稱帝，222 年夷陵之戰被陸遜打敗。之後魏、蜀、吳的邊界大致固定：魏與吳隔著淮河—長江之間的地帶對峙（合肥、襄陽在魏手），蜀守漢中與三峽；甘肅東南的武都一帶是魏蜀之間的空隙，圖上留白，229 年才被蜀取得。孫權 229 年稱帝。遼東公孫氏仍半獨立，到 238 年才被司馬懿消滅。以今日省界近似，邊界只是示意。
+view: [[15, 96], [44, 127]]
+sources:
+  - { title: "Three Kingdoms — Wikipedia：219 年劉備取漢中、關羽失荊州，229 年孫權稱帝", url: "https://en.wikipedia.org/wiki/Three_Kingdoms", accessed: 2026-11-07, tier: 百科 }
+  - { title: "Rafe de Crespigny, The Three Kingdoms and Western Jin, East Asian History 1（1991），ANU Open Research（PDF）：229 年蜀取武都", url: "https://openresearch-repository.anu.edu.au/bitstreams/665f1337-89af-4cf2-a785-3cc5639bda80/download", accessed: 2026-11-07, tier: 學術 }
+  - { title: "Sima Yi's Liaodong campaign — Wikipedia：238 年公孫淵被滅", url: "https://en.wikipedia.org/wiki/Sima_Yi%27s_Liaodong_campaign", accessed: 2026-11-07, tier: 百科 }
+powers:
+  - { name: 魏, en: "Cao Wei", color: "#3b6ea8", card: event-three-kingdoms, area: 華北與關中（今河北、北京、天津、山西、山東、河南、陝西中北部、甘肅大部、寧夏，江蘇與安徽北部、湖北北部）, regions: [CN-HE, CN-BJ, CN-TJ, CN-SX, CN-SD, CN-HA, { code: CN-SN, lat_gt: 33.7 }, { code: CN-SN, lat_lt: 33.7, lng_gt: 108 }, { code: CN-GS, lat_gt: 33.9 }, { code: CN-GS, lat_lt: 33.9, lng_lt: 104.3 }, CN-NX, { code: CN-QH, lng_gt: 100.5, lat_gt: 35.5 }, { code: CN-JS, lat_gt: 32.25 }, { code: CN-AH, lat_gt: 31.6 }, { code: CN-HB, lat_gt: 31.3 }, { code: CN-LN, lng_lt: 122 }] }
+  - { name: 蜀（蜀漢）, en: "Shu Han", color: "#4f9a5a", card: person-liu-bei, area: 益州（今四川盆地、重慶、貴州、雲南東部、陝西漢中）, regions: [{ code: CN-SC, lng_gt: 101.8 }, CN-CQ, CN-GZ, { code: CN-YN, lng_gt: 98.5 }, { code: CN-SN, lat_lt: 33.7, lng_lt: 108 }] }
+  - { name: 吳, en: "Eastern Wu", color: "#c0503b", card: person-sun-quan, area: 揚州、荊州南部、交州（今長江中下游以南：江蘇南部、安徽南部、上海、浙江、江西、福建、湖北南部、湖南、廣東、廣西、越南北中部）, regions: [{ code: CN-JS, lat_lt: 32.25 }, CN-SH, CN-ZJ, { code: CN-AH, lat_lt: 31.6 }, CN-JX, CN-FJ, { code: CN-HB, lat_lt: 31.3 }, CN-HN, CN-GD, CN-GX, { code: VN, lat_gt: 16 }] }
+  - { name: 公孫氏（遼東）, en: "Gongsun clan (Liaodong)", color: "#7f9fb3", minor: true, area: 今遼寧東部、北韓西北部（樂浪、帶方）；名義上稱臣於魏, regions: [{ code: CN-LN, lng_gt: 122, lng_lt: 124.5 }, { code: CN-LN, lng_gt: 124.5, lat_lt: 40.8 }, { code: KP, lat_lt: 39.8 }] }

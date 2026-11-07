@@ -3,13 +3,13 @@ id: event-yellow-turban
 type: event
 name: 黃巾之亂
 aliases: [黃巾起義, 張角, 蒼天已死黃天當立, 太平道, Yellow Turban Rebellion, Zhang Jue, Taiping Dao, 黄巾之乱, 黄巾起义, 张角]
-civilization: [中國（東漢）]
+civilization: [中國（東漢末）]
 track: china
 time:
   start: 184
   end: 205
   precision: exact
-  src: [s1, s2]
+  src: [s1, s2, s4]
 summary_line: 大事｜其他｜河北、河南、山東一帶｜黃巾之亂
 place:
   primary_field: 其他
@@ -19,19 +19,42 @@ place:
   scale: area
 structure_tags: [宗教／意識形態動員, 合法性危機, 財政枯竭, 附庸反叛, 長期衰退]
 topics: [民變與抗爭, 宗教, 疫病]
-links: [war-red-cliffs, event-wang-mang-reform]
+links: [war-red-cliffs, event-wang-mang-reform, event-dong-zhuo-luoyang, event-eunuchs-partisan, person-cao-cao, person-liu-bei]
 causes:
   - { id: event-eunuchs-partisan, rel: 促成, why: 靈帝倚賴宦官、公開賣官，貪官加重對百姓的剝削，朝廷失去民心，為黃巾起事提供了土壤。, src: [s1, s2] }
 effects:
+  - { id: event-dong-zhuo-luoyang, rel: 背景, why: 平亂讓地方將領握有更大兵權；189 年靈帝死後宮廷大亂，手握邊軍的董卓才能帶兵入京、廢立皇帝。, src: [s1, s2, event-dong-zhuo-luoyang:s1] }
   - { id: war-red-cliffs, rel: 背景, why: 為了平亂，地方將領取得更大兵權並逐漸不再效忠漢朝，曹操等人趁勢崛起，形成群雄割據。, src: [s1, s2] }
   - { id: event-three-kingdoms, rel: 促成, why: 黃巾之亂讓朝廷失去對地方軍隊的控制，史家視為東漢衰亡的關鍵一步，但不是唯一原因。, src: [s2] }
 counterparts: "無適當對照：目前的西方卡沒有「以宗教號召的大規模民變，平亂的將領因此坐大、最後瓜分帝國」的例子；羅馬帝國也經歷過軍人擁兵自重的「三世紀危機」，但本期沒有這張卡，而且那不是由宗教民變引發。"
 sources:
-  - { id: s1, title: "Yellow Turban Rebellion — Wikipedia", url: "https://en.wikipedia.org/wiki/Yellow_Turban_Rebellion", accessed: 2026-10-25 }
-  - { id: s2, title: "Gayla Koerting, Yellow Turbans Rebellion — EBSCO Research Starters（2022）", url: "https://www.ebsco.com/research-starters/history/yellow-turbans-rebellion", accessed: 2026-10-25 }
-  - { id: s3, title: "Pingxiang County — Wikipedia", url: "https://en.wikipedia.org/wiki/Pingxiang_County", accessed: 2026-10-25 }
+  - { id: s1, title: "Yellow Turban Rebellion — Wikipedia", url: "https://en.wikipedia.org/wiki/Yellow_Turban_Rebellion", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Gayla Koerting, Yellow Turbans Rebellion — EBSCO Research Starters（2022）", url: "https://www.ebsco.com/research-starters/history/yellow-turbans-rebellion", accessed: 2026-10-25, tier: 通論 }
+  - { id: s3, title: "Pingxiang County — Wikipedia", url: "https://en.wikipedia.org/wiki/Pingxiang_County", accessed: 2026-10-25, tier: 百科 }
+  - { id: s4, title: "范曄《後漢書》卷七十一〈皇甫嵩朱儁列傳〉詞彙分析頁（含原文例句片段）— Chinese Notes", url: "https://chinesenotes.com/analysis/houhanshu/houhanshu078_analysis.html", accessed: 2026-11-07, tier: 一手 }
+  - { id: s5, title: "三國演義與史書記載的差異 — 維基百科（中文）", url: "https://zh.wikipedia.org/wiki/%E4%B8%89%E5%9C%8B%E6%BC%94%E7%BE%A9%E8%88%87%E5%8F%B2%E6%9B%B8%E8%A8%98%E8%BC%89%E7%9A%84%E5%B7%AE%E7%95%B0", accessed: 2026-11-07, tier: 百科 }
+  - { id: s6, title: "黃巾之亂 — 維基百科（中文）", url: "https://zh.wikipedia.org/wiki/%E9%BB%83%E5%B7%BE%E4%B9%8B%E4%BA%82", accessed: 2026-11-07, tier: 百科 }
+importance: 2
+learn:
+  histories: [中國史]
+  why_care: 一個靠治病傳教的宗教團體，喊出「蒼天已死，黃天當立」，讓東漢朝廷把兵權交給地方將領；曹操、劉備、孫堅這些三國主角，都是在平黃巾時登場的。
+  story: |
+    東漢末年，宦官弄權、公開賣官，百姓稅負沉重，又碰上黃河氾濫、旱災、饑荒和瘟疫。[s1][s2] 河北鉅鹿人張角創立太平道，用符水和誦經替人治病，十多年間信徒多達數十萬，他把信徒編成三十六個「方」，大方一萬多人、小方六七千人。[s2][s4][s6] 184 年是甲子年，張角喊出「蒼天已死，黃天當立，歲在甲子，天下大吉」，二月（原訂三月，因事洩提前），信徒頭裹黃巾同時起事，攻佔各地官府。[s1][s2][s4][s6] 朝廷派皇甫嵩、朱儁、盧植等人鎮壓；張角在十月廣宗決戰前已經病死，兩個弟弟張寶、張梁先後戰死，主力在一年內被平定。[s1][s2] 但各地殘部一直鬧到 205 年前後。[s1] 為了平亂，朝廷讓地方將領擁有更大的兵權，曹操等人也在這時崛起；五年後董卓帶兵入京，東漢從此走向分裂。[s1][s2]
+  key_terms:
+    - { term: 太平道, plain: 張角創立的民間宗教，用符水、誦經治病，宣稱太平之世即將到來。, example: 社區裡的宗教團體同時辦義診、發物資，很快就聚集一大群人。 }
+    - { term: 方, plain: 太平道的地方組織單位，大方一萬多人、小方六七千人（中文維基依史書的說法）。, example: 就像全國性社團在各縣市設分會，每個分會有自己的負責人。 }
+    - { term: 甲子, plain: 古代用天干地支紀年，六十年一循環，甲子是第一年；張角選在甲子年起事，象徵新時代開始。, example: 有人特地挑跨年夜或新學期第一天宣布重大決定，圖個「重新開始」。 }
+  primary_source:
+    - { text: "衆徒數十萬……遂置三十六方……蒼天已死，黃天當立，歲在甲子，天下大吉。", from: "范曄《後漢書》卷七十一〈皇甫嵩傳〉。「衆徒數十萬」「遂置三十六方」「蒼天已死」「歲在甲子」見 Chinese Notes 該卷例句（查核時再次確認）；「黃天當立」「天下大吉」與口號全句轉引自中文維基〈黃巾之亂〉與英文維基，維基文庫無法開啟，未對照原典全文", src: s4 }
+  historiography: |
+    **東漢滅亡的關鍵，還是只是其中一環？** EBSCO 的整理把黃巾之亂視為東漢衰亡的關鍵一步，但強調它不是唯一原因：宦官專權、財政與天災早已削弱朝廷。[s2]
+    **從誰的角度記錄？** 《後漢書》把黃巾的事蹟放在平亂將領皇甫嵩、朱儁的傳記裡，是從朝廷鎮壓的角度寫成；今天中文有「黃巾之亂」與「黃巾起義」兩種叫法，也反映評價不同。[s4][s1]
+    **到底有多少人？** 英文維基說起事之初約 36 萬人，資訊框列總數約 200 萬，可能包括後來加入的人；中文維基資訊框則估計高峰約 30 萬人（含家屬，能作戰的只有 4–5 萬）；史書只說「衆徒數十萬」，數字都只能當估計。[s1][s6][s4]
+  pop_culture:
+    - { claim: "「劉備、關羽、張飛桃園結義後，一起大破黃巾、四處救援。」（《三國演義》、電玩開場常見）", fact: "史書沒有三人結拜的記載，只說劉備待關、張「恩若兄弟」；劉備是跟隨校尉鄒靖討伐黃巾立功，當上安喜尉，沒有記載他援救青州、潁川等地。[s5]", src: [s5] }
 verification: 交叉確認
 lens_status: 無直接論述
+crosscheck: { date: 2026-11-07, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "舊卡升級查核。1) 打開 Chinese Notes《後漢書》卷七十一詞彙頁，確認「衆徒數十萬」「遂置三十六方」「蒼天已死」「歲在甲子」為該卷原文例句；「黃天當立」「天下大吉」不在例句中，全句改依中文維基〈黃巾之亂〉（新增 s6）與英文維基，from 註明轉引。2) 「大方萬餘人，小方六七千」：Chinese Notes 例句沒有這句，中文維基正文作「大方一萬多人，小方六七千人」，本卡改附 s6，未對照原典。3) 起事月份：原寫 184 年三月，中文維基說原訂三月、提前到二月（西曆 3 月 4 日），已改；張角死期改為「十月廣宗之戰前」。4) 殘部到 205 年（中文維基資訊框零星衝突 185–205）相符；加上中文維基約 30 萬的估計與英文維基 36 萬並列。5) 桃園結義、鄒靖、安喜尉依中文維基〈三國演義與史書記載的差異〉核對相符。6) 座標平鄉縣（鉅鹿郡治一帶）合理。" }
 ---
 
 ## C1 背景
@@ -40,12 +63,12 @@ lens_status: 無直接論述
 
 ## C2 經過
 
-184 年三月，張角（自稱「天公將軍」）與弟弟張寶、張梁率領太平道起事，頭裹黃巾，口號是「蒼天已死，黃天當立」；184 年是甲子年，他們相信新的六十年循環從此開始。[s1][s2] 起事初期攻佔郡縣官署。[s2] 張角在 184 年十月病死，兩個弟弟先後戰死，主力在 185 年前被平定；殘部到 205 年前後仍是威脅。[s1][s2]
+184 年二月（西曆約 3 月；原訂三月起事，因事洩提前一個月），張角（自稱「天公將軍」）與弟弟張寶、張梁率領太平道起事，頭裹黃巾，口號是「蒼天已死，黃天當立，歲在甲子，天下大吉」；184 年是甲子年，他們相信新的六十年循環從此開始。[s1][s2] 起事初期攻佔郡縣官署。[s2] 張角在 184 年十月廣宗之戰前病死，兩個弟弟先後戰死，主力在 185 年前被平定；殘部到 205 年前後仍是威脅。[s1][s2]
 
 ## C3 關鍵人物與群體
 
-- **太平道**：張角以符水治病、誦經與宗教儀式傳教，宣稱太平將至、天下人人平等。[s2]
-- **信眾**：維基百科說起事之初約 36 萬人，資訊框列總數約 200 萬（可能包括後來加入者，屬估計）。[s1] 張角把信眾分成 36「方」。[s1]
+- **太平道**：張角以符水治病、誦經與宗教儀式傳教；EBSCO 的整理說他宣稱太平將至、人人平等（屬現代整理的概括）。[s2]
+- **信眾**：《後漢書》說「衆徒數十萬」，並「置三十六方」。[s4] 英文維基說起事之初約 36 萬人，資訊框列總數約 200 萬（可能包括後來加入者，屬估計）。[s1]
 - **平亂者**：大將軍何進，以及皇甫嵩、朱儁、盧植等將領。[s1][s2]
 
 ## C4 制度或機制變化
@@ -58,7 +81,7 @@ lens_status: 無直接論述
 
 ## C6 直接結果
 
-189 年靈帝死後，何進想除掉宦官反被殺，宦官也遭屠殺；190 年董卓焚掠洛陽。[s2] 之後群雄割據（見「赤壁之戰」卡）。[s1][s2]
+189 年靈帝死後，何進想除掉宦官反被殺，宦官也遭屠殺；董卓帶兵入京廢立皇帝，190 年焚掠洛陽（見「董卓入京、廢立與焚洛陽遷長安」卡）。[s2][event-dong-zhuo-luoyang:s1] 之後群雄割據（見「赤壁之戰」卡）。[s1][s2]
 
 ## C7 長期影響
 

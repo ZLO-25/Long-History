@@ -229,7 +229,7 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
           const top = AXIS_H + ECON_H + laneTop[li];
           const h = laneHt[li];
           return (
-            <g key={ln.track} transform={`translate(0,${top})`}>
+            <g key={`${ln.track}-${li}`} transform={`translate(0,${top})`}>
               <rect x={0} y={0} width={width} height={h} className={`lane lane-${ln.track}`} />
               {lanesDef && <rect x={0} y={0} width={3} height={h} className="lane-bar" />}
               {ln.placed.map(({ c, x0, x1, row, label, lx }) => {

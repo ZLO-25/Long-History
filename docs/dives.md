@@ -108,6 +108,7 @@ public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
 - 第 1 期（2026-11-03）：人物卡類型、專題定義檔與專題頁、勢力圖流程、人生軌跡、專題時間軸軌道；日本戰國 12 張新卡、故事線 `story-sengoku`、1582 年勢力圖。報告 `docs/dive-sengoku-1.md`。
 - 第 2 期（2026-11-03 完成）：其餘 19 張新卡（含 11 位人物）、升級 6 張既有卡、4 個學習單元、1560／1590／1600／1615 勢力圖、人物關係網、戲劇 vs 史實、學習模式專題頁、主題標籤「海盜與海商」「身分制度」。圖片欄位做好了但 21 張圖的授權還沒查證，先抽到 `data/pending-images.yaml`（`scripts/images-pending.ts`）。報告 `docs/dive-sengoku-2.md`。
 - 第 3 期：複查後的介面與內容修正；模板去戰國化（底圖、切線、文字、`minor`、`view`、人物區自動隱藏、QA 對每個專題都跑）；用既有美國史卡片套出第二個專題「美國崛起」（`?dive=dive-usa`，五張領土擴張圖，沒寫新卡）。報告 `docs/dive-sengoku-3.md`、`docs/dive-usa.md`。
+- 三國（2026-11-07）：13 張新卡（含 5 位人物）、升級黃巾與赤壁、200／208／222／262 勢力圖（底圖 `npm run basemap -- CN`：中國省界＋越南、北韓整國）、故事線 `story-three-kingdoms`、2 個單元。報告 `docs/dive-three-kingdoms.md`。
 
 ## 七、讀書專題（book，2026-11-07 起，第一個是《人類大歷史》）
 

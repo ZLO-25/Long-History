@@ -1,0 +1,44 @@
+# 深入專題：三國。怎麼新增一個專題見 docs/dives.md；勢力圖的切線與來源見 docs/dive-three-kingdoms.md
+id: dive-three-kingdoms
+title: 三國：從黃巾之亂到三家歸晉
+question: 小說裡的三國是英雄的舞台，正史裡的三國卻是人口少掉一大半的亂世。曹操、劉備、孫權、諸葛亮各自做了什麼選擇？打了快一百年，最後得天下的為什麼是司馬家？
+blurb: 這個專題把東漢末到西晉統一的近百年放大來看：中央怎麼垮掉、北方怎麼被曹操收拾、赤壁之後三家怎麼站穩、諸葛亮為什麼一直北伐，以及屯田、九品官人法這些「不熱鬧」的制度，怎麼決定了誰撐得久。每個人物都放上「從另一邊看他」，也把《三國演義》的說法和《三國志》並排比對。
+# 184 年黃巾之亂：東漢中央開始失控；280 年晉滅吳：三國結束
+range: { start: 184, end: 280 }
+histories: [中國史]
+visual: power
+power_ui:
+  title: 勢力圖
+  subtitle: 誰占了哪幾州
+  caveat: 以今日中國省級行政區（加上越南、北韓整國）的範圍近似東漢的州郡；一省跨兩個勢力時，用一條經線或緯線切開，所以邊界只是示意，不是當時確切的界線。北方草原、青藏高原與西域不在圖內；名義上服從、實際自治的勢力（例如遼東公孫氏、交州士燮）也標出來。
+  legend: 今日省
+lanes:
+  - { name: 政治與制度, types: [event, social, finance] }
+  - { name: 戰役, types: [war] }
+  - { name: 人物（在世期間）, types: [person] }
+cards:
+  - event-eunuchs-partisan
+  - event-yellow-turban
+  - event-dong-zhuo-luoyang
+  - event-cao-wei-tuntian
+  - war-guandu
+  - war-red-cliffs
+  - event-three-kingdoms
+  - event-nine-rank-system
+  - war-yiling
+  - war-zhuge-northern-expeditions
+  - event-wu-yizhou-230
+  - event-gaopingling-incident
+  - social-three-kingdoms-people
+  - person-cao-cao
+  - person-liu-bei
+  - person-sun-quan
+  - person-zhuge-liang
+  - person-sima-yi
+storylines: [story-three-kingdoms]
+units: [unit-three-kingdoms-1, unit-three-kingdoms-2]
+power_maps:
+  - { year: 200, file: three-kingdoms/power-200.geojson }
+  - { year: 208, file: three-kingdoms/power-208.geojson }
+  - { year: 222, file: three-kingdoms/power-222.geojson }
+  - { year: 262, file: three-kingdoms/power-262.geojson }

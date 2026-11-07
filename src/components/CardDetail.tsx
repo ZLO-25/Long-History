@@ -59,8 +59,8 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
           <dt>地點</dt>
           <dd>
             <ul className="locs">
-              {c.place.locations.map((l) => (
-                <li key={l.key}>
+              {c.place.locations.map((l, li) => (
+                <li key={`${l.key}-${li}`}>
                   <button className="link" onClick={() => onPlace(l.key)}><Bi name={l.name_ancient} /></button>
                   <span className="muted">（今 <Bi name={l.name_modern} />）</span>
                   {l.role && <span> — {l.role}</span>}

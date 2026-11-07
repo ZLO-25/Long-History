@@ -7,6 +7,7 @@ import { fmtRange, fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import './dive.css';
 import { RelationGraph } from './RelationGraph';
 import { BookView, DeepTimeline } from './DiveBook';
+import { DiveCurve } from './DiveCurve';
 
 export function findDive(index: Index, id: string): Dive | undefined {
   return (index.dives ?? []).find((d) => d.id === id);
@@ -134,6 +135,12 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       )}
     </details>
   );
+  const curveSec = d.visual === 'curve' && d.curves && (
+    <details className="dv-sec dv-power dv-curve-sec" id={`dv-power-${d.id}`} open={!learn}>
+      <summary><h3>{d.curves.title}<small className="muted">{d.curves.subtitle}</small></h3></summary>
+      <DiveCurve curves={d.curves} range={d.range} year={year} setYear={setYear} onOpen={onOpen} byId={m} />
+    </details>
+  );
   const personSec = persons.length > 0 && (
     <section className="dv-sec" id={`dv-persons-${d.id}`}>
       <h3>人物<small className="muted">點開看他的一生、他當時的選擇、別人怎麼看他</small></h3>
@@ -152,7 +159,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       ))}
     </section>
   );
-  const anchors: [string, string, boolean][] = [['dv-read', learn ? '學習單元' : '照順序讀', !!readSec], ['dv-power', ui.title, !!powerSec], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true]];
+  const anchors: [string, string, boolean][] = [['dv-read', learn ? '學習單元' : '照順序讀', !!readSec], ['dv-power', d.curves && d.visual === 'curve' ? d.curves.title : ui.title, !!(powerSec || curveSec)], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true]];
   const bookAnchors: [string, string, boolean][] = d.book ? [['dv-deep', '深時間軸', true], ['dv-book', `照書讀 ${d.book.chapters.length} 站`, true]] : [];
   const ordered = [...bookAnchors, ...(learn || d.book ? anchors : [anchors[1], anchors[2], anchors[3], anchors[0]])];
   return (
@@ -171,7 +178,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       )}
       {d.book && <BookView dive={d} book={d.book} byId={m} cardBtn={(c) => cardBtn(c)} open={openCh} setOpen={setOpenCh} unitBtn={(uid) => { const i = unitList.findIndex((u) => u.id === uid); return i >= 0 ? unitBtn(unitList[i], i) : null; }} />}
 
-      {learn || d.book ? <>{readSec}{powerSec}{personSec}{cardSec}</> : <>{powerSec}{personSec}{cardSec}{readSec}</>}
+      {learn || d.book ? <>{readSec}{powerSec}{curveSec}{personSec}{cardSec}</> : <>{powerSec}{curveSec}{personSec}{cardSec}{readSec}</>}
       <p className="dv-note muted small">專題只是把這段時代的卡片聚在一起放大看；每張卡仍然在整條長河、地圖和主題標籤裡，可以隨時跳出去比較別的時代。</p>
     </div>
   );
@@ -191,7 +198,7 @@ export function DiveIndex({ index, onDive }: { index: Index; onDive: (id: string
               <button className="di-item" onClick={() => onDive(d.id)}>
                 <span className="di-title">{d.title}</span>
                 <span className="di-q">{d.question}</span>
-                <span className="di-meta muted small">{fmtRange(d.range.start, d.range.end)}・{d.cards.length - persons} 張卡{persons > 0 ? `、${persons} 位人物` : ''}{hasPowerVisual(d) ? `・${d.power_maps.length} 張${(d.power_ui ?? DEFAULT_POWER_UI).title}` : ''}{d.book ? `・照書讀 ${d.book.chapters.length} 站` : ''}</span>
+                <span className="di-meta muted small">{fmtRange(d.range.start, d.range.end)}・{d.cards.length - persons} 張卡{persons > 0 ? `、${persons} 位人物` : ''}{hasPowerVisual(d) ? `・${d.power_maps.length} 張${(d.power_ui ?? DEFAULT_POWER_UI).title}` : ''}{d.visual === 'curve' && d.curves ? `・${d.curves.series.length} 條經濟曲線` : ''}{d.book ? `・照書讀 ${d.book.chapters.length} 站` : ''}</span>
               </button>
             </li>
           );

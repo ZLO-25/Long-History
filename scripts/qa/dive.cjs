@@ -162,7 +162,10 @@ const fs = require('fs');
       await p.click(`.dv-power .chip:has-text("${yearsAsc[0]}")`); await p.waitForTimeout(800);
     }
     // 點人物
-    const first = persons.find((c) => (c.relations ?? []).length) ?? persons[0];
+    // 優先挑「有關係、人生軌跡跨得最廣」的人物（一生都在巴黎一帶的人，地圖上年份會合併成一兩個標籤）
+    const span = (c) => { const ls = c.place.locations; const la = ls.map((l) => l.lat), lo = ls.map((l) => l.lng); return Math.max(Math.max(...la) - Math.min(...la), Math.max(...lo) - Math.min(...lo)); };
+    const withRel = persons.filter((c) => (c.relations ?? []).length).sort((a, b) => span(b) - span(a));
+    const first = withRel[0] ?? persons[0];
     if (hasP) {
       await p.click('.dv-plist > summary'); // 人物清單預設收合
       await p.click(`.dv-card:has-text("${first.name.replace(/（.*$/, '').slice(0, 4)}")`); await p.waitForTimeout(1200);

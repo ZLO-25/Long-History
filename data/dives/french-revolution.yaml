@@ -1,0 +1,48 @@
+# 深入專題：法國大革命。怎麼新增一個專題見 docs/dives.md；勢力圖的切線與來源見 docs/dive-french-revolution.md
+id: dive-french-revolution
+title: 法國大革命：從破產的王國到拿破崙帝國
+question: 一個歐洲最富有的王國，為什麼會因為「繳不出利息」而推翻國王？「自由、平等、博愛」喊出來之後，為什麼走向斷頭台和恐怖統治，最後又換來一個皇帝？
+blurb: 這個專題把 1774 年路易十六即位到 1815 年滑鐵盧放大來看：王室怎麼被債務壓垮、三級會議怎麼變成國民議會、人權宣言寫了誰的權利又漏了誰、紙幣指券怎麼失控、恐怖統治怎麼開始又怎麼結束，以及拿破崙留下的法典與公制，為什麼今天全世界還在用。每個人物都放上「從另一邊看他」：被處決的人、旺代的農民、被占領國的人民、海地的奴隸。
+# 1774 路易十六即位（接手七年戰爭留下的債）；1815 滑鐵盧之戰，拿破崙時代結束
+range: { start: 1774, end: 1815 }
+histories: [歐洲史]
+visual: power
+power_ui:
+  title: 歐洲勢力圖
+  subtitle: 革命前和拿破崙最強時的歐洲
+  caveat: 以今日歐洲各國國界近似當時的國家，一國跨兩個勢力時，用一條經線或緯線切開，所以邊界只是示意，不是當時確切的界線。今日德國、義大利、波蘭一帶當時分成好幾個國家，切線特別粗略；海外殖民地（例如海地）不在圖內。
+  legend: 今日國
+lanes:
+  - { name: 政治與制度, types: [event, social] }
+  - { name: 財政與技術, types: [finance, tech] }
+  - { name: 戰爭, types: [war] }
+  - { name: 人物（在世期間）, types: [person] }
+cards:
+  - war-american-revolution
+  - finance-french-royal-debt
+  - event-estates-general-1789
+  - event-storming-bastille
+  - event-declaration-rights-of-man
+  - social-womens-march-versailles
+  - finance-assignats
+  - event-french-revolution
+  - event-haitian-revolution
+  - event-execution-louis-xvi
+  - event-reign-of-terror
+  - war-vendee
+  - tech-metric-system
+  - event-brumaire-coup
+  - event-napoleonic-code
+  - war-napoleonic
+  - finance-london-rise
+  - person-napoleon
+  - person-louis-xvi
+  - person-marie-antoinette
+  - person-robespierre
+  - person-olympe-de-gouges
+storylines: [story-french-revolution]
+units: [unit-french-revolution-1, unit-french-revolution-2]
+power_maps:
+  - { year: 1789, file: french-revolution/power-1789.geojson }
+  - { year: 1797, file: french-revolution/power-1797.geojson }
+  - { year: 1812, file: french-revolution/power-1812.geojson }

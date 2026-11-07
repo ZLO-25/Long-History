@@ -64,3 +64,16 @@
 .dive-entries { list-style: none; margin: 6px 0; padding: 0; }
 .dive-entries .di-item { border-left: 4px solid var(--dive); }
 .di-tag { font-size: 11px; color: #fff; background: var(--dive); border-radius: 999px; padding: 0 8px; }
+
+/* 主視覺：曲線（visual: curve） */
+.dv-curves { display: grid; gap: 10px; }
+.dv-curve { margin: 0; }
+.dv-curve figcaption { font-size: 14px; margin-bottom: 2px; }
+.dv-curve svg { width: 100%; height: auto; display: block; cursor: crosshair; background: var(--panel, #fffdf7); border-radius: 6px; }
+.dv-curve p { margin: 2px 0 0; }
+.dv-cv-grid { stroke: #e4ddcf; stroke-width: 1; }
+.dv-cv-zero { stroke: #8a8172; stroke-width: 1; }
+.dv-cv-ax { font-size: 10px; fill: #5b5446; }
+.dv-cv-ev { stroke: #9a9a9a; stroke-width: 1; stroke-dasharray: 3 3; }
+.dv-cv-now { stroke: #d33; stroke-width: 1.5; }
+.dv-cv-events { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }

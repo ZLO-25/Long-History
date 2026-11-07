@@ -118,7 +118,11 @@ export interface Dive {
   /** 讀書專題（例如《人類大歷史》）：書分幾部、每章一站 */
   book?: DiveBook | null;
   visual: 'power' | 'curve' | 'none'; power_ui: PowerUi | null;
+  /** visual: curve 的曲線資料 */
+  curves?: DiveCurves | null;
 }
+export interface DiveCurveSeries { id: string; name: string; unit: string; color: string; note: string; zero: boolean | null; points: [number, number][]; src: string[] }
+export interface DiveCurves { title: string; subtitle: string; caveat: string; series: DiveCurveSeries[]; events: { year: number; label: string; card?: string }[]; sources: DiveSource[] }
 export interface DiveSource { id: string; title: string; url: string; accessed: string; tier?: string }
 export interface DivePart { no: number; name: string; span: string; blurb: string; from: number; to: number; unit?: string }
 export interface DiveChapter { no: number; part: number; title: string; en: string; claim: string; cards: string[]; card_notes: Record<string, string>; debate: { who: string; text: string; src: string[]; stance: '' | '支持' | '補充' | '反對' }[]; think: string; core: boolean; minutes: number | null }

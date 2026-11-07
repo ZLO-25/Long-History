@@ -109,6 +109,7 @@ public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
 - 第 2 期（2026-11-03 完成）：其餘 19 張新卡（含 11 位人物）、升級 6 張既有卡、4 個學習單元、1560／1590／1600／1615 勢力圖、人物關係網、戲劇 vs 史實、學習模式專題頁、主題標籤「海盜與海商」「身分制度」。圖片欄位做好了但 21 張圖的授權還沒查證，先抽到 `data/pending-images.yaml`（`scripts/images-pending.ts`）。報告 `docs/dive-sengoku-2.md`。
 - 第 3 期：複查後的介面與內容修正；模板去戰國化（底圖、切線、文字、`minor`、`view`、人物區自動隱藏、QA 對每個專題都跑）；用既有美國史卡片套出第二個專題「美國崛起」（`?dive=dive-usa`，五張領土擴張圖，沒寫新卡）。報告 `docs/dive-sengoku-3.md`、`docs/dive-usa.md`。
 - 三國（2026-11-07）：13 張新卡（含 5 位人物）、升級黃巾與赤壁、200／208／222／262 勢力圖（底圖 `npm run basemap -- CN`：中國省界＋越南、北韓整國）、故事線 `story-three-kingdoms`、2 個單元。報告 `docs/dive-three-kingdoms.md`。
+- 法國大革命（2026-11-07）：17 張新卡（含 5 位人物）、升級法國大革命總卡、1789／1797／1812 歐洲勢力圖（底圖 `npm run basemap -- EU`：歐洲 45 國）、故事線 `story-french-revolution`、2 個單元；另加曲線主視覺（第八節）與全世界底圖 `npm run basemap -- WORLD`。報告 `docs/dive-french-revolution.md`。
 
 ## 七、讀書專題（book，2026-11-07 起，第一個是《人類大歷史》）
 
@@ -138,3 +139,27 @@ public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
 - `npm run validate` 檢查：每站 claim 要有 [bN]、[bN] 都在 sources、證據卡存在、part 存在、part.unit 存在、card_notes 只對應本章的卡、stance 只能是三種；沒有「想一想」、debate 沒標 stance、或證據＋批評都沒有時警告。讀書專題不警告「沒有勢力圖」。
 - **地圖遷徙路線**：`data/routes/routes.yaml` 的 `kind: migration`（`method: stations`，只連有遺址根據的點），地圖上畫紫紅色點線，圖例寫「史前遷徙（示意）」；掛在卡片的 `routes`，打開專題會亮起來。
 - **第 2 期（2026-11-07）**：科學革命 5 張新卡、3 條遷徙路線、4 個學習單元、各章另一種看法補齊並標立場，三角色複查後的修改見 docs/dive-sapiens-2.md。
+
+## 八、主視覺：曲線（visual: curve，2026-11-07 起，第一個是日本失落 30 年）
+
+經濟類專題的主角不是地盤，而是「數字怎麼變」，所以主視覺改成曲線。資料寫在專題 yaml 的 `curves`：
+
+```yaml
+visual: curve
+curves:
+  title: 經濟曲線
+  subtitle: 泡沫、破裂、漫長的低溫
+  caveat: 這些曲線怎麼畫的（畫面上「這些曲線怎麼畫的」裡顯示）
+  series:                       # 每條一張小圖，共用年份軸；不畫雙軸，避免誤導
+    - { id: nikkei, name: 日經平均指數（年底收盤）, unit: 點, color: "#2f5aa8", note: 選填說明, points: [[1984, 11542], [1985, 13113]], src: [c1] }
+  events:                       # 灰色虛線，畫面下方的按鈕點了開卡
+    - { year: 1985, label: 廣場協議, card: finance-plaza-accord }
+  sources:
+    - { id: c1, title: …, url: …, accessed: 2026-11-07, tier: 一手 }
+```
+
+- 只放有來源的點，不內插；年份由小到大。
+- 正數的數列縱軸預設從 0 開始；變化很小的數列（例如人口）可寫 `zero: false` 讓縱軸貼近資料，但要在 `note` 寫明「縱軸不從 0 開始」。
+- 紅線＝目前年代；點圖上任何一處，年代跳到那一年（時間軸跟著動）。
+- `npm run validate` 檢查：每條至少 3 點、年份遞增、來源存在且有 tier、事件的卡存在；`visual: curve` 沒寫 `curves` 會報錯。
+- 程式：`src/components/DiveCurve.tsx`。

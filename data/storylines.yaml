@@ -129,3 +129,10 @@ storylines:
     question: 一個統治了四百年的漢朝，怎麼在三十多年裡垮成好幾塊？三家打了半個世紀，為什麼最後得天下的不是曹、劉、孫任何一家，而是司馬家？
     blurb: 這條線沿著「上一場亂局留下了什麼」走：每一站的勝負，都替下一站畫好了棋盤；看到最後，會發現決定結局的常常不是戰場，而是朝廷裡的權力。
     stops: [event-eunuchs-partisan, event-yellow-turban, event-dong-zhuo-luoyang, war-guandu, war-red-cliffs, war-yiling, war-zhuge-northern-expeditions, event-gaopingling-incident, event-three-kingdoms]
+
+  # 深入專題「法國大革命」的主線（data/dives/french-revolution.yaml）
+  - id: story-french-revolution
+    title: 法國大革命：從繳不出利息到拿破崙法典
+    question: 一筆打仗欠下的債，怎麼一步步變成攻佔監獄、處決國王、恐怖統治，最後換來一位皇帝和一部到今天還在用的法典？
+    blurb: 這條線沿著「上一步沒解決的問題」走：財政問題逼出三級會議，議會的主張逼出街頭行動，宣言寫下的原則又逼出「國王還能不能留」的問題；每一站都比上一站走得更遠，直到有人用軍隊把它停下來。
+    stops: [war-american-revolution, finance-french-royal-debt, event-estates-general-1789, event-storming-bastille, event-declaration-rights-of-man, event-execution-louis-xvi, event-reign-of-terror, event-brumaire-coup, event-napoleonic-code]

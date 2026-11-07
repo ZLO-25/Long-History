@@ -17,6 +17,35 @@ export interface DiveDef {
   visual?: 'power' | 'curve' | 'none';
   /** 主視覺的畫面文字（標題、副標、「這張圖怎麼畫的」說明、圖例小字的前綴） */
   power_ui?: { title: string; subtitle?: string; caveat?: string; legend?: string };
+  /** visual: curve 的資料：每條曲線一張小圖（不畫雙軸），事件畫成直線（docs/dives.md 第八節） */
+  curves?: CurvesDef;
+}
+export interface CurvesDef {
+  title: string; subtitle?: string; caveat?: string;
+  series: { id: string; name: string; unit: string; color?: string; note?: string; zero?: boolean; points: [number, number][]; src: string[] }[];
+  events?: { year: number; label: string; card?: string }[];
+  sources: { id: string; title: string; url: string; accessed: string; tier?: string }[];
+}
+function checkCurves(c: CurvesDef, byId: Map<string, any>, range: { start: number; end: number } | undefined, err: (m: string) => void, warn: (m: string) => void) {
+  if (!c.title) err('curves 缺 title');
+  const src = new Set((c.sources ?? []).map((x) => x.id));
+  for (const x of c.sources ?? []) if (!x.id || !x.title || !x.url || !x.accessed || !x.tier) err(`curves.sources 的 ${x.id ?? '?'} 要有 id、title、url、accessed、tier`);
+  if (!(c.series ?? []).length) err('curves.series 至少 1 條');
+  for (const se of c.series ?? []) {
+    const w = `curves.series「${se.name ?? se.id}」`;
+    if (!se.id || !se.name || !se.unit) err(`${w}：要有 id、name、unit`);
+    if (!Array.isArray(se.points) || se.points.length < 3) err(`${w}：points 至少 3 點`);
+    for (const pt of se.points ?? []) if (!Array.isArray(pt) || pt.length !== 2 || typeof pt[0] !== 'number' || typeof pt[1] !== 'number') { err(`${w}：每點要寫 [年, 值]`); break; }
+    const ys = (se.points ?? []).map((x) => x[0]);
+    if (ys.some((y, i) => i > 0 && y <= ys[i - 1])) err(`${w}：年份要由小到大、不重複`);
+    if (range && ys.some((y) => y < range.start || y > range.end)) warn(`${w}：有點落在專題年代之外`);
+    if (!(se.src ?? []).length) err(`${w}：要有 src`);
+    for (const k of se.src ?? []) if (!src.has(k)) err(`${w}：來源 ${k} 不在 curves.sources`);
+  }
+  for (const e of c.events ?? []) {
+    if (typeof e.year !== 'number' || !e.label) err('curves.events 每筆要有 year、label');
+    if (e.card && !byId.has(e.card)) err(`curves.events「${e.label}」的 card ${e.card} 不存在`);
+  }
 }
 // 讀書專題（例如《人類大歷史》）：書的每一章是一站。書的論點寫在這裡，卡片只當證據（docs/dives.md 第七節）
 export interface BookDef {
@@ -103,6 +132,8 @@ export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawC
       }
     }
     if (d.book) checkBook(d.book, byId, err, warn, unitIds);
+    if (d.curves) checkCurves(d.curves, byId, d.range, err, warn);
+    if (d.visual === 'curve' && !d.curves) err('visual: curve 要寫 curves（曲線資料）');
     if (d.focus_year != null && (typeof d.focus_year !== 'number' || (d.range && (d.focus_year < d.range.start || d.focus_year > d.range.end)))) err('focus_year 要是專題年代內的年份');
     if (d.visual !== undefined && !['power', 'curve', 'none'].includes(d.visual)) err(`visual 只能是 power、curve、none：「${d.visual}」`);
     if (d.power_ui && !d.power_ui.title) err('power_ui 要有 title');
@@ -121,7 +152,9 @@ export function buildDives(dives: { file: string; dive: DiveDef }[], cards: { id
     lanes: d.lanes ?? [], visual: d.visual ?? (d.book ? 'none' : 'power'), power_ui: d.power_ui ?? null,
     cards: allCards(d).filter((id) => has.has(id)).sort((a, b) => has.get(a)!.time.start - has.get(b)!.time.start || has.get(a)!.time.end - has.get(b)!.time.end),
     storylines: d.storylines ?? [], units: d.units ?? [],
-    focus_year: d.focus_year, book: d.book ? { title: d.book.title, author: d.book.author, note: d.book.note ?? '', sources: d.book.sources ?? [],
+    focus_year: d.focus_year, curves: d.curves ? { title: d.curves.title, subtitle: d.curves.subtitle ?? '', caveat: d.curves.caveat ?? '', events: (d.curves.events ?? []).filter((e) => !e.card || has.has(e.card)),
+      series: d.curves.series.map((x) => ({ id: x.id, name: x.name, unit: x.unit, color: x.color ?? '', note: x.note ?? '', zero: x.zero ?? null, points: x.points, src: x.src })), sources: d.curves.sources } : null,
+    book: d.book ? { title: d.book.title, author: d.book.author, note: d.book.note ?? '', sources: d.book.sources ?? [],
       parts: (d.book.parts ?? []).map((p) => ({ ...p, blurb: p.blurb ?? '' })),
       chapters: (d.book.chapters ?? []).map((c) => ({ no: c.no, part: c.part, title: c.title, en: c.en ?? '', claim: c.claim, cards: (c.cards ?? []).filter((id) => has.has(id)), card_notes: c.card_notes ?? {}, debate: (c.debate ?? []).map((d) => ({ ...d, stance: d.stance ?? '' })), think: c.think ?? '', core: !!c.core, minutes: c.minutes ?? null })) } : null,
     power_maps: (d.power_maps ?? []).map((pm) => {

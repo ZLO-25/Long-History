@@ -152,14 +152,14 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       const on = r.start <= year && year <= r.end;
       const hl = highlight.routes.includes(r.id);
       if (!on && !hl) continue;
-      const color = r.method === 'stations' ? '#555' : r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513';
+      const color = r.kind === 'migration' ? '#b45309' : r.method === 'stations' ? '#555' : r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513';
       const base = hl ? 6 : r.kind === 'sea' ? 2.5 : r.kind === 'wall' ? 4.5 : 3.5;
       const tip = `${biHtml(r.name)}（${KIND_LABEL[r.kind]}・${METHOD_LABEL[r.method]}）`;
       for (const sg of r.segments) {
         const line = L.polyline(sg.coords, {
           color, opacity: on ? 0.9 : 0.45,
           weight: sg.kind === 'gap' ? Math.max(2, base - 1.5) : base,
-          dashArray: sg.kind === 'unknown' ? '1 7' : r.kind === 'sea' ? '6 6' : sg.kind === 'approx' ? '8 4' : sg.kind === 'gap' ? '2 5' : undefined,
+          dashArray: r.kind === 'migration' ? '10 6' : sg.kind === 'unknown' ? '1 7' : r.kind === 'sea' ? '6 6' : sg.kind === 'approx' ? '8 4' : sg.kind === 'gap' ? '2 5' : undefined,
         });
         line.bindTooltip(`${tip}${r.kind === 'road' || sg.kind === 'unknown' ? `：${SEG_LABEL[sg.kind]}` : ''}`, { sticky: true });
         line.on('click', () => cb.current.onRoute(r.id));

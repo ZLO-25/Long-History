@@ -16,6 +16,14 @@ export const DEFAULT_POWER_UI: PowerUi = { title: '勢力圖', subtitle: '誰在
 export const hasPowerVisual = (d: Dive) => (d.visual ?? 'power') === 'power' && d.power_maps.length > 0;
 const byIdOf = (index: Index) => new Map(index.cards.map((c) => [c.id, c]));
 
+/** 讀書專題：地圖上一直亮著的路線（例如《人類大歷史》的智人擴散路線）＝專題卡片的史前遷徙路線 */
+export function diveRoutes(index: Index, id: string): string[] {
+  const d = findDive(index, id);
+  if (!d?.book) return [];
+  const m = byIdOf(index), mig = new Set(index.routes.filter((r) => r.kind === 'migration').map((r) => r.id));
+  return [...new Set(d.cards.flatMap((cid) => m.get(cid)?.routes ?? []).filter((r) => mig.has(r)))];
+}
+
 /** 地圖上要標的點：專題的每張卡（人物除外）取第一個地點，編號＝依年代的順序 */
 export function diveMarks(index: Index, id: string) {
   const d = findDive(index, id);

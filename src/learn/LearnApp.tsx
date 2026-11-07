@@ -11,7 +11,7 @@ import { MapView } from '../components/MapView';
 import { createSearch, matchTopics, useSearchLibs } from '../lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from '../components/Story';
-import { DiveView, DiveIndex, diveMarks, findDive, hasPowerVisual, powerFor, diveYear, prehistDive } from '../components/Dive';
+import { DiveView, DiveIndex, diveMarks, diveRoutes, findDive, hasPowerVisual, powerFor, diveYear, prehistDive } from '../components/Dive';
 import { useIsMobile } from '../lib/useIsMobile';
 import { LearnHome } from './LearnHome';
 import { HistoryPage } from './HistoryPage';
@@ -192,7 +192,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const topicName = view.kind === 'topic' ? view.name : null;
   const storyId = view.kind === 'story' ? view.id : null;
   const diveId = view.kind === 'dive' ? view.id : null;
-  const hl = useMemo(() => diveId ? { keys: [], routes: [], marks: diveMarks(index, diveId) } : storyId ? { keys: [], routes: [], marks: storyMarks(index, storyId) } : topicName ? { keys: [], routes: [], marks: topicMarks(index, topicName) }
+  const hl = useMemo(() => diveId ? { keys: [], routes: diveRoutes(index, diveId), marks: diveMarks(index, diveId) } : storyId ? { keys: [], routes: [], marks: storyMarks(index, storyId) } : topicName ? { keys: [], routes: [], marks: topicMarks(index, topicName) }
     : { keys: selected?.place.locations.map((l) => l.key) ?? [], routes: selected?.routes ?? [] }, [topicName, storyId, diveId, selected?.id, index]);
   const map = <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={isMobile} home={home}
     highlight={hl} power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend } : null} onCard={(id) => openCard(id)}

@@ -76,7 +76,7 @@ export function DeepTimeline({ dive, book, cards, year, setYear, onOpen, current
         ))}
         <line x1={cx} x2={cx} y1={AX - 4} y2={H} className="dt-now" />
       </svg>
-      <p className="muted small dt-note">越往左越古老、刻度越壓縮（距今年數取對數）：左半邊是幾百萬到一萬年前，右半邊才是有文字以後的五千年。色塊＝書的四部分；每一條＝一張卡，點了打開；紅線＝目前年代。</p>
+      <p className="muted small dt-note">越往左越古老、刻度越壓縮（距今年數取對數）：左半邊是幾百萬到一萬年前，右半邊才是有文字以後的五千年。色塊＝書的四部分；每一條＝一張卡，點了打開；紅線＝目前年代。地圖上的橘色長虛線是史前遷徙的示意路線（只標有遺址根據的點，線不是實際走法）。</p>
     </div>
   );
 }

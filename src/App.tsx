@@ -4,7 +4,7 @@ import type { Index, Card, Filters } from './types';
 import { createSearch, matchTopics, useSearchLibs } from './lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from './components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from './components/Story';
-import { DiveView, DiveIndex, diveMarks, findDive, hasPowerVisual, powerFor, diveYear, prehistDive } from './components/Dive';
+import { DiveView, DiveIndex, diveMarks, diveRoutes, findDive, hasPowerVisual, powerFor, diveYear, prehistDive } from './components/Dive';
 import { activeAt } from './lib/format';
 import { Timeline } from './components/Timeline';
 import { MapView } from './components/MapView';
@@ -178,7 +178,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     if (panel.kind === 'route') return { keys: [], routes: [panel.id] };
     if (panel.kind === 'topic') return { keys: [], routes: [], marks: topicMarks(index, panel.name) };
     if (panel.kind === 'story') return { keys: [], routes: [], marks: storyMarks(index, panel.id) };
-    if (panel.kind === 'dive') return { keys: [], routes: [], marks: diveMarks(index, panel.id) };
+    if (panel.kind === 'dive') return { keys: [], routes: diveRoutes(index, panel.id), marks: diveMarks(index, panel.id) };
     return { keys: [], routes: [] };
   }, [selectedCard, panel, index]);
   // 人物卡：地圖上依年份把他去過的地點連成人生軌跡

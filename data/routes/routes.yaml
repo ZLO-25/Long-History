@@ -203,3 +203,48 @@ routes:
       - { id: s2, title: "Bosporus — Wikipedia", url: 'https://en.wikipedia.org/wiki/Bosporus', accessed: 2026-10-25 }
       - { id: s9, title: "Natural Earth 1:10m 陸地（world-atlas，公有領域；用來算港間不穿過陸地的海路）", url: 'https://www.naturalearthdata.com/', accessed: 2026-10-25 }
 
+
+  # ── 2026-11-07《人類大歷史》專題：智人擴散路線（示意）──
+  # kind: migration＝史前遷徙。只標有遺址或公認地理根據的點，點與點之間的線不是實際走法；
+  # 遷徙是幾千年、幾萬年間一代代慢慢移動，不是一次旅行。start／end 只在史前顯示。
+  - id: migr-africa-sahul
+    name: 智人擴散：非洲 → 南亞 → 莎湖（澳洲）（示意）
+    kind: migration
+    start: -70000
+    end: -10000
+    precision: stations-only
+    note: 一般認為智人約 7 萬到 5 萬年前離開非洲、擴散到歐亞 [s1]；其中一說是沿阿拉伯半島南岸、南亞海岸往東的「南方路線」，另有經黎凡特的「北方路線」，兩說並存 [s1]。抵達澳洲的年代有約 6.5 萬年前（馬傑德貝貝）與約 5 萬年前兩說 [s2][s3]；蒙哥湖的埋葬約 4 萬年前 [s4]。東非、曼德海峽、南亞、巽他三點只是示意位置，線**不是**實際走法。
+    method: stations
+    waypoints: [{ lat: 5.4, lng: 36.0, name: 東非（示意） }, { lat: 12.6, lng: 43.4, name: 曼德海峽（南方路線假說，示意） }, { lat: 20.0, lng: 77.0, name: 南亞（示意） }, { lat: -2.0, lng: 110.0, name: 巽他陸棚（今東南亞群島，示意） }, { lat: -12.5, lng: 132.883, name: 馬傑德貝貝（約 6.5 萬或 5 萬年前，有爭議） }, { lat: -33.75, lng: 143.083, name: 蒙哥湖（約 4 萬年前） }]
+    sources:
+      - { id: s1, title: "Recent African origin of modern humans — Wikipedia", url: 'https://en.wikipedia.org/wiki/Recent_African_origin_of_modern_humans', accessed: 2026-11-07 }
+      - { id: s2, title: "Madjedbebe — Wikipedia", url: 'https://en.wikipedia.org/wiki/Madjedbebe', accessed: 2026-11-07 }
+      - { id: s3, title: "O'Connell et al. (2018), When did Homo sapiens first reach Southeast Asia and Sahul?, PNAS 115(34)", url: 'https://doi.org/10.1073/pnas.1808385115', accessed: 2026-11-07 }
+      - { id: s4, title: "Lake Mungo remains — Wikipedia", url: 'https://en.wikipedia.org/wiki/Lake_Mungo_remains', accessed: 2026-11-07 }
+
+  - id: migr-levant-europe
+    name: 智人擴散：非洲 → 黎凡特 → 歐洲（示意）
+    kind: migration
+    start: -60000
+    end: -10000
+    precision: stations-only
+    note: 黎凡特的斯虎爾與卡夫澤洞穴約 12–8 萬年前就有早期智人 [s1]，但一般認為大規模擴散到歐亞在約 7 萬到 5 萬年前 [s1]；德國霍倫斯坦－施塔德爾洞穴的「獅子人」雕像約 4.1–3.5 萬年前 [s2]。東非是示意位置，線**不是**實際走法。
+    method: stations
+    waypoints: [{ lat: 5.4, lng: 36.0, name: 東非（示意） }, { lat: 32.67, lng: 35.03, name: 黎凡特（斯虎爾、卡夫澤洞穴一帶） }, { lat: 48.55, lng: 10.17, name: 霍倫斯坦－施塔德爾洞穴（獅子人，約 4 萬年前） }]
+    sources:
+      - { id: s1, title: "Recent African origin of modern humans — Wikipedia", url: 'https://en.wikipedia.org/wiki/Recent_African_origin_of_modern_humans', accessed: 2026-11-07 }
+      - { id: s2, title: "Lion-man — Wikipedia", url: 'https://en.wikipedia.org/wiki/Lion-man', accessed: 2026-11-07 }
+
+  - id: migr-beringia-americas
+    name: 人類進入美洲：白令陸橋 → 北美 → 南美（示意）
+    kind: migration
+    start: -25000
+    end: -10000
+    precision: stations-only
+    note: 冰期海平面下降時，白令陸橋連接西伯利亞與阿拉斯加 [s1]。新墨西哥州白沙的人類足跡約 2.3–2.1 萬年前（仍有爭議）[s2]；智利蒙特維德一般認為約 1.45 萬年前，2026 年有研究主張晚得多，也受到反駁 [s3]。人類是沿太平洋海岸還是內陸無冰走廊南下，學界仍在討論 [s1]。白令一點是示意位置，線**不是**實際走法。
+    method: stations
+    waypoints: [{ lat: 65.75, lng: -168.75, name: 白令陸橋（示意） }, { lat: 32.88, lng: -106.33, name: 白沙足跡（約 2.3–2.1 萬年前，有爭議） }, { lat: -41.505, lng: -73.204, name: 蒙特維德（約 1.45 萬年前，有爭議） }]
+    sources:
+      - { id: s1, title: "Settlement of the Americas — Wikipedia", url: 'https://en.wikipedia.org/wiki/Settlement_of_the_Americas', accessed: 2026-11-07 }
+      - { id: s2, title: "Pigati et al. (2023), Independent age estimates resolve the controversy of ancient human footprints at White Sands, Science 382: 73–75", url: 'https://doi.org/10.1126/science.adh5007', accessed: 2026-11-07 }
+      - { id: s3, title: "Monte Verde — Wikipedia", url: 'https://en.wikipedia.org/wiki/Monte_Verde', accessed: 2026-11-07 }

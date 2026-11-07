@@ -13,7 +13,7 @@ export const TYPE_COLOR: Record<string, string> = {
   war: '#c0392b', commodity: '#b7791f', event: '#2b6cb0', building: '#2f855a', tech: '#6b46c1', finance: '#0f766e', social: '#b83280', person: '#8a5a00',
 };
 export const TYPE_ICON: Record<string, string> = { war: '⚔', commodity: '⚖', event: '◆', building: '▲', tech: '⚙', finance: '¤', social: '☺', person: '👤' };
-export const KIND_LABEL: Record<string, string> = { road: '道路', sea: '航線', wall: '長城／防線' };
+export const KIND_LABEL: Record<string, string> = { road: '道路', sea: '航線', wall: '長城／防線', migration: '史前遷徙（示意）' };
 
 // 卡片在某一年是否「存在」：建築完工後、技術發明後、金融制度出現後持續存在
 export const activeAt = (c: { type: string; time: { start: number; end: number } }, year: number) =>

@@ -20,6 +20,7 @@ place:
     - { name_ancient: 蒙特維德, name_modern: 蒙特維德遺址（智利洛斯拉戈斯大區）, lat: -41.50472, lng: -73.20444, precision: exact, role: 一般認為約 1.45 萬年前的營地，推翻「克洛維斯優先說」的關鍵遺址（2026 年有研究質疑年代）, src: [s4, s7] }
     - { name_ancient: 黑水溝（克洛維斯）, name_modern: 克洛維斯附近（美國新墨西哥州）, lat: 34.28, lng: -103.33, precision: schematic, role: 克洛維斯文化的命名遺址，1929 年發現石器與猛獁象骨（示意點）, src: [s5] }
   scale: area
+routes: [migr-beringia-americas]
 structure_tags: [慢變結構, 地形險阻, 快速擴張]
 topics: [移民與移墾, 原住民族]
 links: [event-out-of-africa, event-megafauna-extinction, event-homo-species]

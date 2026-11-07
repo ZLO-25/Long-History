@@ -202,7 +202,16 @@ book:
         - tech-cuneiform
         - finance-mesopotamia-credit
         - tech-internet
-      debate: []
+      debate:
+        - who: 丹妮絲・施曼特－貝瑟拉（Denise Schmandt-Besserat，考古學家）
+          text: 她研究兩河流域出土的小陶土「籌碼」，認為這些籌碼原本用來點算農產品，後來演變成最早楔形文字裡的數字和符號；「文字從記帳而來」的看法大致被學界接受，和書的說法相合。不過也有學者質疑：她收集的籌碼樣本可能有偏差，有些籌碼也許和喪葬或社會用途有關，形狀也不夠一致，未必是一套完整的記帳系統 [b39]。
+          src:
+            - b39
+        - who: 中國甲骨文與馬雅文字（維基百科整理）
+          text: 不是每種文字一開始都拿來記帳。商朝晚期（約前 1250–前 1050 年）的甲骨文，大多是王室占卜的紀錄，內容是戰爭、祭祀、農事和王室生老病死，條目裡沒有提到記帳 [b40]。最早的馬雅文字約在前 3 世紀，主要刻在石碑、牆壁和陶器上，記錄王朝歷史、曆法和祭祀，條目整理的內容以王朝、政治和祭祀為主，沒有提到經濟帳目 [b41]。這兩個例子說明，文字的起源可能不只一種動機。
+          src:
+            - b40
+            - b41
       think: 看「楔形文字」卡：最早的泥板記的是什麼內容？這些證據支持「文字為記帳而生」嗎？中國的甲骨文最早拿來做什麼，可以當反例嗎？
     - no: 8
       part: 2
@@ -215,7 +224,15 @@ book:
         - event-conflict-of-orders
         - event-haitian-revolution
         - event-imperial-exam
-      debate: []
+      debate:
+        - who: 尼可拉斯・德克斯（Nicholas Dirks，歷史人類學家）與大衛・賴克（David Reich，遺傳學家）
+          text: 德克斯在《心靈的種姓》一書中認為，今天印度種姓制度的僵硬形態，很大一部分是在英國殖民統治下才定型的。賴克則從基因研究提出不同看法：他分析 250 多個次種姓，發現約三分之一曾長期只在群體內通婚，認為種姓的根源早在英國人來之前好幾千年就有了 [b42]。兩種說法都同意種姓是人造的社會制度，但對它「何時、怎麼」固定下來看法不同。
+          src:
+            - b42
+        - who: 阿萊西納、朱利亞諾與努恩（Alesina, Giuliano & Nunn，經濟學家）
+          text: 他們 2013 年的研究發現：祖先傳統上用犁耕田的社會，後代女性參與工作和政治的比例較低，也比較支持性別不平等的觀念。他們檢驗的是「犁耕造成男女分工不同」的既有假說，並用美國第二代移民的資料，說明這種觀念可能透過文化一代代傳下來 [b43]。這是為「男尊女卑」提出一個具體、可以檢驗的歷史原因，而不只說是偶然。
+          src:
+            - b43
       think: 「美國重建時期」卡上，奴隸制廢除後歧視為什麼還能延續？這支持書裡的「惡性循環」嗎？「科舉制度」讓平民有機會當官，算不算打破了這種循環的反例？
     - no: 9
       part: 3
@@ -228,7 +245,11 @@ book:
         - commodity-manila-galleon
         - event-buddhism-china
         - event-vasco-da-gama
-      debate: []
+      debate:
+        - who: 羅蘭・羅伯森（Roland Robertson，社會學家）等人的「全球在地化」概念
+          text: 「全球在地化」（glocalization）指全球的影響進到各地時，會被當地改造、重新詮釋，例如麥當勞在印度和中國推出米飯餐點，星巴克推出抹茶口味。持這種看法的人認為，全球化不一定讓各地文化變得一模一樣，各地的歷史和文化仍會保有自己的特色 [b44]。
+          src:
+            - b44
       think: 「絲綢」和「馬尼拉大帆船」兩張卡顯示的貿易網，是讓世界更統一，還是同時製造新的衝突？你能從卡片裡各找一個例子嗎？
     - no: 10
       part: 3
@@ -242,7 +263,11 @@ book:
         - finance-islamic-dinar
         - finance-byzantine-solidus
         - commodity-silver-flow
-      debate: []
+      debate:
+        - who: 大衛・格雷伯（David Graeber，人類學家）
+          text: 他在《債：第一個五千年》中認為，「先有以物易物，後來才發明貨幣」是經濟學課本的迷思；他主張順序剛好相反：先有債務和信用記帳，後有貨幣，以物易物多半只出現在不常往來的陌生群體之間。他舉約前 3500 年蘇美的債務紀錄為例，那時離硬幣出現（約前 600 年）還早得多 [b45]。不過也有經濟學者，如喬治・塞爾金（George Selgin）、布拉德・德隆（J. Bradford DeLong），認為這本書有不少錯誤，對亞當・斯密的解讀也不夠公允 [b45]。
+          src:
+            - b45
       think: 「美索不達米亞神廟借貸」卡出現在「呂底亞鑄幣」卡之前很久。先有借貸記帳、後有硬幣，這對「金錢從以物易物發展而來」的說法有什麼影響？
     - no: 11
       part: 3
@@ -266,7 +291,7 @@ book:
       title: 主義也算一種宗教？
       en: The Law of Religion
       claim: |
-        哈拉瑞把宗教看成第三種統一人類的力量，定義為「建立在超人類秩序上的一套價值」；他認為能向外傳教的普世宗教，比早期的地方信仰能團結更多人 [b12][b22]。他依序介紹泛靈信仰、多神教、一神教和佛教，並認為一神教比多神教更不寬容 [b12]。哈拉瑞還認為，自由主義、共產主義、資本主義、民族主義等現代意識形態，運作起來也像宗教 [b12]。
+        哈拉瑞把宗教看成第三種統一人類的力量，定義為「建立在超人類秩序上的一套價值」；他認為能向外傳教的普世宗教，比早期的地方信仰能團結更多人 [b12][b22]。他依序介紹泛靈信仰、多神教、一神教和佛教，並認為一神教比多神教更不寬容 [b12]。哈拉瑞還認為，自由主義、共產主義、資本主義、民族主義等現代意識形態，運作起來也像宗教，其中資本主義是最成功的一種；他也批評各種人文主義（包括納粹的「演化人文主義」）曾被用來合理化種族主義和虐待動物 [b12]。
       cards:
         - event-christian-empire
         - event-buddhism-china
@@ -288,7 +313,15 @@ book:
       cards:
         - event-christian-empire
         - event-honnoji-incident
-      debate: []
+      debate:
+        - who: 尼爾・弗格森（Niall Ferguson）與理查・艾文斯（Richard Evans），歷史學家
+          text: 弗格森編了《虛擬歷史》，用「如果當時……會怎樣」的假設推演反對歷史決定論，強調偶然的重要。艾文斯則在《改變過去》中批評這種寫法，認為把結果歸因於單一事件，忽略了許多原因交織的複雜性；據維基百科整理，多數歷史學家把「反事實歷史」看成有趣但太過推測的做法 [b46]。史學界對「偶然」能說明多少，一直有爭論。
+          src:
+            - b46
+        - who: 賈德・戴蒙（Jared Diamond，《槍炮、病菌與鋼鐵》作者）
+          text: 和「偶然勝出」不同，他認為哪些社會稱霸，主要可以用環境來解釋：歐亞大陸有較多可馴化的動植物，又是東西向，作物和技術容易傳播。這種說法也有人批評，例如歷史學家麥克尼爾（J. R. McNeill）認為他高估了地理、低估了文化，也有人認為書裡幾乎沒有給人的選擇留下空間 [b47]。
+          src:
+            - b47
       think: 讀「基督教成為羅馬國教」卡：基督教勝出，比較像偶然，還是有可以說明的原因？再看「本能寺之變」，一次意外如何改變日本的走向？「偶然」和「原因」能同時成立嗎？
     - no: 14
       part: 4
@@ -300,7 +333,15 @@ book:
         - event-scientific-revolution
         - tech-printing-press
         - event-enlightenment
-      debate: []
+      debate:
+        - who: 李約瑟（Joseph Needham，科學史家）
+          text: 他寫《中國的科學與文明》，整理出鑄鐵、馬鐙、火藥、印刷、指南針、機械鐘的擒縱機構等許多中國早於歐洲的發明，並提出有名的「李約瑟問題」：中國長期很會運用自然知識，為什麼現代科學卻在歐洲出現？他的合作者席文（Nathan Sivin）則認為這個問題問的是「沒有發生的事」，很難有實用的答案 [b48]。
+          src:
+            - b48
+        - who: 中世紀伊斯蘭世界的科學（維基百科整理）
+          text: 約 8 到 13 世紀，伊斯蘭世界的學者把希臘、印度、波斯的著作譯成阿拉伯文；伊本・海什木主張假說要用實驗或數學驗證，花剌子米把代數變成獨立學科，伊本・西那的《醫典》是長期使用的醫學教科書，這些知識後來傳進拉丁歐洲 [b49]。這提醒我們，「承認無知、用觀察檢驗」並不是歐洲獨有，現代科學也吸收了其他文明的成果。
+          src:
+            - b49
       think: 「科學革命」卡上的科學家，研究經費和動機從哪裡來？這支持「科學從不中立」的說法嗎？印刷機在「承認無知、不斷修正」的過程中扮演什麼角色？
     - no: 15
       part: 4
@@ -313,7 +354,13 @@ book:
         - event-portuguese-empire
         - event-vasco-da-gama
         - commodity-potosi
-      debate: []
+        - event-columbus-aztec
+        - event-cook-voyages
+      debate:
+        - who: 彭慕蘭（Kenneth Pomeranz）與「加州學派」
+          text: 他在《大分流》中認為，到 18 世紀末，歐洲和中國最先進的地區（如英格蘭和長江三角洲）發展程度差不多；英國後來能領先，關鍵是煤礦就在附近，以及美洲殖民地提供大量土地和原料，替英國省下了數千萬英畝耕地，而不只是價值觀不同 [b50]。另一派學者如莫基爾（Joel Mokyr）則強調歐洲政治分裂讓新思想有處可逃、知識交流活躍；也有學者用新的薪資資料，認為英國和長江三角洲早在 1700 年前後就拉開差距 [b50]。
+          src:
+            - b50
       think: 比較「鄭和下西洋」和「達伽馬開闢印度航路」兩張卡：兩支船隊的目的、規模和後果有什麼不同？差別真的只是「價值觀」，還是也和地理、資源有關？
     - no: 16
       part: 4
@@ -327,6 +374,8 @@ book:
         - finance-mississippi-bubble
         - war-opium-war
         - finance-bank-of-england
+        - finance-voc
+        - event-atlantic-slave-trade
       debate:
         - who: 蓋倫・史卓森（Galen Strawson，哲學家，《衛報》書評）
           text: 他批評書中又一次把亞當・斯密描繪成「貪婪的使徒」，認為這是對斯密思想的誤讀 [b27][b22]。
@@ -339,13 +388,21 @@ book:
       title: 工業革命讓人更快樂？
       en: The Wheels of Industry
       claim: |
-        哈拉瑞指出，工業革命以前，經濟成長受限於太陽能、人力和獸力；蒸汽機等技術讓人類能把煤、石油等能源轉成動力，成長才突然加速 [b17][b26]。他認為工業化在某種意義上是「第二次農業革命」，用更快的方式向自然索取資源 [b17]。他特別批評工廠化養殖讓數百億動物受苦，也指出消費主義把「買東西」包裝成追求幸福 [b17]。
+        哈拉瑞指出，工業革命以前，人類搬運貨物、灌溉作物主要靠人力和獸力；後來人學會用燃料燒水產生蒸汽推動活塞，再用蒸汽轉動線圈發電，把煤、石油等能源轉成動力，也做出塑膠、鋁等新材料 [b17]。他認為工業革命和農業革命一樣是向環境索取資源，甚至可以叫做「第二次農業革命」：雞、豬、牛被當成生產機器關在狹小空間，每年屠宰的牲畜約 500 億頭 [b17]。他也指出，過去社會推崇節儉，如今消費主義告訴人「寵愛自己才會快樂」，這套想像的秩序有助於合作，卻不一定讓人更快樂 [b17]。
       cards:
         - tech-steam-engine
         - tech-railway
         - tech-electric-grid
         - tech-internal-combustion
-      debate: []
+      debate:
+        - who: 羅伯特・艾倫（Robert C. Allen，經濟史家）
+          text: 他把英國 1790 到 1840 年稱為「恩格斯停頓」：這段時間國家產出快速成長，工人的實質工資卻幾乎沒有增加，多出來的財富主要流向資本家、再投入工廠和機器；1840 年後工資才跟著產出上升。不過也有經濟史家如葛瑞里・克拉克（Gregory Clark）認為工資成長被低估了 [b51]。
+          src:
+            - b51
+        - who: 工業革命生活水準之爭：樂觀派與悲觀派（克拉克・納迪內利整理）
+          text: 樂觀派如林德特與威廉森（Lindert & Williamson）估計 1819 到 1851 年工人實質工資約增加一倍，出生時的預期壽命也從約 35 歲升到 40 歲；悲觀派則指出，用不同物價指數算，工資成長慢得多，城市高工資有一部分只是補償擁擠、污染的生活環境。納迪內利的結論是「溫和的樂觀」：長期來看生活變好，但 1830 年以前的悲觀說法也說得通 [b52]。
+          src:
+            - b52
       think: 「蒸汽機」和「電力與電網」兩張卡帶來了哪些生活改變？哪些讓人更輕鬆，哪些讓人更忙？你能用卡片內容判斷「工業化沒有讓人更快樂」這句話嗎？
     - no: 18
       part: 4
@@ -358,6 +415,7 @@ book:
         - war-world-war-two
         - event-end-of-cold-war
         - war-war-on-terror
+        - event-nuclear-long-peace
       debate:
         - who: 達珊娜・納拉亞南（Darshana Narayanan，神經科學家）
           text: 書中「和平時代」一節把暴力減少主要歸功於國家興起，並拿「住在亞馬遜森林深處、沒有軍隊、警察和監獄」的厄瓜多瓦奧拉尼人當沒有國家的例子；她指出瓦奧拉尼人自 1970 年代初以來大致過著和平生活，這個例子用得不妥 [b29]。
@@ -371,7 +429,15 @@ book:
       claim: |
         哈拉瑞指出，歷史學很少問「人類有沒有變快樂」，而他認為答案可能是沒有，甚至採集者還更快樂 [b19][b22]。他主張快樂主要取決於期望，而不是客觀條件：生活一改善，期望就跟著膨脹 [b19]。他也討論快樂的生化基礎、宗教給人的意義感，並介紹佛教「放下對感受的追逐」的觀點 [b19][b26]。
       cards: []
-      debate: []
+      debate:
+        - who: 理查・伊斯特林（Richard Easterlin，經濟學家）
+          text: 他 1974 年提出「伊斯特林悖論」：在同一時間點，收入較高的人和國家比較快樂；但長期來看，一個國家收入成長，快樂程度卻沒有跟著上升 [b53]。這和書裡「期望會跟著膨脹」的說法相近。
+          src:
+            - b53
+        - who: 貝琪・史蒂文森與賈斯汀・沃爾弗斯（Betsey Stevenson & Justin Wolfers，經濟學家）
+          text: 她們 2008 年的研究認為，伊斯特林的結論來自統計上不夠顯著的資料；用更多國家的長期資料，可以看到收入和快樂有明顯的正相關，日本「沒變快樂」的印象部分是問卷題目改變造成的。伊斯特林在 2017 年回應，認為這些研究的時間太短，只反映短期起伏，不是長期趨勢 [b53]。這場爭論到今天還沒有定論。
+          src:
+            - b53
       think: （討論題）如果快樂主要取決於期望，那麼「生活水準提高」還值得追求嗎？請舉一個你自己或家人的例子，說明期望和滿足感的關係，再想想：歷史學家能用什麼證據比較古人和今人的快樂？
     - no: 20
       part: 4
@@ -580,5 +646,80 @@ book:
     - id: b38
       title: Jebel Irhoud — Wikipedia
       url: https://en.wikipedia.org/wiki/Jebel_Irhoud
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b39
+      title: Wikipedia – Denise Schmandt-Besserat（陶土籌碼與文字起源）
+      url: https://en.wikipedia.org/wiki/Denise_Schmandt-Besserat
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b40
+      title: Wikipedia – Oracle bone script
+      url: https://en.wikipedia.org/wiki/Oracle_bone_script
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b41
+      title: Wikipedia – Maya script
+      url: https://en.wikipedia.org/wiki/Maya_script
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b42
+      title: Wikipedia – Castes of Mind（Nicholas Dirks；含 David Reich 的反駁）
+      url: https://en.wikipedia.org/wiki/Castes_of_Mind
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b43
+      title: "Alesina, Giuliano & Nunn, On the Origins of Gender Roles: Women and the Plough（QJE 2013；EconPapers 摘要頁）"
+      url: https://econpapers.repec.org/RePEc:nbr:nberwo:17098
+      accessed: 2026-11-07
+      tier: 學術
+    - id: b44
+      title: Wikipedia – Glocalization
+      url: https://en.wikipedia.org/wiki/Glocalization
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b45
+      title: "Wikipedia – Debt: The First 5000 Years（David Graeber）"
+      url: https://en.wikipedia.org/wiki/Debt:_The_First_5000_Years
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b46
+      title: Wikipedia – Counterfactual history
+      url: https://en.wikipedia.org/wiki/Counterfactual_history
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b47
+      title: Wikipedia – Guns, Germs, and Steel
+      url: https://en.wikipedia.org/wiki/Guns,_Germs,_and_Steel
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b48
+      title: Wikipedia – Needham question
+      url: https://en.wikipedia.org/wiki/Needham_question
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b49
+      title: Wikipedia – Science in the medieval Islamic world
+      url: https://en.wikipedia.org/wiki/Science_in_the_medieval_Islamic_world
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b50
+      title: Wikipedia – Great Divergence（含彭慕蘭與加州學派）
+      url: https://en.wikipedia.org/wiki/Great_Divergence
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b51
+      title: Wikipedia – Engels' pause（Robert C. Allen）
+      url: https://en.wikipedia.org/wiki/Engels%27_pause
+      accessed: 2026-11-07
+      tier: 百科
+    - id: b52
+      title: Clark Nardinelli, Industrial Revolution and the Standard of Living（Econlib 經濟學百科）
+      url: https://www.econlib.org/library/Enc/IndustrialRevolutionandtheStandardofLiving.html
+      accessed: 2026-11-07
+      tier: 通論
+    - id: b53
+      title: Wikipedia – Easterlin paradox
+      url: https://en.wikipedia.org/wiki/Easterlin_paradox
       accessed: 2026-11-07
       tier: 百科

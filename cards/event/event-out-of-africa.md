@@ -17,6 +17,7 @@ place:
     - { name_ancient: 馬傑德貝貝岩蔭（Madjedbebe）, name_modern: 馬傑德貝貝，阿納姆地，北領地（澳洲）, lat: -12.5, lng: 132.883, precision: exact, role: 2017 年研究認為約 6.5 萬年前已有人居住，年代有爭議, src: [s2, s3] }
     - { name_ancient: 蒙哥湖（Lake Mungo）, name_modern: 蒙哥湖，蒙哥國家公園，新南威爾斯州（澳洲）, lat: -33.75, lng: 143.083, precision: exact, role: 約 4 萬年前的「蒙哥人」埋葬，身上撒有紅色赭石, src: [s5, s6] }
   scale: line
+routes: [migr-africa-sahul, migr-levant-europe]
 structure_tags: [快速擴張, 慢變結構]
 topics: [移民與移墾, 航海]
 links: [event-homo-species, event-cognitive-revolution, event-megafauna-extinction, event-peopling-americas]

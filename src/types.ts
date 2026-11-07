@@ -90,7 +90,7 @@ export interface Unit {
   reflect?: string;
 }
 export interface Route {
-  id: string; name: string; kind: 'road' | 'sea' | 'wall'; start: number; end: number;
+  id: string; name: string; kind: 'road' | 'sea' | 'wall' | 'migration'; start: number; end: number;
   precision: string; note?: string; coords: [number, number][]; sources: Source[];
   method: 'awmc-road' | 'awmc-wall' | 'sea' | 'stations';
   segments: { kind: 'known' | 'approx' | 'gap' | 'unknown'; coords: [number, number][] }[];

@@ -136,3 +136,8 @@ storylines:
     question: 一筆打仗欠下的債，怎麼一步步變成攻佔監獄、處決國王、恐怖統治，最後換來一位皇帝和一部到今天還在用的法典？
     blurb: 這條線沿著「上一步沒解決的問題」走：財政問題逼出三級會議，議會的主張逼出街頭行動，宣言寫下的原則又逼出「國王還能不能留」的問題；每一站都比上一站走得更遠，直到有人用軍隊把它停下來。
     stops: [war-american-revolution, finance-french-royal-debt, event-estates-general-1789, event-storming-bastille, event-declaration-rights-of-man, event-execution-louis-xvi, event-reign-of-terror, event-brumaire-coup, event-napoleonic-code]
+  - id: story-japan-lost-decades
+    title: 日本失落 30 年：從泡沫到結束負利率
+    question: 一次匯率協議怎麼吹出史上最大的資產泡沫？泡沫破了以後，銀行和日本銀行為什麼一路走到零利率、負利率，花了快四十年才回到「正常」？
+    blurb: 這條線沿著「錢」走：日圓升值後低利率吹出泡沫，泡沫破掉留下壞帳，壞帳拖垮銀行，銀行倒閉逼日本銀行把利率降到零，再到安倍經濟學的大規模寬鬆，最後 2024 年才結束負利率。每一站都是上一站留下的問題。
+    stops: [finance-plaza-accord, finance-japan-bubble, finance-japan-lost-decade, finance-japan-banking-crisis-1997, finance-boj-zero-rate-qe, finance-abenomics, finance-japan-2024-negative-rate-end]

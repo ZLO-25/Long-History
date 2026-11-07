@@ -128,6 +128,19 @@ const fs = require('fs');
         await p.screenshot({ path: `${out}/${pre(d)}power-${pm.year}-1280.png` });
       }
       await p.click(`.dv-power .chip:has-text("${yearsAsc[0]}")`); await p.waitForTimeout(600);
+    } else if (d.visual === 'curve' && d.curves) {
+      const n = (await p.$$('.dv-curve')).length;
+      ok(n === d.curves.series.length, `曲線主視覺：每條數列一張小圖（${n}／${d.curves.series.length}）`);
+      ok(d.curves.series.every((se) => se.points.length >= 3 && se.src.length >= 1), '曲線主視覺：每條至少 3 點、有來源');
+      ok((await p.$$('.dv-curve .dv-cv-ev')).length >= d.curves.series.length * d.curves.events.length, '曲線主視覺：每張圖都畫出事件直線');
+      const ev = d.curves.events.find((e) => e.card);
+      if (ev) {
+        await p.click(`.dv-cv-events .chip:has-text("${ev.label}")`); await p.waitForTimeout(1000);
+        ok(new URL(p.url()).searchParams.get('card') === ev.card, `曲線主視覺：點「${ev.label}」打開卡片`);
+        await p.click('.panel-nav .back'); await p.waitForTimeout(600);
+        ok((await p.$$('.dv-cv-now')).length === d.curves.series.length, '曲線主視覺：紅線標出目前年代');
+      }
+      await p.screenshot({ path: `${out}/${pre(d)}curve-1280.png` });
     } else {
       ok(!(await p.$('.dv-power')), '沒有主視覺的專題：不顯示主視覺區');
       await p.screenshot({ path: `${out}/${pre(d)}dive-research-1280.png` });

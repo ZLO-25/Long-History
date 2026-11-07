@@ -23,26 +23,28 @@ export function DiveCurve({ curves, range, year, setYear, onOpen, byId }: {
     <div className="dv-curves">
       {curves.series.map((se, si) => {
         const color = se.color || PALETTE[si % PALETTE.length];
-        const vs = se.points.map((p) => p[1]);
+        const pts = se.points.filter((p) => p[0] >= range.start && p[0] <= range.end); // 只畫專題年代內的點
+        if (pts.length < 2) return null;
+        const vs = pts.map((p) => p[1]);
         let lo = Math.min(...vs), hi = Math.max(...vs);
         if (se.zero !== false && (se.zero || lo > 0)) lo = Math.min(lo, 0);
         if (hi === lo) hi = lo + 1;
-        const pad = (hi - lo) * 0.08; hi += pad; if (lo < 0) lo -= pad;
+        const pad = (hi - lo) * 0.08; hi += pad; if (lo < 0 || se.zero === false) lo -= pad;
         const y = (v: number) => PT + (1 - (v - lo) / (hi - lo)) * (H - PT - PB);
-        const path = se.points.map((p, i) => `${i ? 'L' : 'M'}${x(p[0]).toFixed(1)},${y(p[1]).toFixed(1)}`).join('');
-        const cur = se.points.find((p) => p[0] === year);
-        const peak = se.points.reduce((a, b) => (b[1] > a[1] ? b : a));
+        const path = pts.map((p, i) => `${i ? 'L' : 'M'}${x(p[0]).toFixed(1)},${y(p[1]).toFixed(1)}`).join('');
+        const cur = pts.find((p) => p[0] === year);
+        const peak = pts.reduce((a, b) => (b[1] > a[1] ? b : a));
         return (
           <figure key={se.id} className="dv-curve">
             <figcaption><b style={{ color }}>{se.name}</b> <small className="muted">（{se.unit}）{cur ? `・${year} 年：${fmtNum(cur[1])}` : ''}</small></figcaption>
-            <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${se.name}，${se.points[0][0]}–${se.points[se.points.length - 1][0]} 年；最高 ${peak[0]} 年 ${fmtNum(peak[1])}`}
+            <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${se.name}，${pts[0][0]}–${pts[pts.length - 1][0]} 年；最高 ${peak[0]} 年 ${fmtNum(peak[1])}`}
               onClick={(e) => { const r = (e.currentTarget as SVGSVGElement).getBoundingClientRect(); const px = ((e.clientX - r.left) / r.width) * W; const yy = yearAt(px); if (yy >= range.start && yy <= range.end) setYear(yy); }}>
               {[lo, (lo + hi) / 2, hi].map((v, i) => <g key={i}><line x1={PL} x2={W - PR} y1={y(v)} y2={y(v)} className="dv-cv-grid" /><text x={PL - 4} y={y(v) + 3} className="dv-cv-ax" textAnchor="end">{fmtNum(v)}</text></g>)}
               {lo < 0 && <line x1={PL} x2={W - PR} y1={y(0)} y2={y(0)} className="dv-cv-zero" />}
               {ticks.map((t) => <text key={t} x={x(t)} y={H - 6} className="dv-cv-ax" textAnchor="middle">{t}</text>)}
               {curves.events.map((ev) => <line key={ev.label} x1={x(ev.year)} x2={x(ev.year)} y1={PT} y2={H - PB} className="dv-cv-ev" />)}
               <path d={path} fill="none" stroke={color} strokeWidth={2} />
-              {se.points.map((p) => <circle key={p[0]} cx={x(p[0])} cy={y(p[1])} r={p[0] === year ? 3.6 : 1.8} fill={color}><title>{p[0]} 年：{fmtNum(p[1])}（{se.unit}）</title></circle>)}
+              {pts.map((p) => <circle key={p[0]} cx={x(p[0])} cy={y(p[1])} r={p[0] === year ? 3.6 : 1.8} fill={color}><title>{p[0]} 年：{fmtNum(p[1])}（{se.unit}）</title></circle>)}
               {inRange && <line x1={x(year)} x2={x(year)} y1={PT - 4} y2={H - PB} className="dv-cv-now" />}
             </svg>
             {se.note && <p className="small muted">{se.note}</p>}

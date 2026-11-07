@@ -3,7 +3,7 @@
 # 2026-11-03 查核：抽查 24 個勢力的縣對應大致無誤（依日維小田原征伐／奧州仕置）；補上 1590 年獲秀吉承認為獨立大名的津輕為信（青森縣西半，以東經 141.0 度與南部切開），並把 1588 年起屬上杉（本庄繁長）的出羽庄內從最上切給上杉（山形縣以東經 140.1 度切開）。其餘保留。
 year: 1590
 title: 秀吉統一日本（1590 年 8 月）
-note: 以令制國為單位、用今日縣界近似的示意圖。秀吉的直轄領與一門・譜代大名合畫成一色；外樣大名各自一色。家康剛從東海移封關東（8 月 1 日江戶入城），伊達政宗的宮城領地要到 1591 年葛西大崎一揆後才確定，圖上先標示。
+note: 以令制國為單位、用今日縣界近似的示意圖。秀吉的直轄領與一門・譜代大名合畫成一色；外樣大名各自一色。家康剛從東海移封關東（8 月 1 日江戶入城），伊達政宗被沒收會津等地，只剩山形南部（米澤一帶）、福島東部（伊達・信夫郡）與宮城南部（刈田・柴田・伊具・亘理・名取等郡）；他改封岩出山、取得宮城北部的大崎・葛西舊領，要到 1591 年葛西大崎一揆之後，是這張圖之後的事。
 sources:
   - { title: "小田原征伐 — Wikipedia（日本語）：戰後論功行賞與德川關東移封", url: "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%BE%81%E4%BC%90", accessed: 2026-11-03, tier: 百科 }
   - { title: "奥州仕置 — Wikipedia（日本語）：1590 年東北大名的處置", url: "https://ja.wikipedia.org/wiki/%E5%A5%A5%E5%B7%9E%E4%BB%95%E7%BD%AE", accessed: 2026-11-03, tier: 百科 }
@@ -41,13 +41,14 @@ powers:
     en: Uesugi Kagekatsu
     color: "#6b46c1"
     provinces: 越後、佐渡（1589 年征服）、出羽庄內（1588 年起由本庄繁長領有）
-    prefs: [JP-15, { pref: JP-06, lng_lt: 140.1 }]
+    prefs: [JP-15, { pref: JP-06, lng_lt: 140.1, lat_gt: 38.1 }]
   - name: 佐竹義宣
     en: Satake Yoshinobu
     color: "#4a5568"
     provinces: 常陸（1590 年獲秀吉安堵）
     prefs: [JP-08]
   - name: 下野諸氏（宇都宮・那須）
+    minor: true
     en: Shimotsuke lords
     color: "#cbd5e0"
     provinces: 下野
@@ -55,19 +56,25 @@ powers:
   - name: 蒲生氏鄉
     en: Gamō Ujisato
     color: "#2c7a7b"
-    provinces: 會津（奧州仕置後從伊達手中轉封）
-    prefs: [JP-07]
+    provinces: 會津與福島中部（奧州仕置後從伊達手中轉封）
+    prefs: [{ pref: JP-07, lng_lt: 140.4 }, { pref: JP-07, lng_gt: 140.4, lat_lt: 37.55 }, { pref: JP-07, lng_gt: 140.75, lat_gt: 37.55 }]
   - name: 伊達政宗
     en: Date Masamune
     color: "#0f766e"
     card: person-date-masamune
-    provinces: 陸奧南部（米澤・伊達郡一帶；1591 年起改封岩出山，取得大崎・葛西舊領，本圖以宮城縣示意）
-    prefs: [JP-04]
+    provinces: 出羽南部的置賜（米澤一帶）與陸奧的伊達・信夫郡、宮城南部諸郡（今山形縣南部＋福島縣東部＋宮城縣南部，縣界切線為示意）；1591 年起才改封岩出山、取得大崎・葛西舊領
+    prefs: [{ pref: JP-06, lat_lt: 38.1 }, { pref: JP-07, lng_gt: 140.4, lng_lt: 140.75, lat_gt: 37.55 }, { pref: JP-04, lat_lt: 38.45 }]
+  - name: 葛西・大崎舊領（宮城北部）
+    minor: true
+    en: Kasai–Osaki lands
+    color: "#cbd5e0"
+    provinces: 今宮城縣北部；葛西・大崎氏 1590 年因未參陣被改易，改封木村吉清，1591 年叛亂後才轉給伊達
+    prefs: [{ pref: JP-04, lat_gt: 38.45 }]
   - name: 最上義光
     en: Mogami Yoshiaki
     color: "#38a169"
     provinces: 出羽南部（山形、最上地方；庄內屬上杉）
-    prefs: [{ pref: JP-06, lng_gt: 140.1 }]
+    prefs: [{ pref: JP-06, lng_gt: 140.1, lat_gt: 38.1 }]
   - name: 南部信直
     en: Nanbu Nobunao
     color: "#805ad5"

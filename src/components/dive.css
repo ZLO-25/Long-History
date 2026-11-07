@@ -11,7 +11,8 @@
 .dv-lane h4 { margin: 8px 0 4px; font-size: 13px; color: #5a544a; border-bottom: 1px solid var(--dive-line); padding-bottom: 2px; }
 .dv-list { display: flex; flex-direction: column; gap: 4px; }
 .dv-card { display: flex; align-items: baseline; gap: 6px; text-align: left; border: 1px solid var(--line); border-left-width: 4px; border-radius: 8px; background: #fff; padding: 5px 9px; font: inherit; font-size: 13.5px; color: inherit; cursor: pointer; text-decoration: none; }
-.dv-card:hover, .dv-card:focus-visible { background: var(--dive-bg); border-color: var(--dive); outline: none; }
+.dv-card:hover, .dv-card:focus-visible { background: var(--dive-bg); border-color: var(--dive); }
+.dv-card:focus-visible, .di-item:focus-visible, .dv-story:focus-visible { outline: 2px solid var(--dive); outline-offset: 2px; }
 .dv-card.here { background: var(--dive-bg); box-shadow: inset 0 0 0 1px var(--dive); }
 .dv-card.in-year .dv-name { font-weight: 600; }
 .dv-card.off { border-style: dashed; color: #6b655b; }
@@ -23,22 +24,43 @@
 .dv-chips .chip.on { background: var(--dive); border-color: var(--dive); color: #fff; }
 .dv-power-info { margin-top: 6px; border: 1px solid var(--dive-line); background: var(--dive-bg); border-radius: 10px; padding: 8px 12px; }
 .dv-power-info p { margin: 2px 0 6px; }
-.dv-legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 2px 10px; font-size: 13px; }
-.dv-legend li { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
-.dv-legend li i { width: 12px; height: 12px; border-radius: 3px; flex: none; border: 1px solid rgba(0,0,0,.2); align-self: center; }
-.dv-legend li small { display: block; flex: 1 1 auto; min-width: 0; font-size: 11px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.dv-legend li > span, .dv-legend li > button { flex: none; white-space: nowrap; }
+.dv-legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 3px 10px; font-size: 13px; }
+.dv-legend li { display: flex; align-items: flex-start; gap: 6px; min-width: 0; }
+.dv-legend li i { width: 12px; height: 12px; border-radius: 3px; flex: none; border: 1px solid rgba(0,0,0,.2); margin-top: 4px; }
+.dv-lg-t { min-width: 0; overflow-wrap: anywhere; }
+.dv-lg-t small { display: block; font-size: 11px; line-height: 1.3; }
+.dv-lg-t .link { text-align: left; }
+.dv-more { margin-top: 6px; }
+.dv-power > summary, .dv-plist > summary { cursor: pointer; }
+.dv-power > summary h3 { display: inline-flex; margin: 0; }
+.dv-power[open] > summary { margin-bottom: 6px; }
+.dv-plist { margin-top: 6px; }
+.dv-plist > summary { font-size: 13px; color: var(--dive); }
+.dv-list.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); margin-top: 6px; }
+.dv-list.grid .dv-card { flex-wrap: wrap; }
+.dv-crumb { font-size: 13px; color: #5a544a; }
+.dv-crumb .link { font-size: 13px; }
+.dv-anchors { position: sticky; top: 0; z-index: 3; display: flex; flex-wrap: wrap; gap: 4px; padding: 6px 0; margin: 6px 0; background: var(--panel, #fffdf8); border-bottom: 1px solid var(--dive-line); }
+.dv-sub { margin: 8px 0 4px; font-size: 13px; color: #5a544a; font-weight: 600; }
+.dv-start { background: var(--dive); color: #fff; border-radius: 999px; padding: 0 8px; font-size: 12px; margin-bottom: 2px; }
+.dv-story.unit.start { border: 2px solid var(--dive); background: var(--dive-bg); }
+.dv-tomap { border-color: var(--dive); color: var(--dive); font-weight: 600; }
+@media (pointer: coarse) { .dv-chips .chip, .dv-anchors .chip { min-height: 44px; padding: 0 14px; font-size: 15px; } .dv-plist > summary, .dv-power > summary { min-height: 44px; display: flex; align-items: center; } }
 .dv-story { display: inline-flex; flex-direction: column; align-items: flex-start; border: 1px solid var(--dive-line); border-radius: 10px; background: #fff; padding: 6px 10px; font: inherit; font-size: 13.5px; color: var(--dive); cursor: pointer; text-decoration: none; }
 .dv-story small { color: #6b655b; font-size: 11.5px; }
 .dv-story:hover, .dv-story:focus-visible { background: var(--dive-bg); }
 .dv-note { border-top: 1px dashed var(--dive-line); padding-top: 6px; margin-top: 12px; }
 .dive-index ul { list-style: none; margin: 0; padding: 0; }
 .di-item { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; text-align: left; border: 1px solid var(--dive-line); border-radius: 10px; background: #fff; padding: 8px 12px; margin: 6px 0; font: inherit; color: inherit; cursor: pointer; }
-.di-item:hover, .di-item:focus-visible { background: var(--dive-bg); border-color: var(--dive); outline: none; }
+.di-item:hover, .di-item:focus-visible { background: var(--dive-bg); border-color: var(--dive); }
 .di-title { font-weight: 600; color: var(--dive); }
 .di-q { font-size: 13.5px; }
 /* 地圖上的勢力名稱 */
 .power-label { background: rgba(255,255,255,.85); border-radius: 6px; padding: 1px 6px; font-size: 11.5px; font-weight: 600; color: #2d2a26; white-space: nowrap; box-shadow: 0 0 0 1px rgba(0,0,0,.15); text-align: center; line-height: 1.25; }
 .power-label small { display: block; font-weight: 400; font-size: 10px; color: #5a544a; }
-.lg.power { background: rgba(192,57,43,.45); border: 1px solid #c0392b; }
+.lg.power { background: linear-gradient(90deg, #2b6cb0 33%, #c53030 33% 66%, #d69e2e 66%); border: 1px solid rgba(0,0,0,.25); }
 .lg.trail { background: #8a5a00; height: 3px; }
+
+.dive-entries { list-style: none; margin: 6px 0; padding: 0; }
+.dive-entries .di-item { border-left: 4px solid var(--dive); }
+.di-tag { font-size: 11px; color: #fff; background: var(--dive); border-radius: 999px; padding: 0 8px; }

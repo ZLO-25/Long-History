@@ -18,10 +18,15 @@ interface Props {
   onCard: (id: string, section?: string) => void; onUnit: (id: string) => void; onSim: (id: string) => void;
   onTopic?: (name: string) => void; topicCount?: (t: { cards: string[] }) => number;
   onFocus?: (cardId: string | null) => void; onHome?: () => void;
-  onStory?: (id: string) => void;
+  onStory?: (id: string) => void; onDive?: (id: string) => void;
 }
 
-export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFocus, onHome, onTopic, topicCount, onStory }: Props) {
+export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFocus, onHome, onTopic, topicCount, onStory, onDive }: Props) {
+  // 這一課屬於哪個專題（從 index.dives 的 units 清單算），第幾課、下一課
+  const dive = (index.dives ?? []).find((d) => d.units.includes(u.id));
+  const lessons = dive ? dive.units.map((id) => index.units.find((x) => x.id === id)).filter((x): x is Unit => !!x) : [];
+  const lessonNo = lessons.findIndex((x) => x.id === u.id);
+  const nextLesson = lessonNo >= 0 ? lessons[lessonNo + 1] : undefined;
   const step = Math.min(prog?.step ?? -1, u.steps.length - 1);
   const top = useRef<HTMLDivElement>(null);
   const n = u.steps.length, half = unitHalf(u), long = n >= 8;
@@ -125,7 +130,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
           <Short key={step} q={s.question} model={s.model_answer} hints={s.hints} saved={prog?.answers?.[`s${step}`] as string | undefined} onSave={(t) => save(`s${step}`, t)} />
         </>;
       }
-      case 'decision': return <Decision key={step} role={s.role} situation={s.situation} options={s.options} actual={s.actual} note={s.note} after={ref(s.ref)}
+      case 'decision': return <Decision key={step} role={s.role} situation={s.situation} options={s.options} seed={`${u.id}-${step}`} actual={s.actual} note={s.note} after={ref(s.ref)}
         saved={prog?.answers?.[`d${step}`] as string | undefined} onSave={(t) => save(`d${step}`, t)} />;
       case 'today': {
         const c = byId(s.card)!;
@@ -155,6 +160,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
           <Reflect key={`r${step}`} q={u.reflect} saved={prog?.answers?.reflect as string | undefined} onSave={(t) => save('reflect', t)} />
           {!prog?.done ? <button className="btn primary big" onClick={() => setProg({ done: true, doneAt: new Date().toISOString().slice(0, 10) })}>完成這個單元 🏅</button>
             : <p className="badge-earned">🏅 你完成了「{u.title}」！它已經點亮在「我的歷史地圖」上。</p>}
+          {nextLesson && dive && <p className="ud-recap-next"><b>{dive.title}專題</b>的下一課：<button className="btn primary" onClick={() => onUnit(nextLesson.id)}>第 {lessonNo + 2}／{lessons.length} 課《{nextLesson.title}》 →</button></p>}
           <h3>接下來可以挖</h3>
           <div className="next-units">
             {u.next.map((id) => index.units.find((x) => x.id === id)).filter((x): x is Unit => !!x).map((n) => (
@@ -169,6 +175,11 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
   return (
     <div className="unit" ref={top}>
       <div className="unit-head">
+        {dive && lessonNo >= 0 && (
+          <p className="unit-dive"><span className="ud-pos">{dive.title}專題 第 {lessonNo + 1}／{lessons.length} 課</span>
+            {onDive && <button className="link small" onClick={() => onDive(dive.id)}>看專題頁</button>}
+            {nextLesson && <button className="chip ud-next" onClick={() => onUnit(nextLesson.id)}>下一課：《{nextLesson.title}》 →</button>}</p>
+        )}
         <div className="unit-title-row"><h2>{u.title}</h2><button className="btn sm" onClick={copyLink} title="複製這一課的連結，可以傳給同學或老師">{copied ? '✓ 已複製' : '🔗 複製連結'}</button></div>
         {step >= 0 && <div className="progress" aria-label={`第 ${step + 1} 步，共 ${u.steps.length} 步`}>
           {u.steps.map((x, i) => <button key={i} className={`pdot ${i < step || (brk && i < half) ? 'done' : ''} ${i === step && !brk ? 'on' : ''} ${long && i === half ? 'half-start' : ''}`} title={`${i + 1}. ${STEP_LABEL[x.type]}${long ? `（${partOf(i)}）` : ''}`} onClick={() => { setBrk(false); setProg({ step: i }); }} />)}

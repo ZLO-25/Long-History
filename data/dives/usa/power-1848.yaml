@@ -1,0 +1,22 @@
+# 領土擴張示意圖 1848 年（畫法同 power-1783.yaml）
+year: 1848
+basemap: us_states
+title: 德克薩斯、奧勒岡、墨西哥割讓：大陸擴張幾乎完成（1848 年）
+note: 1845 年 12 月 29 日德克薩斯成為一州（德州主張以格蘭德河為界，墨西哥認為是努埃塞斯河，引發美墨戰爭）；1846 年 6 月 15 日奧勒岡條約以北緯 49° 分界；1848 年 2 月 2 日瓜達盧佩—伊達爾戈條約（5 月 30 日生效），墨西哥割讓加利福尼亞與新墨西哥。德州主張的科羅拉多南部算在德州色塊裡；新墨西哥格蘭德河以東也曾是德州主張，1850 年妥協案德州讓出、聯邦承接約 1,000 萬美元債務，本圖把它畫在墨西哥割讓內。希拉河以南的一條（今亞利桑那南部、新墨西哥西南角）要到 1853–54 年加茲登購地才取得。俄克拉荷馬是「印第安領地」的核心：1830 年遷移法把東南部各族（切羅基、喬克托等）強制遷到這裡，1907 年才成為州。
+view: [[24, -126], [50, -66]]
+sources:
+  - { title: "Texas annexation — Wikipedia：1845-03-01 聯合決議、12-29 成為一州、格蘭德河／努埃塞斯河界線爭議", url: "https://en.wikipedia.org/wiki/Texas_annexation", accessed: 2026-11-04, tier: 百科 }
+  - { title: "Oregon Treaty — Wikipedia：1846-06-15 簽約、北緯 49° 界線", url: "https://en.wikipedia.org/wiki/Oregon_Treaty", accessed: 2026-11-04, tier: 百科 }
+  - { title: "Mexican Cession — Wikipedia：割讓面積與涵蓋的今日各州（加州、內華達、猶他全部，亞利桑那大部、新墨西哥西半、科羅拉多西部、懷俄明西南角）", url: "https://en.wikipedia.org/wiki/Mexican_Cession", accessed: 2026-11-04, tier: 百科 }
+  - { title: "Compromise of 1850 — Wikipedia：德州讓出西部主張（含科羅拉多 38° 以南）、聯邦承接德州債務", url: "https://en.wikipedia.org/wiki/Compromise_of_1850", accessed: 2026-11-04, tier: 百科 }
+powers:
+  - { name: 美國（1783 年疆域）, en: "United States (1783)", color: "#1f4e79", area: 同 1783 年, regions: [US-ME, US-NH, US-VT, US-MA, US-RI, US-CT, US-NY, US-NJ, US-PA, US-DE, US-MD, US-DC, US-VA, US-WV, US-NC, US-SC, US-GA, US-KY, US-TN, US-OH, US-IN, US-IL, US-MI, US-WI, { code: US-MN, lng_gt: -94 }, { code: US-AL, lat_gt: 31 }, { code: US-MS, lat_gt: 31 }] }
+  - { name: 路易斯安那購地（1803）, en: "Louisiana Purchase (1803)", color: "#2b8cbe", card: event-westward-expansion, area: 同 1803 年（俄克拉荷馬另標為印第安領地）, regions: [US-LA, US-AR, US-MO, US-IA, US-ND, US-SD, US-NE, US-KS, { code: US-MN, lng_lt: -94 }, { code: US-MT, lng_gt: -112.5 }, { code: US-WY, lat_gt: 42, lng_gt: -109.5 }, { code: US-WY, lat_lt: 42, lng_gt: -107.5 }, { code: US-CO, lat_gt: 38, lng_gt: -106 }] }
+  - { name: 印第安領地（今俄克拉荷馬）, en: "Indian Territory", color: "#8d8d8d", card: event-westward-expansion, area: 今日俄克拉荷馬；東南部各族被迫遷居於此（1854 年以前的範圍更大）, regions: [US-OK] }
+  - { name: 佛羅里達（1821）, en: "Florida (1821)", color: "#74a9cf", area: 同 1821 年, regions: [US-FL, { code: US-AL, lat_lt: 31 }, { code: US-MS, lat_lt: 31 }] }
+  - { name: 德克薩斯併入（1845）, en: "Texas annexed (1845)", color: "#e6ab02", area: 今日德克薩斯全州，加上德州主張的科羅拉多南部, regions: [US-TX, { code: US-CO, lat_lt: 38, lng_gt: -106 }] }
+  - { name: 奧勒岡條約（1846）, en: "Oregon Treaty (1846)", color: "#66a61e", area: 今日華盛頓、奧勒岡、愛達荷，蒙大拿與懷俄明西北部, regions: [US-WA, US-OR, US-ID, { code: US-MT, lng_lt: -112.5 }, { code: US-WY, lat_gt: 42, lng_lt: -109.5 }] }
+  - { name: 墨西哥割讓（1848）, en: "Mexican Cession (1848)", color: "#d95f02", card: event-westward-expansion, area: 今日加利福尼亞、內華達、猶他全州，亞利桑那與新墨西哥大部、科羅拉多西部、懷俄明西南角, regions: [US-CA, US-NV, US-UT, { code: US-AZ, lat_gt: 33 }, { code: US-NM, lat_gt: 32.4 }, { code: US-NM, lat_lt: 32.4, lng_gt: -106.6 }, { code: US-CO, lng_lt: -106 }, { code: US-WY, lat_lt: 42, lng_lt: -107.5 }] }
+  - { name: 墨西哥（加茲登購地前）, en: "Mexico (before Gadsden Purchase)", color: "#b08968", minor: true, area: 今日亞利桑那南部（土桑、尤馬）與新墨西哥西南角, regions: [{ code: US-AZ, lat_lt: 33 }, { code: US-NM, lat_lt: 32.4, lng_lt: -106.6 }] }
+  - { name: 俄屬阿拉斯加, en: "Russian America", color: "#c6c3de", minor: true, area: 今日阿拉斯加, regions: [{ code: US-AK, lng_gt: -170 }] }
+  - { name: 夏威夷王國, en: "Kingdom of Hawaii", color: "#f4c7dd", minor: true, area: 今日夏威夷, regions: [{ code: US-HI, lng_gt: -161 }] }

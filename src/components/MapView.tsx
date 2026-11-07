@@ -17,8 +17,8 @@ interface Props {
   todayOn?: boolean; setTodayOn?: (v: boolean) => void; onToday?: (id: string) => void; todaySel?: string | null;
   // 第 6 期學習模式：其他史的卡淡化成背景小點；多一個「東亞」視野；圖例加上疆域示意的說明
   bgCards?: Card[]; learn?: boolean; home?: [[number, number], [number, number]] | null;
-  // 深入專題：大名勢力示意圖（public/data/dives/<file>）；人物卡的人生軌跡（依年份連線）
-  power?: { file: string; title: string } | null; onCard?: (id: string) => void;
+  // 深入專題：主視覺（勢力圖／領土圖，public/data/dives/<file>）；人物卡的人生軌跡（依年份連線）
+  power?: { file: string; title: string; legend?: string } | null; onCard?: (id: string) => void;
   trail?: { lat: number; lng: number; year: number; name: string }[] | null;
 }
 
@@ -46,7 +46,12 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   const canvasR = useRef<{ borders: L.Canvas; roads: L.Canvas }>();
   const cb = useRef({ onPlace, onRoute, onToday, onCard });
   cb.current = { onPlace, onRoute, onToday, onCard };
-  const [snapLabel, setSnapLabel] = useState('');
+  // 疆域快照的狀態：標籤文字在畫面上才組（要用目前選的年份，不是快照自己的年份）
+  const [snapInfo, setSnapInfo] = useState<{ today: boolean; year: number; covered: boolean }>({ today: false, year: 0, covered: false });
+  const snapLabel = snapInfo.today ? '今日對照層：已隱藏古代疆域'
+    : `疆域示意：${fmtYear(year)} 年${snapInfo.year && snapInfo.year !== year ? `（用最接近的 ${fmtYear(snapInfo.year)} 年世界疆域快照）` : ''}${snapInfo.covered ? '（專題地圖範圍內以專題地圖為準）' : ''}`;
+  const [powerBox, setPowerBox] = useState<L.LatLngBounds | null>(null);
+  const [legendOpen, setLegendOpen] = useState(!compact);
   // 地圖上的名稱一律「繁中＋英文」：先載入對照表
   useMemo(() => setNameTable(index.names), [index]);
 
@@ -82,7 +87,9 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   useEffect(() => {
     let cancelled = false;
     // 今日對照層打開時，不畫古代疆域，避免把古代邊界誤認為今天的國界
-    if (todayOn) { layers.current?.borders.clearLayers(); setSnapLabel('今日對照層：已隱藏古代疆域'); return; }
+    if (todayOn) { layers.current?.borders.clearLayers(); setSnapInfo((s) => ({ ...s, today: true })); return; }
+    const box = powerBox?.pad(0.2) ?? null;
+    let covered = 0;
     loadBorders(snap.file).then((gj) => {
       if (cancelled || !layers.current) return;
       const g = layers.current.borders;
@@ -92,14 +99,16 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         ...({ renderer: canvasR.current?.borders } as L.GeoJSONOptions),
         style: (f) => {
           const h = hue(f?.properties?.name ?? '');
+          // 專題地圖打開時，完全落在專題地圖範圍內的疆域多邊形只留淡邊線，不再疊一層填色（以專題地圖為準）
+          if (box && f && box.contains(L.geoJSON(f as any).getBounds())) { covered++; return { color: `hsl(${h},45%,40%)`, weight: 0.5, opacity: 0.3, fillOpacity: 0, dashArray: '3 3' }; }
           return { color: `hsl(${h},45%,40%)`, weight: 1, fillColor: `hsl(${h},60%,55%)`, fillOpacity: 0.16, dashArray: '3 3' };
         },
         onEachFeature: (f, layer) => layer.bindTooltip(`${f.properties.zh ?? ''} <span class="en">${f.properties.name}</span>（疆界示意）`, { sticky: true }),
       }).addTo(g);
-      setSnapLabel(`疆域示意：${fmtYear(snap.year)} 年快照`);
+      setSnapInfo({ today: false, year: snap.year, covered: covered > 0 });
     });
     return () => { cancelled = true; };
-  }, [snap, todayOn]);
+  }, [snap, todayOn, powerBox]);
 
   // Itiner-e 精細道路（若已用 npm run roads 下載）
   useEffect(() => {
@@ -280,16 +289,17 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     else mover.current.setLatLng(at);
   }, [chain]);
 
-  // 深入專題：大名勢力示意圖。每個勢力一個顏色，名稱標在最大一塊的中央；縮小時只標主要勢力，放大才全部標；點名稱打開對應的人物卡
+  // 深入專題：主視覺（勢力圖／領土圖）。每個區塊一個顏色，名稱標在最大一塊的中央；縮小時只標主要區塊，放大才全部標；點名稱打開對應的卡
   const powerFile = power?.file ?? null;
   const powerOn = useRef(false); powerOn.current = !!powerFile;
+  const legendRef = useRef(''); legendRef.current = power?.legend ?? '';
   const powerZoom = useRef<() => void>(() => {});
   useEffect(() => {
     const g = layers.current?.power, m = map.current;
     if (!g || !m) return;
     g.clearLayers();
     m.off('zoomend', powerZoom.current);
-    if (!powerFile) return;
+    if (!powerFile) { setPowerBox(null); return; }
     let cancelled = false;
     fetch(`${import.meta.env.BASE_URL}data/dives/${powerFile}`).then((r) => r.json()).then((gj) => {
       if (cancelled) return;
@@ -300,7 +310,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         pane: 'power',
         style: (f) => ({ color: f?.properties.color ?? '#888', weight: 1.2, opacity: 0.9, fillColor: f?.properties.color ?? '#888', fillOpacity: 0.38 }),
         onEachFeature: (f, layer) => {
-          layer.bindTooltip(`${f.properties.name} <span class="en">${f.properties.en ?? ''}</span><br><small>${f.properties.provinces ?? ''}</small><br><small>勢力範圍示意（以令制國為單位）</small>`, { sticky: true });
+          layer.bindTooltip(`${f.properties.name} <span class="en">${f.properties.en ?? ''}</span><br><small>${legendRef.current ? legendRef.current + '：' : ''}${f.properties.provinces ?? ''}</small><br><small>示意範圍，不是確切界線</small>`, { sticky: true });
           if (f.properties.card) layer.on('click', () => cb.current.onCard?.(f.properties.card));
           // 名稱放在面積最大的那一塊多邊形的框中央
           const geom = f.geometry as any;
@@ -312,18 +322,30 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
           const bb = boundsOf(big);
           all.push(bb.getSouthWest(), bb.getNorthEast());
           const short = String(f.properties.name).replace(/（.*）/, '');
-          const major = !/諸氏|餘黨|從屬|自立|雜賀/.test(f.properties.name) && size(big) > 120000;
-          const mk = L.marker(bb.getCenter(), { icon: L.divIcon({ className: `power-label ${major ? 'major' : 'minor'}`, html: `${short}<small>${f.properties.en ? String(f.properties.en).replace(/\s*\(.*\)$/, '') : ''}</small>`, iconSize: undefined as any }), keyboard: false, interactive: !!f.properties.card, zIndexOffset: 300 })
+          const major = !f.properties.minor && size(big) > 120000;
+          const mk = L.marker(bb.getCenter(), { icon: L.divIcon({ className: `power-label ${major ? 'major' : 'minor'}`, html: `${short}${m.getSize().x < 500 ? '' : `<small>${f.properties.en ? String(f.properties.en).replace(/\s*\(.*\)$/, '') : ''}</small>`}`, iconSize: undefined as any }), keyboard: false, interactive: !!f.properties.card, zIndexOffset: 300 })
             .on('click', () => { if (f.properties.card) cb.current.onCard?.(f.properties.card); });
           labels.push({ ll: bb.getCenter(), major, size: size(big), mk });
         },
       }).addTo(g);
       // 縮得越小標得越少：zoom<6 只標最大的 6 個主要勢力，6 標全部主要勢力，7 以上全標
       labels.sort((a, b) => b.size - a.size);
-      const draw = () => { const z = m.getZoom(); labels.forEach((l, i) => { const show = z >= 7 || (l.major && (z >= 6 || i < 6)); if (show && !g.hasLayer(l.mk)) l.mk.addTo(g); else if (!show && g.hasLayer(l.mk)) g.removeLayer(l.mk); }); };
+      // 標籤依面積由大到小放，和已放好的標籤相交（留 4px）就拿掉，避免互相壓住
+      const draw = () => {
+        const z = m.getZoom(); const placed: DOMRect[] = [];
+        labels.forEach((l, i) => {
+          const show = z >= 7 || (l.major && (z >= 6 || i < 6));
+          if (!show) { if (g.hasLayer(l.mk)) g.removeLayer(l.mk); return; }
+          if (!g.hasLayer(l.mk)) l.mk.addTo(g);
+          const el = l.mk.getElement(); if (!el) return;
+          const r = el.getBoundingClientRect();
+          const hit = placed.some((q) => r.left < q.right + 4 && r.right > q.left - 4 && r.top < q.bottom + 4 && r.bottom > q.top - 4);
+          if (hit) g.removeLayer(l.mk); else placed.push(r);
+        });
+      };
       draw();
       powerZoom.current = draw; m.on('zoomend', draw);
-      if (all.length) m.flyToBounds(L.latLngBounds(all), { duration: 0.6, maxZoom: 7 });
+      if (all.length) { const bb = gj.view ? L.latLngBounds(gj.view) : L.latLngBounds(all); setPowerBox(bb); m.flyToBounds(bb, { duration: 0.6, maxZoom: 7, paddingBottomRight: [0, compact ? 40 : 90] }); }
     }).catch(() => {});
     return () => { cancelled = true; m.off('zoomend', powerZoom.current); };
   }, [powerFile]);
@@ -337,9 +359,22 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     const pts = [...trail].sort((a, b) => a.year - b.year);
     L.polyline(pts.map((p) => [p.lat, p.lng] as [number, number]), { color: '#8a5a00', weight: 3, opacity: 0.85, dashArray: '6 5', className: 'trail-line' })
       .bindTooltip('人生軌跡（依年份連線，只是先後順序，不是實際走的路）', { sticky: true }).addTo(g);
-    pts.forEach((p, i) => {
-      L.marker([p.lat, p.lng], { icon: L.divIcon({ className: 'trail-year', html: `${i + 1}・${fmtYear(p.year)}`, iconSize: undefined as any, iconAnchor: [0, 22] }), keyboard: false, interactive: false, zIndexOffset: 400 }).addTo(g);
-    });
+    // 年份標籤：畫面上距離小於 34px 的點合併成一個標籤（1・1534／3・1567），縮放時重算
+    const m = map.current;
+    const drawYears = () => {
+      g.eachLayer((l) => { if ((l as any).options?.className !== 'trail-line' && !(l instanceof L.Polyline)) g.removeLayer(l); });
+      const groups: { x: number; y: number; lat: number; lng: number; items: string[] }[] = [];
+      pts.forEach((p, i) => {
+        const pt = m ? m.latLngToContainerPoint([p.lat, p.lng]) : { x: 0, y: 0 };
+        const gr = m ? groups.find((q) => Math.hypot(q.x - pt.x, q.y - pt.y) < 34) : undefined;
+        const lab = `${i + 1}・${fmtYear(p.year)}`;
+        if (gr) gr.items.push(lab); else groups.push({ x: pt.x, y: pt.y, lat: p.lat, lng: p.lng, items: [lab] });
+      });
+      groups.forEach((q) => L.marker([q.lat, q.lng], { icon: L.divIcon({ className: 'trail-year', html: q.items.join('<br>'), iconSize: undefined as any, iconAnchor: [0, 22 + (q.items.length - 1) * 16] }), keyboard: false, interactive: false, zIndexOffset: 400 }).addTo(g));
+    };
+    drawYears();
+    m?.on('zoomend', drawYears);
+    return () => { m?.off('zoomend', drawYears); };
   }, [trail]);
 
   // 今日對照層：菱形標記＋「資料截至」；與歷史年代無關，打開就一直顯示
@@ -370,16 +405,19 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         {VIEWS.map((v) => <button key={v.label} onClick={() => map.current?.flyToBounds(v.bounds, { duration: 0.6 })}>{v.label}</button>)}
         {setTodayOn && <button className={`today-toggle ${todayOn ? 'on' : ''}`} onClick={() => { const v = !todayOn; setTodayOn(v); if (v) map.current?.flyToBounds(TODAY_VIEW, { duration: 0.6 }); }} title="疊上今天的咽喉要道（每筆都標資料截至）">◆ 今日對照層</button>}
       </div>
-      <div className="map-legend">
+      <div className={`map-legend ${legendOpen ? '' : 'closed'}`}>
+        <button className="ml-toggle" aria-expanded={legendOpen} onClick={() => setLegendOpen((v) => !v)}>圖例 {legendOpen ? '▾' : '▸'}</button>
+        {legendOpen && <>
         <div>{snapLabel}</div>
         <div className="map-names-note">地名：中文＋英文（灰字＝今天的國家、城市）</div>
         {learn && <div className="learn-map-note">疆域都是示意：古代國界不像今天是一條清楚的線，很多地方是勢力越往外越淡，或好幾方都說是自己的。</div>}
         <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
         {era !== 'M' && <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>}
         {todayOn && <div><i className="lg today" />今日咽喉要道（灰色＝資料可能過時）</div>}
-        {power && <div><i className="lg power" />勢力示意：{power.title}（以令制國為單位、用今日縣界近似，不是確切領地線）</div>}
+        {power && <div><i className="lg power" />專題示意（顏色見專題頁圖例）：{power.title}（示意範圍，不是確切界線）</div>}
         {trail && trail.length > 1 && <div><i className="lg trail" />人生軌跡：依年份連線（先後順序，不是實際路線）</div>}
         {ch && <div><i className="lg chain" />物資鏈（實線＝沿已畫路線，點線＝路線示意）</div>}
+        </>}
       </div>
     </div>
   );

@@ -3,10 +3,11 @@ import type { Card, History, Index } from '../types';
 import type { Progress } from './progress';
 import { MysteryList } from './LearnHome';
 import { ERA_BINS, unitsOf, unitYear } from './util';
+import { DiveEntries } from '../components/Dive';
 import { fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
-export function HistoryPage({ index, h, cards, p, onUnit, onCard, onHistory, onSim }: {
-  index: Index; h: History; cards: Card[]; p: Progress; onUnit: (id: string) => void; onCard: (id: string) => void; onHistory: (id: string) => void; onSim: (id: string) => void;
+export function HistoryPage({ index, h, cards, p, onUnit, onCard, onHistory, onSim, onDive }: {
+  index: Index; h: History; cards: Card[]; p: Progress; onUnit: (id: string) => void; onCard: (id: string) => void; onHistory: (id: string) => void; onSim: (id: string) => void; onDive?: (id: string) => void;
 }) {
   const units = unitsOf(index, h).sort((a, b) => unitYear(index, a) - unitYear(index, b));
   const sorted = [...cards].sort((a, b) => a.time.start - b.time.start);
@@ -14,6 +15,7 @@ export function HistoryPage({ index, h, cards, p, onUnit, onCard, onHistory, onS
     <div className="hpage">
       <h2>{h.name}</h2>
       <p className="muted">{h.blurb}</p>
+      {onDive && <DiveEntries index={index} history={h} onDive={onDive} />}
       <h3>謎題（依年代排）</h3>
       {units.length ? <MysteryList units={units} p={p} onUnit={onUnit} /> : <p className="muted">這個史的單元還在製作中。你可以先讀下面的卡片，或換一個史。</p>}
       {h.id === 'money' && (

@@ -116,11 +116,14 @@ interface PathNavProps extends OpenProps {
   onStory: (id: string) => void;
   /** 正在這個單元裡讀，就不再列它 */
   hereUnit?: string;
+  /** 這張卡屬於哪些深入專題（從 index.dives 算）；有給才列 */
+  onDive?: (id: string) => void;
 }
 
-export function PathNav({ card, index, onOpen, canOpen, researchHref, onUnit, unitHref, onStory, hereUnit }: PathNavProps) {
+export function PathNav({ card, index, onOpen, canOpen, researchHref, onUnit, unitHref, onStory, hereUnit, onDive }: PathNavProps) {
   const hits = pathsOf(index, card.id).filter((h) => !(h.kind === 'unit' && h.id === hereUnit));
-  if (!hits.length) return null;
+  const dives = onDive ? (index.dives ?? []).filter((d) => d.cards.includes(card.id)) : [];
+  if (!hits.length && !dives.length) return null;
   const step = (id: string | undefined, dir: 'prev' | 'next') => {
     if (!id) return <span className={`pn-step ${dir} none`}>{dir === 'prev' ? '這是第一站' : '這是最後一站'}</span>;
     const c = byIdOf(index).get(id);
@@ -136,10 +139,8 @@ export function PathNav({ card, index, onOpen, canOpen, researchHref, onUnit, un
     const g = groups.find((x) => x.key === key);
     if (g) g.hits.push(h); else groups.push({ key, hits: [h] });
   }
-  return (
-    <nav className="path-nav" aria-label="這張卡在哪些故事裡">
-      <div className="pn-label">這張卡在這些故事裡</div>
-      {groups.map((g) => (
+  const renderGroup = (g: { key: string; hits: PathHit[] }) => (
+
         <div key={g.key} className="pn-group">
           {g.hits.map((h) => (
             <div key={h.kind + h.id} className={`pn-row ${h.kind}`}>
@@ -157,7 +158,16 @@ export function PathNav({ card, index, onOpen, canOpen, researchHref, onUnit, un
           ))}
           <div className="pn-steps">{step(g.hits[0].prev, 'prev')}{step(g.hits[0].next, 'next')}</div>
         </div>
-      ))}
+  );
+  // 超過 2 條路徑時，只先攤開前 2 條（含同一組上一站／下一站），其餘收合，不佔第一屏
+  let acc = 0; const shown: typeof groups = [], hidden: typeof groups = [];
+  for (const g of groups) (acc >= 2 ? hidden : shown).push(g), (acc += g.hits.length);
+  return (
+    <nav className="path-nav" aria-label="這張卡在哪些故事裡">
+      <div className="pn-label">這張卡在這些故事裡</div>
+      {dives.map((d) => <div key={d.id} className="pn-row dive"><span className="pn-kind">深入專題</span><button className="link pn-name" onClick={() => onDive!(d.id)}>《{d.title}》</button><span className="pn-pos muted">{d.cards.length} 張卡的放大視角</span></div>)}
+      {shown.map(renderGroup)}
+      {hidden.length > 0 && <details className="pn-more"><summary>還有 {hidden.reduce((n, g) => n + g.hits.length, 0)} 條路徑</summary>{hidden.map(renderGroup)}</details>}
     </nav>
   );
 }
@@ -187,7 +197,7 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
   const first = m.get(s.stops[0].id), last = m.get(s.stops[s.stops.length - 1].id);
   return (
     <div className="story-view">
-      <button className="link back" onClick={onAll}>← 全部故事線</button>
+      <nav className="dv-crumb" aria-label="麵包屑"><button className="link" onClick={onAll}>故事線</button> <span aria-hidden>›</span> <span>{s.title}</span></nav>
       <h2>{s.title}</h2>
       <p className="sv-q">❓ {s.question}</p>
       {s.blurb && <p className="sv-blurb">{s.blurb}</p>}
@@ -228,7 +238,7 @@ export function StorylineIndex({ index, onStory, onTopics, onDives }: { index: I
       <h2>故事線</h2>
       <p className="muted">沿著「前因 → 後果」的箭頭，把不同時代、不同地區的事件接成一條路。每一站之間都說明「怎麼造成的」。</p>
       {onTopics && <p className="small">想看同一種東西（例如 #交易所、#白銀）在各時代的樣子？<button className="link" onClick={onTopics}>看主題標籤</button></p>}
-      {onDives && <p className="small">想把一段時代放大來看（人物、勢力圖）？<button className="link" onClick={onDives}>看深入專題</button></p>}
+      {onDives && <p className="small">想把一段時代放大來看？<button className="link" onClick={onDives}>看深入專題</button></p>}
       <ul>
         {(index.storylines ?? []).map((s) => {
           const a = m.get(s.stops[0].id), b = m.get(s.stops[s.stops.length - 1].id);

@@ -22,7 +22,7 @@ place:
   scale: area
 structure_tags: [單一港口依賴, 宗教／意識形態動員, 慢變結構, 外部勢力介入]
 topics: [開港與鎖國, 宗教, 海上貿易]
-links: [event-toyotomi-unification, event-black-ships, commodity-iwami-silver, event-dutch-formosa, war-shimabara, event-buke-shohatto-sankin, commodity-nanban-trade, war-osaka-sieges, person-tokugawa-ieyasu, person-date-masamune]
+links: [event-toyotomi-unification, event-black-ships, commodity-iwami-silver, event-dutch-formosa, war-shimabara, event-buke-shohatto-sankin, commodity-nanban-trade, war-osaka-sieges, person-tokugawa-ieyasu, person-date-masamune, event-satsuma-ryukyu, event-koxinga-taiwan, event-takasago-koku-arima, war-imjin]
 causes:
   - { id: event-toyotomi-unification, rel: 背景, why: 豐臣秀吉 1587 年就下令驅逐傳教士，德川幕府延續這種戒心，而且越來越深。, src: [s1] }
 effects:
@@ -34,6 +34,9 @@ sources:
   - { id: s3, title: "Sakoku Edict of 1635 — Wikipedia", url: "https://en.wikipedia.org/wiki/Sakoku_Edict_of_1635", accessed: 2026-10-25, tier: 百科 }
   - { id: s4, title: "Perry Expedition — Wikipedia", url: "https://en.wikipedia.org/wiki/Perry_Expedition", accessed: 2026-10-25, tier: 百科 }
   - { id: s5, title: "鎖国 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/鎖国", accessed: 2026-11-03, tier: 百科 }
+  - { id: s6, title: "琉球侵攻 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/琉球侵攻", accessed: 2026-11-04, tier: 百科 }
+  - { id: s7, title: "朝鮮通信使 — ウィキペディア日本語版", url: "https://ja.wikipedia.org/wiki/朝鮮通信使", accessed: 2026-11-04, tier: 百科 }
+  - { id: s8, title: "己酉約条 — ウィキペディア日本語版", url: "https://ja.wikipedia.org/wiki/己酉約条", accessed: 2026-11-04, tier: 百科 }
 importance: 3
 learn:
   histories: [日本史]
@@ -60,7 +63,7 @@ learn:
     - { claim: "江戶日本「鎖國」就是完全不跟外國往來。", fact: "日文維基整理的研究指出，幕府透過長崎（荷蘭、清）、對馬（朝鮮）、薩摩（琉球）、松前（蝦夷地）持續對外往來，「四つの口」一詞由荒野泰典在 1980 年前後提出；荷蘭商館還從 1641 年到 1857 年每年提交「風說書」報告海外情勢。[s5]", src: [s5] }
     - { claim: "「鎖國」是江戶幕府自己訂的政策名稱。", fact: "這個詞是 1801 年長崎蘭學者志筑忠雄翻譯坎普費爾《日本誌》附錄時取的書名《鎖国論》，只以抄本流傳；幕府第一次使用「鎖国」一詞是 1853 年，明治以後才普及。[s5]", src: [s5] }
     - { claim: "荷蘭人為了做生意，每年都要踩踏聖像（踏繪）。", fact: "日文維基指出，義大利旅人 Gemelli Careri 記載荷蘭人曾踏繪、《格列佛遊記》也寫到這個傳聞，但沒有任何荷蘭人踏繪的一手史料。[s5]", src: [s5] }
-crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "historiography 第一段「根據 1970 年代日本歷史學者的研究，有些學者提出挑戰」有點繞。維基原意是：1970 年代日本史家質疑「只因天主教威脅」的解釋，現在學者多用「海禁」。建議改成「1970 年代起，日本歷史學者質疑傳統說法，指出日本一直透過四口和中國、朝鮮、琉球、荷蘭往來；所以近幾十年越來越多研究改用當時文書裡的『海禁』一詞。」 小建議已修正。 2026-11-03 第 2 期新增部分已查核：開 s5 鎖国：荒野泰典「四つの口」約 1980 年、風說書 1641–1857、志筑忠雄 1801《鎖国論》抄本、幕府 1853 年首用、Gemelli Careri 與《格列佛遊記》荷蘭人踏繪無一手史料，均相符。links 6 個 id 均存在。通過。" }
+crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "historiography 第一段「根據 1970 年代日本歷史學者的研究，有些學者提出挑戰」有點繞。維基原意是：1970 年代日本史家質疑「只因天主教威脅」的解釋，現在學者多用「海禁」。建議改成「1970 年代起，日本歷史學者質疑傳統說法，指出日本一直透過四口和中國、朝鮮、琉球、荷蘭往來；所以近幾十年越來越多研究改用當時文書裡的『海禁』一詞。」 小建議已修正。 2026-11-03 第 2 期新增部分已查核：開 s5 鎖国：荒野泰典「四つの口」約 1980 年、風說書 1641–1857、志筑忠雄 1801《鎖国論》抄本、幕府 1853 年首用、Gemelli Careri 與《格列佛遊記》荷蘭人踏繪無一手史料，均相符。links 6 個 id 均存在。通過。 2026-11-04 第 3 期依複查修改：C4 補薩摩口（1609 入侵琉球）與對馬口（戰後日朝復交、己酉約條）由來，links 加琉球、鄭成功、高山國、壬辰，新增 s6–s8；2026-11-07 第 3 期修改已查核：開 s6 琉球侵攻（1609 出兵、琉球對薩摩負義務並續向清朝貢）、s7 朝鮮通信使（1607 首次使節至江戶向秀忠呈國書）、s8 己酉約条（1609 宗氏與朝鮮締結、全 12 條、歲遣船 20 隻、限釜山倭館），C4 新增句均相符。通過。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
@@ -79,7 +82,7 @@ lens_status: 無直接論述
 
 ## C4 制度或機制變化
 
-對外往來只限四口：長崎（中國、荷蘭）、對馬（朝鮮）、薩摩（琉球）、松前（愛努）。[s1]
+對外往來只限四口：長崎（中國、荷蘭）、對馬（朝鮮）、薩摩（琉球）、松前（愛努）。[s1] 其中薩摩口與對馬口都有前史：薩摩口來自 1609 年島津氏入侵琉球，之後琉球一邊向薩摩納貢、一邊仍向中國朝貢（見 event-satsuma-ryukyu 卡）；對馬口來自壬辰戰爭後的復交，1607 年朝鮮使節來到江戶，1609 年對馬宗氏與朝鮮訂己酉約條，恢復貿易（見 war-imjin 卡）。[s6][s7][s8]
 
 ## C5 受益者與受損者
 

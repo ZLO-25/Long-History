@@ -19,10 +19,10 @@ interface Props {
   onOpen: (id: string) => void; onHistory?: (id: string) => void; compact?: boolean;
   onTopic?: (name: string) => void; topicCount?: (t: { cards: string[] }) => number;
   /** 這張卡在哪些單元／故事線（上一站、下一站）；hereUnit＝正在讀的單元，不重複列 */
-  onStory?: (id: string) => void; onUnit?: (id: string) => void; hereUnit?: string;
+  onStory?: (id: string) => void; onUnit?: (id: string) => void; hereUnit?: string; onDive?: (id: string) => void;
 }
 
-export function LearnCard({ card: c, index, history, onOpen, onHistory, compact, onTopic, topicCount, onStory, onUnit, hereUnit }: Props) {
+export function LearnCard({ card: c, index, history, onOpen, onHistory, compact, onTopic, topicCount, onStory, onUnit, hereUnit, onDive }: Props) {
   const [term, setTerm] = useState<Term | null>(null);
   const L = c.learn!;
   // 從哪個史看：預設是目前選的史（如果這張卡屬於它）
@@ -66,7 +66,7 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
       </header>
       <CardImages images={c.images} compact={compact} />
 
-      {onStory && <PathNav card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} onUnit={onUnit} onStory={onStory} hereUnit={hereUnit} />}
+      {onStory && <PathNav card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} onUnit={onUnit} onStory={onStory} hereUnit={hereUnit} onDive={onDive} />}
 
       <CauseList card={c} side="causes" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />
       <section className="lc-sec story">{T(L.story)}</section>

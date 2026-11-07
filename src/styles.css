@@ -41,7 +41,10 @@ a { color: var(--accent); }
 .back { border: 1px solid var(--line); background: #fff; border-radius: 6px; padding: 2px 10px; font-size: 13px; margin-bottom: 6px; }
 
 .map, .map-canvas { position: absolute; inset: 0; }
-.map-legend { position: absolute; left: 10px; bottom: 10px; z-index: 500; background: rgba(255,255,255,.92); border-radius: 6px; padding: 4px 8px; font-size: 12px; line-height: 1.6; pointer-events: none; }
+.map-legend { position: absolute; left: 10px; bottom: 28px; z-index: 500; background: rgba(255,255,255,.92); border-radius: 6px; padding: 4px 8px; font-size: 12px; line-height: 1.6; max-width: min(460px, 60%); max-height: 45%; overflow: auto; }
+.map-legend.closed { padding: 0; }
+.ml-toggle { border: 0; background: none; font: inherit; font-weight: 600; padding: 2px 8px; cursor: pointer; color: var(--ink); }
+.map-legend.closed .ml-toggle { background: rgba(255,255,255,.92); border-radius: 6px; }
 .lg { display: inline-block; width: 18px; height: 0; vertical-align: middle; margin: 0 3px 0 8px; }
 .lg.road { border-top: 3px solid #8b4513; } .lg.sea { border-top: 3px dashed #2b6cb0; }
 .lg.wall { border-top: 4px solid #6b2737; }
@@ -70,7 +73,9 @@ a { color: var(--accent); }
 .axis text { font-size: 12px; fill: #3f3b35; font-weight: 500; pointer-events: none; }
 .tick { stroke: #e9e4d9; } .tick.major { stroke: #d8d1c2; }
 .lane-west { fill: transparent; } .lane-china { fill: #faf3ea; }
-.lane-label { font-size: 12px; fill: #3f3b35; font-weight: 600; paint-order: stroke; stroke: #fffdf8; stroke-width: 4px; pointer-events: none; }
+.lane-dive-0 { fill: transparent; } .lane-dive-1 { fill: #faf3ea; }
+.lane-bar { fill: var(--dive, #7b2d26); }
+.lane-label { font-size: 13px; fill: #3f3b35; font-weight: 600; paint-order: stroke; stroke: #fffdf8; stroke-width: 4px; pointer-events: none; }
 .node { cursor: pointer; }
 .node text { font-size: 13px; fill: var(--ink); font-weight: 500; }
 .node:hover text, .node.sel text { font-weight: 700; }

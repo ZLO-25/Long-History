@@ -20,6 +20,7 @@ powers:
     provinces: 尾張、美濃、飛驒、伊勢、志摩、伊賀、近江、山城、大和、河內、和泉、攝津、丹波、丹後、播磨、但馬、因幡、淡路、若狹、越前、加賀、能登、越中、信濃、甲斐、上野（上野・信濃・甲斐為 1582 年 3 月甲州征伐後新領）
     prefs: [JP-21, { pref: JP-23, lng_lt: 137.05 }, JP-24, JP-25, JP-26, JP-27, JP-29, JP-28, JP-18, JP-17, JP-16, JP-20, JP-19, JP-10, { pref: JP-31, lng_gt: 133.9 }]
   - name: 宇喜多秀家（從屬織田）
+    minor: true
     en: Ukita Hideie (Oda vassal)
     color: "#e07a5f"
     provinces: 備前、美作（備中東部與毛利對峙中）
@@ -41,6 +42,7 @@ powers:
     provinces: 常陸
     prefs: [JP-08]
   - name: 下野諸氏（宇都宮・那須・佐野）
+    minor: true
     en: Shimotsuke lords (Utsunomiya, Nasu, Sano)
     color: "#a0aec0"
     provinces: 下野
@@ -81,6 +83,7 @@ powers:
     provinces: 土佐、阿波大部（十河存保仍據勝瑞城，1582 年 8 月中富川之戰後才降）、伊予東部與南部（中予河野氏得毛利援助持續抵抗，1584 年 12 月才降伏；讚岐西部香川氏自 1578 年從屬）
     prefs: [JP-39, JP-36, JP-38]
   - name: 十河存保（三好餘黨）
+    minor: true
     en: Sogō Masayasu (Miyoshi remnant)
     color: "#cbd5e0"
     provinces: 讚岐東部（十河城、虎丸城；西部已屬長宗我部，本圖以全縣示意）
@@ -101,16 +104,19 @@ powers:
     provinces: 肥前（有馬・大村等受其壓迫；長崎 1580 年起為耶穌會領）
     prefs: [JP-41, JP-42]
   - name: 筑前・筑後・豐前諸氏（秋月等）
+    minor: true
     en: Northern Kyūshū lords (Akizuki etc.)
     color: "#e2e8f0"
     provinces: 筑前、筑後、豐前（大友與龍造寺拉鋸）
     prefs: [JP-40]
   - name: 肥後諸氏（阿蘇・相良等）
+    minor: true
     en: Higo lords (Aso, Sagara etc.)
     color: "#edf2f7"
     provinces: 肥後（島津勢力北上中）
     prefs: [JP-43]
   - name: 紀伊：雜賀眾・根來寺・高野山
+    minor: true
     en: "Kii: Saika, Negoro, Kōyasan (autonomous)"
     color: "#f6e05e"
     provinces: 紀伊（自立的鐵砲傭兵與寺社勢力，1585 年才被秀吉平定）

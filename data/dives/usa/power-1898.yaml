@@ -1,0 +1,21 @@
+# 領土擴張示意圖 1898 年（畫法同 power-1783.yaml）
+year: 1898
+basemap: us_states
+title: 跳出大陸：阿拉斯加、夏威夷與美西戰爭（1898 年）
+note: 1853 年 12 月 30 日加茲登購地（1,000 萬美元，1854 年生效）補上希拉河以南。1867 年 3 月 30 日向俄國買下阿拉斯加（720 萬美元，10 月 18 日移交）。1898 年 7 月 7 日紐蘭茲決議併吞夏威夷共和國（8 月 12 日儀式）；同年美西戰爭，12 月 10 日巴黎條約西班牙讓出波多黎各、關島、菲律賓（1899 年 4 月 11 日生效），古巴由美軍佔領。這些海外領地不在本圖底圖上（只畫今日美國各州），請看「美西戰爭」卡的地圖。此時大陸上的原住民族多數已被遷入保留地；1890 年傷膝事件、人口普查宣布「邊疆關閉」。俄克拉荷馬東半仍是印第安領地，1907 年才和西半合併成州。
+view: [[17, -162], [50, -64]]
+sources:
+  - { title: "Alaska Purchase — Wikipedia：1867-03-30 簽約、720 萬美元、10-18 移交", url: "https://en.wikipedia.org/wiki/Alaska_Purchase", accessed: 2026-11-04, tier: 百科 }
+  - { title: "Newlands Resolution — Wikipedia：1898-07-07 簽署、08-12 併吞儀式、1900 年夏威夷領地", url: "https://en.wikipedia.org/wiki/Newlands_Resolution", accessed: 2026-11-04, tier: 百科 }
+  - { title: "Gadsden Purchase — Wikipedia：1853-12-30 簽約、1,000 萬美元、希拉河以南、格蘭德河以西", url: "https://en.wikipedia.org/wiki/Gadsden_Purchase", accessed: 2026-11-04, tier: 百科 }
+  - { title: "Territorial evolution of the United States — Wikipedia：1854、1867、1898、1899 條目", url: "https://en.wikipedia.org/wiki/Territorial_evolution_of_the_United_States", accessed: 2026-11-04, tier: 百科 }
+powers:
+  - { name: 美國（1783 年疆域）, en: "United States (1783)", color: "#1f4e79", area: 同 1783 年, regions: [US-ME, US-NH, US-VT, US-MA, US-RI, US-CT, US-NY, US-NJ, US-PA, US-DE, US-MD, US-DC, US-VA, US-WV, US-NC, US-SC, US-GA, US-KY, US-TN, US-OH, US-IN, US-IL, US-MI, US-WI, { code: US-MN, lng_gt: -94 }, { code: US-AL, lat_gt: 31 }, { code: US-MS, lat_gt: 31 }] }
+  - { name: 路易斯安那購地（1803）, en: "Louisiana Purchase (1803)", color: "#2b8cbe", area: 同 1803 年（含俄克拉荷馬）, regions: [US-LA, US-AR, US-MO, US-IA, US-ND, US-SD, US-NE, US-KS, US-OK, { code: US-MN, lng_lt: -94 }, { code: US-MT, lng_gt: -112.5 }, { code: US-WY, lat_gt: 42, lng_gt: -109.5 }, { code: US-WY, lat_lt: 42, lng_gt: -107.5 }, { code: US-CO, lat_gt: 38, lng_gt: -106 }] }
+  - { name: 佛羅里達（1821）, en: "Florida (1821)", color: "#74a9cf", area: 同 1821 年, regions: [US-FL, { code: US-AL, lat_lt: 31 }, { code: US-MS, lat_lt: 31 }] }
+  - { name: 德克薩斯（1845）, en: "Texas (1845)", color: "#e6ab02", area: 同 1848 年, regions: [US-TX, { code: US-CO, lat_lt: 38, lng_gt: -106 }] }
+  - { name: 奧勒岡（1846）, en: "Oregon (1846)", color: "#66a61e", area: 同 1848 年, regions: [US-WA, US-OR, US-ID, { code: US-MT, lng_lt: -112.5 }, { code: US-WY, lat_gt: 42, lng_lt: -109.5 }] }
+  - { name: 墨西哥割讓（1848）, en: "Mexican Cession (1848)", color: "#d95f02", area: 同 1848 年, regions: [US-CA, US-NV, US-UT, { code: US-AZ, lat_gt: 33 }, { code: US-NM, lat_gt: 32.4 }, { code: US-NM, lat_lt: 32.4, lng_gt: -106.6 }, { code: US-CO, lng_lt: -106 }, { code: US-WY, lat_lt: 42, lng_lt: -107.5 }] }
+  - { name: 加茲登購地（1853）, en: "Gadsden Purchase (1853)", color: "#a6761d", minor: true, area: 今日亞利桑那南部、新墨西哥西南角, regions: [{ code: US-AZ, lat_lt: 33 }, { code: US-NM, lat_lt: 32.4, lng_lt: -106.6 }] }
+  - { name: 阿拉斯加（1867 年向俄國購入）, en: "Alaska Purchase (1867)", color: "#7570b3", area: 今日阿拉斯加, regions: [{ code: US-AK, lng_gt: -170 }] }
+  - { name: 夏威夷（1898 年併吞）, en: "Hawaii annexed (1898)", color: "#e7298a", card: war-spanish-american, area: 今日夏威夷, regions: [{ code: US-HI, lng_gt: -161 }] }

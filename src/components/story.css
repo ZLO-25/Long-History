@@ -50,6 +50,7 @@
 .pn-where { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; }
 .pn-kind { font-size: 11px; border-radius: 4px; padding: 0 5px; background: var(--story-bg); color: var(--story); border: 1px solid var(--story-line); white-space: nowrap; }
 .pn-row.unit .pn-kind { background: #eef4fb; color: #2b6cb0; border-color: #c3d6ee; }
+.pn-row.dive .pn-kind { background: var(--dive-bg, #fbeee8); color: var(--dive, #9b2c2c); border-color: var(--dive, #9b2c2c); }
 .pn-dots { display: inline-flex; gap: 3px; align-items: center; }
 .pn-dots i { width: 8px; height: 8px; border-radius: 50%; background: #d9e6e3; display: inline-block; }
 .pn-dots i.past { background: #8fcfc6; }
@@ -104,3 +105,4 @@
 .cause-list .ce-turn { margin: 8px 0 2px; padding-top: 6px; border-top: 2px solid var(--story-line); font-size: .9em; color: var(--story); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
 .cause-list .ce-turn small { font-weight: 400; color: var(--muted); font-size: .88em; }
 .cause-list .ce-turn + ul li:first-child { border-top: 0; }
+.pn-more { margin-top: 4px; } .pn-more > summary { cursor: pointer; font-size: 13px; color: var(--story); } @media (pointer: coarse) { .pn-more > summary { min-height: 44px; display: flex; align-items: center; } }

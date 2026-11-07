@@ -2,10 +2,16 @@
 # 怎麼新增一個專題見 docs/dives.md
 id: dive-sengoku
 title: 日本戰國：從應仁之亂到鎖國
-question: 一個將軍還在、卻沒人聽他的國家，怎麼打了一百多年，最後被三個人接力收拾成一個關起門來的太平日本？
-blurb: 這個專題把戰國一百七十年放大來看：誰在什麼時候最強、三位「天下人」各自做了什麼決定、鐵砲與白銀怎麼把日本接上世界，以及這段歷史和明朝、朝鮮、臺灣有什麼關係。
+question: 一個將軍還在、卻管不動各地的國家，怎麼打了一百多年？信長、秀吉、家康各自接手了什麼局面、做了什麼選擇，最後換來的太平，為什麼伴隨著禁教與對外管制？
+blurb: 這個專題把戰國一百七十年放大來看：誰在什麼時候最強、三位「天下人」各自做了什麼決定、鐵砲與白銀怎麼把日本接上世界，以及這段歷史和明朝、朝鮮、琉球、臺灣有什麼關係。三人並不是同一條路上的接棒者，每一次接手都伴隨著對前一家的取代。
 range: { start: 1467, end: 1639 }
 histories: [日本史]
+visual: power
+power_ui:
+  title: 勢力圖
+  subtitle: 誰在什麼時候最強
+  caveat: 以「令制國」為單位、用今日都道府縣的範圍近似，所以邊界只是示意，不是當時確切的領地線。北海道（蝦夷地）與沖繩（琉球王國）不在圖內。
+  legend: 令制國
 # 專題時間軸的軌道：每張卡依類型分軌（沒列到的類型放「其他」）
 lanes:
   - { name: 政治與制度, types: [event, social, finance] }
@@ -51,8 +57,10 @@ cards:
   - person-yodo-dono
   - person-shimazu-yoshihiro
   - person-date-masamune
+  # 第 3 期新增
+  - event-satsuma-ryukyu
 storylines: [story-sengoku, story-japan]
-units: [unit-sengoku-1-onin, unit-sengoku-2-gun, unit-sengoku-3-hideyoshi, unit-sengoku-4-closing, unit-imjin-war]
+units: [unit-sengoku-1-onin, unit-sengoku-2-gun, unit-sengoku-3-hideyoshi, unit-imjin-war, unit-sengoku-4-closing]
 # 大名勢力示意圖（data/dives/sengoku/power-<年>.yaml → npm run power）
 power_maps:
   - { year: 1560, file: sengoku/power-1560.geojson }

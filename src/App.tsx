@@ -4,7 +4,7 @@ import type { Index, Card, Filters } from './types';
 import { createSearch, matchTopics, useSearchLibs } from './lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from './components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from './components/Story';
-import { DiveView, DiveIndex, diveMarks, findDive, powerFor } from './components/Dive';
+import { DiveView, DiveIndex, diveMarks, findDive, hasPowerVisual, powerFor } from './components/Dive';
 import { activeAt } from './lib/format';
 import { Timeline } from './components/Timeline';
 import { MapView } from './components/MapView';
@@ -85,7 +85,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     if (cd) return cd.time.start;
     // ?dive= 打開深入專題時，年代跳到第一張勢力圖的年份（沒有就專題起點）
     const dv = findDive(index, params.get('dive') ?? '');
-    if (dv) return powerFor(dv, dv.range.end)?.year ?? dv.range.start;
+    if (dv) return powerFor(dv, dv.range.start)?.year ?? dv.range.start;
     // ?topic= 打開主題路徑時，年代跳到路徑第一張卡
     const tp = findTopic(index, params.get('topic') ?? '')?.topic.cards[0];
     const tc = tp ? index.cards.find((c) => c.id === tp) : undefined;
@@ -113,14 +113,14 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const [chainT, setChainT] = useState(0);
   // 今日對照層開關：網址帶 ?today= 或打開今日項目時自動打開
   const [todayOn, setTodayOn] = useState(() => params.has('today') || (params.get('chain') ?? '').startsWith('today-'));
-  const [mobileTab, setMobileTab] = useState<'list' | 'map' | 'match' | 'topics'>('list');
+  const [mobileTab, setMobileTab] = useState<'list' | 'map' | 'match' | 'topics'>(() => (isMobile && (params.get('dive') || params.get('story') || params.get('topic')) ? 'topics' : 'list'));
   const panel = stack[stack.length - 1];
   // 深入專題：目前打開哪一年的勢力圖（null＝關）。進專題時自動打開最接近目前年代的一張
-  const [powerYear, setPowerYear] = useState<number | null>(() => { const dv = findDive(index, params.get('dive') ?? ''); return dv ? powerFor(dv, powerFor(dv, dv.range.end)?.year ?? dv.range.start)?.year ?? null : null; });
+  const [powerYear, setPowerYear] = useState<number | null>(() => { const dv = findDive(index, params.get('dive') ?? ''); return dv ? powerFor(dv, powerFor(dv, dv.range.start)?.year ?? dv.range.start)?.year ?? null : null; });
   // 專題「打開著」的判定：目前在專題頁，或從專題頁點進卡片（上面只疊著卡片）——時間軸維持放大、勢力圖維持
   const diveBelow = (() => { for (let i = stack.length - 1; i >= 0; i--) { const p = stack[i]; if (p.kind === 'dive') return p.id; if (p.kind !== 'card') return null; } return null; })();
   const activeDive = diveBelow ? findDive(index, diveBelow) ?? null : null;
-  const activePower = activeDive && powerYear != null ? activeDive.power_maps.find((p) => p.year === powerYear) ?? null : null;
+  const activePower = activeDive && hasPowerVisual(activeDive) && powerYear != null ? activeDive.power_maps.find((p) => p.year === powerYear) ?? null : null;
   // 各區塊大小可拖曳調整（右欄寬、時間軸高、時間軸收合），記在這台瀏覽器；「⟲ 版面」恢復預設
   // 三個區塊還可以拖曳交換位置、變浮動小窗、彈出新視窗（components/Dock.tsx）
   const L = useLayout();
@@ -187,7 +187,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     const d = findDive(index, id);
     if (!d) return;
     const y = powerFor(d, year)?.year ?? null;
-    if (year < d.range.start || year > d.range.end) { const y0 = powerFor(d, d.range.end)?.year ?? d.range.start; setYear(y0); setPowerYear(powerFor(d, y0)?.year ?? null); }
+    if (year < d.range.start || year > d.range.end) { const y0 = powerFor(d, d.range.start)?.year ?? d.range.start; setYear(y0); setPowerYear(powerFor(d, y0)?.year ?? null); }
     else setPowerYear(y);
     open({ kind: 'dive', id });
   }, [open, index, year]);
@@ -213,7 +213,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const side = (() => {
     switch (panel.kind) {
       case 'card': return selectedCard && <CardDetail card={selectedCard} index={index} byId={byId} onOpen={openCard}
-        onTag={(t) => open({ kind: 'match', tags: [t] })} onTopic={openTopic} onPlace={(key) => open({ kind: 'place', key })} onRoute={(id) => open({ kind: 'route', id })} onChain={openChain} onToday={openToday} onStory={openStory} />;
+        onTag={(t) => open({ kind: 'match', tags: [t] })} onTopic={openTopic} onPlace={(key) => open({ kind: 'place', key })} onRoute={(id) => open({ kind: 'route', id })} onChain={openChain} onToday={openToday} onStory={openStory} onDive={(index.dives ?? []).length ? openDive : undefined} />;
       case 'place': return <PlacePanel placeKey={panel.key} cards={index.cards} onOpen={openCard} />;
       case 'route': return <RoutePanel route={index.routes.find((r) => r.id === panel.id)!} cards={index.cards} onOpen={openCard} />;
       case 'chain': return activeChain && <ChainPanel chain={activeChain} card={byId.get(activeChain.card)} t={chainT} setT={setChainT} onOpen={openCard} byId={byId} />;
@@ -224,7 +224,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
       case 'topics': return <TopicIndex index={index} onTopic={openTopic} />;
       case 'story': return <StorylineView key={panel.id} index={index} id={panel.id} currentId={lastOpened} onOpen={openCard} onAll={() => open({ kind: 'stories' })} onMap={isMobile ? () => setMobileTab('map') : undefined} />;
       case 'stories': return <StorylineIndex index={index} onStory={openStory} onTopics={() => open({ kind: 'topics' })} onDives={(index.dives ?? []).length ? () => open({ kind: 'dives' }) : undefined} />;
-      case 'dive': return <DiveView key={panel.id} index={index} id={panel.id} year={year} setYear={setYear} currentId={lastOpened} powerYear={powerYear} setPowerYear={setPowerYear} onOpen={openCard} onStory={openStory} onAll={() => open({ kind: 'dives' })} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} onMap={isMobile ? () => setMobileTab('map') : undefined} />;
+      case 'dive': return <DiveView key={panel.id} index={index} id={panel.id} year={year} setYear={setYear} currentId={lastOpened} powerYear={powerYear} setPowerYear={setPowerYear} onOpen={openCard} onStory={openStory} onAll={() => open({ kind: 'dives' })} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} onMap={isMobile ? () => setMobileTab('map') : undefined} timelineZoomed={!isMobile} />;
       case 'dives': return <DiveIndex index={index} onDive={openDive} />;
       default: return <ResultList query={query} result={result} hits={hits} cards={visible} year={year} onOpen={openCard} topics={topicHits} onTopic={openTopic} />;
     }
@@ -235,7 +235,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     onRoute={(id) => { open({ kind: 'route', id }); if (isMobile) setMobileTab('list'); }} compact={isMobile}
     chain={activeChain ? { chain: activeChain, t: chainT } : null}
     todayOn={todayOn} setTodayOn={setTodayOn} onToday={(id) => { openToday(id); if (isMobile) setMobileTab('list'); }} todaySel={activeToday?.id ?? null}
-    power={activePower ? { file: activePower.file, title: activePower.title } : null} onCard={(id) => { openCard(id); if (isMobile) setMobileTab('list'); }} trail={trail} />;
+    power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend } : null} onCard={(id) => { openCard(id); if (isMobile) setMobileTab('list'); }} trail={trail} />;
 
   return (
     <div className={`app ${isMobile ? 'mobile' : 'desktop'}`}>
@@ -244,7 +244,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
         <input className="search" type="search" value={query} onChange={(e) => onQuery(e.target.value)}
           placeholder={isMobile ? '搜尋卡片（可打錯字、簡體、英文）' : '搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）'} aria-label="搜尋" />
         {!isMobile && (index.storylines ?? []).length > 0 && <button className={`btn ${panel.kind === 'story' || panel.kind === 'stories' ? 'on' : ''}`} onClick={() => open({ kind: 'stories' })} title="沿著前因 → 後果，把不同時代的事件接成一條路">故事線</button>}
-        {!isMobile && (index.dives ?? []).length > 0 && <button className={`btn ${panel.kind === 'dive' || panel.kind === 'dives' ? 'on' : ''}`} onClick={() => open({ kind: 'dives' })} title="把一段時代放大來看：人物、勢力圖、故事線">專題</button>}
+        {!isMobile && (index.dives ?? []).length > 0 && <button className={`btn ${panel.kind === 'dive' || panel.kind === 'dives' ? 'on' : ''}`} onClick={() => open({ kind: 'dives' })} title="把一段時代放大來看：地圖、卡片、故事線">專題</button>}
         {!isMobile && <button className={`btn ${panel.kind === 'topic' || panel.kind === 'topics' ? 'on' : ''}`} onClick={() => open({ kind: 'topics' })} title="依主題把卡片串成歷史路徑，例如 #交易所">主題標籤</button>}
         {!isMobile && <button className={`btn ${panel.kind === 'match' ? 'on' : ''}`} onClick={() => open({ kind: 'match' })}>結構對照</button>}
         {!isMobile && (Object.keys(dock.wins) as RPanel[]).map((id) => <button key={id} className="btn sm dock-back" onClick={() => dock.unpop(id)} title="這個區塊在另一個視窗，按一下收回來">↩ 收回{({ map: '地圖', side: '卡片欄', tl: '時間軸' } as const)[id]}</button>)}

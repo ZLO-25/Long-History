@@ -19,7 +19,7 @@ place:
     - { name_ancient: 烏魯克, name_modern: 瓦爾卡（伊拉克穆塔納省）, lat: 31.3222, lng: 45.6361, precision: schematic, role: 最早一批原始楔形文字泥板出土地（座標為遺址一帶）, src: [s1, s2] }
   scale: area
 structure_tags: [資訊傳播革命, 慢變結構, 技術擴散]
-topics: [印刷與通訊, 宗教]
+topics: [印刷與通訊, 宗教, 文字與書寫]
 links: [finance-mesopotamia-credit, tech-paper, tech-printing-press, tech-movable-type]
 effects:
   - { id: finance-mesopotamia-credit, rel: 背景, why: 有了文字，帳目、契約和法律才能寫在泥板上保存，借糧、借銀的約定也能留下憑證，日後討債、還債有據。, src: [s1, "finance-mesopotamia-credit:s1"] }

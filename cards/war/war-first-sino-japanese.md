@@ -20,7 +20,7 @@ place:
     - { name_ancient: 馬關（赤間關）, name_modern: 山口縣下關市（日本）, lat: 33.95, lng: 130.94, precision: schematic, role: 1895 年 4 月 17 日簽訂和約, src: [s2] }
   scale: area
 structure_tags: [霸權挑戰, 技術代差, 海權對陸權, 戰爭融資, 臨界點]
-topics: [海戰與水戰, 對外擴張, 開港與鎖國]
+topics: [海戰與水戰, 對外擴張, 開港與鎖國, 朝貢與冊封]
 links: [event-meiji-restoration, event-self-strengthening, event-1895-cession, war-russo-japanese, event-xinhai-revolution, war-franco-prussian]
 causes:
   - { id: event-meiji-restoration, rel: 促成, why: 維新後日本有了國民軍隊、新式海軍與中央政府，有能力和清朝爭奪朝鮮。, src: [event-meiji-restoration:s1, s1] }

@@ -23,7 +23,7 @@ place:
     - { name_ancient: 麻林地, name_modern: 馬林迪（肯亞）, lat: -3.22, lng: 40.12, precision: schematic, role: 東非斯瓦希里海岸，長頸鹿由此取得（座標為今馬林迪市）, src: [s1, s2] }
   scale: line
 structure_tags: [政治宣傳工程, 公共工程支出, 邊疆防線]
-topics: [航海]
+topics: [航海, 朝貢與冊封]
 links: [event-vasco-da-gama, finance-ming-baochao, commodity-silver-flow]
 causes:
   - { id: war-jingnan, rel: 促成, why: "永樂帝靠內戰奪得皇位，需要向國內外證明自己是正統天子，於是派船隊出海，邀請各國遣使朝貢。", src: [s1, s2] }

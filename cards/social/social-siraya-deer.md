@@ -20,7 +20,7 @@ place:
     - { name_ancient: 蕭壠社, name_modern: 臺南市佳里區（臺灣）, lat: 23.1652, lng: 120.1774, precision: schematic, role: 西拉雅大社之一, src: [s1] }
   scale: area
 structure_tags: [關鍵原料壟斷, 外部勢力介入, 慢變結構, 重新設計基本單位]
-topics: [東印度公司, 臺灣出口品, 殖民統治, 原住民族]
+topics: [東印度公司, 臺灣出口品, 殖民統治, 原住民族, 文字與書寫]
 links: [event-dutch-formosa, event-koxinga-taiwan, event-spanish-north-taiwan, event-qing-taiwan-frontier]
 causes:
   - { id: event-dutch-formosa, rel: 促成, why: 荷蘭東印度公司把鹿皮當成賣往日本的熱門商品，還發捕鹿執照，西拉雅人的獵場因此被捲進國際貿易。, src: [s2] }

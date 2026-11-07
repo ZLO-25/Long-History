@@ -21,7 +21,7 @@ place:
     - { name_ancient: 鳴梁海峽, name_modern: 全羅南道珍島與海南之間（韓國）, lat: 34.5700, lng: 126.3080, precision: schematic, role: 1597 年李舜臣以 13 艘船擊退日軍, src: [s3, s4] }
   scale: area
 structure_tags: [霸權挑戰, 外部勢力介入, 補給線過長, 海權對陸權, 財政枯竭]
-topics: [海戰與水戰, 對外擴張, 火藥與武器]
+topics: [海戰與水戰, 對外擴張, 火藥與武器, 朝貢與冊封]
 links: [tech-turtle-ship, event-toyotomi-unification, event-joseon-dynasty, commodity-iwami-silver, person-toyotomi-hideyoshi, person-ishida-mitsunari, person-shimazu-yoshihiro, person-tokugawa-ieyasu, war-sekigahara, event-takasago-koku-arima, social-taiko-kenchi-katanagari, event-sengoku-japan]
 effects:
   - { id: event-ming-qing-transition, rel: 促成, why: "明朝援朝除了出兵，還送出約1700萬兩白銀與物資（估計）；有人認為這加重了明朝的財政負擔。", src: [s1, s2], disputed: true }

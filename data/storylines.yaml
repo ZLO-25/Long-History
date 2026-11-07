@@ -101,6 +101,20 @@ storylines:
     stops: [war-world-war-two, event-containment-nato, war-korean-war, war-vietnam-war, event-nixon-china]
 
 
+  - id: story-vietnam-china
+    title: 越南與中國：一千年被統治，一千年稱臣不稱弱
+    question: 越南被中國王朝統治了一千年，自主之後又三次打退北方大軍，為什麼還是年年派使者去朝貢，連國名「越南」都是清朝定的？
+    blurb: 這條線看越南怎麼一邊學中國的字和制度、一邊在戰場上擋住北方；每一站打完仗，都回到「對外稱臣、對內稱帝」的老辦法。
+    stops: [event-vietnam-northern-rule, war-bach-dang-938, war-song-dai-viet-1075, war-yuan-dai-viet, war-ming-dai-viet, event-nguyen-dynasty-vietnam-name]
+
+
+  - id: story-vietnam-modern
+    title: 越南的近代：從法國殖民到世界工廠
+    question: 一個靠朝貢和中國打交道的王朝，怎麼在一百多年裡先被法國吞下，又打了三場大仗，最後變成你身上球鞋的產地？
+    blurb: 這條線從阮朝開始，看外國勢力一個換過一個：法國、美國、中國；每一場仗都是上一場留下的問題。
+    stops: [event-nguyen-dynasty-vietnam-name, event-french-indochina, war-first-indochina, war-vietnam-war, war-sino-vietnamese-1979, event-doi-moi]
+
+
   # 深入專題「日本戰國」的主線（data/dives/sengoku.yaml）
   - id: story-sengoku
     title: 日本戰國：從應仁之亂到關起門的太平

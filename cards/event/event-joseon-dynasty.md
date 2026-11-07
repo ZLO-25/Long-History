@@ -18,7 +18,7 @@ place:
     - { name_ancient: 漢城（漢陽）, name_modern: 首爾（韓國）, lat: 37.5796, lng: 126.9770, precision: schematic, role: 朝鮮王朝首都（座標為景福宮一帶）, src: [s1] }
   scale: area
 structure_tags: [慢變結構, 宗教／意識形態動員, 外部勢力介入, 制度包裝延續]
-topics: [開港與鎖國, 儒家]
+topics: [開港與鎖國, 儒家, 朝貢與冊封, 文字與書寫]
 links: [war-imjin, tech-turtle-ship]
 effects:
   - { id: war-imjin, rel: 背景, why: "朝鮮1401年起加入明朝的朝貢體系，名義上是明朝屬國，所以日本入侵時能向明朝求援，明軍因此出兵。", src: [s1, war-imjin:s1] }

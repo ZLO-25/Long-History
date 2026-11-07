@@ -18,7 +18,7 @@ place:
     - { name_ancient: 咸陽, name_modern: 咸陽（中國陝西）, lat: 34.3299, lng: 108.7088, precision: schematic, role: 秦帝國首都（座標為今咸陽市政府）, src: [s4] }
   scale: area
 structure_tags: [快速擴張, 標準化量產, 基礎建設網絡, 邊疆防線, 思想異見與審判]
-topics: [鑄幣, 統一與中央集權, 諸侯爭霸]
+topics: [鑄幣, 統一與中央集權, 諸侯爭霸, 文字與書寫]
 links: [event-shang-yang-reform, event-zhang-qian-west, event-alexander-campaign, event-augustan-principate, war-changping, event-burning-books, event-chen-sheng-wu-guang, building-qin-straight-road, building-terracotta-army]
 causes:
   - { id: event-shang-yang-reform, rel: 促成, why: 商鞅變法讓秦國能動員全國人力種田和打仗，國力強盛，成為秦滅六國的基礎。, src: [s1, event-shang-yang-reform:s7] }

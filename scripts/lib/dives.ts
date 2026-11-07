@@ -21,19 +21,22 @@ export interface DiveDef {
 // 讀書專題（例如《人類大歷史》）：書的每一章是一站。書的論點寫在這裡，卡片只當證據（docs/dives.md 第七節）
 export interface BookDef {
   title: string; author: string; note?: string;
-  parts: { no: number; name: string; span: string; blurb?: string; from: number; to: number }[];
-  chapters: { no: number; part: number; title: string; en?: string; claim: string; cards?: string[]; debate?: { who: string; text: string; src: string[] }[]; think?: string }[];
+  parts: { no: number; name: string; span: string; blurb?: string; from: number; to: number; unit?: string }[];
+  chapters: { no: number; part: number; title: string; en?: string; claim: string; cards?: string[]; card_notes?: Record<string, string>; debate?: { who: string; text: string; src: string[]; stance?: string }[]; think?: string; core?: boolean; minutes?: number }[];
   sources: { id: string; title: string; url: string; accessed: string; tier?: string }[];
 }
 
 const allCards = (d: DiveDef) => [...new Set([...(d.cards ?? []), ...(d.book?.chapters ?? []).flatMap((c) => c.cards ?? [])])];
 
-function checkBook(b: BookDef, byId: Map<string, any>, err: (m: string) => void, warn: (m: string) => void) {
+function checkBook(b: BookDef, byId: Map<string, any>, err: (m: string) => void, warn: (m: string) => void, unitIds?: Set<string>) {
   for (const k of ['title', 'author'] as const) if (!b[k]) err(`book 缺 ${k}`);
   const src = new Set((b.sources ?? []).map((x) => x.id));
   for (const x of b.sources ?? []) if (!x.id || !x.title || !x.url || !x.accessed) err(`book.sources 的 ${x.id ?? '?'} 要有 id、title、url、accessed`);
   const parts = new Set((b.parts ?? []).map((p) => p.no));
-  for (const p of b.parts ?? []) if (typeof p.from !== 'number' || typeof p.to !== 'number' || p.from >= p.to) err(`book.parts 第 ${p.no} 部要有 from < to（年份）`);
+  for (const p of b.parts ?? []) {
+    if (typeof p.from !== 'number' || typeof p.to !== 'number' || p.from >= p.to) err(`book.parts 第 ${p.no} 部要有 from < to（年份）`);
+    if (p.unit && unitIds && !unitIds.has(p.unit)) err(`book.parts 第 ${p.no} 部的學習單元 ${p.unit} 不存在`);
+  }
   const refs = (t: string) => [...(t ?? '').matchAll(/\[(b\d+)\]/g)].map((m) => m[1]);
   (b.chapters ?? []).forEach((c, i) => {
     const w = `第 ${c.no ?? i + 1} 章`;
@@ -43,8 +46,12 @@ function checkBook(b: BookDef, byId: Map<string, any>, err: (m: string) => void,
     if (!r.length) err(`${w}：claim（書裡怎麼說）要附來源 [bN]`);
     for (const id of r) if (!src.has(id)) err(`${w}：claim 引用的 ${id} 不在 book.sources`);
     for (const id of c.cards ?? []) if (!byId.has(id)) err(`${w}：證據卡 ${id} 不存在`);
+    for (const id of Object.keys(c.card_notes ?? {})) if (!(c.cards ?? []).includes(id)) err(`${w}：card_notes 的 ${id} 不在這章的 cards`);
+    if (c.minutes != null && !(c.minutes > 0)) err(`${w}：minutes 要是正數（建議分鐘數）`);
     for (const d of c.debate ?? []) {
       if (!d.who || !d.text || !d.src?.length) err(`${w}：debate 每條要有 who、text、src`);
+      if (d.stance && !['支持', '補充', '反對'].includes(d.stance)) err(`${w}：debate 的 stance 只能是 支持、補充、反對：「${d.stance}」`);
+      if (!d.stance) warn(`${w}：debate「${d.who}」沒有 stance（支持／補充／反對）`);
       for (const id of [...(d.src ?? []), ...refs(d.text)]) if (!src.has(id)) err(`${w}：debate 引用的 ${id} 不在 book.sources`);
     }
     if (!c.think) warn(`${w}：沒有「想一想」`);
@@ -95,7 +102,7 @@ export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawC
         for (const f of gj.features ?? []) if (f.properties?.card && !byId.has(f.properties.card)) err(`${pm.file}：勢力「${f.properties.name}」的 card ${f.properties.card} 不存在`);
       }
     }
-    if (d.book) checkBook(d.book, byId, err, warn);
+    if (d.book) checkBook(d.book, byId, err, warn, unitIds);
     if (d.focus_year != null && (typeof d.focus_year !== 'number' || (d.range && (d.focus_year < d.range.start || d.focus_year > d.range.end)))) err('focus_year 要是專題年代內的年份');
     if (d.visual !== undefined && !['power', 'curve', 'none'].includes(d.visual)) err(`visual 只能是 power、curve、none：「${d.visual}」`);
     if (d.power_ui && !d.power_ui.title) err('power_ui 要有 title');
@@ -116,7 +123,7 @@ export function buildDives(dives: { file: string; dive: DiveDef }[], cards: { id
     storylines: d.storylines ?? [], units: d.units ?? [],
     focus_year: d.focus_year, book: d.book ? { title: d.book.title, author: d.book.author, note: d.book.note ?? '', sources: d.book.sources ?? [],
       parts: (d.book.parts ?? []).map((p) => ({ ...p, blurb: p.blurb ?? '' })),
-      chapters: (d.book.chapters ?? []).map((c) => ({ no: c.no, part: c.part, title: c.title, en: c.en ?? '', claim: c.claim, cards: (c.cards ?? []).filter((id) => has.has(id)), debate: c.debate ?? [], think: c.think ?? '' })) } : null,
+      chapters: (d.book.chapters ?? []).map((c) => ({ no: c.no, part: c.part, title: c.title, en: c.en ?? '', claim: c.claim, cards: (c.cards ?? []).filter((id) => has.has(id)), card_notes: c.card_notes ?? {}, debate: (c.debate ?? []).map((d) => ({ ...d, stance: d.stance ?? '' })), think: c.think ?? '', core: !!c.core, minutes: c.minutes ?? null })) } : null,
     power_maps: (d.power_maps ?? []).map((pm) => {
       const p = path.join(ROOT, 'data', 'dives', pm.file);
       const gj = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : null;

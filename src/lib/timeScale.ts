@@ -26,4 +26,4 @@ export const ERAS: { name: string; a: number; b: number; color: string }[] = [
   { name: '近代早期', a: 1500, b: 1800, color: '#e2e8f3' },
   { name: '近現代', a: 1800, b: MAX_YEAR, color: '#f1e3ea' },
 ];
-export const eraOf = (y: number) => (ERAS.find((e) => y >= e.a && y < e.b) ?? ERAS[ERAS.length - 1]).name;
+export const eraOf = (y: number) => y < ERAS[0].a ? (y < -3000 ? '史前' : '上古') : (ERAS.find((e) => y >= e.a && y < e.b) ?? ERAS[ERAS.length - 1]).name;

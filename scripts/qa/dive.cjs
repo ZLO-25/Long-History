@@ -223,14 +223,16 @@ const fs = require('fs');
     if (hasP) ok(!!(await ld.$('.rel-graph')), '學習模式專題頁有人物關係網');
     else ok(!(await ld.$('.rel-graph')) && !((await ld.textContent('.dive-view')) || '').includes('位人物'), '學習模式：沒有人物卡就不顯示人物區');
     if (d.units.length) {
-      ok((await ld.$$('.dive-view .dv-story.unit')).length === d.units.length, `學習模式專題頁列出全部學習單元（${(await ld.$$('.dive-view .dv-story.unit')).length}）`);
+      ok((await ld.$$('.dive-view .dv-read .dv-story.unit')).length === d.units.length, `學習模式專題頁列出全部學習單元（${(await ld.$$('.dive-view .dv-read .dv-story.unit')).length}）`);
       const order = await ld.$$eval('.dive-view > .dv-sec', (els) => els.map((e) => e.id.replace(/-dive-.*$/, '')));
-      ok(order[0] === 'dv-read', `學習模式專題頁：單元排第一（${order.join('、')}）`);
+      // 讀書專題：深時間軸、照書讀在前，之後才是單元
+      const o2 = d.book ? order.filter((x) => x !== 'dv-deep' && x !== 'dv-book') : order;
+      ok(o2[0] === 'dv-read', `學習模式專題頁：單元排第一（${order.join('、')}）`);
       ok(!!(await ld.$('.dive-view .dv-start')), '學習模式第 1 課標「從這裡開始」');
     }
     if (hasMap) ok(!(await ld.$eval('.dv-power', (e) => e.open)), `學習模式${ui.title}預設收合`);
-    ok((await ld.$$('.dive-view .dv-card.off')).length === noLearn.length, `學習模式灰字卡數 = 還沒進學習模式的卡數（${noLearn.length}）`);
-    ok((await ld.$$('.dive-view .dv-card:not(.off)')).length === d.cards.length - noLearn.length, `學習模式可點的卡 ${d.cards.length - noLearn.length} 張`);
+    ok((await ld.$$('.dive-view > .dv-sec:not(.bk) .dv-card.off')).length === noLearn.length, `學習模式灰字卡數 = 還沒進學習模式的卡數（${noLearn.length}）`);
+    ok((await ld.$$('.dive-view > .dv-sec:not(.bk) .dv-card:not(.off)')).length === d.cards.length - noLearn.length, `學習模式可點的卡 ${d.cards.length - noLearn.length} 張`);
     await ld.screenshot({ path: `${out}/${pre(d)}dive-learn-1280.png` });
     if (d.units.length > 1) {
       const u0 = ix.units.find((x) => x.id === d.units[1]);

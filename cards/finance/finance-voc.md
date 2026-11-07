@@ -24,7 +24,7 @@ place:
     - { name_ancient: 加勒, name_modern: 加勒（斯里蘭卡）, lat: 6.0329, lng: 80.2168, precision: schematic, role: 1640 年攻下，之後取得錫蘭肉桂壟斷, src: [s1] }
   scale: area
 structure_tags: [金融制度創新, 關鍵原料壟斷, 快速擴張, 長期衰退]
-topics: [股票與公司, 東印度公司, 交易所, 香料貿易, 海上貿易, 殖民統治, 奴隸制]
+topics: [股票與公司, 東印度公司, 香料貿易, 海上貿易, 殖民統治, 奴隸制]
 links: [finance-amsterdam-exchange, event-dutch-formosa, finance-amsterdam-decline, finance-amsterdam-wisselbank, finance-tulip-mania, event-sakoku, war-eighty-years, event-atlantic-slave-trade]
 effects:
   - { id: finance-amsterdam-exchange, rel: 促成, why: VOC 的資本不退還，股東想拿回錢只能把股份賣給別人，於是需要一個固定買賣股份的市場，阿姆斯特丹交易所就這樣發展起來。, src: [s1, finance-amsterdam-exchange:s1] }

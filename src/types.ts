@@ -120,8 +120,8 @@ export interface Dive {
   visual: 'power' | 'curve' | 'none'; power_ui: PowerUi | null;
 }
 export interface DiveSource { id: string; title: string; url: string; accessed: string; tier?: string }
-export interface DivePart { no: number; name: string; span: string; blurb: string; from: number; to: number }
-export interface DiveChapter { no: number; part: number; title: string; en: string; claim: string; cards: string[]; debate: { who: string; text: string; src: string[] }[]; think: string }
+export interface DivePart { no: number; name: string; span: string; blurb: string; from: number; to: number; unit?: string }
+export interface DiveChapter { no: number; part: number; title: string; en: string; claim: string; cards: string[]; card_notes: Record<string, string>; debate: { who: string; text: string; src: string[]; stance: '' | '支持' | '補充' | '反對' }[]; think: string; core: boolean; minutes: number | null }
 export interface DiveBook { title: string; author: string; note: string; parts: DivePart[]; chapters: DiveChapter[]; sources: DiveSource[] }
 export interface Index {
   generated: string; cards: Card[]; tagCategories: TagCategory[]; topicLayers: TopicLayer[]; fieldOptions: string[];

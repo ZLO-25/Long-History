@@ -118,12 +118,14 @@ public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
 ```
  data/dives/sapiens.yaml
    book:
-     parts     書分幾部（每部有 from／to 年份，深時間軸畫成色塊）
+     parts     書分幾部（每部有 from／to 年份，深時間軸畫成色塊；unit＝這一部的學習單元）
      chapters  每章一站：
-        think   ④ 先想一想（畫面上先顯示，按「想好了」才展開其他三格）
-        claim   ① 書裡怎麼說：我們自己的話 2–3 句＋[bN]；不轉載原文
-        cards   ② 歷史證據：既有卡 id（自動併進專題的 cards，不必再列一次）
-        debate  ③ 另一種看法：{ who, text, src }，學者批評或補充
+        think       ① 先想一想（和證據卡一起先顯示；按「想好了」才展開 ③④）
+        cards       ② 歷史證據：既有卡 id（自動併進專題的 cards，不必再列一次），每章 2–5 張
+        card_notes  每張證據卡一句「為什麼是這章的證據」（或「延伸例子：…」）
+        claim       ③ 書裡怎麼說：我們自己的話 2–3 句＋[bN]；主詞寫「哈拉瑞認為／主張」，不寫「指出」
+        debate      ④ 另一種看法：{ who, text, src, stance: 支持｜補充｜反對 }，who 寫人或研究，不寫「維基百科」
+        core        true＝課堂核心站（每部 1–2 站）；minutes＝建議討論分鐘數
      sources   [bN] 來源（tier：摘要／學術／通論／百科）
 ```
 
@@ -133,4 +135,6 @@ public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
 - **年份寫法**：早於前 1 萬年的年份顯示成「約 X 萬年前」（`src/lib/format.ts` 的 `fmtYear`；距今年數 ≈ 2000 − 年份）。卡片裡仍用負數西元年。
 - **地圖**：比最早的疆域快照（前 700 年）還早 200 年以上就不畫疆域，標示「還沒有國家」。
 - `focus_year`：沒有勢力圖的專題，打開時年代跳到這一年。
-- `npm run validate` 檢查：每站 claim 要有 [bN]、[bN] 都在 sources、證據卡存在、part 存在；沒有「想一想」或證據＋批評都沒有時警告。讀書專題不警告「沒有勢力圖」。
+- `npm run validate` 檢查：每站 claim 要有 [bN]、[bN] 都在 sources、證據卡存在、part 存在、part.unit 存在、card_notes 只對應本章的卡、stance 只能是三種；沒有「想一想」、debate 沒標 stance、或證據＋批評都沒有時警告。讀書專題不警告「沒有勢力圖」。
+- **地圖遷徙路線**：`data/routes/routes.yaml` 的 `kind: migration`（`method: stations`，只連有遺址根據的點），地圖上畫紫紅色點線，圖例寫「史前遷徙（示意）」；掛在卡片的 `routes`，打開專題會亮起來。
+- **第 2 期（2026-11-07）**：科學革命 5 張新卡、3 條遷徙路線、4 個學習單元、各章另一種看法補齊並標立場，三角色複查後的修改見 docs/dive-sapiens-2.md。

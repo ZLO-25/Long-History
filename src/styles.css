@@ -356,3 +356,4 @@ body.dock-dragging .map-canvas, body.dock-dragging iframe { pointer-events: none
 @media print { .dock-bar, .dock-resize { display: none !important; } }
 main.dock-main > .splitter.col { grid-area: sc; }
 main.dock-main > .splitter.row { grid-area: sr; }
+.lg.migr { border-top: 4px dotted #a21caf; }

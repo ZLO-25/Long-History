@@ -1,3 +1,4 @@
+import { useState } from 'react';
 // 深入專題（data/dives/*.yaml）：把一段時代放大來看。
 // 專題頁＝放大的時間範圍＋這段時代的卡片（分軌）＋人物（有人物卡才顯示）＋故事線＋主視覺（勢力圖／領土圖，文字由專題的 power_ui 決定）。
 // 不另開網站、不改卡片格式：所有卡仍是普通卡片，專題只是把它們聚在一起（docs/dives.md）。
@@ -62,6 +63,7 @@ interface ViewProps {
 }
 
 export function DiveView({ index, id, year, setYear, currentId, powerYear, setPowerYear, onOpen, onStory, onAll, unitHref, onUnit, onMap, canOpen, researchHref, learn, timelineZoomed }: ViewProps) {
+  const [openCh, setOpenCh] = useState<number | null>(() => findDive(index, id)?.book?.chapters[0]?.no ?? null);
   const d = findDive(index, id);
   if (!d) return <div className="dive-view"><p>找不到這個專題。</p><button className="link" onClick={onAll}>看全部專題</button></div>;
   const m = byIdOf(index);
@@ -151,7 +153,8 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
     </section>
   );
   const anchors: [string, string, boolean][] = [['dv-read', learn ? '學習單元' : '照順序讀', !!readSec], ['dv-power', ui.title, !!powerSec], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true]];
-  const ordered = learn ? anchors : [anchors[1], anchors[2], anchors[3], anchors[0]];
+  const bookAnchors: [string, string, boolean][] = d.book ? [['dv-deep', '深時間軸', true], ['dv-book', `照書讀 ${d.book.chapters.length} 站`, true]] : [];
+  const ordered = [...bookAnchors, ...(learn || d.book ? anchors : [anchors[1], anchors[2], anchors[3], anchors[0]])];
   return (
     <div className="dive-view">
       <nav className="dv-crumb" aria-label="麵包屑"><button className="link" onClick={onAll}>深入專題</button> <span aria-hidden>›</span> <span>{d.title}</span></nav>
@@ -161,14 +164,14 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       <p className="muted small">{fmtRange(d.range.start, d.range.end)}・{events.length} 張卡{persons.length > 0 && `、${persons.length} 位人物`}{d.range.start < -800 ? '・年代太長，大時間軸放不下，看下面的深時間軸' : timelineZoomed ? '・時間軸已放大到這段年代' : ''}{onMap && <>・<button className="link" onClick={onMap}>在地圖上看</button></>}</p>
       <nav className="dv-anchors" aria-label="專題頁內導覽">{ordered.filter((x) => x[2]).map(([k, label]) => <button key={k} className="chip" onClick={() => goto(k)}>{label}</button>)}</nav>
       {d.book && (
-        <section className="dv-sec">
+        <section className="dv-sec" id={`dv-deep-${d.id}`}>
           <h3>深時間軸<small className="muted">{fmtRange(d.range.start, d.range.end)}</small></h3>
-          <DeepTimeline dive={d} book={d.book} cards={events} year={year} setYear={setYear} onOpen={onOpen} currentId={currentId} />
+          <DeepTimeline dive={d} book={d.book} cards={events} year={year} setYear={setYear} onOpen={onOpen} currentId={currentId} hl={openCh != null ? { no: openCh, ids: d.book.chapters.find((c) => c.no === openCh)?.cards ?? [] } : null} />
         </section>
       )}
-      {d.book && <BookView dive={d} book={d.book} byId={m} cardBtn={(c) => cardBtn(c)} />}
+      {d.book && <BookView dive={d} book={d.book} byId={m} cardBtn={(c) => cardBtn(c)} open={openCh} setOpen={setOpenCh} unitBtn={(uid) => { const i = unitList.findIndex((u) => u.id === uid); return i >= 0 ? unitBtn(unitList[i], i) : null; }} />}
 
-      {learn ? <>{readSec}{powerSec}{personSec}{cardSec}</> : <>{powerSec}{personSec}{cardSec}{readSec}</>}
+      {learn || d.book ? <>{readSec}{powerSec}{personSec}{cardSec}</> : <>{powerSec}{personSec}{cardSec}{readSec}</>}
       <p className="dv-note muted small">專題只是把這段時代的卡片聚在一起放大看；每張卡仍然在整條長河、地圖和主題標籤裡，可以隨時跳出去比較別的時代。</p>
     </div>
   );

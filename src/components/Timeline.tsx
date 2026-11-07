@@ -293,7 +293,7 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
           onPointerDown={curOff ? undefined : startDrag} onClick={curOff ? () => { const a = Math.max(MIN_YEAR, year - 50), b = Math.min(MAX_YEAR, year + 50); (svgRef.current as any)?.__zoom_to?.(a, b); setEraSel(null); } : undefined}>
           {curOff && <title>目前年代不在畫面上，點一下移過去</title>}
           <rect x={-30} y={AXIS_H - 2} width={60} height={17} rx={8} className="cursor-badge" />
-          <text y={AXIS_H + 10} textAnchor="middle">{curOff === 'left' ? '◀ ' : ''}{fmtYear(shownYear)}{curOff === 'right' ? ' ▶' : ''}</text>
+          <text y={AXIS_H + 10} textAnchor="middle">{curOff === 'left' ? '◀ ' : ''}{shownYear < MIN_YEAR ? `${yr(shownYear)}（在軸外）` : fmtYear(shownYear)}{curOff === 'right' ? ' ▶' : ''}</text>
         </g>
       </svg>
       {m && <div className="econ-legend">

@@ -152,14 +152,14 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       const on = r.start <= year && year <= r.end;
       const hl = highlight.routes.includes(r.id);
       if (!on && !hl) continue;
-      const color = r.kind === 'migration' ? '#b45309' : r.method === 'stations' ? '#555' : r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513';
+      const color = r.kind === 'migration' ? '#a21caf' : r.method === 'stations' ? '#555' : r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513';
       const base = hl ? 6 : r.kind === 'sea' ? 2.5 : r.kind === 'wall' ? 4.5 : 3.5;
       const tip = `${biHtml(r.name)}（${KIND_LABEL[r.kind]}・${METHOD_LABEL[r.method]}）`;
       for (const sg of r.segments) {
         const line = L.polyline(sg.coords, {
           color, opacity: on ? 0.9 : 0.45,
           weight: sg.kind === 'gap' ? Math.max(2, base - 1.5) : base,
-          dashArray: r.kind === 'migration' ? '10 6' : sg.kind === 'unknown' ? '1 7' : r.kind === 'sea' ? '6 6' : sg.kind === 'approx' ? '8 4' : sg.kind === 'gap' ? '2 5' : undefined,
+          dashArray: r.kind === 'migration' ? '3 7' : sg.kind === 'unknown' ? '1 7' : r.kind === 'sea' ? '6 6' : sg.kind === 'approx' ? '8 4' : sg.kind === 'gap' ? '2 5' : undefined,
         });
         line.bindTooltip(`${tip}${r.kind === 'road' || sg.kind === 'unknown' ? `：${SEG_LABEL[sg.kind]}` : ''}`, { sticky: true });
         line.on('click', () => cb.current.onRoute(r.id));
@@ -416,6 +416,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         {learn && <div className="learn-map-note">疆域都是示意：古代國界不像今天是一條清楚的線，很多地方是勢力越往外越淡，或好幾方都說是自己的。</div>}
         <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
         {era !== 'M' && <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>}
+        {(highlight.routes.some((id) => index.routes.find((r) => r.id === id)?.kind === 'migration') || year < -3000) && <div><i className="lg migr" />史前遷徙（示意）：只連有遺址根據的點，線不是實際走法</div>}
         {todayOn && <div><i className="lg today" />今日咽喉要道（灰色＝資料可能過時）</div>}
         {power && <div><i className="lg power" />專題示意（顏色見專題頁圖例）：{power.title}（示意範圍，不是確切界線）</div>}
         {trail && trail.length > 1 && <div><i className="lg trail" />人生軌跡：依年份連線（先後順序，不是實際路線）</div>}

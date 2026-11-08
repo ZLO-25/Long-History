@@ -91,10 +91,10 @@ book:
           src:
             - b31
           stance: 補充
-        - who: 傑貝爾依羅化石研究（摩洛哥，2017 年發表）
-          text: 智人出現的時間和地點可能更早、更廣。這批化石用熱釋光法（測量被火燒過的石器累積了多少輻射，來推算年代）測得約 31.5 萬年前，常被看成最早的智人之一；也有學者質疑它該不該算智人 [b38]。
+        - who: 尚－賈克・於布蘭（Jean-Jacques Hublin）等人的傑貝爾依羅化石研究（摩洛哥，2017 年）
+          text: 智人出現的時間和地點可能更早、更廣。化石用熱釋光法（測量被火燒過的石器累積了多少輻射，來推算年代）測得約 31.5 萬年前；團隊認為它兼有現代和較原始的特徵，表示智人可能在整個非洲各地演化而成 [b74]。
           src:
-            - b38
+            - b74
           stance: 補充
         - who: 尼安德塔人與丹尼索瓦人的古 DNA 研究（2010 年起）
           text: 現在學界多認為以取代為主、有少量混血，大致合乎書的傾向。非洲以外的人約有 2% 尼安德塔人 DNA；2010 年科學家又從西伯利亞洞穴一塊指骨的 DNA 認出丹尼索瓦人，美拉尼西亞人等族群也帶有他們的 DNA [b54][b55]。
@@ -124,10 +124,11 @@ book:
             - b31
             - b32
           stance: 反對
-        - who: 南非布隆伯斯洞穴（Blombos Cave）的考古發現
-          text: 7 萬年前以前就有象徵行為的證據。洞穴裡有約 10 萬年前的顏料作坊、約 7 萬 7 千年前刻有幾何紋的赭石、約 7 萬 5 千年前的貝殼珠；曾被拿來解釋認知革命的 FOXP2 基因說法也受到質疑 [b32]。
+        - who: 克里斯多福・漢希爾伍德（Christopher Henshilwood）團隊的布隆伯斯洞穴研究（南非）
+          text: 7 萬年前以前就有象徵行為的證據。他們 2002 年發表約 7 萬 7 千年前刻有抽象紋路的赭石（含鐵的紅色礦石），認為現代人的思考能力在非洲早已出現；2011 年又找到約 10 萬年前的顏料作坊 [b75][b76]。
           src:
-            - b32
+            - b75
+            - b76
           stance: 反對
         - who: 達珊娜・納拉亞南（Darshana Narayanan，神經科學家）
           text: 書裡有些生物學說法不準確。她和幾位生物學家查核後認為：書說所有猿猴都有口語語言，但照語言學定義，有規則的符號語言是人類獨有；書說黑猩猩會對抗獵豹，但兩者分布不重疊，可能和花豹搞混了 [b29]。
@@ -196,8 +197,9 @@ book:
             - b33
           stance: 反對
         - who: 托比亞斯・安德曼（Tobias Andermann）等人 2020 年研究
-          text: 人類是主因。他們分析 12 萬 6 千年來的哺乳動物滅絕，認為約 96% 主要是人類活動造成，而且常在人類初抵各大陸時成批發生；也有不少學者主張是人類狩獵加上氣候壓力共同作用 [b33]。
+          text: 人類是主因。他們用統計模型分析 12 萬 6 千年來的化石紀錄，認為人口多寡能準確預測哺乳動物何時滅絕，氣候變化則不能；也有不少學者主張是人類狩獵加上氣候壓力共同作用 [b77][b33]。
           src:
+            - b77
             - b33
           stance: 支持
         - who: 白沙足跡研究（Pigati 等人，2023 年）
@@ -245,6 +247,11 @@ book:
           src:
             - b36
           stance: 反對
+        - who: 伍德（James W. Wood）等人 1992 年的〈骨學悖論〉，與麥克法登、奧克森漢（McFadden & Oxenham）2020 年的研究
+          text: 骨骸證據不能直接讀成「誰比較健康」。他們認為我們只有死者的骨頭可看；骨頭上留下病痕，可能表示那群人病得很重，也可能表示這個人撐得夠久、病才來得及在骨頭留下痕跡 [b73]。
+          src:
+            - b73
+          stance: 補充
       think: 你會怎麼選：你是 1 萬年前的採集者，附近的野生小麥長得很好。你會定居下來種田，還是繼續四處採集？寫下一個理由。再看「哥貝克力石陣」卡：住屋和水池的新發現，讓「先有神廟才有農業」更可信還是更不可信？
       core: true
       minutes: 20
@@ -274,6 +281,11 @@ book:
           src:
             - b34
           stance: 補充
+        - who: 布萊恩・柯林斯（Brian J. Collins，哲學學者，《Philosophy Now》書評）
+          text: 書裡的哲學立場不夠穩。他 2023 年的評論承認哈拉瑞影響力很大，但認為《人類大歷史》的哲學立場站不穩，削弱了哈拉瑞想提出的政治主張；要先把這些立場補強，主張才說得通 [b85]。
+          src:
+            - b85
+          stance: 反對
       think: 哈拉瑞認為「人權是想像的秩序」。讀「美索不達米亞的神廟借貸與《漢摩拉比法典》」和「《獨立宣言》與啟蒙思想」兩張卡：兩種秩序各靠什麼讓人遵守——信念、法律，還是武力？「想像出來的」就等於「不重要」嗎？
       minutes: 10
     - no: 7
@@ -324,9 +336,10 @@ book:
         event-conflict-of-orders: 延伸例子：生來的貴賤也能被抗爭改變
       debate:
         - who: 尼可拉斯・德克斯（Nicholas Dirks，歷史人類學家）與大衛・賴克（David Reich，遺傳學家）
-          text: 種姓是人造制度，但何時定型有爭論。德克斯認為今天種姓的僵硬形態多在英國殖民時才定型；賴克分析 250 多個次種姓（種姓底下更細分的世襲群體），發現約三分之一長期只在群體內通婚，認為根源早在幾千年前 [b42]。
+          text: 種姓何時定型有爭論。德克斯認為僵硬的種姓多在英國殖民時定型；賴克團隊 2013 年分析印度 73 個群體的基因，認為約 4,200 到 1,900 年前曾大量混血，之後轉向族內通婚（只和同群體通婚）[b42][b78]。
           src:
             - b42
+            - b78
           stance: 補充
         - who: 阿萊西納、朱利亞諾與努恩（Alesina, Giuliano & Nunn，經濟學家）
           text: 男尊女卑可能有可檢驗的歷史原因，不只是偶然。他們 2013 年發現，祖先用犁耕田的社會，後代女性參與工作和政治的比例較低；在美國第二代移民身上也看得到，表示觀念會透過文化傳下去 [b43]。
@@ -358,6 +371,11 @@ book:
           src:
             - b44
           stance: 反對
+        - who: 潘卡吉・格瑪沃特（Pankaj Ghemawat，管理學者）
+          text: 世界其實只「半全球化」。他 2012 年認為跨國往來比一般想像少得多：國際電話只占通話時間約 2%，到外國念大學的學生約 2%，各項平均約一成；大部分往來仍發生在地理和文化相近的國家之間 [b79]。
+          src:
+            - b79
+          stance: 補充
       think: 排排看：「絲綢」「佛教傳入中國（1–6世紀）」「馬尼拉大帆船：白銀換絲綢的太平洋航線（1565–1815）」三張卡，哪個最早、哪個最晚？從排序看，世界連結的範圍怎麼一步步變大？有沒有同時帶來衝突的例子？
       minutes: 5
     - no: 10
@@ -385,6 +403,11 @@ book:
           src:
             - b45
           stance: 反對
+        - who: 英格蘭銀行經濟學家麥克利、拉迪亞與湯瑪斯（McLeay, Radia & Thomas）
+          text: 今天的錢確實靠信任運作。他們 2014 年說明，現代貨幣是一種借據（欠款憑證），特別之處在於大家都相信別人會收；而且今天大多數的錢不是紙鈔硬幣，是商業銀行創造的存款 [b80]。
+          src:
+            - b80
+          stance: 支持
       think: 你會怎麼選：你想用自己種的芒果換別人的魚，但對方不想要芒果。你會怎麼解決？想好後，比較「美索不達米亞的神廟借貸與《漢摩拉比法典》」和「呂底亞：最早的鑄幣」兩張卡：借貸記帳和硬幣，哪個先出現？
       core: true
       minutes: 15
@@ -529,9 +552,9 @@ book:
         event-cook-voyages: 書中「科學加帝國」的主要例子
       debate:
         - who: 彭慕蘭（Kenneth Pomeranz）與「加州學派」
-          text: 差別不只在價值觀。他在《大分流》認為，18 世紀末英格蘭和長江三角洲發展差不多；英國後來領先，關鍵是煤礦就在附近，以及美洲殖民地的土地和原料。莫基爾（Joel Mokyr）則強調歐洲政治分裂讓新思想有處可逃 [b50]。
+          text: 差別不只在價值觀。他在《大分流》認為，晚到 1750 年，歐洲和東亞的壽命、消費和市場都差不多；歐洲 19 世紀拉開差距，關鍵是煤礦位置剛好，以及能和美洲新大陸貿易，資源來自地下和海外 [b81]。
           src:
-            - b50
+            - b81
           stance: 反對
         - who: 韋傑夫（Geoff Wade，歷史學家）
           text: 鄭和船隊也用武力控制航線。他 2004 年認為船隊主要由士兵組成，曾在錫蘭作戰、俘虜國王，並向爪哇索賠，稱之為「原始的海上殖民主義」：目的是控制港口和航線，不是占領土地；陳達生（Tan Ta Sen）則用中文史料回應，得出不同結論 [b66][b67]。
@@ -568,11 +591,16 @@ book:
         event-atlantic-slave-trade: 追求利潤造成巨大苦難的例子
       debate:
         - who: 蓋倫・史卓森（Galen Strawson，哲學家，《衛報》書評）
-          text: 書中的亞當・斯密被誤讀了。他認為書又一次把斯密描繪成「貪婪的使徒」，這不符合斯密的思想 [b27][b22]。
+          text: 書中的歷史人物和事件有時被扭曲。他認為書又一次把亞當・斯密描繪成「貪婪的使徒」；書裡講 1827 年納瓦里諾海戰（英法俄艦隊打敗鄂圖曼艦隊）的那段也嚴重扭曲，因為當時希臘還不是自由的國家 [b27][b22]。
           src:
             - b27
             - b22
           stance: 反對
+        - who: 山繆・弗萊沙克（Samuel Fleischacker，哲學家，史丹佛哲學百科）
+          text: 斯密不只談自利。他認為斯密的《道德情操論》從同情心（設身處地感受別人）講道德；斯密也提防商人遊說政治人物、反對東印度公司，並不反對政府幫助窮人和興辦公共建設 [b82]。
+          src:
+            - b82
+          stance: 補充
       think: 角色扮演：你是 1630 年代大員的荷蘭東印度公司商館長，要讓公司賺錢，你會靠什麼——借錢投資、和漢人合作，還是武力？看「荷蘭東印度公司統治臺灣（大員與熱蘭遮城）」卡比對。這支持「資本與帝國聯手」嗎？
       minutes: 10
     - no: 17
@@ -594,9 +622,9 @@ book:
         tech-internal-combustion: 石油動力進入日常生活
       debate:
         - who: 羅伯特・艾倫（Robert C. Allen，經濟史家）
-          text: 工業化初期，工人沒有跟著變好。他把英國 1790 到 1840 年稱為「恩格斯停頓」（產出成長、工資卻停滯的時期）：實質工資（扣掉物價上漲後真正買得到的東西）幾乎沒漲，財富多流向資本家；克拉克（Gregory Clark）則認為工資成長被低估 [b51]。
+          text: 工業化初期，工人沒有跟著變好。他整理英國資料，認為 19 世紀前半工人產出增加，實質工資（扣掉物價上漲後真正買得到的東西）卻停滯、利潤率翻倍，稱為「恩格斯停頓」；19 世紀中期後工資才跟上 [b83]。
           src:
-            - b51
+            - b83
           stance: 支持
         - who: 克拉克・納迪內利（Clark Nardinelli，經濟史家）
           text: 長期看生活水準是變好的。樂觀派估計 1819 到 1851 年工人實質工資約增加一倍；悲觀派認為，換一種物價指數（衡量一籃子商品價格變化的數字）來算，工資成長慢得多。他的結論是「溫和的樂觀」 [b52]。
@@ -662,9 +690,9 @@ book:
             - b53
           stance: 支持
         - who: 貝琪・史蒂文森與賈斯汀・沃爾弗斯（Betsey Stevenson & Justin Wolfers，經濟學家）
-          text: 收入和快樂其實有正相關。他們 2008 年認為，伊斯特林的結論來自統計上不顯著（資料太少，無法確定差異不是巧合）的資料；用更多國家的長期資料，可看到明顯正相關。伊斯特林 2017 年回應說，這些研究只反映短期起伏 [b53]。
+          text: 收入和快樂其實有正相關。他們 2008 年用多個橫跨數十年的大型資料重新檢驗，發現國家越富有，人民平均越快樂，看不出到某個程度就停止；國家內的經濟成長也伴隨快樂上升 [b84]。
           src:
-            - b53
+            - b84
           stance: 反對
       think: 你會怎麼選：A 工作月薪 4 萬、同事都領 3 萬；B 工作月薪 5 萬、同事都領 6 萬。你選哪一個？為什麼？這和「快樂取決於期望」有什麼關係？歷史學家能用什麼證據比較古人和今人的快樂？
       core: true
@@ -877,11 +905,6 @@ book:
       url: https://www.goodreads.com/quotes/12066696-while-people-in-today-s-affluent-societies-work-an-average-of
       accessed: 2026-11-07
       tier: 摘要
-    - id: b38
-      title: Jebel Irhoud — Wikipedia
-      url: https://en.wikipedia.org/wiki/Jebel_Irhoud
-      accessed: 2026-11-07
-      tier: 百科
     - id: b39
       title: Wikipedia – Denise Schmandt-Besserat（陶土籌碼與文字起源）
       url: https://en.wikipedia.org/wiki/Denise_Schmandt-Besserat
@@ -935,16 +958,6 @@ book:
     - id: b49
       title: Wikipedia – Science in the medieval Islamic world
       url: https://en.wikipedia.org/wiki/Science_in_the_medieval_Islamic_world
-      accessed: 2026-11-07
-      tier: 百科
-    - id: b50
-      title: Wikipedia – Great Divergence（含彭慕蘭與加州學派）
-      url: https://en.wikipedia.org/wiki/Great_Divergence
-      accessed: 2026-11-07
-      tier: 百科
-    - id: b51
-      title: Wikipedia – Engels' pause（Robert C. Allen）
-      url: https://en.wikipedia.org/wiki/Engels%27_pause
       accessed: 2026-11-07
       tier: 百科
     - id: b52
@@ -1052,3 +1065,68 @@ book:
       url: https://arxiv.org/abs/1505.04722
       accessed: 2026-11-07
       tier: 學術
+    - id: b73
+      title: "Clare McFadden & Marc F. Oxenham, A paleoepidemiological approach to the osteological paradox: Investigating stress, frailty and resilience through cribra orbitalia（American Journal of Physical Anthropology 173: 205–217, 2020；澳洲國立大學存放的全文 PDF，討論 Wood et al. 1992〈骨學悖論〉）"
+      url: https://core.ac.uk/download/328688915.pdf
+      tier: 學術
+      accessed: 2026-11-08
+    - id: b74
+      title: "Hublin, J.-J. et al., New fossils from Jebel Irhoud, Morocco and the pan-African origin of Homo sapiens（Nature 546: 289–292, 2017；PubMed 摘要）"
+      url: https://pubmed.ncbi.nlm.nih.gov/28593953/
+      tier: 學術
+      accessed: 2026-11-08
+    - id: b75
+      title: "Henshilwood, C. S. et al., Emergence of modern human behavior: Middle Stone Age engravings from South Africa（Science 295: 1278–1280, 2002；PubMed 摘要）"
+      url: https://pubmed.ncbi.nlm.nih.gov/11786608/
+      tier: 學術
+      accessed: 2026-11-08
+    - id: b76
+      title: "Henshilwood, C. S. et al., A 100,000-year-old ochre-processing workshop at Blombos Cave, South Africa（Science 334: 219–222, 2011；PubMed 摘要）"
+      url: https://pubmed.ncbi.nlm.nih.gov/21998386/
+      tier: 學術
+      accessed: 2026-11-08
+    - id: b77
+      title: "Andermann, T. et al., The past and future human impact on mammalian diversity（Science Advances 6(36): eabb2313, 2020；PubMed 摘要）"
+      url: https://pubmed.ncbi.nlm.nih.gov/32917612/
+      tier: 學術
+      accessed: 2026-11-08
+    - id: b78
+      title: "Moorjani, P., … D. Reich & L. Singh, Genetic evidence for recent population mixture in India（American Journal of Human Genetics 93(3): 422–438, 2013；MIT DSpace 摘要頁）"
+      url: https://dspace.mit.edu/handle/1721.1/92415
+      tier: 學術
+      accessed: 2026-11-08
+    - id: b79
+      title: "Not That Flat: Pankaj Ghemawat Challenges Globalization's Adherents（Knowledge at Wharton，賓州大學華頓商學院，2012-09-04）"
+      url: https://knowledge.wharton.upenn.edu/article/not-that-flat-pankaj-ghemawat-challenges-globalizations-adherents/
+      tier: 通論
+      accessed: 2026-11-08
+    - id: b80
+      title: "Michael McLeay, Amar Radia & Ryland Thomas, Money in the modern economy: an introduction（Bank of England Quarterly Bulletin 2014 Q1）"
+      url: https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-in-the-modern-economy-an-introduction
+      tier: 通論
+      accessed: 2026-11-08
+    - id: b81
+      title: "Kenneth Pomeranz, The Great Divergence: China, Europe, and the Making of the Modern World Economy（Princeton University Press 出版社書頁）"
+      url: https://press.princeton.edu/node/58864
+      tier: 學術
+      accessed: 2026-11-08
+    - id: b82
+      title: Samuel Fleischacker, Adam Smith's Moral and Political Philosophy（Stanford Encyclopedia of Philosophy, 2013；2025 修訂）
+      url: https://plato.stanford.edu/entries/smith-moral-political/
+      tier: 學術
+      accessed: 2026-11-08
+    - id: b83
+      title: "Robert C. Allen, Engels' pause: Technical change, capital accumulation, and inequality in the British industrial revolution（Explorations in Economic History 46(4): 418–435, 2009；IDEAS/RePEc 摘要頁）"
+      url: https://ideas.repec.org/a/eee/exehis/v46y2009i4p418-435.html
+      tier: 學術
+      accessed: 2026-11-08
+    - id: b84
+      title: "Betsey Stevenson & Justin Wolfers, Economic Growth and Subjective Well-Being: Reassessing the Easterlin Paradox（NBER Working Paper 14282, 2008；摘要頁）"
+      url: https://www.nber.org/papers/w14282
+      tier: 學術
+      accessed: 2026-11-08
+    - id: b85
+      title: "Brian J. Collins, A Critique of Yuval Noah Harari's Sapiens: A Brief History of Humankind（Philosophy Now 154: 48–50, 2023；PhilArchive 摘要頁）"
+      url: https://dc2.philarchive.org/rec/COLSAB-4
+      tier: 通論
+      accessed: 2026-11-08

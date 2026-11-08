@@ -126,7 +126,8 @@ a { color: var(--accent); }
 .kv dt { color: var(--muted); } .kv dd { margin: 0; min-width: 0; }
 /* 別名：主要的先顯示，其他收在「顯示更多」 */
 .aliases { display: block; position: relative; }
-.aliases-measure { position: absolute; left: 0; top: 0; visibility: hidden; pointer-events: none; white-space: normal; }
+.aliases-measure-box { position: absolute; left: 0; top: 0; width: 100%; height: 0; overflow: hidden; contain: strict; visibility: hidden; pointer-events: none; }
+.aliases-measure { position: absolute; left: 0; top: 0; white-space: normal; }
 .aliases-measure .m { font-size: 12px; white-space: nowrap; }
 .aliases-more { font-size: 12px; white-space: nowrap; text-decoration: none; padding: 0; }
 .aliases-more:hover { text-decoration: underline; }
@@ -357,3 +358,6 @@ body.dock-dragging .map-canvas, body.dock-dragging iframe { pointer-events: none
 main.dock-main > .splitter.col { grid-area: sc; }
 main.dock-main > .splitter.row { grid-area: sr; }
 .lg.migr { border-top: 4px dotted #a21caf; }
+/* 跳到主要內容：平常藏在畫面外，按 Tab 聚焦時才出現 */
+.skip-link { position: absolute; left: -9999px; top: 8px; z-index: 9999; padding: 8px 14px; background: #fff; border: 2px solid #2b6cb0; border-radius: 8px; font: inherit; }
+.skip-link:focus { left: 8px; }

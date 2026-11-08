@@ -9,7 +9,7 @@ const fs = require('fs');
   const b = await chromium.launch();
   let fail = 0;
   const ok = (cond, msg) => { console.log(`${cond ? '✓' : '✗'} ${msg}`); if (!cond) fail++; };
-  const ix = await (await fetch(base + 'index.json')).json();
+  const ix = await require('./load-index.cjs')(base);
   const SIMP = /[铁战国东华区争历这为门罗马汉亚兰尔变运动开义]/;
 
   ok(ix.cards.every((c) => c.aliases_show.every((a) => c.aliases.includes(a))), `顯示的別名都來自原本的別名清單（${ix.cards.length} 張）`);
@@ -20,7 +20,7 @@ const fs = require('fs');
 
   // 量一行字多高、別名列多高
   const row = (p) => p.$eval('.card-detail .kv dd', (e) => {
-    const s = e.querySelector('.aliases > span:not(.aliases-measure)');
+    const s = e.querySelector('.aliases > span:not(.aliases-measure-box)');
     const probe = document.createElement('span'); probe.textContent = '字'; probe.style.cssText = 'display:block;position:absolute;visibility:hidden'; e.appendChild(probe);
     const line = probe.getBoundingClientRect().height; probe.remove();
     return { text: e.textContent, shown: s ? s.textContent : e.textContent, h: e.getBoundingClientRect().height, line };

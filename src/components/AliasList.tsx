@@ -44,7 +44,8 @@ export function AliasList({ aliases }: { aliases: string[] }) {
   const hidden = aliases.length - fit;
   return (
     <span className="aliases" ref={box}>
-      <span className="aliases-measure" ref={meas} aria-hidden="true" />
+      {/* 效能：量尺包在 contain: strict 的盒子裡，量高度時瀏覽器只重排這個小盒子，不會整頁重排 */}
+      <span className="aliases-measure-box" aria-hidden="true"><span className="aliases-measure" ref={meas} /></span>
       <span>{(open ? aliases : aliases.slice(0, fit)).join(SEP)}</span>
       {hidden > 0 && (
         <>

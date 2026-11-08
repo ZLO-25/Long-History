@@ -123,6 +123,7 @@ public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
    book:
      parts     書分幾部（每部有 from／to 年份，深時間軸畫成色塊；unit＝這一部的學習單元）
      chapters  每章一站：
+        en／zh      原書英文章名／中文版章名（zh 要對照出版社或書店的目錄，不要憑記憶）
         think       ① 先想一想（和證據卡一起先顯示；按「想好了」才展開 ③④）
         cards       ② 歷史證據：既有卡 id（自動併進專題的 cards，不必再列一次），每章 2–5 張
         card_notes  每張證據卡一句「為什麼是這章的證據」（或「延伸例子：…」）
@@ -137,6 +138,7 @@ public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
 - **深時間軸**（`src/components/DiveBook.tsx` 的 `DeepTimeline`）：專題 `range.start` 早於前 800 年時，大時間軸放不下，專題頁改畫一條「距今年數取對數」的時間軸。大時間軸與學習模式時間軸把整張卡早於前 800 年的卡拿出軸外，改成左上角「◂ 史前 N」按鈕，點了打開這個專題。
 - **年份寫法**：早於前 1 萬年的年份顯示成「約 X 萬年前」（`src/lib/format.ts` 的 `fmtYear`；距今年數 ≈ 2000 − 年份）。卡片裡仍用負數西元年。
 - **地圖**：比最早的疆域快照（前 700 年）還早 200 年以上就不畫疆域，標示「還沒有國家」。
+- **地圖編號**（2026-11-08 起）：專題卡的編號依目前年代顯示——讀書專題不畫「還沒發生」的卡，其他專題把之後才發生的卡調淡。
 - `focus_year`：沒有勢力圖的專題，打開時年代跳到這一年。
 - `npm run validate` 檢查：每站 claim 要有 [bN]、[bN] 都在 sources、證據卡存在、part 存在、part.unit 存在、card_notes 只對應本章的卡、stance 只能是三種；沒有「想一想」、debate 沒標 stance、或證據＋批評都沒有時警告。讀書專題不警告「沒有勢力圖」。
 - **地圖遷徙路線**：`data/routes/routes.yaml` 的 `kind: migration`（`method: stations`，只連有遺址根據的點），地圖上畫紫紅色點線，圖例寫「史前遷徙（示意）」；掛在卡片的 `routes`，打開專題會亮起來。

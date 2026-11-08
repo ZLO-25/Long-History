@@ -150,7 +150,7 @@ export function BookView({ dive, book, byId, cardBtn, open, setOpen, unitBtn }: 
     return (
       <details key={c.no} id={`${pre}-ch${c.no}`} className={`bk-ch ${c.core ? 'core' : ''}`} open={open === c.no} onToggle={(e) => { if ((e.target as HTMLDetailsElement).open) setOpen(c.no); else if (open === c.no) setOpen(null); }}>
         <summary><span className="bk-no">{c.no}</span><span className="bk-title">{c.title}</span>
-          <small className="muted">第 {c.no} 章{c.en ? `・${c.en}` : ''}{c.minutes ? `・約 ${c.minutes} 分鐘` : ''}</small>{c.core && <span className="bk-core">課堂核心站</span>}</summary>
+          <small className="muted">第 {c.no} 章{c.zh ? `〈${c.zh}〉` : ''}{c.en && <span className="bk-en">{c.zh ? ' ' : '・'}{c.en}</span>}{c.minutes ? `・約 ${c.minutes} 分鐘` : ''}</small>{c.core && <span className="bk-core">課堂核心站</span>}</summary>
         <div className="bk-body">
           {c.think && (
             <div className="bk-cell bk-think">
@@ -185,7 +185,7 @@ export function BookView({ dive, book, byId, cardBtn, open, setOpen, unitBtn }: 
       <h3>照書讀：{book.chapters.length} 站<small className="muted">每章一站：先想一想 → 看證據 → 書裡怎麼說 → 另一種看法</small></h3>
       {book.note && <p className="small bk-note">{book.note}</p>}
       <nav className="bk-jump" aria-label="跳到第幾站">
-        {book.chapters.map((c) => <button key={c.no} className={`chip ${open === c.no ? 'on' : ''} ${c.core ? 'core' : ''}`} onClick={() => jump(c.no)} title={`${c.no}. ${c.title}${c.core ? '（課堂核心站）' : ''}`}>{c.no}</button>)}
+        {book.chapters.map((c) => <button key={c.no} className={`chip ${open === c.no ? 'on' : ''} ${c.core ? 'core' : ''}`} onClick={() => jump(c.no)} title={`${c.no}. ${c.title}${c.zh ? `（第 ${c.no} 章〈${c.zh}〉）` : ''}${c.core ? '（課堂核心站）' : ''}`}>{c.no}</button>)}
         {book.chapters.some((c) => c.core) && <small className="muted">粗框＝課堂核心站</small>}
       </nav>
       {book.parts.map((p, i) => {

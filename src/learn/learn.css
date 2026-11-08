@@ -251,3 +251,12 @@
 .ud-next { border-color: #7b2d26; color: #7b2d26; }
 .ud-recap-next { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
 @media (pointer: coarse) { .ud-next { min-height: 44px; } .unit-dive .link { min-height: 44px; } }
+.unit-outline > summary { cursor: pointer; color: var(--muted); margin: 8px 0 4px; min-height: 32px; }
+/* 學習卡卡內目錄（2026-11-08） */
+.lc-toc { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 10px; }
+.lcard .lc-sec, .lcard figure.primary { scroll-margin-top: 12px; }
+.lc-sec.story > h3 { margin-top: 0; }
+@media (pointer: coarse) {
+  .lc-toc .chip { min-height: 40px; padding: 0 12px; }
+  .ltop .btn, .ltop button { min-height: 40px; min-width: 40px; }
+}

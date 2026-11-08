@@ -51,7 +51,7 @@ function checkCurves(c: CurvesDef, byId: Map<string, any>, range: { start: numbe
 export interface BookDef {
   title: string; author: string; note?: string;
   parts: { no: number; name: string; span: string; blurb?: string; from: number; to: number; unit?: string }[];
-  chapters: { no: number; part: number; title: string; en?: string; claim: string; cards?: string[]; card_notes?: Record<string, string>; debate?: { who: string; text: string; src: string[]; stance?: string }[]; think?: string; core?: boolean; minutes?: number }[];
+  chapters: { no: number; part: number; title: string; en?: string; zh?: string; claim: string; cards?: string[]; card_notes?: Record<string, string>; debate?: { who: string; text: string; src: string[]; stance?: string }[]; think?: string; core?: boolean; minutes?: number }[];
   sources: { id: string; title: string; url: string; accessed: string; tier?: string }[];
 }
 
@@ -156,7 +156,7 @@ export function buildDives(dives: { file: string; dive: DiveDef }[], cards: { id
       series: d.curves.series.map((x) => ({ id: x.id, name: x.name, unit: x.unit, color: x.color ?? '', note: x.note ?? '', zero: x.zero ?? null, points: x.points, src: x.src })), sources: d.curves.sources } : null,
     book: d.book ? { title: d.book.title, author: d.book.author, note: d.book.note ?? '', sources: d.book.sources ?? [],
       parts: (d.book.parts ?? []).map((p) => ({ ...p, blurb: p.blurb ?? '' })),
-      chapters: (d.book.chapters ?? []).map((c) => ({ no: c.no, part: c.part, title: c.title, en: c.en ?? '', claim: c.claim, cards: (c.cards ?? []).filter((id) => has.has(id)), card_notes: c.card_notes ?? {}, debate: (c.debate ?? []).map((d) => ({ ...d, stance: d.stance ?? '' })), think: c.think ?? '', core: !!c.core, minutes: c.minutes ?? null })) } : null,
+      chapters: (d.book.chapters ?? []).map((c) => ({ no: c.no, part: c.part, title: c.title, en: c.en ?? '', zh: c.zh ?? '', claim: c.claim, cards: (c.cards ?? []).filter((id) => has.has(id)), card_notes: c.card_notes ?? {}, debate: (c.debate ?? []).map((d) => ({ ...d, stance: d.stance ?? '' })), think: c.think ?? '', core: !!c.core, minutes: c.minutes ?? null })) } : null,
     power_maps: (d.power_maps ?? []).map((pm) => {
       const p = path.join(ROOT, 'data', 'dives', pm.file);
       const gj = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : null;

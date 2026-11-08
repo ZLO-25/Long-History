@@ -90,7 +90,7 @@ export function RelationGraph({ index, persons, year, onOpen, currentId, years, 
         <div className="rg-year">
           <span className="rg-badge" key={year}>目前：{fmtYear(year)} 年</span>
           <span className="muted small">換年份，關係網會跟著變：</span>
-          {years.map((y) => <button key={y} className={`chip ${Math.abs(y - year) <= 3 ? 'on' : ''}`} onClick={() => onYear(y)}>{fmtYear(y)}</button>)}
+          {years.map((y) => <button key={y} className={`chip ${Math.abs(y - year) <= 3 ? 'on' : ''}`} onClick={() => onYear(y)}>{fmtYear(y)} 年</button>)}
         </div>
       )}
       <div className="rg-kinds" role="group" aria-label="關係種類">

@@ -1,3 +1,4 @@
+import { useIsMobile } from '../lib/useIsMobile';
 // 學習模式的卡片：只有一個詳細版（故事、史料、完整段落、史家爭論一次讀完；2026-11-07 起不再分國中／高中）
 import { useMemo, useState } from 'react';
 import type { Card, History, Index } from '../types';
@@ -46,6 +47,9 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
     .map((id) => index.cards.find((x) => x.id === id)).filter((x): x is Card => !!x?.learn);
   const T = (t: string) => <LearnText text={t} sources={c.sources} terms={terms} onTerm={setTerm} />;
 
+  const mobile = useIsMobile();
+  const pathNav = onStory && <PathNav card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} onUnit={onUnit} onStory={onStory} hereUnit={hereUnit} onDive={onDive} />;
+  const causes = <CauseList card={c} side="causes" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />;
   return (
     <article className={`lcard ${compact ? 'compact' : ''}`}>
       <header className="lc-head" style={{ borderColor: TYPE_COLOR[c.type] }}>
@@ -66,15 +70,20 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
       </header>
       <CardImages images={c.images} compact={compact} />
 
-      {onStory && <PathNav card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} onUnit={onUnit} onStory={onStory} hereUnit={hereUnit} onDive={onDive} />}
-
-      <CauseList card={c} side="causes" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />
-      <section className="lc-sec story">{T(L.story)}</section>
+      {/* 卡內目錄：單一詳細版很長（手機約 7 屏），先給一列跳轉 */}
+      <nav className="lc-toc" aria-label="這張卡的段落">{[['story', '📖 故事'], ...(L.primary_source.length ? [['src', '📜 史料']] : []), ['debate', '⚖ 史家怎麼吵'], ...(terms.length ? [['terms', '名詞小抄']] : [])].map(([k, label]) =>
+        <button key={k} type="button" className="chip" onClick={() => document.getElementById(`lc-${k}-${c.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{label}</button>)}</nav>
+      {!mobile && pathNav}
+      {!mobile && causes}
+      <section className="lc-sec story" id={`lc-story-${c.id}`}><h3>📖 故事</h3>{T(L.story)}</section>
+      {/* 手機：先讀故事，再看「在哪些故事線裡」「從哪裡來」 */}
+      {mobile && pathNav}
+      {mobile && causes}
       {c.type === 'person' && <PersonBlock card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />}
 
       <>
         {L.primary_source.map((p, i) => (
-          <figure key={i} className="primary">
+          <figure key={i} className="primary" id={i === 0 ? `lc-src-${c.id}` : undefined}>
             <blockquote>{p.text}</blockquote>
             <figcaption>— {p.from} <SourceList ids={[].concat(p.src as any)} sources={c.sources} /></figcaption>
           </figure>
@@ -84,7 +93,7 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
           return s?.text ? <section key={code} className="lc-sec"><h3>{s.title}</h3>{T(s.text)}</section> : null;
         })}
         {L.money_scale && <section className="lc-sec money"><h3>💰 換算成工作天</h3>{T(L.money_scale)}</section>}
-        <section className="lc-sec debate"><h3>⚖ 史家怎麼吵</h3>{T(L.historiography)}</section>
+        <section className="lc-sec debate" id={`lc-debate-${c.id}`}><h3>⚖ 史家怎麼吵</h3>{T(L.historiography)}</section>
         {L.exaggerated && <section className="lc-sec warn"><h3>⚠ 這個故事可能被誇大了</h3>{T(L.exaggerated)}</section>}
         {thinkers.length > 0 && (
           <details className="lc-sec thinkers">
@@ -113,7 +122,7 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
         <section className="lc-sec"><h3>常見誤解</h3>{(L.misconceptions ?? []).map((m, i) => <div key={i}>{T(m)}</div>)}</section>
       )}
 
-      <section className="lc-sec">
+      <section className="lc-sec" id={`lc-terms-${c.id}`}>
         <h3>名詞小抄</h3>
         <dl className="glossary">{terms.map((t) => <div key={t.term}><dt>{t.term}</dt><dd>{t.plain}<br /><span className="muted">例：{t.example}</span></dd></div>)}</dl>
       </section>

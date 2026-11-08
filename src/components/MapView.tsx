@@ -11,7 +11,7 @@ import { activeAt, fmtYear, KIND_LABEL, METHOD_LABEL, SEG_LABEL, ERA_LABEL, eraO
 interface Props {
   index: Index; cards: Card[]; year: number;
   /** marks：主題路徑的編號（依年代排的第幾張卡），畫在該地點上 */
-  highlight: { keys: string[]; routes: string[]; marks?: { key: string; n: number; name: string }[] };
+  highlight: { keys: string[]; routes: string[]; marks?: { key: string; n: number; name: string; start?: number; hideFuture?: boolean }[] };
   onPlace: (key: string) => void; onRoute: (id: string) => void; compact?: boolean;
   chain?: { chain: Chain; t: number } | null;
   todayOn?: boolean; setTodayOn?: (v: boolean) => void; onToday?: (id: string) => void; todaySel?: string | null;
@@ -42,6 +42,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map>();
   const topicZoom = useRef<() => void>(() => {});
+  const yearRef = useRef(year); yearRef.current = year;
   const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; topic: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup; power: L.LayerGroup; trail: L.LayerGroup }>();
   const canvasR = useRef<{ borders: L.Canvas; roads: L.Canvas }>();
   const cb = useRef({ onPlace, onRoute, onToday, onCard });
@@ -52,7 +53,10 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     : snapInfo.none ? `${fmtYear(year)}：還沒有國家，不畫疆域`
     : `疆域示意：${fmtYear(year)} 年${snapInfo.year && snapInfo.year !== year ? `（用最接近的 ${fmtYear(snapInfo.year)} 年世界疆域快照）` : ''}${snapInfo.covered ? '（專題地圖範圍內以專題地圖為準）' : ''}`;
   const [powerBox, setPowerBox] = useState<L.LatLngBounds | null>(null);
-  const [legendOpen, setLegendOpen] = useState(!compact);
+  const [legendOpen, setLegendOpen] = useState(!compact && !power);
+  // 打開專題勢力圖時圖例先收起來，免得蓋住主角區域（顏色說明在專題頁）
+  const legendPower = power?.file ?? null;
+  useEffect(() => { if (legendPower) setLegendOpen(false); }, [legendPower]);
   // 地圖上的名稱一律「繁中＋英文」：先載入對照表
   useMemo(() => setNameTable(index.names), [index]);
 
@@ -85,7 +89,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     const s = [...index.borders.snapshots].sort((a, b) => a.year - b.year);
     // 比最早的快照還早 200 年以上（例如史前）就不畫疆域，免得把後來的國家畫到幾萬年前
     return s.filter((x) => x.year <= year).pop() ?? (s[0] && year >= s[0].year - 200 ? s[0] : null);
-  }, [index, year]);
+  }, [index.borders, year]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     let cancelled = false;
     // 今日對照層打開時，不畫古代疆域，避免把古代邊界誤認為今天的國界
@@ -167,7 +171,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       }
       if (hl || r.method === 'stations') for (const st of r.stations) L.circleMarker([st.lat, st.lng], { radius: 3, color, weight: 1, fillOpacity: 1 }).bindTooltip(biHtml(st.name)).addTo(g);
     }
-  }, [index, year, highlight]);
+  }, [index.routes, year, highlight]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // 地點：同一地點合併成一個點，點擊列出所有卡片
   const places = useMemo(() => {
@@ -203,6 +207,8 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       mk.on('click', () => cb.current.onPlace(p.key));
       mk.addTo(g);
     }
+    // 鍵盤：地圖上幾百個圓點不放進 Tab 順序（同一批卡在清單、專題頁都能用鍵盤開）
+    g.eachLayer((l) => (l as L.Path).getElement?.()?.setAttribute('tabindex', '-1'));
   }, [places, year, bgCards]);
 
   // 學習模式：換一條史時，先框住這條史的範圍
@@ -235,22 +241,26 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       const p = places.find((x) => x.key === mk.key) ?? index.cards.flatMap((c) => c.place.locations).find((l) => l.key === mk.key);
       return p ? { ...mk, ll: L.latLng(p.lat, p.lng) } : null;
     }).filter((x): x is NonNullable<typeof x> => !!x);
-    for (const mk of marks) pts.push(mk.ll);
+    // 深入專題：還沒發生的卡（start 晚於目前年代）——讀書專題不畫、其他專題調淡；年代改變時重畫（見下面的 year effect）
+    const future = (mk: (typeof marks)[number]) => mk.start != null && mk.start > yearRef.current;
+    for (const mk of marks) if (!(mk.hideFuture && future(mk))) pts.push(mk.ll);
     const drawMarks = () => {
       const tg = layers.current?.topic; if (!tg) return;
       tg.clearLayers();
-      const groups: { pt: L.Point; ll: L.LatLng; items: typeof marks }[] = [];
+      const groups: { pt: L.Point; ll: L.LatLng; items: typeof marks; future: boolean }[] = [];
       for (const mk of marks) {
+        const fu = future(mk);
+        if (fu && mk.hideFuture) continue;
         const pt = m.latLngToLayerPoint(mk.ll);
-        const g0 = groups.find((g) => g.pt.distanceTo(pt) < 26);
-        if (g0) g0.items.push(mk); else groups.push({ pt, ll: mk.ll, items: [mk] });
+        const g0 = groups.find((g) => g.future === fu && g.pt.distanceTo(pt) < 26);
+        if (g0) g0.items.push(mk); else groups.push({ pt, ll: mk.ll, items: [mk], future: fu });
       }
       for (const g of groups) {
         const ns = [...new Set(g.items.map((x) => x.n))].sort((a, b) => a - b);
         const label = ns.length > 4 ? `${ns[0]}…${ns[ns.length - 1]}` : ns.join('・');
         const w = Math.max(22, label.length * 8 + 10);
-        L.marker(g.ll, { icon: L.divIcon({ className: 'topic-mark', html: label, iconSize: [w, 22], iconAnchor: [w / 2, 11] }), keyboard: false, zIndexOffset: 500 })
-          .bindTooltip(g.items.map((x) => `${x.n}. ${x.name}`.replace(/[&<>]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch]!))).join('<br>'))
+        L.marker(g.ll, { icon: L.divIcon({ className: `topic-mark${g.future ? ' future' : ''}`, html: label, iconSize: [w, 22], iconAnchor: [w / 2, 11] }), keyboard: false, zIndexOffset: g.future ? 400 : 500 })
+          .bindTooltip((g.future ? '（目前年代之後）<br>' : '') + g.items.map((x) => `${x.n}. ${x.name}`.replace(/[&<>]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch]!))).join('<br>'))
           .addTo(tg);
       }
     };
@@ -259,7 +269,10 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     if (powerOn.current && marks.length > 1) return; // 專題開著勢力圖時，視野以勢力圖為準（卡片編號可能散到朝鮮、臺灣）
     if (pts.length === 1) m.flyTo(pts[0], Math.max(m.getZoom(), 6), { duration: 0.6 });
     else if (pts.length > 1) m.flyToBounds(L.latLngBounds(pts).pad(0.3), { duration: 0.6, maxZoom: 7 });
-  }, [highlight, places, index]);
+  }, [highlight, places, index.cards, index.routes]); // eslint-disable-line react-hooks/exhaustive-deps
+  // 年代改變時只重畫編號（不移動視角）
+  const hasFutureMarks = (highlight.marks ?? []).some((x) => x.start != null);
+  useEffect(() => { if (hasFutureMarks) topicZoom.current?.(); }, [year, hasFutureMarks]);
 
   // 物資鏈：沿路線的段落畫實線（橘），沒有路線或只知站點的段落畫點線；節點編號
   const ch = chain?.chain;
@@ -392,7 +405,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         .bindTooltip(`今日咽喉：${biHtml(p.name)}・資料截至 ${p.data_as_of}${p.stale ? '（可能過時）' : ''}`)
         .on('click', () => cb.current.onToday?.(p.id)).addTo(g);
     }
-  }, [todayOn, index, todaySel]);
+  }, [todayOn, index.today, todaySel]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     const m = map.current, p = index.today.chokepoints.find((x) => x.id === todaySel);
     if (m && p) m.flyTo([p.lat, p.lng], Math.max(m.getZoom(), 5), { duration: 0.6 });

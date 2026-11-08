@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 // 深入專題（data/dives/*.yaml）：把一段時代放大來看。
 // 專題頁＝放大的時間範圍＋這段時代的卡片（分軌）＋人物（有人物卡才顯示）＋故事線＋主視覺（勢力圖／領土圖，文字由專題的 power_ui 決定）。
 // 不另開網站、不改卡片格式：所有卡仍是普通卡片，專題只是把它們聚在一起（docs/dives.md）。
@@ -32,7 +32,8 @@ export function diveMarks(index: Index, id: string) {
   if (!d) return [];
   const m = byIdOf(index);
   return d.cards.map((cid) => m.get(cid)).filter((c): c is Card => !!c && c.type !== 'person' && !!c.place.locations[0])
-    .map((c, i) => ({ key: c.place.locations[0].key, n: i + 1, name: c.name }));
+    // start：地圖依目前年代把還沒發生的卡調淡（讀書專題直接不畫，免得 7 萬年前出現羅馬）
+    .map((c, i) => ({ key: c.place.locations[0].key, n: i + 1, name: c.name, start: c.time.start, hideFuture: !!d.book }));
 }
 
 /** 打開專題時年代跳到哪：第一張勢力圖 → 專題指定的 focus_year → 專題起點 */
@@ -64,7 +65,25 @@ interface ViewProps {
 }
 
 export function DiveView({ index, id, year, setYear, currentId, powerYear, setPowerYear, onOpen, onStory, onAll, unitHref, onUnit, onMap, canOpen, researchHref, learn, timelineZoomed }: ViewProps) {
-  const [openCh, setOpenCh] = useState<number | null>(() => findDive(index, id)?.book?.chapters[0]?.no ?? null);
+  // 從專題點進卡片再按「返回」時，專題頁會重新掛載：打開的站和捲動位置記在 sessionStorage，回來時還原
+  const posKey = `dive-pos-${id}${learn ? '-learn' : ''}`;
+  const saved = (() => { try { return JSON.parse(sessionStorage.getItem(posKey) ?? 'null') as { ch: number | null; scroll: number } | null; } catch { return null; } })();
+  const [openCh, setOpenChState] = useState<number | null>(() => saved ? saved.ch : findDive(index, id)?.book?.chapters[0]?.no ?? null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const scroller = () => { let e = rootRef.current?.parentElement ?? null; while (e) { const oy = getComputedStyle(e).overflowY; if ((oy === 'auto' || oy === 'scroll') && e.scrollHeight > e.clientHeight) return e; e = e.parentElement; } return document.scrollingElement as HTMLElement | null; };
+  const lastScroll = useRef(saved?.scroll ?? 0);
+  const savePos = (ch: number | null) => { try { sessionStorage.setItem(posKey, JSON.stringify({ ch, scroll: lastScroll.current })); } catch { /* 無痕模式 */ } };
+  const setOpenCh = (ch: number | null) => { setOpenChState(ch); savePos(ch); };
+  const chRef = useRef(openCh); chRef.current = openCh;
+  useLayoutEffect(() => {
+    const s = scroller();
+    if (s && saved?.scroll) s.scrollTop = saved.scroll;
+    // 捲動時記下位置（點卡片時有些版面會先捲回頂端，所以不能等卸載時才量）
+    const tgt: HTMLElement | Window | null = s === document.scrollingElement ? window : s;
+    const onScroll = () => { lastScroll.current = s?.scrollTop ?? 0; };
+    tgt?.addEventListener('scroll', onScroll, { passive: true });
+    return () => { tgt?.removeEventListener('scroll', onScroll); savePos(chRef.current); };
+  }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
   const d = findDive(index, id);
   if (!d) return <div className="dive-view"><p>找不到這個專題。</p><button className="link" onClick={onAll}>看全部專題</button></div>;
   const m = byIdOf(index);
@@ -163,7 +182,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
   const bookAnchors: [string, string, boolean][] = d.book ? [['dv-deep', '深時間軸', true], ['dv-book', `照書讀 ${d.book.chapters.length} 站`, true]] : [];
   const ordered = [...bookAnchors, ...(learn || d.book ? anchors : [anchors[1], anchors[2], anchors[3], anchors[0]])];
   return (
-    <div className="dive-view">
+    <div className="dive-view" ref={rootRef}>
       <nav className="dv-crumb" aria-label="麵包屑"><button className="link" onClick={onAll}>深入專題</button> <span aria-hidden>›</span> <span>{d.title}</span></nav>
       <h2>{d.title}</h2>
       <p className="dv-q">❓ {d.question}</p>
@@ -176,7 +195,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
           <DeepTimeline dive={d} book={d.book} cards={events} year={year} setYear={setYear} onOpen={onOpen} currentId={currentId} hl={openCh != null ? { no: openCh, ids: d.book.chapters.find((c) => c.no === openCh)?.cards ?? [] } : null} />
         </section>
       )}
-      {d.book && <BookView dive={d} book={d.book} byId={m} cardBtn={(c) => cardBtn(c)} open={openCh} setOpen={setOpenCh} unitBtn={(uid) => { const i = unitList.findIndex((u) => u.id === uid); return i >= 0 ? unitBtn(unitList[i], i) : null; }} />}
+      {d.book && <BookView dive={d} book={d.book} byId={m} cardBtn={(c) => cardBtn(c, marks.get(c.name))} open={openCh} setOpen={setOpenCh} unitBtn={(uid) => { const i = unitList.findIndex((u) => u.id === uid); return i >= 0 ? unitBtn(unitList[i], i) : null; }} />}
 
       {learn || d.book ? <>{readSec}{powerSec}{curveSec}{personSec}{cardSec}</> : <>{powerSec}{curveSec}{personSec}{cardSec}{readSec}</>}
       <p className="dv-note muted small">專題只是把這段時代的卡片聚在一起放大看；每張卡仍然在整條長河、地圖和主題標籤裡，可以隨時跳出去比較別的時代。</p>

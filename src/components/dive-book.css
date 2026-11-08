@@ -64,3 +64,6 @@
 .bk-stance.con { color: #9b2c2c; border-color: #feb2b2; background: #fff5f5; }
 .bk-judge { margin: 6px 0 0; background: #f7f5ef; border-radius: 6px; padding: 4px 8px; }
 .bk-unit { margin: 2px 0 6px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+/* 章名：中文版章名為主，英文原名縮小；手機收起英文 */
+.bk-en { font-size: 11px; }
+@media (max-width: 480px) { .bk-en { display: none; } }

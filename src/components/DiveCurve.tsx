@@ -1,9 +1,11 @@
 // 深入專題的主視覺「曲線」（visual: curve，例如日本失落 30 年）：
 // 每條數列各畫一張小圖（同一條年份軸、不畫雙軸），專題的關鍵事件畫成直線，點直線開卡；
 // 紅線＝目前年代，點圖上任何一處就把年代跳到那一年。資料只放有來源的點，不內插（data/dives/<id>.yaml 的 curves）。
+import { useEffect, useRef, useState } from 'react';
 import type { Card, DiveCurves } from '../types';
 
-const W = 560, H = 120, PL = 52, PR = 10, PT = 12, PB = 20;
+// 寬度依實際版面量（不再固定 560 再整張縮放），刻度字才不會在手機縮成 6px
+const H = 130, PL = 52, PR = 10, PT = 12, PB = 20;
 const PALETTE = ['#2f5aa8', '#c0392b', '#2e7d4f', '#8e6bb0', '#b8860b'];
 
 const fmtNum = (v: number) => (Math.abs(v) >= 1000 ? Math.round(v).toLocaleString('en-US') : String(Math.round(v * 10) / 10));
@@ -12,15 +14,22 @@ export function DiveCurve({ curves, range, year, setYear, onOpen, byId }: {
   curves: DiveCurves; range: { start: number; end: number }; year: number; setYear: (y: number) => void;
   onOpen: (id: string) => void; byId: Map<string, Card>;
 }) {
+  const box = useRef<HTMLDivElement>(null);
+  const [W, setW] = useState(560);
+  useEffect(() => {
+    const el = box.current; if (!el) return;
+    const ro = new ResizeObserver(() => { const w = Math.round(el.clientWidth); if (w > 200) setW(w); });
+    ro.observe(el); return () => ro.disconnect();
+  }, []);
   const x = (y: number) => PL + ((y - range.start) / (range.end - range.start)) * (W - PL - PR);
   const yearAt = (px: number) => Math.round(range.start + ((px - PL) / (W - PL - PR)) * (range.end - range.start));
   const ticks: number[] = [];
-  const step = range.end - range.start > 40 ? 10 : 5;
+  const step = range.end - range.start > 40 || W < 440 ? 10 : 5;
   for (let t = Math.ceil(range.start / step) * step; t <= range.end; t += step) ticks.push(t);
   const srcOf = new Map(curves.sources.map((s, i) => [s.id, i + 1]));
   const inRange = year >= range.start && year <= range.end;
   return (
-    <div className="dv-curves">
+    <div className="dv-curves" ref={box}>
       {curves.series.map((se, si) => {
         const color = se.color || PALETTE[si % PALETTE.length];
         const pts = se.points.filter((p) => p[0] >= range.start && p[0] <= range.end); // 只畫專題年代內的點
@@ -37,7 +46,8 @@ export function DiveCurve({ curves, range, year, setYear, onOpen, byId }: {
         return (
           <figure key={se.id} className="dv-curve">
             <figcaption><b style={{ color }}>{se.name}</b> <small className="muted">（{se.unit}）{cur ? `・${year} 年：${fmtNum(cur[1])}` : ''}</small></figcaption>
-            <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${se.name}，${pts[0][0]}–${pts[pts.length - 1][0]} 年；最高 ${peak[0]} 年 ${fmtNum(peak[1])}`}
+            <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H} tabIndex={0} role="img"
+              onKeyDown={(e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; e.preventDefault(); const base = inRange ? year : range.start; setYear(Math.min(range.end, Math.max(range.start, base + d))); }} aria-label={`${se.name}，${pts[0][0]}–${pts[pts.length - 1][0]} 年；最高 ${peak[0]} 年 ${fmtNum(peak[1])}。按左右方向鍵移動年份`}
               onClick={(e) => { const r = (e.currentTarget as SVGSVGElement).getBoundingClientRect(); const px = ((e.clientX - r.left) / r.width) * W; const yy = yearAt(px); if (yy >= range.start && yy <= range.end) setYear(yy); }}>
               {[lo, (lo + hi) / 2, hi].map((v, i) => <g key={i}><line x1={PL} x2={W - PR} y1={y(v)} y2={y(v)} className="dv-cv-grid" /><text x={PL - 4} y={y(v) + 3} className="dv-cv-ax" textAnchor="end">{fmtNum(v)}</text></g>)}
               {lo < 0 && <line x1={PL} x2={W - PR} y1={y(0)} y2={y(0)} className="dv-cv-zero" />}

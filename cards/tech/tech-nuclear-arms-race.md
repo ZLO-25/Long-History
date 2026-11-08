@@ -34,12 +34,13 @@ sources:
   - { id: s1, title: "Nuclear arms race — Wikipedia", url: "https://en.wikipedia.org/wiki/Nuclear_arms_race", accessed: 2026-11-07, tier: 百科 }
   - { id: s2, title: "Test Ban Treaty (1963) — Milestone Documents, U.S. National Archives（含條約原件與條文）", url: "https://www.archives.gov/milestone-documents/test-ban-treaty", accessed: 2026-11-07, tier: 一手 }
   - { id: s3, title: "The Intermediate-Range Nuclear Forces (INF) Treaty at a Glance — Arms Control Association", url: "https://www.armscontrol.org/factsheets/intermediate-range-nuclear-forces-inf-treaty-glance", accessed: 2026-11-07, tier: 通論 }
+  - { id: s4, title: "Tsar Bomba — Wikipedia", url: "https://en.wikipedia.org/wiki/Tsar_Bomba", accessed: 2026-11-08, tier: 百科 }
 importance: 3
 learn:
   histories: [科技史, 世界通史, 美國史, 歐洲史]
   why_care: 美蘇兩國曾經造出夠把對方毀滅好幾次的核彈，卻也在最緊張的年代坐下來簽條約；今天新聞裡的「核試」「限武」「飛彈條約」，都是從這段競賽來的。[s1][s3]
   story: |
-    1945 年 8 月，美國在廣島投下第一顆實戰用的原子彈。[event-nuclear-long-peace:s2] 蘇聯透過間諜早就知道美國在造原子彈，1949 年 8 月 29 日試爆了自己的第一顆，外形幾乎是美國「胖子」的翻版。[s1] 1952 年美國在太平洋的埃尼威托克試爆第一顆氫彈，蘇聯 1955 年也造出真正的氫彈，1961 年更引爆威力約 5800 萬噸的「沙皇炸彈」。[s1] 雙方後來都有挨打之後還能反擊的潛艦與飛彈，形成「相互保證毀滅」：誰先開打，自己也會被毀滅。[s1] 擔心放射性落塵汙染，美英蘇在 1963 年簽約禁止在大氣、太空和水下試爆。[s2] 1987 年，雷根與戈巴契夫簽下《中程核飛彈條約》，到 1991 年雙方共銷毀 2,692 枚飛彈。[s3]
+    1945 年 8 月，美國在廣島投下第一顆實戰用的原子彈。[event-nuclear-long-peace:s2] 蘇聯透過間諜早就知道美國在造原子彈，1949 年 8 月 29 日試爆了自己的第一顆，外形幾乎是美國「胖子」的翻版。[s1] 1952 年美國在太平洋的埃尼威托克試爆第一顆氫彈，蘇聯 1955 年也造出真正的氫彈，1961 年更引爆威力約 5,000 萬噸的「沙皇炸彈」（早年文獻多寫約 5,800 萬噸）。[s4][s1] 雙方後來都有挨打之後還能反擊的潛艦與飛彈，形成「相互保證毀滅」：誰先開打，自己也會被毀滅。[s1] 擔心放射性落塵汙染，美英蘇在 1963 年簽約禁止在大氣、太空和水下試爆。[s2] 1987 年，雷根與戈巴契夫簽下《中程核飛彈條約》，到 1991 年雙方共銷毀 2,692 枚飛彈。[s3]
   key_terms:
     - { term: 相互保證毀滅（MAD）, plain: 兩國都有在被偷襲後還能反擊的核武，所以誰先動手都會一起毀滅，於是都不敢先動手。, example: 兩個人各拿著對方的把柄，誰先公開，自己的把柄也會被公開。 }
     - { term: 氫彈, plain: 比原子彈威力大很多的核武，美國 1952 年、蘇聯 1955 年先後試爆成功。, example: 原子彈像一顆鞭炮，氫彈則像用那顆鞭炮去點燃一整箱煙火。 }
@@ -81,7 +82,7 @@ crosscheck: { date: 2026-11-07, by: 獨立查核 agent（未參與寫作）, res
 - **1949 年 8 月 29 日**：蘇聯試爆第一顆原子彈 RDS-1，西方稱為「第一道閃電」，設計大致仿照美國的「胖子」。[s1]
 - **1952 年 11 月 1 日**：美國在埃尼威托克環礁試爆第一顆氫彈「常春藤麥克」。[s1]
 - **1953 年 8 月／1955 年 11 月 22 日**：蘇聯先試爆一種可以部署的熱核裝置，但還不是真正的多級氫彈；1955 年才試爆威力 160 萬噸的真正氫彈。[s1]
-- **1961 年 10 月 30 日**：蘇聯「沙皇炸彈」試爆，威力約 5,800 萬噸，是這場試爆競賽的高峰。[s1]
+- **1961 年 10 月 30 日**：蘇聯「沙皇炸彈」試爆，是這場試爆競賽的高峰。威力：今天俄方官方與英文維基「沙皇炸彈」條目都寫 5,000 萬噸；「核武競賽」條目沿用的約 5,800 萬噸是 1991 年以前技術文獻通用的較早估計。[s4][s1]
 
 ## T3 傳播與普及
 

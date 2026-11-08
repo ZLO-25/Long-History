@@ -1,7 +1,7 @@
 import { useDeferredValue, useEffect, useMemo, useState, useCallback } from 'react';
 import { setNameTable } from './lib/bilingual';
 import type { Index, Card, Filters } from './types';
-import { createSearch, matchTopics, useSearchLibs } from './lib/search';
+import { createSearch, matchTopics, useSearchLibs, loadSearchLibs } from './lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from './components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from './components/Story';
 import { DiveView, DiveIndex, diveMarks, diveRoutes, findDive, hasPowerVisual, powerFor, diveYear, prehistDive } from './components/Dive';
@@ -22,6 +22,7 @@ import { MIN_YEAR, MAX_YEAR, ERAS, eraOf } from './lib/timeScale';
 import { LearnApp } from './learn/LearnApp';
 import { DockLayout, useDock } from './components/Dock';
 import { useLayout, colSize } from './lib/layout';
+import { SkipLink } from './components/SkipLink';
 
 type RPanel = 'map' | 'side' | 'tl';
 const R_PANELS: readonly RPanel[] = ['map', 'side', 'tl'];
@@ -46,17 +47,42 @@ export default function App() {
   const [index, setIndex] = useState<Index | null>(null);
   const [error, setError] = useState('');
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}index.json`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
-      .then((ix) => { setNameTable(ix.names); setIndex(ix); }).catch(() => setError('讀不到 public/index.json。請先執行 npm run build:index（npm run dev 會自動執行）。'));
+    // 效能：先抓較小的 index.json 畫出畫面；畫面出來後才在背景抓卡片長內文 index-detail.json（不跟首頁搶頻寬），到了再併進來
+    const base = import.meta.env.BASE_URL;
+    const getJson = (u: string) => fetch(u).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
+    // 網址直接指到卡片／單元／專題時，一開始就要讀內文：兩個檔同時抓（不帶版本號，抓到不同建置再補抓一次）
+    // （index.html 裡的小段程式已經開始抓，這裡接手）
+    const early = (window as Window & { __hrDetail?: Promise<any> }).__hrDetail ?? null;
+    getJson(`${base}index.json`).then((ix: Index) => {
+      setNameTable(ix.names); setIndex({ ...ix, detailReady: false });
+      // 帶建置時間當版本號，兩個檔一定是同一次建置（不會拿到快取裡的舊內文）
+      const fresh = () => getJson(`${base}index-detail.json?v=${encodeURIComponent(ix.generated)}`);
+      (early ? early.then((d) => (d?.generated === ix.generated ? d : fresh())) : fresh())
+        .then((d) => setIndex(mergeDetail(ix, d))).catch(() => setError('讀不到卡片內文 index-detail.json，請重新整理頁面。'));
+    }).catch(() => setError('讀不到 public/index.json。請先執行 npm run build:index（npm run dev 會自動執行）。'));
   }, []);
   if (error) return <div className="fatal">{error}</div>;
-  if (!index) return <div className="fatal">載入中…</div>;
+  if (!index) return <div className="fatal loading">載入中…（第一次開啟要下載卡片資料，約需幾秒）</div>;
   return <ModeSwitch index={index} />;
 }
 
 // 第 6 期：研究模式／學習模式。網址 ?mode=learn 進入學習模式；研究模式的網址參數完全不變
 // 第一次來（網址沒帶任何參數、也沒記住過模式）的人，預設進學習模式；之後記住上次用的模式。
 // 研究模式的網址參數（?card= ?year= ?chain= …）一律維持研究模式，舊連結不受影響。
+type Detail = { generated: string; cards: Record<string, Pick<Card, 'sections' | 'sources' | 'causes' | 'effects'> & { learn?: Partial<NonNullable<Card['learn']>> }> };
+// 效能：長內文直接寫進原本的卡片物件（同一個 cards 陣列），地圖、時間軸、搜尋索引不必因此全部重算；
+// 只有 detailReady 變成 true，讓「載入卡片內容…」換成真正的內容
+function mergeDetail(ix: Index, d: Detail): Index {
+  for (const c of ix.cards) {
+    const x = d.cards[c.id];
+    if (!x) continue;
+    const { learn, ...rest } = x;
+    Object.assign(c, rest);
+    if (c.learn && learn) Object.assign(c.learn, learn);
+  }
+  return { ...ix, detailReady: true };
+}
+
 const MODE_KEY = 'history-river-mode';
 function initialMode(): 'learn' | 'research' {
   const q = new URLSearchParams(location.search);
@@ -129,13 +155,14 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const tlOpen = layout.rTlOpen ?? true;
   const tlInC = dock.order[2] === 'tl' && !dock.float.tl && !dock.wins.tl;
 
-  const byId = useMemo(() => new Map(index.cards.map((c) => [c.id, c])), [index]);
-  const search = useMemo(() => createSearch(index.cards), [index]);
+  // 效能：依賴 index.cards（長內文併入時沿用同一批卡片物件），不會因此重建搜尋索引
+  const byId = useMemo(() => new Map(index.cards.map((c) => [c.id, c])), [index.cards]);
+  const search = useMemo(() => createSearch(index.cards), [index.cards]);
   const passFilter = useCallback((c: Card) =>
     (!filters.types.length || filters.types.includes(c.type)) &&
     (!filters.fields.length || [c.place.primary_field, ...c.place.secondary_fields].some((f) => filters.fields.includes(f))) &&
     (!filters.civs.length || c.civPaths.some((v) => filters.civs.some((f) => v === f || v.startsWith(f + '/')))), [filters]);
-  const visible = useMemo(() => index.cards.filter(passFilter), [index, passFilter]);
+  const visible = useMemo(() => index.cards.filter(passFilter), [index.cards, passFilter]);
   const libsReady = useSearchLibs(!!query.trim());
   // 效能：搜尋結果用延後值，打字不會因為重算結果和地圖而卡住
   const dq = useDeferredValue(query);
@@ -211,7 +238,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const onQuery = (q: string) => { setQuery(q); if (panel.kind !== 'list') home(); if (isMobile) setMobileTab('list'); };
 
   const panelTitle = ({ list: '卡片清單', card: '卡片', place: '地點', route: '路線', match: '結構對照', chain: '物資鏈', econ: '經濟曲線', today: '今日對照', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題' } as const)[panel.kind];
-  const side = (() => {
+  const sideRaw = (() => {
     switch (panel.kind) {
       case 'card': return selectedCard && <CardDetail card={selectedCard} index={index} byId={byId} onOpen={openCard}
         onTag={(t) => open({ kind: 'match', tags: [t] })} onTopic={openTopic} onPlace={(key) => open({ kind: 'place', key })} onRoute={(id) => open({ kind: 'route', id })} onChain={openChain} onToday={openToday} onStory={openStory} onDive={(index.dives ?? []).length ? openDive : undefined} />;
@@ -230,6 +257,8 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
       default: return <ResultList query={query} result={result} hits={hits} cards={visible} year={year} onOpen={openCard} topics={topicHits} onTopic={openTopic} />;
     }
   })();
+  // 卡片長內文還在背景下載時，需要內文的面板先顯示「載入中」（通常不到一秒）
+  const side = index.detailReady === false && !['list', 'topics', 'stories', 'dives', 'econ'].includes(panel.kind) ? <p className="muted loading-detail">載入卡片內容…</p> : sideRaw;
 
   const map = <MapView index={index} cards={visible} year={year} highlight={highlight}
     onPlace={(key) => { open({ kind: 'place', key }); if (isMobile) setMobileTab('list'); }}
@@ -240,9 +269,10 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
 
   return (
     <div className={`app ${isMobile ? 'mobile' : 'desktop'}`}>
+      <SkipLink sel=".panel" />
       <header className="top">
         <button className="brand" onClick={() => { home(); setQuery(''); }} title="回到首頁">歷史長河</button>
-        <input className="search" type="search" value={query} onChange={(e) => onQuery(e.target.value)}
+        <input className="search" type="search" value={query} onChange={(e) => onQuery(e.target.value)} onFocus={() => { loadSearchLibs().catch(() => {}); }}
           placeholder={isMobile ? '搜尋卡片（可打錯字、簡體、英文）' : '搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）'} aria-label="搜尋" />
         {!isMobile && (index.storylines ?? []).length > 0 && <button className={`btn ${panel.kind === 'story' || panel.kind === 'stories' ? 'on' : ''}`} onClick={() => open({ kind: 'stories' })} title="沿著前因 → 後果，把不同時代的事件接成一條路">故事線</button>}
         {!isMobile && (index.dives ?? []).length > 0 && <button className={`btn ${panel.kind === 'dive' || panel.kind === 'dives' ? 'on' : ''}`} onClick={() => open({ kind: 'dives' })} title="把一段時代放大來看：地圖、卡片、故事線">專題</button>}

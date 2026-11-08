@@ -52,3 +52,5 @@
   font-size: 11px; font-weight: 700; line-height: 18px; text-align: center; white-space: nowrap; box-shadow: 0 1px 3px rgba(0,0,0,.45); }
 .tv-map { margin-left: 8px; }
 .topic-suggest { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; margin: 0 0 8px; padding: 6px 8px; background: #fffaf0; border: 1px dashed #efc77a; border-radius: 8px; }
+/* 深入專題：目前年代之後才發生的卡，編號調淡（讀書專題直接不畫） */
+.topic-mark.future { background: #9a8f80; opacity: 0.55; }

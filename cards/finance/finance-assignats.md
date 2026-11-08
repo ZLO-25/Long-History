@@ -32,6 +32,7 @@ sources:
   - { id: s2, title: "The Maximum（1793-09-29 一般最高限價法，英譯引自 John Hall Stewart, A Documentary Survey of the French Revolution, 1951, pp. 499–500）— Liberty, Equality, Fraternity, George Mason University", url: "https://www.revolution.chnm.org/d/415", accessed: 2026-11-07, tier: 一手 }
   - { id: s3, title: "Thomas J. Sargent & François R. Velde, The Macroeconomic Causes and Consequences of the French Revolution — The Region, Federal Reserve Bank of Minneapolis（1991；後發表為 Journal of Political Economy 103(3), 1995 的論文〈Macroeconomic Features of the French Revolution〉）", url: "https://minneapolisfed.org/article/1991/the-macroeconomic-causes-and-consequences-of-the-french-revolution", accessed: 2026-11-07, tier: 學術 }
   - { id: s4, title: "Jacques Necker — Wikipedia", url: "https://en.wikipedia.org/wiki/Jacques_Necker", accessed: 2026-11-07, tier: 百科 }
+  - { id: s5, title: "Assignat — Wikipédia（法文）", url: "https://fr.wikipedia.org/wiki/Assignat", accessed: 2026-11-08, tier: 百科 }
 importance: 2
 learn:
   histories: [歐洲史, 錢的歷史]
@@ -76,7 +77,7 @@ crosscheck: { date: 2026-11-07, by: 獨立查核 agent（未參與寫作）, res
 
 - **1789 年 10 月 7 日**：王室財產被接收，成為擔保的一部分。[s1]
 - **1789 年 11 月 2 日**：議會依米拉波的提議，沒收教會財產。[s1]
-- **1789 年 12 月 21 日**：法令決定發行第一批指券，1790 年 4 月發出，年息 5%。[s1] 第一批的金額：維基條目寫「400,000 里弗」，和一般書上常見的「4 億里弗」差了一千倍，可能是筆誤；查核時已對照 Sargent & Velde 的文章，該文沒有給出這個數字，來源不足，本卡暫不列。
+- **1789 年 12 月 21 日**：法令決定發行第一批指券，1790 年 4 月發出，年息 5%。[s1] 第一批的金額：法文維基寫「第一次發行總值 4 億里弗」（400 millions de livres），與一般書上常見的說法相同；英文維基寫「400,000 里弗」，應是少了「百萬」的筆誤。[s5][s1]
 - **1790 年 4 月 17 日**：指券成為法定貨幣，利息降為 3%。[s1]
 
 ## F3 怎麼運作

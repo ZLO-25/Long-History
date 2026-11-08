@@ -22,17 +22,16 @@ export function loadSearchLibs(): Promise<Libs> {
 }
 const toTrad = (s: string) => (libs ? libs.toTrad(s) : s);
 
-/** 回傳搜尋輔助套件是否已載入；want 為 true（使用者開始打字）時立刻載，否則等瀏覽器空閒再載 */
+/** 回傳搜尋輔助套件是否已載入；want 為 true（使用者開始打字）時才載 */
 export function useSearchLibs(want: boolean): boolean {
   const [ready, setReady] = useState(!!libs);
   useEffect(() => {
     if (ready) return;
     let alive = true;
     const go = () => loadSearchLibs().then(() => { if (alive) setReady(true); }).catch(() => {});
-    if (want) { go(); return () => { alive = false; }; }
-    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
-    const t = w.requestIdleCallback ? w.requestIdleCallback(go, { timeout: 6000 }) : window.setTimeout(go, 3000);
-    return () => { alive = false; if (!w.requestIdleCallback) clearTimeout(t); };
+    // 效能：不再於空閒時預載（簡轉繁字典解析一次要 0.2–0.3 秒，多數人不會用到）；開始打字才載
+    if (want) go();
+    return () => { alive = false; };
   }, [want, ready]);
   return ready;
 }

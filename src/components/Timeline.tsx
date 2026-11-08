@@ -121,7 +121,9 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
   }, [cards, t, base, showFull, width, lanesDef]);
 
   // 兩軌等高：以列數較多的一軌為準，中西份量在畫面上相同（專題軌道則各自依卡數）
-  const laneHt = lanes.map((ln, i) => (!lanesDef && i < 2 ? Math.max(lanes[0].rows, lanes[1].rows) : ln.rows) * ROW_H + LANE_PAD * 2);
+  // 專題軌道：軌道名稱自己佔一行（上方多留 12px），不再壓在第一列卡條上
+  const topPad = lanesDef ? LANE_PAD + 12 : LANE_PAD;
+  const laneHt = lanes.map((ln, i) => (!lanesDef && i < 2 ? Math.max(lanes[0].rows, lanes[1].rows) : ln.rows) * ROW_H + LANE_PAD + topPad);
   const laneTop = laneHt.map((_, i) => laneHt.slice(0, i).reduce((a, b) => a + b, 0));
   const lanesTotal = laneHt.reduce((a, b) => a + b, 0);
 
@@ -129,7 +131,7 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
   const focus = hover ?? selectedId;
   const pos = new Map<string, { x: number; y: number }>();
   lanes.forEach((ln, li) => ln.placed.forEach(({ c, x0, x1, row }) =>
-    pos.set(c.id, { x: (x0 + Math.max(x1, x0 + 6)) / 2, y: AXIS_H + ECON_H + laneTop[li] + LANE_PAD + row * ROW_H + 2 + (ROW_H - 6) / 2 })));
+    pos.set(c.id, { x: (x0 + Math.max(x1, x0 + 6)) / 2, y: AXIS_H + ECON_H + laneTop[li] + topPad + row * ROW_H + 2 + (ROW_H - 6) / 2 })));
   const fc = focus ? allCards.find((c) => c.id === focus) : undefined;
   const related = new Set(fc ? [...fc.counterparts.map((x) => x.id), ...fc.counterpart_of] : []);
   // 經濟曲線帶：共用同一條 x 刻度；只畫有來源的點與期間，不連線、不內插
@@ -196,7 +198,10 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
   const viewA = Math.round(base.invert(t.invertX(0))), viewB = Math.round(base.invert(t.invertX(width - 50)));
   // 紅線在畫面外時，年份標籤貼在邊緣並加箭頭，提醒「目前年代在左邊／右邊」
   const curOff = cx < 22 ? 'left' : cx > width - 4 ? 'right' : null;
-  const badgeX = Math.max(30, Math.min(width - 30, cx));
+  const badgeText = `${curOff === 'left' ? '◀ ' : ''}${shownYear < MIN_YEAR ? `${yr(shownYear)}（在軸外）` : fmtYear(shownYear)}${curOff === 'right' ? ' ▶' : ''}`;
+  // 標籤框寬度依文字長度（中文約 11px、其他約 6.5px），「7 萬年前（在軸外）」才不會被裁掉
+  const badgeW = Math.max(60, [...badgeText].reduce((a, ch) => a + (/[\u2E80-\uFFFF]/.test(ch) ? 11 : 6.5), 0) + 16);
+  const badgeX = Math.max(badgeW / 2, Math.min(width - badgeW / 2, cx));
   const goEra = (name: string, a: number, b: number) => { (svgRef.current as any)?.__zoom_to?.(a, b); setEraSel(name); if (year < a || year > b) setYear(a); };
   return (
     <div className="timeline" ref={wrap}>
@@ -234,7 +239,7 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
               {lanesDef && <rect x={0} y={0} width={3} height={h} className="lane-bar" />}
               {ln.placed.map(({ c, x0, x1, row, label, lx }) => {
                 if (x1 < -200 || x0 > width + 10) return null;
-                const y = LANE_PAD + row * ROW_H + 2;
+                const y = topPad + row * ROW_H + 2;
                 const sel = c.id === selectedId;
                 const rel = related.has(c.id);
                 return (
@@ -292,8 +297,8 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
         <g className={`cursor-tag ${curOff ? 'off' : ''}`} transform={`translate(${badgeX},0)`}
           onPointerDown={curOff ? undefined : startDrag} onClick={curOff ? () => { const a = Math.max(MIN_YEAR, year - 50), b = Math.min(MAX_YEAR, year + 50); (svgRef.current as any)?.__zoom_to?.(a, b); setEraSel(null); } : undefined}>
           {curOff && <title>目前年代不在畫面上，點一下移過去</title>}
-          <rect x={-30} y={AXIS_H - 2} width={60} height={17} rx={8} className="cursor-badge" />
-          <text y={AXIS_H + 10} textAnchor="middle">{curOff === 'left' ? '◀ ' : ''}{shownYear < MIN_YEAR ? `${yr(shownYear)}（在軸外）` : fmtYear(shownYear)}{curOff === 'right' ? ' ▶' : ''}</text>
+          <rect x={-badgeW / 2} y={AXIS_H - 2} width={badgeW} height={17} rx={8} className="cursor-badge" />
+          <text y={AXIS_H + 10} textAnchor="middle">{badgeText}</text>
         </g>
       </svg>
       {m && <div className="econ-legend">

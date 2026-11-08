@@ -31,6 +31,7 @@ sources:
   - { id: s2, title: "Thierry Lentz, Le Code civil (21 mars 1804) : naissance, principes et postérité — Fondation Napoléon（napoleon.org）", url: "https://www.napoleon.org/enseignants/documents/le-code-civil-21-mars-1804-naissance-principes-et-posterite", accessed: 2026-11-07, tier: 學術 }
   - { id: s4, title: "Civil Code of Japan — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Civil_Code_of_Japan", accessed: 2026-11-07, tier: 百科 }
   - { id: s3, title: "Code civil des Français（1804 年原版）第 213 條條文 — Criminocorpus 法律史資料庫", url: "https://criminocorpus.org/fr/legislation/droit/versions/718/213/pdf/", accessed: 2026-11-07, tier: 一手 }
+  - { id: s5, title: "Code civil des Français 1804, Livre I, Titre V（第 148 條）— Wikisource（法文）", url: "https://fr.wikisource.org/wiki/Code_civil_des_Français_1804/Livre_I,_Titre_V", accessed: 2026-11-08, tier: 一手 }
 importance: 3
 learn:
   histories: [歐洲史]
@@ -50,7 +51,7 @@ learn:
       src: s3
   historiography: |
     **影響全世界的法典**：英文維基引述史家 Robert Holtman，認為它是少數影響了全世界的文件之一；它用一般人看得懂的法文寫成，取代了封建時代七拼八湊的法律。[s1] 拿破崙基金會的史家 Thierry Lentz 把它歸納為幾個原則：人人享有民事權利、國家不依附宗教、財產「絕對」。[s2]
-    **平等，但不是人人一樣**：Lentz 同時強調，「權利平等」不等於「平等主義」：家庭是有上下的，丈夫和父親在最上面，已婚婦女要受丈夫管，只有未婚或守寡的女人才有完整權利，子女到 25 歲以前結婚都要父親同意。[s2] 英文維基也指出，法典確立了丈夫對妻子和子女的優勢地位，這在當時的歐洲是常態，女人的權利甚至比子女還少。[s1] 第 213 條「妻子應服從丈夫」一直到 1938 年才被修改。[s3][s2]
+    **平等，但不是人人一樣**：Lentz 同時強調，「權利平等」不等於「平等主義」：家庭是有上下的，丈夫和父親在最上面，已婚婦女要受丈夫管，只有未婚或守寡的女人才有完整權利，子女結婚要父母同意（Lentz 寫到 25 歲；1804 年原版第 148 條的規定是兒子未滿 25 歲、女兒未滿 21 歲，父母意見不同時以父親為準）。[s2][s5] 英文維基也指出，法典確立了丈夫對妻子和子女的優勢地位，這在當時的歐洲是常態，女人的權利甚至比子女還少。[s1] 第 213 條「妻子應服從丈夫」一直到 1938 年才被修改。[s3][s2]
   misconceptions:
     - 「拿破崙親手寫了這部法典」：起草的是 Tronchet、Portalis、Bigot de Préameneu、Maleville 四位法學家；拿破崙主持了大約一半的國務會議討論，英文維基說他沒有直接參與起草條文。[s1][s2]
     - 「這部法典早就作廢了」：Lentz 指出，今天法國民法典大約還有一半的條文是 1804 年留下來的，只是內容已經過多次修改。[s2]
@@ -95,7 +96,7 @@ crosscheck: { date: 2026-11-07, by: 獨立查核 agent（未參與寫作）, res
 
 ## C5 受益者與受損者
 
-受益：擺脫封建身分的平民與地主，他們的財產權被清楚保障；法典 2,281 條裡有 1,570 條在談財產。[s2] 受損：已婚婦女——只有未婚或守寡的女人才有完整權利；[s2] 子女到 25 歲以前結婚要父親同意。[s2] 教會也失去了掌管出生、婚姻登記的角色。[s2]
+受益：擺脫封建身分的平民與地主，他們的財產權被清楚保障；法典 2,281 條裡有 1,570 條在談財產。[s2] 受損：已婚婦女——只有未婚或守寡的女人才有完整權利；[s2] 兒子未滿 25 歲、女兒未滿 21 歲結婚要父母同意（父母意見不同時，父親同意就夠）。[s5] 教會也失去了掌管出生、婚姻登記的角色。[s2]
 
 ## C6 直接結果
 

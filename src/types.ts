@@ -125,7 +125,7 @@ export interface DiveCurveSeries { id: string; name: string; unit: string; color
 export interface DiveCurves { title: string; subtitle: string; caveat: string; series: DiveCurveSeries[]; events: { year: number; label: string; card?: string }[]; sources: DiveSource[] }
 export interface DiveSource { id: string; title: string; url: string; accessed: string; tier?: string }
 export interface DivePart { no: number; name: string; span: string; blurb: string; from: number; to: number; unit?: string }
-export interface DiveChapter { no: number; part: number; title: string; en: string; claim: string; cards: string[]; card_notes: Record<string, string>; debate: { who: string; text: string; src: string[]; stance: '' | '支持' | '補充' | '反對' }[]; think: string; core: boolean; minutes: number | null }
+export interface DiveChapter { no: number; part: number; title: string; en: string; /** 中文版（天下文化，林俊宏 譯）章名 */ zh: string; claim: string; cards: string[]; card_notes: Record<string, string>; debate: { who: string; text: string; src: string[]; stance: '' | '支持' | '補充' | '反對' }[]; think: string; core: boolean; minutes: number | null }
 export interface DiveBook { title: string; author: string; note: string; parts: DivePart[]; chapters: DiveChapter[]; sources: DiveSource[] }
 export interface Index {
   generated: string; cards: Card[]; tagCategories: TagCategory[]; topicLayers: TopicLayer[]; fieldOptions: string[];
@@ -136,6 +136,8 @@ export interface Index {
   histories: History[]; units: Unit[]; storylines: Storyline[]; dives?: Dive[];
   // 地圖名稱中英對照（data/labels/names-en.yaml）
   names?: { en: Record<string, string>; zh: Record<string, string> };
+  /** 卡片長內文（index-detail.json）是否已併入；false 時 sections／sources／causes／effects 與學習卡全文暫時是空的 */
+  detailReady?: boolean;
 }
 
 export interface Filters { types: CardType[]; fields: string[]; civs: string[] }

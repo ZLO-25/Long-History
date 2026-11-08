@@ -14,7 +14,7 @@ const fs = require('fs');
   };
   let fail = 0;
   const ok = (cond, msg) => { console.log(`${cond ? '✓' : '✗'} ${msg}`); if (!cond) fail++; };
-  const ix = await (await fetch(base + 'index.json')).json();
+  const ix = await require('./load-index.cjs')(base);
   const byId = new Map(ix.cards.map((c) => [c.id, c]));
 
   // ---- 資料 ----

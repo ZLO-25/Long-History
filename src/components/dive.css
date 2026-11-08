@@ -73,7 +73,26 @@
 .dv-curve p { margin: 2px 0 0; }
 .dv-cv-grid { stroke: #e4ddcf; stroke-width: 1; }
 .dv-cv-zero { stroke: #8a8172; stroke-width: 1; }
-.dv-cv-ax { font-size: 10px; fill: #5b5446; }
+.dv-cv-ax { font-size: 12px; fill: #5b5446; }
 .dv-cv-ev { stroke: #9a9a9a; stroke-width: 1; stroke-dasharray: 3 3; }
 .dv-cv-now { stroke: #d33; stroke-width: 1.5; }
 .dv-cv-events { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+
+/* 2026-11-08 UI/UX 複查 */
+/* H3：跳到某一節／某一站時，標題不要被置頂導覽列蓋住 */
+.dive-view .dv-sec, .dive-view .bk-ch { scroll-margin-top: 64px; }
+@media (max-width: 640px) {
+  /* 手機：置頂導覽列改成一行可左右滑，不再佔兩行 */
+  .dv-anchors { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .dv-anchors::-webkit-scrollbar { display: none; }
+  .dv-anchors .chip { flex: none; }
+}
+/* M6：手機觸控目標至少 44px */
+@media (pointer: coarse) {
+  .dv-card { min-height: 44px; align-items: center; }
+  .bk-jump .chip { min-width: 44px; min-height: 44px; }
+}
+/* L2：單元按鈕文字靠左 */
+.dv-story { text-align: left; }
+.dv-curve svg:focus-visible { outline: 2px solid var(--dive); outline-offset: 2px; }
+.dv-curves { min-width: 0; }

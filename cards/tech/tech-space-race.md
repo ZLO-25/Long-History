@@ -2,7 +2,7 @@
 id: tech-space-race
 type: tech
 name: 太空競賽：從史普尼克到阿波羅 11 號
-aliases: [太空競賽, 太空競争, Space Race, 史普尼克, 斯普特尼克, Sputnik, 加加林, Yuri Gagarin, 東方一號, Vostok 1, 阿波羅 11 號, Apollo 11, 阿姆斯壯, Neil Armstrong, 登月, 美國國家航空暨太空總署, NASA, 萊卡, Laika, 柯羅列夫, Sergei Korolev, 阿波羅—聯盟號, Apollo–Soyuz, 太空竞赛, 斯普特尼克危机]
+aliases: [太空競賽, Space Race, 史普尼克, 斯普特尼克, Sputnik, 加加林, Yuri Gagarin, 東方一號, Vostok 1, 阿波羅 11 號, Apollo 11, 阿姆斯壯, Neil Armstrong, 登月, 美國國家航空暨太空總署, NASA, 萊卡, Laika, 柯羅列夫, Sergei Korolev, 阿波羅—聯盟號, Apollo–Soyuz, 太空竞赛, 斯普特尼克危机]
 civilization: [美國（世界強權）, 蘇聯]
 track: west
 time:

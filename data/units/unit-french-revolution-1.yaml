@@ -42,15 +42,15 @@ steps:
     question: 西耶斯在這段話裡，怎麼回答「第三等級是什麼」？
     options:
       - 第三等級什麼都不是，應該聽貴族的
-      - 第三等級是「一切」，但被鎖鏈綁住、受到壓迫
-      - 第三等級只是國王的僕人
       - 第三等級應該和貴族交換位置
-    answer: 1
+      - 第三等級只是國王的僕人
+      - 第三等級是「一切」，但被鎖鏈綁住、受到壓迫
+    answer: 3
     explain: 「What is the Third Estate? Everything; but an everything shackled and oppressed」：第三等級是「一切」，國家靠他們運作，卻被特權綁住。這是 1789 年 1 月出版的小冊子，作者是一位教士，他想說服大家：第三等級就是整個國家，特權等級反而是多出來的。所以讀的時候也要想到：這是替一方說話的文字，不是中立的描述。
     hints:
-      - 先找問句後面的第一個字：Everything。
+      - 先讀括號裡的中文翻譯：問句後面的第一個答案是什麼？（英文原文是 Everything。）
       - 「but」後面是轉折：這個「一切」怎麼了？
-      - shackled（被鎖住）和 oppressed（被壓迫）是好事還是壞事？
+      - 「被鎖鏈綁住、受到壓迫」是好事還是壞事？作者想讓讀者對特權等級有什麼感覺？
     ref: event-estates-general-1789#C1
   - type: card
     id: event-storming-bastille

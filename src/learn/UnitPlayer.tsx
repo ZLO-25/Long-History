@@ -41,7 +41,9 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
   const s = step >= 0 ? u.steps[step] : null;
   const byId = (id: string) => index.cards.find((c) => c.id === id);
   // 讓地圖與時間軸跟著目前這一步的卡片走
-  const focusId = s && (s.type === 'card' ? s.id : s.type === 'source' || s.type === 'today' ? s.card : s.type === 'compare' ? s.cards[0] : s.type === 'decision' ? s.ref.split('#')[0] : null);
+  const stepFocus = (x: typeof s) => x && (x.type === 'card' ? x.id : x.type === 'source' || x.type === 'today' ? x.card : x.type === 'compare' ? x.cards[0] : x.type === 'decision' ? x.ref.split('#')[0] : null);
+  // 封面（還沒開始）也讓地圖和年代先跳到這一課的第一張卡，例如會安單元一打開就看越南
+  const focusId = s ? stepFocus(s) : u.steps.map(stepFocus).find(Boolean) ?? null;
   useEffect(() => { onFocus?.(focusId ?? null); }, [focusId]);
   const ref = (r?: string) => <RefLink refStr={r} index={index} onCard={onCard} />;
   const save = (k: string, v: unknown) => setProg({ answers: { ...(prog?.answers ?? {}), [k]: v } });
@@ -89,6 +91,11 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
         <h3>學完你會</h3>
         <ul>{u.goals.map((g) => <li key={g}>{g}</li>)}</ul>
         <p className="muted">預估 {u.minutes} 分鐘・{u.steps.length} 步・可以隨時離開，進度會記在這台瀏覽器</p>
+        <div className="row">
+          <button className="btn primary big" onClick={() => go(prog?.step != null && prog.step > 0 ? prog.step : 0)}>{prog?.step != null && prog.step > 0 ? `從第 ${prog.step + 1} 步繼續（${partOf(prog.step) || '接著做'}）` : long ? '開始上半段' : '開始'}</button>
+          {long && !(prog?.step != null && prog.step >= half) && <button className="btn big" onClick={() => { setBrk(false); setProg({ step: half }); }}>直接做下半段</button>}
+        </div>
+        <details className="unit-outline"><summary>看全部 {u.steps.length} 步</summary>
         {(long ? [[0, half], [half, n]] : [[0, n]]).map(([a, b], k) => (
           <div key={k} className="half-block">
             {long && <h4>{k === 0 ? '上半' : '下半'}：第 {a + 1}–{b} 步・約 {mins(a, b)} 分鐘</h4>}
@@ -97,11 +104,8 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
             </ol>
           </div>
         ))}
+        </details>
         {long && <p className="muted small">一節課做不完沒關係：做完上半段會有中場休息，進度自動存好，下次從下半段接著做。</p>}
-        <div className="row">
-          <button className="btn primary big" onClick={() => go(prog?.step != null && prog.step > 0 ? prog.step : 0)}>{prog?.step != null && prog.step > 0 ? `從第 ${prog.step + 1} 步繼續（${partOf(prog.step) || '接著做'}）` : long ? '開始上半段' : '開始'}</button>
-          {long && !(prog?.step != null && prog.step >= half) && <button className="btn big" onClick={() => { setBrk(false); setProg({ step: half }); }}>直接做下半段</button>}
-        </div>
       </div>
     );
     switch (s.type) {

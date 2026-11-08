@@ -3,12 +3,13 @@
 import { useDeferredValue, useCallback, useEffect, useMemo, useState } from 'react';
 import { DockLayout, useDock } from '../components/Dock';
 import { useLayout, colSize } from '../lib/layout';
+import { SkipLink } from '../components/SkipLink';
 
 type LPanel = 'content' | 'map' | 'tl';
 const L_PANELS: readonly LPanel[] = ['content', 'map', 'tl'];
 import type { Card, Index } from '../types';
 import { MapView } from '../components/MapView';
-import { createSearch, matchTopics, useSearchLibs } from '../lib/search';
+import { createSearch, matchTopics, useSearchLibs, loadSearchLibs } from '../lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from '../components/Story';
 import { DiveView, DiveIndex, diveMarks, diveRoutes, findDive, hasPowerVisual, powerFor, diveYear, prehistDive } from '../components/Dive';
@@ -59,7 +60,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const [lastCard, setLastCard] = useState<string | null>(view.kind === 'card' ? view.id : null);
   const [focus, setFocus] = useState<string | null>(null);
   const [query, setQuery] = useState('');
-  const all = useMemo(() => learnCards(index), [index]);
+  const all = useMemo(() => learnCards(index), [index.cards]); // eslint-disable-line react-hooks/exhaustive-deps
   const histCards = useMemo(() => all.filter((c) => inHistory(c, h)), [all, h]);
   // 選了某一條史，地圖就先框住這條史的卡片所在範圍（世界通史維持原本視野）
   const home = useMemo(() => {
@@ -76,7 +77,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     return [[la0, ln0], [la1, ln1]] as B;
   }, [h, histCards]);
   const bgCards = useMemo(() => all.filter((c) => !inHistory(c, h)), [all, h]);
-  const byId = useCallback((id: string) => index.cards.find((c) => c.id === id), [index]);
+  const byId = useCallback((id: string) => index.cards.find((c) => c.id === id), [index.cards]);
   const unit = view.kind === 'unit' ? index.units.find((u) => u.id === view.id) : undefined;
   const selected = view.kind === 'card' ? byId(view.id) : focus ? byId(focus) : undefined;
   const [year, setYear] = useState(() => (view.kind === 'card' ? byId(view.id)?.time.start : view.kind === 'dive' ? (() => { const dv = findDive(index, view.id); return dv ? diveYear(dv) : undefined; })() : undefined) ?? 1);
@@ -156,7 +157,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const unitHits = query.trim() ? index.units.filter((u) => (u.title + u.mystery).includes(query.trim())) : [];
   const topicHits = query.trim() ? matchTopics(allTopics.map((t) => t.name), query) : [];
 
-  const content = (() => {
+  const contentRaw = (() => {
     if (query.trim()) return (
       <div className="lsearch">
         <h2>搜尋「{query}」</h2>
@@ -188,6 +189,9 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     }
     return null;
   })();
+  // 卡片長內文還在背景下載時，需要內文的頁面先顯示「載入中」（通常不到一秒）
+  const waiting = index.detailReady === false;
+  const content = waiting && !query.trim() && !['home', 'history', 'topics', 'stories', 'dives', 'record'].includes(view.kind) ? <p className="muted loading-detail">載入卡片內容…</p> : contentRaw;
 
   const topicName = view.kind === 'topic' ? view.name : null;
   const storyId = view.kind === 'story' ? view.id : null;
@@ -199,18 +203,19 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     trail={selected?.type === 'person' ? selected.place.locations.filter((l) => typeof l.year === 'number').map((l) => ({ lat: l.lat, lng: l.lng, year: l.year!, name: l.name_ancient })) : null}
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}} />;
   const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
-  const cardTab = lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
+  const cardTab = waiting ? <p className="muted loading-detail">載入卡片內容…</p> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
 
   const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '單元', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題' } as Record<View['kind'], string>)[view.kind];
   const header = (
     <header className="ltop">
+      <SkipLink sel=".lcontent, .panel" />
       <button className="brand" onClick={() => setStack([{ kind: 'home' }])} title="回到學習模式首頁">歷史長河</button>
       <div className="mode-switch" role="group" aria-label="切換模式">
         <button onClick={onResearch}>研究模式</button><button className="on" aria-pressed>學習模式</button>
       </div>
       {h && <button className="chip hist-chip" onClick={() => push({ kind: 'history' })} title="目前選的史">📚 {h.name}</button>}
       <div className="lsearch-box">
-        <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="想知道什麼？例：羅馬為什麼滅亡" aria-label="搜尋學習內容" />
+        <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} onFocus={() => { loadSearchLibs().catch(() => {}); }} placeholder="想知道什麼？例：羅馬為什麼滅亡" aria-label="搜尋學習內容" />
         {!query && !isMobile && index.units.length > 0 && <div className="suggest">試試：{index.units.slice(0, 3).map((u) => <button key={u.id} className="link" onClick={() => openUnit(u.id)}>{u.mystery}</button>)}</div>}
       </div>
       {!isMobile && <button className="btn sm" onClick={random} title="隨機一個謎題" aria-label="隨機一個謎題">🎲</button>}

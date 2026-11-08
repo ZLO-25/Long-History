@@ -198,6 +198,25 @@ if (unitIssues.length) console.warn(`注意：學習單元有 ${unitIssues.lengt
 const econIssues = [...checkEcon(loadEcon()), ...checkChains(loadChains(), raw, new Set(routes.map((r: any) => r.id))),
   ...checkToday(loadToday(), raw, new Set(tagCats.flatMap((c: any) => c.tags.map((t: any) => t.tag))), new Set(routes.map((r: any) => r.id)))].filter((i) => i.level === 'error');
 if (econIssues.length) console.warn(`注意：經濟數列／物資鏈／今日對照層有 ${econIssues.length} 個問題，請執行 npm run validate`);
-fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify(index));
+// 效能：卡片的長內文（各節內文、來源、前因後果、學習卡全文）另存 index-detail.json。
+// 首頁先下載較小的 index.json 就能畫出時間軸、地圖、清單；長內文在背景下載，打開卡片時才用到（src/App.tsx mergeDetail）。
+// 留在 index.json 的 learn 欄位：清單、時間軸、篩選要用的（histories、track、understand、why_care、crosscheck）。
+const LEARN_CORE = ['histories', 'track', 'understand', 'why_care', 'crosscheck'];
+const detail: Record<string, any> = {};
+const coreCards = cards.map((c: any) => {
+  const { sections, sources, causes, effects, learn, ...rest } = c;
+  const d: any = { sections, sources, causes, effects };
+  let learnCore = null;
+  if (learn) {
+    learnCore = { story: '', key_terms: [], primary_source: [], historiography: '' } as any;
+    const lr: any = {};
+    for (const [k, v] of Object.entries(learn)) (LEARN_CORE.includes(k) ? learnCore : lr)[k] = v;
+    d.learn = lr;
+  }
+  detail[c.id] = d;
+  return { ...rest, sections: [], sources: [], causes: [], effects: [], learn: learnCore };
+});
+fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...index, cards: coreCards }));
+fs.writeFileSync(path.join(ROOT, 'public', 'index-detail.json'), JSON.stringify({ generated: index.generated, cards: detail }));
 const errs = issues.filter((i) => i.level === 'error').length;
 console.log(`build-index：${cards.length} 張卡、${routes.length} 條路線、${index.chains.length} 條物資鏈 → public/index.json${errs ? `（注意：有 ${errs} 個 validate 錯誤）` : ''}`);

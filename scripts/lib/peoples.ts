@@ -64,7 +64,49 @@ export function checkPeoples(): { level: 'error' | 'warning'; msg: string }[] {
   tw.groups.forEach((g: any) => refs(g.zh, g.src));
   refs('contrast', tw.contrast?.src); refs('top3', tw.top3?.src); refs('plains', tw.plains_src);
   tw.tribes.forEach((t: any) => refs(t.zh, t.src));
+  out.push(...checkMigrations(new Set(Object.keys(cs))));
   return out;
+}
+
+// 八條大遷徙（data/peoples/migrations.yaml）：每站、每句都要有來源；from 要指到存在的站；卡片與國名要存在
+const cardIds = () => new Set(fs.readdirSync(path.join(ROOT, 'cards')).flatMap((d) => fs.readdirSync(path.join(ROOT, 'cards', d)).map((f) => f.replace(/\.md$/, ''))));
+export function checkMigrations(countryNames: Set<string>) {
+  const out: { level: 'error' | 'warning'; msg: string }[] = [];
+  const ms = readYaml('data/peoples/migrations.yaml');
+  const cards = cardIds();
+  const ids = new Set<string>();
+  for (const m of ms) {
+    const at = `人群遷徙 ${m.id}`;
+    if (ids.has(m.id)) out.push({ level: 'error', msg: `${at}：id 重複` }); ids.add(m.id);
+    for (const k of ['name', 'en', 'color', 'when', 'summary']) if (!m[k]) out.push({ level: 'error', msg: `${at}：缺 ${k}` });
+    const src = new Set((m.sources ?? []).map((s: any) => s.id));
+    for (const s of m.sources ?? []) if (!s.url || !s.title || !s.accessed) out.push({ level: 'error', msg: `${at}：來源 ${s.id} 缺欄位` });
+    const refs = (where: string, l?: string[]) => { if (!l?.length) out.push({ level: 'error', msg: `${at}：${where} 沒有來源` }); (l ?? []).forEach((r) => { if (!src.has(r)) out.push({ level: 'error', msg: `${at}：${where} 的來源 ${r} 不存在` }); }); };
+    const keys = new Set<string>();
+    (m.stations ?? []).forEach((st: any, i: number) => {
+      if (keys.has(st.key)) out.push({ level: 'error', msg: `${at}：站 ${st.key} 重複` });
+      for (const f of [st.from ?? []].flat()) if (!keys.has(f)) out.push({ level: 'error', msg: `${at}：站 ${st.key} 的 from ${f} 要指到前面的站` });
+      if (i === 0 && st.from) out.push({ level: 'error', msg: `${at}：第一站不能有 from` });
+      keys.add(st.key);
+      if (typeof st.lat !== 'number' || typeof st.lng !== 'number' || typeof st.year !== 'number' || !st.when || !st.name) out.push({ level: 'error', msg: `${at}：站 ${st.key} 缺座標、年份或說明` });
+      refs(`站 ${st.key}`, st.src);
+    });
+    if ((m.stations ?? []).length < 3) out.push({ level: 'error', msg: `${at}：站太少` });
+    for (const [k, l] of Object.entries<any>({ ...(m.evidence ?? {}), debates: m.debates, today: m.today })) (l ?? []).forEach((c: any, i: number) => { if (!c.text) out.push({ level: 'error', msg: `${at}：${k}[${i}] 沒有內容` }); refs(`${k}[${i}]`, c.src); });
+    if (!Object.values(m.evidence ?? {}).flat().length) out.push({ level: 'error', msg: `${at}：沒有證據` });
+    for (const c of m.cards ?? []) if (!cards.has(c)) out.push({ level: 'error', msg: `${at}：卡片 ${c} 不存在` });
+    for (const c of m.countries ?? []) if (!countryNames.has(c)) out.push({ level: 'error', msg: `${at}：國名 ${c} 不在 countries.yaml` });
+  }
+  return out;
+}
+
+// 卡片名稱（遷徙面板的「相關卡片」按鈕用）
+function cardName(id: string) {
+  for (const d of fs.readdirSync(path.join(ROOT, 'cards'))) {
+    const f = path.join(ROOT, 'cards', d, `${id}.md`);
+    if (fs.existsSync(f)) return fs.readFileSync(f, 'utf8').match(/^name:\s*(.+)$/m)?.[1].trim().replace(/^['"]|['"]$/g, '') ?? id;
+  }
+  return id;
 }
 
 export function buildPeoples(pubData: string) {
@@ -100,7 +142,13 @@ export function buildPeoples(pubData: string) {
     glottolog: langs.source,
     families: fams.families.map(({ glottolog, macro, ...f }: any) => f),
     countries, taiwan,
+    migrations: readYaml('data/peoples/migrations.yaml').map((m: any) => ({
+      ...m, sources: m.sources.map((s: any) => ({ ...s, accessed: dateStr(s.accessed) })),
+      stations: m.stations.map((st: any, i: number) => ({ ...st, from: st.from ?? (i ? m.stations[i - 1].key : undefined) })),
+      evidence: m.evidence ?? {}, debates: m.debates ?? [], today: m.today ?? [], countries: m.countries ?? [],
+      cards: (m.cards ?? []).map((id: string) => ({ id, name: cardName(id) })),
+    })),
   };
   fs.writeFileSync(path.join(pubData, 'peoples.json'), JSON.stringify(peoples));
-  return { countries: Object.keys(countries).length, langs: langs.languages.length };
+  return { countries: Object.keys(countries).length, langs: langs.languages.length, migrations: peoples.migrations.length };
 }

@@ -222,4 +222,4 @@ const coreCards = cards.map((c: any) => {
 fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...index, cards: coreCards }));
 fs.writeFileSync(path.join(ROOT, 'public', 'index-detail.json'), JSON.stringify({ generated: index.generated, cards: detail }));
 const errs = issues.filter((i) => i.level === 'error').length;
-console.log(`build-index：${cards.length} 張卡、${routes.length} 條路線、${index.chains.length} 條物資鏈、人群圖層 ${peoplesInfo.countries} 國／${peoplesInfo.langs} 種語言 → public/index.json${errs ? `（注意：有 ${errs} 個 validate 錯誤）` : ''}`);
+console.log(`build-index：${cards.length} 張卡、${routes.length} 條路線、${index.chains.length} 條物資鏈、人群圖層 ${peoplesInfo.countries} 國／${peoplesInfo.langs} 種語言／${peoplesInfo.migrations} 條遷徙 → public/index.json${errs ? `（注意：有 ${errs} 個 validate 錯誤）` : ''}`);

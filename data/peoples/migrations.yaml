@@ -1,0 +1,358 @@
+# 人群圖層第 2 期：八條大遷徙（人群是怎麼移動到今天的位置）
+# 規則（沿用 routes.yaml 的 kind: migration）：
+# - 站點只放來源寫到的地方與年代；座標是本站估的代表位置（est: true＝示意），線**不是**實際走法。
+# - 遷徙是幾百、幾千年間一代代慢慢移動，不是一次旅行；year 只用來在時間播放時決定這一站何時出現。
+# - from：從哪一站連過來（沒寫就是上一站；可寫多站）。when：給學生看的年代說明，要和來源一致。
+# - 證據分四種：language 語言、archaeology 考古、dna 遺傳（含古 DNA）、records 文字紀錄與統計；
+#   debates 是學界還在爭的事，兩說並列；today 是這次遷徙留到今天的樣子。
+# - 每句都要有 src；只用 2026-11-08 打開原頁確認過的內容（Wikipedia 被截斷而只靠摘要的句子不用）。
+
+- id: austronesian
+  name: 南島語族：從臺灣出海
+  en: Austronesian expansion
+  color: '#c2410c'
+  start: -3000
+  end: 1300
+  when: 約前 3000 年–後 1300 年
+  kind: 航海擴散
+  summary: 說南島語的人，一般認為是從臺灣出發，划船往南到菲律賓，再一島一島往東到太平洋、往西到馬達加斯加，分布範圍橫跨大半個地球。今天臺灣原住民族的語言，就是這個大家族的一員。
+  stations:
+    - { key: tw, name: '臺灣（出發地）', en: 'Taiwan', lat: 23.7, lng: 121.0, year: -3000, when: '約前 3000–1500 年間往南擴散', est: true, src: [s1] }
+    - { key: batanes, name: '巴丹群島（菲律賓北部）', en: 'Batanes', lat: 20.45, lng: 121.97, year: -2200, when: '約前 2200 年', est: true, src: [s1] }
+    - { key: bismarck, name: '俾斯麥群島（拉皮塔文化）', en: 'Bismarck Archipelago', lat: -4.5, lng: 151.5, year: -1500, when: '拉皮塔陶器約前 1600–1200 年', est: true, src: [s2] }
+    - { key: fiji, name: '斐濟、東加、薩摩亞', en: 'Fiji, Tonga, Samoa', lat: -17.7, lng: 178.0, year: -900, when: '約前 1000–800 年（各島年代不同）', est: true, src: [s2] }
+    - { key: hawaii, name: '夏威夷', en: 'Hawaii', lat: 20.8, lng: -156.3, year: 1000, when: '多數新研究認為約 900–1200 年', from: fiji, est: true, src: [s4] }
+    - { key: nz, name: '紐西蘭', en: 'New Zealand', lat: -41.0, lng: 174.0, year: 1250, when: '約 1250 年', from: fiji, est: true, src: [s1] }
+    - { key: borneo, name: '婆羅洲南部（巴里托河一帶）', en: 'Barito, southern Borneo', lat: -2.5, lng: 114.5, year: 700, when: '馬達加斯加語最接近這裡的語言', from: batanes, est: true, src: [s5] }
+    - { key: madagascar, name: '馬達加斯加', en: 'Madagascar', lat: -19.0, lng: 47.0, year: 800, when: '一項研究估計約 1,200 年前', from: borneo, est: true, src: [s5] }
+  evidence:
+    language:
+      - { text: '南島語系有 1,257 種語言，數量在全世界的語系中排第二。', src: [s1] }
+      - { text: '東南亞島嶼的祖先語言（原始馬來－玻里尼西亞語）和太平洋島嶼的祖先語言（原始大洋洲語）之間，有大量共同的詞彙。', src: [s2] }
+      - { text: '馬達加斯加語和婆羅洲南部巴里托河一帶的馬安揚語有許多共同的基本詞彙；在亞洲，和馬達加斯加人祖源最接近的是印尼南加里曼丹的班查爾人等族群。', src: [s5] }
+    archaeology:
+      - { text: '拉皮塔陶器被認為是南島人來源最有力的證據；類似的陶器在臺灣、巴丹群島、呂宋和馬里亞納群島都找得到。', src: [s2] }
+      - { text: '在俾斯麥群島，拉皮塔文化約 3,500 年前「突然出現」，之後 200 多個遺址一路往東分布超過 4,000 公里。', src: [s2] }
+    dna:
+      - { text: '2016 年一項古 DNA 研究分析萬那杜 3 具、東加 1 具拉皮塔人骨，發現他們的祖先來自臺灣與菲律賓北部的居民。', src: [s2, s6] }
+      - { text: '拉皮塔人和玻里尼西亞人，與臺灣的泰雅族、菲律賓的坎卡納伊族有共同祖源。', src: [s2] }
+  debates:
+    - { text: '「出臺灣說」（Bellwood 提出）是學界主流；最主要的對手是「出巽他說」，認為起點在東南亞島嶼（少數學者支持，近年全基因體研究多不支持）。也有人認為語言主要是靠接觸、借用傳開，人沒有移動那麼多。', src: [s1], disputed: true }
+    - { text: '拉皮塔人是經馬里亞納群島、經菲律賓，還是兩條路都有，仍在討論。', src: [s2], disputed: true }
+    - { text: '出發年代各頁寫法不同：一處寫約前 3000–1500 年，拉皮塔一頁寫 5,000–6,000 年前。', src: [s1, s2], disputed: true }
+  today:
+    - { text: '今天約 3.86 億人說南島語，約占世界人口 4.9%。', src: [s1] }
+    - { text: '馬達加斯加人的祖先除了來自印尼一帶，後來還有東南非的班圖移民到海岸定居，所以兩邊的祖源都有。', src: [s5] }
+  countries: [Taiwan, Philippines, Indonesia, Malaysia, Madagascar, New Zealand, Papua New Guinea, Fiji, Vanuatu, Solomon Is., Timor-Leste, Brunei]
+  cards: [event-east-asia-agriculture, social-siraya-deer, event-cook-voyages]
+  sources:
+    - { id: s1, title: 'Austronesian peoples — Wikipedia', url: 'https://en.wikipedia.org/wiki/Austronesian_peoples', accessed: 2026-11-08 }
+    - { id: s2, title: 'Lapita culture — Wikipedia', url: 'https://en.wikipedia.org/wiki/Lapita_culture', accessed: 2026-11-08 }
+    - { id: s4, title: 'Hawaii — Wikipedia（History）', url: 'https://en.wikipedia.org/wiki/Hawaii', accessed: 2026-11-08 }
+    - { id: s5, title: 'Malagasy people — Wikipedia', url: 'https://en.wikipedia.org/wiki/Malagasy_people', accessed: 2026-11-08 }
+    - { id: s6, title: 'Skoglund, P. et al. (2016), Genomic insights into the peopling of the Southwest Pacific, Nature 538: 510–513', url: 'https://doi.org/10.1038/nature19844', accessed: 2026-11-08 }
+
+- id: bantu
+  name: 班圖擴張：非洲南半部的農人
+  en: Bantu expansion
+  color: '#7c3aed'
+  start: -3000
+  end: 500
+  when: 約 6,000–1,500 年前（約前 4000–後 500 年）
+  kind: 農人擴散
+  summary: 說班圖語的人，一般認為是從今天喀麥隆和奈及利亞交界的高地出發，分成往南沿海岸河流、往東繞過雨林兩大支，花了幾千年擴散到非洲南半部。今天喀麥隆以東、以南的非洲，大多數人都說班圖語。
+  stations:
+    - { key: home, name: '喀麥隆與奈及利亞交界高地（出發地）', en: 'Cameroon–Nigeria highlands', lat: 6.0, lng: 10.0, year: -3000, when: '約前 4000–3000 年間開始（各說不同）', est: true, src: [s1, s2] }
+    - { key: central, name: '喀麥隆中部', en: 'Central Cameroon', lat: 4.5, lng: 12.0, year: -1500, when: '約前 1500 年', est: true, src: [s1] }
+    - { key: angola, name: '安哥拉中部（西支）', en: 'Central Angola', lat: -11.5, lng: 17.0, year: -500, when: '約前 500 年', est: true, src: [s1] }
+    - { key: urewe, name: '維多利亞湖西岸（東支，烏雷韋文化）', en: 'West of Lake Victoria (Urewe)', lat: -0.5, lng: 31.5, year: -500, when: '前 500 年以前', from: central, est: true, src: [s1] }
+    - { key: coast, name: '坦尚尼亞、肯亞海岸', en: 'Tanzania–Kenya coast', lat: -5.0, lng: 39.0, year: 0, when: '約前 100–後 300 年', est: true, src: [s1] }
+    - { key: kzn, name: '夸祖魯－納塔爾（南非東部）', en: 'KwaZulu-Natal', lat: -29.0, lng: 30.5, year: 300, when: '300 年以前', est: true, src: [s1] }
+    - { key: limpopo, name: '林波波（南非北部）', en: 'Limpopo', lat: -23.5, lng: 29.5, year: 500, when: '500 年以前', from: coast, est: true, src: [s1] }
+  evidence:
+    language:
+      - { text: '班圖語約有 440–680 種（看怎麼算）；依語言學分析，擴散路線一般分成西支、東支兩大流向。', src: [s1, s2] }
+      - { text: '近年有多項用電腦建語言族譜的研究（Currie 等 2013、Grollemund 等 2015 等），用來推算擴散的過程。', src: [s2] }
+    archaeology:
+      - { text: '喀麥隆的舒姆拉卡遺址的陶器約前 5000 年。', src: [s1] }
+      - { text: '確定用鐵的考古證據要到約前 400 年才出現，但在那之前他們已經務農；維多利亞湖西岸的烏雷韋是非洲最早的煉鐵中心之一。', src: [s1] }
+    dna:
+      - { text: '2023 年一項研究分析 140 多個族群、約 1,500 名說班圖語的人：維基百科據此寫擴散約 4,000 年前從西非開始，論文本身則說從中西非出發；沿途和當地人群有大量基因交流。', src: [s1, s3] }
+  debates:
+    - { text: '為什麼會擴散還不清楚；過去說「有了農業、人口壓力大才往外走」，現在多數學者不採信。', src: [s1], disputed: true }
+    - { text: '學界已大致同意是多次擴散；但第一次擴散是一群人遷徙，還是很多次小規模移動，仍不清楚。', src: [s1], disputed: true }
+    - { text: '把某種陶器直接當成「班圖人來過」的證據，有學者批評是循環論證（Seidensticker 2024）。', src: [s1], disputed: true }
+    - { text: '年代各頁寫法不同：一處寫約前 4000–後 500 年，另一處寫約前 1000–500 年。', src: [s1, s2], disputed: true }
+  today:
+    - { text: '2015 年約 3.5 億人說班圖語，約占非洲人口 30%。', src: [s2] }
+    - { text: '斯瓦希里語約 1,600 萬人當母語、8,000 萬人當第二語言。', src: [s2] }
+  countries: [Cameroon, Gabon, Congo, Dem. Rep. Congo, Angola, Uganda, Kenya, Tanzania, Rwanda, Burundi, Zambia, Malawi, Mozambique, Zimbabwe, Botswana, South Africa, Lesotho, eSwatini]
+  cards: []
+  sources:
+    - { id: s1, title: 'Bantu expansion — Wikipedia', url: 'https://en.wikipedia.org/wiki/Bantu_expansion', accessed: 2026-11-08 }
+    - { id: s2, title: 'Bantu languages — Wikipedia', url: 'https://en.wikipedia.org/wiki/Bantu_languages', accessed: 2026-11-08 }
+    - { id: s3, title: 'Fortes-Lima, C. A. et al. (2024), The genetic legacy of the expansion of Bantu-speaking peoples in Africa, Nature 625: 540–547', url: 'https://doi.org/10.1038/s41586-023-06770-6', accessed: 2026-11-08 }
+
+- id: indo-european
+  name: 印歐語族：草原上的牧人
+  en: Indo-European migrations
+  color: '#2563eb'
+  start: -3300
+  end: -800
+  when: 約前 3300–800 年（遷徙範圍約前 4000–1000 年）
+  kind: 牧人擴散
+  summary: 從英語、德語、俄語到波斯語、印地語，都是同一個語言大家族。最多學者支持的說法是：最早說這種語言的人，是黑海北方草原上養馬、駕車的牧人，往西走到歐洲、往東南走到伊朗和印度。但起源地到今天仍在爭論。
+  stations:
+    - { key: yamnaya, name: '黑海－裏海草原（顏那亞文化）', en: 'Pontic–Caspian steppe (Yamnaya)', lat: 48.0, lng: 40.0, year: -3300, when: '約前 3300–2600 年', est: true, src: [s3] }
+    - { key: corded, name: '中歐（繩紋陶文化）', en: 'Central Europe (Corded Ware)', lat: 51.0, lng: 14.0, year: -2800, when: '約前 3000 年以後（前 3 千紀）', est: true, src: [s1, s2] }
+    - { key: greece, name: '希臘（邁錫尼文明）', en: 'Greece (Mycenaean)', lat: 37.7, lng: 22.75, year: -2500, when: '原始希臘人約前 2500 年進入巴爾幹（年代各說不同）；邁錫尼約前 1750–1050 年', from: yamnaya, est: true, src: [s2, s7] }
+    - { key: anatolia, name: '安納托利亞（西臺人）', en: 'Anatolia (Hittites)', lat: 40.0, lng: 34.6, year: -1900, when: '西臺語約前 20–12 世紀使用；約前 1650 年以哈圖沙為首都', from: yamnaya, est: true, src: [s5] }
+    - { key: sintashta, name: '烏拉山南部（辛塔什塔文化）', en: 'Southern Urals (Sintashta)', lat: 52.6, lng: 59.6, year: -2100, when: '約前 2100–1800 年', from: yamnaya, est: true, src: [s1] }
+    - { key: andronovo, name: '中亞草原（安德羅諾沃文化）', en: 'Central Asian steppe (Andronovo)', lat: 48.0, lng: 72.0, year: -1800, when: '約前 1800–800 年（同頁另寫前 1900 年起）', est: true, src: [s1] }
+    - { key: india, name: '印度北部（吠陀時代）', en: 'Northern India (Vedic)', lat: 30.0, lng: 76.0, year: -1500, when: '約前 1700 或 1500 年（同頁兩種寫法）', est: true, src: [s1] }
+    - { key: iran, name: '伊朗高原（米底、帕提亞、波斯）', en: 'Iranian plateau', lat: 32.5, lng: 53.0, year: -800, when: '約前 800 年起', from: andronovo, est: true, src: [s1] }
+  evidence:
+    language:
+      - { text: '印歐語可能主要是靠「語言轉換」傳開：當地人加入說印歐語的菁英群體，慢慢改說他們的話。', src: [s1] }
+      - { text: '用語言族譜推年代的研究結果互相衝突：2003 年 Gray 和 Atkinson 推出約 8,500 年前（支持安納托利亞說），2015 年 Chang 等人的結果支持草原說。', src: [s4] }
+    archaeology:
+      - { text: '考古學家金布塔斯把草原上的「庫爾干」墳塚文化和顏那亞文化（約前 3000 年）連在一起，當成最早說印歐語的人。', src: [s2] }
+    dna:
+      - { text: '2015 年 Haak 等人的古 DNA 研究指出，曾有從草原到中歐的大規模遷移；繩紋陶文化的人約 75% 祖源來自顏那亞相關族群。', src: [s1] }
+      - { text: '同年另一項研究發現，烏拉山南部辛塔什塔文化的人和中歐繩紋陶文化的人基因相近。', src: [s1] }
+  debates:
+    - { text: '起源地三說：草原說（目前最多人支持）、安納托利亞說（Renfrew：隨農業從今天土耳其傳開；現在多數學者已放棄）、亞美尼亞高原說（高加索以南，近年基因研究讓它重新被討論）。', src: [s1, s4], disputed: true }
+    - { text: '2024–2025 年的研究把源頭往高加索與伏爾加河下游一帶推，認為顏那亞人約 80% 祖源來自那裡。', src: [s3], disputed: true }
+    - { text: '西臺人的祖先可能早在前 4400–4100 年（另一說前 5000–3000 年）就到了安納托利亞，比顏那亞文化還早；圖上這條線只是示意。', src: [s5], disputed: true }
+    - { text: '顏那亞男性常見的父系類型，在繩紋陶男性中幾乎找不到，所以「父系直接傳下來」受到質疑。', src: [s3], disputed: true }
+    - { text: '1970 年代流行「傳開的是陶罐，不是人」；後來的基因研究顯示人的移動比原本想的多。', src: [s2] }
+  today:
+    - { text: '今天將近 30 億人以印歐語為母語，其中約 60% 說印度－伊朗語支（例如印地語、孟加拉語、波斯語）。', src: [s1] }
+  countries: [India, Pakistan, Bangladesh, Iran, Afghanistan, Tajikistan, Russia, Ukraine, Poland, Germany, France, Spain, Italy, Greece, United Kingdom, Armenia]
+  cards: [event-alexander-campaign, event-maurya-empire]
+  sources:
+    - { id: s1, title: 'Indo-European migrations — Wikipedia', url: 'https://en.wikipedia.org/wiki/Indo-European_migrations', accessed: 2026-11-08 }
+    - { id: s2, title: 'Kurgan hypothesis — Wikipedia', url: 'https://en.wikipedia.org/wiki/Kurgan_hypothesis', accessed: 2026-11-08 }
+    - { id: s3, title: 'Yamnaya culture — Wikipedia', url: 'https://en.wikipedia.org/wiki/Yamnaya_culture', accessed: 2026-11-08 }
+    - { id: s4, title: 'Anatolian hypothesis — Wikipedia', url: 'https://en.wikipedia.org/wiki/Anatolian_hypothesis', accessed: 2026-11-08 }
+    - { id: s5, title: 'Hittites — Wikipedia', url: 'https://en.wikipedia.org/wiki/Hittites', accessed: 2026-11-08 }
+    - { id: s7, title: 'Mycenaean Greece — Wikipedia', url: 'https://en.wikipedia.org/wiki/Mycenaean_Greece', accessed: 2026-11-08 }
+
+- id: han-south
+  name: 漢人南移：從黃河到臺灣、南洋
+  en: Southward migration of the Han Chinese
+  color: '#b91c1c'
+  start: -221
+  end: 1900
+  when: 秦漢（前 3 世紀）到近代，好幾波
+  kind: 戰亂與移墾
+  summary: 漢人的祖先「華夏」住在黃河中下游。從秦朝派兵到嶺南開始，每逢北方大亂（永嘉之亂、安史之亂、靖康之變），就有一大波人往南逃，和南方原本的百越等族群混居、同化；後來再從福建、廣東渡海到臺灣和東南亞。
+  stations:
+    - { key: cp, name: '中原（黃河中下游）', en: 'Central Plains', lat: 34.7, lng: 112.5, year: -221, when: '華夏的發源地；秦漢起多波南遷', est: true, src: [s1] }
+    - { key: lingnan, name: '嶺南（今廣東、廣西）', en: 'Lingnan', lat: 23.1, lng: 113.3, year: -214, when: '前 214 年秦軍南下嶺南；前 111 年漢軍攻下番禺（今廣州）', src: [s2] }
+    - { key: jiangnan, name: '江南（衣冠南渡）', en: 'Jiangnan', lat: 30.3, lng: 120.2, year: 311, when: '311 年洛陽陷落（永嘉之亂）後，北方士族大舉南遷', from: cp, est: true, src: [s1, s3] }
+    - { key: gannan, name: '贛南（客家人南遷途中落腳）', en: 'Ganzhou', lat: 25.8, lng: 114.9, year: 400, when: '晉朝（266–420 年）起多波南遷，經江西贛州再往閩西、粵東', from: cp, est: true, src: [s4] }
+    - { key: minnan, name: '閩南（泉州、漳州）', en: 'Southern Fujian', lat: 24.9, lng: 118.6, year: 900, when: '唐宋時期（來源沒有確切年份）', from: jiangnan, est: true, src: [s1] }
+    - { key: meizhou, name: '粵東（梅州）', en: 'Meizhou', lat: 24.3, lng: 116.1, year: 1127, when: '經江西進入閩西、粵東（來源沒有確切年份）', from: gannan, est: true, src: [s4] }
+    - { key: tw-w, name: '臺灣西部平原（泉州、漳州移民）', en: 'Western Taiwan', lat: 23.2, lng: 120.3, year: 1684, when: '1684 年設府；渡臺雖受限制，偷渡仍多，1760 年後放寬；1811 年統計約 194 萬人', from: minnan, est: true, src: [s1, s5] }
+    - { key: tw-h, name: '臺灣丘陵（客家移民）', en: 'Taiwan hills (Hakka)', lat: 24.6, lng: 121.0, year: 1684, when: '清代；多來自廣東與閩西', from: meizhou, est: true, src: [s1, s4] }
+    - { key: sea, name: '東南亞（新加坡等）', en: 'Southeast Asia', lat: 1.35, lng: 103.8, year: 1850, when: '近代大量移出（來源沒有統一年份）', from: minnan, est: true, src: [s1] }
+  evidence:
+    records:
+      - { text: '東晉為北方來的移民另設「僑郡」，戶籍用「白籍」登記，顯示移民數量多到要特別管理。', src: [s1] }
+      - { text: '唐朝 755 年登記人口 5,290 萬，安史之亂結束的 764 年只剩 1,690 萬（頁面標註「需要引用」；很多人是逃走或沒登記，不全是死亡）。', src: [s1] }
+    language:
+      - { text: '語言學家推測，吳語、閩語可能在晉朝時開始形成，粵語、客家話可能在唐宋；南方方言裡的壯侗語成分，可能來自被同化的百越人。', src: [s1] }
+    archaeology:
+      - { text: '廣州的漢墓顯示，本地的工具和陶器到西漢時逐漸被中原樣式取代。', src: [s2] }
+    dna:
+      - { text: '2009 年一項研究發現，客家人和其他漢人的平均遺傳差異只有 0.32%，略偏向北方漢人。', src: [s4] }
+  debates:
+    - { text: '征服不等於移民：秦漢對嶺南的控制很薄弱，農業聚落和軍營以外的地方，很難說已經是漢文化（頁面標「需要引用」）。', src: [s1], disputed: true }
+    - { text: '南方原本的百越人，是被同化、還是被取代？多數說法是同化與混居為主。', src: [s1, s2], disputed: true }
+    - { text: '客家人從哪裡來有三說：全來自中原、中原為主加上南方、南方為主加上中原；頁面認為「南北都有」最可能。', src: [s4], disputed: true }
+    - { text: '司馬遷說東越的人全部被遷走，現代學者認為不太可能。', src: [s2] }
+  today:
+    - { text: '臺灣超過 95% 的人是漢人（頁面標「需要引用」）；全世界約有 6,000 萬海外華人，東南亞約 3,000–4,000 萬人有漢人祖先（華裔）。', src: [s1] }
+    - { text: '客家人全世界有多少，估計差很大：約 3,600 萬到 8,000 萬；臺灣約 460 萬人。', src: [s4] }
+  countries: [China, Taiwan, Malaysia, Indonesia, Thailand]
+  cards: [war-qin-lingnan, war-feishui, war-an-lushan, event-economic-center-south, war-jingkang, event-southern-song, event-qing-taiwan-frontier]
+  sources:
+    - { id: s1, title: 'Han Chinese — Wikipedia（History）', url: 'https://en.wikipedia.org/wiki/Han_Chinese', accessed: 2026-11-08 }
+    - { id: s2, title: 'Southward expansion of the Han dynasty — Wikipedia', url: 'https://en.wikipedia.org/wiki/Southward_expansion_of_the_Han_dynasty', accessed: 2026-11-08 }
+    - { id: s3, title: 'Disaster of Yongjia — Wikipedia', url: 'https://en.wikipedia.org/wiki/Disaster_of_Yongjia', accessed: 2026-11-08 }
+    - { id: s4, title: 'Hakka people — Wikipedia', url: 'https://en.wikipedia.org/wiki/Hakka_people', accessed: 2026-11-08 }
+    - { id: s5, title: 'Taiwan under Qing rule — Wikipedia（人口表：1811 年 1,944,747）', url: 'https://en.wikipedia.org/wiki/Taiwan_under_Qing_rule', accessed: 2026-10-26 }
+
+- id: turkic
+  name: 突厥語族：從蒙古高原往西
+  en: Turkic migrations
+  color: '#0891b2'
+  start: -1200
+  end: 1453
+  when: 主要在 6–11 世紀（另一說 5–16 世紀）
+  kind: 遊牧擴散
+  summary: 說突厥語的人，原鄉可能在阿爾泰山、蒙古一帶。從 6 世紀的突厥汗國開始，一波波遊牧部落往西，經中亞草原進入伊朗和安納托利亞，最後建立鄂圖曼帝國。今天的土耳其語、哈薩克語、維吾爾語都是同一家。
+  stations:
+    - { key: altai, name: '阿爾泰－薩彥一帶（可能的原鄉）', en: 'Altai–Sayan', lat: 50.0, lng: 90.0, year: -1200, when: '約前 1200 年往西進入蒙古草原', est: true, src: [s1] }
+    - { key: orkhon, name: '蒙古高原（突厥汗國）', en: 'Mongolia (Göktürks)', lat: 47.5, lng: 102.5, year: 551, when: '551 年稱可汗；630 年東突厥被唐朝擊敗；744 年起回鶻汗國', est: true, src: [s1] }
+    - { key: kashgar, name: '喀什一帶（喀喇汗國）', en: 'Kashgar (Kara-Khanids)', lat: 39.5, lng: 76.0, year: 850, when: '葛邏祿人 7 世紀起往南移，9 世紀建立喀喇汗國', from: orkhon, est: true, src: [s1] }
+    - { key: kipchak, name: '鹹海到巴爾喀什湖的草原（基馬克－欽察）', en: 'Kimek–Kipchak steppe', lat: 46.0, lng: 66.0, year: 850, when: '9 世紀中出現；11 世紀被庫曼人取代', from: orkhon, est: true, src: [s1] }
+    - { key: bulgar, name: '黑海北岸（保加爾人）', en: 'Pontic steppe (Bulgars)', lat: 45.5, lng: 39.0, year: 480, when: '5 世紀到黑海北岸的庫班草原', from: altai, est: true, src: [s1] }
+    - { key: merv, name: '呼羅珊（塞爾柱帝國建立）', en: 'Khorasan (Seljuks)', lat: 37.6, lng: 61.8, year: 1037, when: '1037 年建國', from: orkhon, est: true, src: [s2] }
+    - { key: manzikert, name: '曼齊克特（進入安納托利亞）', en: 'Manzikert', lat: 39.15, lng: 42.53, year: 1071, when: '1071 年擊敗拜占庭', src: [s2] }
+    - { key: ottoman, name: '安納托利亞西北（鄂圖曼）', en: 'Northwest Anatolia (Ottomans)', lat: 40.0, lng: 30.0, year: 1299, when: '約 1299 年建國；1453 年攻下君士坦丁堡', est: true, src: [s3] }
+    - { key: baikal, name: '貝加爾湖一帶（雅庫特人原居地）', en: 'Lake Baikal', lat: 53.0, lng: 107.5, year: 1200, when: '雅庫特人原本住在貝加爾湖、奧爾洪島一帶', from: altai, est: true, src: [s4] }
+    - { key: yakut, name: '勒拿河中游（雅庫特人）', en: 'Middle Lena (Yakuts)', lat: 62.0, lng: 129.7, year: 1300, when: '13 世紀起受蒙古崛起的壓力往北遷', from: baikal, est: true, src: [s4] }
+  evidence:
+    records:
+      - { text: '突厥汗國、回鶻汗國的興亡（551、630、744、840 年）都記在中國史書與草原上的碑文裡。', src: [s1] }
+    language:
+      - { text: '突厥語族約 30 種語言；多位語言學家認為蒙古是早期突厥語的家鄉。最早的突厥文碑銘在 8 世紀。', src: [s1, s5] }
+    dna:
+      - { text: '2015 年的基因研究支持原鄉在南西伯利亞、蒙古一帶；2018 年的研究認為突厥人從蒙古大規模往外遷，並慢慢同化當地人。', src: [s5] }
+      - { text: '2023 年分析北周阿史那皇后（突厥公主）的古 DNA，約 96–98% 是古代東北亞祖源。', src: [s5] }
+  debates:
+    - { text: '很多地方「變成突厥」主要是語言擴散：當地人改說突厥語，而不是整群人被取代（Lee 與 Kuang）。', src: [s1], disputed: true }
+    - { text: '各族群變成說突厥語的方式不同：語言轉換、文化同化、征服、通婚都有。', src: [s5] }
+    - { text: '保加爾人一支到巴爾幹後被斯拉夫人同化（今天的保加利亞說斯拉夫語），只有窩瓦河那一支保留突厥語。', src: [s1] }
+    - { text: '時間範圍兩頁寫法不同：一說 6–11 世紀，一說 5–16 世紀。', src: [s1, s5], disputed: true }
+  today:
+    - { text: '約 1.7 億人以突厥語為母語，另有約 2,000 萬人當第二語言；土耳其語約占 40%。', src: [s5] }
+  countries: [Turkey, Azerbaijan, Turkmenistan, Uzbekistan, Kazakhstan, Kyrgyzstan]
+  cards: [war-manzikert, war-crusades, war-fall-constantinople]
+  sources:
+    - { id: s1, title: 'Turkic migration — Wikipedia', url: 'https://en.wikipedia.org/wiki/Turkic_migration', accessed: 2026-11-08 }
+    - { id: s2, title: 'Seljuk Empire — Wikipedia', url: 'https://en.wikipedia.org/wiki/Seljuk_Empire', accessed: 2026-11-08 }
+    - { id: s3, title: 'Ottoman Empire — Wikipedia', url: 'https://en.wikipedia.org/wiki/Ottoman_Empire', accessed: 2026-11-08 }
+    - { id: s4, title: 'Yakuts — Wikipedia', url: 'https://en.wikipedia.org/wiki/Yakuts', accessed: 2026-11-08 }
+    - { id: s5, title: 'Turkic peoples — Wikipedia', url: 'https://en.wikipedia.org/wiki/Turkic_peoples', accessed: 2026-11-08 }
+
+- id: arab
+  name: 阿拉伯擴張與阿拉伯化
+  en: Arab expansion and Arabization
+  color: '#15803d'
+  start: 622
+  end: 1200
+  when: 7 世紀起，前後約一千年
+  kind: 征服與移民
+  summary: 7 世紀，阿拉伯半島的穆斯林軍隊在一百年內征服從伊比利半島到中亞的大片土地。但征服很快，「變成說阿拉伯語」卻很慢：靠的是後來幾波部落移民、改信伊斯蘭、在城市和官府使用阿拉伯語，花了好幾百年。
+  stations:
+    - { key: medina, name: '麥地那（阿拉伯半島）', en: 'Medina', lat: 24.47, lng: 39.61, year: 622, when: '622 年建立第一個伊斯蘭政權；632 年穆罕默德去世後，阿布·伯克爾經里達戰爭統一半島', src: [s1] }
+    - { key: damascus, name: '大馬士革（黎凡特）', en: 'Damascus', lat: 33.51, lng: 36.29, year: 636, when: '634 年起進攻；635 年首次攻下大馬士革，636 年雅爾木克之戰後再度取得', src: [s1] }
+    - { key: iraq, name: '伊拉克（卡迪西亞之戰）', en: 'Iraq (al-Qadisiyyah)', lat: 31.9, lng: 44.4, year: 636, when: '636 年擊敗薩珊波斯', from: medina, est: true, src: [s4] }
+    - { key: egypt, name: '埃及', en: 'Egypt', lat: 30.0, lng: 31.23, year: 641, when: '639 年進攻，642 年亞歷山卓投降', from: damascus, src: [s1] }
+    - { key: kairouan, name: '凱魯萬（今突尼西亞）', en: 'Kairouan', lat: 35.68, lng: 10.1, year: 670, when: '約 670 年建城', src: [s5] }
+    - { key: iberia, name: '伊比利半島', en: 'Iberia', lat: 36.14, lng: -5.35, year: 711, when: '711 年渡海，同年擊敗西哥德王國', src: [s6] }
+    - { key: cyrenaica, name: '昔蘭尼加（今利比亞東部）', en: 'Cyrenaica', lat: 32.1, lng: 20.1, year: 1050, when: '11 世紀，巴努希拉勒等部落大批西遷（最大的一波）', from: egypt, est: true, src: [s3] }
+    - { key: maghreb, name: '馬格里布內陸', en: 'Inner Maghreb', lat: 35.5, lng: 4.0, year: 1100, when: '11 世紀後繼續往西', est: true, src: [s3] }
+    - { key: sudan, name: '蘇丹（尼羅河谷）', en: 'Sudan', lat: 15.5, lng: 32.5, year: 1150, when: '12 世紀賈阿林等部落移入', from: egypt, est: true, src: [s2] }
+  evidence:
+    records:
+      - { text: '7–8 世紀約有 15 萬阿拉伯人定居北非；11 世紀巴努希拉勒等部落的人數，各家估計從十幾萬到 100 萬都有。', src: [s3] }
+    language:
+      - { text: '征服初期，阿拉伯人並沒有推廣自己的語言和宗教；敘利亞的基督徒可能到 9 世紀才改用阿拉伯語當母語。', src: [s2] }
+      - { text: '埃及原本多數人說科普特語，敘利亞說亞蘭語；北非城市原本說的拉丁語，後來消失了。', src: [s2, s3] }
+    dna:
+      - { text: '遺傳研究顯示，北非人和阿拉伯人到來之前的居民高度延續：多數人是「改說阿拉伯語」，不是被換掉。', src: [s3] }
+  debates:
+    - { text: '征服不等於移民：初期的阿拉伯人是少數的統治階層，常被安排住在和當地人分開的地方。', src: [s2] }
+    - { text: '「阿拉伯化」（改說阿拉伯語、認同阿拉伯）和「伊斯蘭化」（改信伊斯蘭）是兩件事，速度不同，都花了好幾百年。', src: [s2, s3] }
+    - { text: '傳統說法把巴努希拉勒西遷看成「遊牧毀了文明」，近年研究提出挑戰；人數估計也差很多。', src: [s3], disputed: true }
+    - { text: '蘇丹很多不說阿拉伯語的群體，也自稱祖先是阿拉伯人，族譜和實際祖源不一定相同。', src: [s2] }
+  today:
+    - { text: '阿爾及利亞：幾乎所有人的祖先都是柏柏人，但只有約 15% 自認主要是柏柏人。（祖源 ≠ 認同）', src: [s7] }
+  countries: [Saudi Arabia, Yemen, Oman, United Arab Emirates, Jordan, Syria, Iraq, Lebanon, Egypt, Libya, Tunisia, Algeria, Morocco, Sudan, Mauritania]
+  cards: [finance-islamic-dinar, finance-abbasid-sakk-hawala]
+  sources:
+    - { id: s1, title: 'Early Muslim conquests — Wikipedia', url: 'https://en.wikipedia.org/wiki/Early_Muslim_conquests', accessed: 2026-11-08 }
+    - { id: s2, title: 'Arabization — Wikipedia', url: 'https://en.wikipedia.org/wiki/Arabization', accessed: 2026-11-08 }
+    - { id: s3, title: 'Arab migrations to the Maghreb — Wikipedia', url: 'https://en.wikipedia.org/wiki/Arab_migrations_to_the_Maghreb', accessed: 2026-11-08 }
+    - { id: s4, title: 'Battle of al-Qadisiyyah — Wikipedia', url: 'https://en.wikipedia.org/wiki/Battle_of_al-Qadisiyyah', accessed: 2026-11-08 }
+    - { id: s5, title: 'Kairouan — Wikipedia', url: 'https://en.wikipedia.org/wiki/Kairouan', accessed: 2026-11-08 }
+    - { id: s6, title: 'Umayyad conquest of Hispania — Wikipedia', url: 'https://en.wikipedia.org/wiki/Umayyad_conquest_of_Hispania', accessed: 2026-11-08 }
+    - { id: s7, title: 'CIA, The World Factbook：Algeria（最後一版，factbook.json 鏡像）', url: 'https://github.com/factbook/factbook.json/blob/144d6977b2b01ac1cbd220de754c0a005616760b/africa/ag.json', accessed: 2026-11-08 }
+
+- id: european
+  name: 歐洲人移民到美洲、澳洲
+  en: European emigration
+  color: '#be185d'
+  start: 1500
+  end: 1933
+  when: 1500 年起；大移民潮 1815–1933 年
+  kind: 殖民與移民
+  summary: 哥倫布之後，西班牙、葡萄牙、英國等國的人陸續移居美洲。19 世紀工業化、人口增加加上饑荒，1815–1933 年間約 6,500 萬人離開歐洲，多數去了美國、阿根廷、加拿大、巴西和澳洲。這就是為什麼地圖上美洲和澳洲是印歐語的顏色。
+  stations:
+    - { key: iberia, name: '西班牙、葡萄牙', en: 'Spain & Portugal', lat: 39.5, lng: -6.0, year: 1500, when: '1500 年起', est: true, src: [s1] }
+    - { key: mexico, name: '新西班牙（今墨西哥）', en: 'New Spain', lat: 19.4, lng: -99.1, year: 1520, when: '16 世紀；1500–1650 年約 43.7 萬人離開西班牙（到整個美洲的總數）', est: true, src: [s1] }
+    - { key: peru, name: '秘魯', en: 'Peru', lat: -12.0, lng: -77.0, year: 1535, when: '16 世紀', from: iberia, est: true, src: [s1] }
+    - { key: brazil, name: '巴西', en: 'Brazil', lat: -13.0, lng: -38.5, year: 1550, when: '1500–1700 年約 10 萬葡萄牙人；1870–1920 年約 400 萬歐洲移民', from: iberia, est: true, src: [s1] }
+    - { key: britain, name: '不列顛與愛爾蘭', en: 'Britain & Ireland', lat: 53.0, lng: -2.0, year: 1607, when: '1607–1780 年約 72.2 萬人', est: true, src: [s1] }
+    - { key: northam, name: '北美東岸（十三殖民地）', en: 'Thirteen Colonies', lat: 38.0, lng: -76.5, year: 1607, when: '17 世紀起；一半到三分之二是契約僕役（頁面標「需要引用」）', est: true, src: [s1] }
+    - { key: europe, name: '歐洲各地（德國、義大利、愛爾蘭、北歐等）', en: 'Europe', lat: 48.0, lng: 10.0, year: 1815, when: '1815–1933 年約 6,500 萬人離開歐洲', est: true, src: [s1] }
+    - { key: ny, name: '美國（紐約艾利斯島）', en: 'USA (Ellis Island)', lat: 40.7, lng: -74.0, year: 1821, when: '1821–1932 年約 3,224 萬人；1892–1954 年約 1,200 萬人在艾利斯島入境', from: europe, src: [s1, s4] }
+    - { key: canada, name: '加拿大', en: 'Canada', lat: 45.5, lng: -73.6, year: 1831, when: '1831–1932 年約 521 萬人', from: europe, est: true, src: [s1] }
+    - { key: argentina, name: '阿根廷', en: 'Argentina', lat: -34.6, lng: -58.4, year: 1856, when: '1856–1932 年約 641 萬人', from: europe, est: true, src: [s1] }
+    - { key: australia, name: '澳洲', en: 'Australia', lat: -33.9, lng: 151.2, year: 1821, when: '1821–1932 年約 291 萬人', from: europe, est: true, src: [s1] }
+    - { key: nz, name: '紐西蘭', en: 'New Zealand', lat: -41.3, lng: 174.8, year: 1821, when: '1821–1932 年約 59 萬人', from: europe, est: true, src: [s1] }
+    - { key: safrica, name: '南非', en: 'South Africa', lat: -33.9, lng: 18.4, year: 1881, when: '1881–1932 年約 85 萬人', from: europe, est: true, src: [s1] }
+  evidence:
+    records:
+      - { text: '各國入境統計：美國 3,224 萬（1821–1932）、阿根廷 641 萬、加拿大 521 萬、巴西 443 萬、澳洲 291 萬、南非 85 萬、紐西蘭 59 萬。', src: [s1] }
+      - { text: '1815–1918 年的歐洲移民，71% 去北美、21% 去中南美、7% 去澳洲；去拉丁美洲的約 1,100 萬人中，38% 是義大利人、28% 是西班牙人。', src: [s1] }
+      - { text: '美國移民最高峰在 1907 年，一年入境約 128.5 萬人。', src: [s2] }
+  debates:
+    - { text: '總數依來源不同：同一頁寫 1815–1933 年 6,500 萬人，也有寫 6,000 萬人；後代人數靠各國普查自報，屬主觀認定。', src: [s1] }
+    - { text: '不是每個人都自由選擇：17 世紀到北美切薩皮克殖民地的歐洲人，約四分之三是契約僕役，要做工好幾年抵船費。', src: [s3] }
+    - { text: '歐洲人到來的另一面是美洲原住民人口崩潰（主因之一是舊大陸傳來的疾病）：一個估計是從 1492 年約 5,000 萬人降到 1650 年約 800 萬人，但原本有多少人各家估計差很大。', src: [s3], disputed: true }
+    - { text: '移民也引起排斥：美國在 20 世紀立法限制移民；1930 年代初甚至離開的人比移入的多。', src: [s2] }
+  today: []
+  countries: [United States of America, Canada, Mexico, Argentina, Uruguay, Chile, Brazil, Peru, Australia, New Zealand, South Africa]
+  cards: [event-columbus-aztec, event-portuguese-empire, event-thirteen-colonies, event-westward-expansion, event-gilded-age-industrialization]
+  sources:
+    - { id: s1, title: 'European emigration — Wikipedia', url: 'https://en.wikipedia.org/wiki/European_emigration', accessed: 2026-11-08 }
+    - { id: s2, title: 'Immigration to the United States — Wikipedia（History）', url: 'https://en.wikipedia.org/wiki/Immigration_to_the_United_States', accessed: 2026-11-08 }
+    - { id: s3, title: 'European colonization of the Americas — Wikipedia', url: 'https://en.wikipedia.org/wiki/European_colonization_of_the_Americas', accessed: 2026-11-08 }
+    - { id: s4, title: 'Ellis Island — Wikipedia', url: 'https://en.wikipedia.org/wiki/Ellis_Island', accessed: 2026-11-08 }
+
+- id: atlantic-slave
+  name: 大西洋奴隸貿易：被迫的遷徙
+  en: Transatlantic slave trade
+  color: '#78350f'
+  start: 1501
+  end: 1867
+  when: 約 1501–1867 年
+  kind: 被迫遷徙
+  summary: 這不是人自己選擇的移動。三百多年間，歐洲奴隸販子向非洲商人買下被擄的人，用船押送到美洲的甘蔗園、礦場和農場做工。約 1,250 萬人被押上船，約 1,070 萬人活著抵達，多數被送到巴西和加勒比海。
+  stations:
+    - { key: senegambia, name: '塞內甘比亞', en: 'Senegambia', lat: 13.5, lng: -16.0, year: 1501, when: '主要出發地區之一', est: true, src: [s2] }
+    - { key: goldcoast, name: '黃金海岸（今迦納）', en: 'Gold Coast', lat: 5.5, lng: -1.5, year: 1501, when: '主要出發地區之一', est: true, src: [s2] }
+    - { key: benin, name: '貝寧灣', en: 'Bight of Benin', lat: 6.4, lng: 2.1, year: 1501, when: '主要出發地區之一', est: true, src: [s2] }
+    - { key: biafra, name: '比夫拉灣', en: 'Bight of Biafra', lat: 4.0, lng: 8.0, year: 1501, when: '主要出發地區之一', est: true, src: [s2] }
+    - { key: angola, name: '中西非（安哥拉）', en: 'West Central Africa (Angola)', lat: -8.8, lng: 13.2, year: 1501, when: '17 世紀後期以前，送到美洲的人大多來自這裡', est: true, src: [s1, s2] }
+    - { key: atlantic, name: '中途航道（大西洋）', en: 'Middle Passage', lat: 3.0, lng: -25.0, year: 1501, when: '航程 1–6 個月，19 世紀約 5–7 週；約 14% 的人死在船上', from: [senegambia, goldcoast, benin, biafra, angola], est: true, src: [s2] }
+    - { key: brazil, name: '巴西', en: 'Brazil', lat: -13.0, lng: -38.5, year: 1501, when: '最主要的目的地之一', from: atlantic, est: true, src: [s1] }
+    - { key: caribbean, name: '加勒比海', en: 'Caribbean', lat: 18.5, lng: -72.3, year: 1501, when: '最主要的目的地之一；1525 年起有船從聖多美直接運往伊斯帕尼奧拉島', from: atlantic, est: true, src: [s1] }
+    - { key: spanam, name: '西屬美洲（卡塔赫納、維拉克魯斯等港口）', en: 'Spanish America', lat: 10.4, lng: -75.5, year: 1501, when: '卡塔赫納、維拉克魯斯、布宜諾斯艾利斯、伊斯帕尼奧拉島接收最多', from: atlantic, est: true, src: [s1] }
+    - { key: northam, name: '北美（今美國一帶）', en: 'North America', lat: 32.8, lng: -79.9, year: 1501, when: '只占一小部分：約 38.8 萬人', from: atlantic, est: true, src: [s4] }
+  evidence:
+    records:
+      - { text: '研究者把數萬次航行的船隻紀錄整理成資料庫：1501–1866 年約 1,252 萬人被押上船、約 1,070 萬人活著抵達美洲。', src: [s3, s4] }
+      - { text: '每艘奴隸船通常載 350–450 人；約十分之一的船上發生過反抗。', src: [s2] }
+      - { text: '更早的 1450–1521 年，研究者用葡萄牙王室的海關紀錄和商人帳本重建人數。', src: [s1] }
+    dna:
+      - { text: '2020 年一項基因研究找到非洲奴隸貿易地區和美洲上岸地區之間的基因連結。', src: [s5] }
+  debates:
+    - { text: '估計數字有好幾種：資料庫約 1,252 萬人上船；維基百科另一處寫約 1,275 萬；歷史學家的估計範圍是 940–1,260 萬。', src: [s1, s2, s3] }
+    - { text: '英屬殖民地最早的非洲人被歸為契約僕役，到 17 世紀中期已變成依「種族」劃分、世代相傳的奴隸身分制度；「種族」在這裡是用來分等級的社會分類，不是生物學事實。', src: [s1] }
+    - { text: '歐洲人多半向非洲商人購買俘虜，很少自己上岸劫掠；奴隸貿易對非洲經濟的傷害有多大，Rodney 和 Thornton 等學者看法相反。', src: [s1], disputed: true }
+  today:
+    - { text: '研究在美洲人的基因裡，找到對應非洲奴隸貿易出發地區的連結：被迫遷徙的歷史，留在今天美洲人的祖源裡。', src: [s5] }
+  countries: [Brazil, Haiti, Jamaica, Cuba, Dominican Rep., United States of America, Colombia, Nigeria, Benin, Ghana, Angola, Senegal]
+  cards: [event-atlantic-slave-trade, event-haitian-revolution, war-american-civil-war]
+  sources:
+    - { id: s1, title: 'Atlantic slave trade — Wikipedia', url: 'https://en.wikipedia.org/wiki/Atlantic_slave_trade', accessed: 2026-11-08 }
+    - { id: s2, title: 'Middle Passage — Wikipedia', url: 'https://en.wikipedia.org/wiki/Middle_Passage', accessed: 2026-11-08 }
+    - { id: s3, title: 'David Eltis, David Richardson 等編, Trans-Atlantic Slave Trade Database — Estimates（SlaveVoyages）', url: 'https://legacy.slavevoyages.org/assessment/estimates', accessed: 2026-11-07 }
+    - { id: s4, title: 'Henry Louis Gates Jr., How Many Slaves Landed in the U.S.? — PBS（2013）', url: 'https://www.pbs.org/wnet/african-americans-many-rivers-to-cross/history/how-many-slaves-landed-in-the-us/', accessed: 2026-11-07 }
+    - { id: s5, title: 'Micheletti, S. J. et al. (2020), Genetic Consequences of the Transatlantic Slave Trade in the Americas, American Journal of Human Genetics 107(2): 265–277', url: 'https://doi.org/10.1016/j.ajhg.2020.06.012', accessed: 2026-11-08 }

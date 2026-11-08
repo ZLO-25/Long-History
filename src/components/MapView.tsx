@@ -7,7 +7,7 @@ import { addBasemap } from '../lib/basemap';
 import { labelLayer } from '../lib/labelLayer';
 import { biHtml, biParts, cardEn, setNameTable } from '../lib/bilingual';
 import './peoples.css';
-import { loadPeoples, loadPeopleGeo, loadPeopleLangs, PEOPLE_INTRO, type Peoples, type PLang, type PFamily } from '../lib/peoples';
+import { loadPeoples, loadPeopleGeo, loadPeopleLangs, PEOPLE_INTRO, PEOPLE_MIGS, MIG_PREFIX, isMigView, type Peoples, type PLang, type PFamily, type PMigration } from '../lib/peoples';
 import { activeAt, fmtYear, KIND_LABEL, METHOD_LABEL, SEG_LABEL, ERA_LABEL, eraOf, roadInEra, TYPE_COLOR } from '../lib/format';
 
 interface Props {
@@ -48,11 +48,13 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   const map = useRef<L.Map>();
   const topicZoom = useRef<() => void>(() => {});
   const yearRef = useRef(year); yearRef.current = year;
-  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; topic: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup; power: L.LayerGroup; trail: L.LayerGroup; peoples: L.LayerGroup; plangs: L.LayerGroup; ptribes: L.LayerGroup }>();
+  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; topic: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup; power: L.LayerGroup; trail: L.LayerGroup; peoples: L.LayerGroup; plangs: L.LayerGroup; ptribes: L.LayerGroup; pmig: L.LayerGroup }>();
   const canvasR = useRef<{ borders: L.Canvas; roads: L.Canvas; peoples: L.Canvas; plangs: L.Canvas }>();
   const cb = useRef({ onPlace, onRoute, onToday, onCard, onPeople: peoples?.onPick });
   cb.current = { onPlace, onRoute, onToday, onCard, onPeople: peoples?.onPick };
   const peoplesOn = !!peoples?.on;
+  const peopleSel = peoples?.sel ?? null;
+  const migView = peoplesOn && isMigView(peopleSel);
   // 疆域快照的狀態：標籤文字在畫面上才組（要用目前選的年份，不是快照自己的年份）
   const [snapInfo, setSnapInfo] = useState<{ today: boolean; year: number; covered: boolean; none?: boolean }>({ today: false, year: 0, covered: false });
   const snapLabel = peoplesOn ? '人群圖層：今天的國界（已隱藏古代疆域）' : snapInfo.today ? '今日對照層：已隱藏古代疆域'
@@ -82,7 +84,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     layers.current = {
       borders: L.layerGroup().addTo(m), awmc: L.layerGroup().addTo(m), itinere: L.layerGroup().addTo(m), routes: L.layerGroup().addTo(m),
       places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m), topic: L.layerGroup().addTo(m), chain: L.layerGroup().addTo(m), mover: L.layerGroup().addTo(m), today: L.layerGroup().addTo(m),
-      power: L.layerGroup().addTo(m), trail: L.layerGroup().addTo(m), peoples: L.layerGroup().addTo(m), plangs: L.layerGroup().addTo(m), ptribes: L.layerGroup().addTo(m),
+      power: L.layerGroup().addTo(m), trail: L.layerGroup().addTo(m), peoples: L.layerGroup().addTo(m), plangs: L.layerGroup().addTo(m), ptribes: L.layerGroup().addTo(m), pmig: L.layerGroup().addTo(m),
     };
     map.current = m;
     // 區塊被拖曳改大小時，馬上讓 Leaflet 重新量容器，地圖才不會留白或偏掉
@@ -458,23 +460,85 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   useEffect(() => {
     const m = map.current, gl = layers.current?.plangs;
     if (!m || !gl) return;
-    if (peoplesOn && langsOn && !m.hasLayer(gl)) gl.addTo(m); else if ((!peoplesOn || !langsOn) && m.hasLayer(gl)) m.removeLayer(gl);
-  }, [peoplesOn, langsOn]);
+    const show = peoplesOn && langsOn && !migView;
+    if (show && !m.hasLayer(gl)) gl.addTo(m); else if (!show && m.hasLayer(gl)) m.removeLayer(gl);
+  }, [peoplesOn, langsOn, migView]);
   // 人群圖層打開時，先收起案例地點、路線、古道（圓點太像語言點，容易看混）
   useEffect(() => {
     const m = map.current, ls = layers.current;
     if (!m || !ls) return;
     for (const g of [ls.places, ls.routes, ls.awmc, ls.hl, ls.topic]) { if (peoplesOn && m.hasLayer(g)) m.removeLayer(g); else if (!peoplesOn && !m.hasLayer(g)) g.addTo(m); }
   }, [peoplesOn]);
-  // 打開的國家加粗外框，並把視野移過去（臺灣直接放大到能看到各族名稱）
-  const peopleSel = peoples?.sel ?? null;
+  // 打開的國家加粗外框，並把視野移過去（臺灣直接放大到能看到各族名稱）；看遷徙時國家顏色變淡
   useEffect(() => {
     const m = map.current, geo = pgeo.current;
     if (!m || !peoplesOn) return;
-    geo?.eachLayer((l: any) => l.setStyle?.(l.feature?.properties.n === peopleSel && peopleSel !== 'Taiwan' ? { color: '#111', weight: 2.5 } : { color: '#fff', weight: 0.8 }));
+    geo?.eachLayer((l: any) => {
+      const hatch = l.options?.dashArray;
+      l.setStyle?.({ ...(l.feature?.properties.n === peopleSel && peopleSel !== 'Taiwan' ? { color: '#111', weight: 2.5 } : { color: hatch ? '#777' : '#fff', weight: hatch ? 1.2 : 0.8 }), fillOpacity: migView ? 0.14 : hatch ? 0.3 : 0.42 });
+    });
+    if (migView) return;
     if (peopleSel === 'Taiwan') m.flyToBounds(TAIWAN_VIEW, { duration: 0.6 });
     else if (peopleSel && geo) { let b: L.LatLngBounds | null = null; geo.eachLayer((l: any) => { if (l.feature?.properties.n === peopleSel) b = l.getBounds(); }); if (b) m.flyToBounds(b, { duration: 0.6, maxZoom: 5, padding: [20, 20] }); }
-  }, [peopleSel, peoplesOn, pd]);
+  }, [peopleSel, peoplesOn, pd, migView]);
+
+  // 遷徙（第 2 期）：清單頁畫全部八條，單條頁只畫這一條，並可用下方的時間軸播放
+  const migSel: PMigration | null = migView && pd && peopleSel !== PEOPLE_MIGS ? pd.migrations.find((x) => MIG_PREFIX + x.id === peopleSel) ?? null : null;
+  const [migT, setMigT] = useState<number | null>(null);
+  const [migPlay, setMigPlay] = useState(false);
+  useEffect(() => { setMigT(null); setMigPlay(false); }, [peopleSel]);
+  // 進入遷徙頁時先收起圖例，免得蓋住南半球的路線（圖例按鈕還在，可以再打開）
+  useEffect(() => { if (migView) setLegendOpen(false); }, [migView]);
+  useEffect(() => {
+    if (!migPlay || !migSel) return;
+    const years = [...new Set(migSel.stations.map((s) => s.year))].sort((a, b) => a - b);
+    let i = Math.max(0, years.findIndex((y) => y > (migT ?? -Infinity)));
+    if (migT == null || migT >= years[years.length - 1]) i = 0;
+    const tick = () => { setMigT(years[i]); i++; if (i >= years.length) { setMigPlay(false); return; } h = window.setTimeout(tick, 1100); };
+    let h = window.setTimeout(tick, 50);
+    return () => window.clearTimeout(h);
+  }, [migPlay, migSel]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    const g = layers.current?.pmig, m = map.current;
+    if (!g || !m) return;
+    g.clearLayers();
+    if (!migView || !pd) return;
+    const list = migSel ? [migSel] : pd.migrations;
+    const all: L.LatLng[] = [];
+    for (const mg of list) {
+      // 跨換日線的站（例如斐濟→夏威夷）往同一側展開，線才不會繞地球一圈
+      const pos = new Map<string, L.LatLng>();
+      for (const st of mg.stations) {
+        const froms = [st.from ?? []].flat();
+        const ref = froms.length ? pos.get(froms[0]) : null;
+        let lng = st.lng;
+        if (ref) { while (lng - ref.lng > 180) lng -= 360; while (lng - ref.lng < -180) lng += 360; }
+        pos.set(st.key, L.latLng(st.lat, lng));
+      }
+      const t = migSel ? migT ?? Infinity : Infinity;
+      const tip = (txt: string) => `<b>${mg.name}</b><br>${txt}<br><small>位置示意，線不是實際走的路</small>`;
+      for (const st of mg.stations) {
+        if (st.year > t) continue;
+        const to = pos.get(st.key)!; all.push(to);
+        for (const f of [st.from ?? []].flat()) {
+          const from = pos.get(f)!;
+          const line = L.polyline([from, to], { color: mg.color, weight: migSel ? 4 : 2.6, opacity: migSel ? 0.95 : 0.8, dashArray: '3 7', lineCap: 'round' })
+            .bindTooltip(tip(`${mg.stations.find((x) => x.key === f)?.name} → ${st.name}`), { sticky: true });
+          if (!migSel) line.on('click', () => cb.current.onPeople?.(MIG_PREFIX + mg.id));
+          line.addTo(g);
+          // 箭頭：用墨卡托投影（第 0 級）算方向，放大縮小都一樣
+          const a = m.project(from, 0), b = m.project(to, 0), deg = (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI;
+          L.marker(to, { interactive: false, keyboard: false, icon: L.divIcon({ className: 'mig-arrow', html: `<b style="--mc:${mg.color};transform:rotate(${deg}deg) translateX(-7px)"></b>`, iconSize: [0, 0] }) }).addTo(g);
+        }
+        L.circleMarker(to, { radius: migSel ? 5 : 3.5, color: '#fff', weight: 1.2, fillColor: mg.color, fillOpacity: 1 })
+          .bindTooltip(tip(`${st.name}：${st.when}`)).on('click', () => { if (!migSel) cb.current.onPeople?.(MIG_PREFIX + mg.id); }).addTo(g);
+        if (migSel) L.marker(to, { interactive: false, keyboard: false, icon: L.divIcon({ className: 'mig-stop', html: `<span style="--mc:${mg.color}">${st.name.replace(/（.*）$/, '')}</span>`, iconSize: undefined as any }) }).addTo(g);
+      }
+    }
+    if (migT == null && all.length) m.flyToBounds(L.latLngBounds(all).pad(0.15), { duration: 0.6, maxZoom: 5 });
+  }, [migView, pd, migSel, migT]); // eslint-disable-line react-hooks/exhaustive-deps
+  const migYears = migSel ? [...new Set(migSel.stations.map((s) => s.year))].sort((a, b) => a - b) : [];
+  const migIdx = migSel ? (migT == null ? migYears.length - 1 : Math.max(0, migYears.findIndex((y) => y >= migT))) : 0;
 
   // 今日對照層：菱形標記＋「資料截至」；與歷史年代無關，打開就一直顯示
   useEffect(() => {
@@ -505,6 +569,11 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         {peoples && <button className={`peoples-toggle ${peoplesOn ? 'on' : ''}`} aria-pressed={peoplesOn} onClick={() => { const v = !peoplesOn; peoples.setOn(v); if (v) { peoples.onPick(PEOPLE_INTRO); map.current?.flyToBounds([[-40, -120], [65, 150]], { duration: 0.6 }); } }} title="今天各地主要是哪些人：國家依多數人母語的語系上色，點國家看族群與語言（每筆都標資料年份）">◎ 人群</button>}
         {setTodayOn && <button className={`today-toggle ${todayOn ? 'on' : ''}`} onClick={() => { const v = !todayOn; setTodayOn(v); if (v) map.current?.flyToBounds(TODAY_VIEW, { duration: 0.6 }); }} title="疊上今天的咽喉要道（每筆都標資料截至）">◆ 今日對照層</button>}
       </div>
+      {migSel && migYears.length > 1 && <div className="mig-play" role="group" aria-label="遷徙時間播放">
+        <button className="btn sm" onClick={() => setMigPlay((v) => !v)} aria-pressed={migPlay}>{migPlay ? '❚❚ 暫停' : '▶ 播放'}</button>
+        <input type="range" min={0} max={migYears.length - 1} step={1} value={migIdx} aria-label="時間" onChange={(e) => { setMigPlay(false); const i = Number(e.target.value); setMigT(i >= migYears.length - 1 ? null : migYears[i]); }} />
+        <output>{fmtYear(migYears[migIdx])} 年</output>
+      </div>}
       <div className={`map-legend ${legendOpen ? '' : 'closed'}`}>
         <button className="ml-toggle" aria-expanded={legendOpen} onClick={() => setLegendOpen((v) => !v)}>圖例 {legendOpen ? '▾' : '▸'}</button>
         {legendOpen && <>
@@ -516,6 +585,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         {(highlight.routes.some((id) => index.routes.find((r) => r.id === id)?.kind === 'migration') || year < -3000) && <div><i className="lg migr" />史前遷徙（示意）：只連有遺址根據的點，線不是實際走法</div>}</>}
         {peoplesOn && pd && <div className="lg-peoples">
           <div><b>人群（今天）</b>：顏色＝多數人母語的語系（主要，不是全部）<label className="lg-langs"><input type="checkbox" checked={langsOn} onChange={(e) => setLangsOn(e.target.checked)} /> 語言點</label></div>
+          {migView && <div><i className="lg migr" />遷徙（示意）：只連來源寫到的地方與年代，線不是實際走的路；國家顏色暫時變淡</div>}
           <div className="lg-fams">{pd.families.slice(0, 13).map((f) => <span key={f.id} className={f.hatch ? 'hatch' : ''} style={{ ['--fc' as any]: f.color }}><i />{f.zh}</span>)}<span className="muted">…完整圖例見「◎ 人群圖層說明」</span></div>
         </div>}
         {todayOn && <div><i className="lg today" />今日咽喉要道（灰色＝資料可能過時）</div>}

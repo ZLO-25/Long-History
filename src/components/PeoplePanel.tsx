@@ -1,7 +1,7 @@
 // 人群圖層的面板：說明＋圖例、一個國家的族群與語言、臺灣放大鏡、為什麼不畫「人種」
 import { useEffect, useState } from 'react';
 import type { Source } from '../types';
-import { loadPeoples, PEOPLE_ABOUT, PEOPLE_INTRO, type Peoples, type PItem, type PFamily } from '../lib/peoples';
+import { loadPeoples, PEOPLE_ABOUT, PEOPLE_INTRO, PEOPLE_MIGS, MIG_PREFIX, type Peoples, type PItem, type PFamily, type PMigration, type PClaim } from '../lib/peoples';
 import { AsOf, Refs } from './TodayPanel';
 import './peoples.css';
 
@@ -40,6 +40,11 @@ export function PeoplePanel({ id, onPick, onCard }: Props) {
   const back = id !== PEOPLE_INTRO && <button className="link small" onClick={() => onPick(PEOPLE_INTRO)}>◎ 人群圖層說明與圖例</button>;
   if (id === PEOPLE_ABOUT) return <div className="results people-panel">{back}<About d={d} onPick={onPick} onCard={onCard} /></div>;
   if (id === 'Taiwan') return <div className="results people-panel">{back}<TaiwanView d={d} onPick={onPick} /></div>;
+  if (id === PEOPLE_MIGS) return <div className="results people-panel">{back}<MigList d={d} onPick={onPick} /></div>;
+  if (id.startsWith(MIG_PREFIX)) {
+    const m = d.migrations.find((x) => MIG_PREFIX + x.id === id);
+    return <div className="results people-panel">{back}{m ? <MigView d={d} m={m} onPick={onPick} onCard={onCard} /> : <MigList d={d} onPick={onPick} />}</div>;
+  }
   const c = d.countries[id];
   if (!c) return <div className="results people-panel"><Intro d={d} onPick={onPick} /></div>;
   const f = fam(c.fam);
@@ -63,9 +68,18 @@ export function PeoplePanel({ id, onPick, onCard }: Props) {
         <li><span className="code">s1</span>{c.src ? <a href={c.src} target="_blank" rel="noreferrer">{d.factbook.title}：{id}（原文）</a> : d.factbook.title}（{d.factbook.license}；鏡像版本 {d.factbook.mirror_date}；中文由本站翻譯）</li>
         <li><span className="code">s2</span>語系：<a href="https://glottolog.org" target="_blank" rel="noreferrer">{d.glottolog}</a></li>
       </ol>
+      <MigLinks d={d} country={id} onPick={onPick} />
       <p><button className="btn sm" onClick={() => onPick(PEOPLE_ABOUT)}>為什麼地圖上不畫「人種」？</button></p>
     </div>
   );
+}
+
+/** 國家卡、臺灣頁：「這裡的人怎麼來的？」→ 經過這國的遷徙 */
+function MigLinks({ d, country, onPick }: { d: Peoples; country: string; onPick: (id: string) => void }) {
+  const ms = d.migrations.filter((m) => m.countries.includes(country));
+  if (!ms.length) return null;
+  return <><h3>這裡的人怎麼來的？</h3>
+    <p className="mig-links">{ms.map((m) => <button key={m.id} className="mig-chip" style={{ ['--mc' as any]: m.color }} onClick={() => onPick(MIG_PREFIX + m.id)}><i />{m.name}</button>)}</p></>;
 }
 
 function Intro({ d, onPick }: { d: Peoples; onPick: (id: string) => void }) {
@@ -79,7 +93,7 @@ function Intro({ d, onPick }: { d: Peoples; onPick: (id: string) => void }) {
       <li><b>點一個國家</b>：看這國自己統計的族群與語言比例，和資料是哪一年。</li>
       <li><b>看顏色和圓點不一樣的地方</b>：例如澳洲和美洲國家是藍色（印歐語系），圓點卻是原住民語言的顏色——這就是殖民與移民留下的痕跡。</li>
     </ul>
-    <p><button className="btn sm primary" onClick={() => onPick('Taiwan')}>看臺灣放大鏡</button> <button className="btn sm" onClick={() => onPick(PEOPLE_ABOUT)}>為什麼不畫「人種」？</button></p>
+    <p><button className="btn sm primary" onClick={() => onPick('Taiwan')}>看臺灣放大鏡</button> <button className="btn sm primary" onClick={() => onPick(PEOPLE_MIGS)}>他們怎麼來的？八條大遷徙</button> <button className="btn sm" onClick={() => onPick(PEOPLE_ABOUT)}>為什麼不畫「人種」？</button></p>
     <h3>圖例：語系</h3>
     <ul className="fam-list">
       {d.families.map((f) => <li key={f.id}><FamChip f={f} /><span className="muted small">{n(f.id) ? `${n(f.id)} 國` : '只有圓點'}</span><p className="small">{f.note}</p></li>)}
@@ -88,7 +102,7 @@ function Intro({ d, onPick }: { d: Peoples; onPick: (id: string) => void }) {
     <ol className="sources">
       <li><span className="code">s1</span><a href={d.factbook.mirror} target="_blank" rel="noreferrer">{d.factbook.title}</a>（{d.factbook.license}，鏡像版本 {d.factbook.mirror_date}）</li>
       <li><span className="code">s2</span><a href="https://glottolog.org" target="_blank" rel="noreferrer">{d.glottolog}</a></li>
-      <li><span className="code">s3</span>國界：Natural Earth 1:110m（公有領域）；今天的國界，不是歷史疆域</li>
+      <li><span className="code">s3</span>國界：Natural Earth 1:50m（公有領域）；今天的國界，不是歷史疆域</li>
     </ol>
   </>;
 }
@@ -113,6 +127,7 @@ function TaiwanView({ d, onPick }: { d: Peoples; onPick: (id: string) => void })
     </ol>
     <p className="small">{t.plains_note} {src(t.plains_src)}</p>
     <p className="small muted">臺灣原住民族的語言都屬於南島語系；世界概況寫著，多數遺傳、考古、語言證據支持臺灣是人類往太平洋擴散、一路到玻里尼西亞的源頭（不是定論）{src(['s3'])}。</p>
+    <MigLinks d={d} country="Taiwan" onPick={onPick} />
     <p><button className="btn sm" onClick={() => onPick(PEOPLE_ABOUT)}>為什麼不畫「人種」？</button></p>
     <h3>來源</h3>
     <ol className="sources">{t.sources.map((s) => <li key={s.id}><span className="code">{s.id}</span><a href={s.url} target="_blank" rel="noreferrer">{s.title}</a>（查閱 {s.accessed}）</li>)}</ol>
@@ -140,7 +155,7 @@ function About({ d, onPick, onCard }: { d: Peoples; onPick: (id: string) => void
     <table className="p-table"><tbody>
       <tr><th>說什麼話？</th><td>語言族群（語系）：地圖的顏色和圓點。語言會傳承、也會改變，最能看出歷史上的遷徙。</td></tr>
       <tr><th>認為自己是誰？</th><td>民族、族群：點國家看各國自己的統計。</td></tr>
-      <tr><th>祖先從哪裡來？</th><td>遺傳祖源：要靠古 DNA 研究，下一期的遷徙路線會用到。</td></tr>
+      <tr><th>祖先從哪裡來？</th><td>遺傳祖源：要靠古 DNA 研究，見<button className="link" onClick={() => onPick(PEOPLE_MIGS)}>八條大遷徙</button>的「基因的證據」。</td></tr>
     </tbody></table>
     <ul className="small">
       <li>{ex('Taiwan')}：自認客家人約 19.8%，平常主要說客語的只有 1.5%。（認同 ≠ 語言）</li>
@@ -151,5 +166,62 @@ function About({ d, onPick, onCard }: { d: Peoples; onPick: (id: string) => void
     <p>為什麼過去有人一定要把人分成幾個「人種」？這樣分對誰有好處？可以從{onCard ? <button className="link" onClick={() => onCard('event-atlantic-slave-trade')}>大西洋奴隸貿易</button> : '大西洋奴隸貿易'}這張卡開始想。</p>
     <h3>來源</h3>
     <ol className="sources"><li><span className="code">w1</span><a href={WIKI_RACE.url} target="_blank" rel="noreferrer">{WIKI_RACE.title}</a>（查閱 {WIKI_RACE.accessed}）</li><li><span className="code">s1</span>各國例子：{d.factbook.title}</li></ol>
+  </>;
+}
+
+const EVID: [keyof PMigration['evidence'], string, string][] = [
+  ['language', '語言的證據', '語言像族譜：比對詞彙和文法，推出哪些語言是親戚、大約何時分家。'],
+  ['archaeology', '考古的證據', '陶器、工具、墳墓：看出某種生活方式何時出現在哪裡。'],
+  ['dna', '基因（DNA）的證據', '比對今天的人和古人骨頭裡的 DNA，看出祖先從哪裡來、和誰混合。'],
+  ['records', '文字紀錄與統計', '史書、碑文、戶籍、船隻紀錄、入境統計。'],
+];
+
+/** 八條大遷徙：清單＋時間尺 */
+function MigList({ d, onPick }: { d: Peoples; onPick: (id: string) => void }) {
+  const lo = -3500, hi = 2000, x = (y: number) => `${((Math.max(lo, y) - lo) / (hi - lo)) * 100}%`;
+  return <>
+    <p className="today-kicker">人群圖層・遷徙</p>
+    <h2>他們怎麼來的？八條大遷徙</h2>
+    <p>今天地圖上的語言顏色，是幾千年來人群一波波移動、混合留下來的。這裡挑出八次改變最多人的遷徙，每一條都附上證據和還在爭論的地方。</p>
+    <ul className="p-how small">
+      <li><b>線怎麼讀</b>：只連來源寫到的地方和年代；位置是示意，線<b>不是</b>實際走的路。</li>
+      <li><b>遷徙很慢</b>：多半是幾百、幾千年間一代代往外移，不是一群人走一趟。</li>
+      <li><b>證據有四種</b>：語言、考古、基因（DNA）、文字紀錄。不同證據有時會吵架，所以每條都寫「學界還在爭的事」。</li>
+    </ul>
+    <div className="mig-scale" aria-hidden><span>前 3500</span><span>前 1000</span><span>1000</span><span>2000</span></div>
+    <ol className="mig-list">
+      {d.migrations.map((m) => <li key={m.id}>
+        <button className="mig-row" onClick={() => onPick(MIG_PREFIX + m.id)} style={{ ['--mc' as any]: m.color }}>
+          <span className="mig-name"><i />{m.name}</span>
+          <span className="mig-when">{m.when}・{m.kind}</span>
+          <span className="mig-bar" aria-hidden><b style={{ left: x(m.start), width: `calc(${x(m.end)} - ${x(m.start)} + 4px)` }} /></span>
+        </button>
+      </li>)}
+    </ol>
+    <p className="small muted">時間尺：前 3500 年到今天；更早的智人走出非洲等史前遷徙，見「人類大歷史」專題。</p>
+  </>;
+}
+
+/** 一條遷徙：站點、證據、爭議、今天、相關國家與卡片 */
+function MigView({ d, m, onPick, onCard }: { d: Peoples; m: PMigration; onPick: (id: string) => void; onCard?: (id: string) => void }) {
+  const src = (ids: string[] = []) => <Refs list={ids.map((i) => m.sources.find((s) => s.id === i)!).filter(Boolean)} />;
+  const claims = (l: PClaim[]) => <ul className="mig-claims">{l.map((c, i) => <li key={i}>{c.disputed && <span className="tag-disputed">有爭議</span>}{c.text} {src(c.src)}</li>)}</ul>;
+  const i = d.migrations.indexOf(m), prev = d.migrations[i - 1], next = d.migrations[i + 1];
+  return <>
+    <p className="today-kicker">人群圖層・遷徙 {i + 1}／{d.migrations.length}</p>
+    <h2 className="mig-title" style={{ ['--mc' as any]: m.color }}><i />{m.name} <span className="en">{m.en}</span></h2>
+    <p className="small"><b>{m.when}</b>・{m.kind}</p>
+    <p>{m.summary}</p>
+    <p className="small muted">地圖右下角可以拖時間、按「▶ 播放」，看各站依年代出現。站的位置是示意，線不是實際走的路。</p>
+    <h3>沿途各站</h3>
+    <ol className="mig-stations">{m.stations.map((s) => <li key={s.key}><b>{s.name}</b>{s.est && <span className="muted small">（位置示意）</span>}<br /><span className="small">{s.when} {src(s.src)}</span></li>)}</ol>
+    {EVID.map(([k, title, how]) => m.evidence[k]?.length ? <section key={k}><h3>{title}</h3><p className="small muted">{how}</p>{claims(m.evidence[k]!)}</section> : null)}
+    {m.debates.length > 0 && <><h3>學界還在爭的事</h3>{claims(m.debates)}</>}
+    {m.today.length > 0 && <><h3>留到今天的樣子</h3>{claims(m.today)}</>}
+    {m.countries.length > 0 && <><h3>點國家看今天的族群與語言</h3><p className="mig-countries">{m.countries.map((c) => <button key={c} className="link" onClick={() => onPick(c)}>{d.countries[c]?.zh ?? c}</button>)}</p></>}
+    {m.cards.length > 0 && onCard && <><h3>相關卡片</h3><p className="mig-countries">{m.cards.map((c) => <button key={c.id} className="link" onClick={() => onCard(c.id)}>{c.name}</button>)}</p></>}
+    <p className="mig-nav">{prev && <button className="btn sm" onClick={() => onPick(MIG_PREFIX + prev.id)}>← {prev.name}</button>} <button className="btn sm" onClick={() => onPick(PEOPLE_MIGS)}>八條清單</button> {next && <button className="btn sm" onClick={() => onPick(MIG_PREFIX + next.id)}>{next.name} →</button>}</p>
+    <h3>來源</h3>
+    <ol className="sources">{m.sources.map((s) => <li key={s.id}><span className="code">{s.id}</span><a href={s.url} target="_blank" rel="noreferrer">{s.title}</a>（查閱 {s.accessed}）</li>)}</ol>
   </>;
 }

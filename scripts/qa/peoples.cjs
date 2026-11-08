@@ -1,4 +1,4 @@
-// node peoples.cjs baseUrl → 人群圖層（今天）：開關、語系上色、語言點、國家卡、臺灣放大鏡、為什麼不畫人種、學習模式、手機
+// node peoples.cjs baseUrl → 人群圖層：開關、語系上色、語言點、國家卡、臺灣放大鏡、為什麼不畫人種、八條大遷徙（清單、單條、時間播放）、學習模式、手機
 const { chromium } = require('playwright');
 (async () => {
   const base = process.argv[2];
@@ -74,6 +74,36 @@ const { chromium } = require('playwright');
   ok(await p.$('.people-panel') === null || !(await p.$eval('.peoples-toggle', (x) => x.classList.contains('on'))), '再按一次「◎ 人群」關閉圖層');
   ok(p.errs.length === 0, `研究模式沒有錯誤${p.errs.length ? '：' + p.errs.slice(0, 3).join(' / ') : ''}`);
 
+  // 4b. 八條大遷徙
+  await p.goto(`${base}?mode=research&peoples=migrations`, { waitUntil: 'networkidle' });
+  await p.waitForTimeout(2500);
+  t = await panelText(p);
+  ok(t.includes('八條大遷徙') && (await p.$$eval('.mig-list li', (xs) => xs.length)) === 8, '遷徙清單：8 條');
+  ok(await p.$$eval('.leaflet-overlay-pane path', (xs) => xs.filter((x) => x.getAttribute('stroke-dasharray') === '3 7').length) >= 30, '清單頁：地圖畫出全部遷徙線');
+  await p.click('.mig-row:has-text("南島語族")'); await p.waitForTimeout(2500);
+  ok(new URL(p.url()).searchParams.get('peoples') === 'mig-austronesian', `點清單 → 網址變成 mig-austronesian（${p.url().slice(-30)}）`);
+  t = await panelText(p);
+  ok(t.includes('巴丹群島') && t.includes('拉皮塔') && t.includes('基因（DNA）的證據') && t.includes('學界還在爭的事'), '南島：站點、三種證據、爭議');
+  ok(await p.$$eval('.mig-stations li', (xs) => xs.length && xs.every((li) => li.querySelector('a.ref'))), '南島：每站都有來源連結');
+  ok(await p.$('.mig-play') !== null, '單條遷徙：地圖上有時間播放');
+  const n0 = await p.$$eval('.mig-stop', (xs) => xs.length);
+  await p.$eval('.mig-play input[type=range]', (x) => { Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(x, '0'); x.dispatchEvent(new Event('input', { bubbles: true })); });
+  await p.waitForTimeout(800);
+  const n1 = await p.$$eval('.mig-stop', (xs) => xs.length);
+  ok(n1 < n0 && n1 >= 1, `拖到最早：站點變少（${n0} → ${n1}）`);
+  await p.click('.mig-play button'); await p.waitForTimeout(4000);
+  ok((await p.$$eval('.mig-stop', (xs) => xs.length)) > n1, '按播放：站點依年代長出來');
+  await p.goto(`${base}?mode=research&peoples=mig-han-south`, { waitUntil: 'networkidle' });
+  await p.waitForTimeout(2500);
+  t = await panelText(p);
+  ok(t.includes('永嘉') && t.includes('客家'), '漢人南移：永嘉之亂、客家');
+  await p.click('.people-panel button.link:has-text("秦")'); await p.waitForTimeout(1500);
+  ok(new URL(p.url()).searchParams.get('card') === 'war-qin-lingnan', `相關卡片可以點進去（${new URL(p.url()).searchParams.get('card')}）`);
+  await p.goto(`${base}?mode=research&peoples=Taiwan`, { waitUntil: 'networkidle' });
+  await p.waitForTimeout(2500);
+  ok(await p.$('.mig-chip:has-text("南島語族")') !== null && await p.$('.mig-chip:has-text("漢人南移")') !== null, '臺灣頁：連到南島、漢人南移兩條遷徙');
+  ok(p.errs.length === 0, `遷徙頁沒有錯誤${p.errs.length ? '：' + p.errs.slice(0, 3).join(' / ') : ''}`);
+
   // 5. 學習模式
   const l = await page(1280, 860);
   await l.goto(`${base}?mode=learn&peoples=Japan`, { waitUntil: 'networkidle' });
@@ -92,6 +122,13 @@ const { chromium } = require('playwright');
   ok(over <= 1, `手機：沒有水平捲動（多出 ${over}px）`);
   await m.click('nav.tabs button:has-text("地圖")'); await m.waitForTimeout(1500);
   ok(await m.$('.peoples-toggle.on') !== null, '手機：地圖分頁的人群圖層是打開的');
+  await m.goto(`${base}?mode=research&peoples=mig-bantu`, { waitUntil: 'networkidle' });
+  await m.waitForTimeout(2500);
+  ok((await panelText(m)).includes('班圖'), '手機：遷徙頁');
+  ok(await m.evaluate(() => document.documentElement.scrollWidth - window.innerWidth) <= 1, '手機：遷徙頁沒有水平捲動');
+  await m.click('nav.tabs button:has-text("地圖")'); await m.waitForTimeout(1500);
+  const pb = await m.$eval('.mig-play', (x) => { const r = x.getBoundingClientRect(); return r.left >= 0 && r.right <= window.innerWidth; }).catch(() => false);
+  ok(pb, '手機：時間播放列在畫面內');
   ok(m.errs.length === 0, `手機沒有錯誤${m.errs.length ? '：' + m.errs.slice(0, 3).join(' / ') : ''}`);
 
   await b.close();

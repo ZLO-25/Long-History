@@ -35,3 +35,28 @@
 @media (max-width: 520px) { .p-tribes { columns: 1; } .lg-fams { max-width: none; } }
 .tribe-label.compact { font-size: 11.5px; padding: 0 4px; }
 .tribe-label.compact small { display: none; }
+
+/* 遷徙（第 2 期） */
+.mig-chip { display: inline-flex; align-items: center; gap: 4px; margin: 0 6px 6px 0; padding: 2px 9px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--mc) 60%, #fff); background: color-mix(in srgb, var(--mc) 12%, #fff); font-size: 13px; cursor: pointer; color: #222; }
+.mig-chip i, .mig-name i, .mig-title i { display: inline-block; width: 14px; height: 0; border-top: 3px dashed var(--mc); vertical-align: middle; margin-right: 4px; }
+.mig-list { list-style: none; padding: 0; margin: 4px 0 8px; }
+.mig-row { display: grid; grid-template-columns: 1fr; gap: 1px; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid #eee; padding: 6px 2px; cursor: pointer; font: inherit; color: inherit; }
+.mig-row:hover, .mig-row:focus-visible { background: #f4f1e8; }
+.mig-name { font-weight: 600; font-size: 14.5px; }
+.mig-when { font-size: 12.5px; color: #4a4a4a; }
+.mig-bar { position: relative; height: 6px; background: #f0eee8; border-radius: 3px; margin-top: 3px; }
+.mig-bar b { position: absolute; top: 0; height: 100%; background: var(--mc); border-radius: 3px; min-width: 4px; }
+.mig-scale { display: flex; justify-content: space-between; font-size: 11px; color: #4a4a4a; border-bottom: 1px solid #ccc; padding: 0 2px 2px; margin-top: 8px; }
+.mig-stations { padding-left: 22px; font-size: 14px; } .mig-stations li { margin: 0 0 6px; }
+.mig-claims { padding-left: 18px; font-size: 14px; } .mig-claims li { margin: 3px 0 6px; }
+.tag-disputed { display: inline-block; font-size: 11px; padding: 0 5px; margin-right: 5px; border-radius: 3px; background: #fdecc8; color: #7a4a00; border: 1px solid #e9c46a; vertical-align: 1px; }
+.mig-countries .link { margin-right: 10px; }
+.mig-nav { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+.mig-stop { white-space: nowrap; font-size: 11.5px; font-weight: 600; color: #222; background: rgba(255,255,255,.88); border: 1px solid var(--mc); border-radius: 3px; padding: 0 4px; transform: translate(6px, -50%); width: max-content !important; height: auto !important; pointer-events: none; }
+.mig-arrow { width: 0 !important; height: 0 !important; }
+.mig-arrow b { position: absolute; left: -6px; top: -6px; width: 0; height: 0; border-left: 12px solid var(--mc); border-top: 6px solid transparent; border-bottom: 6px solid transparent; transform-origin: 6px 6px; }
+.mig-play { position: absolute; right: 10px; bottom: 26px; z-index: 800; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.95); border: 1px solid #bbb; border-radius: 8px; padding: 5px 10px; box-shadow: 0 1px 4px rgba(0,0,0,.2); font-size: 13px; width: min(380px, calc(100% - 20px)); box-sizing: border-box; }
+.mig-play input[type=range] { flex: 1; min-width: 0; }
+.mig-play output { min-width: 5.5em; font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; }
+.mig-play button { white-space: nowrap; }
+@media (max-width: 640px) { .mig-play { top: 50px; bottom: auto; left: 52px; right: 8px; width: auto; padding: 4px 8px; } }

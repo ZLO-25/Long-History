@@ -1,0 +1,53 @@
+# 人群圖層：臺灣放大鏡
+# 官方承認的 17 個原住民族（2026-07-30 行政院認定西拉雅族為第 17 族）。點位＝Glottolog 5.2.1 該族語言的代表座標（不是族人住的範圍）；
+# 太魯閣語在 Glottolog 併在賽德克語裡，所以太魯閣族用花蓮秀林一帶的示意點（schematic）。
+# 人數：內政部 2025 年底統計（西拉雅族認定之前）只公布前三大族的人數，其餘各族請看原民會每月統計（連結見 sources s6）。
+data_as_of: 2025-12-31
+sources:
+  - { id: s1, title: "中央社（2026-02-28）：內政部：原住民62.9萬人 續呈增加趨勢", url: 'https://www.cna.com.tw/news/ahel/202602280045.aspx', accessed: 2026-11-08 }
+  - { id: s2, title: "中央社訊息平台（客家委員會，2026-03-20）：引用 110 年全國客家人口暨語言基礎資料調查", url: 'https://www.cna.com.tw/postwrite/chi/428631', accessed: 2026-11-08 }
+  - { id: s3, title: "CIA, The World Factbook: Taiwan（最後一版，factbook.json 鏡像）", url: 'https://github.com/factbook/factbook.json/blob/master/east-n-southeast-asia/tw.json', accessed: 2026-11-08 }
+  - { id: s4, title: "Glottolog 5.2.1（Hammarström 等，2025，CC BY 4.0）", url: 'https://glottolog.org', accessed: 2026-11-08 }
+  - { id: s5, title: "Taiwanese indigenous peoples — Wikipedia", url: 'https://en.wikipedia.org/wiki/Taiwanese_indigenous_peoples', accessed: 2026-11-08 }
+  - { id: s6, title: "原住民族委員會（各族人口與介紹）", url: 'https://www.cip.gov.tw/', accessed: 2026-11-08 }
+  - { id: s7, title: "Focus Taiwan／中央社（2026-07-30）：Cabinet officially recognizes Siraya as Taiwan's 17th Indigenous tribe", url: 'https://focustaiwan.tw/politics/202607300019', accessed: 2026-11-08 }
+  - { id: s8, title: "Taipei Times（2026-07-31）：Executive Yuan officially recognizes Siraya", url: 'https://www.taipeitimes.com/News/front/archives/2026/07/31/2003861685', accessed: 2026-11-08 }
+# 族群組成：每一項都是不同的調查、不同的問法，加起來不是 100%
+groups:
+  - { zh: 漢人（含閩南、客家、戰後來臺的各省移民）, value: 95% 以上, note: 世界概況的估計, src: [s3] }
+  - { zh: 閩南（福佬）, value: 約 70%, note: 世界概況的估計，沒有寫年份, src: [s3] }
+  - { zh: 客家, value: 約 466.9 萬人、19.8%, note: 客委會 110 年（2021）調查，依自我認同；有人同時認同閩南或其他族群, src: [s2] }
+  - { zh: 原住民族, value: 62.9 萬人、2.7%, note: 2025 年底戶籍登記，比 2024 年底增加 2.9%, src: [s1] }
+contrast:
+  title: 認同和語言不一樣
+  text: 自認是客家人的約 19.8%，但同一份資料引用 2020 年人口普查：「主要使用語言是客語」的只有 1.5%。很多人的祖先說客語、自己也認同客家，但平常說華語或閩南語。
+  src: [s2]
+top3:
+  text: 三大族合占原住民總人數 72%；人數最多的縣市是花蓮縣 9.5 萬人、桃園市 9 萬人、臺東縣 7 萬 9340 人（很多族人住在都市）。
+  src: [s1]
+tribes:
+  - { id: amis, zh: 阿美族, en: Amis, glotto: amis1246, pop: 23.5 萬人（37.3%）, since: 日治時期即列為一族 }
+  - { id: paiwan, zh: 排灣族, en: Paiwan, glotto: paiw1248, pop: 11.4 萬人（18.1%）, since: 日治時期即列為一族 }
+  - { id: atayal, zh: 泰雅族, en: Atayal, glotto: atay1247, pop: 10.3 萬人（16.3%）, since: 日治時期即列為一族 }
+  - { id: bunun, zh: 布農族, en: Bunun, glotto: bunu1267, since: 日治時期即列為一族 }
+  - { id: puyuma, zh: 卑南族, en: Puyuma, glotto: puyu1239, since: 日治時期即列為一族 }
+  - { id: rukai, zh: 魯凱族, en: Rukai, glotto: ruka1240, since: 日治時期即列為一族 }
+  - { id: tsou, zh: 鄒族, en: Tsou, glotto: tsou1248, since: 日治時期即列為一族 }
+  - { id: saisiyat, zh: 賽夏族, en: Saisiyat, glotto: sais1237, since: 日治時期即列為一族 }
+  - { id: yami, zh: 雅美族（達悟族）, en: Yami (Tao), glotto: yami1254, since: 日治時期即列為一族 }
+  - { id: thao, zh: 邵族, en: Thao, glotto: thao1240, since: 2001 年正名 }
+  - { id: kavalan, zh: 噶瑪蘭族, en: Kavalan, glotto: kava1241, since: 2002 年正名 }
+  - { id: truku, zh: 太魯閣族, en: Truku, lat: 24.16, lng: 121.6, schematic: true, since: 2004 年正名 }
+  - { id: sakizaya, zh: 撒奇萊雅族, en: Sakizaya, glotto: saki1247, since: 2007 年正名 }
+  - { id: seediq, zh: 賽德克族, en: Seediq, glotto: taro1264, since: 2008 年正名 }
+  - { id: hlaalua, zh: 拉阿魯哇族, en: Hla'alua, glotto: saar1237, since: 2014 年正名 }
+  - { id: kanakanavu, zh: 卡那卡那富族, en: Kanakanavu, glotto: kana1286, since: 2014 年正名 }
+  - { id: siraya, zh: 西拉雅族, en: Siraya, glotto: sira1267, since: 2026 年認定（第一個依《平埔原住民族群身分法》認定的平埔族群）, src: [s7, s8] }
+# 平埔族群：多數沒有中央政府的原住民族身分；語言多已不再日常使用，但有人在復振
+plains:
+  - { zh: 巴宰, en: Pazeh, glotto: kulo1237 }
+  - { zh: 巴布薩, en: Babuza, glotto: babu1240 }
+  - { zh: 凱達格蘭, en: Ketangalan, glotto: keta1243 }
+  - { zh: 巴賽, en: Basay, glotto: basa1287 }
+plains_note: 平埔族群（如西拉雅、巴宰、凱達格蘭）曾分布在西部平原與北部，清代以後逐漸和漢人通婚、改說閩南語或客語。2025 年 10 月立法院通過《平埔原住民族群身分法》，2026 年 7 月 30 日行政院認定西拉雅族為第 17 個原住民族，是第一個依這部法認定的平埔族群（以上資料截至 2026-07-31 的新聞）。
+plains_src: [s7, s8]

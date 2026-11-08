@@ -17,6 +17,8 @@ import { StructureMatch } from './components/StructureMatch';
 import { ChainPanel } from './components/ChainPanel';
 import { EconPanel } from './components/EconPanel';
 import { TodayPanel } from './components/TodayPanel';
+import { PeoplePanel } from './components/PeoplePanel';
+import { PEOPLE_INTRO } from './lib/peoples';
 import { useIsMobile } from './lib/useIsMobile';
 import { MIN_YEAR, MAX_YEAR, ERAS, eraOf } from './lib/timeScale';
 import { LearnApp } from './learn/LearnApp';
@@ -36,6 +38,7 @@ export type Panel =
   | { kind: 'chain'; id: string }
   | { kind: 'econ'; series: string; point: number }
   | { kind: 'today'; id: string }
+  | { kind: 'peoples'; id: string }
   | { kind: 'topic'; name: string }
   | { kind: 'topics' }
   | { kind: 'story'; id: string }
@@ -132,6 +135,9 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     // ?dive=dive-sengoku 直接打開深入專題
     const dv = params.get('dive');
     if (dv && findDive(index, dv)) return [{ kind: 'list' }, { kind: 'dive', id: dv }];
+    // ?peoples=Taiwan 直接打開人群圖層的某一國（?peoples=intro 說明、?peoples=about 為什麼不畫人種）
+    const pp = params.get('peoples');
+    if (pp) return [{ kind: 'list' }, { kind: 'peoples', id: pp }];
     const td = params.get('today');
     if (td && index.today.chokepoints.some((c) => c.id === td)) return [{ kind: 'list' }, { kind: 'today', id: td }];
     return id && index.cards.some((c) => c.id === id) ? [{ kind: 'list' }, { kind: 'card', id }] : [{ kind: 'list' }];
@@ -139,6 +145,8 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const [chainT, setChainT] = useState(0);
   // 今日對照層開關：網址帶 ?today= 或打開今日項目時自動打開
   const [todayOn, setTodayOn] = useState(() => params.has('today') || (params.get('chain') ?? '').startsWith('today-'));
+  // 人群圖層開關：網址帶 ?peoples= 時自動打開
+  const [peoplesOn, setPeoplesOn] = useState(() => params.has('peoples'));
   const [mobileTab, setMobileTab] = useState<'list' | 'map' | 'match' | 'topics'>(() => (isMobile && (params.get('dive') || params.get('story') || params.get('topic')) ? 'topics' : 'list'));
   const panel = stack[stack.length - 1];
   // 深入專題：目前打開哪一年的勢力圖（null＝關）。進專題時自動打開最接近目前年代的一張
@@ -195,6 +203,11 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const activeChain = panel.kind === 'chain' ? [...index.chains, ...index.today.chains].find((c) => c.id === panel.id) ?? null : null;
   const openToday = useCallback((id: string) => { setTodayOn(true); open({ kind: 'today', id }); }, [open]);
   const activeToday = panel.kind === 'today' ? index.today.chokepoints.find((c) => c.id === panel.id) ?? null : null;
+  // 人群圖層：同一層連點不同國家時換掉最上面那一頁，不一直疊（返回鍵回到原本的卡片或清單）
+  const openPeople = useCallback((id: string) => {
+    setPeoplesOn(true);
+    setStack((s) => (s[s.length - 1].kind === 'peoples' ? [...s.slice(0, -1), { kind: 'peoples', id }] : [...s, { kind: 'peoples', id }]));
+  }, []);
   const back = () => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s));
   const home = () => setStack([{ kind: 'list' }]);
 
@@ -229,15 +242,15 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const topicHits = useMemo(() => { const m = matchTopics(topicNames.map((t) => t.name), query); return topicNames.filter((t) => m.includes(t.name)); }, [topicNames, query, libsReady]); // eslint-disable-line react-hooks/exhaustive-deps
   // 打開卡片或主題路徑時，網址跟著變（?card= / ?topic=），可以直接複製分享
   useEffect(() => {
-    if (panel.kind !== 'card' && panel.kind !== 'topic' && panel.kind !== 'story' && panel.kind !== 'dive') return;
+    if (panel.kind !== 'card' && panel.kind !== 'topic' && panel.kind !== 'story' && panel.kind !== 'dive' && panel.kind !== 'peoples') return;
     const q = new URLSearchParams({ mode: 'research' });
-    if (panel.kind === 'card') q.set('card', panel.id); else if (panel.kind === 'story') q.set('story', panel.id); else if (panel.kind === 'dive') q.set('dive', panel.id); else q.set('topic', panel.name);
+    if (panel.kind === 'peoples') q.set('peoples', panel.id); else if (panel.kind === 'card') q.set('card', panel.id); else if (panel.kind === 'story') q.set('story', panel.id); else if (panel.kind === 'dive') q.set('dive', panel.id); else q.set('topic', panel.name);
     history.replaceState(null, '', `${location.pathname}?${q}`);
   }, [panel]);
 
   const onQuery = (q: string) => { setQuery(q); if (panel.kind !== 'list') home(); if (isMobile) setMobileTab('list'); };
 
-  const panelTitle = ({ list: '卡片清單', card: '卡片', place: '地點', route: '路線', match: '結構對照', chain: '物資鏈', econ: '經濟曲線', today: '今日對照', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題' } as const)[panel.kind];
+  const panelTitle = ({ list: '卡片清單', card: '卡片', place: '地點', route: '路線', match: '結構對照', chain: '物資鏈', econ: '經濟曲線', today: '今日對照', peoples: '人群', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題' } as const)[panel.kind];
   const sideRaw = (() => {
     switch (panel.kind) {
       case 'card': return selectedCard && <CardDetail card={selectedCard} index={index} byId={byId} onOpen={openCard}
@@ -246,6 +259,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
       case 'route': return <RoutePanel route={index.routes.find((r) => r.id === panel.id)!} cards={index.cards} onOpen={openCard} />;
       case 'chain': return activeChain && <ChainPanel chain={activeChain} card={byId.get(activeChain.card)} t={chainT} setT={setChainT} onOpen={openCard} byId={byId} />;
       case 'today': return activeToday && <TodayPanel point={activeToday} index={index} byId={byId} onOpen={openCard} onTag={(t) => open({ kind: 'match', tags: [t] })} onChain={openChain} />;
+      case 'peoples': return <PeoplePanel id={panel.id} onPick={openPeople} onCard={openCard} />;
       case 'econ': return <EconPanel econ={index.econ} seriesId={panel.series} point={panel.point} onPick={openEcon} />;
       case 'match': return <StructureMatch index={index} initialTags={panel.tags} onOpen={openCard} onToday={openToday} onPlace={(key) => open({ kind: 'place', key })} />;
       case 'topic': return <TopicView key={panel.name} index={index} name={panel.name} currentId={lastOpened} onOpen={openCard} onTopic={openTopic} onAll={() => open({ kind: 'topics' })} onMap={isMobile ? () => setMobileTab('map') : undefined} />;
@@ -258,14 +272,15 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     }
   })();
   // 卡片長內文還在背景下載時，需要內文的面板先顯示「載入中」（通常不到一秒）
-  const side = index.detailReady === false && !['list', 'topics', 'stories', 'dives', 'econ'].includes(panel.kind) ? <p className="muted loading-detail">載入卡片內容…</p> : sideRaw;
+  const side = index.detailReady === false && !['list', 'topics', 'stories', 'dives', 'econ', 'peoples'].includes(panel.kind) ? <p className="muted loading-detail">載入卡片內容…</p> : sideRaw;
 
   const map = <MapView index={index} cards={visible} year={year} highlight={highlight}
     onPlace={(key) => { open({ kind: 'place', key }); if (isMobile) setMobileTab('list'); }}
     onRoute={(id) => { open({ kind: 'route', id }); if (isMobile) setMobileTab('list'); }} compact={isMobile}
     chain={activeChain ? { chain: activeChain, t: chainT } : null}
     todayOn={todayOn} setTodayOn={setTodayOn} onToday={(id) => { openToday(id); if (isMobile) setMobileTab('list'); }} todaySel={activeToday?.id ?? null}
-    power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend } : null} onCard={(id) => { openCard(id); if (isMobile) setMobileTab('list'); }} trail={trail} />;
+    power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend } : null} onCard={(id) => { openCard(id); if (isMobile) setMobileTab('list'); }} trail={trail}
+    peoples={{ on: peoplesOn, setOn: (v) => { setPeoplesOn(v); if (!v && panel.kind === 'peoples') back(); }, sel: panel.kind === 'peoples' ? panel.id : null, onPick: (id) => { openPeople(id); if (isMobile && id !== PEOPLE_INTRO) setMobileTab('list'); } }} />;
 
   return (
     <div className={`app ${isMobile ? 'mobile' : 'desktop'}`}>

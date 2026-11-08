@@ -3,6 +3,7 @@ import { loadCards, loadTagVocab, readYaml } from './lib/cards.ts';
 import { checkCards, loadContext, checkTopics } from './lib/check.ts';
 import { loadEcon, loadChains, checkEcon, checkChains } from './lib/econ.ts';
 import { loadToday, checkToday } from './lib/today.ts';
+import { checkPeoples } from './lib/peoples.ts';
 import { loadCivTaxonomy } from './lib/civ.ts';
 import { buildEdges } from './lib/causes.ts';
 import { loadStorylines, checkStorylines } from './lib/storylines.ts';
@@ -28,6 +29,7 @@ const issues = [
   ...checkEcon(loadEcon()),
   ...checkChains(loadChains(), cards, new Set(routes.map((r: any) => r.id))),
   ...checkToday(loadToday(), cards, new Set(tagVocab.flatMap((c: any) => c.tags.map((t: any) => t.tag))), new Set(routes.map((r: any) => r.id))),
+  ...checkPeoples().map((i) => ({ ...i, file: 'data/peoples/' })),
 ];
 // 文明寫法要能對應到 data/civilizations.yaml 的分類樹
 const civ = loadCivTaxonomy();

@@ -8,6 +8,8 @@ import { SkipLink } from '../components/SkipLink';
 type LPanel = 'content' | 'map' | 'tl';
 const L_PANELS: readonly LPanel[] = ['content', 'map', 'tl'];
 import type { Card, Index } from '../types';
+import { PeoplePanel } from '../components/PeoplePanel';
+import { PEOPLE_INTRO } from '../lib/peoples';
 import { MapView } from '../components/MapView';
 import { createSearch, matchTopics, useSearchLibs, loadSearchLibs } from '../lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
@@ -29,10 +31,11 @@ import './learn.css';
 type View = { kind: 'home' } | { kind: 'history' } | { kind: 'unit'; id: string } | { kind: 'card'; id: string; section?: string }
   | { kind: 'mymap' } | { kind: 'record' } | { kind: 'sim'; id: string } | { kind: 'search' }
   | { kind: 'topic'; name: string } | { kind: 'topics' } | { kind: 'story'; id: string } | { kind: 'stories' }
-  | { kind: 'dive'; id: string } | { kind: 'dives' };
+  | { kind: 'dive'; id: string } | { kind: 'dives' } | { kind: 'peoples'; id: string };
 type Tab = 'main' | 'card' | 'map' | 'timeline';
 
 function initialView(q: URLSearchParams): View {
+  if (q.get('peoples')) return { kind: 'peoples', id: q.get('peoples')! };
   if (q.get('unit')) return { kind: 'unit', id: q.get('unit')! };
   if (q.get('card')) return { kind: 'card', id: q.get('card')! };
   if (q.get('sim')) return { kind: 'sim', id: q.get('sim')! };
@@ -57,6 +60,8 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const [stack, setStack] = useState<View[]>(() => { const v = initialView(params); return v.kind === 'home' ? [v] : [{ kind: 'home' }, v]; });
   const view = stack[stack.length - 1];
   const [tab, setTab] = useState<Tab>('main');
+  // 人群圖層（今天）：網址帶 ?peoples= 時自動打開
+  const [peoplesOn, setPeoplesOn] = useState(() => new URLSearchParams(location.search).has('peoples'));
   const [lastCard, setLastCard] = useState<string | null>(view.kind === 'card' ? view.id : null);
   const [focus, setFocus] = useState<string | null>(null);
   const [query, setQuery] = useState('');
@@ -118,6 +123,8 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     history.replaceState(null, '', `${location.pathname}?${q}`);
   }, [hid, view]);
 
+  // 人群圖層：連點不同國家時換掉最上面那一頁，不一直疊
+  const openPeople = (id: string) => { setPeoplesOn(true); setStack((s) => (s[s.length - 1].kind === 'peoples' ? [...s.slice(0, -1), { kind: 'peoples', id }] : [...s, { kind: 'peoples', id }])); if (!isMobile) setTab('main'); };
   const push = (v: View) => { setStack((s) => [...s, v]); setTab(v.kind === 'card' ? 'card' : 'main'); window.scrollTo?.(0, 0); };
   const back = () => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s));
   const chooseHistory = (id: string) => { setHid(id); update((o) => ({ ...o, history: id })); push({ kind: 'history' }); };
@@ -186,12 +193,13 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
       case 'dive': return <DiveView key={view.id} index={index} id={view.id} year={year} setYear={setYear} currentId={lastCard} powerYear={powerYear} setPowerYear={setPowerYear}
         onOpen={(id) => openCard(id)} onStory={openStory} onAll={() => push({ kind: 'dives' })} onUnit={openUnit} canOpen={(c) => !!c.learn} researchHref={researchHref} onMap={isMobile ? () => setTab('map') : undefined} learn />;
       case 'dives': return <DiveIndex index={index} onDive={openDive} />;
+      case 'peoples': return <PeoplePanel id={view.id} onPick={openPeople} onCard={openCard} />;
     }
     return null;
   })();
   // 卡片長內文還在背景下載時，需要內文的頁面先顯示「載入中」（通常不到一秒）
   const waiting = index.detailReady === false;
-  const content = waiting && !query.trim() && !['home', 'history', 'topics', 'stories', 'dives', 'record'].includes(view.kind) ? <p className="muted loading-detail">載入卡片內容…</p> : contentRaw;
+  const content = waiting && !query.trim() && !['home', 'history', 'topics', 'stories', 'dives', 'record', 'peoples'].includes(view.kind) ? <p className="muted loading-detail">載入卡片內容…</p> : contentRaw;
 
   const topicName = view.kind === 'topic' ? view.name : null;
   const storyId = view.kind === 'story' ? view.id : null;
@@ -201,11 +209,12 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const map = <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={isMobile} home={home}
     highlight={hl} power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend } : null} onCard={(id) => openCard(id)}
     trail={selected?.type === 'person' ? selected.place.locations.filter((l) => typeof l.year === 'number').map((l) => ({ lat: l.lat, lng: l.lng, year: l.year!, name: l.name_ancient })) : null}
-    onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}} />;
+    onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}}
+    peoples={{ on: peoplesOn, setOn: (v) => { setPeoplesOn(v); if (!v && view.kind === 'peoples') back(); }, sel: view.kind === 'peoples' ? view.id : null, onPick: (id) => { openPeople(id); if (isMobile && id !== PEOPLE_INTRO) setTab('main'); } }} />;
   const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
   const cardTab = waiting ? <p className="muted loading-detail">載入卡片內容…</p> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
 
-  const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '單元', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題' } as Record<View['kind'], string>)[view.kind];
+  const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '單元', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題', peoples: '人群' } as Record<View['kind'], string>)[view.kind];
   const header = (
     <header className="ltop">
       <SkipLink sel=".lcontent, .panel" />

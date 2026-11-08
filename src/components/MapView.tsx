@@ -6,6 +6,8 @@ import { posAt } from '../lib/chain';
 import { addBasemap } from '../lib/basemap';
 import { labelLayer } from '../lib/labelLayer';
 import { biHtml, biParts, cardEn, setNameTable } from '../lib/bilingual';
+import './peoples.css';
+import { loadPeoples, loadPeopleGeo, loadPeopleLangs, PEOPLE_INTRO, type Peoples, type PLang, type PFamily } from '../lib/peoples';
 import { activeAt, fmtYear, KIND_LABEL, METHOD_LABEL, SEG_LABEL, ERA_LABEL, eraOf, roadInEra, TYPE_COLOR } from '../lib/format';
 
 interface Props {
@@ -20,6 +22,8 @@ interface Props {
   // 深入專題：主視覺（勢力圖／領土圖，public/data/dives/<file>）；人物卡的人生軌跡（依年份連線）
   power?: { file: string; title: string; legend?: string } | null; onCard?: (id: string) => void;
   trail?: { lat: number; lng: number; year: number; name: string }[] | null;
+  // 人群圖層（今天）：國家依多數人母語的語系上色＋Glottolog 語言點；sel＝目前打開的國家（Natural Earth 國名）
+  peoples?: { on: boolean; setOn: (v: boolean) => void; sel: string | null; onPick: (id: string) => void } | null;
 }
 
 // 地圖視野：地中海／中國／歐亞
@@ -31,6 +35,7 @@ const VIEWS: { label: string; bounds: [[number, number], [number, number]] }[] =
 ];
 // 今日對照層的視野：大致涵蓋巴拿馬到東亞
 const TODAY_VIEW: [[number, number], [number, number]] = [[-5, -85], [55, 125]];
+const TAIWAN_VIEW: [[number, number], [number, number]] = [[21.8, 119.4], [25.4, 122.1]];
 const hue = (s: string) => { let h = 0; for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) % 360; return h; };
 const borderCache = new Map<string, Promise<any>>();
 const loadBorders = (file: string) => {
@@ -38,18 +43,19 @@ const loadBorders = (file: string) => {
   return borderCache.get(file)!;
 };
 
-export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel, bgCards, learn, home, power, onCard, trail }: Props) {
+export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel, bgCards, learn, home, power, onCard, trail, peoples }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map>();
   const topicZoom = useRef<() => void>(() => {});
   const yearRef = useRef(year); yearRef.current = year;
-  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; topic: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup; power: L.LayerGroup; trail: L.LayerGroup }>();
-  const canvasR = useRef<{ borders: L.Canvas; roads: L.Canvas }>();
-  const cb = useRef({ onPlace, onRoute, onToday, onCard });
-  cb.current = { onPlace, onRoute, onToday, onCard };
+  const layers = useRef<{ borders: L.LayerGroup; routes: L.LayerGroup; itinere: L.LayerGroup; awmc: L.LayerGroup; places: L.LayerGroup; hl: L.LayerGroup; topic: L.LayerGroup; chain: L.LayerGroup; mover: L.LayerGroup; today: L.LayerGroup; power: L.LayerGroup; trail: L.LayerGroup; peoples: L.LayerGroup; plangs: L.LayerGroup; ptribes: L.LayerGroup }>();
+  const canvasR = useRef<{ borders: L.Canvas; roads: L.Canvas; peoples: L.Canvas; plangs: L.Canvas }>();
+  const cb = useRef({ onPlace, onRoute, onToday, onCard, onPeople: peoples?.onPick });
+  cb.current = { onPlace, onRoute, onToday, onCard, onPeople: peoples?.onPick };
+  const peoplesOn = !!peoples?.on;
   // 疆域快照的狀態：標籤文字在畫面上才組（要用目前選的年份，不是快照自己的年份）
   const [snapInfo, setSnapInfo] = useState<{ today: boolean; year: number; covered: boolean; none?: boolean }>({ today: false, year: 0, covered: false });
-  const snapLabel = snapInfo.today ? '今日對照層：已隱藏古代疆域'
+  const snapLabel = peoplesOn ? '人群圖層：今天的國界（已隱藏古代疆域）' : snapInfo.today ? '今日對照層：已隱藏古代疆域'
     : snapInfo.none ? `${fmtYear(year)}：還沒有國家，不畫疆域`
     : `疆域示意：${fmtYear(year)} 年${snapInfo.year && snapInfo.year !== year ? `（用最接近的 ${fmtYear(snapInfo.year)} 年世界疆域快照）` : ''}${snapInfo.covered ? '（專題地圖範圍內以專題地圖為準）' : ''}`;
   const [powerBox, setPowerBox] = useState<L.LatLngBounds | null>(null);
@@ -69,13 +75,14 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     labelLayer().addTo(m);
     m.createPane('borders').style.zIndex = '350';
     m.createPane('power').style.zIndex = '360';
+    m.createPane('peoples').style.zIndex = '355';
     const noteZoom = () => { m.getContainer().dataset.zoom = m.getZoom().toFixed(2); }; m.on('zoomend moveend', noteZoom); noteZoom(); // 給自動測試讀目前縮放
     // 效能：疆域（一個年代上千個多邊形）和古道網改畫在 canvas，不再產生數千個 SVG 節點
-    canvasR.current = { borders: L.canvas({ pane: 'borders', padding: 0.3 }), roads: L.canvas({ padding: 0.3 }) };
+    canvasR.current = { borders: L.canvas({ pane: 'borders', padding: 0.3 }), roads: L.canvas({ padding: 0.3 }), peoples: L.canvas({ pane: 'peoples', padding: 0.3 }), plangs: L.canvas({ padding: 0.3 }) };
     layers.current = {
       borders: L.layerGroup().addTo(m), awmc: L.layerGroup().addTo(m), itinere: L.layerGroup().addTo(m), routes: L.layerGroup().addTo(m),
       places: L.layerGroup().addTo(m), hl: L.layerGroup().addTo(m), topic: L.layerGroup().addTo(m), chain: L.layerGroup().addTo(m), mover: L.layerGroup().addTo(m), today: L.layerGroup().addTo(m),
-      power: L.layerGroup().addTo(m), trail: L.layerGroup().addTo(m),
+      power: L.layerGroup().addTo(m), trail: L.layerGroup().addTo(m), peoples: L.layerGroup().addTo(m), plangs: L.layerGroup().addTo(m), ptribes: L.layerGroup().addTo(m),
     };
     map.current = m;
     // 區塊被拖曳改大小時，馬上讓 Leaflet 重新量容器，地圖才不會留白或偏掉
@@ -93,7 +100,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   useEffect(() => {
     let cancelled = false;
     // 今日對照層打開時，不畫古代疆域，避免把古代邊界誤認為今天的國界
-    if (todayOn) { layers.current?.borders.clearLayers(); setSnapInfo((s) => ({ ...s, today: true })); return; }
+    if (todayOn || peoplesOn) { layers.current?.borders.clearLayers(); setSnapInfo((s) => ({ ...s, today: !!todayOn })); return; }
     const box = powerBox?.pad(0.2) ?? null;
     let covered = 0;
     if (!snap) { layers.current?.borders.clearLayers(); setSnapInfo({ today: false, year: 0, covered: false, none: true }); return; }
@@ -115,7 +122,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       setSnapInfo({ today: false, year: snap.year, covered: covered > 0 });
     });
     return () => { cancelled = true; };
-  }, [snap, todayOn, powerBox, snap ? 0 : year]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [snap, todayOn, peoplesOn, powerBox, snap ? 0 : year]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Itiner-e 精細道路（若已用 npm run roads 下載）
   useEffect(() => {
@@ -393,6 +400,82 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     return () => { m?.off('zoomend', drawYears); };
   }, [trail]);
 
+  // 人群圖層（今天）：國家依語系上色、語言點、臺灣各族名稱（放大到臺灣才顯示）
+  const [pd, setPd] = useState<Peoples | null>(null);
+  const [langsOn, setLangsOn] = useState(true);
+  const pgeo = useRef<L.GeoJSON | null>(null);
+  useEffect(() => {
+    const g = layers.current?.peoples, gl = layers.current?.plangs, gt = layers.current?.ptribes, m = map.current;
+    if (!g || !gl || !gt || !m) return;
+    g.clearLayers(); gl.clearLayers(); gt.clearLayers(); pgeo.current = null;
+    if (!peoplesOn) return;
+    let cancelled = false;
+    Promise.all([loadPeoples(), loadPeopleGeo(), loadPeopleLangs()]).then(([d, geo, langs]: [Peoples, any, PLang[]]) => {
+      if (cancelled) return;
+      setPd(d);
+      const fam = new Map<string, PFamily>(d.families.map((f) => [f.id, f]));
+      pgeo.current = L.geoJSON(geo, {
+        pane: 'peoples', ...({ renderer: canvasR.current?.peoples } as L.GeoJSONOptions),
+        style: (f) => { const fm = fam.get(f?.properties.f); return { color: fm?.hatch ? '#777' : '#fff', weight: fm?.hatch ? 1.2 : 0.8, dashArray: fm?.hatch ? '4 3' : undefined, fillColor: fm?.color ?? '#999', fillOpacity: fm?.hatch ? 0.3 : 0.42 }; },
+        onEachFeature: (f, layer) => {
+          const c = d.countries[f.properties.n]; const fm = fam.get(f.properties.f);
+          layer.bindTooltip(`${c?.zh ?? ''} <span class="en">${f.properties.n}</span>：${fm?.zh ?? ''}<br><small>點一下看族群與語言</small>`, { sticky: true });
+          layer.on('click', () => cb.current.onPeople?.(f.properties.n));
+        },
+      }).addTo(g);
+      for (const [name, lat, lng, fid] of langs) {
+        const fm = fam.get(fid);
+        L.circleMarker([lat, lng], { renderer: canvasR.current?.plangs, radius: 2.4, weight: 0.6, color: '#fff', fillColor: fm?.color ?? '#888', fillOpacity: 0.95 })
+          .bindTooltip(`${name}・${fm?.zh ?? ''}<br><small>語言的代表位置（Glottolog），不是人數</small>`).addTo(gl);
+      }
+      for (const t of [...d.taiwan.tribes, ...d.taiwan.plains]) {
+        if (t.lat == null || t.lng == null) continue;
+        const plain = d.taiwan.plains.includes(t);
+        L.marker([t.lat, t.lng], { icon: L.divIcon({ className: `tribe-label ${plain ? 'plain' : ''}`, html: `${t.zh}<small>${t.en}</small>`, iconSize: undefined as any }), keyboard: false, zIndexOffset: 600 })
+          .bindTooltip(`${t.zh} ${t.en}${plain ? '（平埔族群，尚未認定）' : ''}<br><small>${t.schematic ? '示意位置' : '族語的代表位置（Glottolog）'}，不是族人住的範圍</small>`)
+          .on('click', () => cb.current.onPeople?.('Taiwan')).addTo(gt);
+      }
+      // 放大到臺灣（6 級以上）才顯示族名；標籤互相壓到時，依清單順序（官方承認的在前）保留前面的
+      const marks: L.Marker[] = []; gt.eachLayer((l) => marks.push(l as L.Marker));
+      const z = () => {
+        const show = m.getZoom() >= 6;
+        if (show && !m.hasLayer(gt)) gt.addTo(m); else if (!show && m.hasLayer(gt)) m.removeLayer(gt);
+        if (!show) return;
+        const placed: DOMRect[] = [];
+        for (const mk of marks) {
+          const el = mk.getElement(); if (!el) continue;
+          el.style.visibility = 'visible'; el.classList.toggle('compact', m.getZoom() < 8);
+          const r = el.getBoundingClientRect();
+          if (placed.some((q) => r.left < q.right + 2 && r.right > q.left - 2 && r.top < q.bottom + 2 && r.bottom > q.top - 2)) el.style.visibility = 'hidden'; else placed.push(r);
+        }
+      };
+      z(); m.on('zoomend', z);
+      cleanup = () => m.off('zoomend', z);
+    }).catch(() => {});
+    let cleanup = () => {};
+    return () => { cancelled = true; cleanup(); };
+  }, [peoplesOn]);
+  useEffect(() => {
+    const m = map.current, gl = layers.current?.plangs;
+    if (!m || !gl) return;
+    if (peoplesOn && langsOn && !m.hasLayer(gl)) gl.addTo(m); else if ((!peoplesOn || !langsOn) && m.hasLayer(gl)) m.removeLayer(gl);
+  }, [peoplesOn, langsOn]);
+  // 人群圖層打開時，先收起案例地點、路線、古道（圓點太像語言點，容易看混）
+  useEffect(() => {
+    const m = map.current, ls = layers.current;
+    if (!m || !ls) return;
+    for (const g of [ls.places, ls.routes, ls.awmc, ls.hl, ls.topic]) { if (peoplesOn && m.hasLayer(g)) m.removeLayer(g); else if (!peoplesOn && !m.hasLayer(g)) g.addTo(m); }
+  }, [peoplesOn]);
+  // 打開的國家加粗外框，並把視野移過去（臺灣直接放大到能看到各族名稱）
+  const peopleSel = peoples?.sel ?? null;
+  useEffect(() => {
+    const m = map.current, geo = pgeo.current;
+    if (!m || !peoplesOn) return;
+    geo?.eachLayer((l: any) => l.setStyle?.(l.feature?.properties.n === peopleSel && peopleSel !== 'Taiwan' ? { color: '#111', weight: 2.5 } : { color: '#fff', weight: 0.8 }));
+    if (peopleSel === 'Taiwan') m.flyToBounds(TAIWAN_VIEW, { duration: 0.6 });
+    else if (peopleSel && geo) { let b: L.LatLngBounds | null = null; geo.eachLayer((l: any) => { if (l.feature?.properties.n === peopleSel) b = l.getBounds(); }); if (b) m.flyToBounds(b, { duration: 0.6, maxZoom: 5, padding: [20, 20] }); }
+  }, [peopleSel, peoplesOn, pd]);
+
   // 今日對照層：菱形標記＋「資料截至」；與歷史年代無關，打開就一直顯示
   useEffect(() => {
     const g = layers.current?.today, m = map.current;
@@ -419,6 +502,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       <div className="map-views">
         {learn && <button onClick={() => map.current?.flyToBounds([[0, 95], [45, 145]], { duration: 0.6 })}>東亞</button>}
         {VIEWS.map((v) => <button key={v.label} onClick={() => map.current?.flyToBounds(v.bounds, { duration: 0.6 })}>{v.label}</button>)}
+        {peoples && <button className={`peoples-toggle ${peoplesOn ? 'on' : ''}`} aria-pressed={peoplesOn} onClick={() => { const v = !peoplesOn; peoples.setOn(v); if (v) { peoples.onPick(PEOPLE_INTRO); map.current?.flyToBounds([[-40, -120], [65, 150]], { duration: 0.6 }); } }} title="今天各地主要是哪些人：國家依多數人母語的語系上色，點國家看族群與語言（每筆都標資料年份）">◎ 人群</button>}
         {setTodayOn && <button className={`today-toggle ${todayOn ? 'on' : ''}`} onClick={() => { const v = !todayOn; setTodayOn(v); if (v) map.current?.flyToBounds(TODAY_VIEW, { duration: 0.6 }); }} title="疊上今天的咽喉要道（每筆都標資料截至）">◆ 今日對照層</button>}
       </div>
       <div className={`map-legend ${legendOpen ? '' : 'closed'}`}>
@@ -426,10 +510,14 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         {legendOpen && <>
         <div>{snapLabel}</div>
         <div className="map-names-note">地名：中文＋英文（灰字＝今天的國家、城市）</div>
-        {learn && <div className="learn-map-note">疆域都是示意：古代國界不像今天是一條清楚的線，很多地方是勢力越往外越淡，或好幾方都說是自己的。</div>}
-        <div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
+        {learn && !peoplesOn && <div className="learn-map-note">疆域都是示意：古代國界不像今天是一條清楚的線，很多地方是勢力越往外越淡，或好幾方都說是自己的。</div>}
+        {!peoplesOn && <><div><i className="lg road" />主要大道 <i className="lg sea" />航線 <i className="lg wall" />長城 <i className="lg unknown" />路線不詳（只知道經過哪些站）</div>
         {era !== 'M' && <div><i className="lg awmc" />巴林頓地圖集古道（{ERA_LABEL[era]}）・虛線＝大致路線</div>}
-        {(highlight.routes.some((id) => index.routes.find((r) => r.id === id)?.kind === 'migration') || year < -3000) && <div><i className="lg migr" />史前遷徙（示意）：只連有遺址根據的點，線不是實際走法</div>}
+        {(highlight.routes.some((id) => index.routes.find((r) => r.id === id)?.kind === 'migration') || year < -3000) && <div><i className="lg migr" />史前遷徙（示意）：只連有遺址根據的點，線不是實際走法</div>}</>}
+        {peoplesOn && pd && <div className="lg-peoples">
+          <div><b>人群（今天）</b>：顏色＝多數人母語的語系（主要，不是全部）<label className="lg-langs"><input type="checkbox" checked={langsOn} onChange={(e) => setLangsOn(e.target.checked)} /> 語言點</label></div>
+          <div className="lg-fams">{pd.families.slice(0, 13).map((f) => <span key={f.id} className={f.hatch ? 'hatch' : ''} style={{ ['--fc' as any]: f.color }}><i />{f.zh}</span>)}<span className="muted">…完整圖例見「◎ 人群圖層說明」</span></div>
+        </div>}
         {todayOn && <div><i className="lg today" />今日咽喉要道（灰色＝資料可能過時）</div>}
         {power && <div><i className="lg power" />專題示意（顏色見專題頁圖例）：{power.title}（示意範圍，不是確切界線）</div>}
         {trail && trail.length > 1 && <div><i className="lg trail" />人生軌跡：依年份連線（先後順序，不是實際路線）</div>}

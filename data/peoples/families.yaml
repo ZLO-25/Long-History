@@ -1,0 +1,32 @@
+# 人群圖層：語系（給地圖上色）
+# glottolog：Glottolog 5.2.1 的語系代碼（https://glottolog.org，CC BY 4.0），語言點依此分色
+# macro：沒有列在 glottolog 的語言，依 Glottolog 的大區（Macroarea）歸到「諸語系」群組（那是地理群組，不是一個語系）
+# note：給學生看的一句話，只寫地圖上看得到的分布
+families:
+  - { id: ie, zh: 印歐語系, en: Indo-European, color: '#4e79a7', glottolog: [indo1319], note: 從印度北部到歐洲；大航海之後，英語、西班牙語、葡萄牙語、法語隨殖民傳到美洲、澳洲和非洲部分地區。 }
+  - { id: st, zh: 漢藏語系, en: Sino-Tibetan, color: '#e15759', glottolog: [sino1245], note: 漢語（華語、閩南語、客家話、粵語等）、藏語、緬甸語都屬這個語系。 }
+  - { id: an, zh: 南島語系, en: Austronesian, color: '#3a9b3a', glottolog: [aust1307], note: 東起復活節島、西到馬達加斯加、南到紐西蘭，是分布最廣的語系之一；臺灣原住民族語言屬於這個語系，多數證據支持臺灣是它擴散的起點。 }
+  - { id: aa, zh: 亞非語系, en: Afro-Asiatic, color: '#d9a400', glottolog: [afro1255], note: 阿拉伯語、希伯來語、柏柏語、索馬利語、阿姆哈拉語、豪薩語等，分布在北非、非洲之角與西亞。 }
+  - { id: ac, zh: 大西洋－剛果語系, en: Atlantic-Congo, color: '#9467bd', glottolog: [atla1278], note: 撒哈拉以南非洲最大的語系；中部與南部非洲的班圖語（如史瓦希利語、祖魯語）都在其中。 }
+  - { id: tk, zh: 突厥語系, en: Turkic, color: '#2b9c95', glottolog: [turk1311], note: 從土耳其、亞塞拜然一路到中亞、新疆和西伯利亞。 }
+  - { id: ur, zh: 烏拉語系, en: Uralic, color: '#8c564b', glottolog: [ural1272], note: 芬蘭語、愛沙尼亞語、匈牙利語和俄羅斯北部的許多語言。 }
+  - { id: jp, zh: 日本語系, en: Japonic, color: '#e377c2', glottolog: [japo1237], note: 日語與琉球諸語。 }
+  - { id: ko, zh: 韓語系, en: Koreanic, color: '#f28e2b', glottolog: [kore1284], note: 韓語（朝鮮語）。 }
+  - { id: mn, zh: 蒙古語系, en: Mongolic, color: '#bc8a5f', glottolog: [mong1349], note: 蒙古語、布里亞特語、卡爾梅克語等。 }
+  - { id: tkd, zh: 侗台語系, en: Tai-Kadai, color: '#17becf', glottolog: [taik1256], note: 泰語、寮語、壯語、傣語等，分布在東南亞大陸與中國南部。 }
+  - { id: aas, zh: 南亞語系, en: Austroasiatic, color: '#c49c94', glottolog: [aust1305], note: 越南語、高棉語，以及東南亞與印度東部的許多語言。注意：和「南島語系」不同。 }
+  - { id: dr, zh: 達羅毗荼語系, en: Dravidian, color: '#98c45e', glottolog: [drav1251], note: 印度南部的泰米爾語、泰盧固語、卡納達語、馬拉雅拉姆語。 }
+  - { id: md, zh: 曼德語系, en: Mande, color: '#7fa7d6', glottolog: [mand1469], note: 西非的班巴拉語、馬林克語、門德語等。 }
+  - { id: nl, zh: 尼羅語系, en: Nilotic, color: '#ffb066', glottolog: [nilo1247], note: 南蘇丹、烏干達、肯亞一帶的丁卡語、努爾語、馬賽語等。 }
+  - { id: kv, zh: 卡特維利語系, en: Kartvelian, color: '#d37295', glottolog: [kart1248], note: 喬治亞語等，只分布在高加索南部。 }
+  - { id: esk, zh: 愛斯基摩－阿留申語系, en: Eskimo-Aleut, color: '#6b8e9e', glottolog: [eski1264], note: 格陵蘭、加拿大北部、阿拉斯加的因紐特語等。 }
+  - { id: hm, zh: 苗瑤語系, en: Hmong-Mien, color: '#b5a642', glottolog: [hmon1336], note: 苗語、瑤語，分布在中國南部與東南亞山區。 }
+  - { id: tg, zh: 通古斯語系, en: Tungusic, color: '#a3765a', glottolog: [tung1282], note: 滿語、鄂溫克語等，分布在東北亞。 }
+  - { id: am, zh: 美洲原住民諸語系, en: Indigenous languages of the Americas, color: '#4f9a7f', macro: [North America, South America], note: 美洲原住民的語言分屬幾十個語系（如克丘亞、馬雅、圖皮、納瓦特爾所屬的猶他－阿茲特克），這裡合成一色只是為了好看圖。 }
+  - { id: pap, zh: 巴布亞諸語系, en: Papuan languages, color: '#b8862d', macro: [Papunesia], note: 新幾內亞一帶上千種語言，分屬幾十個語系；這裡合成一色。 }
+  - { id: aus, zh: 澳洲原住民諸語系, en: Australian languages, color: '#e5b84b', macro: [Australia], note: 澳洲原住民的語言，最大的是帕馬－恩永甘語系；這裡合成一色。 }
+  - { id: cr, zh: 克里奧爾語, en: Creole languages, color: '#a07a6a', note: 不同語言的人長期接觸後形成的新母語，加勒比海的克里奧爾語多和奴隸貿易、殖民有關。Glottolog 把多數克里奧爾語歸在它的詞彙來源語系。 }
+  - { id: mix, zh: 多個語系人數相近, en: Several families, color: '#bdbdbd', hatch: true, note: 這個國家好幾個語系的人數差不多，選一個顏色會誤導，所以畫成斜線。 }
+  - { id: other, zh: 其他語系與孤立語言, en: Other families and isolates, color: '#8a8a8a', note: 人數較少的語系，以及和任何語言都沒有確定親屬關係的「孤立語言」（例如巴斯克語）。 }
+# 不畫在地圖上的 Glottolog 類別：手語、記帳用的分類、未證實、皮欽語、無法分類、混合語、人造語言、語體
+skip: [sign1238, book1242, unat1236, pidg1258, uncl1493, mixe1287, arti1236, spee1234]

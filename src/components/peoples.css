@@ -1,0 +1,37 @@
+/* 人群圖層：地圖按鈕、圖例、臺灣族名標籤、面板 */
+.peoples-toggle.on { background: #2f6b3a !important; color: #fff !important; border-color: #2f6b3a !important; }
+.lg-peoples { margin-top: 4px; }
+.lg-langs { margin-left: 8px; white-space: nowrap; font-weight: 400; }
+.lg-fams { display: flex; flex-wrap: wrap; gap: 2px 8px; margin-top: 3px; max-width: 460px; }
+.lg-fams span { white-space: nowrap; font-size: 11.5px; }
+.lg-fams i, .fam-chip i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: var(--fc); margin-right: 3px; vertical-align: -1px; }
+.lg-fams .hatch i, .fam-chip.hatch i { background: repeating-linear-gradient(45deg, #bbb 0 2px, #fff 2px 4px); border: 1px dashed #777; }
+
+.tribe-label { background: rgba(255, 255, 255, 0.92); border: 1px solid #2f6b3a; border-radius: 4px; padding: 1px 5px; font-size: 12.5px; font-weight: 600; color: #1d3f24; white-space: nowrap; line-height: 1.25; text-align: center; transform: translate(-50%, -50%); width: max-content !important; height: auto !important; cursor: pointer; }
+.tribe-label small { display: block; font-size: 10.5px; font-weight: 400; color: #4a4a4a; }
+.tribe-label.plain { border-style: dashed; border-color: #8a8a8a; color: #3a362f; font-weight: 500; }
+
+.people-panel h2 .en, .people-panel .en { font-size: 0.75em; color: #555; font-weight: 400; margin-left: 4px; }
+.fam-chip { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; padding: 1px 7px; border-radius: 10px; background: color-mix(in srgb, var(--fc) 18%, #fff); border: 1px solid color-mix(in srgb, var(--fc) 60%, #fff); }
+.fam-chip.big { font-size: 15px; font-weight: 600; padding: 2px 9px; }
+.fam-chip .en { font-size: 11px; color: #555; margin-left: 4px; font-weight: 400; }
+.p-note { background: #f4f1e8; border-left: 3px solid #b8862d; padding: 6px 9px; font-size: 14px; }
+.p-method { font-size: 13px; color: #3a362f; margin: 2px 0 6px; }
+.pbars { list-style: none; padding: 0; margin: 4px 0 10px; }
+.pbars li { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'n v' 'b b'; gap: 1px 8px; padding: 3px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+.pb-name { grid-area: n; } .pb-val { grid-area: v; font-variant-numeric: tabular-nums; font-weight: 600; }
+.pb-bar { grid-area: b; height: 6px; background: #eee; border-radius: 3px; overflow: hidden; }
+.pb-bar b { display: block; height: 100%; background: #2f6b3a; }
+.p-how { padding-left: 18px; font-size: 14px; } .p-how li { margin: 3px 0; }
+.fam-list { list-style: none; padding: 0; } .fam-list li { margin: 6px 0; } .fam-list p { margin: 2px 0 0 4px; }
+.fam-list .muted { margin-left: 6px; }
+.p-table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 4px 0 10px; }
+.p-table th { text-align: left; vertical-align: top; padding: 5px 8px 5px 0; width: 34%; font-weight: 600; }
+.p-table td { padding: 5px 0; border-bottom: 1px solid #eee; }
+.p-contrast { background: #eef5ef; border: 1px solid #b7d3bc; border-radius: 6px; padding: 7px 10px; font-size: 14px; }
+.p-contrast p { margin: 3px 0 0; }
+.p-tribes { padding-left: 22px; font-size: 14px; columns: 2; column-gap: 18px; } .p-tribes li { break-inside: avoid; margin: 0 0 5px; }
+.p-tribes .pop { margin-left: 6px; font-weight: 600; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .p-tribes { columns: 1; } .lg-fams { max-width: none; } }
+.tribe-label.compact { font-size: 11.5px; padding: 0 4px; }
+.tribe-label.compact small { display: none; }

@@ -16,6 +16,7 @@
     "labels": "tsx scripts/build-labels.ts",
     "power": "tsx scripts/build-power.ts",
     "basemap": "tsx scripts/fetch-basemap.ts",
+    "peoples": "tsx scripts/build-peoples.ts",
     "typecheck": "tsc -p tsconfig.json"
   },
   "engines": {

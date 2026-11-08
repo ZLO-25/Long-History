@@ -5,6 +5,7 @@ import { loadCards, loadTagVocab, loadTopicVocab, readYaml, readJson, dateStr, R
 import { checkCards, loadContext, exists } from './lib/check.ts';
 import { loadEcon, loadChains, checkEcon, checkChains, buildEcon, buildChains } from './lib/econ.ts';
 import { loadToday, checkToday, buildToday } from './lib/today.ts';
+import { buildPeoples } from './lib/peoples.ts';
 import { loadCivTaxonomy } from './lib/civ.ts';
 import { SECTIONS, CORE_KEYS, TYPE_LABEL, FIELD_OPTIONS, UNDERSTAND, type CardType } from './lib/fields.ts';
 import { loadNameTable, polityZh } from './lib/labels.ts';
@@ -148,6 +149,8 @@ if (hasItinere) fs.copyFileSync(path.join(ROOT, 'data/routes/itinere-simplified.
 // 深入專題的勢力圖（docs/dives.md）
 const dives = loadDives();
 copyPowerMaps(dives, pubData);
+// 人群圖層（data/peoples/，打開圖層時才下載）
+const peoplesInfo = buildPeoples(pubData);
 
 const index = {
   generated: new Date().toISOString(),
@@ -219,4 +222,4 @@ const coreCards = cards.map((c: any) => {
 fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...index, cards: coreCards }));
 fs.writeFileSync(path.join(ROOT, 'public', 'index-detail.json'), JSON.stringify({ generated: index.generated, cards: detail }));
 const errs = issues.filter((i) => i.level === 'error').length;
-console.log(`build-index：${cards.length} 張卡、${routes.length} 條路線、${index.chains.length} 條物資鏈 → public/index.json${errs ? `（注意：有 ${errs} 個 validate 錯誤）` : ''}`);
+console.log(`build-index：${cards.length} 張卡、${routes.length} 條路線、${index.chains.length} 條物資鏈、人群圖層 ${peoplesInfo.countries} 國／${peoplesInfo.langs} 種語言 → public/index.json${errs ? `（注意：有 ${errs} 個 validate 錯誤）` : ''}`);

@@ -7,10 +7,17 @@ import { Choice, CheckQ, CompareTable, Decision, Hints, Order, RefLink, Reflect,
 import { SimView } from './sims/SimView';
 import type { UnitProgress } from './progress';
 import { unitHalf } from './util';
+import { PeoplePanel } from '../components/PeoplePanel';
+import { loadPeoples, PEOPLE_ABOUT, PEOPLE_INTRO, PEOPLE_MIGS, MIG_PREFIX, type Peoples } from '../lib/peoples';
+
+/** 人群圖層某一頁的短名稱，用在「下一步：看人群地圖・臺灣放大鏡」 */
+const peopleTitle = (d: Peoples | null, id: string) =>
+  id === PEOPLE_ABOUT ? '為什麼不畫人種' : id === PEOPLE_INTRO ? '人群圖層' : id === PEOPLE_MIGS ? '八條大遷徙' : id === 'Taiwan' ? '臺灣放大鏡'
+    : id.startsWith(MIG_PREFIX) ? (d?.migrations.find((m) => MIG_PREFIX + m.id === id)?.name.split('：')[0] ?? '遷徙') : d?.countries[id]?.zh ?? id;
 
 const STEP_LABEL: Record<Step['type'], string> = {
   hook: '引子', card: '讀卡片', source: '史料判讀', chain: '因果鏈', compare: '觀點比較', decision: '你是決策者',
-  today: '今日對照', sim: '金融模擬', check: '自我檢查', recap: '回顧',
+  today: '今日對照', sim: '金融模擬', peoples: '看人群地圖', check: '自我檢查', recap: '回顧',
 };
 
 interface Props {
@@ -19,9 +26,15 @@ interface Props {
   onTopic?: (name: string) => void; topicCount?: (t: { cards: string[] }) => number;
   onFocus?: (cardId: string | null) => void; onHome?: () => void;
   onStory?: (id: string) => void; onDive?: (id: string) => void;
+  /** 人群圖層：unitPeople＝這一步要在地圖上顯示的頁（null＝關掉）；openPeople＝離開單元去看完整的人群頁 */
+  unitPeople?: (id: string | null) => void; openPeople?: (id: string) => void;
+  /** 手機：切到地圖分頁 */
+  onMap?: () => void;
 }
 
-export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFocus, onHome, onTopic, topicCount, onStory, onDive }: Props) {
+export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, onUnit, onFocus, onHome, onTopic, topicCount, onStory, onDive, unitPeople, openPeople, onMap }: Props) {
+  // ref 也可以寫 peoples:<頁>（例如 peoples:Taiwan），按了回到人群圖層那一頁
+  const onCard = (id: string, section?: string) => (id.startsWith('peoples:') ? openPeople?.(id.slice(8)) : onCardRaw(id, section));
   // 這一課屬於哪個專題（從 index.dives 的 units 清單算），第幾課、下一課
   const dive = (index.dives ?? []).find((d) => d.units.includes(u.id));
   const lessons = dive ? dive.units.map((id) => index.units.find((x) => x.id === id)).filter((x): x is Unit => !!x) : [];
@@ -45,6 +58,16 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
   // 封面（還沒開始）也讓地圖和年代先跳到這一課的第一張卡，例如會安單元一打開就看越南
   const focusId = s ? stepFocus(s) : u.steps.map(stepFocus).find(Boolean) ?? null;
   useEffect(() => { onFocus?.(focusId ?? null); }, [focusId]);
+  // 「看人群地圖」這一步：地圖打開人群圖層並跳到那一頁；其他步驟關掉
+  // 在這一步裡點別的國家或遷徙：留在單元裡換頁（地圖跟著跳），有「回到這一步」可以回來
+  const [pPage, setPPage] = useState<string | null>(null);
+  useEffect(() => setPPage(null), [step]);
+  const peopleId = s?.type === 'peoples' ? pPage ?? s.id : null;
+  useEffect(() => { unitPeople?.(peopleId); }, [peopleId]);
+  const [pData, setPData] = useState<Peoples | null>(null);
+  const hasPeoples = u.steps.some((x) => x.type === 'peoples');
+  useEffect(() => { if (hasPeoples) loadPeoples().then(setPData).catch(() => {}); }, [hasPeoples]);
+  const stepName = (x: Step) => (x.type === 'peoples' ? `${STEP_LABEL.peoples}・${peopleTitle(pData, x.id)}` : STEP_LABEL[x.type]);
   const ref = (r?: string) => <RefLink refStr={r} index={index} onCard={onCard} />;
   const save = (k: string, v: unknown) => setProg({ answers: { ...(prog?.answers ?? {}), [k]: v } });
   const saveMany = (o: Record<string, unknown>) => setProg({ answers: { ...(prog?.answers ?? {}), ...o } });
@@ -100,7 +123,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
           <div key={k} className="half-block">
             {long && <h4>{k === 0 ? '上半' : '下半'}：第 {a + 1}–{b} 步・約 {mins(a, b)} 分鐘</h4>}
             <ol className="step-outline" start={a + 1} aria-label={long ? `${k === 0 ? '上半' : '下半'}的步驟` : '這一課的步驟'}>
-              {u.steps.slice(a, b).map((x, i) => <li key={i} className={prog?.step != null && a + i < prog.step ? 'done' : ''}>{a + i + 1}. {STEP_LABEL[x.type]}</li>)}
+              {u.steps.slice(a, b).map((x, i) => <li key={i} className={prog?.step != null && a + i < prog.step ? 'done' : ''}>{a + i + 1}. {stepName(x)}</li>)}
             </ol>
           </div>
         ))}
@@ -148,6 +171,12 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
         </>;
       }
       case 'sim': return <>{s.prompt && <p className="prompt">{s.prompt}</p>}<SimView id={s.sim} index={index} onCard={onCard} /></>;
+      case 'peoples': return <>
+        <p className="prompt">👉 {s.prompt}</p>
+        <p className="muted small">{onMap ? <>地圖已經打開「◎ 人群」圖層，<button className="link" onClick={onMap}>點這裡到地圖看 ▶</button>，看完按下方「單元」回來。</> : '右邊的地圖已經打開「◎ 人群」圖層。'}下面是這一頁的內容；點裡面的國家或其他遷徙，會在這裡換頁，不會離開單元。</p>
+        {pPage && pPage !== s.id && <p><button className="btn sm" onClick={() => setPPage(null)}>← 回到這一步：{peopleTitle(pData, s.id)}</button></p>}
+        <div className="unit-peoples"><PeoplePanel id={pPage ?? s.id} onPick={(id) => setPPage(id)} onCard={(id) => onCardRaw(id)} /></div>
+      </>;
       case 'check': {
         const graded = s.items.map((_, i) => checkRes[i]).filter((v) => typeof v === 'boolean');
         const right = graded.filter(Boolean).length, nGrade = s.items.filter((q) => q.kind !== 'short').length;
@@ -186,14 +215,14 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard, onUnit, onFo
         )}
         <div className="unit-title-row"><h2>{u.title}</h2><button className="btn sm" onClick={copyLink} title="複製這一課的連結，可以傳給同學或老師">{copied ? '✓ 已複製' : '🔗 複製連結'}</button></div>
         {step >= 0 && <div className="progress" aria-label={`第 ${step + 1} 步，共 ${u.steps.length} 步`}>
-          {u.steps.map((x, i) => <button key={i} className={`pdot ${i < step || (brk && i < half) ? 'done' : ''} ${i === step && !brk ? 'on' : ''} ${long && i === half ? 'half-start' : ''}`} title={`${i + 1}. ${STEP_LABEL[x.type]}${long ? `（${partOf(i)}）` : ''}`} onClick={() => { setBrk(false); setProg({ step: i }); }} />)}
+          {u.steps.map((x, i) => <button key={i} className={`pdot ${i < step || (brk && i < half) ? 'done' : ''} ${i === step && !brk ? 'on' : ''} ${long && i === half ? 'half-start' : ''}`} title={`${i + 1}. ${stepName(x)}${long ? `（${partOf(i)}）` : ''}`} onClick={() => { setBrk(false); setProg({ step: i }); }} />)}
         </div>}
-        {s && !brk && <p className="step-label">{long && <span className="part-tag">{partOf(step)}</span>}第 {step + 1}／{u.steps.length} 步・{STEP_LABEL[s.type]}{step < u.steps.length - 1 && <span className="muted">・下一步：{STEP_LABEL[u.steps[step + 1].type]}</span>}</p>}
+        {s && !brk && <p className="step-label">{long && <span className="part-tag">{partOf(step)}</span>}第 {step + 1}／{u.steps.length} 步・{stepName(s)}{step < u.steps.length - 1 && <span className="muted">・下一步：{stepName(u.steps[step + 1])}</span>}</p>}
       </div>
       {body}
       {s && !brk && <div className="step-nav">
         <button className="btn" onClick={() => go(step - 1)}>← 上一步</button>
-        {step < u.steps.length - 1 ? <button className="btn primary" onClick={() => go(step + 1)}>{long && step === half - 1 ? '完成上半段 ✓' : <>下一步：{STEP_LABEL[u.steps[step + 1].type]} →</>}</button>
+        {step < u.steps.length - 1 ? <button className="btn primary" onClick={() => go(step + 1)}>{long && step === half - 1 ? '完成上半段 ✓' : <>下一步：{stepName(u.steps[step + 1])} →</>}</button>
           : <span className="muted small">最後一步了，記得按「完成這個單元」</span>}
       </div>}
     </div>

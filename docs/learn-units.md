@@ -40,11 +40,12 @@
 | `compare` | 兩張卡並排比較 | `cards`（剛好 2 張）、`rows`（`aspect`、`a`、`b`）、`question`、`model_answer`、`hints` |
 | `decision` | 「如果你是……你會怎麼選」 | `role`、`situation`、`options`（`label`、`result`）、`actual`、`ref`、`note` |
 | `today` | 今天能不能這樣類比 | `card`（要有「不可類比的差異」段落）、`question`、`model_answer` |
+| `peoples` | 在單元裡打開人群圖層的一頁（地圖同步打開「◎ 人群」） | `id`（`about`、`intro`、`migrations`、`mig-<遷徙id>` 或 countries.yaml 的國名，例如 `Taiwan`）、`prompt` |
 | `sim` | 金融模擬 | `sim`（`debase` 降低銀幣成色／`bankrun` 銀行擠兌／`bubble` 泡沫）、`prompt` |
 | `check` | 小測驗 | `items`：`choice`（`options`、`answer`）、`order`（`items` 寫正確順序）、`short`（`model` 參考說法）；每題都要 `explain`、`hints`，建議 `ref` |
 | `recap` | 回顧，回答一開始的謎題 | `model_answer` |
 
-`ref` 寫法：`卡片id`（整張卡）、`卡片id#story`（故事版）、`卡片id#C2`（某個段落，代號見 `docs/card-fields.md`）。答錯或看提示時，畫面會給一個按鈕跳回那裡。
+`ref` 寫法：`卡片id`（整張卡）、`卡片id#story`（故事版）、`卡片id#C2`（某個段落，代號見 `docs/card-fields.md`）、`peoples:<頁>`（人群圖層的一頁，寫法同 `peoples` 步驟的 `id`）。人群圖層的資料自帶來源，所以 `peoples` 步驟和 `peoples:` ref 也算「卡片裡有的事」。答錯或看提示時，畫面會給一個按鈕跳回那裡。
 
 ## 三、寫作規則（查核會逐條看）
 
@@ -94,6 +95,7 @@
 | 世界 | unit-bubbles | 泡沫：大家都在賺錢的時候，為什麼會突然崩盤？（談錢） |
 | 世界 | unit-money-origins | 錢是怎麼發明的？從神廟借據、第一枚硬幣到巴格達的支票（談錢，第 8 期，金融中心的前傳） |
 | 世界 | unit-financial-centers／unit-financial-centers-2 | 金融中心為什麼會搬家？上：香檳、布魯日、安特衛普到熱那亞；下：阿姆斯特丹、倫敦到紐約（談錢，第 7 期；第 8 期加入熱那亞；2026-10-31 拆成上下兩個單元，各約 30 分鐘） |
+| 世界 | unit-where-from | 你家從哪裡來？說的話、認同和祖先，為什麼不一定一樣（2026-11-09，人群圖層第 3 期，第一個用 `peoples` 步驟的單元） |
 | 世界 | unit-america-rise／unit-america-rise-2 | 美國崛起：上：制度與立國思想；下：財政、土地、工業與美元（第 7 期；2026-10-31 拆成上下兩個單元，約 30、35 分鐘） |
 
 > 上下兩半的單元用 `companion` 欄位互相指向；「史料、因果鏈、比較、決策、今日對照」等必備步驟只要兩半合起來齊全就通過 validate。

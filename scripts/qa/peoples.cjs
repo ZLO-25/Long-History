@@ -1,4 +1,4 @@
-// node peoples.cjs baseUrl → 人群圖層：開關、語系上色、語言點、國家卡、臺灣放大鏡、為什麼不畫人種、八條大遷徙（清單、單條、時間播放）、學習模式、手機
+// node peoples.cjs baseUrl → 人群圖層：開關、語系上色、語言點、國家卡、臺灣放大鏡、為什麼不畫人種、八條大遷徙（清單、單條、時間播放）、學習模式、手機、學習單元 unit-where-from
 const { chromium } = require('playwright');
 (async () => {
   const base = process.argv[2];
@@ -130,6 +130,36 @@ const { chromium } = require('playwright');
   const pb = await m.$eval('.mig-play', (x) => { const r = x.getBoundingClientRect(); return r.left >= 0 && r.right <= window.innerWidth; }).catch(() => false);
   ok(pb, '手機：時間播放列在畫面內');
   ok(m.errs.length === 0, `手機沒有錯誤${m.errs.length ? '：' + m.errs.slice(0, 3).join(' / ') : ''}`);
+
+  // 7. 學習單元「你家從哪裡來？」：peoples 步驟在單元裡顯示人群頁，地圖同步打開
+  const u = await page(1280, 860);
+  await u.goto(`${base}?mode=learn&unit=unit-where-from`, { waitUntil: 'networkidle' });
+  await u.waitForTimeout(2000);
+  await u.locator('button', { hasText: /開始|繼續/ }).first().click(); await u.waitForTimeout(800);
+  await u.locator('.pdot').nth(2).click(); await u.waitForTimeout(2500);
+  ok((await u.$eval('.step-label', (x) => x.textContent)).includes('臺灣放大鏡'), '單元：步驟名稱寫出人群頁（臺灣放大鏡）');
+  ok((await panelText(u)).includes('族群組成'), '單元：peoples 步驟顯示臺灣放大鏡');
+  ok(await u.$('.peoples-toggle.on') !== null, '單元：地圖的人群圖層跟著打開');
+  await u.click('.unit-peoples .mig-chip:has-text("南島語族")'); await u.waitForTimeout(1500);
+  ok(await u.$('.unit-head') !== null && (await panelText(u)).includes('巴丹群島'), '單元：點遷徙在單元裡換頁，不離開單元');
+  ok(await u.$('button:has-text("回到這一步")') !== null, '單元：有「回到這一步」按鈕');
+  await u.locator('.pdot').nth(3).click(); await u.waitForTimeout(2000);
+  ok(await u.$('.mig-play') !== null, '單元：遷徙步驟地圖有時間播放');
+  await u.locator('.pdot').nth(7).click(); await u.waitForTimeout(1200);
+  ok(await u.$('.peoples-toggle.on') === null, '單元：讀卡片步驟關掉人群圖層');
+  ok(u.errs.length === 0, `單元沒有錯誤${u.errs.length ? '：' + u.errs.slice(0, 3).join(' / ') : ''}`);
+  const um = await page(390, 844);
+  await um.goto(`${base}?mode=learn&unit=unit-where-from`, { waitUntil: 'networkidle' });
+  await um.waitForTimeout(2000);
+  await um.locator('button', { hasText: /開始|繼續/ }).first().click(); await um.waitForTimeout(800);
+  await um.locator('.pdot').nth(3).click(); await um.waitForTimeout(2000);
+  await um.click('button:has-text("到地圖看")'); await um.waitForTimeout(1500);
+  ok(await um.$('.peoples-toggle.on') !== null && await um.$('.mig-play') !== null, '手機單元：「到地圖看」切到地圖，遷徙與播放列都在');
+  await um.click('nav.ltabs button:has-text("單元")'); await um.waitForTimeout(800);
+  await um.locator('.pdot').nth(9).click(); await um.waitForTimeout(1200);
+  ok(await um.evaluate(() => document.documentElement.scrollWidth - window.innerWidth) <= 1, '手機單元：比較表沒有水平捲動');
+  ok(await um.$eval('.cmp td', (x) => x.getBoundingClientRect().width > 250).catch(() => false), '手機單元：比較表改成直排小卡');
+  ok(um.errs.length === 0, `手機單元沒有錯誤${um.errs.length ? '：' + um.errs.slice(0, 3).join(' / ') : ''}`);
 
   await b.close();
   console.log(fails.length ? `\n${fails.length} 項沒過` : '\n全部通過');

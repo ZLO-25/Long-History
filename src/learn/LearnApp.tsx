@@ -64,6 +64,8 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const [peoplesOn, setPeoplesOn] = useState(() => new URLSearchParams(location.search).has('peoples'));
   const [lastCard, setLastCard] = useState<string | null>(view.kind === 'card' ? view.id : null);
   const [focus, setFocus] = useState<string | null>(null);
+  // 學習單元「看人群地圖」那一步要在地圖上顯示的人群頁（離開單元就清掉）
+  const [unitPeople, setUnitPeople] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const all = useMemo(() => learnCards(index), [index.cards]); // eslint-disable-line react-hooks/exhaustive-deps
   const histCards = useMemo(() => all.filter((c) => inHistory(c, h)), [all, h]);
@@ -124,6 +126,8 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   }, [hid, view]);
 
   // 人群圖層：連點不同國家時換掉最上面那一頁，不一直疊
+  // 離開單元才關掉單元帶出的人群頁（手機切到地圖分頁時單元會卸載，不能在卸載時關）
+  useEffect(() => { if (view.kind !== 'unit') setUnitPeople(null); }, [view.kind]);
   const openPeople = (id: string) => { setPeoplesOn(true); setStack((s) => (s[s.length - 1].kind === 'peoples' ? [...s.slice(0, -1), { kind: 'peoples', id }] : [...s, { kind: 'peoples', id }])); if (!isMobile) setTab('main'); };
   const push = (v: View) => { setStack((s) => [...s, v]); setTab(v.kind === 'card' ? 'card' : 'main'); window.scrollTo?.(0, 0); };
   const back = () => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s));
@@ -179,7 +183,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
       case 'history': return h ? <HistoryPage index={index} h={h} cards={histCards} p={p} onUnit={openUnit} onCard={openCard} onHistory={chooseHistory} onSim={(id) => push({ kind: 'sim', id })} onDive={openDive} />
         : <LearnHome index={index} p={p} onHistory={chooseHistory} onUnit={openUnit} onRandom={random} onIntroSeen={() => {}} />;
       case 'unit': return unit ? <UnitPlayer key={unit.id} unit={unit} index={index} prog={p.units[unit.id]} setProg={(x) => setUnit(unit.id, x)}
-        onCard={openCard} onUnit={openUnit} onSim={(id) => push({ kind: 'sim', id })} onFocus={setFocus} onHome={() => setStack([{ kind: 'home' }])} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onDive={openDive} /> : <p>找不到這個單元（可能還在查核中）。</p>;
+        onCard={openCard} onUnit={openUnit} onSim={(id) => push({ kind: 'sim', id })} onFocus={setFocus} onHome={() => setStack([{ kind: 'home' }])} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onDive={openDive} unitPeople={setUnitPeople} openPeople={openPeople} onMap={isMobile ? () => setTab('map') : undefined} /> : <p>找不到這個單元（可能還在查核中）。</p>;
       case 'card': { const c = byId(view.id); return c?.learn ? <LearnCard key={c.id} card={c} index={index} history={h} onOpen={openCard} onHistory={(id) => setHid(id)} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p>這張卡還不在學習模式裡（需要通過交叉查核）。</p>; }
       case 'mymap': return <MyMap index={index} cards={all} p={p} onCard={openCard} onUnit={openUnit} onRecord={() => push({ kind: 'record' })} />;
       case 'record': return <LearnRecord index={index} p={p} onUnit={openUnit} onReset={() => { reset(); setStack([{ kind: 'home' }]); }} />;
@@ -210,7 +214,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     highlight={hl} power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend } : null} onCard={(id) => openCard(id)}
     trail={selected?.type === 'person' ? selected.place.locations.filter((l) => typeof l.year === 'number').map((l) => ({ lat: l.lat, lng: l.lng, year: l.year!, name: l.name_ancient })) : null}
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}}
-    peoples={{ on: peoplesOn, setOn: (v) => { setPeoplesOn(v); if (!v && view.kind === 'peoples') back(); }, sel: view.kind === 'peoples' ? view.id : null, onPick: (id) => { openPeople(id); if (isMobile && id !== PEOPLE_INTRO) setTab('main'); } }} />;
+    peoples={{ on: peoplesOn || (view.kind === 'unit' && !!unitPeople), setOn: (v) => { setPeoplesOn(v); if (!v) setUnitPeople(null); if (!v && view.kind === 'peoples') back(); }, sel: view.kind === 'peoples' ? view.id : view.kind === 'unit' ? unitPeople : null, onPick: (id) => { openPeople(id); if (isMobile && id !== PEOPLE_INTRO) setTab('main'); } }} />;
   const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
   const cardTab = waiting ? <p className="muted loading-detail">載入卡片內容…</p> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
 

@@ -260,3 +260,14 @@
   .lc-toc .chip { min-height: 40px; padding: 0 12px; }
   .ltop .btn, .ltop button { min-height: 40px; min-width: 40px; }
 }
+
+/* 手機：比較表改成一列一張小卡（標題＝比較項目，下面上下排兩邊），免得第一欄擠成一字一行 */
+@media (max-width: 600px) {
+  .cmp thead { display: none; }
+  .cmp, .cmp tbody, .cmp tr, .cmp th, .cmp td { display: block; width: 100%; box-sizing: border-box; }
+  .cmp tr { margin-bottom: 10px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .cmp th, .cmp td { border: 0; }
+  .cmp tbody th { background: #f7fafc; font-weight: 700; }
+  .cmp td::before { content: attr(data-side); display: block; font-size: .85em; font-weight: 700; color: var(--muted); }
+  .cmp td + td { border-top: 1px dashed var(--line); }
+}

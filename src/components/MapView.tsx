@@ -489,6 +489,8 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   useEffect(() => { setMigT(null); setMigPlay(false); }, [peopleSel]);
   // 進入遷徙頁時先收起圖例，免得蓋住南半球的路線（圖例按鈕還在，可以再打開）
   useEffect(() => { if (migView) setLegendOpen(false); }, [migView]);
+  // 學習模式點到人群圖層的某一頁（例如單元裡的臺灣放大鏡）：圖例也先收起，免得蓋住要看的地方
+  useEffect(() => { if (learn && peopleSel && peopleSel !== PEOPLE_INTRO) setLegendOpen(false); }, [learn, peopleSel]);
   useEffect(() => {
     if (!migPlay || !migSel) return;
     const years = [...new Set(migSel.stations.map((s) => s.year))].sort((a, b) => a - b);

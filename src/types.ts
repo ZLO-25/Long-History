@@ -77,6 +77,8 @@ export type Step =
   | { type: 'decision'; role: string; situation: string; options: { label: string; result: string }[]; actual: string; ref: string; note?: string }
   | { type: 'today'; card: string; question: string; model_answer: string }
   | { type: 'sim'; sim: 'debase' | 'bankrun' | 'bubble'; prompt?: string }
+  /** 看人群圖層的一頁（'Taiwan'、'about'、'migrations'、'mig-<id>'、國名）：資料有自己的來源（data/peoples/） */
+  | { type: 'peoples'; id: string; prompt: string }
   | { type: 'check'; items: CheckItem[] }
   | { type: 'recap'; model_answer: string };
 export interface CheckItem {

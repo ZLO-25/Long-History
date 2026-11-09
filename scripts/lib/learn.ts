@@ -39,7 +39,14 @@ export function loadUnits(): { file: string; unit: any }[] {
     .map((f) => ({ file: `data/units/${f}`, unit: YAML.parse(fs.readFileSync(path.join(dir, f), 'utf8')) }));
 }
 
-const STEP_TYPES = ['hook', 'card', 'source', 'chain', 'compare', 'decision', 'today', 'sim', 'check', 'recap'] as const;
+const STEP_TYPES = ['hook', 'card', 'source', 'chain', 'compare', 'decision', 'today', 'sim', 'peoples', 'check', 'recap'] as const;
+// 人群圖層能打開的頁（peoples 步驟、ref 寫 peoples:<頁>）：說明、為什麼不畫人種、遷徙清單、各條遷徙、各國
+let peoplePages: Set<string> | null = null;
+const peoplePage = (id: string) => {
+  peoplePages ??= new Set(['intro', 'about', 'migrations',
+    ...readYaml('data/peoples/migrations.yaml').map((m: any) => `mig-${m.id}`), ...Object.keys(readYaml('data/peoples/countries.yaml'))]);
+  return peoplePages.has(id);
+};
 const DEPTHS = ['story', 'understand', 'deep'];
 const SIMS = ['debase', 'bankrun', 'bubble'];
 const REQUIRED_STEPS = ['source', 'chain', 'compare', 'decision', 'today', 'check', 'recap'];
@@ -73,6 +80,7 @@ export function checkUnits(units: { file: string; unit: any }[], cards: RawCard[
     // ref 寫法：card-id 或 card-id#A2（連回卡片的某一段）
     const useRef = (ref: any, where: string) => {
       if (!ref) return;
+      if (String(ref).startsWith('peoples:')) { if (!peoplePage(String(ref).slice(8))) err(`${where}：人群圖層沒有「${String(ref).slice(8)}」這一頁`); return; }
       const [id, code] = String(ref).split('#');
       const c = useCard(id, where);
       if (c && code && code !== 'story' && !SECTIONS[c.fm.type as CardType]?.some((d) => d.code === code)) err(`${where}：${id} 沒有段落 ${code}`);
@@ -110,6 +118,7 @@ export function checkUnits(units: { file: string; unit: any }[], cards: RawCard[
           if (!s.question || !s.model_answer) err(`${w}：需要 question（這個類比哪裡不成立？）與 model_answer`); break;
         }
         case 'sim': if (!SIMS.includes(s.sim)) err(`${w}：sim 必須是 ${SIMS.join('|')}`); break;
+        case 'peoples': if (!peoplePage(String(s.id))) err(`${w}：人群圖層沒有「${s.id}」這一頁`); if (!s.prompt) err(`${w}：缺 prompt（看的時候注意什麼）`); break;
         case 'check':
           if (!Array.isArray(s.items) || !s.items.length) { err(`${w}：items 至少 1 題`); break; }
           s.items.forEach((q: any, j: number) => {

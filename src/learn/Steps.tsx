@@ -17,6 +17,7 @@ export function Hints({ hints }: { hints: string[] }) {
 // 連回卡片的某一段（ref 寫法 card-id#A2）
 export function RefLink({ refStr, index, onCard }: { refStr?: string; index: Index; onCard: (id: string, section?: string) => void }) {
   if (!refStr) return null;
+  if (refStr.startsWith('peoples:')) return <button className="link small" onClick={() => onCard(refStr)}>◎ 回到人群圖層看</button>;
   const [id, code] = refStr.split('#');
   const c = index.cards.find((x) => x.id === id);
   if (!c) return null;
@@ -193,7 +194,7 @@ export function CompareTable({ a, b, rows }: { a: Card; b: Card; rows: { aspect:
     <div className="table-scroll">
       <table className="cmp">
         <thead><tr><th></th><th>{a.name}</th><th>{b.name}</th></tr></thead>
-        <tbody>{rows.map((r) => <tr key={r.aspect}><th>{r.aspect}</th><td>{r.a}</td><td>{r.b}</td></tr>)}</tbody>
+        <tbody>{rows.map((r) => <tr key={r.aspect}><th>{r.aspect}</th><td data-side={a.name}>{r.a}</td><td data-side={b.name}>{r.b}</td></tr>)}</tbody>
       </table>
     </div>
   );

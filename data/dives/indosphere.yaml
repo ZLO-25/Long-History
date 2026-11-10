@@ -1,0 +1,54 @@
+# 深入專題：印度化的東南亞——占婆、扶南、真臘、吳哥（2026-11-10）
+# 怎麼新增一個專題見 docs/dives.md；南進示意圖的畫法見 docs/indosphere-report.md
+id: dive-indosphere
+title: 占婆與吳哥：拜印度神的東南亞
+question: 越南和柬埔寨的古代王國，為什麼拜的是印度的濕婆和毗濕奴、寫的是從印度來的文字？這些王國後來去了哪裡——占婆為什麼從地圖上消失，吳哥又為什麼被放棄？
+blurb: 這個專題把「中國之外」的另一條文明線放大來看：印度的宗教和文字坐著商船來到湄公河口與越南中部海岸，長出扶南、占婆、真臘、吳哥這些王國；它們彼此打仗，也和北方學中國的大越打了七百年。看到最後，你會發現今天越南長長的 S 形國土、柬埔寨人對「下高棉」的心結、占族還在越南過的卡特節，都是從這裡來的。
+# 約 1 世紀扶南出現；1847 年越南從柬埔寨撤軍，越南與柬埔寨的國土大致定型（之後就是法屬印度支那，見越南史的其他卡片）
+range: { start: 1, end: 1847 }
+histories: [東南亞史, 柬埔寨史, 占婆史, 越南史, 印度史]
+visual: power
+power_ui:
+  title: 南進與吳哥示意圖
+  subtitle: 大越往南、吳哥興衰：一千年間中南半島的版圖怎麼變
+  caveat: 以今日越南、柬埔寨的省界（Natural Earth 10m 舊省界）近似當時各國的範圍；寮國、泰國只用經緯線切出受吳哥影響的一部分。古代東南亞的國家常常是「中心很清楚、邊界很模糊」，很多地方是向好幾個國家進貢，所以這些顏色只是示意，不是當時真正畫在地上的國界。長山山脈的高地各族大多不受任何王朝直接統治，另用一色表示。
+  legend: 今日省
+lanes:
+  - { name: 王國與宗教, types: [event, social] }
+  - { name: 戰爭, types: [war] }
+  - { name: 神廟與文字, types: [building, tech] }
+cards:
+  # 印度文化傳來
+  - event-indianization-sea
+  - tech-brahmic-scripts-sea
+  - event-funan
+  - event-srivijaya
+  - war-chola-srivijaya-1025
+  # 高棉：真臘到吳哥
+  - event-chenla
+  - event-khmer-empire
+  - building-angkor-wat
+  - war-cham-khmer-1177
+  - social-angkor-zhou-daguan
+  - event-angkor-decline
+  # 占婆與越南的南進
+  - event-vietnam-northern-rule
+  - event-champa
+  - building-my-son
+  - war-bach-dang-938
+  - war-song-dai-viet-1075
+  - war-yuan-dai-viet
+  - war-nam-tien-champa
+  - building-hoi-an
+  - event-mekong-delta-vietnam
+  - event-nguyen-dynasty-vietnam-name
+storylines: [story-india-sea, story-angkor, story-champa]
+units: [unit-angkor, unit-champa]
+power_maps:
+  - { year: 1000, file: indosphere/power-1000.geojson }
+  - { year: 1200, file: indosphere/power-1200.geojson }
+  - { year: 1306, file: indosphere/power-1306.geojson }
+  - { year: 1471, file: indosphere/power-1471.geojson }
+  - { year: 1698, file: indosphere/power-1698.geojson }
+  - { year: 1757, file: indosphere/power-1757.geojson }
+  - { year: 1835, file: indosphere/power-1835.geojson }

@@ -1,0 +1,16 @@
+# 南進與吳哥示意圖：以今日越南、柬埔寨的省（Natural Earth 10m 舊省界）近似當時的勢力範圍；寮國、泰國整國用經緯線切出一部分。
+# npm run power 會拼成同名 .geojson（底圖 data/ne/indochina_provinces.geojson，npm run basemap -- IC）。邊界只是示意。
+year: 1698
+basemap: indochina_provinces
+title: 阮主設嘉定、占婆成為附庸（1698 年）
+note: 1697 年占婆最後的中心賓童龍（今寧順、平順）成為越南南方阮主的附庸；更北邊的富安、慶和在這之前已被阮主取得。1698 年阮有鏡在今胡志明市一帶設嘉定府，越南人開始在湄公河三角洲東北角定居；三角洲大部分仍屬柬埔寨。此時越南分成北方鄭主與南方阮主，圖上合為一色。界線只是示意。
+view: [[8, 99], [23.5, 110.5]]
+sources:
+  - { title: "Champa — Wikipedia：歷代都城（因陀羅補羅 875–982、毗闍耶 982–1471、賓童龍 1471–1832）、1190 年代起成為吳哥屬國約三十年、1697 年成為附庸、1832 年 11 月併吞", url: "https://en.wikipedia.org/wiki/Champa", accessed: 2026-11-10, tier: 百科 }
+  - { title: "Nguyễn Hữu Cảnh — Wikipedia：1698 年設嘉定", url: "https://en.wikipedia.org/wiki/Nguy%E1%BB%85n_H%E1%BB%AFu_C%E1%BA%A3nh", accessed: 2026-11-10, tier: 百科 }
+  - { title: "Mekong Delta — Wikipedia：1708 年鄚玖向阮主稱臣、1754 年越南出兵、1756 年割讓鵝貢與新安、1757 年整個三角洲歸越南", url: "https://en.wikipedia.org/wiki/Mekong_Delta", accessed: 2026-11-10, tier: 百科 }
+powers:
+  - { name: 大越（後黎朝，鄭主與阮主）, en: "Đại Việt (Trịnh & Nguyễn lords)", color: "#c0503b", card: event-mekong-delta-vietnam, area: 今越南北部到慶和，加上嘉定（今胡志明市一帶）, regions: [VN-HN, VN-HP, VN-01, VN-02, VN-03, VN-04, VN-05, VN-06, VN-07, VN-09, VN-13, VN-14, VN-18, VN-20, VN-21, VN-22, VN-23, VN-53, VN-54, VN-56, VN-61, VN-63, VN-66, VN-67, VN-68, VN-69, VN-70, VN-71, VN-24, VN-25, VN-26, VN-DN, VN-27, VN-29, VN-31, VN-32, VN-34, VN-SG, VN-39, VN-43, VN-57] }
+  - { name: 占婆（阮主的附庸）, en: "Champa (vassal)", color: "#7fc8bd", card: war-nam-tien-champa, area: 今寧順、平順, regions: [VN-36, VN-40] }
+  - { name: 柬埔寨, en: "Cambodia", color: "#c9a227", card: event-mekong-delta-vietnam, area: 今柬埔寨與湄公河三角洲大部分, regions: [KH-1, KH-2, KH-3, KH-4, KH-5, KH-6, KH-7, KH-8, KH-9, KH-10, KH-11, KH-12, KH-13, KH-14, KH-15, KH-16, KH-17, KH-18, KH-19, KH-20, KH-21, KH-22, KH-23, KH-24, VN-58, VN-37, VN-41, VN-45, VN-44, VN-47, VN-52, VN-46, VN-59, VN-55, VN-73, VN-49, VN-51, VN-50, VN-CT] }
+  - { name: 高地各族, en: "Highland peoples", color: "#a3b18a", minor: true, area: 今越南西原高地, regions: [VN-28, VN-30, VN-33, VN-72, VN-35] }

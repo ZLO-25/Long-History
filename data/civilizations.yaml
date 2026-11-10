@@ -40,8 +40,15 @@ regions:
   - name: 南亞與東南亞
     civs:
       - name: 印度
+        periods: [孔雀王朝, 朱羅王朝]
       - name: 東南亞
-        periods: [麻六甲, 菲律賓, 爪哇]
+        periods: [麻六甲, 菲律賓, 爪哇, 室利佛逝]
+      - name: 柬埔寨
+        aliases: [高棉, 真臘, 吳哥]
+        periods: [扶南, 真臘, 吳哥王朝, 後吳哥, 法屬, 現代]
+      - name: 占婆
+        aliases: [林邑, 環王, 占城, 占族]
+        periods: [林邑, 占婆諸國, 順城, 今日占族]
       - name: 越南
         aliases: [大越, 安南, 交趾]
         periods: [北屬時期, 吳丁前黎, 李朝, 陳朝, 明屬, 後黎朝, 阮朝, 法屬, 現代]

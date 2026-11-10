@@ -1,0 +1,17 @@
+# 南進與吳哥示意圖：以今日越南、柬埔寨的省（Natural Earth 10m 舊省界）近似當時的勢力範圍；寮國、泰國整國用經緯線切出一部分。
+# npm run power 會拼成同名 .geojson（底圖 data/ne/indochina_provinces.geojson，npm run basemap -- IC）。邊界只是示意。
+year: 1200
+basemap: indochina_provinces
+title: 吳哥極盛：占婆成為吳哥的屬國（約 1200 年）
+note: 1177 年占婆攻陷吳哥；闍耶跋摩七世反擊後，1190 年代攻下占婆，占婆成為吳哥的屬國約三十年。此時北方的大越（李朝）已在 1069 年取得占婆北方三州（約今廣平與廣治北部）。吳哥在泰國、寮國的範圍只是示意。
+view: [[8, 99], [23.5, 110.5]]
+sources:
+  - { title: "Champa — Wikipedia：歷代都城（因陀羅補羅 875–982、毗闍耶 982–1471、賓童龍 1471–1832）、1190 年代起成為吳哥屬國約三十年、1697 年成為附庸、1832 年 11 月併吞", url: "https://en.wikipedia.org/wiki/Champa", accessed: 2026-11-10, tier: 百科 }
+  - { title: "Nam tiến — Wikipedia：1069 年占婆割讓北方三州、1377 與 1403 年圍攻毗闍耶、1471 年攻破都城、1832 年併吞、七百年間國土擴大約三倍", url: "https://en.wikipedia.org/wiki/Nam_ti%E1%BA%BFn", accessed: 2026-11-10, tier: 百科 }
+  - { title: "Khmer Empire — Wikipedia：802–1431 年，統治或控制中南半島大部分地區", url: "https://en.wikipedia.org/wiki/Khmer_Empire", accessed: 2026-11-10, tier: 百科 }
+  - { title: "historical-basemaps（Ourednik，GPL-3.0）world_1000／world_1200：Annam、Champa、Khmer Empire 的大致範圍", url: "https://github.com/aourednik/historical-basemaps", accessed: 2026-11-10, tier: 通論 }
+powers:
+  - { name: 大越（李朝）, en: "Đại Việt (Lý)", color: "#c0503b", card: war-song-dai-viet-1075, area: 今越南北部到廣平、廣治北部（1069 年取得北方三州）, regions: [VN-HN, VN-HP, VN-01, VN-02, VN-03, VN-04, VN-05, VN-06, VN-07, VN-09, VN-13, VN-14, VN-18, VN-20, VN-21, VN-22, VN-23, VN-53, VN-54, VN-56, VN-61, VN-63, VN-66, VN-67, VN-68, VN-69, VN-70, VN-71, VN-24, { code: VN-25, lat_gt: 16.9 }] }
+  - { name: 占婆（吳哥的屬國）, en: "Champa (Khmer vassal)", color: "#7fc8bd", card: war-cham-khmer-1177, area: 今廣治南部到平順, regions: [{ code: VN-25, lat_lt: 16.9 }, VN-26, VN-DN, VN-27, VN-29, VN-31, VN-32, VN-34, VN-36, VN-40] }
+  - { name: 吳哥王朝（闍耶跋摩七世）, en: "Khmer Empire (Jayavarman VII)", color: "#c9a227", card: war-cham-khmer-1177, area: 今柬埔寨、越南南部，泰國東北、寮國南部的一部分, regions: [KH-1, KH-2, KH-3, KH-4, KH-5, KH-6, KH-7, KH-8, KH-9, KH-10, KH-11, KH-12, KH-13, KH-14, KH-15, KH-16, KH-17, KH-18, KH-19, KH-20, KH-21, KH-22, KH-23, KH-24, VN-58, VN-37, VN-41, VN-45, VN-44, VN-47, VN-52, VN-46, VN-43, VN-SG, VN-59, VN-55, VN-73, VN-49, VN-51, VN-50, VN-39, VN-57, VN-CT, { code: TH, lng_gt: 101.5, lat_lt: 16.5 }, { code: LA, lat_lt: 15.8 }] }
+  - { name: 高地各族, en: "Highland peoples", color: "#a3b18a", minor: true, area: 今越南西原高地, regions: [VN-28, VN-30, VN-33, VN-72, VN-35] }

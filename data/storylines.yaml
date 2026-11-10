@@ -115,6 +115,25 @@ storylines:
     stops: [event-nguyen-dynasty-vietnam-name, event-french-indochina, social-french-indochina-economy, event-vietnam-anticolonial, event-vietnam-1945, war-first-indochina, war-vietnam-war, war-sino-vietnamese-1979, event-doi-moi]
 
 
+  # 印度化的東南亞（2026-11-10，深入專題 data/dives/indosphere.yaml）
+  - id: story-angkor
+    title: 從扶南到吳哥：拜印度神的高棉王國
+    question: 一個靠海港起家的小國，怎麼變成蓋出吳哥窟、統治大半個中南半島的帝國？它又為什麼放棄了那座石頭城？
+    blurb: 這條線從印度文化坐船來到湄公河口開始，看高棉人的國家怎麼一次次換主人、換都城、換信仰；每一站都接手了上一站留下的土地和傳統。
+    stops: [event-indianization-sea, event-funan, event-chenla, event-khmer-empire, war-cham-khmer-1177, social-angkor-zhou-daguan, event-angkor-decline]
+
+  - id: story-champa
+    title: 占婆去哪裡了？越南的南進
+    question: 一千年前，越南中部是另一個拜濕婆神、說南島語的國家。它是怎麼一步步從地圖上消失，越南又是怎麼變成今天長長的 S 形？
+    blurb: 這條線從越南的「北方」轉到「南方」：同一個越南，對北方是抵抗者，對南方卻是擴張者。讀的時候，試著輪流站在越南人、占族人和高棉人的位置想。
+    stops: [event-vietnam-northern-rule, event-champa, war-nam-tien-champa, event-mekong-delta-vietnam, event-nguyen-dynasty-vietnam-name]
+
+  - id: story-india-sea
+    title: 印度往東走：季風、佛法與海峽
+    question: 印度沒有派兵，為什麼東南亞會拜印度神、寫印度字？少見的一次印度王朝渡海出兵，又是為了什麼？
+    blurb: 這條線看印度的宗教和文字怎麼坐著商船往東傳；最後一站提醒你，和平的文化交流背後，也有搶奪海上貿易的衝突。
+    stops: [event-maurya-empire, event-indianization-sea, event-srivijaya, war-chola-srivijaya-1025]
+
   # 深入專題「日本戰國」的主線（data/dives/sengoku.yaml）
   - id: story-sengoku
     title: 日本戰國：從應仁之亂到禁教與管制的太平

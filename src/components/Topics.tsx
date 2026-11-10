@@ -2,6 +2,7 @@
 // 研究模式與學習模式共用。資料來自 data/topics.yaml（詞表）＋卡片的 topics 欄位。
 import { useMemo, useState } from 'react';
 import type { Card, Index, Topic, TopicLayer } from '../types';
+import { cardEn } from '../lib/bilingual';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import './topics.css';
 
@@ -21,7 +22,7 @@ export function topicMarks(index: Index, name: string, allowed?: (c: Card) => bo
   const byId = new Map(index.cards.map((c) => [c.id, c]));
   return t.cards.map((id, i) => ({ c: byId.get(id), n: i + 1 }))
     .filter((x): x is { c: Card; n: number } => !!x.c && !!x.c.place.locations[0] && (!allowed || allowed(x.c)))
-    .map(({ c, n }) => ({ key: c.place.locations[0].key, n, name: c.name }));
+    .map(({ c, n }) => ({ key: c.place.locations[0].key, n, name: c.name, en: cardEn(c) }));
 }
 
 /** 卡片上的主題標籤列 */

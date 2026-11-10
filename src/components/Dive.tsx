@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 // 專題頁＝放大的時間範圍＋這段時代的卡片（分軌）＋人物（有人物卡才顯示）＋故事線＋主視覺（勢力圖／領土圖，文字由專題的 power_ui 決定）。
 // 不另開網站、不改卡片格式：所有卡仍是普通卡片，專題只是把它們聚在一起（docs/dives.md）。
 import type { Card, Dive, Index, PowerMap, PowerUi } from '../types';
+import { cardEn } from '../lib/bilingual';
 import { fmtRange, fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import './dive.css';
 import { RelationGraph } from './RelationGraph';
@@ -33,7 +34,7 @@ export function diveMarks(index: Index, id: string) {
   const m = byIdOf(index);
   return d.cards.map((cid) => m.get(cid)).filter((c): c is Card => !!c && c.type !== 'person' && !!c.place.locations[0])
     // start：地圖依目前年代把還沒發生的卡調淡（讀書專題直接不畫，免得 7 萬年前出現羅馬）
-    .map((c, i) => ({ key: c.place.locations[0].key, n: i + 1, name: c.name, start: c.time.start, hideFuture: !!d.book }));
+    .map((c, i) => ({ key: c.place.locations[0].key, n: i + 1, name: c.name, en: cardEn(c), start: c.time.start, hideFuture: !!d.book }));
 }
 
 /** 打開專題時年代跳到哪：第一張勢力圖 → 專題指定的 focus_year → 專題起點 */

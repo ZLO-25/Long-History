@@ -13,7 +13,7 @@ import { activeAt, fmtYear, KIND_LABEL, METHOD_LABEL, SEG_LABEL, ERA_LABEL, eraO
 interface Props {
   index: Index; cards: Card[]; year: number;
   /** marks：主題路徑的編號（依年代排的第幾張卡），畫在該地點上 */
-  highlight: { keys: string[]; routes: string[]; marks?: { key: string; n: number; name: string; start?: number; hideFuture?: boolean }[] };
+  highlight: { keys: string[]; routes: string[]; marks?: { key: string; n: number; name: string; en?: string; start?: number; hideFuture?: boolean }[] };
   onPlace: (key: string) => void; onRoute: (id: string) => void; compact?: boolean;
   chain?: { chain: Chain; t: number } | null;
   todayOn?: boolean; setTodayOn?: (v: boolean) => void; onToday?: (id: string) => void; todaySel?: string | null;
@@ -36,6 +36,7 @@ const VIEWS: { label: string; bounds: [[number, number], [number, number]] }[] =
 // 今日對照層的視野：大致涵蓋巴拿馬到東亞
 const TODAY_VIEW: [[number, number], [number, number]] = [[-5, -85], [55, 125]];
 const TAIWAN_VIEW: [[number, number], [number, number]] = [[21.8, 119.4], [25.4, 122.1]];
+const esc = (x: string) => x.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]!));
 const hue = (s: string) => { let h = 0; for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) % 360; return h; };
 const borderCache = new Map<string, Promise<any>>();
 const loadBorders = (file: string) => {
@@ -269,7 +270,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         const label = ns.length > 4 ? `${ns[0]}…${ns[ns.length - 1]}` : ns.join('・');
         const w = Math.max(22, label.length * 8 + 10);
         L.marker(g.ll, { icon: L.divIcon({ className: `topic-mark${g.future ? ' future' : ''}`, html: label, iconSize: [w, 22], iconAnchor: [w / 2, 11] }), keyboard: false, zIndexOffset: g.future ? 400 : 500 })
-          .bindTooltip((g.future ? '（目前年代之後）<br>' : '') + g.items.map((x) => `${x.n}. ${x.name}`.replace(/[&<>]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch]!))).join('<br>'))
+          .bindTooltip((g.future ? '（目前年代之後）<br>' : '') + g.items.map((x) => `${x.n}. ${esc(x.name)}${x.en ? ` <span class="en">${esc(x.en)}</span>` : ''}`).join('<br>'))
           .addTo(tg);
       }
     };
@@ -383,7 +384,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     if (!trail || trail.length < 2) return;
     const pts = [...trail].sort((a, b) => a.year - b.year);
     L.polyline(pts.map((p) => [p.lat, p.lng] as [number, number]), { color: '#8a5a00', weight: 3, opacity: 0.85, dashArray: '6 5', className: 'trail-line' })
-      .bindTooltip('人生軌跡（依年份連線，只是先後順序，不是實際走的路）', { sticky: true }).addTo(g);
+      .bindTooltip('人生軌跡 <span class="en">Life path</span>（依年份連線，只是先後順序，不是實際走的路）', { sticky: true }).addTo(g);
     // 年份標籤：畫面上距離小於 34px 的點合併成一個標籤（1・1534／3・1567），縮放時重算
     const m = map.current;
     const drawYears = () => {
@@ -518,14 +519,15 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         pos.set(st.key, L.latLng(st.lat, lng));
       }
       const t = migSel ? migT ?? Infinity : Infinity;
-      const tip = (txt: string) => `<b>${mg.name}</b><br>${txt}<br><small>位置示意，線不是實際走的路</small>`;
+      const tip = (txt: string) => `<b>${esc(mg.name)}</b> <span class="en">${esc(mg.en)}</span><br>${txt}<br><small>位置示意，線不是實際走的路</small>`;
+      const stName = (s?: { name: string; en?: string }) => s ? `${esc(s.name)}${s.en ? ` <span class="en">${esc(s.en)}</span>` : ''}` : '';
       for (const st of mg.stations) {
         if (st.year > t) continue;
         const to = pos.get(st.key)!; all.push(to);
         for (const f of [st.from ?? []].flat()) {
           const from = pos.get(f)!;
           const line = L.polyline([from, to], { color: mg.color, weight: migSel ? 4 : 2.6, opacity: migSel ? 0.95 : 0.8, dashArray: '3 7', lineCap: 'round' })
-            .bindTooltip(tip(`${mg.stations.find((x) => x.key === f)?.name} → ${st.name}`), { sticky: true });
+            .bindTooltip(tip(`${stName(mg.stations.find((x) => x.key === f))} → ${stName(st)}`), { sticky: true });
           if (!migSel) line.on('click', () => cb.current.onPeople?.(MIG_PREFIX + mg.id));
           line.addTo(g);
           // 箭頭：用墨卡托投影（第 0 級）算方向，放大縮小都一樣
@@ -533,7 +535,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
           L.marker(to, { interactive: false, keyboard: false, icon: L.divIcon({ className: 'mig-arrow', html: `<b style="--mc:${mg.color};transform:rotate(${deg}deg) translateX(-7px)"></b>`, iconSize: [0, 0] }) }).addTo(g);
         }
         L.circleMarker(to, { radius: migSel ? 5 : 3.5, color: '#fff', weight: 1.2, fillColor: mg.color, fillOpacity: 1 })
-          .bindTooltip(tip(`${st.name}：${st.when}`)).on('click', () => { if (!migSel) cb.current.onPeople?.(MIG_PREFIX + mg.id); }).addTo(g);
+          .bindTooltip(tip(`${stName(st)}：${esc(st.when)}`)).on('click', () => { if (!migSel) cb.current.onPeople?.(MIG_PREFIX + mg.id); }).addTo(g);
         if (migSel) L.marker(to, { interactive: false, keyboard: false, icon: L.divIcon({ className: 'mig-stop', html: `<span style="--mc:${mg.color}">${st.name.replace(/（.*）$/, '')}</span>`, iconSize: undefined as any }) }).addTo(g);
       }
     }

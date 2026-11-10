@@ -4,6 +4,7 @@
 // 3. StorylineView／StorylineIndex：沿著因果箭頭走的跨時代故事線（方案 B，data/storylines.yaml）
 // 研究模式與學習模式共用。
 import type { Card, CauseLink, CauseRel, CauseSource, Index, Storyline } from '../types';
+import { cardEn } from '../lib/bilingual';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import './story.css';
 
@@ -183,7 +184,7 @@ export function storyMarks(index: Index, id: string) {
   if (!s) return [];
   const m = byIdOf(index);
   return s.stops.map((x, i) => ({ c: m.get(x.id), n: i + 1 })).filter((x): x is { c: Card; n: number } => !!x.c?.place.locations[0])
-    .map(({ c, n }) => ({ key: c.place.locations[0].key, n, name: c.name }));
+    .map(({ c, n }) => ({ key: c.place.locations[0].key, n, name: c.name, en: cardEn(c) }));
 }
 
 interface StoryViewProps extends OpenProps {

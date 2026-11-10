@@ -67,6 +67,14 @@ learn:
 verification: 爭議
 lens_status: 無直接論述
 crosscheck: { date: 2026-10-26, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "逐筆開啟 s1–s7（全部可開）並另加 s8–s12。核對：2/27–2/28 經過、3/6–7 三十二／四十二條、3/8 登陸、清鄉、5/15–16、1987–2007 平反時程、物價 6,385 倍、Kerr 英譯原文、內政部人口數，皆與來源相符。修正：(1) 18,000–28,000 原只引英文維基，現改為二二八基金會文件（朱浤源引行政院研究小組）、自由時報（陳儀深述陳寬政推估）與黃種祥整理三處互證，並補上該數字只在附錄、賴澤涵認為應以千計的保留；(2) 3/8 登陸部隊番號與日期各來源不一，改為並列；(3) 1948–1951 死亡人數改為 8.6–9.5 萬；(4) 外省人死亡數並列英文維基 >1,000 與基金會 2019 報告稿 89 人；(5) 陳儀去職、處決補來源。保留：行政院研究報告原書未能線上取得，推估數字仍為轉引；三十二條原文仍用 Kerr 英譯。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/d/d2/228_incident_of_Taiwan.jpg
+  page: https://commons.wikimedia.org/wiki/File:228_incident_of_Taiwan.jpg
+  title: 1947 年 2 月 28 日的臺北街頭
+  creator: 攝影者不詳
+  year: 1947-02-28
+  license: Public domain（PD-Taiwan；2026-11-10 已核對 Commons 檔案頁）
+  caption: 二二八事件當天臺北街頭的群眾；前一晚查緝私菸引發衝突，隔天群眾請願、衛兵開槍，衝突擴大到全島。
 ---
 
 ## C1 背景

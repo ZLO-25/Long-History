@@ -53,6 +53,15 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 道爾的文章寫 1854 年是「九艘、近 1,800 人」，和維基「八艘 1,600 人、後增為九艘」略有出入；卡片目前寫法可以，也可以加「（各來源數字略有不同）」。2) 「林復齋（林韑）」：維基只寫 Hayashi Akira，復齋是他的號，沒有錯。 小建議已修正。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/The_Mission_of_Commodore_Perry_to_Japan_in_1854_%28BM_2013%2C3002.1%29.jpg/960px-The_Mission_of_Commodore_Perry_to_Japan_in_1854_%28BM_2013%2C3002.1%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:The_Mission_of_Commodore_Perry_to_Japan_in_1854_(BM_2013,3002.1).jpg
+  title: 培里第二次來航繪卷（局部）
+  creator: 樋畑翁輔
+  year: 1854–1858
+  holder: 大英博物館
+  license: Public domain（PD-scan；2026-11-10 已核對 Commons 檔案頁）
+  caption: 日本畫師記錄 1854 年美國海軍准將培里第二次率艦隊到日本的繪卷；這一次幕府簽下《神奈川條約》（日美和親條約），結束鎖國。
 ---
 
 ## C1 背景

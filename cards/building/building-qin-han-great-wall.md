@@ -31,6 +31,14 @@ sources:
   - { id: s4, title: "Qin's wars of unification — Wikipedia", url: "https://en.wikipedia.org/wiki/Qin%27s_wars_of_unification", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Great_Wall_of_China_July_2006.JPG/960px-Great_Wall_of_China_July_2006.JPG
+  page: https://commons.wikimedia.org/wiki/File:Great_Wall_of_China_July_2006.JPG
+  title: 慕田峪長城
+  creator: Velatrix
+  year: 2006
+  license: CC0（2026-11-10 已核對 Commons 檔案頁）
+  caption: 北京附近的慕田峪長城；要注意今天看到的磚石長城大多是明朝修的，秦漢長城多半是夯土牆，留下來的只剩斷續的土垣。
 ---
 
 ## D1 功能與象徵

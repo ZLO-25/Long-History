@@ -67,6 +67,15 @@ learn:
 crosscheck: { date: 2026-11-07, by: 獨立查核（另一次呼叫，未參與寫作）, result: 通過, notes: "WebFetch 核對 s1 Aztec 征服、s2 印加征服、s3 哥倫布大交換、s8 LitCharts 第 15 章。確認：科爾特斯 1519 年約 630 人、11 月 8 日進城；資訊框西班牙 2,500–3,000、特拉斯卡拉 8–20 萬（僅資訊框）；Hassig「並非壓倒性」、Restall「生存公式」、Townsend 皆在 s1；圍城 5 月 10 日起、8 月 13 日陷落；奎特拉瓦克 12 月 4 日去世；皮薩羅 168 人、約 6,000 隨從、殺約 2,000 人、11 月 15 日進庫斯科、1572 年；墨西哥 2,000 萬→一百多萬出自 s3（引美國國會圖書館國別研究）；12–25% 出自 Nunn & Qian 2011。修正：故事改寫為約 630 人；悲痛之夜改為一般說法 6 月 30 日夜（s1 本身時間軸寫 6 月 30 日、內文寫 7 月 10 日，自相矛盾）；阿塔瓦爾帕處死日期並列 8 月 29 日（s2）與 7 月 26 日（Hemming 等史家考訂，依查核者已知史實，未逐字核對）；人口數字加上「估計、爭議很大」並指向史家怎麼吵；馬鈴薯數字註明 Nunn 與 Qian。哈拉瑞小節與 LitCharts 摘要相符。未逐字核對：s5 Koch 等 2019 摘要頁、s6 哥倫布日誌節錄、s4、s7（皆為常見史實，與已知一致）；首次登陸地已標 disputed。" }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Landing_of_Columbus_%282%29.jpg/960px-Landing_of_Columbus_%282%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Landing_of_Columbus_(2).jpg
+  title: 哥倫布登陸
+  creator: 約翰・范德林（John Vanderlyn）
+  year: 1847
+  holder: 美國國會大廈
+  license: Public domain（PD-old-100-1923／PD-USGov-Congress-AOC；2026-11-10 已核對 Commons 檔案頁）
+  caption: 19 世紀美國畫家想像的 1492 年哥倫布登上巴哈馬群島的場面；這是事件三百多年後的想像畫。
 ---
 
 ## C1 背景

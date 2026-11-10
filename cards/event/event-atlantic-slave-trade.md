@@ -71,6 +71,15 @@ learn:
 crosscheck: { date: 2026-11-07, by: 獨立查核（另一次呼叫，未參與寫作）, result: 通過, notes: "WebFetch 核對 s1、s2（SlaveVoyages 估計表）、s3 PBS、Equiano 維基、聯合國新聞。確認：資料庫 1501–1866 總計 12,521,337 人，表格設定為「只計上船」（embarked），各國旗分項與卡片一致；PBS 寫 1,250 萬上船、1,070 萬抵達、北美約 38.8 萬；s1 寫 1,275 萬上船、最多約 200 萬死於航程、Manning 400 萬／800 萬、Nunn 引 10–50%、船員約 20%、達荷美以出售戰俘為主要財源（單一來源）、1525、1526、聖多明格每年 3 萬、1867 古巴、Rodney／Thornton。修正：C5 原寫 1,275 萬與 C6 的 1,252 萬互相矛盾，改為並列兩個來源並以資料庫兩數相減約 180 萬；Equiano 1756 年被擄改為「他在自傳裡說」，並加 Carretta 與 Lovejoy 的出生地爭議（新增 s9）；C7 廢奴後歧視加聯合國新聞 2022 年古特瑞斯談話（新增 s8，通論）；達荷美註明單一來源。哈拉瑞小節未重新開 LitCharts 第 8、16 章（內容與查核者所知《人類大歷史》第 8 章相符）。未逐字核對：s4 Capitalism and Slavery 頁、s5 Equiano 節錄頁。" }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Brookes_slave_ship%2C_British_Library.jpg/960px-Brookes_slave_ship%2C_British_Library.jpg
+  page: https://commons.wikimedia.org/wiki/File:Brookes_slave_ship,_British_Library.jpg
+  title: 布魯克斯號奴隸船平面圖
+  creator: James Phillips 印行（廢奴運動）
+  year: 1787
+  holder: 大英圖書館
+  license: Public domain（PD-old-100-1923；2026-11-10 已核對 Commons 檔案頁）
+  caption: 廢奴人士印的奴隸船「布魯克斯號」裝載圖，畫出被奴役的非洲人像貨物一樣排滿船艙；這張圖是廢奴運動最有力的宣傳。
 ---
 
 ## C1 背景

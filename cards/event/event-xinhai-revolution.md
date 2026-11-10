@@ -36,6 +36,14 @@ sources:
   - { id: s4, title: "烏海市烏達區人民法院，〈辛亥革命〉— 澎湃新聞澎湃號（2021）", url: "https://m.thepaper.cn/newsDetail_forward_11794479", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Hubei_Military_Government.jpg/960px-Hubei_Military_Government.jpg
+  page: https://commons.wikimedia.org/wiki/File:Hubei_Military_Government.jpg
+  title: 武昌起義後的湖北軍政府
+  creator: 攝影者不詳
+  year: 1911
+  license: Public domain（PD-China／PD-anon-1923；2026-11-10 已核對 Commons 檔案頁）
+  caption: 1911 年 10 月武昌起義後，革命軍在武昌成立湖北軍政府，門前掛著起義用的十八星旗；各省接著紛紛宣布獨立。
 ---
 
 ## C1 背景

@@ -46,6 +46,15 @@ sources:
   - { id: s9, title: "Yuval Noah Harari argues that what's at stake in Ukraine is the direction of human history — The Economist，2022-02-09", url: "https://www.economist.com/by-invitation/2022/02/09/yuval-noah-harari-argues-that-whats-at-stake-in-ukraine-is-the-direction-of-human-history", accessed: 2026-10-25 }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Into_the_Jaws_of_Death_23-0455M_edit.jpg/960px-Into_the_Jaws_of_Death_23-0455M_edit.jpg
+  page: https://commons.wikimedia.org/wiki/File:Into_the_Jaws_of_Death_23-0455M_edit.jpg
+  title: 進入死亡之顎：諾曼第登陸
+  creator: 羅伯特・薩金特（Robert F. Sargent，美國海岸防衛隊）
+  year: 1944-06-06
+  holder: 美國國家檔案館
+  license: Public domain（PD-scan／PD-USCG／PD-old-auto；2026-11-10 已核對 Commons 檔案頁）
+  caption: 1944 年 6 月 6 日美軍第 1 步兵師涉水搶灘奧馬哈海灘；諾曼第登陸讓盟軍在西歐開闢第二戰場。
 ---
 
 ## A1 交戰方與聯盟結構

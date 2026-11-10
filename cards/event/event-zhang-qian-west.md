@@ -36,6 +36,15 @@ sources:
   - { id: s5, title: "Victor Xiong, Han Wudi — EBSCO Research Starters（2019）", url: "https://www.ebsco.com/research-starters/history/han-wudi", accessed: 2026-10-25 }
 verification: 爭議
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Zhang_Qian.jpg/960px-Zhang_Qian.jpg
+  page: https://commons.wikimedia.org/wiki/File:Zhang_Qian.jpg
+  title: 敦煌莫高窟第 323 窟壁畫：張騫出使西域
+  creator: 佚名（唐代畫工）
+  year: 唐代（約 618–712）
+  holder: 敦煌莫高窟
+  license: Public domain（PD-Art／PD-1996；2026-11-10 已核對 Commons 檔案頁）
+  caption: 唐朝人畫的張騫告別漢武帝、出發前往西域的場面；這是張騫死後八百多年的畫，而且是用佛教故事的角度來畫。
 ---
 
 ## C1 背景

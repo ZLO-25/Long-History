@@ -63,6 +63,15 @@ learn:
 lens_status: 無直接論述
 verification: 交叉確認
 crosscheck: { date: 2026-11-07, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 新增通論來源 s6：WHE（Harrison W. Mark, 2022），已打開核對：傷兵院搶到 3 萬多支步槍、守軍 82 名傷兵＋32 名瑞士兵、7 名犯人（4 偽造犯、1 愛爾蘭精神病人、1 刺殺路易十五未遂者、1 被家人要求關押的年輕貴族）、德穆蘭 7 月 12 日演說、拉羅什富科「不，陛下，這是革命」（WHE 轉引 Schama）。2) 傷亡：維基正文 98／1 且條目前後不一；WHE 寫 82 人當場死、15 人後來傷重不治、未給守軍數。story 改為「攻擊的一方大約死了近百人」，C2 並列兩來源，守軍死亡數改寫為來源不足。3) story 的犯人組成原寫「2 個精神病人」與 misconceptions 不一致，已依 WHE 改正。4) 拉羅什富科名言補註公爵身分與字句版本不一。5) 座標巴士底、傷兵院誤差 <1 km。WebFetch 共用額度在查核中途用盡（實際打開 5 個來源：chnm d/324 羅伯斯比 1792-12-03 演說、chnm d/331 王后 1791-09-08 信、WHE〈Storming of the Bastille〉、Minneapolis Fed 的 Sargent & Velde 文章、chnm d/780 時間軸），其餘未能重開維基逐句核對。八月法令 s2 字句未重開對照。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Prise_de_la_Bastille.jpg/960px-Prise_de_la_Bastille.jpg
+  page: https://commons.wikimedia.org/wiki/File:Prise_de_la_Bastille.jpg
+  title: 攻占巴士底監獄
+  creator: 尚－皮耶・烏埃爾（Jean-Pierre Houël）
+  year: 1789
+  holder: 法國國家圖書館
+  license: Public domain（PD-Art／PD-old-100-1923；2026-11-10 已核對 Commons 檔案頁）
+  caption: 1789 年 7 月 14 日當年畫的水彩：巴黎群眾攻進巴士底監獄，畫面中央是被逮捕的典獄長德洛奈。
 ---
 
 ## C1 背景

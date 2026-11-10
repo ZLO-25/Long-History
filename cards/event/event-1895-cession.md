@@ -66,6 +66,14 @@ learn:
 crosscheck: { date: 2026-10-26, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "逐筆打開 s1–s7（全部可開）。核對馬關條約日文第二條、第五條兩年條款、四位簽約人（伊藤博文、陸奧宗光、李鴻章、李經方）與 1895-04-17 日期；民主國 5-23 宣言、唐景崧／劉永福／丘逢甲、藍地黃虎、151 天、尋求英法保護失敗、無國家承認；5-29 澳底、6-3 基隆、6-4 夜唐景崧出走、6-7 入臺北、6-17 始政式、姜紹祖 7 月自盡、八卦山 8-27／28、10-20 劉永福內渡、10-21 臺南、10-28 北白川宮病死（瘧疾，s4）、11-18 全島平定；日軍 49,866／26,787／死亡 8,503／戰死 333（s3）與戰死 164／病死 4,642（s4）、臺方至少 14,000；六三法 1896-03-31、三次延長、1906 三一法、土皇帝；吳密察與 Lamley 摘要內容，皆相符。改動：(1) 民主國宣言引文原本截成「The Powers will assist them」會讀成「列強會幫助」，依英文維基所引 Davidson 譯文改為完整句「必須先自立，列強才會相助」；(2) 新增 s8（JACAR 日本國立公文書館特展，附 1895-06-02 交接文件等原始檔案編號）並補入 6 月 2 日交接。保留意見：宣言仍只有英譯（zh.wikisource 無法開啟，未找到可開的中文原文頁）；C7「統治 50 年」s3 未明說，屬常識；counterparts 指向 war-opium-war（track china）雖通過驗證，但嚴格說不算「中西」對照。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg/960px-Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg
+  page: https://commons.wikimedia.org/wiki/File:Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg
+  title: 馬關條約簽約圖
+  creator: 日本畫家（畫上署名）
+  year: 約 1895
+  license: Public domain（PD-Japan；2026-11-10 已核對 Commons 檔案頁）
+  caption: 日本當時描繪的下關春帆樓簽約場面：清朝代表李鴻章與日本代表伊藤博文、陸奧宗光談判；條約把臺灣、澎湖割讓給日本。
 ---
 
 ## C1 背景

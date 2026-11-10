@@ -35,6 +35,15 @@ sources:
   - { id: s2, title: "Joshua J. Mark, Charlemagne — World History Encyclopedia", url: "https://www.worldhistory.org/Charlemagne/", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Raphael_-_Coronation_of_Charlemagne.jpg/960px-Raphael_-_Coronation_of_Charlemagne.jpg
+  page: https://commons.wikimedia.org/wiki/File:Raphael_-_Coronation_of_Charlemagne.jpg
+  title: 查理曼加冕
+  creator: 拉斐爾工作室
+  year: 1514–1517
+  holder: 梵蒂岡博物館
+  license: Public domain（PD-Art／PD-old-auto-expired；2026-11-10 已核對 Commons 檔案頁）
+  caption: 文藝復興畫家畫的公元 800 年教宗為查理曼加冕；畫中人物其實是照當時的教宗利奧十世和法王法蘭索瓦一世畫的。
 ---
 
 ## C1 背景

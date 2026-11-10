@@ -38,6 +38,15 @@ sources:
   - { id: s5, title: "Two-tax system — Wikipedia", url: "https://en.wikipedia.org/wiki/Two-tax_system", accessed: 2026-10-25 }
 verification: 爭議
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Li_Zhao_Dao_Tang_Ming_Huang_to_Shu.jpg/960px-Li_Zhao_Dao_Tang_Ming_Huang_to_Shu.jpg
+  page: https://commons.wikimedia.org/wiki/File:Li_Zhao_Dao_Tang_Ming_Huang_to_Shu.jpg
+  title: 明皇幸蜀圖
+  creator: 傳李昭道（後人摹本）
+  year: 約 12 世紀（宋代摹本）
+  holder: 國立故宮博物院（臺北）
+  license: Public domain（PD-Art／PD-old-100-expired；2026-11-10 已核對 Commons 檔案頁）
+  caption: 畫的是安史之亂時唐玄宗逃往四川的隊伍，走在險峻的蜀道上；畫裡沒有直接畫出戰爭，卻畫出皇帝倉皇出逃。
 ---
 
 ## A1 交戰方與聯盟結構

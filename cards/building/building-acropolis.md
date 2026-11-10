@@ -58,6 +58,14 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "從前 432 年算到西元 5、6 世紀末約 900–1,000 年，『大約一千年後』合理。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Acropolis_Parthenon_Athens_Greece.jpg/960px-Acropolis_Parthenon_Athens_Greece.jpg
+  page: https://commons.wikimedia.org/wiki/File:Acropolis_Parthenon_Athens_Greece.jpg
+  title: 雅典衛城與帕德嫩神廟
+  creator: Jebulon
+  year: 2015
+  license: CC0（2026-11-10 已核對 Commons 檔案頁）
+  caption: 從雅典市區看衛城；山頂的帕德嫩神廟建於公元前 5 世紀，是伯里克利時代雅典最強盛時的象徵。
 ---
 
 ## D1 功能與象徵

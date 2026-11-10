@@ -60,6 +60,14 @@ learn:
 verification: 交叉確認
 lens_status: 無直接論述
 crosscheck: { date: 2026-11-07, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 打開 NASA 史普尼克頁（s2）：1957-10-04、58 公分、83.6 公斤、約 98 分鐘、史普尼克 2 號 508.3 公斤載萊卡、探險者 1 號 1958-01-31 與范艾倫帶、先鋒號 1957–58 多次失敗、1958-07-29 簽署法案、10-01 開始運作、民眾怕飛彈帶核彈，皆相符。2) 打開 NASA 阿波羅 11 號頁（s4）：7/16 發射、7/24 返回、三人分工、[a] 括號原話、「22-hour stay on the Moon」相符；T4 原標 [s1][s4]，改為只標 s4 並註明是 NASA 的說法（較精確數字本卡未查）。3) 打開英文維基（s1）：加加林 108 分鐘、謝帕德 1961-05-05、泰勒斯可娃 1963-06-16、列昂諾夫 1965-03-18、阿波羅 8 號 1968-12-24、N1 約 70 秒爆炸、柯羅列夫 1966-01-14、西迪奇（原文 zenith）、費倫「太空鐵幕」、CIA 高估、1972 年 4 月協議、萊卡 2002 年報告皆相符。維基把起點定在 1955 年，T1 加註；1975 年阿波羅—聯盟號維基寫 rendezvous 並說許多人視為最後一幕，故故事版「對接」改「會合」，end 1975 保留。4) 甘迺迪引文字句與甘迺迪圖書館演說稿常見全文一致，本輪未另開 s3 頁面（額度限制）。5) 座標：拜科努爾、甘迺迪太空中心（離 39A 發射台約 6 km）、華府皆 <20 km。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Buzz_Aldrin_and_the_U.S._flag_on_the_Moon_-_GPN-2001-000012.jpg/960px-Buzz_Aldrin_and_the_U.S._flag_on_the_Moon_-_GPN-2001-000012.jpg
+  page: https://commons.wikimedia.org/wiki/File:Buzz_Aldrin_and_the_U.S._flag_on_the_Moon_-_GPN-2001-000012.jpg
+  title: 艾德林與美國國旗
+  creator: 尼爾・阿姆斯壯（NASA）
+  year: 1969-07-20
+  license: Public domain（PD-USGov-NASA；2026-11-10 已核對 Commons 檔案頁）
+  caption: 阿波羅 11 號登月，阿姆斯壯拍下艾德林向插好的美國國旗敬禮；美蘇太空競賽以美國人先登上月球告一段落。
 ---
 
 ## T1 是什麼、解決什麼問題

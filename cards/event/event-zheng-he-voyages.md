@@ -71,6 +71,14 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "首查：寶船 44 丈出處只寫明代小說，已補清修《明史》；複查通過" }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/5/53/Mao_Kun_map_-_Malacca.png
+  page: https://commons.wikimedia.org/wiki/File:Mao_Kun_map_-_Malacca.png
+  title: 鄭和航海圖（局部）：滿剌加
+  creator: 茅元儀（編）
+  year: 17 世紀（收於《武備志》）
+  license: Public domain（PD-old-100；2026-11-10 已核對 Commons 檔案頁）
+  caption: 根據鄭和船隊航路畫成、收在明末《武備志》的航海圖，這一段畫的是麻六甲（滿剌加）；圖上標了沿岸地名和航線。
 ---
 
 ## C1 背景

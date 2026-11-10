@@ -54,6 +54,15 @@ crosscheck:
   notes: "已開啟 s1–s4 逐句核對。Met 文章（s2）未提借貸，改由 s1 與法典卡 s1 支撐借貸因果並改寫 T5；故事首句改為「前 4 千紀後半」並補 s1；T5 刪去不相干的 s3。time.end 取 -2600（表音用法穩定）屬本站判斷。"
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cuneiform_Akkadian_clay_tablet_1.jpg/960px-Cuneiform_Akkadian_clay_tablet_1.jpg
+  page: https://commons.wikimedia.org/wiki/File:Cuneiform_Akkadian_clay_tablet_1.jpg
+  title: 古巴比倫楔形文字泥板
+  creator: 佚名
+  year: 約公元前 2000 年
+  holder: Letterform Archive
+  license: Public domain（PD-old；2026-11-10 已核對 Commons 檔案頁）
+  caption: 兩面都寫滿楔形文字的小泥板，內容是記錄工人搬了多少磚的帳目；最早的文字很多就是拿來記帳的。
 ---
 
 ## T1 是什麼、解決什麼問題

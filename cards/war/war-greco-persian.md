@@ -78,6 +78,14 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "『名義上』帶有『埃吉納只是藉口』的詮釋，這是 WHE 的說法；希羅多德本人只說是為了埃吉納戰爭。可接受，但也可以改成『當時的理由是要對付鄰近的埃伊納島』，比較中性。" }
 verification: 爭議
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Kaulbach%2C_Wilhelm_von_-_Die_Seeschlacht_bei_Salamis_-_1868.JPG/960px-Kaulbach%2C_Wilhelm_von_-_Die_Seeschlacht_bei_Salamis_-_1868.JPG
+  page: https://commons.wikimedia.org/wiki/File:Kaulbach,_Wilhelm_von_-_Die_Seeschlacht_bei_Salamis_-_1868.JPG
+  title: 薩拉米斯海戰
+  creator: 威廉・馮・考爾巴赫（Wilhelm von Kaulbach）
+  year: 1868
+  license: Public domain（PD-Art／PD-old-auto-expired；2026-11-10 已核對 Commons 檔案頁）
+  caption: 19 世紀德國畫家想像的公元前 480 年薩拉米斯海戰；這是近代浪漫化的畫，不是寫實紀錄。
 ---
 
 ## A1 交戰方與聯盟結構

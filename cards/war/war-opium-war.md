@@ -73,6 +73,15 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "林則徐 1839 致英王書兩段引文與 Teng & Fairbank 譯文相符；MIT、Dower、Hayton 摘要正確" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Destroying_Chinese_war_junks%2C_by_E._Duncan_%281843%29.jpg/960px-Destroying_Chinese_war_junks%2C_by_E._Duncan_%281843%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Destroying_Chinese_war_junks,_by_E._Duncan_(1843).jpg
+  title: 復仇女神號擊毀中國戰船
+  creator: 愛德華・鄧肯（Edward Duncan）
+  year: 1843
+  holder: 英國國家海事博物館
+  license: Public domain（PD-Art／PD-old-100-1923；2026-11-10 已核對 Commons 檔案頁）
+  caption: 1841 年 1 月，英國東印度公司的鐵殼蒸汽船「復仇女神號」在穿鼻洋擊毀清朝水師戰船；畫面一邊是蒸汽鐵甲，一邊是木造帆船。
 ---
 
 ## A1 交戰方與聯盟結構

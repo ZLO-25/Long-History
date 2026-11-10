@@ -58,6 +58,14 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 1877 西南戰爭年份維基正文與 Britannica 都沒寫明，屬於通識常識，可以接受。2) Elman 原文說雙方把結果倒著讀回「明治初年／1865 年後」，卡片寫「1860 年代」可以。 小建議已修正。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Iwakura_mission.jpg/960px-Iwakura_mission.jpg
+  page: https://commons.wikimedia.org/wiki/File:Iwakura_mission.jpg
+  title: 岩倉使節團主要成員
+  creator: 攝影者不詳
+  year: 1872
+  license: Public domain（PD-old-auto-expired／PD-Japan-oldphoto；2026-11-10 已核對 Commons 檔案頁）
+  caption: 1872 年在倫敦拍的照片，左起木戶孝允、山口尚芳、岩倉具視、伊藤博文、大久保利通；明治政府派他們考察歐美近兩年，回國後推動改革。
 ---
 
 ## C1 背景

@@ -79,6 +79,15 @@ learn:
 crosscheck: { date: 2026-10-31, by: 獨立查核（claude-sonnet-5-5 另一次呼叫，未參與寫作，比對抓取的來源原文）, result: 通過, notes: "年份、數字、人名與因果大致與可取得的來源（s1–s4）及公認史實一致。已核對的項目：戰爭起訖 1775/4/19–1783/9/3；法美同盟 1778/2/6；西班牙 1779、荷蘭 1780 年底參戰；薩拉托加 10 月、約克鎮 1781/10/19；1782/11 初步和約、1784/1 批准；1780/3 大陸幣 40 比 1 重新估值；亞當斯 1782 年荷蘭貸款。《巴黎和約》第 1 條引文與 Avalon 原文相符，只有 Britannic／Brittanic 拼寫與大小寫的細微差異，不影響內容。座標大致正確。s5–s12 抓不到原文，大陸幣發行量、約克鎮兵力（英軍約 7,000–8,000 人，實際約 8,000 多）等細節無法逐字確認，但卡片已標註為估計，與公認史實相符。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Washington_Crossing_the_Delaware_MET_DP215410.jpg/960px-Washington_Crossing_the_Delaware_MET_DP215410.jpg
+  page: https://commons.wikimedia.org/wiki/File:Washington_Crossing_the_Delaware_MET_DP215410.jpg
+  title: 華盛頓橫渡德拉瓦河
+  creator: 埃瑪紐埃爾・洛伊策（Emanuel Leutze）
+  year: 1851
+  holder: 大都會藝術博物館
+  license: CC0（2026-11-10 已核對 Commons 檔案頁）
+  caption: 1776 年聖誕夜華盛頓帶兵偷渡結冰的德拉瓦河、奇襲特倫頓；這是 75 年後畫的愛國畫，船上的星條旗其實當時還沒出現。
 ---
 
 ## A1 交戰方與聯盟結構

@@ -32,6 +32,14 @@ sources:
   - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/8/8e/Confucius_Tang_Dynasty%2C_black_print.jpg
+  page: https://commons.wikimedia.org/wiki/File:Confucius_Tang_Dynasty,_black_print.jpg
+  title: 先師孔子行教像（拓本）
+  creator: 傳為吳道子原繪（後世刻石）
+  year: 原畫 8 世紀；石刻與拓本為後世所作
+  license: Public domain（PD-Art／PD-old-100；2026-11-10 已核對 Commons 檔案頁）
+  caption: 傳說根據唐代畫家吳道子的畫刻成的孔子像，是最常見的孔子形象；孔子本人的真實相貌沒有留下紀錄。
 ---
 
 ## C1 背景

@@ -37,6 +37,15 @@ sources:
   - { id: s6, title: "Craig Bellamy, Review: Yuval Noah Harari's Nexus（2024）", url: "https://www.craigbellamy.net/2024/10/03/review-yuval-noah-hararis-nexus-a-brief-history-of-information-networks-from-the-stone-age-to-ai-2024/", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/a/af/Bodleian_Library_Gutenberg_Bible_Vol2_563.jpg
+  page: https://commons.wikimedia.org/wiki/File:Bodleian_Library_Gutenberg_Bible_Vol2_563.jpg
+  title: 古騰堡聖經內頁
+  creator: 古騰堡印刷所
+  year: 約 1455
+  holder: 牛津大學博德利圖書館
+  license: CC BY 4.0（2026-11-10 已核對 Commons 檔案頁；使用時須署名作者）
+  caption: 古騰堡用金屬活字印出的拉丁文聖經；字是印的，彩色字首和花邊則是買家請人另外手繪的。
 ---
 
 ## T1 是什麼、解決什麼問題

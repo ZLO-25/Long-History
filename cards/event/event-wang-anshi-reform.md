@@ -33,6 +33,15 @@ sources:
   - { id: s5, title: "Magna Carta — Wikipedia", url: "https://en.wikipedia.org/wiki/Magna_Carta", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/%E6%AD%B7%E4%BB%A3%E8%81%96%E8%B3%A2%E5%90%8D%E4%BA%BA%E5%83%8F-29-%E5%AE%8B%E4%B8%9E%E7%9B%B8%E7%8E%8B%E8%8D%86%E5%85%AC%E5%AE%89%E7%9F%B3.jpg/960px-%E6%AD%B7%E4%BB%A3%E8%81%96%E8%B3%A2%E5%90%8D%E4%BA%BA%E5%83%8F-29-%E5%AE%8B%E4%B8%9E%E7%9B%B8%E7%8E%8B%E8%8D%86%E5%85%AC%E5%AE%89%E7%9F%B3.jpg
+  page: https://commons.wikimedia.org/wiki/File:%E6%AD%B7%E4%BB%A3%E8%81%96%E8%B3%A2%E5%90%8D%E4%BA%BA%E5%83%8F-29-%E5%AE%8B%E4%B8%9E%E7%9B%B8%E7%8E%8B%E8%8D%86%E5%85%AC%E5%AE%89%E7%9F%B3.jpg
+  title: 王安石像
+  creator: 佚名
+  year: 年代不詳（後世繪製）
+  holder: 中國國家博物館
+  license: Public domain（PD-Art／PD-old-100；2026-11-10 已核對 Commons 檔案頁）
+  caption: 後世畫的宋朝宰相王安石像；他在宋神宗支持下推行青苗法、募役法等新法，想讓國家變得富強。
 ---
 
 ## C1 背景

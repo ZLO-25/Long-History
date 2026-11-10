@@ -72,6 +72,14 @@ learn:
 crosscheck: { date: 2026-11-01, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "s10 UCSD《史記》對照頁可開啟，「朕為始皇帝……傳之無窮」逐字相符；「一法度衡石丈尺，車同軌，書同文字」經 s9 辛德勇文（標明出自〈秦始皇本紀〉）核對，另補 s12 楊憲益英譯選段（Columbia 講義 PDF）。s1–s4 已開啟核對滅六國年份、郭開、王翦 60 萬等。修正：嬴政即位並列前 247（英文維基）／前 246（大英）；story 中「始皇帝」改只引 s10（s1 無此句）；C7 刪除 s1 沒有的「奠定約兩千年疆域」，改為大英「後世各朝的基礎」與魯惟一「到 1911 年」之說；China 詞源補 s11，並列秦、荊、夜郎諸說。保留：水淹大梁 10 萬等數字仍只有 s1。" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/QinShiHuang18thCentury.jpg/960px-QinShiHuang18thCentury.jpg
+  page: https://commons.wikimedia.org/wiki/File:QinShiHuang18thCentury.jpg
+  title: 秦始皇像
+  creator: 佚名
+  year: 18 世紀
+  license: Public domain（PD-Art；2026-11-10 已核對 Commons 檔案頁）
+  caption: 出自清代《歷代帝王像》畫冊，是秦始皇死後近兩千年才畫的想像圖；秦朝沒有留下秦始皇的畫像。
 ---
 
 ## C1 背景

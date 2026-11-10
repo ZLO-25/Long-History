@@ -62,6 +62,15 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "C6「也有全臺總人口約 20 萬人以上的估計 [s1][s6]」：s6（劉翠溶）沒有 20 萬的說法（文中的 3 萬家、10 萬人是荷蘭時期末年外國文獻的數字），建議只引 [s1]。C10 仍然引 [s4]（Hoppens 書評）來支持「家族軍事政權」的說法，力道偏弱，建議改引 s1。 小建議已修正。 2026-11-04 第 3 期依複查修改：links 加鎖國、南蠻貿易、高山國；C1 補鄭芝龍在平戶、李旦、荷蘭人與鄭成功出生的連結，新增 s7；2026-11-07 第 3 期修改已查核：開 s7 英維 Zheng Zhilong，李旦為平戶甲必丹、安排鄭芝龍為荷蘭人通譯、1622 澎湖和談任翻譯、荷蘭據臺後成私掠船主、田川松 1624 年生鄭成功（鄭芝龍已先離日）均相符；原寫「在李旦手下當通譯」「1624 年同一年與田川松生下」措辭已依來源改寫。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/1/17/Portrait_of_Zheng_Chenggong.jpg
+  page: https://commons.wikimedia.org/wiki/File:Portrait_of_Zheng_Chenggong.jpg
+  title: 鄭成功像
+  creator: 黃梓
+  year: 17 世紀中葉
+  holder: 中國國家博物館
+  license: Public domain（PD-Art／PD-old-100／PD-China；2026-11-10 已核對 Commons 檔案頁）
+  caption: 17 世紀中葉的鄭成功畫像，上有他的部屬王忠孝題的「百字贊」；1662 年鄭成功趕走荷蘭人，臺灣進入鄭氏時期。
 ---
 
 ## C1 背景

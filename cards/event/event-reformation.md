@@ -34,6 +34,15 @@ sources:
   - { id: s4, title: "Sapiens 讀者劃線摘錄（Goodreads, Travis）", url: "https://www.goodreads.com/notes/20873740-sapiens/12815256-travis", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Lucas_Cranach_d.%C3%84._-_Martin_Luther%2C_1528_%28Veste_Coburg%29.jpg/960px-Lucas_Cranach_d.%C3%84._-_Martin_Luther%2C_1528_%28Veste_Coburg%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Lucas_Cranach_d.%C3%84._-_Martin_Luther,_1528_(Veste_Coburg).jpg
+  title: 馬丁・路德像
+  creator: 老盧卡斯・克拉納赫（Lucas Cranach the Elder）
+  year: 1528
+  holder: 科堡城堡（Veste Coburg）
+  license: Public domain（PD-Art／PD-old-100-expired；2026-11-10 已核對 Commons 檔案頁）
+  caption: 路德的朋友克拉納赫畫的路德像；克拉納赫的工作室大量複製路德像，讓路德的臉和印刷小冊子一起傳遍德意志。
 ---
 
 ## C1 背景

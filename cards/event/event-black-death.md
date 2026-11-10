@@ -36,6 +36,15 @@ sources:
   - { id: s5, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Doutielt1.jpg/960px-Doutielt1.jpg
+  page: https://commons.wikimedia.org/wiki/File:Doutielt1.jpg
+  title: 圖爾奈的黑死病死者下葬
+  creator: 皮耶拉特・杜・蒂爾特（Pierart dou Tielt）
+  year: 約 1352
+  holder: 比利時皇家圖書館
+  license: Public domain（PD-art／PD-old-100；2026-11-10 已核對 Commons 檔案頁）
+  caption: 1349 年黑死病流行時，圖爾奈（今比利時）居民抬著棺材埋葬死者；這是黑死病同時代最有名的插圖之一。
 ---
 
 ## C1 背景

@@ -62,6 +62,15 @@ learn:
 crosscheck: { date: 2026-10-26, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "逐筆打開 s1–s7（全部可開）。核對 66／54／12 人、「化外之民」、1874-05-12 社寮登陸、3,600 人、5-22 石門之役與佐久間 150 人、阿祿古父子、6-1 三路、7-1 投降、10-31 北京專約 50 萬兩（10 萬＋40 萬）、保民義舉、1879 琉球、億載金城、三路開山、臺北府與恆春縣、1884-08-05 基隆、10-08 淡水沙崙、1885-03 澎湖、6-09 和約、6-11 孤拔病逝、法軍 5,000／清軍 4 萬以上、法軍約 700 死、清賦 1886 起與 1887-12 丈單、7.1→43.2 萬甲、28.2→103.7 萬圓、1891 鐵路通車與去職，皆與來源相符；張世賢摘要確實寫「重大轉捩點」；碑記原文核對無誤。改動：八瑤灣補上 10 月 18 日（s1）。保留意見：建省 1885（決定）／1887（完成）兩說已並列，由 s1、s4 分別支撐；s6 沒有提到施九緞，該句由 s4 支撐；s2 只寫「建祠」未寫「延平郡王祠」之名。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Soldiers_of_the_Japanese_expedition_in_Taiwan.jpg/960px-Soldiers_of_the_Japanese_expedition_in_Taiwan.jpg
+  page: https://commons.wikimedia.org/wiki/File:Soldiers_of_the_Japanese_expedition_in_Taiwan.jpg
+  title: 1874 年西鄉從道與恆春半島部落領袖合影
+  creator: 日本攝影者（佚名）
+  year: 1874
+  holder: 靖國神社（Commons 註明的來源）
+  license: Public domain（PD-old-100；2026-11-10 已核對 Commons 檔案頁）
+  caption: 牡丹社事件時日軍司令西鄉從道（中坐）與恆春半島斯卡羅部落領袖的合影（Commons 說明標為卓杞篤等人）；日軍在這次出兵中與南部部落既交戰也談判。
 ---
 
 ## C1 背景

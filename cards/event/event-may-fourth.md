@@ -59,6 +59,14 @@ crosscheck:
 verification: 交叉確認
 lens_status: 無直接論述
 summary_card: true
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Chinese_protestors_march_against_the_Treaty_of_Versailles_%28May_4%2C_1919%29.jpg/960px-Chinese_protestors_march_against_the_Treaty_of_Versailles_%28May_4%2C_1919%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Chinese_protestors_march_against_the_Treaty_of_Versailles_(May_4,_1919).jpg
+  title: 1919 年 5 月 4 日北京學生遊行
+  creator: 攝影者不詳
+  year: 1919-05-04
+  license: Public domain（PD-China；2026-11-10 已核對 Commons 檔案頁）
+  caption: 北京十幾所學校約三千名學生在天安門前集會，反對巴黎和會把德國在山東的權益交給日本；這天後來成為五四運動的代名詞。
 ---
 
 ## C1 背景

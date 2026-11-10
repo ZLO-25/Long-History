@@ -61,6 +61,14 @@ learn:
 crosscheck: { date: 2026-10-26, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "開啟全部 7 筆來源（0 筆打不開；中文維基霧社事件條目另試開啟失敗，未列入）。核對：134 死 215 傷、644 死／296 自殺、216 人、298→278 人、1931-01 辭職、1975 批准日內瓦議定書皆與 s1–s3 相符。改正：敬酒事件原寫 1929 年，s4 明載 1930-10-07（事件前 20 天），已改；「876 人」s4 無此數，已刪；民眾黨「向國際聯盟申訴」s3 無此事，改為向首相、拓務大臣等打電報抗議並新增來源 s8；高愛德口述依 s5 英文重新摘譯並標明回譯。歸順式人數：s2 寫 38、s7（陳慧先）寫 23、s6 年表寫 23＋15，三說已並列。座標：霧社與清流部落（北港溪與眉原溪匯流台地）位置合理，仍為示意。用詞：已把「最殘酷」「默許」改為較中性的「死傷最慘重」「縱容或唆使（一般研究認為）」。保留：道澤群「受益」一節仍無來源說明。" }
 verification: 爭議
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/1/17/Mona_Rudao_and_Seediq_tribal_leaders.jpg
+  page: https://commons.wikimedia.org/wiki/File:Mona_Rudao_and_Seediq_tribal_leaders.jpg
+  title: 莫那・魯道與賽德克族頭目
+  creator: 攝影者不詳
+  year: 1930 年以前
+  license: Public domain（PD-Japan-oldphoto；2026-11-10 已核對 Commons 檔案頁）
+  caption: 中間是馬赫坡社頭目莫那・魯道，1930 年他帶領賽德克族德固達雅群起事反抗日本統治；照片收在日方 1931 年出版的《霧社討伐寫眞帖》。
 ---
 
 ## C1 背景

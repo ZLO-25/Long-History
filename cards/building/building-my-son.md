@@ -54,6 +54,14 @@ learn:
 crosscheck: { date: 2026-11-10, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "開啟並核對：s1 UNESCO 949、s2 UNESCO 定期報告（document/217506）、s3 Wikipedia Mỹ Sơn、s4 NGA CASVA 陳奇方報告、s5《宋史》卷489（引文逐字相符）、s6 VietNamNet。修正：刪去「比吳哥窟還早」與 A1 塔只剩一堆磚（來源未載）；「國王與神名字合一」改為客觀描述林伽名與國王同名；大火年份改 535/536；71 座改引 s2/s3（s4 為 68 座）；UNESCO「文化交流特殊例子」改為原文意旨；爪哇、高棉影響具體化；刪「差別在於怎麼計算殘跡」；142/920 公頃註明為原先範圍；30 塊梵文碑銘改為計畫翻譯；越南觀點刪無來源說法、補 1979/2009 古蹟等級；D2 改為來源所載的建廟國王；D7、D8 刪無來源句。附註：s3 依 2025 年行政區調整寫作峴港市秋盆社，卡片依 s2 保留廣南省維川縣。未能開啟：無。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/My_Son_Sanctuary_Vietnam_04.jpg/960px-My_Son_Sanctuary_Vietnam_04.jpg
+  page: https://commons.wikimedia.org/wiki/File:My_Son_Sanctuary_Vietnam_04.jpg
+  title: 美山聖地遺址
+  creator: Philip Nalangan
+  year: 2009
+  license: CC BY 4.0（2026-11-10 已核對 Commons 檔案頁；使用時須署名作者）
+  caption: 越南中部的美山聖地，是占婆王國 4 到 13 世紀陸續蓋的印度教神廟群；紅磚塔是占婆建築的特色，1999 年列入世界遺產。
 ---
 
 ## D1 功能與象徵

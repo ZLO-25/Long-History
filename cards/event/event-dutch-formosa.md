@@ -60,6 +60,15 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) C6「1638 年鹿皮出口一年超過 15 萬張」：英文維基寫 1638 年 151,400 張，另有資料記為 1637 年，可以考慮寫「1630 年代後期」。2) C2「1629 年約 60 人」：英文維基本身就有 60 人和 20 人兩種說法，建議加「（各來源數字不一）」。3) 英文維基寫鄭成功艦隊 3 月 23 日從金門出發、4 月 2 日抵達，似乎把農曆和公曆混用了；一般說法是 1661 年 4 月 21 日出發（農曆三月二十三日），卡片寫「1661 年 4 月」沒有問題。 小建議已修正。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Zeelandia_from_Dutch.jpg/960px-Zeelandia_from_Dutch.jpg
+  page: https://commons.wikimedia.org/wiki/File:Zeelandia_from_Dutch.jpg
+  title: 熱蘭遮城鳥瞰圖
+  creator: 約翰內斯・芬伯翁斯（Johannes Vingboons）
+  year: 約 1635
+  holder: 荷蘭國家檔案館
+  license: Public domain（PD-Art／PD-old-auto-1923；2026-11-10 已核對 Commons 檔案頁）
+  caption: 荷蘭東印度公司在大員（今臺南安平）蓋的熱蘭遮城與城外的市鎮；荷蘭人從這裡管理臺灣、轉運鹿皮與砂糖。
 ---
 
 ## C1 背景

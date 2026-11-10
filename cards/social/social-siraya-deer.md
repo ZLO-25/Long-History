@@ -56,6 +56,14 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "沒有事實錯誤。可以加強的地方：(1) 新港文書「約 187 件」只有 Wikipedia 一個來源，建議改成「上百件」或補李壬癸《新港文書研究》；(2) 捕鹿執照的金額與 1,998.5 里爾也只有一個來源（是細節，不是關鍵事實），可以標註出處或簡化；(3) 151,400 張的年份有 1637 與 1638 兩種說法，可寫「1638 年前後」；(4) historiography 第一段的墮胎記載引了 [s4]，但吳聰敏講義沒有這項內容，引用只留 [s1] 即可；(5) E3「不得再攻擊荷蘭人與漢人」：條約原文是不攻擊荷蘭人及其盟社／盟友，「漢人」可改成「荷蘭的盟友」；(6) story 寫" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/a/a4/Siraya_people.jpg
+  page: https://commons.wikimedia.org/wiki/File:Siraya_people.jpg
+  title: 《皇清職貢圖》中的臺灣平埔族人
+  creator: 傅恆等奉敕編繪
+  year: 1751
+  license: Public domain（PD-old-100；2026-11-10 已核對 Commons 檔案頁）
+  caption: 乾隆年間清廷編的《皇清職貢圖》，畫出各地「番民」的衣著；這一頁是臺灣南部的平埔族（西拉雅）男女，是外人眼中的樣子，不一定是寫實紀錄。
 ---
 
 ## E1 誰的生活

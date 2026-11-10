@@ -29,6 +29,15 @@ sources:
   - { id: s2, title: "Mausoleum of the First Qin Emperor — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/441/", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Qin_Terracotta_Army%2C_Pit_1_01.jpg/960px-Qin_Terracotta_Army%2C_Pit_1_01.jpg
+  page: https://commons.wikimedia.org/wiki/File:Qin_Terracotta_Army,_Pit_1_01.jpg
+  title: 秦始皇陵兵馬俑一號坑
+  creator: Gary Lee Todd
+  year: 2011
+  holder: 秦始皇帝陵博物院（陝西西安）
+  license: CC0（2026-11-10 已核對 Commons 檔案頁）
+  caption: 一號坑裡排成戰鬥隊形的陶俑，每個臉都不一樣；1974 年農民挖井時發現，是秦始皇陵的陪葬坑。
 ---
 
 ## D1 功能與象徵

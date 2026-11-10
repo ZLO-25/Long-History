@@ -55,6 +55,14 @@ learn:
 crosscheck: { date: 2026-11-10, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "開啟並核對：s1 Angkor Wat、s2 Khmer Empire、s4 The Customs of Cambodia、s5 Buddhism in Cambodia（Wikipedia，WebFetch）；s3《真臘風土記》（GitHub raw，魯般墓引文逐字相符）。修正：s4 與 s1 都沒有說「魯般墓就是吳哥窟」，故刪去地點欄的「周達觀稱魯般墓」，故事改為「有人推測、書中未寫明」，並刪去「當地人已不清楚原本用途」的推論；須彌山象徵改為來源原意（五峰、山脈與大海）；刪去「西方和死亡有關」（來源只說朝西而推測為陵廟）；「石塊間沒有用砂漿」改為來源說的「黏合劑尚未確定」；國旗「1863 年以來」來源抓取結果未見，刪去；印度觀點刪去「海外最大規模」；改佛寺的說法改為 s1 的「13 世紀末起與上座部佛教相關、從未完全荒廢」，effects 加 s5 的「16 世紀已是佛教聖地」；補上 1860 年穆奧。未能開啟：中文維基百科「吳哥窟」（想找魯般墓的考證，兩次 url_not_found）。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/20171126_Angkor_Wat_4712_DxO.jpg/960px-20171126_Angkor_Wat_4712_DxO.jpg
+  page: https://commons.wikimedia.org/wiki/File:20171126_Angkor_Wat_4712_DxO.jpg
+  title: 吳哥窟中央塔群
+  creator: Jakub Hałun
+  year: 2017
+  license: CC BY-SA 4.0（2026-11-10 已核對 Commons 檔案頁；使用時須署名作者）
+  caption: 12 世紀高棉國王蘇利耶跋摩二世興建的吳哥窟，原本是供奉印度教毗濕奴的神廟，五座塔象徵眾神居住的須彌山。
 ---
 
 ## D1 功能與象徵

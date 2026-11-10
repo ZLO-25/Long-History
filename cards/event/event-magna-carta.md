@@ -32,6 +32,15 @@ sources:
   - { id: s7, title: "Wang Anshi — Wikipedia", url: "https://en.wikipedia.org/wiki/Wang_Anshi", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Magna_Carta_%28British_Library_Cotton_MS_Augustus_II.106%29.jpg/960px-Magna_Carta_%28British_Library_Cotton_MS_Augustus_II.106%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Magna_Carta_(British_Library_Cotton_MS_Augustus_II.106).jpg
+  title: 1215 年《大憲章》原件
+  creator: 英格蘭王約翰與貴族
+  year: 1215
+  holder: 大英圖書館（Cotton MS Augustus II.106）
+  license: Public domain（PD-art／PD-old-100-1923；2026-11-10 已核對 Commons 檔案頁）
+  caption: 現存四份 1215 年原件之一，用拉丁文寫在羊皮紙上；國王的權力第一次被寫成文件來限制。
 ---
 
 ## C1 背景

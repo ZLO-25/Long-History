@@ -29,6 +29,14 @@ sources:
   - { id: s2, title: "Mark Cartwright, Colosseum — World History Encyclopedia (2018)", url: "https://www.worldhistory.org/Colosseum/", accessed: 2026-10-24 }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Colosseum_of_Rome%2C_Italy.jpg/960px-Colosseum_of_Rome%2C_Italy.jpg
+  page: https://commons.wikimedia.org/wiki/File:Colosseum_of_Rome,_Italy.jpg
+  title: 羅馬競技場
+  creator: Wilfredor
+  year: 2024
+  license: CC0（2026-11-10 已核對 Commons 檔案頁）
+  caption: 公元 80 年落成的羅馬競技場（弗拉維圓形劇場），可以容納約五萬名觀眾看角鬥士與鬥獸表演。
 ---
 
 ## D1 功能與象徵

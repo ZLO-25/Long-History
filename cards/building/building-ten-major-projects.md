@@ -56,6 +56,15 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 提出時間有 1973 年 11 月（檔案管理局）和 1973 年 12 月底（Stockfeel：聖誕節宣布）兩種說法，建議寫「1973 年 11 月（一說 12 月）」。2) 馬凱的評價只在中文維基找到，卡片已寫明是「中文維基整理的評價」，可以接受。「歪打正著」的第二個來源只是網路專欄，力道偏弱，但說法一致。3) story「1973 年底爆發第一次石油危機」：石油危機是 1973 年 10 月開始，「年底」可以接受，但寫「1973 年 10 月」更精確。4) D2「81 億元是國際貸款 [s2][s3]」：s3 沒有這個數字，只有 s2 有，建議只引 [s2]。 小建議已修正。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/8/8c/%E8%87%BA%E7%81%A3%E8%A5%BF%E9%83%A8%E5%B9%B9%E7%B7%9A%E9%90%B5%E8%B7%AF%E9%9B%BB%E6%B0%A3%E5%8C%96%E9%80%9A%E8%BB%8A%E5%85%B8%E7%A6%AE%E8%88%87EMU100%E5%9E%8B%E9%9B%BB%E8%81%AF%E8%BB%8A.jpg
+  page: https://commons.wikimedia.org/wiki/File:%E8%87%BA%E7%81%A3%E8%A5%BF%E9%83%A8%E5%B9%B9%E7%B7%9A%E9%90%B5%E8%B7%AF%E9%9B%BB%E6%B0%A3%E5%8C%96%E9%80%9A%E8%BB%8A%E5%85%B8%E7%A6%AE%E8%88%87EMU100%E5%9E%8B%E9%9B%BB%E8%81%AF%E8%BB%8A.jpg
+  title: 西部幹線鐵路電氣化通車典禮
+  creator: 台灣新生報記者
+  year: 1979-07-01
+  holder: 國家文化記憶庫
+  license: CC BY 3.0（2026-11-10 已核對 Commons 檔案頁；使用時須署名作者）
+  caption: 十大建設之一的鐵路電氣化完工，自強號從臺北開到高雄舉行全線通車典禮；十大建設是 1970 年代石油危機後政府推動的大型基礎建設。
 ---
 
 ## D1 功能與象徵

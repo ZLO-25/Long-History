@@ -74,6 +74,15 @@ learn:
 crosscheck: { date: 2026-10-31, by: 獨立查核（claude-sonnet-5-5 另一次呼叫，未參與寫作，比對抓取的來源原文）, result: 通過, notes: "逐項核對後未發現明確事實錯誤。年份與日期（1776/1/10《常識》、6/7 李氏決議、6/11 五人委員會、7/2 決議、7/4 通過、7/8 宣讀、8/2 簽名）、56 位簽署人、27 條控訴、傑佛遜 33 歲、獨立廳座標，均與 s1、s2、s3、s4、s8 一致。「神聖且不可否認」改為「自明」見於 s7 與 s2。s5、s6 抓不到原文，奧提斯、虛擬代表、洛克的說法與公認史實一致，無法逐字確認。小問題：三段 primary_source 標為 Avalon 轉錄，但首字大寫（Rights、Governments、Men）其實是 National Archives 版（s3），Avalon 版為小寫，字句相同。另外，引用 s9 說明林肯拿宣言的矛盾要求兌現承諾，蓋茨堡演說只提「人人生而平等」，沒有直接談奴隸制矛盾，屬於推論。 小建議已依查核修正。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Declaration_of_Independence_%281819%29%2C_by_John_Trumbull.jpg/960px-Declaration_of_Independence_%281819%29%2C_by_John_Trumbull.jpg
+  page: https://commons.wikimedia.org/wiki/File:Declaration_of_Independence_(1819),_by_John_Trumbull.jpg
+  title: 獨立宣言
+  creator: 約翰・川伯（John Trumbull）
+  year: 1819
+  holder: 美國國會大廈圓形大廳
+  license: Public domain（PD-Art-two／PD-old-100-expired／PD-USGov-Congress-AOC；2026-11-10 已核對 Commons 檔案頁）
+  caption: 畫的是起草委員會（中間站著的是傑佛遜）把《獨立宣言》草稿交給大陸會議；美國 2 元鈔票背面就是這幅畫。
 ---
 
 ## C1 背景

@@ -69,6 +69,15 @@ learn:
 verification: 交叉確認
 lens_status: 無直接論述
 crosscheck: { date: 2026-11-07, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 刪除與羅伯斯比的「同盟」關係：拿破崙交好的是弟弟奧古斯丁，與馬克西米連本人沒有可稱為同盟的直接關係，七種 kind 都不合適；1794 年 8 月被捕一事仍保留在 story、P2、P5。2) primary_source 是 Lentz 轉述的聖赫勒拿談話，from 已註明「查核時未對照原始出處」；想重開 napoleon.org 確認時額度用盡，維持轉引並在此說明。3) 座標抽查阿雅克肖、布里埃納、土倫、奧斯特里茨（斯拉夫科夫）、厄爾巴、滑鐵盧、朗伍德，誤差均 <10 km。WebFetch 共用額度在查核中途用盡（實際打開 5 個來源：chnm d/324 羅伯斯比 1792-12-03 演說、chnm d/331 王后 1791-09-08 信、WHE〈Storming of the Bastille〉、Minneapolis Fed 的 Sargent & Velde 文章、chnm d/780 時間軸），其餘未能重開維基逐句核對。民法典條數、雅法俘虜數、西班牙兵力數沿用作者所引來源，未逐句重核。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/David_-_Napoleon_crossing_the_Alps_-_Malmaison1.jpg/960px-David_-_Napoleon_crossing_the_Alps_-_Malmaison1.jpg
+  page: https://commons.wikimedia.org/wiki/File:David_-_Napoleon_crossing_the_Alps_-_Malmaison1.jpg
+  title: 拿破崙越過阿爾卑斯山
+  creator: 雅克－路易・大衛（Jacques-Louis David）
+  year: 1800–1801
+  holder: 馬爾梅松城堡
+  license: Public domain（PD-Art／PD-old-100-expired；2026-11-10 已核對 Commons 檔案頁）
+  caption: 1800 年拿破崙越過大聖伯納山口進軍義大利；他其實是騎騾子過山，這幅畫是他要求畫家畫成騎著揚蹄駿馬的宣傳畫。
 ---
 
 ## P1 出身與時代

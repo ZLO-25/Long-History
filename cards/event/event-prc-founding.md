@@ -59,6 +59,14 @@ crosscheck:
   notes: "開啟 s1、s4、s5 核對：9/21 政協、組織法與定都北京、10/1 天安門宣布與首次升旗、10/2 蘇聯承認、8/29 塞米巴拉金斯克 22 千噸、9/23 杜魯門宣布、美國隨即趕造氫彈、12/6 毛赴莫斯科、1950/2/14 簽約、3 億美元 1% 低利貸款、30 年效期、1979/2 期滿。修正：中長鐵路（1952 年前無償交還）與旅順港（日後交還）分開寫；條約到期改寫為 s5 所述 1979 年 2 月期滿。s2 開幕詞引文與日期（1949/9/21）已核；s3、s6 於國共內戰卡核對過。韓戰後果與韓戰卡前因同文，依韓戰卡 s1。"
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/8/85/Mao_Proclaiming_New_China.JPG
+  page: https://commons.wikimedia.org/wiki/File:Mao_Proclaiming_New_China.JPG
+  title: 毛澤東宣布中華人民共和國成立
+  creator: 攝影者不詳
+  year: 1949-10-01
+  license: Public domain（PD-China；2026-11-10 已核對 Commons 檔案頁）
+  caption: 1949 年 10 月 1 日毛澤東在北京天安門城樓宣布中華人民共和國成立；同年 12 月中華民國政府遷到臺北。
 ---
 
 ## C1 背景

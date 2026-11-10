@@ -59,6 +59,15 @@ learn:
 crosscheck: { date: 2026-11-10, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "開啟並核對：s1 Jayavarman VII、s2 Battle of Tonlé Sap、s4 Bayon、s5 Champa、s7 Khmer Empire（Wikipedia，WebFetch）；s3《宋史》卷489、s6《真臘風土記》（GitHub raw）。修正：宋史引文原文「傳其國都。」與「慶元以來」之間分段，補上「……」後逐字相符；國內不穩改引 s7「12 世紀衝突與殘酷權力鬥爭」；臉的數量由「兩百多張」改為「約兩百張」；臉是誰改為來源原意（不互相排斥）；Battle of Tonlé Sap 實際寫的是賓童龍國王 Po Klong Garai、資訊框寫三年，改寫史學段；補上維克里對 1190 年的質疑；刪去 s4、s5 都不支持的「巴戎寺就是周達觀的金塔」與「占婆主要威脅轉向大越」（Champa 頁只寫 1285 年兩國合抗元軍）；perspectives 刪去無來源的「占婆國力高峰」；補上反擊年份 1190–1203。A9 改為 s1 支持的大乘佛教、減輕人民痛苦。未能開啟：無。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Angkor_Thom_Bayon_relief_of_the_Battle_of_Tonl%C3%A9_Sap.jpg/960px-Angkor_Thom_Bayon_relief_of_the_Battle_of_Tonl%C3%A9_Sap.jpg
+  page: https://commons.wikimedia.org/wiki/File:Angkor_Thom_Bayon_relief_of_the_Battle_of_Tonl%C3%A9_Sap.jpg
+  title: 巴戎寺浮雕：行軍中的高棉軍隊
+  creator: Pierre André Leclercq
+  year: 2014
+  holder: 巴戎寺（吳哥城）
+  license: CC BY-SA 4.0（2026-11-10 已核對 Commons 檔案頁；使用時須署名作者）
+  caption: 闍耶跋摩七世時代刻的浮雕，畫出行軍中的高棉士兵；他在 1177 年占婆攻破吳哥之後起兵復國，並修建了巴戎寺。
 ---
 
 ## A1 交戰方與聯盟結構

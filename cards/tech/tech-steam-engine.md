@@ -36,6 +36,15 @@ sources:
   - { id: s7, title: "Sapiens 工業之輪篇章摘要（LitCharts）", url: "https://www.litcharts.com/lit/sapiens/chapter-17-the-wheels-of-industry", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Boulton_%26_Watt_steam_engine%2C_Sydney_Powerhouse_Museum%2C_2014_%2815240699214%29.jpg/960px-Boulton_%26_Watt_steam_engine%2C_Sydney_Powerhouse_Museum%2C_2014_%2815240699214%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Boulton_%26_Watt_steam_engine,_Sydney_Powerhouse_Museum,_2014_(15240699214).jpg
+  title: 博爾頓與瓦特蒸汽機
+  creator: David Maciulaitis
+  year: 2014
+  holder: 雪梨動力博物館（Powerhouse Museum）
+  license: CC BY 2.0（2026-11-10 已核對 Commons 檔案頁；使用時須署名作者）
+  caption: 1785 年造的博爾頓與瓦特蒸汽機，在英國釀酒廠用了一百年，是現存最古老的旋轉式蒸汽機之一。
 ---
 
 ## T1 是什麼、解決什麼問題

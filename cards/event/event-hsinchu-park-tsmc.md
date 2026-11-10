@@ -59,6 +59,14 @@ learn:
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "複查唯一問題（「等 7 人」只有一個來源）已依建議改為「等人」。s6 作者為台積電文教基金會董事，有立場。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Hsinchu_Science_and_Industrial_Park_Administration_20101017.jpg/960px-Hsinchu_Science_and_Industrial_Park_Administration_20101017.jpg
+  page: https://commons.wikimedia.org/wiki/File:Hsinchu_Science_and_Industrial_Park_Administration_20101017.jpg
+  title: 新竹科學園區管理局
+  creator: Peellden
+  year: 2010
+  license: CC BY-SA 4.0（2026-11-10 已核對 Commons 檔案頁；使用時須署名作者）
+  caption: 1980 年設立的新竹科學園區，台積電等半導體公司都在這裡起家；照片是園區管理局大樓。
 ---
 
 ## C1 背景

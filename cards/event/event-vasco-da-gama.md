@@ -34,6 +34,14 @@ sources:
   - { id: s5, title: "Zheng He — Wikipedia", url: "https://en.wikipedia.org/wiki/Zheng_He", accessed: 2026-10-25 }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Greg%C3%B3rio_Lopes_-_Vasco_da_Gama_%28ca_1524%29.jpg/960px-Greg%C3%B3rio_Lopes_-_Vasco_da_Gama_%28ca_1524%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Greg%C3%B3rio_Lopes_-_Vasco_da_Gama_(ca_1524).jpg
+  title: 達伽馬像
+  creator: 格雷戈里奧・洛佩斯（Gregório Lopes）
+  year: 約 1524
+  license: Public domain（PD-old-100；2026-11-10 已核對 Commons 檔案頁）
+  caption: 葡萄牙畫家畫的達伽馬；1498 年他繞過非洲南端抵達印度卡利卡特，打通歐洲直航亞洲的海路。
 ---
 
 ## C1 背景

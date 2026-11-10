@@ -66,6 +66,15 @@ learn:
 crosscheck: { date: 2026-10-26, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "逐筆打開 s1–s7（全部可開）。核對 1684 設府三縣、13 萬人、1.31%、1756 隱田四成、一田二主、1784 鹿港／1788 八里坌、朱一貴 1721／林爽文 1786／戴潮春 1862、107 次民變、紅線 1750／綠線 1790、八堡圳十餘年、碑記原文與立碑地點，皆與來源相符；primary_source 字句確實出自臺灣記憶拓片頁的上諭引文。改動：(1) 人口「18 世紀中葉以後逼近 200 萬」與 s4 的 1756 年 66 萬不合，改為「1811 年戶口調查近 200 萬」並新增 s8、s9；(2) 瑠公圳完工年改為並列 1749（s6）與 1760（新增 s10《續修臺北市志》）。保留意見：s2 並未提到 1784／1788 與 1875 廢禁年份（由 s1、s7 支撐）；1811 年 1,944,747 這個精確數字只見於英文維基所引 Davidson，內文只寫「近 200 萬」。" }
 verification: 交叉確認
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/2/24/%E5%BA%B7%E7%86%99%E8%87%BA%E7%81%A3%E8%BC%BF%E5%9C%96.jpg
+  page: https://commons.wikimedia.org/wiki/File:%E5%BA%B7%E7%86%99%E8%87%BA%E7%81%A3%E8%BC%BF%E5%9C%96.jpg
+  title: 康熙臺灣輿圖（局部）
+  creator: 佚名（清代官繪）
+  year: 康熙年間（約 1699–1704）
+  holder: 國立臺灣博物館
+  license: Public domain（PD-art／PD-China；2026-11-10 已核對 Commons 檔案頁）
+  caption: 清廷領臺初期畫的臺灣地圖：畫面以西部平原與港口為主，山區只畫成一片山形，反映官府只管到番界以西的「消極治臺」。
 ---
 
 ## C1 背景

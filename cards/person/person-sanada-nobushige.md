@@ -38,6 +38,15 @@ sources:
   - { id: s3, title: "黒田基樹，〈そして越前松平家、真田信繁と大谷吉継〉，《福井県文書館研究紀要》第 15 號，2018-03（2016 年講演錄）", url: "https://www.library-archives.pref.fukui.lg.jp/fukui/08/2017bulletin/images/15-all.pdf", accessed: 2026-11-03, tier: 學術 }
   - { id: s4, title: "旭堂南海，講談「大坂の陣〜幸村 VS 家康」講演記錄（尾道市立大學機構典藏）", url: "https://onomichi-u.repo.nii.ac.jp/record/505/files/nic1102.pdf", accessed: 2026-11-03, tier: 摘要 }
   - { id: s5, title: "石田三成 — Wikipedia（日文）（慶長 5 年 7 月晦日付真田昌幸宛三成書状，真田寶物館藏）", url: "https://ja.wikipedia.org/wiki/石田三成", accessed: 2026-11-03, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/b/b3/Sanada_Yukimura.jpg
+  page: https://commons.wikimedia.org/wiki/File:Sanada_Yukimura.jpg
+  title: 真田信繁（幸村）像
+  creator: 作者不詳
+  year: 江戶時代（推定）
+  holder: 上田市立博物館
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 上田市立博物館所藏的真田信繁像，是今天最常見的「幸村」形象；這類肖像多為江戶時代所繪，不是本人生前的寫真。
 importance: 2
 learn:
   histories: [日本史]

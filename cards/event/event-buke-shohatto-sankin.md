@@ -38,6 +38,23 @@ sources:
   - { id: s6, title: "Excerpts from Laws of Military Households (Buke Shohatto), 1615（David J. Lu 英譯，Japan: A Documentary History, 1997, pp. 206–208）— Asia for Educators, Columbia University", url: "https://afe.easia.columbia.edu/ps/japan/tokugawa_edicts_military.pdf", accessed: 2026-11-03, tier: 一手 }
   - { id: s7, title: "御触書（寛保集成）解說：武家諸法度 — 国立公文書館 デジタル展示「徳川家康—将軍家蔵書からみるその生涯」家康の内政・外交", url: "https://www.archives.go.jp/exhibition/digital/ieyasu/contents3_02/03/", accessed: 2026-11-03, tier: 通論 }
   - { id: s8, title: "武家諸法度（寫本，內閣文庫 請求番号 180-0004，內容年天保 9 年）— 国立公文書館デジタルアーカイブ", url: "https://www.digital.archives.go.jp/file/3142769.html", accessed: 2026-11-03, tier: 一手 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hidetada.jpg/960px-Hidetada.jpg
+  page: https://commons.wikimedia.org/wiki/File:Hidetada.jpg
+  title: 德川秀忠像
+  creator: 佚名（狩野派畫師）
+  year: 17 世紀
+  holder: 德川記念財團（東京）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 1615 年武家諸法度以二代將軍秀忠的名義公布；起草與宣讀的是家康身邊的僧人金地院崇傳。
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Daimyo_Procession_to_Edo_MET_DP-19027-012_crd.jpg/960px-Daimyo_Procession_to_Edo_MET_DP-19027-012_crd.jpg
+  page: https://commons.wikimedia.org/wiki/File:Daimyo_Procession_to_Edo_MET_DP-19027-012_crd.jpg
+  title: 大名行列圖（Daimyo Procession to Edo）
+  creator: 菱川派畫師
+  year: 約 1700 年
+  holder: 大都會藝術博物館（紐約）
+  license: CC0（大都會藝術博物館開放取用；2026-11-10 已核對 Commons 檔案頁）
+  caption: 參勤交代的大名行列：加賀藩一次動員約 2,500–3,000 人（估計），是江戶時代最常被描繪的場面之一。
 importance: 3
 learn:
   histories: [日本史]

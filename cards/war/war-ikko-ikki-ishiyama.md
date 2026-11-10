@@ -45,6 +45,15 @@ sources:
   - { id: s10, title: "越前一向一揆 — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/越前一向一揆", accessed: 2026-11-03, tier: 百科 }
   - { id: s11, title: "加賀国 — コトバンク（改訂新版 世界大百科事典、日本大百科全書、山川日本史小辞典等）", url: "https://kotobank.jp/word/加賀国", accessed: 2026-11-03, tier: 百科 }
   - { id: s12, title: "富樫政親 — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/富樫政親", accessed: 2026-11-03, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/7/7c/Kennyo02.JPG
+  page: https://commons.wikimedia.org/wiki/File:Kennyo02.JPG
+  title: 顯如像
+  creator: 佚名
+  year: 江戶時代初期
+  holder: 個人藏
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 本願寺第 11 代法主顯如（1543–1592），石山合戰十年籠城的領導者。
 importance: 2
 learn:
   histories: [日本史]

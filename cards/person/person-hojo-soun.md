@@ -36,6 +36,15 @@ sources:
   - { id: s4, title: "黒田基樹《戦国大名・伊勢宗瑞》（角川選書；KADOKAWA 合本版書籍頁，2021）", url: "https://www.kadokawa.co.jp/product/322107001208/", accessed: 2026-11-03, tier: 學術 }
   - { id: s5, title: "小田原市教育委員会《史跡小田原城跡保存活用計画》（2021-03-31）", url: "https://www.city.odawara.kanagawa.jp/global-image/units/545477/1-20220804144639.pdf", accessed: 2026-11-03, tier: 通論 }
   - { id: s6, title: "黒田基樹《下剋上》（講談社現代新書，2021；第二章「伊勢宗瑞の伊豆乱入」）— 講談社書籍頁", url: "https://www.kodansha.co.jp/book/products/0000352571", accessed: 2026-11-03, tier: 學術 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/5/50/Hojo_Soun_%28Sounji_Hakone%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Hojo_Soun_%28Sounji_Hakone%29.jpg
+  title: 北條早雲像（箱根早雲寺藏）
+  creator: 佚名（室町時代畫師）
+  year: 室町時代（16 世紀初）
+  holder: 早雲寺（神奈川縣箱根町，重要文化財）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 氏綱 1521 年在箱根創建早雲寺作為父親的菩提寺，這幅畫像就藏在那裡。畫中人是出家後的「早雲庵宗瑞」；他生前從沒自稱過「北條」。
 importance: 2
 learn:
   histories: [日本史]

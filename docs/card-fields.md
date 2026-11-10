@@ -278,10 +278,10 @@ relations: 他和其他人物卡的關係（主從／同盟／聯姻／敵對／
 
 ```yaml
 images:
-  - url: https://upload.wikimedia.org/wikipedia/commons/x/xx/Odanobunaga.jpg   # 直接圖檔（Commons 檔案頁「原始檔案」連結，或 thumb 的 800px 版本）
+  - url: https://upload.wikimedia.org/wikipedia/commons/x/xx/Odanobunaga.jpg   # 直接圖檔：原圖寬 ≤960px 用原檔；更大用 thumb 的 960px 版本（Commons 只接受固定寬度，800px 會回 400 錯誤）
     page: https://commons.wikimedia.org/wiki/File:Odanobunaga.jpg               # Commons 檔案頁
     title: 織田信長像
-    creator: 狩野元秀（傳）          # 不詳寫「佚名」
+    creator: 狩野宗秀（又名元秀）    # 不詳寫「佚名」
     year: 1583                      # 作品年代，不詳寫「16 世紀」
     holder: 長興寺（愛知縣豐田市）    # 選填：收藏處
     license: Public domain          # 照 Commons 檔案頁的授權寫
@@ -291,3 +291,6 @@ images:
 validate 會檢查：url 是 upload.wikimedia.org、page 是 Commons File: 頁、title／creator／year／license／caption 都有、license 是公有領域或 CC。畫面：卡片頁頂端顯示第一張，點開看全部並附作者、年代、收藏處與 Commons 連結。
 
 授權要**實際打開 Commons 檔案頁確認**才能填。寫卡時若環境連不到 Commons，先照格式寫好，再用 `npx tsx scripts/images-pending.ts strip` 把 images 區塊抽到 `data/pending-images.yaml`，查證後 `restore <card-id>` 放回。
+
+怎麼查（2026-11-10 起雲端環境已允許 commons.wikimedia.org、upload.wikimedia.org）：呼叫 Commons API 一定要帶 User-Agent，否則回 429。
+`https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=960&titles=File:<檔名>&format=json` 會回授權（LicenseShortName）、作者、年代、原圖大小與正確的圖檔網址；API 被限速時改抓 `index.php?title=File:<檔名>&action=raw` 看檔案頁原文的授權模板。查核紀錄見 `docs/image-licenses-sengoku.md`。

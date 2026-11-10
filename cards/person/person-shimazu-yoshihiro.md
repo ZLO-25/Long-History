@@ -39,6 +39,15 @@ sources:
   - { id: s5, title: "新名一仁，《「不屈の両殿」島津義久・義弘》（角川新書，2021）出版社書頁與內容簡介", url: "https://www.kadokawa.co.jp/product/321907000696/", accessed: 2026-11-03, tier: 摘要 }
   - { id: s6, title: "薩摩焼 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/薩摩焼", accessed: 2026-11-03, tier: 百科 }
   - { id: s7, title: "岐阜県図書館，「関ヶ原でたどる 我ら戦跡踏破隊〜島津の退き口・薩州様御遺骸御登り〜」第 2 回古地図散歩報告（2021-10-31，講師草野道雄）", url: "https://www.library.pref.gifu.lg.jp/info-events/2021/12/sanpoR3_2.pdf", accessed: 2026-11-03, tier: 通論 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/4/4b/Shimazu_Yoshihiro.jpg
+  page: https://commons.wikimedia.org/wiki/File:Shimazu_Yoshihiro.jpg
+  title: 島津義弘像
+  creator: 作者不詳
+  year: 江戶時代（推定）
+  holder: 尚古集成館（鹿兒島）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 尚古集成館所藏的島津義弘像，日文維基條目所用；尚古集成館至今仍依系譜把他列為島津第 17 代當主，學界則多認為當主之位是由義久直接傳給忠恆。
 importance: 2
 learn:
   histories: [日本史, 朝鮮半島史]

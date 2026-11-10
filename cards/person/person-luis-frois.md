@@ -39,6 +39,15 @@ sources:
   - { id: s6, title: "安土城 — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/安土城", accessed: 2026-11-03, tier: 百科 }
   - { id: s7, title: "比叡山焼き討ち (1571年) — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/比叡山焼き討ち_(1571年)", accessed: 2026-11-03, tier: 百科 }
   - { id: s8, title: "長島一向一揆 — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/長島一向一揆", accessed: 2026-11-03, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Nanban-Screens-by-Kano-Naizen-c1600.png/960px-Nanban-Screens-by-Kano-Naizen-c1600.png
+  page: https://commons.wikimedia.org/wiki/File:Nanban-Screens-by-Kano-Naizen-c1600.png
+  title: 南蠻屏風
+  creator: 狩野內膳
+  year: 約 1600（慶長年間）
+  holder: 神戶市立博物館
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 描繪南蠻船入港與耶穌會士、葡萄牙商人在日本港市行走的屏風；佛洛伊斯就是這群黑衣教士中的一員。
 importance: 1
 learn:
   histories: [日本史, 世界通史]

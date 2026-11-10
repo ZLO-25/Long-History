@@ -37,6 +37,15 @@ sources:
   - { id: s5, title: "長崎縣廣報誌《検索よかテレ》Vol.9（2017 年 1 月號）：原城跡（出土十字架 36 點、一揆勢ほぼ全員が原城で命を落としました）", url: "https://www.pref.nagasaki.jp/shared/uploads/2016/12/1481612692.pdf", accessed: 2026-11-03, tier: 通論 }
   - { id: s6, title: "中村質，〈島原の乱と佐賀藩〉，《九州文化史研究所紀要》24（1979），頁 57–105 — 九州大學學術情報リポジトリ", url: "https://api.lib.kyushu-u.ac.jp/opac_download_md/7179486/024_p057.pdf", accessed: 2026-11-03, tier: 學術 }
   - { id: s7, title: "神田千里，《島原の乱 キリシタン信仰と武装蜂起》（講談社学術文庫 2018；原 2005 年中公新書）— 講談社書籍頁", url: "https://www.kodansha.co.jp/titles/1000031367", accessed: 2026-11-04, tier: 學術 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Shimabara_Rebellion_Battle_Folding_Screen_by_Saito_Shuho.jpg/960px-Shimabara_Rebellion_Battle_Folding_Screen_by_Saito_Shuho.jpg
+  page: https://commons.wikimedia.org/wiki/File:Shimabara_Rebellion_Battle_Folding_Screen_by_Saito_Shuho.jpg
+  title: 島原之亂圖屏風（原城攻防）
+  creator: 齋藤秋圃
+  year: 1837 年
+  holder: 北九州市立自然史・歷史博物館
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 江戶後期畫家齋藤秋圃所繪的原城攻防；亂事過後約兩百年才畫，是後人想像的戰場，不是當時的紀錄。
 importance: 3
 learn:
   histories: [日本史, 世界通史]

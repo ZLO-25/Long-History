@@ -35,6 +35,15 @@ sources:
   - { id: s5, title: "戦国時代 (日本) — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/戦国時代_(日本)", accessed: 2026-11-03, tier: 百科 }
   - { id: s6, title: "鉄砲伝来 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/鉄砲伝来", accessed: 2026-11-03, tier: 百科 }
   - { id: s7, title: "長篠の戦い — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/長篠の戦い", accessed: 2026-11-03, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Kan%C5%8D_Eitoku_-_Rakuch%C5%AB_rakugai_zu_%28Uesugi%29_-_left_screen.jpg/960px-Kan%C5%8D_Eitoku_-_Rakuch%C5%AB_rakugai_zu_%28Uesugi%29_-_left_screen.jpg
+  page: https://commons.wikimedia.org/wiki/File:Kan%C5%8D_Eitoku_-_Rakuch%C5%AB_rakugai_zu_%28Uesugi%29_-_left_screen.jpg
+  title: 洛中洛外圖屏風（上杉本）左隻
+  creator: 狩野永德
+  year: 1565
+  holder: 米澤市上杉博物館（國寶）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 戰國中期的京都：應仁之亂近百年後的市街、祭禮與武家宅邸；1574 年織田信長把這對屏風送給上杉謙信。
 importance: 3
 learn:
   histories: [日本史]

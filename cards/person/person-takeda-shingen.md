@@ -48,6 +48,15 @@ sources:
   - { id: s12, title: "敵に塩を送る — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/敵に塩を送る", accessed: 2026-11-03, tier: 百科 }
   - { id: s13, title: "上杉謙信 — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/上杉謙信", accessed: 2026-11-03, tier: 百科 }
   - { id: s14, title: "Kōyō Gunkan — Wikipedia", url: "https://en.wikipedia.org/wiki/K%C5%8Dy%C5%8D_Gunkan", accessed: 2026-11-03, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Takeda_Harunobu.jpg/960px-Takeda_Harunobu.jpg
+  page: https://commons.wikimedia.org/wiki/File:Takeda_Harunobu.jpg
+  title: 傳武田信玄像（高野山持明院藏本）
+  creator: 佚名（持明院本；教科書常見的另一幅是成慶院藏、傳長谷川等伯筆）
+  year: 16 世紀後半（桃山時代）
+  holder: 高野山持明院（和歌山縣）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 高野山持明院藏的「信玄像」。像主是不是信玄，1990 年代以來一直有爭論，近年肖像畫研究把「像主怎麼確定」本身當成課題，看圖時請把它當「傳」信玄像。
 importance: 2
 learn:
   histories: [日本史]

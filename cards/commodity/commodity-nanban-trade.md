@@ -43,6 +43,15 @@ sources:
   - { id: s10, title: "南蛮屏風 — コトバンク（日本大百科全書、山川日本史小辞典、百科事典マイペディア等）", url: "https://kotobank.jp/word/南蛮屏風", accessed: 2026-11-03, tier: 百科 }
   - { id: s11, title: "Red seal ships — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Red_seal_ships", accessed: 2026-11-04, tier: 百科 }
   - { id: s12, title: "Zheng Zhilong — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Zheng_Zhilong", accessed: 2026-11-04, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Nanbansen_Carrack_by_Kano_Naizen.jpg/960px-Nanbansen_Carrack_by_Kano_Naizen.jpg
+  page: https://commons.wikimedia.org/wiki/File:Nanbansen_Carrack_by_Kano_Naizen.jpg
+  title: 南蠻屏風（左隻局部）：南蠻船入港
+  creator: 狩野內膳
+  year: 1588–1616 年間（約 1600）
+  holder: 里斯本國立古代美術館（葡萄牙）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 狩野內膳畫的南蠻船（葡萄牙克拉克帆船）與黑人水手、葡萄牙商人；南蠻屏風通常一邊畫船入港、一邊畫南蠻人在港町遊行。
 importance: 3
 learn:
   histories: [日本史, 錢的歷史, 世界通史]

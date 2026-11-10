@@ -33,6 +33,15 @@ sources:
   - { id: s3, title: "Asia for Educators（Columbia University）：Limitation on the Propagation of Christianity / Expulsion of Missionaries（1587，英譯）", url: "https://afe.easia.columbia.edu/main_pop/ps/ps_japan-tokugawa-edicts-christianity.htm", accessed: 2026-10-25, tier: 一手 }
   - { id: s4, title: "Imjin War — Wikipedia", url: "https://en.wikipedia.org/wiki/Imjin_War", accessed: 2026-10-25, tier: 百科 }
   - { id: s5, title: "豊臣秀吉 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/豊臣秀吉", accessed: 2026-11-03, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Toyotomi_Hideyoshi_%28Kodaiji%29.jpg/960px-Toyotomi_Hideyoshi_%28Kodaiji%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Toyotomi_Hideyoshi_%28Kodaiji%29.jpg
+  title: 豐臣秀吉像（高台寺藏）
+  creator: 狩野光信（Commons 標示）；南化玄興題贊
+  year: 1601 年頃
+  holder: 高台寺（京都）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 秀吉死後不久所繪、由正室寧寧（北政所）創建的高台寺所藏的肖像，是最常被引用的秀吉像之一。
 importance: 2
 learn:
   histories: [日本史]

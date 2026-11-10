@@ -41,6 +41,23 @@ sources:
   - { id: s6, title: "支倉常長 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/支倉常長", accessed: 2026-11-03, tier: 百科 }
   - { id: s7, title: "Hasekura Tsunenaga — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Hasekura_Tsunenaga", accessed: 2026-11-03, tier: 百科 }
   - { id: s8, title: "一国一城令 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/一国一城令", accessed: 2026-11-03, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/a/aa/Date_Masamune.jpg
+  page: https://commons.wikimedia.org/wiki/File:Date_Masamune.jpg
+  title: 伊達政宗像
+  creator: 狩野安信
+  year: 1676 年頃
+  holder: 仙台市博物館
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 依政宗遺言，死後畫像一律畫成雙眼俱全；他生前沒有任何戴眼罩的紀錄。
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/HasekuraPrayer.jpg/960px-HasekuraPrayer.jpg
+  page: https://commons.wikimedia.org/wiki/File:HasekuraPrayer.jpg
+  title: 支倉常長像（祈禱姿）
+  creator: 佚名（一說 Archita Ricci）
+  year: 1615
+  holder: 仙台市博物館（國寶「慶長遣歐使節關係資料」）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 1615 年在歐洲所繪的油畫，常長 1620 年帶回仙台；是日本人最早的油畫肖像之一，2001 年列為國寶。
 importance: 2
 learn:
   histories: [日本史, 世界通史]

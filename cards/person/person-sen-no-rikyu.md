@@ -40,6 +40,15 @@ sources:
   - { id: s6, title: "The Metropolitan Museum of Art：Portrait of Sen no Rikyū with his Death Poem（17 世紀初，表千家如心齋宗左題）", url: "https://www.metmuseum.org/art/collection/search/845141", accessed: 2026-11-03, tier: 通論 }
   - { id: s8, title: "山上宗二 — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/山上宗二", accessed: 2026-11-03, tier: 百科 }
   - { id: s7, title: "Theodore M. Ludwig, Before Rikyū: Religious and Aesthetic Influences in the Early History of the Tea Ceremony, Monumenta Nipponica 36:4（1981），pp. 367–390（Sophia University）", url: "https://dept.sophia.ac.jp/monumenta/article/before-rikyu-religious-and-aesthetic-influences-in-the-early-history-of-the-tea-ceremony/", accessed: 2026-11-03, tier: 學術 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sen_no_Rikyu_JPN.jpg/960px-Sen_no_Rikyu_JPN.jpg
+  page: https://commons.wikimedia.org/wiki/File:Sen_no_Rikyu_JPN.jpg
+  title: 千利休像
+  creator: 長谷川等伯（傳）、春屋宗園贊
+  year: 1595
+  holder: 表千家不審菴（京都）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 利休死後四年所繪、附春屋宗園 1595 年題贊的坐像，是後世所有利休像的原型。
 importance: 2
 learn:
   histories: [日本史]

@@ -42,6 +42,15 @@ sources:
   - { id: s8, title: "黒田基樹《下剋上》（講談社現代新書，2021；第四章「長尾為景・景虎（上杉謙信）の幸運」）— 講談社書籍頁", url: "https://www.kodansha.co.jp/book/products/0000352571", accessed: 2026-11-03, tier: 學術 }
   - { id: s9, title: "山形県指定有形文化財 銅造毘沙門天立像（法音寺藏，原春日山城毘沙門堂本尊）指定資料 — 山形県", url: "https://www.pref.yamagata.jp/documents/19483/20220405bisyamonten.pdf", accessed: 2026-11-03, tier: 通論 }
   - { id: s10, title: "Battles of Kawanakajima — Wikipedia", url: "https://en.wikipedia.org/wiki/Battles_of_Kawanakajima", accessed: 2026-11-03, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/8/88/Uesugi_Kenshin_Portrait_from_Uesugi_Shrine.png
+  page: https://commons.wikimedia.org/wiki/File:Uesugi_Kenshin_Portrait_from_Uesugi_Shrine.png
+  title: 上杉謙信像（上杉神社藏）
+  creator: 佚名
+  year: 17 世紀
+  holder: 上杉神社（山形縣米澤市）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 米澤上杉神社所藏的謙信像，頭巾僧衣是他 1570 年出家為「不識庵謙信」後的形象。畫像的年代與畫師都不確定，請當作後人心中的謙信，而不是寫真。
 importance: 2
 learn:
   histories: [日本史]

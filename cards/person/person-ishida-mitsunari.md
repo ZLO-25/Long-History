@@ -38,6 +38,15 @@ sources:
   - { id: s3, title: "藤井讓治，〈「所司代」石田三成・増田長盛と前田玄以〉，《東京大学史料編纂所研究紀要》第 35 號，2025-03", url: "https://www.hi.u-tokyo.ac.jp/publication/kiyo/35/kiyo0035-02.pdf", accessed: 2026-11-03, tier: 學術 }
   - { id: s4, title: "鍋島直茂宛て豊臣家五奉行連署状（慶長 3 年 8 月 25 日，公益財團法人鍋島報效會藏）— 文化遺産オンライン", url: "https://online.bunka.go.jp/db/heritages/detail/285126/1", accessed: 2026-11-03, tier: 一手 }
   - { id: s5, title: "前原正美，〈石田三成と西郷隆盛の政治思想〉，《東洋学園大学紀要》第 25 號，2017-03（機構典藏書目與要旨頁）", url: "https://togaku.repo.nii.ac.jp/records/119", accessed: 2026-11-03, tier: 學術 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Ishida_Mitsunari.jpg/960px-Ishida_Mitsunari.jpg
+  page: https://commons.wikimedia.org/wiki/File:Ishida_Mitsunari.jpg
+  title: 石田三成像（東京大學史料編纂所藏模寫）
+  creator: 作者不詳（近代模寫，原本為江戶時代肖像）
+  year: 17 世紀（Commons 標示）
+  holder: 東京大學史料編纂所
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 日文維基條目所用的石田三成像，圖說為「東京大学史料編纂所所蔵」；戰國武將的傳世肖像多為後世摹本，不能當成寫真看。
 importance: 2
 learn:
   histories: [日本史, 朝鮮半島史]

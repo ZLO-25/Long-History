@@ -37,6 +37,15 @@ sources:
   - { id: s6, title: "琉球侵攻 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/琉球侵攻", accessed: 2026-11-04, tier: 百科 }
   - { id: s7, title: "朝鮮通信使 — ウィキペディア日本語版", url: "https://ja.wikipedia.org/wiki/朝鮮通信使", accessed: 2026-11-04, tier: 百科 }
   - { id: s8, title: "己酉約条 — ウィキペディア日本語版", url: "https://ja.wikipedia.org/wiki/己酉約条", accessed: 2026-11-04, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/b/b9/View_of_Deshima_in_Nagasaki_Bay_by_Kawahara_Keiga.jpg
+  page: https://commons.wikimedia.org/wiki/File:View_of_Deshima_in_Nagasaki_Bay_by_Kawahara_Keiga.jpg
+  title: 長崎港出島圖屏風
+  creator: 川原慶賀
+  year: 1836 年頃
+  holder: 荷蘭國立民族學博物館（萊頓）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 長崎畫家川原慶賀所繪的出島與長崎港：扇形的人工島上是荷蘭商館，港內停著荷蘭船。
 importance: 3
 learn:
   histories: [日本史]

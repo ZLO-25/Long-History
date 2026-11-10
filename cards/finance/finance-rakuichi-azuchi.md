@@ -38,6 +38,15 @@ sources:
   - { id: s6, title: "関所 — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/関所", accessed: 2026-11-03, tier: 百科 }
   - { id: s7, title: "出口治明，〈やはり信長の経済感覚は時代の先をいっていた…〉（《日本史の極意》抜粋），PRESIDENT Online，2026-03-20", url: "https://president.jp/articles/-/110271", accessed: 2026-11-03, tier: 摘要 }
   - { id: s8, title: "滋賀県：安土城・摠見寺関係年表（PDF）", url: "https://www.pref.shiga.lg.jp/file/attachment/2042215.pdf", accessed: 2026-11-03, tier: 通論 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Odanobunaga.jpg/960px-Odanobunaga.jpg
+  page: https://commons.wikimedia.org/wiki/File:Odanobunaga.jpg
+  title: 織田信長像
+  creator: 狩野宗秀（又名元秀）
+  year: 1583
+  holder: 長興寺（愛知縣豐田市）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 信長死後隔年所繪的畫像；加納與安土的樂市令都以他的名義發出。
 importance: 2
 learn:
   histories: [日本史, 錢的歷史]

@@ -33,6 +33,15 @@ sources:
   - { id: s3, title: "Eric Axelson, Popular Fallacies about the Dias Voyage 1487–1488 — Historia（University of Pretoria）", url: "https://upjournals.up.ac.za/index.php/historia/article/download/2611/2459/10214", accessed: 2026-11-02, tier: 學術 }
   - { id: s4, title: "Prince Henry the Navigator — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Prince_Henry_the_Navigator", accessed: 2026-11-03, tier: 百科 }
   - { id: s5, title: "鉄砲伝来 — Wikipedia（日文）", url: "https://ja.wikipedia.org/wiki/鉄砲伝来", accessed: 2026-11-03, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Nanbansen_Carrack_by_Kano_Naizen.jpg/960px-Nanbansen_Carrack_by_Kano_Naizen.jpg
+  page: https://commons.wikimedia.org/wiki/File:Nanbansen_Carrack_by_Kano_Naizen.jpg
+  title: 南蠻屏風（局部）：葡萄牙黑船入港
+  creator: 狩野內膳
+  year: 1600 年頃
+  holder: 里斯本國立古代美術館（葡萄牙）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 日本畫家筆下的葡萄牙大帆船（黑船）與南蠻商人：16 世紀末日本人看葡萄牙帝國的樣子。
 importance: 3
 learn:
   histories: [歐洲史, 世界通史]

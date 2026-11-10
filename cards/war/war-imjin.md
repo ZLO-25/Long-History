@@ -39,6 +39,15 @@ sources:
   - { id: s10, title: "己酉約条 — ウィキペディア日本語版", url: "https://ja.wikipedia.org/wiki/己酉約条", accessed: 2026-11-04, tier: 百科 }
   - { id: s11, title: "Kang Hang — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Kang_Hang", accessed: 2026-11-04, tier: 百科 }
   - { id: s12, title: "Arita ware — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Arita_ware", accessed: 2026-11-04, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/3/34/Busanjinsunjeoldo.jpg
+  page: https://commons.wikimedia.org/wiki/File:Busanjinsunjeoldo.jpg
+  title: 釜山鎮殉節圖
+  creator: 卞璞
+  year: 1760
+  holder: 陸軍博物館（韓國，寶物第 391 號）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 描繪 1592 年日軍登陸釜山、守將鄭撥戰死的場面；作於戰後一百多年，是朝鮮王朝紀念殉節者的官方繪畫。
 importance: 3
 learn:
   histories: [朝鮮半島史, 日本史, 中國史]

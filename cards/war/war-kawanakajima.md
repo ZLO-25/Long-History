@@ -37,6 +37,15 @@ sources:
   - { id: s5, title: "Kōyō Gunkan — Wikipedia", url: "https://en.wikipedia.org/wiki/K%C5%8Dy%C5%8D_Gunkan", accessed: 2026-11-03, tier: 百科 }
   - { id: s6, title: "武田信玄 — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/武田信玄", accessed: 2026-11-03, tier: 百科 }
   - { id: s7, title: "上杉謙信 — Wikipedia（日本語）", url: "https://ja.wikipedia.org/wiki/上杉謙信", accessed: 2026-11-03, tier: 百科 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Eiroku_yo-nen_ku-gatsu_Kawanakajima_o-kassen_%E6%B0%B8%E7%A6%84%E5%9B%9B%E5%B9%B4%E4%B9%9D%E6%9C%88%E5%B7%9D%E4%B8%AD%E5%B3%B6%E5%A4%A7%E5%90%88%E6%88%A6_%284th_Year%2C_9th_Month_of_the_Eiroku_Era%2C_Battle_of_Kawanakajima%29_%28BM_2008%2C3037.18413%29.jpg/960px-thumbnail.jpg
+  page: https://commons.wikimedia.org/wiki/File:Eiroku_yo-nen_ku-gatsu_Kawanakajima_o-kassen_%E6%B0%B8%E7%A6%84%E5%9B%9B%E5%B9%B4%E4%B9%9D%E6%9C%88%E5%B7%9D%E4%B8%AD%E5%B3%B6%E5%A4%A7%E5%90%88%E6%88%A6_%284th_Year%2C_9th_Month_of_the_Eiroku_Era%2C_Battle_of_Kawanakajima%29_%28BM_2008%2C3037.18413%29.jpg
+  title: 永禄四年九月川中島大合戦（歌川國芳，大英博物館藏 2008,3037.18413）
+  creator: 歌川國芳（1798–1861）
+  year: 1854 年
+  holder: 大英博物館（2008,3037.18413）
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 江戶後期浮世繪師歌川國芳畫的第四次川中島合戰。兩家都已滅亡，幕府不忌諱，所以江戶時代這類合戰圖大量流行，今天對「川中島」的印象多半來自它們，而不是當時的文書。
 importance: 2
 learn:
   histories: [日本史]

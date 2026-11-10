@@ -37,6 +37,15 @@ sources:
   - { id: s2, title: "Yodo-dono — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Yodo-dono", accessed: 2026-11-03, tier: 百科 }
   - { id: s3, title: "田端泰子，〈「大坂冬・夏の陣」に収斂する淀殿の役割〉，《女性歴史文化研究所紀要》第 11 號，京都橘女子大學，2003-03，頁 1–25", url: "https://tachibana.repo.nii.ac.jp/record/328/files/joseirekishi_011_1-25.pdf", accessed: 2026-11-03, tier: 學術 }
   - { id: s4, title: "方広寺大仏鐘銘〈清韓筆〉（國指定文化財・書跡，1950 年指定，MOA 美術館藏）— しずおか文化財ナビ（靜岡縣）", url: "https://www.pref.shizuoka.jp/kankosports/bunkageijutsu/bunkazai/1002825/1041003/1041884/1004983/1021367.html", accessed: 2026-11-03, tier: 通論 }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Yodo-dono.jpg/960px-Yodo-dono.jpg
+  page: https://commons.wikimedia.org/wiki/File:Yodo-dono.jpg
+  title: 傳淀殿畫像
+  creator: 作者不詳
+  year: 江戶時代（推定）
+  holder: 奈良縣立美術館
+  license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）
+  caption: 奈良縣立美術館所藏《傳淀殿畫像》，日文維基條目所用；「傳」字表示畫中人是否為淀殿只是傳稱。
 importance: 2
 learn:
   histories: [日本史]

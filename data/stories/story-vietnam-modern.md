@@ -70,7 +70,7 @@ recall:
 
 越南人不是被統治之後就安靜接受。五十多年裡，反抗的人換了三代，辦法也換了三種。[event-vietnam-anticolonial:s1][event-vietnam-anticolonial:s2] 第一代人的辦法是保衛皇帝。1885 年 7 月法軍將領進入順化，要求皇帝出來迎接，主戰的大臣尊室說等人夜襲法軍失敗，帶著年少的咸宜帝逃進山區，發出〈勤王詔〉號召全國起兵。**勤王**的意思是「幫助國王」。[event-vietnam-anticolonial:s1][event-vietnam-anticolonial:s3] 但朝廷並不是全體一起反抗，法國很快另立了一位皇帝，也有官員配合法國。1888 年咸宜帝被俘，流放到阿爾及利亞，勤王軍在 1896 年前後也被平定。[event-vietnam-anticolonial:s1]
 
-第二代是讀書人，他們想靠新知識。日本經過明治維新，又剛打敗俄國，潘佩珠把越南青年送到日本留學，叫做東遊運動；他認為要靠武力和外國的幫助才能趕走法國。潘周楨則反對暴力，也反對依賴外國，主張先辦教育、改革社會。潘佩珠自己回憶，兩人的意見「完全相反」。[event-vietnam-anticolonial:s2][event-vietnam-anticolonial:s5] 兩條路都被堵住了：1907 年河內的東京義塾教國語字（用拉丁字母拼寫越南話的文字）和科學，幾個月後就被法國關閉；1908 年潘周楨在抗稅風潮後被捕，1909 年日本在法國壓力下驅逐了潘佩珠。[event-vietnam-anticolonial:s4][tech-vietnam-scripts:s4][event-vietnam-anticolonial:s5][event-vietnam-anticolonial:s2]
+第二代是讀書人，他們想靠新知識。日本經過明治維新，又剛打敗俄國，潘佩珠把越南青年送到日本留學，叫做東遊運動；他認為要靠武力和外國的幫助才能趕走法國。潘周楨則反對暴力，也反對依賴外國，主張先辦教育、改革社會。潘佩珠自己回憶，兩人的意見「完全相反」。[event-vietnam-anticolonial:s2][event-vietnam-anticolonial:s5] 兩條路都被堵住了：1907 年河內的東京義塾（這裡的「東京」是當時對越南北部的稱呼，不是日本的東京）教國語字（用拉丁字母拼寫越南話的文字）和科學，幾個月後就被法國關閉；1908 年潘周楨在抗稅風潮後被捕，1909 年日本在法國壓力下驅逐了潘佩珠。[event-vietnam-anticolonial:s4][tech-vietnam-scripts:s4][event-vietnam-anticolonial:s5][event-vietnam-anticolonial:s2]
 
 第三代組了政黨，有黨綱，也有祕密組織。1927 年成立的越南國民黨以中國國民黨為模範，1930 年 2 月在安沛起義，不到 24 小時就失敗，領袖阮太學等 13 人被處死。[event-vietnam-anticolonial:s6][event-vietnam-anticolonial:s7] 同一個月，胡志明在香港九龍合併幾個共產團體，成立共產黨。1930 到 1931 年，義安、河靜的農民和工人罷工、示威，還自己組織政權；法軍出動飛機轟炸示威人群，總共有一千多人死亡。[event-vietnam-anticolonial:s9][event-vietnam-anticolonial:s8]
 

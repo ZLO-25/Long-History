@@ -6,7 +6,7 @@
 import type { Card, CauseLink, CauseRel, CauseSource, Index, Storyline } from '../types';
 import { cardEn } from '../lib/bilingual';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { StoryReader, ReadBadge, setReadParam, wantsRead, storyProgress, readStories } from './StoryReader';
 import './story.css';
 
@@ -200,8 +200,38 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
   // 故事閱讀頁（?read=1）：全螢幕蓋在上面；關掉回到這一頁
   const [reading, setReading] = useState(() => !!s?.read && wantsRead(id));
   const readBtn = useRef<HTMLButtonElement>(null);
-  const openRead = () => { setReading(true); setReadParam(true); };
-  const closeRead = useCallback(() => { setReading(false); setReadParam(false); requestAnimationFrame(() => readBtn.current?.focus()); }, []);
+  // 開閱讀頁時在瀏覽紀錄多放一筆，瀏覽器「上一頁」（手機的返回手勢）就是關閉閱讀頁，不會離開網站
+  const pushed = useRef(false);
+  const afterBack = useRef<(() => void) | null>(null);
+  const idRef = useRef(id); idRef.current = id;
+  const openRead = () => {
+    const q = new URLSearchParams(location.search); q.set('read', '1');
+    history.pushState({ storyRead: 1 }, '', `${location.pathname}?${q}`);
+    pushed.current = true; setReading(true);
+  };
+  const closeRead = useCallback(() => {
+    if (pushed.current) { history.back(); return; }
+    setReading(false); setReadParam(false); requestAnimationFrame(() => readBtn.current?.focus());
+  }, []);
+  useEffect(() => {
+    const onPop = () => {
+      if (!pushed.current) return;
+      pushed.current = false;
+      setReading(false);
+      const then = afterBack.current; afterBack.current = null;
+      if (then) { then(); return; }
+      // 讀到一半按過「下一個故事」時，退回的網址還是上一篇：改成現在這一篇
+      const q = new URLSearchParams(location.search); q.set('story', idRef.current); q.delete('read');
+      history.replaceState(null, '', `${location.pathname}?${q}`);
+      requestAnimationFrame(() => readBtn.current?.focus());
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+  // 從故事打開卡片：先退掉閱讀頁那一筆紀錄，再開卡片
+  const openFromRead = useCallback((cid: string) => {
+    if (pushed.current) { afterBack.current = () => onOpen(cid); history.back(); } else onOpen(cid);
+  }, [onOpen]);
   if (!s) return <div className="story-view"><p>找不到這條故事線。</p><button className="link" onClick={onAll}>看全部故事線</button></div>;
   const m = byIdOf(index);
   const first = m.get(s.stops[0].id), last = m.get(s.stops[s.stops.length - 1].id);
@@ -221,7 +251,7 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
           </div>
         );
       })()}
-      {reading && s.read && <StoryReader story={s} index={index} onClose={closeRead} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} onStory={onStory} />}
+      {reading && s.read && <StoryReader story={s} index={index} onClose={closeRead} onOpen={openFromRead} canOpen={canOpen} researchHref={researchHref} onStory={onStory} />}
       {s.read && <h3 className="sv-walk">一站一站看因果<small>每兩站之間說明「怎麼造成的」</small></h3>}
       <p className="muted small">{s.stops.length} 站{first && last && `・${fmtRange(first.time.start, last.time.end)}`}・每兩站之間的說明，就是兩張卡之間的前因／後果關係。{onMap && <button className="link" onClick={onMap}>在地圖上看</button>}</p>
       <ol className="sv-line">

@@ -56,9 +56,9 @@ recall:
 
 ## 海峽這一邊的鈔票 {finance-taiwan-1949-currency}
 
-臺灣這邊的物價，不是等到 1948 年才出問題，而是從 1945 年戰爭結束後就開始失控。[finance-taiwan-1949-currency:s1][finance-taiwan-1949-currency:s3] 1946 年 5 月起，臺灣銀行發行後來被稱為舊臺幣的鈔票。[finance-taiwan-1949-currency:s1] 多出來的錢有幾個來源：臺灣銀行先是放款給缺錢的公營事業，後來又替中央政府墊付軍公經費，內戰的帳單就這樣有一部分記到了臺灣頭上。[finance-taiwan-1949-currency:s5] 1948 年上海金融危機和金圓券改革之後，熱錢又流進來，物價壓力更大。[finance-taiwan-1949-currency:s1][finance-taiwan-1949-currency:s5]
+臺灣這邊的物價，不是等到 1948 年才出問題，而是從 1945 年戰爭結束後就開始失控。[finance-taiwan-1949-currency:s1][finance-taiwan-1949-currency:s3] 1946 年 5 月起，臺灣銀行發行後來被稱為舊臺幣的鈔票。[finance-taiwan-1949-currency:s1] 多出來的錢有幾個來源：臺灣銀行先是放款給缺錢的公營事業，後來又替中央政府墊付軍公經費，內戰的帳單就這樣有一部分記到了臺灣頭上。[finance-taiwan-1949-currency:s5] 1948 年上海金融危機和金圓券改革之後，熱錢（為了避險而快速流動的資金）又流進來，物價壓力更大。[finance-taiwan-1949-currency:s1][finance-taiwan-1949-currency:s5]
 
-數字可以說明這有多嚴重。臺幣的發行額從 1945 年 10 月的大約 29 億元，增加到 1949 年 6 月 14 日的 5,270 多億元，這是估計的數字。[finance-taiwan-1949-currency:s7] 鈔票的面額越印越大，最後出現一萬元的鈔票。[finance-taiwan-1949-currency:s1] 學者吳聰敏和高櫻芬估計，從 1945 年底到 1950 年底，臺灣的貨幣數量和躉售物價都漲了 6,000 倍以上；物價跟著鈔票走，根本原因是鈔票發得太多。[finance-taiwan-1949-currency:s4]
+數字可以說明這有多嚴重。臺幣的發行額從 1945 年 10 月的大約 29 億元，增加到 1949 年 6 月 14 日的 5,270 多億元，這是估計的數字。[finance-taiwan-1949-currency:s7] 鈔票的面額越印越大，最後出現一萬元的鈔票。[finance-taiwan-1949-currency:s1] 學者吳聰敏和高櫻芬估計，從 1945 年底到 1950 年底，臺灣的貨幣數量和躉售物價（批發價格）都漲了 6,000 倍以上；物價跟著鈔票走，根本原因是鈔票發得太多。[finance-taiwan-1949-currency:s4]
 
 於是有了開頭那一幕。1949 年 6 月 15 日的改革，除了四萬換一元，還有三條規則。第一，新臺幣最多只發 2 億元。第二，撥 80 萬兩黃金當準備，也就是發鈔票的銀行手上留著真正值錢的東西，讓人相信鈔票不是空頭支票；這批黃金估計約值 4,400 萬美元，比 2 億元新臺幣折合的 4,000 萬美元還多。第三，第二天起停止和金圓券等大陸貨幣兌換，切斷熱錢的管道。[finance-taiwan-1949-currency:s3][finance-taiwan-1949-currency:s7] 「四萬換一塊」並不是一夕之間讓大家變窮。窮是前幾年物價暴漲造成的，換鈔只是把數字的零拿掉。[finance-taiwan-1949-currency:s3][finance-taiwan-1949-currency:s4]
 

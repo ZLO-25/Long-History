@@ -1,5 +1,5 @@
 // node story-read.cjs baseUrl [截圖資料夾] → 故事閱讀頁（docs/stories.md）：
-// 每條故事線都有故事、入口、閱讀頁（進度、目錄、字級、出處、打開卡片再回來接著讀、讀完打勾、下一個故事），研究／學習、桌機／手機都測
+// 每條故事線都有故事、入口、閱讀頁（翻頁／捲動、一頁字數、進度、目錄、字級、出處、打開卡片再回來接著讀、考考自己、讀完打勾、下一個故事），研究／學習、桌機／手機都測
 const { chromium } = require('playwright');
 const fs = require('fs');
 (async () => {
@@ -22,8 +22,11 @@ const fs = require('fs');
   ok(!none.length, `每條故事線都有故事（${lines.length} 條）${none.length ? '；缺：' + none.map((s) => s.id).join(' ') : ''}`);
   const docs = [];
   for (const s of lines.filter((x) => x.read)) docs.push(await (await fetch(`${base}data/stories/${s.id}.json`)).json());
-  ok(docs.every((d) => d.chars >= 1500 && d.chars <= 4500 && d.minutes >= 5 && d.minutes <= 15), `每篇 1,500–4,500 字、5–15 分鐘（${docs.map((d) => d.minutes).join('、')} 分鐘）`);
-  ok(docs.every((d) => d.sections.every((sec) => sec.blocks.every((x) => /\[\^\d+\]/.test(x.text)))), '每一段都有出處');
+  ok(docs.every((d) => d.chars >= 1500 && d.chars <= 7500 && d.minutes >= 5 && d.minutes <= 25), `每篇 1,500–7,500 字、5–25 分鐘（${docs.map((d) => d.minutes).join('、')} 分鐘）`);
+  ok(docs.every((d) => d.sections.every((sec) => sec.blocks.every((x) => x.kind === 'key' || /\[\^\d+\]/.test(x.text)))), '每一段都有出處');
+  ok(docs.every((d) => d.recall && d.recall.length >= 3 && d.sections.filter((x) => x.cards.length).every((x) => x.blocks.some((k) => k.kind === 'key'))), '每篇都有「考考自己」，每個有站的小節都有一句「記住」');
+  const avgPara = docs.map((d) => { const ps = d.sections.flatMap((x) => x.blocks.filter((k) => k.kind === 'p')); return Math.round(ps.reduce((n, x) => n + x.text.replace(/\[\^\d+\]|\*\*/g, '').length, 0) / ps.length); });
+  ok(avgPara.every((n) => n >= 100), `段落不零碎：每篇平均一段 ${Math.min(...avgPara)}–${Math.max(...avgPara)} 字`);
   ok(docs.every((d) => { const want = lines.find((s) => s.id === d.id).stops.map((x) => x.id); const got = d.sections.flatMap((x) => x.cards); return want.every((id) => got.includes(id)); }), '每篇故事都講到故事線的每一站');
   ok(docs.every((d) => d.remember.length >= 2 && d.think.length >= 2 && d.hook), '每篇都有引子、「記住這幾件事」、「想一想」');
   ok(docs.every((d) => !/李彔|哈拉瑞/.test(JSON.stringify(d.sections))), '故事裡不寫思想家解讀');
@@ -33,7 +36,7 @@ const fs = require('fs');
   const doc = docs.find((d) => d.id === pick.id);
 
   for (const [mode, vw, vh, tag] of [['research', 1280, 800, 'research-1280'], ['learn', 1280, 800, 'learn-1280'], ['learn', 390, 800, 'learn-390'], ['research', 390, 800, 'research-390']]) {
-    const ctx = await b.newContext({ viewport: { width: vw, height: vh }, deviceScaleFactor: 2 });
+    const ctx = await b.newContext({ viewport: { width: vw, height: vh }, deviceScaleFactor: 2, hasTouch: vw < 700 });
     const p = await ctx.newPage(); watch(p);
     await p.goto(`${base}?mode=${mode}&story=${pick.id}`);
     await p.waitForSelector('.sv-read-btn');
@@ -46,50 +49,102 @@ const fs = require('fs');
     ok((await p.locator('.sr-sec').count()) === doc.sections.length, `[${tag}] 閱讀頁有 ${doc.sections.length} 節`);
     ok((await p.locator('.sr-stop').count()) === doc.sections.reduce((n, s) => n + s.cards.length, 0), `[${tag}] 每節標出對應的站`);
     ok((await p.locator('.sr-cite a').count()) > 10, `[${tag}] 內文有出處小數字`);
-    const m = await p.evaluate(() => { const el = document.querySelector('.sr-page'); const pp = el.querySelector('.sr-sec p'); const cs = getComputedStyle(pp); return { fs: parseFloat(cs.fontSize), lh: parseFloat(cs.lineHeight), w: pp.getBoundingClientRect().width, over: document.querySelector('.sr-overlay').scrollWidth > window.innerWidth }; });
-    ok(m.fs >= 17 && m.lh / m.fs >= 1.8 && m.w / m.fs <= 38 && !m.over, `[${tag}] 字 ${m.fs}px、行距 ${(m.lh / m.fs).toFixed(2)}、每行約 ${Math.round(m.w / m.fs)} 字、沒有橫向捲動`);
+    // ---- 翻頁模式（預設）：一個畫面要有夠多字，不必一直滑 ----
+    ok(await p.locator('.sr-overlay.sr-paged').count() === 1 && await p.locator('.sr-pager').isVisible(), `[${tag}] 預設是翻頁模式，下方有翻頁列`);
+    const pageInfo = async () => { const t = await p.textContent('.sr-pageno'); const mm = t.match(/第 (\d+)／(\d+) 頁/); return { page: +mm[1], pages: +mm[2] }; };
+    const visibleChars = () => p.evaluate(() => { const v = document.querySelector('.sr-view').getBoundingClientRect(); let c = 0; const w = document.createTreeWalker(document.querySelector('.sr-page'), NodeFilter.SHOW_TEXT); const r = document.createRange(); while (w.nextNode()) { const t = w.currentNode; for (let i = 0; i < t.length; i++) { r.setStart(t, i); r.setEnd(t, i + 1); const q = r.getBoundingClientRect(); if (q.width && q.left >= v.left - 1 && q.right <= v.right + 1) c++; } } return c; });
+    const m = await p.evaluate(() => { const pp = document.querySelector('.sr-sec > p:not(.sr-key)'); const cs = getComputedStyle(pp); return { fs: parseFloat(cs.fontSize), lh: parseFloat(cs.lineHeight), w: pp.getBoundingClientRect().width, over: document.documentElement.scrollWidth > window.innerWidth }; });
+    ok(m.fs >= 16 && m.lh / m.fs >= 1.6 && m.lh / m.fs <= 1.85 && m.w / m.fs <= 38 && !m.over, `[${tag}] 字 ${m.fs}px、行距 ${(m.lh / m.fs).toFixed(2)}、每行約 ${Math.round(m.w / m.fs)} 字、沒有橫向捲動`);
+    ok((await p.locator('.sr-route li').count()) === pick.stops.length, `[${tag}] 開頭列出會走過的 ${pick.stops.length} 站`);
     await p.waitForTimeout(300);
     await p.screenshot({ path: `${out}/reader-top-${tag}.png` });
-    // 字級
+    const p1 = await pageInfo();
+    ok(p1.page === 1 && p1.pages >= 3, `[${tag}] 分成 ${p1.pages} 頁`);
+    await p.keyboard.press('ArrowRight'); await p.waitForTimeout(450);
+    ok((await pageInfo()).page === 2, `[${tag}] 按 → 翻到第 2 頁`);
+    const chars = await visibleChars();
+    ok(chars >= (vw >= 900 ? 800 : 330), `[${tag}] 一頁看得到 ${chars} 個字（舊版同尺寸約 ${vw >= 900 ? 480 : 300} 字）`);
+    await p.screenshot({ path: `${out}/reader-page2-${tag}.png` });
+    await p.click('.sr-turn.next'); await p.waitForTimeout(450);
+    ok((await pageInfo()).page === 3, `[${tag}] 點「下一頁」翻到第 3 頁`);
+    await p.keyboard.press('ArrowLeft'); await p.keyboard.press('ArrowLeft'); await p.waitForTimeout(450);
+    ok((await pageInfo()).page === 1, `[${tag}] 按 ← 翻回第 1 頁`);
+    if (vw < 700) {
+      await p.touchscreen.tap(vw * 0.85, vh / 2); await p.waitForTimeout(450);
+      ok((await pageInfo()).page === 2, `[${tag}] 手機點畫面右側翻下一頁`);
+      await p.touchscreen.tap(vw * 0.1, vh * 0.75); await p.waitForTimeout(450);
+      ok((await pageInfo()).page === 1, `[${tag}] 手機點畫面左側翻上一頁`);
+    }
+    await p.mouse.move(vw / 2, vh / 2); await p.mouse.wheel(0, 120); await p.waitForTimeout(500);
+    ok((await pageInfo()).page === 2, `[${tag}] 滾滑鼠翻頁`);
+    ok(await p.evaluate(() => { const v = document.querySelector('.sr-view').getBoundingClientRect(); return [...document.querySelectorAll('.sr-page [data-b]')].every((el) => [...el.getClientRects()].every((r) => r.right <= v.left + 1 || r.left >= v.right - 1 || (r.left >= v.left - 1 && r.right <= v.right + 1))); }), `[${tag}] 隔壁頁的字不會從邊緣露出來`);
+    // 顯示設定：字級、出處、捲動
+    const openView = async () => { if (!(await p.locator('.sr-view-menu').count())) await p.click('.sr-tool[aria-controls="sr-view-menu"]'); };
+    await openView();
     await p.click('button[aria-label="字大一點"]');
-    const fs2 = await p.evaluate(() => parseFloat(getComputedStyle(document.querySelector('.sr-sec p')).fontSize));
-    ok(fs2 > m.fs, `[${tag}] 字級可放大（${m.fs} → ${fs2}px）`);
+    const fs2 = await p.evaluate(() => parseFloat(getComputedStyle(document.querySelector('.sr-sec > p')).fontSize));
+    ok(fs2 > m.fs, `[${tag}] 字級可放大（${m.fs} → ${fs2}px），頁數重排成 ${(await pageInfo()).pages} 頁`);
     await p.click('button[aria-label="字小一點"]');
-    // 出處開關
-    await p.click('.sr-tool[aria-pressed]');
-    ok(!(await p.locator('.sr-cite').first().isVisible()), `[${tag}] 可以隱藏出處`);
-    await p.click('.sr-tool[aria-pressed]');
+    await p.click('button[aria-label="隱藏出處的小數字"]');
+    ok(await p.evaluate(() => getComputedStyle(document.querySelector('.sr-cite')).display === 'none'), `[${tag}] 可以隱藏出處`);
+    await p.click('button[aria-label="顯示出處的小數字"]');
+    await p.keyboard.press('Escape');
+    ok(await p.locator('.sr-overlay').count() === 1 && !(await p.locator('.sr-view-menu').count()), `[${tag}] Esc 先關選單，不會關掉閱讀頁`);
     // 目錄跳節
-    await p.click('.sr-tool[aria-expanded]');
-    await p.locator('.sr-toc button').nth(2).click();
-    await p.waitForTimeout(900);
+    await p.click('.sr-tool[aria-controls="sr-toc"]');
+    await p.locator('.sr-toc li button').nth(2).click();
+    await p.waitForTimeout(600);
     ok(/第 3／/.test(await p.textContent('.sr-bar-meta')), `[${tag}] 目錄跳到第 3 節，上方顯示「${(await p.textContent('.sr-bar-meta')).trim()}」`);
+    ok(await p.evaluate(() => { const v = document.querySelector('.sr-view').getBoundingClientRect(), h = document.querySelectorAll('.sr-sec h2')[2].getBoundingClientRect(); return h.left >= v.left - 1 && h.right <= v.right + 1; }), `[${tag}] 第 3 節的標題在畫面上`);
     const prog = Number(await p.getAttribute('.sr-progress', 'aria-valuenow'));
     ok(prog > 5 && prog < 95, `[${tag}] 進度條跟著動（${prog}%）`);
     await p.screenshot({ path: `${out}/reader-mid-${tag}.png` });
+    const midPage = (await pageInfo()).page;
     // 打開卡片再回來：接著讀
     const stop = p.locator('.sr-sec').nth(2).locator('button.sr-stop').first();
     if (await stop.count()) {
       await stop.click();
       await p.waitForSelector('.sr-overlay', { state: 'detached' });
       ok(!new URL(p.url()).searchParams.get('read'), `[${tag}] 從故事打開卡片，閱讀頁關閉`);
-      await p.goBack().catch(() => {});
       await p.goto(`${base}?mode=${mode}&story=${pick.id}`);
       await p.waitForSelector('.sv-read-btn');
       ok((await p.textContent('.sv-read-btn')).includes('接著讀'), `[${tag}] 回到故事線，按鈕變成「接著讀故事」`);
       await p.click('.sv-read-btn');
-      await p.waitForSelector('.sr-resumed');
-      ok(await p.evaluate(() => document.querySelector('.sr-overlay').scrollTop > 300), `[${tag}] 回到上次讀到的地方`);
+      await p.waitForSelector('.sr-sec'); await p.waitForTimeout(500);
+      ok((await pageInfo()).page === midPage, `[${tag}] 回到上次讀到的那一頁（第 ${midPage} 頁）`);
     }
-    // 讀到最後
-    await p.evaluate(() => { const el = document.querySelector('.sr-overlay'); el.scrollTop = el.scrollHeight; });
+    // 換成捲動模式：留在同一段；再換回來
+    await openView();
+    await p.getByRole('button', { name: '捲動', exact: true }).click();
     await p.waitForTimeout(400);
-    ok((await p.textContent('.sr-bar-meta')).includes('讀完了'), `[${tag}] 讀到底顯示「讀完了」`);
+    ok(await p.locator('.sr-overlay.sr-scroll').count() === 1 && !(await p.locator('.sr-pager').count()) && await p.evaluate(() => document.querySelector('.sr-view').scrollTop > 200), `[${tag}] 可改成捲動模式，而且留在原本那一段`);
+    ok(/第 3／/.test(await p.textContent('.sr-bar-meta')), `[${tag}] 捲動模式仍在第 3 節`);
+    await p.evaluate(() => { const el = document.querySelector('.sr-view'); el.scrollTop = el.scrollHeight; });
+    await p.waitForTimeout(400);
+    ok((await p.textContent('.sr-bar-meta')).includes('讀完了'), `[${tag}] 捲動模式讀到底顯示「讀完了」`);
+    await p.reload(); await p.waitForSelector('.sr-sec');
+    ok(await p.locator('.sr-overlay.sr-scroll').count() === 1, `[${tag}] 記住上次選的閱讀方式`);
+    await openView();
+    await p.getByRole('button', { name: '翻頁', exact: true }).click();
+    await p.keyboard.press('Escape');
+    // 讀到最後
+    await p.keyboard.press('End'); await p.waitForTimeout(500);
+    ok((await p.textContent('.sr-bar-meta')).includes('讀完了'), `[${tag}] 翻到最後顯示「讀完了」`);
+    await p.click('.sr-tool[aria-controls="sr-toc"]'); await p.click('.sr-toc-end'); await p.waitForTimeout(500);
     ok((await p.locator('.sr-box.remember li').count()) === doc.remember.length && (await p.locator('.sr-box.think li').count()) === doc.think.length, `[${tag}] 結尾有「記住這幾件事」「想一想」`);
-    await p.locator('.sr-box.remember').scrollIntoViewIfNeeded();
+    if (doc.recall && doc.recall.length) {
+      ok((await p.locator('.sr-box.recall li').count()) === doc.recall.length && !(await p.locator('.sr-recall-a').count()), `[${tag}] 「考考自己」${doc.recall.length} 題，答案先蓋住`);
+      await p.locator('.sr-recall-btn').first().click();
+      ok((await p.textContent('.sr-recall-a')).trim() === doc.recall[0].a, `[${tag}] 點了才看到答案`);
+    }
     await p.screenshot({ path: `${out}/reader-end-${tag}.png` });
-    await p.click('.sr-sources summary');
-    ok((await p.locator('.sr-sources li a').count()) === doc.sources.length, `[${tag}] 文末列出 ${doc.sources.length} 筆來源`);
+    // 別頁的按鈕：焦點移過去時會自動翻到那一頁
+    const reach = async (sel) => { await p.locator(sel).first().focus(); await p.waitForTimeout(450); };
+    await reach('.sr-sources-btn');
+    await p.click('.sr-sources-btn'); await p.waitForTimeout(300);
+    const nsrc = await p.locator('.sr-sources li a').count();
+    ok(nsrc === doc.sources.length, `[${tag}] 文末列出 ${doc.sources.length} 筆來源（畫面上 ${nsrc} 筆）`);
+    await reach('.sr-act:not(.primary)');
     // 下一個故事
     const nextBtn = p.locator('.sr-act:not(.primary)');
     if (await nextBtn.count()) {

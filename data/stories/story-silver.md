@@ -9,69 +9,82 @@ think:
   - 皇帝下令只准用紙鈔，百姓還是改用白銀。一種錢要讓人願意收，靠的是什麼？
   - 明朝百姓繳稅用的銀子，有一部分是美洲原住民被迫下礦坑挖出來的。你今天用的東西裡，有哪些也連著你看不見的遠方？
   - 把稅改成「全部交銀子」，對住在港口附近的人和住在北方內陸的農民，影響會一樣嗎？
+recall:
+  - q: 大明寶鈔為什麼越來越不值錢？
+    a: 它不能換回金銀，政府又沒有限制地印、也不回收舊鈔；明初改收實物稅，紙鈔很少流回政府手上，百姓就不再相信它。
+  - q: 白銀是朝廷選的，還是民間先用的？
+    a: 從結果看是民間先用：朝廷原本禁止用金銀買賣，百姓私下改用銀塊，朝廷後來才用銀發俸祿、收稅，最後正式承認。
+  - q: 美洲的白銀為什麼會千里迢迢流進中國？
+    a: 中國需求大、自己產得少，白銀在中國比在歐洲值錢得多；商人把銀運來，換走絲綢和瓷器。
+  - q: 一條鞭法改了什麼？
+    a: 把田賦、徭役和各種雜稅合成一條，主要按田地分攤，全部改繳白銀；勞役也改成出銀，由官府雇人代辦。
+  - q: 稅改成交銀子以後，誰比較吃虧？
+    a: 北方等遠離海外貿易的地方白銀比較貴，農民要先賣糧換銀才能繳稅，糧價低、銀價高的時候更吃虧。
 ---
 
-## 一張紙等於一兩銀子？ {finance-ming-baochao}
+## 一張紙等於一兩銀子？
 
-1375 年，明太祖朱元璋發行了一種紙幣，叫「大明通行寶鈔」，用桑樹皮做的紙印成。[finance-ming-baochao:s1] 朝廷替它定了價錢。[finance-ming-baochao:s4]
+1375 年，明太祖朱元璋發行了一種紙幣，叫「大明通行寶鈔」，用桑樹皮做的紙印成。**寶鈔**就是明朝政府發行的紙幣。朝廷同時禁止民間用金銀做買賣，要讓寶鈔成為唯一合法的錢，還替它定了價錢。[finance-ming-baochao:s1][finance-ming-baochao:s4]
 
 > 每鈔一貫，准錢千文，銀一兩；四貫准黃金一兩。（《明史．食貨志》記洪武八年寶鈔的定價：一貫寶鈔等於一千文銅錢，也等於一兩白銀。）[finance-ming-baochao:s4]
 
-**寶鈔**就是明朝政府發行的紙幣。朝廷同時禁止民間用金銀做買賣，要讓寶鈔成為唯一合法的錢。[finance-ming-baochao:s1][finance-ming-baochao:s4] 可是到了 1436 年，大臣黃福說「今銀一兩當鈔千餘貫」：一兩銀子要拿一千多貫寶鈔才換得到。[finance-ming-baochao:s8]
+可是到了 1436 年，大臣黃福說「今銀一兩當鈔千餘貫」：一兩銀子要拿一千多貫寶鈔才換得到。[finance-ming-baochao:s8] 從一貫到一千多貫，中間只隔了六十年左右。[finance-ming-baochao:s4][finance-ming-baochao:s8] 更奇怪的是，被皇帝禁用的白銀，後來反而一步步變成朝廷收稅用的錢。[finance-ming-baochao:s2][event-single-whip-reform:s1] 紙鈔為什麼失敗？這麼多白銀又是從哪裡來的？這篇故事就跟著「一兩銀子」走，看它為什麼贏過紙鈔，又是從哪裡來到一個明朝農民的手上。
 
-從一貫到一千多貫，中間只隔了六十年左右。[finance-ming-baochao:s4][finance-ming-baochao:s8] 更奇怪的是，被皇帝禁用的白銀，後來反而一步步變成朝廷收稅用的錢。[finance-ming-baochao:s2][event-single-whip-reform:s1] 紙鈔為什麼失敗？這麼多白銀又是從哪裡來的？這篇故事就跟著「一兩銀子」走。
+## 皇帝管不住的事 {finance-ming-baochao}
 
-先說紙鈔。紙幣不是明朝才有的，北宋就有交子，元朝也大量使用紙鈔。[finance-ming-baochao:s3][finance-ming-baochao:s6] 朱元璋對宋元以來的商業經濟抱著敵意，想由政府牢牢掌控貨幣，所以選了紙鈔。[finance-ming-baochao:s3][finance-ming-baochao:s4]
+先說紙鈔。紙幣不是明朝才有的，北宋就有交子，元朝也大量使用紙鈔。[finance-ming-baochao:s3][finance-ming-baochao:s6] 朱元璋選紙鈔，在當時有他的理由：朝廷剛結束元末的戰亂，對宋元以來的商業經濟和商人抱著敵意，想由政府牢牢掌控貨幣。[finance-ming-baochao:s3][finance-ming-baochao:s4]
 
-寶鈔有兩個毛病。第一，它不能**兌換**，也就是不能拿去換回金、銀這些大家本來就認的東西。就像遊樂園的代幣如果不能換回現金，大家就不太想要。第二，政府沒有限制印多少，打仗、發薪水需要錢就再印，也沒有把舊鈔收回來的辦法。[finance-ming-baochao:s1][finance-ming-baochao:s2][finance-ming-baochao:s3] 歷史學者萬志英還指出一層原因：宋元時代政府向商業收稅，紙幣會流回政府手上；明初改收糧食布匹這類實物，紙幣在政府和社會之間的循環就斷了。[finance-ming-baochao:s3]
+寶鈔有兩個毛病。第一，它不能**兌換**，也就是不能拿去換回金、銀這些大家本來就認的東西。就像遊樂園的代幣如果不能換回現金，大家就不太想要。第二，政府沒有限制印多少，打仗、發薪水需要錢就再印，也沒有把舊鈔收回來的辦法；百姓拿舊鈔去換新鈔，還要另外付工本費。[finance-ming-baochao:s1][finance-ming-baochao:s2][finance-ming-baochao:s3] 歷史學者萬志英還指出更深的一層：宋元時代政府向商業收稅，紙幣會流回政府手上，所以撐得住；明初改收糧食布匹這類實物，紙幣在政府和社會之間的循環就斷了，信用跟著垮掉。[finance-ming-baochao:s3]
 
-結果寶鈔越來越不值錢。十四世紀末，估計民間大約要 35 貫寶鈔才換得到一兩銀子。[finance-ming-baochao:s7] 百姓不再相信紙鈔，私下改用沒有鑄成錢幣的銀塊做買賣，東南沿海這些經濟發達的地方用得最早。[finance-ming-baochao:s3][finance-ming-baochao:s4]
+結果寶鈔越來越不值錢。十四世紀末，估計民間大約要 35 貫寶鈔才換得到一兩銀子；到 1436 年，就是黃福說的一千多貫了。[finance-ming-baochao:s7][finance-ming-baochao:s8] 百姓不再相信紙鈔，私下改用沒有鑄成錢幣的銀塊做買賣，東南沿海這些經濟發達的地方用得最早。[finance-ming-baochao:s3][finance-ming-baochao:s4] 皇帝可以規定一貫等於一兩，卻管不住大家願不願意收。
 
-從結果看，朝廷是被市場拖著走的：民間先用白銀，朝廷後來才承認。1436 年起，北京開始用白銀發軍官的俸祿，用銀繳稅也從這時開始。到 1567 年，朝廷正式允許白銀和銅錢一起使用。[finance-ming-baochao:s2][finance-ming-baochao:s3][finance-ming-baochao:s4][finance-ming-baochao:s5]
+從結果看，朝廷是被市場拖著走的：民間先用白銀，朝廷後來才承認。1436 年起，北京開始用白銀發軍官的俸祿，用銀繳稅也從這時開始。到 1567 年，朝廷正式允許白銀和銅錢一起使用。[finance-ming-baochao:s2][finance-ming-baochao:s3][finance-ming-baochao:s4][finance-ming-baochao:s5] 也有說法更強調國家這一邊：正是政府要求用白銀繳稅，才讓全國對白銀的需求大增。[finance-ming-baochao:s5][finance-ming-baochao:s6] 不管從哪一邊看，問題都一樣。民間和朝廷都要用銀子，中國自己產的銀卻不多。[commodity-silver-flow:s2] 那一兩一兩的銀子，要從哪裡來？
 
-問題來了。民間和朝廷都要用銀子，中國自己產的銀卻不多。[commodity-silver-flow:s2] 那一兩一兩的銀子，要從哪裡來？
+★ 寶鈔不能兌換又印個不停，百姓不再相信它，改用白銀；朝廷後來才跟著承認。
 
 ## 海對面的一座銀山 {commodity-iwami-silver}
 
-答案的第一部分在日本。1526 或 1527 年（兩種說法都有），博多商人神屋壽禎開發了石見銀山，位置在今天的島根縣。[commodity-iwami-silver:s1][commodity-iwami-silver:s2][commodity-iwami-silver:s3][commodity-iwami-silver:s10]
+答案的第一部分在日本。1526 或 1527 年（兩種說法都有），博多商人神屋壽禎開發了石見銀山，位置在今天的島根縣。[commodity-iwami-silver:s1][commodity-iwami-silver:s2][commodity-iwami-silver:s3][commodity-iwami-silver:s10] 幾年後出現了關鍵的技術。1533 年，一種叫**灰吹法**的冶煉方法從朝鮮半島傳來：先把銀和鉛熔在一起，再把鉛吸掉，留下純銀。高純度的白銀從此能大量生產。[commodity-iwami-silver:s2][commodity-iwami-silver:s3] 這不是日本人自己發明的技術，源頭還可以追到中國。[commodity-iwami-silver:s3][commodity-iwami-silver:s4] 這座山也成了戰國大名反覆爭奪的財源。[commodity-iwami-silver:s1][commodity-iwami-silver:s11]
 
-幾年後出現了關鍵的技術。1533 年，一種叫**灰吹法**的冶煉方法從朝鮮半島傳來：先把銀和鉛熔在一起，再把鉛吸掉，留下純銀。高純度的白銀從此能大量生產。[commodity-iwami-silver:s2][commodity-iwami-silver:s3] 這不是日本人自己發明的技術，源頭還可以追到中國。[commodity-iwami-silver:s3][commodity-iwami-silver:s4]
+這時的明朝正需要大量白銀，日本則想要中國的絲綢。[commodity-iwami-silver:s3][commodity-iwami-silver:s5] 兩邊各有對方要的東西，中間卻隔著一道禁令：明朝禁止和日本貿易。所以石見的銀子起初多半不是日本人直接運去的，而是由中國的走私海商（倭寇）偷運進東南沿海。1557 年葡萄牙人在澳門落腳後，也加入這門生意：把中國絲綢運到長崎，換日本白銀回來。[commodity-iwami-silver:s3][commodity-iwami-silver:s8]
 
-這時的明朝正需要大量白銀，日本則想要中國的絲綢。[commodity-iwami-silver:s3][commodity-iwami-silver:s5] 但明朝禁止和日本貿易，所以石見的銀子起初多半不是日本人直接運去的，而是由中國的走私海商（倭寇）偷運進東南沿海。1557 年葡萄牙人在澳門落腳後，也加入這門生意：把中國絲綢運到長崎，換日本白銀回來。[commodity-iwami-silver:s3][commodity-iwami-silver:s8]
-
-石見的銀到底有多少，數字說法不一。日本觀光廳的資料估計，十六世紀後期全世界交易的白銀，至少有一成來自石見。[commodity-iwami-silver:s3] 連歐洲人都注意到了。1595 年歐洲出版的一張日本地圖，在「Hivami」也就是石見的旁邊，標了一行拉丁文。[commodity-iwami-silver:s6][commodity-iwami-silver:s9]
+石見的銀到底有多少，數字說法不一，而且要分清楚講的是哪裡。有資料說全盛期「全日本」的產銀約占世界三分之一，這是推定；日本觀光廳講的是石見一地，估計十六世紀後期全世界交易的白銀，至少有一成來自這裡。[commodity-iwami-silver:s1][commodity-iwami-silver:s3][commodity-iwami-silver:s11] 連歐洲人都注意到了。1595 年歐洲出版的一張日本地圖，在「Hivami」也就是石見的旁邊，標了一行拉丁文。[commodity-iwami-silver:s6][commodity-iwami-silver:s9]
 
 > Argenti fodinae（銀礦山。葡萄牙製圖師泰謝拉繪製、1595 年收入奧特里烏斯地圖集的日本地圖上的標註。）[commodity-iwami-silver:s6]
 
-日本的銀山是流入明朝的白銀主要來源之一，但還不是全部。[commodity-iwami-silver:s3][commodity-iwami-silver:s8] 另一批銀子，來自地球的另一邊。
+十六世紀後期流進中國的國外白銀，有一種估計是每年大約 30 到 40 萬兩。[commodity-iwami-silver:s5] 日本的銀山是其中的主要來源之一，但還不是全部。[commodity-iwami-silver:s3][commodity-iwami-silver:s8] 另一批銀子，來自地球的另一邊。
+
+★ 明朝要銀、日本要絲綢，兩國不准直接貿易，石見的銀就靠走私海商和葡萄牙人運進中國。
 
 ## 地球另一邊的礦坑 {commodity-silver-flow}
 
-1545 年，西班牙人在南美洲的波托西發現了大銀山，位置在今天的玻利維亞。[commodity-silver-flow:s4] 據估計，十六世紀後半，這座山產出了全世界大約六成的白銀。[commodity-silver-flow:s4]
+1545 年，西班牙人在南美洲的波托西發現了大銀山，位置在今天的玻利維亞。據估計，十六世紀後半，這座山產出了全世界大約六成的白銀。[commodity-silver-flow:s4] 這些銀子背後有很重的代價。西班牙殖民者用**米塔制**強迫安地斯山區的原住民輪流下礦坑，每年徵調約 1 萬 3 千人，大約是當地成年男性的七分之一，許多人死於事故或汞中毒。[commodity-silver-flow:s4]
 
-這些銀子背後有很重的代價。西班牙殖民者用**米塔制**強迫安地斯山區的原住民輪流下礦坑，每年徵調約 1 萬 3 千人，許多人死於事故或汞中毒。[commodity-silver-flow:s4]
+美洲的銀為什麼會跑到中國？因為中國需求大、自己產得少，白銀在中國比在歐洲值錢得多，大約是兩倍。[commodity-silver-flow:s2][commodity-silver-flow:s8] 就像同一張卡在甲店賣 100 元、乙店肯出 200 元收，一定有人從甲店買來賣給乙店。於是白銀沿著三條主要路線流向中國：一條從美洲坐大帆船到馬尼拉，再由福建海商帶回去；一條先到歐洲，再繞過非洲來到亞洲；日本的銀則經由葡萄牙或中國商人運入。[commodity-silver-flow:s1][commodity-silver-flow:s2][commodity-silver-flow:s3] 到底流進來多少，各家估計的單位和範圍都不同，差距很大；其中一種估計是，中國吸收了墨西哥和玻利維亞產銀的大約一半。[commodity-silver-flow:s1]
 
-美洲的銀為什麼會跑到中國？因為中國需求大、自己產得少，白銀在中國比在歐洲值錢得多，大約是兩倍。[commodity-silver-flow:s2][commodity-silver-flow:s8] 就像同一張卡在甲店賣 100 元、乙店肯出 200 元收，一定有人從甲店買來賣給乙店。於是白銀沿著幾條路線流向中國：有的從美洲坐大帆船到馬尼拉，再由福建海商帶回去；有的先到歐洲，再繞過非洲來到亞洲；日本的銀則經由葡萄牙或中國商人運入。[commodity-silver-flow:s1][commodity-silver-flow:s2][commodity-silver-flow:s3]
-
-白銀不是白白流進來的。中國拿絲綢、瓷器這些商品去換，這是買賣。[commodity-silver-flow:s1][commodity-silver-flow:s2] 1567 年，明朝開放民間出海貿易，但仍然禁止直接去日本。[commodity-silver-flow:s6] 當時有人這樣形容海外貿易帶回來的錢。[commodity-silver-flow:s6]
+白銀不是白白流進來的。中國拿絲綢、瓷器這些商品去換，這是買賣。[commodity-silver-flow:s1][commodity-silver-flow:s2] 1567 年，明朝開放民間出海貿易，但仍然禁止直接去日本，走私因為利潤高，一直沒有斷過。[commodity-silver-flow:s6] 當時有人這樣形容海外貿易帶回來的錢。[commodity-silver-flow:s6]
 
 > 所貿金錢，歲無慮數十萬，公私並賴。（周起元〈東西洋考序〉，見張燮《東西洋考》，1617 年成書：每年貿易得到的錢少說幾十萬，官府和民間都靠它。）[commodity-silver-flow:s6]
 
 是什麼力量把白銀拉進中國，學者的重點不同。有人認為中國對白銀的龐大需求，就是推動全球白銀貿易的主力；也有學者認為關鍵在明朝北方的邊防，因為軍隊的開銷改用白銀支付。[commodity-silver-flow:s5][commodity-silver-flow:s8][commodity-silver-flow:s7] 不管重點放在哪裡，結果是一樣的：中國手上的銀子變多了。有了夠多的銀，朝廷才有辦法做下一件事。[commodity-silver-flow:s1][commodity-silver-flow:s6]
 
+★ 白銀在中國比在歐洲值錢，美洲和日本的銀就流進來換絲綢瓷器；代價是原住民的強迫勞動。
+
 ## 所有的稅，合成一條交銀子 {event-single-whip-reform}
 
-明朝初年，百姓繳稅是交糧食和布匹，還要輪流替官府無償做工，這叫**徭役**。[event-single-whip-reform:s2][event-single-whip-reform:s3] 日子久了，戶籍和田地的帳冊都不準了，勞役擾民，地方上有勢力的人和基層辦事員也趁機動手腳。[event-single-whip-reform:s2]
+明朝初年，百姓繳稅是交糧食和布匹，還要輪流替官府無償做工，這叫**徭役**。[event-single-whip-reform:s2][event-single-whip-reform:s3] 日子久了，人口流亡，戶籍和田地的帳冊都不準了，勞役擾民，地方上有勢力的人和基層辦事員也趁機動手腳。[event-single-whip-reform:s2] 另一邊，白銀已經逐漸取代紙鈔，成了主要的錢。[event-single-whip-reform:s1][event-single-whip-reform:s2]
 
-十六世紀，各地官員開始試一個簡化的辦法：把田賦（按田地交的稅）、徭役和各種雜稅合成「一條」，主要按田地多少分攤，全部改繳白銀。把原本要交的實物、要出的勞力換算成銀子來繳，叫作**折銀**。就像不用親自來打掃，改繳清潔費，由學校請人做。[event-single-whip-reform:s1][event-single-whip-reform:s2] 《明史》這樣解釋它的名字。[event-single-whip-reform:s5]
+十六世紀，各地官員開始試一個簡化的辦法：把田賦（按田地交的稅）、徭役和各種雜稅合成「一條」，主要按田地多少分攤，而不是按人頭，全部改繳白銀。把原本要交的實物、要出的勞力換算成銀子來繳，叫作**折銀**。勞役也改成每年出銀，由官府雇人代辦，就像不用親自來打掃，改繳清潔費，由學校請人做。[event-single-whip-reform:s1][event-single-whip-reform:s2][event-single-whip-reform:s3] 《明史》這樣解釋它的名字。[event-single-whip-reform:s5]
 
 > 皆計畝徵銀，折辦於官，故謂之一條鞭。（《明史》卷 77〈食貨志二〉：全部按田畝收銀子，由官府統一辦理，所以叫「一條鞭」。）[event-single-whip-reform:s5]
 
-1570 年代，主持朝政的大臣張居正把一條鞭法大力推廣到全國。[event-single-whip-reform:s2][event-single-whip-reform:s4] 它並不是張居正某一年突然發明的。早在嘉靖年間，浙江就有縣先試行；有學者用地方志指出，這是各地由下而上、慢慢摸索的長過程。全國推行的年份也有 1580 年和 1581 年兩種說法，雲貴、四川、陝西等地更要到 1587 至 1589 年間才實施。[event-single-whip-reform:s2][event-single-whip-reform:s5][event-single-whip-reform:s1]
+這個辦法不是哪一年突然發明的，而是一省一省試出來的。嘉靖年間，浙江就有縣先試行；1556 年江西有人倡議，因為官員和地方士紳反對沒有成功，到 1568 年才在江西全省推行，之後浙江、福建等地陸續跟進。[event-single-whip-reform:s2] 1570 年代，主持朝政的大臣張居正把它大力推廣到全國。全國推行的年份有 1580 年和 1581 年兩種說法，雲貴、四川、陝西等地更要到 1587 至 1589 年間才實施。[event-single-whip-reform:s1][event-single-whip-reform:s2][event-single-whip-reform:s4] 有學者用地方志指出，這是各地由下而上、慢慢摸索的長過程。[event-single-whip-reform:s5]
 
-改成交銀子，好處看得見：繳稅變簡單，徵稅成本下降，舞弊的空間也變小。[event-single-whip-reform:s1][event-single-whip-reform:s2] 代價也有。北方這些遠離海外貿易的地方，白銀比較貴，農民得先把糧食賣掉換成銀子才能繳稅，遇到糧價低、銀價高的時候更吃虧。[event-single-whip-reform:s1][event-single-whip-reform:s2]
+改成交銀子，好處看得見：繳稅變簡單，徵稅成本下降，舞弊的空間也變小。它也打破了沿用兩三千年、拿糧食布匹繳稅的傳統。[event-single-whip-reform:s1][event-single-whip-reform:s2] 代價也有。北方這些遠離海外貿易的地方，白銀比較貴，農民得先把糧食賣掉換成銀子才能繳稅，遇到糧價低、銀價高的時候更吃虧。[event-single-whip-reform:s1][event-single-whip-reform:s2]
 
-更大的變化是，國家的稅收從此綁上了海外的銀源。有學者認為，1630 年代白銀進口減少、銀價上漲，造成民變，是明朝滅亡的因素之一。也有學者不同意，認為 1640 年前後流入中國的白銀並沒有明顯減少。這件事史家看法不一。[event-single-whip-reform:s1][event-single-whip-reform:s3][commodity-silver-flow:s5] 可以確定的是，一條鞭法沒有跟著張居正或明朝一起消失，它一直延續到清朝。[event-single-whip-reform:s2][event-single-whip-reform:s3]
+更大的變化是，國家的稅收從此綁上了海外的銀源：稅用白銀算，白銀卻主要靠日本和美洲供應。[event-single-whip-reform:s1][event-single-whip-reform:s3] 有學者認為，1630 年代白銀進口減少、銀價上漲，造成民變，是明朝滅亡的因素之一。也有學者不同意，認為 1640 年前後流入中國的白銀並沒有明顯減少。這件事史家看法不一。[event-single-whip-reform:s1][event-single-whip-reform:s3][commodity-silver-flow:s5] 可以確定的是，張居正死後許多改革被撤回，一條鞭法卻沒有跟著消失，一直延續到清朝。[event-single-whip-reform:s2][event-single-whip-reform:s3][event-single-whip-reform:s4]
+
+★ 銀子夠多，各地才能把稅和勞役合成一條改收銀；繳稅變簡單，財政卻從此綁上海外銀源。
 
 ## 那一兩銀子走過的路
 

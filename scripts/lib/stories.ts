@@ -1,4 +1,4 @@
-// 故事（data/stories/story-xxx.md）：每條故事線一篇 5–15 分鐘可以一口氣讀完的文章（docs/stories.md）。
+// 故事（data/stories/story-xxx.md）：每條故事線一篇 5–25 分鐘可以一口氣讀完的文章（docs/stories.md）。
 // 故事不寫新史實：每一段都要標出它根據哪張卡的哪個來源 [卡片id:sN]，validate 會擋沒有出處的段落。
 import fs from 'node:fs';
 import path from 'node:path';
@@ -10,9 +10,10 @@ import type { Storyline } from './storylines.ts';
 export const STORIES_DIR = path.join(ROOT, 'data', 'stories');
 /** 國高中生讀敘事文，每分鐘約 300 字 */
 export const CHARS_PER_MIN = 300;
-export const MIN_CHARS = 1500, MAX_CHARS = 4500;
+export const MIN_CHARS = 1500, MAX_CHARS = 7500;
 
-export interface StoryBlock { kind: 'p' | 'quote'; text: string }
+/** key＝這一節的重點（★ 開頭的一句話，幫讀者記住；不必標出處，但只能重述這一節已經寫過、有出處的內容） */
+export interface StoryBlock { kind: 'p' | 'quote' | 'key'; text: string }
 export interface StorySection { title: string; cards: string[]; blocks: StoryBlock[] }
 export interface RawStory { file: string; fm: any; sections: StorySection[]; stray: string }
 
@@ -38,7 +39,8 @@ export function parseStory(file: string, src: string): RawStory {
     const cards = hm ? hm[2].split(/[,，\s]+/).map((x) => x.trim()).filter(Boolean) : [];
     const blocks: StoryBlock[] = text.split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean).map((b) => (
       b.startsWith('>') ? { kind: 'quote' as const, text: b.split('\n').map((l) => l.replace(/^>\s?/, '')).join('').trim() }
-        : { kind: 'p' as const, text: b.split('\n').map((l) => l.trim()).join('') }
+        : /^★\s*/.test(b) ? { kind: 'key' as const, text: b.replace(/^★\s*/, '').split('\n').map((l) => l.trim()).join('') }
+          : { kind: 'p' as const, text: b.split('\n').map((l) => l.trim()).join('') }
     ));
     return { title, cards, blocks };
   });
@@ -73,6 +75,11 @@ export function checkStories(stories: RawStory[], lines: Storyline[], cards: Raw
       const v = s.fm[k];
       if (!Array.isArray(v) || v.length < 2 || v.length > 4 || v.some((x: any) => typeof x !== 'string' || !x.trim())) err(`${k} 要是 2–4 條文字`);
     }
+    // recall（考考自己）：讀完馬上回想，比再讀一次更記得住；答案只能是故事裡寫過的內容
+    const rc = s.fm.recall;
+    if (rc === undefined) warn('缺 recall（考考自己：3–5 題 { q, a }）');
+    else if (!Array.isArray(rc) || rc.length < 3 || rc.length > 5 || rc.some((x: any) => !x || typeof x.q !== 'string' || typeof x.a !== 'string' || !x.q.trim() || !x.a.trim())) err('recall 要是 3–5 題，每題有 q（問題）和 a（答案）');
+    else for (const x of rc) { if (x.a.length > 90) warn(`recall 的答案太長（${x.a.length} 字，建議 ≤80）：「${x.q.slice(0, 16)}…」`); if (THINKERS.test(x.q + x.a)) err('recall 提到李彔／哈拉瑞'); }
     if (s.stray) err(`第一個 ## 標題之前有文字，請放進小節裡：「${s.stray.slice(0, 20)}…」`);
     if (s.sections.length < 3) err('至少要 3 個小節（## 標題）');
     // 每一站都要出現，而且順序和故事線一樣
@@ -88,7 +95,11 @@ export function checkStories(stories: RawStory[], lines: Storyline[], cards: Raw
       sec.blocks.forEach((b, bi) => {
         const where = `小節「${sec.title}」第 ${bi + 1} 段`;
         const cites = [...b.text.matchAll(CITE_RE)];
-        if (!cites.length) err(`${where}沒有出處標記 [卡片id:sN]：「${b.text.slice(0, 24)}…」`);
+        if (b.kind === 'key') {
+          const n = plain(b.text).length;
+          if (n > 60) warn(`${where}的 ★ 重點太長（${n} 字，建議 ≤50）`);
+          if (bi !== sec.blocks.length - 1) err(`${where}：★ 重點要放在小節的最後`);
+        } else if (!cites.length) err(`${where}沒有出處標記 [卡片id:sN]：「${b.text.slice(0, 24)}…」`);
         for (const [, cid, sid] of cites) {
           const fm = byId.get(cid);
           if (!fm) err(`${where}引用了不存在的卡片 ${cid}`);
@@ -99,9 +110,10 @@ export function checkStories(stories: RawStory[], lines: Storyline[], cards: Raw
         if (/^#|^[-*]\s/.test(b.text)) err(`${where}用了清單或其他層級的標題；故事只用 ## 小節、段落和 > 引文`);
       });
     });
+    for (const sec of s.sections) if (sec.cards.length && !sec.blocks.some((b) => b.kind === 'key')) warn(`小節「${sec.title}」沒有 ★ 重點（最後一行用「★ 一句話」幫讀者記住這一節）`);
     const chars = storyChars(s);
     if (chars < MIN_CHARS) err(`只有 ${chars} 字，不到 ${MIN_CHARS} 字（約 5 分鐘）`);
-    if (chars > MAX_CHARS) err(`有 ${chars} 字，超過 ${MAX_CHARS} 字（約 15 分鐘）`);
+    if (chars > MAX_CHARS) err(`有 ${chars} 字，超過 ${MAX_CHARS} 字（約 25 分鐘）`);
   }
   if (opts.requireAll) for (const l of lines) if (!seen.has(l.id)) issues.push({ level: 'warning', file: 'data/stories/', msg: `故事線 ${l.id}（${l.title}）還沒有故事` });
   return issues;
@@ -125,5 +137,5 @@ export function buildStory(s: RawStory, cards: RawCard[]) {
   });
   const sections = s.sections.map((sec) => ({ title: sec.title, cards: sec.cards, blocks: sec.blocks.map((b) => ({ kind: b.kind, text: swap(b.text) })) }));
   const chars = storyChars(s);
-  return { id: s.fm.story as string, hook: s.fm.hook as string, remember: s.fm.remember as string[], think: s.fm.think as string[], chars, minutes: storyMinutes(chars), sections, sources };
+  return { id: s.fm.story as string, hook: s.fm.hook as string, remember: s.fm.remember as string[], think: s.fm.think as string[], recall: (s.fm.recall ?? []) as { q: string; a: string }[], chars, minutes: storyMinutes(chars), sections, sources };
 }

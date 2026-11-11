@@ -9,106 +9,127 @@ think:
   - 金圓券和新臺幣都是「換一種新鈔票」，為什麼一個不到一年就變廢紙，另一個用到今天？從故事裡找得到哪些差別？
   - 二二八的死亡人數，從一千多人到上萬人都有人主張。面對差距這麼大的數字，你會怎麼判斷哪些說法比較可靠？
   - 戒嚴時期不能做的事，例如集會、辦報、組黨，哪一些是你今天習以為常的？如果少了其中一樣，你的生活會有什麼不同？
+recall:
+  - q: 國民政府在內戰期間為什麼會發生惡性通膨？
+    a: 八年對日戰爭後財政已經枯竭，內戰的軍費只能靠印鈔票支付。鈔票越印越多，物價就漲得又快又兇。
+  - q: 金圓券為什麼不到一年就垮了？
+    a: 發行上限一開始就訂得太寬，軍費照樣靠印鈔票付，生產又少，限價撐不住，發行量最後遠遠超過上限。
+  - q: 同樣是換新鈔，新臺幣的改革訂了哪些規則？物價後來怎麼穩下來的？
+    a: 限量發行、撥黃金當準備、停止和大陸貨幣兌換以切斷熱錢。物價要到美援進來、財政缺口變小才慢慢穩定。
+  - q: 二二八事件發生前，臺灣社會累積了哪些不滿？
+    a: 長官公署權力集中、強制徵購稻米造成米荒、專賣和貿易獨占、物價失控，加上失業、軍紀敗壞、語言隔閡和官員貪污。
+  - q: 為什麼說「解嚴不等於馬上民主」？
+    a: 解嚴後還有別的限制。要等到終止動員戡亂、國會全面改選、總統直選，管制才一條一條拆掉。
 ---
 
 ## 四萬換一塊
 
-1949 年 6 月 15 日，臺灣省政府宣布：四萬元舊臺幣，換一元新臺幣。[finance-taiwan-1949-currency:s3][finance-taiwan-1949-currency:s7] 這種新鈔票就是今天還在用的新臺幣。[finance-taiwan-1949-currency:s2]
+1949 年 6 月 15 日，臺灣省政府宣布：四萬元舊臺幣，換一元新臺幣。[finance-taiwan-1949-currency:s3][finance-taiwan-1949-currency:s7] 這種新鈔票就是今天還在用的新臺幣。[finance-taiwan-1949-currency:s2] 一種錢要壞到什麼程度，才需要拿掉這麼多個零？這是第一個謎。第二個謎更大：1945 年戰爭結束，臺灣換了政府，為什麼短短幾年就走到二二八事件，和長達 38 年的戒嚴？這套體制後來又怎麼走到 2000 年的政黨輪替？[event-228-incident:s1][event-taiwan-martial-law:s1][event-taiwan-2000-transition:s1]
 
-一種錢要壞到什麼程度，才需要拿掉這麼多個零？這是第一個謎。第二個謎更大：1945 年戰爭結束，臺灣換了政府，為什麼短短幾年就走到二二八事件，和長達 38 年的戒嚴？這套體制後來又怎麼走到 2000 年的政黨輪替？[event-228-incident:s1][event-taiwan-martial-law:s1][event-taiwan-2000-transition:s1]
-
-兩個謎要從同一個地方開始解：海峽對岸的一場內戰，和它的帳單。[finance-taiwan-1949-currency:s5]
+兩個謎要從同一個地方開始解：海峽對岸的一場內戰，和它的帳單。[finance-taiwan-1949-currency:s5] 先說明一件事：這個故事不完全照年代走。前半段先跟著「錢」這條線，從內戰一路講到 1949 年的新臺幣；講完以後，會把時間倒回 1947 年去看二二八事件，再回到 1949 年接上戒嚴。[finance-taiwan-1949-currency:s3][event-228-incident:s1][event-taiwan-martial-law:s1] 每次倒帶，文章裡都會提醒。
 
 ## 打仗的帳單誰來付 {war-chinese-civil-war}
 
-1945 年日本投降後，蔣介石領導的國民黨和毛澤東領導的共產黨在重慶談判，美國也派人調停，但雙方互不信任。1946 年 6 月，內戰全面爆發。[war-chinese-civil-war:s1][war-chinese-civil-war:s2]
+1945 年日本投降後，蔣介石領導的國民黨和毛澤東領導的共產黨在重慶談判，美國也派人調停，想讓雙方組成聯合政府，但雙方互不信任。1946 年 6 月，內戰全面爆發。[war-chinese-civil-war:s1][war-chinese-civil-war:s2] 一開始國軍並不弱，人數和裝備都占優勢，1947 年還攻下共產黨的根據地延安。[war-chinese-civil-war:s1]
 
-一開始國軍並不弱，人數和裝備都占優勢，1947 年還攻下共產黨的根據地延安。[war-chinese-civil-war:s1] 問題出在錢。國民政府經過八年對日戰爭，財政已經枯竭，靠印鈔票支付軍費。鈔票越印越多，就成了**惡性通膨**：物價漲得又快又兇，錢每天都在變薄。士兵的薪水變成廢紙，貪污和逃兵都很嚴重。[war-chinese-civil-war:s1][war-chinese-civil-war:s2]
+問題出在錢。國民政府經過八年對日戰爭，財政已經枯竭，只能靠印鈔票支付軍費。鈔票越印越多，就成了**惡性通膨**：物價漲得又快又兇，錢每天都在變薄，大家拿到錢就趕快花掉。[war-chinese-civil-war:s1][war-chinese-civil-war:s2] 士兵的薪水變成廢紙，貪污和逃兵都很嚴重；接收時的貪污加上通膨，也讓民心流失。[war-chinese-civil-war:s1][war-chinese-civil-war:s2] 另一邊的共產黨，在東北拿到蘇聯轉交的日軍武器，又靠土地改革吸引沒有土地的農民參軍。[war-chinese-civil-war:s1][war-chinese-civil-war:s2]
 
 局勢在 1948 年急轉直下。這一年下半年到 1949 年初，共軍打贏三場大會戰，國軍主力幾乎全失。1949 年 4 月共軍渡過長江、攻下南京，10 月 1 日中華人民共和國成立，12 月國民政府決定遷到臺北。[war-chinese-civil-war:s1][war-chinese-civil-war:s3] 當時美國國務卿艾奇遜這樣寫：
 
 > 國民黨的軍隊不必被打敗，它們自己瓦解了。（艾奇遜為《美國與中國的關係》白皮書所寫的說明，1949 年 8 月 5 日公布；中文為本站摘譯）[war-chinese-civil-war:s4]
 
-內戰的結果是後話。先看那張付不出來的帳單，把鈔票變成了什麼樣子。[finance-gold-yuan-1948:s1][finance-gold-yuan-1948:s3]
+國民政府為什麼輸，有人強調它本身的腐敗和失去民心，也有人強調蘇聯在東北幫了共軍，說法不只一種。[war-chinese-civil-war:s1][war-chinese-civil-war:s2][war-chinese-civil-war:s4] 內戰的結果是後話。這裡先看那張付不出來的帳單，把鈔票變成了什麼樣子。[finance-gold-yuan-1948:s1][finance-gold-yuan-1948:s3]
+
+★ 國民政府靠印鈔票付內戰的軍費，鈔票越印越不值錢，軍隊和民心也跟著流失。
 
 ## 換了名字的鈔票 {finance-gold-yuan-1948}
 
-國民政府從 1935 年起發行的紙幣叫法幣。抗戰前法幣的發行量大約 14 億元，戰爭結束時約 5,569 億元，到 1948 年 8 月估計已經到了 604 萬億元。[finance-gold-yuan-1948:s1] 法幣貶到幾乎沒有人要。[finance-gold-yuan-1948:s1][finance-gold-yuan-1948:s3]
+國民政府從 1935 年起發行的紙幣叫法幣。抗戰前法幣的發行量大約 14 億元，戰爭結束時約 5,569 億元，到 1948 年 8 月估計已經到了 604 萬億元，貶到幾乎沒有人要。[finance-gold-yuan-1948:s1][finance-gold-yuan-1948:s3] 1948 年 8 月 19 日，政府宣布換一種新鈔票，叫金圓券。300 萬元法幣換 1 元金圓券，發行上限訂在 20 億元；人民必須在期限內把黃金、白銀、外幣交出來換金圓券，個人不准再持有。[finance-gold-yuan-1948:s1][finance-gold-yuan-1948:s2][finance-gold-yuan-1948:s3] 名字裡有「金」，但它是紙幣，人民拿它換不回黃金。[finance-gold-yuan-1948:s1][finance-gold-yuan-1948:s2]
 
-1948 年 8 月 19 日，政府宣布換一種新鈔票，叫金圓券。300 萬元法幣換 1 元金圓券，發行上限訂在 20 億元。人民必須在期限內把黃金、白銀、外幣交出來換金圓券。[finance-gold-yuan-1948:s1][finance-gold-yuan-1948:s2] 名字裡有「金」，但它是紙幣，人民拿它換不回黃金。[finance-gold-yuan-1948:s1][finance-gold-yuan-1948:s2]
+除了換鈔，政府還管價格。物價和工資被凍結在 8 月 19 日那天的水準，這叫**限價**，也就是規定商品不准漲價。蔣經國到上海督導，查緝囤積和黑市，黑市就是不照政府規定、私下進行的買賣。[finance-gold-yuan-1948:s2][finance-gold-yuan-1948:s3] 剛開始幾個星期，上海的物價看起來被壓住了；但美國駐華大使館回報，一個月之內黑市就全面活躍。[finance-gold-yuan-1948:s4][finance-gold-yuan-1948:s5]
 
-除了換鈔，政府還管價格。物價和工資被凍結在 8 月 19 日那天的水準，這叫**限價**，也就是規定商品不准漲價。蔣經國到上海督導，查緝囤積和黑市。[finance-gold-yuan-1948:s2][finance-gold-yuan-1948:s3] 可是軍費照樣要付，鈔票照樣在印。[finance-gold-yuan-1948:s4] 美國駐華大使館在給國務卿的公文裡回報：
+為什麼撐不住？歷史學者吳景平指出，照當時法幣的數量，大約 2 億元金圓券就能把法幣全部收回，上限卻訂成 20 億元，等於一開始就放寬了 10 倍；加上交通中斷、生產很少，限價根本守不住。[finance-gold-yuan-1948:s2] 更根本的是軍費照樣要付，鈔票照樣在印。[finance-gold-yuan-1948:s4] 同一份大使館公文回報，到 10 月中，金圓券對美元已經失去八成價值。[finance-gold-yuan-1948:s4] 11 月，政府放棄限價，准許民間再持有金銀。[finance-gold-yuan-1948:s2]
 
-> 到 10 月中，金圓券對美元已經失去八成價值。（美國駐華大使館致國務卿公文，南京，1949 年 1 月 4 日；中文為本站摘譯）[finance-gold-yuan-1948:s4]
+到 1949 年年中，金圓券的發行量已經遠遠超過當初的上限，各家數字不一，但都以萬億元計算。[finance-gold-yuan-1948:s2][finance-gold-yuan-1948:s3] 城市居民的積蓄大量蒸發，對政府失去信任；有研究者認為，經濟崩潰是國民黨失去大陸的關鍵因素之一。[finance-gold-yuan-1948:s1][finance-gold-yuan-1948:s3] 這件事和臺灣有什麼關係？金圓券剛發行時，和臺灣的舊臺幣維持固定匯率。大陸的資金為了避險，就往臺灣湧過來。[finance-gold-yuan-1948:s6]
 
-11 月，政府放棄限價，准許民間再持有金銀。[finance-gold-yuan-1948:s2] 到 1949 年年中，金圓券的發行量已經遠遠超過當初的上限，各家數字不一，但都以萬億元計算。[finance-gold-yuan-1948:s2][finance-gold-yuan-1948:s3] 城市居民的積蓄大量蒸發，對政府失去信任。[finance-gold-yuan-1948:s1][finance-gold-yuan-1948:s3]
-
-這件事和臺灣有什麼關係？金圓券剛發行時，和臺灣的舊臺幣維持固定匯率。大陸的資金為了避險，就往臺灣湧過來。[finance-gold-yuan-1948:s6]
+★ 印鈔票沒有停，換一個名字的新鈔票也救不了；金圓券垮掉時，大陸的資金往臺灣湧。
 
 ## 海峽這一邊的鈔票 {finance-taiwan-1949-currency}
 
-臺灣這邊，物價從 1945 年戰爭結束後就開始失控。[finance-taiwan-1949-currency:s1][finance-taiwan-1949-currency:s3] 1946 年 5 月起，臺灣銀行發行後來被稱為舊臺幣的鈔票。[finance-taiwan-1949-currency:s1] 多出來的錢有兩個來源：臺灣銀行先是放款給缺錢的公營事業，後來又替中央政府墊付軍公經費。[finance-taiwan-1949-currency:s5] 陳誠在 1949 年的一封信裡談到這筆墊款，說它已經：
+臺灣這邊的物價，不是等到 1948 年才出問題，而是從 1945 年戰爭結束後就開始失控。[finance-taiwan-1949-currency:s1][finance-taiwan-1949-currency:s3] 1946 年 5 月起，臺灣銀行發行後來被稱為舊臺幣的鈔票。[finance-taiwan-1949-currency:s1] 多出來的錢有幾個來源：臺灣銀行先是放款給缺錢的公營事業，後來又替中央政府墊付軍公經費，內戰的帳單就這樣有一部分記到了臺灣頭上。[finance-taiwan-1949-currency:s5] 1948 年上海金融危機和金圓券改革之後，熱錢又流進來，物價壓力更大。[finance-taiwan-1949-currency:s1][finance-taiwan-1949-currency:s5]
+
+數字可以說明這有多嚴重。臺幣的發行額從 1945 年 10 月的大約 29 億元，增加到 1949 年 6 月 14 日的 5,270 多億元，這是估計的數字。[finance-taiwan-1949-currency:s7] 鈔票的面額越印越大，最後出現一萬元的鈔票。[finance-taiwan-1949-currency:s1] 學者吳聰敏和高櫻芬估計，從 1945 年底到 1950 年底，臺灣的貨幣數量和躉售物價都漲了 6,000 倍以上；物價跟著鈔票走，根本原因是鈔票發得太多。[finance-taiwan-1949-currency:s4]
+
+於是有了開頭那一幕。1949 年 6 月 15 日的改革，除了四萬換一元，還有三條規則。第一，新臺幣最多只發 2 億元。第二，撥 80 萬兩黃金當準備，也就是發鈔票的銀行手上留著真正值錢的東西，讓人相信鈔票不是空頭支票；這批黃金估計約值 4,400 萬美元，比 2 億元新臺幣折合的 4,000 萬美元還多。第三，第二天起停止和金圓券等大陸貨幣兌換，切斷熱錢的管道。[finance-taiwan-1949-currency:s3][finance-taiwan-1949-currency:s7] 「四萬換一塊」並不是一夕之間讓大家變窮。窮是前幾年物價暴漲造成的，換鈔只是把數字的零拿掉。[finance-taiwan-1949-currency:s3][finance-taiwan-1949-currency:s4]
+
+改革也沒有讓物價馬上停住，政府的赤字還在。陳誠在 1949 年的一封信裡談到替中央墊付的軍公經費，是拿新臺幣的發行總額來比的，他說這筆墊款已經：[finance-taiwan-1949-currency:s5]
 
 > 合新臺幣發行總額百分之九十……長此以往，而臺省勢必非至崩潰不可（陳誠 1949 年書信，《陳誠先生書信集》，轉引自吳聰敏講義）[finance-taiwan-1949-currency:s5]
 
-再加上 1948 年上海金融危機和金圓券改革之後流進來的熱錢，物價壓力更大。[finance-taiwan-1949-currency:s1][finance-taiwan-1949-currency:s5] 學者估計，從 1945 年底到 1950 年底，臺灣的貨幣數量和躉售物價都漲了 6,000 倍以上。[finance-taiwan-1949-currency:s4]
+物價在 1950 年前後又漲了好幾倍，要到 1950 年代初美援進來、政府的財政缺口變小，才慢慢穩定。[finance-taiwan-1949-currency:s5][finance-taiwan-1949-currency:s7] 新臺幣為什麼站得住，有人歸功於黃金準備讓民心安定，也有人指出真正穩下來靠的是美援。[finance-taiwan-1949-currency:s5][finance-taiwan-1949-currency:s7]
 
-於是有了開頭那一幕。1949 年 6 月 15 日的改革，除了四萬換一元，還有三條規則：新臺幣最多只發 2 億元；撥 80 萬兩黃金當準備，讓人相信鈔票不是空頭支票；第二天起停止和金圓券等大陸貨幣兌換，切斷熱錢的管道。[finance-taiwan-1949-currency:s3][finance-taiwan-1949-currency:s7] 「四萬換一塊」並不是一夕之間讓大家變窮。窮是前幾年物價暴漲造成的，換鈔只是把數字的零拿掉。[finance-taiwan-1949-currency:s3][finance-taiwan-1949-currency:s4] 新臺幣發行後物價也沒有馬上停住，要到 1950 年代初美援進來、政府的財政缺口變小，才慢慢穩定。[finance-taiwan-1949-currency:s5][finance-taiwan-1949-currency:s7]
+「錢」這條線講到這裡。接下來要倒帶。物價飛漲帶來的民怨，在換鈔之前就已經累積，而且早在 1947 年初就爆發過一次。[event-228-incident:s1][event-228-incident:s5] 照年代排，順序其實是：1945 年政府接收臺灣，1947 年二二八事件，1948 年金圓券，1949 年 5 月戒嚴，1949 年 6 月新臺幣。[event-228-incident:s1][finance-gold-yuan-1948:s1][event-taiwan-martial-law:s1][finance-taiwan-1949-currency:s3] 所以下一節發生的事，比前兩節都早：二二八發生的時候，金圓券和新臺幣都還沒有出現，市面上用的是發行還不到一年的舊臺幣。[finance-taiwan-1949-currency:s1][event-228-incident:s1]
 
-不過，物價飛漲帶來的民怨，在換鈔之前就已經累積。這裡要把時間往回撥兩年多，回到金圓券和新臺幣都還沒出現的 1947 年初。[event-228-incident:s1][event-228-incident:s5]
+★ 印鈔、替中央墊款和大陸來的熱錢推高臺灣物價；新臺幣用限量、黃金準備和切斷兌換重建信用。
 
-## 一包私菸點燃的火 {event-228-incident}
+## 倒帶兩年：一包私菸點燃的火 {event-228-incident}
 
-1945 年 10 月，國民政府接收臺灣，設立**行政長官公署**，長官陳儀一個人同時掌握行政、立法、司法和軍事大權，中高級職位幾乎都由外省人擔任。[event-228-incident:s1] 公署沿用戰爭末期日本留下的米穀統制，用遠低於市價的價格強制徵購稻米。農民抗拒，商人不運米進城，形成米荒。[event-228-incident:s1] 政府的**專賣局**獨家賣菸酒，民間自己賣的叫私菸；貿易局獨占進出口。[event-228-incident:s1]
+時間往回撥，回到 1945 年 10 月。這一年國民政府接收臺灣，設立**行政長官公署**，長官陳儀一個人同時掌握行政、立法、司法和軍事大權，中高級職位幾乎都由外省人擔任。[event-228-incident:s1] 公署沿用戰爭末期日本留下的米穀統制，用遠低於市價的價格強制徵購稻米。農民抗拒，商人不運米進城，形成米荒。[event-228-incident:s1] 政府的**專賣局**獨家賣菸酒，民間自己賣的叫私菸；貿易局獨占進出口，糖等物資又運往大陸，物資更缺。[event-228-incident:s1]
 
-物價也失控了。臺北的米價從 1945 年 8 月到 1947 年 1 月，估計漲了約 400 倍。[event-228-incident:s5][event-228-incident:s1] 失業、軍紀敗壞、語言隔閡和官員貪污，讓不滿一路累積。[event-228-incident:s1] 缺糧和通膨該歸因於誰，學者有爭論：許介鱗認為根源在日本統治末期的印鈔和徵購；經濟學者吳聰敏則用物價和貨幣資料反駁，認為 1945 年 10 月以後的印鈔和徵購都是行政長官公署的決定。[event-228-incident:s5]
+上一節講的那場通膨，這時才走到前半段，物價已經失控：臺北的米價從 1945 年 8 月到 1947 年 1 月，估計漲了約 400 倍。[event-228-incident:s5][event-228-incident:s1] 失業、軍紀敗壞、語言隔閡和官員貪污，讓不滿一路累積。[event-228-incident:s1] 缺糧和通膨該歸因於誰，學者有爭論：許介鱗認為根源在日本統治末期的印鈔和徵購；經濟學者吳聰敏則用物價和貨幣資料反駁，認為 1945 年 10 月以後的印鈔和徵購都是行政長官公署的決定。[event-228-incident:s5]
 
-1947 年 2 月 27 日，專賣局查緝員在臺北天馬茶房前查緝私菸，沒收林江邁的菸和錢，並用槍柄打傷她的頭。查緝員逃跑時開槍，擊中市民陳文溪，他隔天死亡。[event-228-incident:s1][event-228-incident:s3] 2 月 28 日，民眾到長官公署請願，衛兵開槍，衝突蔓延全島。[event-228-incident:s1][event-228-incident:s3]
+1947 年 2 月 27 日，專賣局查緝員在臺北天馬茶房前查緝私菸，沒收林江邁的菸和錢，並用槍柄打傷她的頭。查緝員逃跑時開槍，擊中市民陳文溪，他隔天死亡。[event-228-incident:s1][event-228-incident:s3] 2 月 28 日，民眾罷市；下午約四千人到長官公署請願，公署衛兵開槍。民眾占領廣播電台向全島廣播，衝突蔓延各地，嘉義、高雄等地發生武裝衝突。[event-228-incident:s1][event-228-incident:s3]
 
-各地的民意代表和仕紳組成處理委員會，想和政府談判，在 3 月 7 日向陳儀提出要求。[event-228-incident:s3][event-228-incident:s6] 其中兩條是：
+3 月 1 日，臺北市參議會等組成「二二八事件處理委員會」，由民意代表和仕紳出面和陳儀談判。3 月 6 日處理委員會提出三十二條要求，3 月 7 日追加為四十二條。[event-228-incident:s1][event-228-incident:s3][event-228-incident:s6] 其中有兩條，針對的正是前面提過的權力集中和專賣：
 
 > 應制定省自治法，作為本省政治的最高規範。……應撤銷專賣局。（處理委員會三十二條要求，Kerr《Formosa Betrayed》附錄一英譯；中文為本站摘譯）[event-228-incident:s6]
 
-陳儀拒絕了，同時從 3 月 2 日起多次電請南京派兵。[event-228-incident:s1][event-228-incident:s3] 3 月 8 日起，增援部隊在基隆、高雄登陸，展開鎮壓。3 月底起又推動**清鄉**，由軍警清查戶口、搜捕被認為參與事件的人。許多地方菁英被捕或遇害。到 5 月中，清鄉才告一段落。[event-228-incident:s1][event-228-incident:s3]
+陳儀拒絕了，同時從 3 月 2 日起多次電請南京派兵。[event-228-incident:s1][event-228-incident:s3] 3 月 8 日起，增援部隊在基隆、高雄登陸，展開鎮壓；3 月 10 日陳儀宣布處理委員會是非法團體，下令解散。王添灯、林茂生、陳澄波、湯德章等地方菁英陸續被捕或遇害。[event-228-incident:s1][event-228-incident:s3] 3 月底起又推動**清鄉**，由軍警清查戶口、搜捕被認為參與事件的人，並實施鄰里連坐。到 5 月中，清鄉才告一段落。從緝菸算起，前後將近三個月。[event-228-incident:s1][event-228-incident:s3]
 
-有兩件事要說清楚。第一，這不是單純的「本省人打外省人」：衝突初期確實有外省人遭到攻擊，傷亡數字各來源差距很大；3 月 8 日以後軍隊鎮壓和清鄉造成的傷亡，則以本省人為主。[event-228-incident:s1][event-228-incident:s2][event-228-incident:s12] 第二，死亡人數至今沒有定論。行政院 1992 年研究報告的研究小組用人口統計推估約 18,000 到 28,000 人，但這個推估只放在附錄，報告的總主筆認為「數以千計」比較合理；其他估計從一千多人到上萬人都有。[event-228-incident:s8][event-228-incident:s9][event-228-incident:s10]
+有兩件事要說清楚。第一，這不是單純的「本省人打外省人」：衝突初期確實有外省人遭到攻擊，傷亡數字各來源差距很大；3 月 8 日以後軍隊鎮壓和清鄉造成的傷亡，則以本省人為主，並且集中在地方菁英。[event-228-incident:s1][event-228-incident:s2][event-228-incident:s12]
+
+第二，死亡人數至今沒有定論。行政院 1992 年研究報告的研究小組用人口統計推估約 18,000 到 28,000 人，根據是 1947 年全臺的死亡人數比前後年份多出約 2 萬；但這個推估只放在附錄，報告的總主筆認為「數以千計」比較合理。[event-228-incident:s8][event-228-incident:s9][event-228-incident:s10] 其他估計從一千多人到上萬人都有；監察院的調查報告引用那份研究報告說，確實的數字恐怕不可能取得。[event-228-incident:s7][event-228-incident:s9]
 
 事件之後，行政長官公署撤銷，改設臺灣省政府，但處理委員會要求的省自治法等並沒有實現。[event-228-incident:s3][event-228-incident:s6] 政府對社會的監控反而加強，二二八後來成為不能公開談論的禁忌。[event-228-incident:s1][event-228-incident:s2] 鎮壓和清鄉讓臺灣社會噤聲。兩年後，戒嚴令發布。[event-228-incident:s1][event-taiwan-martial-law:s1]
 
+★ 權力集中、米荒、專賣和物價失控累積民怨，查緝私菸成了導火線；鎮壓之後社會噤聲。
+
 ## 管了三十八年 {event-taiwan-martial-law}
 
-1949 年 5 月 19 日，陳誠以臺灣省政府主席兼警備總司令的名義發布戒嚴令，隔天零時生效。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s15] 這比新臺幣上路早了不到一個月。[event-taiwan-martial-law:s1][finance-taiwan-1949-currency:s3] **戒嚴**的意思是國家宣布進入緊急狀態，由軍隊接管治安：集會、罷工、罷市被禁止，很多案件改由軍事法庭審判。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s8]
+倒帶結束，時間回到 1949 年。這一年對岸的金圓券正在變成廢紙，共軍在 4 月渡過長江。[finance-gold-yuan-1948:s3][war-chinese-civil-war:s1] 5 月 19 日，陳誠以臺灣省政府主席兼警備總司令的名義發布戒嚴令，隔天零時生效，比新臺幣上路早了不到一個月。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s15][finance-taiwan-1949-currency:s3] **戒嚴**的意思是國家宣布進入緊急狀態，由軍隊接管治安：集會、罷工、罷市被禁止，很多案件改由軍事法庭審判，重大違規可以處死刑。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s8]
 
-為什麼是這時候？內戰失利，大批軍民遷來臺灣，政府把臺灣當成「反攻基地」，用非常手段控制社會成了常態。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s8] 戒嚴期間，新政黨不准成立，國會不改選。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s5]
+為什麼是這時候？內戰失利，大批軍民遷來臺灣，政府把臺灣當成「反攻基地」，用非常手段控制社會成了常態。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s8] 戒嚴期間，新政黨不准成立，國會也不改選：1947 到 1948 年在大陸選出的民意代表，以大陸無法改選為理由一直做下去，被戲稱為「萬年國會」。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s5] 1950 年代起，政府用「叛亂」「匪諜」等罪名大量逮捕、以軍法審判，這段歷史稱為**白色恐怖**。[event-taiwan-martial-law:s7][event-taiwan-martial-law:s12] 受害人數依定義不同，差距很大：促轉會的資料庫整理出 13,683 筆受裁判紀錄，其中 1,153 筆是死刑判決；行政院引用法務部的統計，則說受難者約 14 萬人。[event-taiwan-martial-law:s6][event-taiwan-martial-law:s13]
 
-1950 年代起，政府用「叛亂」「匪諜」等罪名大量逮捕、以軍法審判，這段歷史稱為**白色恐怖**。[event-taiwan-martial-law:s7][event-taiwan-martial-law:s12] 受害人數依定義不同，差距很大：促轉會的資料庫整理出 13,683 筆受裁判紀錄，其中 1,153 筆是死刑判決；行政院引用法務部的統計，則說受難者約 14 萬人。[event-taiwan-martial-law:s6][event-taiwan-martial-law:s13]
-
-想鬆開管制的人一直都有。1960 年，雷震因為籌組反對黨被判刑十年。[event-taiwan-martial-law:s4] 1979 年 8 月，《美麗島》雜誌創刊，黃信介在發刊詞裡寫：
+想鬆開管制的人一直都有。1960 年，《自由中國》半月刊的負責人雷震反對蔣中正三度連任，又和其他人籌組反對黨，被以涉嫌叛亂逮捕，軍法判刑十年。[event-taiwan-martial-law:s4] 不准組新政黨，反對國民黨的人只能以「黨外」的身分參選、辦雜誌。[event-taiwan-martial-law:s3] 1979 年 8 月，《美麗島》雜誌創刊，黃信介在發刊詞裡寫：
 
 > 決定我們未來道路和命運，不再是任何政權和這政權所豢養之文人的權利。（黃信介，《美麗島》雜誌發刊詞，1979 年 8 月；轉引自江志宏文）[event-taiwan-martial-law:s9]
 
-同年 12 月 10 日，雜誌社在高雄舉辦人權日集會，和軍警發生衝突，之後全臺大逮捕，八個人受軍法審判。[event-taiwan-martial-law:s3][event-taiwan-martial-law:s9] 替他們辯護的律師當中，有一位叫陳水扁。[event-taiwan-martial-law:s3]
+同年 12 月 10 日，雜誌社在高雄舉辦人權日集會，和軍警發生衝突，之後全臺大逮捕。1980 年八個人受軍法審判，一人無期徒刑，其餘判 12 到 14 年。[event-taiwan-martial-law:s3][event-taiwan-martial-law:s9] 替他們辯護的律師當中，有一位叫陳水扁。[event-taiwan-martial-law:s3] 1986 年 9 月 28 日，黨外人士宣布成立民主進步黨。這在當時仍然違法，政府起初不承認，蔣經國隨後默許，沒有取締。[event-taiwan-martial-law:s8][event-taiwan-martial-law:s16] 1987 年 7 月 15 日零時，戒嚴解除，前後 38 年。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s15]
 
-1986 年 9 月 28 日，黨外人士宣布成立民主進步黨。這在當時仍然違法，政府起初不承認，蔣經國隨後默許，沒有取締。[event-taiwan-martial-law:s8][event-taiwan-martial-law:s16] 1987 年 7 月 15 日零時，戒嚴解除，前後 38 年。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s15]
-
-解嚴不等於馬上民主。管制是一條一條拆掉的：1991 年終止動員戡亂，也就是結束 1948 年起讓總統可以不經正常程序行使緊急權力的安排；1992 年國會全面改選，1996 年 3 月 23 日第一次由人民直接選總統。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s5][event-taiwan-martial-law:s10] 這是誰的功勞，看法不一：一種說法強調蔣經國晚年的決斷，另一種強調從雷震、美麗島到民進黨成立，由下而上一步步逼出來的讓步。[event-taiwan-martial-law:s8][event-taiwan-martial-law:s3][event-taiwan-martial-law:s4]
+解嚴不等於馬上民主，解嚴前還先通過《國家安全法》維持部分限制。管制是一條一條拆掉的：1990 年學生發起野百合學運，要求解散萬年國會；1991 年終止動員戡亂，也就是結束 1948 年起讓總統可以不經正常程序行使緊急權力的安排；1992 年國會全面改選；1996 年 3 月 23 日，第一次由人民直接選總統。[event-taiwan-martial-law:s1][event-taiwan-martial-law:s5][event-taiwan-martial-law:s10] 這是誰的功勞，看法不一：一種說法強調蔣經國晚年的決斷，另一種強調從雷震、美麗島到民進黨成立，由下而上一步步逼出來的讓步。[event-taiwan-martial-law:s8][event-taiwan-martial-law:s3][event-taiwan-martial-law:s4]
 
 可以組黨、可以選舉了。接下來的問題是：選輸的執政黨，會不會把政權交出來？[event-taiwan-2000-transition:s1]
 
+★ 內戰失利的政府以戒嚴控制社會 38 年；解嚴之後，管制是分好幾步、一條一條拆掉的。
+
 ## 輸了就交出去 {event-taiwan-2000-transition}
 
-2000 年 3 月 18 日，臺灣舉行第二次總統直選，投票率 82.69%。[event-taiwan-2000-transition:s1][event-taiwan-2000-transition:s2] 國民黨內部分裂，提名的是連戰，宋楚瑜脫黨參選。[event-taiwan-2000-transition:s2] 民進黨的候選人，就是當年美麗島事件的辯護律師陳水扁。[event-taiwan-2000-transition:s5]
+2000 年 3 月 18 日，臺灣舉行第二次總統直選，投票率 82.69%。[event-taiwan-2000-transition:s1][event-taiwan-2000-transition:s2] 國民黨內部分裂，提名的是連戰，宋楚瑜脫黨參選。[event-taiwan-2000-transition:s2] 民進黨的候選人，就是當年美麗島事件的辯護律師陳水扁：戒嚴時期替被告辯護的人，在管制鬆開以後成了反對黨的領袖。[event-taiwan-2000-transition:s5]
 
-開票結果，陳水扁得到 39.30% 的選票，宋楚瑜 36.84%，連戰 23.10%。[event-taiwan-2000-transition:s1] 陳水扁沒有過半，是以得票最多當選。常見的解釋是國民黨分裂：連戰和宋楚瑜合計拿到近六成選票，卻分散了。[event-taiwan-2000-transition:s1][event-taiwan-2000-transition:s2]
+開票結果，陳水扁得到 39.30% 的選票，宋楚瑜 36.84%，連戰 23.10%。[event-taiwan-2000-transition:s1] 陳水扁沒有過半，是以得票最多當選。常見的解釋是國民黨分裂：連戰和宋楚瑜合計拿到近六成選票，卻分散了；也有人強調選前幾件事的影響，例如中研院院長李遠哲公開支持陳水扁，以及中國總理朱鎔基在投票前三天發表的警告談話。[event-taiwan-2000-transition:s1][event-taiwan-2000-transition:s2]
 
-5 月 20 日陳水扁就職，國民黨在臺灣超過五十年的執政結束。這就是**政黨輪替**：執政黨在選舉中落敗，由另一個政黨上台。[event-taiwan-2000-transition:s1][event-taiwan-2000-transition:s2] 他在就職演說裡說：
+選後，國民黨的支持者包圍黨部，李登輝辭去黨主席。[event-taiwan-2000-transition:s1][event-taiwan-2000-transition:s2] 5 月 20 日陳水扁就職，國民黨在臺灣超過五十年的執政結束。這就是**政黨輪替**：執政黨在選舉中落敗，由另一個政黨上台。[event-taiwan-2000-transition:s1][event-taiwan-2000-transition:s2] 他在就職演說裡說：
 
 > 在 21 世紀前夕，臺灣人民完成了歷史性的政黨輪替。（陳水扁就職演說，2000 年 5 月 20 日；美國國會紀錄刊載的英譯本，中文為本站摘譯）[event-taiwan-2000-transition:s3]
 
-輪替之後也不是一帆風順。立法院的多數仍在國民黨等政黨手上，新政府和立法院很快在核四停建等議題上激烈衝突。[event-taiwan-2000-transition:s1][event-taiwan-2000-transition:s4]
+輪替之後也不是一帆風順。立法院的多數仍在國民黨等政黨手上，新政府和立法院很快在核四停建等議題上激烈衝突，第一任行政院長在 2000 年 10 月就辭職了。[event-taiwan-2000-transition:s1][event-taiwan-2000-transition:s4] 不過選輸就交出政權這件事留了下來：2008 年國民黨的馬英九勝選，政權再輪替一次。[event-taiwan-2000-transition:s4]
+
+★ 開放組黨和選舉後，反對黨靠選票上台；執政超過五十年的政黨選輸了，把政權交出去。
 
 ## 兩個謎的答案
 
 回到開頭的兩個謎。錢為什麼會壞到四萬換一元？因為內戰的軍費靠印鈔票支付，大陸的金融崩潰又把熱錢推向臺灣，臺灣銀行還要替政府墊款。[finance-taiwan-1949-currency:s1][finance-taiwan-1949-currency:s5] 為什麼幾年內走到二二八和戒嚴？接收後的印鈔、米糧統制和專賣讓民怨累積，一次查緝私菸成了導火線；鎮壓和清鄉之後社會噤聲，內戰失利的政府遷來臺灣，又以戒嚴控制社會。[event-228-incident:s1][event-228-incident:s5][event-taiwan-martial-law:s1] 後來怎麼走到政黨輪替？開放組黨和選舉之後，反對黨才有機會靠選票執政。[event-taiwan-2000-transition:s5][event-taiwan-martial-law:s3]
+
+再把順序整理一次，因為故事中間倒帶過：1945 年接收，物價開始失控；1947 年二二八；1948 年金圓券；1949 年 5 月戒嚴、6 月新臺幣；1987 年解嚴；2000 年政黨輪替。[event-228-incident:s1][finance-gold-yuan-1948:s1][event-taiwan-martial-law:s1][finance-taiwan-1949-currency:s3][event-taiwan-2000-transition:s1] 被噤聲的事後來也能談了：1992 年行政院公布二二八事件的研究報告，1995 年總統李登輝代表政府向受難者家屬道歉。[event-228-incident:s4]
 
 這只是其中一條路，每一站都還有別的原因。二二八的背後不只有物價，還有權力集中、語言隔閡和軍紀；民主化有由上而下和由下而上兩種說法；2000 年的選舉結果，也和國民黨分裂有關。[event-228-incident:s1][event-taiwan-martial-law:s8][event-taiwan-2000-transition:s2] 二二八和白色恐怖的受害人數，到今天也都還沒有定論。[event-228-incident:s9][event-taiwan-martial-law:s6]

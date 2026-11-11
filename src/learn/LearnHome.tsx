@@ -88,7 +88,7 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
         <section className="home-topics">
           <h2>2. 或者，順著一條故事線、一個主題往下走</h2>
           {onStory && (index.storylines ?? []).length > 0 && <>
-            <p className="muted"><b>故事線</b>：一件事怎麼引出下一件事，跨越不同時代和地區。每條線都有一篇 5–15 分鐘的故事，讀完再一站一站看「怎麼造成的」。</p>
+            <p className="muted"><b>故事線</b>：一件事怎麼引出下一件事，跨越不同時代和地區。每條線都有一篇 10–25 分鐘的故事，讀完再一站一站看「怎麼造成的」。</p>
             <div className="home-stories">
               {(index.storylines ?? []).map((s) => <button key={s.id} className="si-item" onClick={() => onStory(s.id)}><span className="si-title">{s.title}</span><span className="si-q">{s.question}</span><span className="si-meta muted small"><span>{s.stops.length} 站</span><ReadBadge s={s} /></span></button>)}
             </div>

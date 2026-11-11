@@ -55,8 +55,8 @@ export interface StoryRead { minutes: number; chars: number; hook: string }
 export interface Storyline { id: string; title: string; question: string; blurb: string; stops: { id: string; bridge: Omit<CauseLink, 'id' | 'name'> | null }[]; read?: StoryRead | null }
 /** public/data/stories/<id>.json：內文裡的出處寫成 [^n]，n 是 sources 的第 n 筆；**粗體** 是關鍵詞 */
 export interface StoryDoc extends StoryRead {
-  id: string; remember: string[]; think: string[];
-  sections: { title: string; cards: string[]; blocks: { kind: 'p' | 'quote'; text: string }[] }[];
+  id: string; remember: string[]; think: string[]; recall?: { q: string; a: string }[];
+  sections: { title: string; cards: string[]; blocks: { kind: 'p' | 'quote' | 'key'; text: string }[] }[];
   sources: { card: string; cardName: string; title: string; url: string }[];
 }
 

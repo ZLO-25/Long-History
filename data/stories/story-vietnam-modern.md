@@ -9,98 +9,145 @@ think:
   - 法國在越南蓋了鐵路、修了水利，卻也收重稅。要判斷一段殖民統治是「建設」還是「負擔」，你會看哪些數字？
   - 日內瓦協議說北緯 17 度線只是暫時的，結果它存在了二十多年。「暫時」的安排為什麼常常變成長期的？
   - 越南和打過仗的法國、美國、中國，後來都恢復了往來。你覺得一個國家要怎麼和從前的敵人重新相處？
+recall:
+  - q: 法國是用什麼理由出兵越南的？清朝後來怎麼回應？
+    a: 阮朝皇帝禁止天主教、處死傳教士，法國以此為理由出兵。清朝以宗主國身分出兵打了中法戰爭，1885 年仍承認法國與越南訂的條約。
+  - q: 殖民時代越南的米大量出口，為什麼農民還是過得苦？
+    a: 土地集中在少數大地主手上，許多農民是佃農，最多要交六成收成當田租，還要繳重稅；好處很少落到一般農民手上。
+  - q: 反法的人換了三代，為什麼最後是共產黨勝出？
+    a: 安沛起義後越南國民黨沒有恢復力量；共產黨在農民和工人之間有組織，反對地主和重稅的主張，對沒有土地的農民很有吸引力。
+  - q: 1945 年 8 月，越盟為什麼能很快奪得政權？
+    a: 日本投降留下權力真空，日本扶植的越南帝國沒有能維持秩序的軍隊；越盟早有組織，又在饑荒中壯大，立刻起義。
+  - q: 北緯 17 度線說好是「暫時」的，為什麼沒有消失？
+    a: 美國和南方的越南國都沒有在日內瓦協議上簽字，1955 年南方成立越南共和國，原訂 1956 年的統一選舉沒有舉行。
 ---
 
 ## 從一雙球鞋說起
 
-你身上的球鞋、手機，很可能是越南製造的。世界銀行的資料說，越南的人均 GDP 在 1986 年還不到 500 美元，到 2025 年是 5,066 美元。[event-doi-moi:s1][event-doi-moi:s2]
+你身上的球鞋、手機，很可能是越南製造的。世界銀行的資料說，越南的人均 GDP 在 1986 年還不到 500 美元，到 2025 年是 5,066 美元。[event-doi-moi:s1][event-doi-moi:s2] 可是把時間往回拉兩百年，越南是一個剛統一的王朝，新君主正派使者去北京，請清朝皇帝承認他的國名。[event-nguyen-dynasty-vietnam-name:s1]
 
-可是把時間往回拉兩百年，越南是一個剛統一的王朝，新君主正派使者去北京，請清朝皇帝承認他的國名。[event-nguyen-dynasty-vietnam-name:s1] 一個靠朝貢和中國打交道的王朝，是怎麼先被法國吞下、又打了三場大仗，最後走到世界工廠的？線索只有一條：每一站結束時，都留下一個沒解決的問題，下一站就從那裡開始。[event-nguyen-dynasty-vietnam-name:s2][event-french-indochina:s1]
+一個靠朝貢和中國打交道的王朝，是怎麼先被法國吞下、又打了三場大仗，最後走到世界工廠的？這一路上，外國勢力一個換過一個：法國、日本、美國、中國。線索只有一條：每一站結束時，都留下一個沒解決的問題，下一站就從那裡開始。[event-nguyen-dynasty-vietnam-name:s2][event-french-indochina:s1]
 
 ## 傳教士幫過忙的王朝 {event-nguyen-dynasty-vietnam-name}
 
-18 世紀後半，西山起義推翻了越南南北兩方的勢力。南方阮氏的後人阮福映逃過一劫，靠法國傳教士百多祿等人的幫助招兵反攻，1802 年統一全國，年號嘉隆，定都順化。[event-nguyen-dynasty-vietnam-name:s2][event-nguyen-dynasty-vietnam-name:s3]
+16 世紀以後，越南的皇帝失去實權，北方和南方各有一家掌權，打了很多年仗。1771 年西山三兄弟起兵，推翻了南北兩方。南方阮氏的後人阮福映逃過一劫，靠法國傳教士百多祿等人的幫助招兵反攻，1802 年統一全國，年號嘉隆，定都順化。越南第一次在一個朝廷下，統一了今天大部分的國土。[event-nguyen-dynasty-vietnam-name:s2][event-nguyen-dynasty-vietnam-name:s3]
 
-統一之後，他照著前面幾個王朝的老規矩，派使者請清朝皇帝冊封。1804 年清朝使者來冊封他為「越南國王」，「越南」這個國號就是這樣定下來的；在國內，他仍然稱皇帝，並仿照清朝的制度治國。[event-nguyen-dynasty-vietnam-name:s1][event-nguyen-dynasty-vietnam-name:s4][event-nguyen-dynasty-vietnam-name:s2]
+統一之後，他照著前面幾個王朝的老規矩，派使者到北京請封，也就是請清朝皇帝正式冊封他，取得承認。他想要的國名是「南越」，嘉慶皇帝的大臣卻認為古代的南越國包括廣東、廣西，名字不妥；清朝最後把兩個字倒過來，定名「越南」。[event-nguyen-dynasty-vietnam-name:s1][event-nguyen-dynasty-vietnam-name:s5] 1804 年清朝使者來冊封他為「越南國王」；在國內，他仍然稱皇帝，並仿照清朝的制度治國。有一種看法認為，這樣的請封比較像一種外交禮儀，也是換取和平的方法。[event-nguyen-dynasty-vietnam-name:s1][event-nguyen-dynasty-vietnam-name:s4][event-nguyen-dynasty-vietnam-name:s2]
 
-問題出在另一個方向。阮朝後來的明命、嗣德等皇帝禁止天主教，處死傳教士與教徒。[event-french-indochina:s1][event-french-indochina:s3] 這時候歐洲國家正在東亞擴張，法國想在中國南方找據點和通往雲南的商路，禁教就成了現成的出兵理由。[event-french-indochina:s1][event-french-indochina:s2]
+北邊的問題用老辦法安頓好了，新的問題卻從海上來。鴉片戰爭讓歐洲列強看到清朝打不過近代海軍，法國也想在中國南方找據點和通往雲南的商路。[event-french-indochina:s1][event-french-indochina:s2] 就在這時，阮朝後來的明命、嗣德等皇帝禁止天主教，處死傳教士與教徒，給了法國現成的出兵理由。當年靠傳教士幫忙起家的王朝，留給下一站的問題正是傳教士。[event-french-indochina:s1][event-french-indochina:s3]
+
+★ 阮朝用請封安頓了和清朝的關係，後來卻因禁教、處死傳教士，給了法國出兵的理由。
 
 ## 二十多年，一口一口吞下 {event-french-indochina}
 
-1858 年，法國聯合西班牙攻打峴港，隔年攻下西貢。1862 年起阮朝被迫割讓南部各省，法國把南部建成殖民地「交趾支那」。[event-french-indochina:s3] 1880 年代法國再往北奪取河內一帶，1884 年的條約第一條寫明「安南承認並接受法國的保護」，越南的中部和北部成了法國的**保護國**：名義上還有自己的皇帝，外交、軍事和重要政務卻由外國控制。[event-french-indochina:s10][event-french-indochina:s5] 從攻峴港算起，前後花了二十多年。[event-french-indochina:s3][event-french-indochina:s5]
+法國不是一次就占領越南的。1858 年，法國聯合西班牙攻打峴港，隔年攻下西貢。1862 年阮朝被迫割讓南部的三個省，1867 年法國再拿下另外三個省，整個南部成了殖民地「交趾支那」。[event-french-indochina:s3]
 
-越南是清朝的藩屬，清朝以宗主國的身分出兵，1884 年爆發中法戰爭。這場仗不只在越南打。法國艦隊攻擊福州，封鎖臺灣北部，在基隆、淡水登陸，滬尾（今天的淡水）一戰被清軍擊退；1885 年清軍又在鎮南關打敗法軍。[event-french-indochina:s2] 但清朝最後還是在 1885 年簽下〈中法新約〉，承認法國與越南訂的條約。越南對中國上千年的朝貢關係，到這裡結束。[event-french-indochina:s4][event-french-indochina:s5]
+接著是北部。1873 年，一名法國軍官帶兵在北部作戰，在河內城外被劉永福的黑旗軍殺死；黑旗軍主要是從廣西越境過來的武裝。隔年阮朝簽約，承認南部歸法國，並開放紅河與河內等地通商，法軍暫時撤出北部。[event-french-indochina:s9][event-french-indochina:s8] 1883 年，又一名法國軍官被黑旗軍伏擊身亡，法國國內大怒，急忙增兵。[event-french-indochina:s9][event-french-indochina:s2] 1884 年的條約第一條寫明「安南承認並接受法國的保護」，越南的中部和北部成了法國的**保護國**：名義上還有自己的皇帝，外交、軍事和重要政務卻由外國控制。從攻峴港算起，前後花了二十多年。[event-french-indochina:s10][event-french-indochina:s5][event-french-indochina:s3]
 
-1887 年，法國把越南、柬埔寨合組成「法屬印度支那」。越南被分成三塊統治，阮朝的皇帝只剩名義。[event-french-indochina:s1] 清朝在戰後更重視臺灣防務，1887 年臺灣正式設省。[event-french-indochina:s2][event-french-indochina:s7] 法國拿到了越南，接下來的問題是：這塊殖民地要怎麼賺錢？
+越南是清朝的藩屬，清朝以宗主國的身分出兵，1884 年爆發中法戰爭。這場仗不只在越南打。法國艦隊攻擊福州，封鎖臺灣北部，在基隆、淡水登陸，滬尾（今天的淡水）一戰被清軍擊退；1885 年清軍又在鎮南關打敗法軍。[event-french-indochina:s2] 誰贏了，說法不一：有人強調清軍在鎮南關、滬尾打了勝仗；也有史家認為清朝確實輸了，因為法國艦隊在福州幾乎消滅福建水師，最後清朝仍承認法國控制越南。[event-french-indochina:s2]
+
+1885 年，清朝簽下〈中法新約〉，承認法國與越南訂的條約。越南對中國上千年的朝貢關係，到這裡結束。[event-french-indochina:s4][event-french-indochina:s5] 1887 年，法國把越南、柬埔寨合組成「法屬印度支那」，越南被分成三塊統治，阮朝的皇帝只剩名義。[event-french-indochina:s1] 臺灣也受到牽動：清朝在戰後把臺灣從福建的一個府升為行省，1887 年正式設省。[event-french-indochina:s7] 法國拿到了越南，接下來的問題是：這塊殖民地要怎麼賺錢？[social-french-indochina-economy:s2]
+
+★ 法國用二十多年從南到北吞下越南；清朝出兵後仍承認，越南的朝貢關係結束。
 
 ## 鐵路、稻田和誰的口袋 {social-french-indochina-economy}
 
-1897 年杜美當上總督時，殖民地每年虧損數百萬法郎。他決心讓殖民地賺錢，對鴉片、葡萄酒和鹽的買賣課稅。繳不起稅的人常常失去房子和田地，只好去打零工。[social-french-indochina-economy:s2] 稅收拿來支付公共工程，像 1910 年通車、連接海防、河內和雲南昆明的滇越鐵路。[social-french-indochina-economy:s1][social-french-indochina-economy:s3]
+1897 年杜美當上總督時，殖民地每年虧損數百萬法郎。他決心讓殖民地賺錢，對鴉片、葡萄酒和鹽的買賣課稅。這些東西人人都得買，政府就穩穩有收入；繳不起稅的人常常失去房子和田地，只好去打零工。[social-french-indochina-economy:s2] 稅收拿來支付公共工程，政府還徵召人民去修路，做強迫勞動。1910 年通車的滇越鐵路連接海防、河內和雲南昆明，目的之一是把越南的米、煤賣進中國市場，並取得雲南的礦產。[social-french-indochina-economy:s1][social-french-indochina-economy:s3]
 
-南部的湄公河三角洲修了水利，1880 到 1930 年稻田面積增加四倍，米大量出口。但土地集中在少數人手上：在交趾支那，只占地主人數不到 3% 的大地主擁有 45% 的土地。許多農民成了**佃農**，自己沒有田，向地主租田來種，最多要交出六成收成當田租。[social-french-indochina-economy:s1]
+南部的湄公河三角洲修了水利，1880 到 1930 年稻田面積增加四倍，米大量出口。但土地集中在少數人手上：在交趾支那，只占地主人數不到 3% 的大地主擁有 45% 的土地。許多農民成了**佃農**，自己沒有田，向地主租田來種，最多要交出六成收成當田租，常常還要向地主借錢，越欠越多。[social-french-indochina-economy:s1] 米大量出口，不代表種米的人吃得飽：二戰前，估計約一半的人家沒有自己的田。[social-french-indochina-economy:s1]
 
-1920 年代南部又掀起開橡膠園的熱潮，1927 年富林橡膠園工人的死亡率高達 17%。[social-french-indochina-economy:s4]
+1920 年代南部又掀起開橡膠園的熱潮。工人多半從北部、中部招募來，住在擁擠的工寮，瘧疾經常爆發；1927 年富林橡膠園工人的死亡率高達 17%，研究者認為這還是保守的數字。[social-french-indochina-economy:s4]
 
-殖民統治到底帶來什麼，一直有兩種說法。支持的人說，醫療、教育、交通和通訊都大幅進步。批評的人指出，好處很少落到一般農民手上。[social-french-indochina-economy:s1][social-french-indochina-economy:s6] 法國人自己的統計顯示，到 1939 年，學齡兒童只有約 15% 上學，約八成的人不識字，每 10 萬人只有 2 位醫生。[social-french-indochina-economy:s1] 後來胡志明在獨立宣言裡說法國「蓋的監獄比學校還多」；這是政治宣言，但也點出了許多越南人的感受。[social-french-indochina-economy:s7]
+殖民統治到底帶來什麼，一直有兩種說法。支持的人說，醫療、教育、交通和通訊都大幅進步。批評的人指出，這套經濟是為了讓法國人和極少數本地菁英得利，好處很少落到一般農民手上。[social-french-indochina-economy:s1][social-french-indochina-economy:s6] 法國人自己的統計顯示，到 1939 年，學齡兒童只有約 15% 上學，約八成的人不識字，每 10 萬人只有 2 位醫生。[social-french-indochina-economy:s1] 後來胡志明在獨立宣言裡列舉法國的罪狀，其中一句是這樣說的：[social-french-indochina-economy:s7]
 
-重稅和失去土地的農民，就是這一站留給下一站的問題：1908 年中部和北部爆發要求減稅的大示威，1930 年富林橡膠園約 1,300 名工人罷工，要求之一是「不要再向我們收人頭稅」。[social-french-indochina-economy:s6][social-french-indochina-economy:s4]
+> 他們蓋的監獄比學校還多。（胡志明〈越南民主共和國獨立宣言〉，1945 年 9 月 2 日；英譯本，中文為摘譯）[social-french-indochina-economy:s7]
+
+這是政治宣言，但也點出了許多越南人的感受。[social-french-indochina-economy:s7] 重稅和失去土地的農民，就是這一站留給下一站的問題：1908 年中部和北部爆發要求減稅的大示威，1930 年富林橡膠園約 1,300 名工人罷工，要求之一是「不要再向我們收人頭稅」。[social-french-indochina-economy:s6][social-french-indochina-economy:s4]
+
+★ 殖民政府靠重稅和強迫勞動蓋鐵路、擴稻田，土地卻集中在大地主手上，農民越來越不滿。
 
 ## 三代人，三種救國的辦法 {event-vietnam-anticolonial}
 
-第一代人的辦法是保衛皇帝。1885 年 7 月法軍進駐順化，大臣尊室說帶著年少的咸宜帝逃進山區，發出〈勤王詔〉號召全國起兵。**勤王**的意思是「幫助國王」。[event-vietnam-anticolonial:s1][event-vietnam-anticolonial:s3] 但朝廷並不是全體一起反抗，法國很快另立了同慶帝。1888 年咸宜帝被俘，流放到阿爾及利亞，勤王軍在 1896 年前後也被平定。[event-vietnam-anticolonial:s1]
+越南人不是被統治之後就安靜接受。五十多年裡，反抗的人換了三代，辦法也換了三種。[event-vietnam-anticolonial:s1][event-vietnam-anticolonial:s2] 第一代人的辦法是保衛皇帝。1885 年 7 月法軍將領進入順化，要求皇帝出來迎接，主戰的大臣尊室說等人夜襲法軍失敗，帶著年少的咸宜帝逃進山區，發出〈勤王詔〉號召全國起兵。**勤王**的意思是「幫助國王」。[event-vietnam-anticolonial:s1][event-vietnam-anticolonial:s3] 但朝廷並不是全體一起反抗，法國很快另立了一位皇帝，也有官員配合法國。1888 年咸宜帝被俘，流放到阿爾及利亞，勤王軍在 1896 年前後也被平定。[event-vietnam-anticolonial:s1]
 
-第二代是讀書人，他們想靠新知識。日本經過明治維新，又剛打敗俄國，潘佩珠把越南青年送到日本留學，叫做東遊運動。潘周楨則反對暴力，也反對依賴外國，主張先辦教育。[event-vietnam-anticolonial:s2][event-vietnam-anticolonial:s5] 1907 年河內的東京義塾教國語字（用拉丁字母拼寫越南話的文字）和科學，幾個月後就被法國關閉；1908 年潘周楨被捕，1909 年日本在法國壓力下驅逐了潘佩珠。[event-vietnam-anticolonial:s4][tech-vietnam-scripts:s4][event-vietnam-anticolonial:s5][event-vietnam-anticolonial:s2]
+第二代是讀書人，他們想靠新知識。日本經過明治維新，又剛打敗俄國，潘佩珠把越南青年送到日本留學，叫做東遊運動；他認為要靠武力和外國的幫助才能趕走法國。潘周楨則反對暴力，也反對依賴外國，主張先辦教育、改革社會。潘佩珠自己回憶，兩人的意見「完全相反」。[event-vietnam-anticolonial:s2][event-vietnam-anticolonial:s5] 兩條路都被堵住了：1907 年河內的東京義塾教國語字（用拉丁字母拼寫越南話的文字）和科學，幾個月後就被法國關閉；1908 年潘周楨在抗稅風潮後被捕，1909 年日本在法國壓力下驅逐了潘佩珠。[event-vietnam-anticolonial:s4][tech-vietnam-scripts:s4][event-vietnam-anticolonial:s5][event-vietnam-anticolonial:s2]
 
-第三代組了政黨。1930 年 2 月，越南國民黨在安沛起義，不到 24 小時就失敗，領袖阮太學等 13 人被處死。[event-vietnam-anticolonial:s7][event-vietnam-anticolonial:s6] 同一個月，胡志明在香港九龍合併幾個共產團體，成立共產黨。1930 到 1931 年義安、河靜的農民和工人起事，也被法軍鎮壓。[event-vietnam-anticolonial:s9][event-vietnam-anticolonial:s8]
+第三代組了政黨，有黨綱，也有祕密組織。1927 年成立的越南國民黨以中國國民黨為模範，1930 年 2 月在安沛起義，不到 24 小時就失敗，領袖阮太學等 13 人被處死。[event-vietnam-anticolonial:s6][event-vietnam-anticolonial:s7] 同一個月，胡志明在香港九龍合併幾個共產團體，成立共產黨。1930 到 1931 年，義安、河靜的農民和工人罷工、示威，還自己組織政權；法軍出動飛機轟炸示威人群，總共有一千多人死亡。[event-vietnam-anticolonial:s9][event-vietnam-anticolonial:s8]
 
-到 1931 年，這些反抗全都被壓了下去。[event-vietnam-anticolonial:s1][event-vietnam-anticolonial:s7][event-vietnam-anticolonial:s8] 為什麼後來是共產黨勝出？史家提到兩個原因。一是鎮壓之後，越南國民黨再也沒有恢復力量。二是共產黨在農民和工人之間有組織，而當時大約一半的農村人口沒有土地，稅又最讓人痛恨，反對地主和重稅的主張很有吸引力。[event-vietnam-anticolonial:s7][event-vietnam-anticolonial:s8][event-vietnam-anticolonial:s10] 共產黨在 1931 年也幾乎被打散，1935 年才重建領導機構。[event-vietnam-anticolonial:s9][event-vietnam-anticolonial:s10] 接下來，他們等到了一個空檔。
+到 1931 年，這些反抗全都被壓了下去。[event-vietnam-anticolonial:s1][event-vietnam-anticolonial:s7][event-vietnam-anticolonial:s8] 那為什麼後來是共產黨勝出？史家提到兩個原因。一是鎮壓之後，越南國民黨再也沒有恢復力量。二是共產黨在農民和工人之間有組織：義安、河靜的起事雖然失敗，卻顯示他們能動員鄉村。當時大約一半的農村人口沒有土地，稅又最讓人痛恨，反對地主和重稅的主張很有吸引力。上一站留下的問題，在這裡成了他們的力量。[event-vietnam-anticolonial:s7][event-vietnam-anticolonial:s8][event-vietnam-anticolonial:s10]
+
+共產黨自己也不好過：1931 年幾乎被打散，1935 年才重建領導機構；1940 年在南部起義又失敗，南部的組織遭到重創。[event-vietnam-anticolonial:s9][event-vietnam-anticolonial:s10][event-vietnam-anticolonial:s12] 法國的統治還在。接下來改變局面的，是一場從外面打進來的戰爭。[event-vietnam-1945:s1]
+
+★ 勤王、留學辦學、政黨起義都被鎮壓；在無地農民之間有組織的共產黨撐了下來。
 
 ## 老師請假的那一節課 {event-vietnam-1945}
 
-空檔來自第二次世界大戰。1940 年法國被德國打敗，日本趁機派兵進入越南北部。法國殖民政府留了下來，但要在日本的監督下做事。[event-vietnam-1945:s1] 1941 年 5 月，胡志明在北部的北坡成立**越盟**，全名越南獨立同盟會，是以共產黨為核心的聯合組織。[event-vietnam-1945:s4]
+1940 年法國被德國打敗。日本正在和中國打仗，想切斷中國從越南運進武器的路線，趁機派兵進入越南北部。法國殖民政府留了下來，但要在日本的監督下做事。[event-vietnam-1945:s1] 1941 年 5 月，胡志明在北部的北坡成立**越盟**，全名越南獨立同盟會，是以共產黨為核心的聯合組織，準備等待時機。[event-vietnam-1945:s4]
 
-1945 年 3 月 9 日，日軍發動政變，推翻法國殖民政府，兩天後讓阮朝的保大皇帝宣布「獨立」，成立由日本控制的越南帝國。[event-vietnam-1945:s2] 這時北部正在鬧大饑荒。日、法軍隊強徵糧食，日軍逼農民改種黃麻，盟軍的轟炸又切斷了運米的路，再加上旱災和水災。確切的死亡人數沒有人知道，一般估計在 40 萬到 200 萬之間。[event-vietnam-1945:s3] 前面說過的那些沒有田、靠租地過活的農民，遇到饑荒幾乎沒有抵抗力。[social-french-indochina-economy:s1][event-vietnam-1945:s3]
+1945 年 3 月 9 日，日軍發動政變，推翻法國殖民政府，兩天後讓阮朝的保大皇帝宣布「獨立」，成立由日本控制的越南帝國。[event-vietnam-1945:s2] 這時北部正在鬧大饑荒，原因不只一個：日、法軍隊強徵糧食，日軍逼農民改種黃麻，盟軍的轟炸又切斷了運米的路，再加上旱災和水災。[event-vietnam-1945:s3] 確切的死亡人數沒有人知道：胡志明的獨立宣言說兩百多萬，現在一般的估計在 40 萬到 200 萬之間。[event-vietnam-1945:s6][event-vietnam-1945:s3] 前面說過的那些沒有田、靠租地過活的農民，遇到饑荒幾乎沒有抵抗力。饑荒期間，越盟帶領農民去搶日本和法國的米倉，從游擊隊壯大成群眾運動。[social-french-indochina-economy:s1][event-vietnam-1945:s3]
 
-8 月 15 日日本投降。舊的統治者垮了，新的還沒到，這種空檔叫**權力真空**，就像老師突然請假、代課老師還沒來的那一節課。越盟立刻起義，19 日控制河內，25 日保大宣布退位。[event-vietnam-1945:s4][event-vietnam-1945:s2] 9 月 2 日，胡志明在河內巴亭廣場宣讀獨立宣言，開頭引用的是美國〈獨立宣言〉的「人人生而平等」。[event-vietnam-1945:s5][event-vietnam-1945:s6]
+8 月 15 日日本投降。舊的統治者垮了，新的還沒到，這種空檔叫**權力真空**，就像老師突然請假、代課老師還沒來的那一節課，誰先站上講台，誰就可能掌控全班。日本扶植的越南帝國沒有能維持秩序的軍隊，越盟立刻起義，19 日控制河內，25 日保大宣布退位，阮朝到此結束。[event-vietnam-1945:s4][event-vietnam-1945:s2] 9 月 2 日，胡志明在河內巴亭廣場宣讀獨立宣言，開頭引用的是美國〈獨立宣言〉的「人人生而平等」。[event-vietnam-1945:s5][event-vietnam-1945:s6]
 
-五年之內，管越南的人換了三次。[event-vietnam-1945:s1][event-vietnam-1945:s2][event-vietnam-1945:s4] 但宣布獨立不等於事情結束：北緯 16 度以北有約 20 萬名中華民國軍隊進來接受日軍投降，法國也想恢復殖民統治。[event-vietnam-1945:s2][war-first-indochina:s1]
+這場八月革命該怎麼看，有兩種強調：一種說越盟動員了各種社會群體，是全面起義；一種指出是日本投降留下了空檔，越盟才能很快奪權。[event-vietnam-1945:s4][event-vietnam-1945:s2] 五年之內，管越南的人換了三次。[event-vietnam-1945:s1][event-vietnam-1945:s2][event-vietnam-1945:s4] 但宣布獨立不等於事情結束：北緯 16 度以北有約 20 萬名中華民國軍隊進來接受日軍投降，法國也想恢復殖民統治。[event-vietnam-1945:s2][war-first-indochina:s1]
+
+★ 日本推翻法國殖民政府後又投降，留下權力真空；早有組織的越盟搶先起義、宣布獨立。
 
 ## 一條「暫時」的線 {war-first-indochina}
 
-越南民主共和國和法國的談判破裂。1946 年 11 月法軍砲擊海防，12 月 19 日全面開戰。[war-first-indochina:s1] 越盟一開始實力不如法軍。轉變發生在 1950 年：中共建國後承認越南民主共和國，提供顧問、武器和訓練營；美國則出錢支持法國。[war-first-indochina:s1][war-first-indochina:s3] 對抗殖民者的戰爭，也成了冷戰兩個陣營的較量。[war-first-indochina:s1][war-first-indochina:s3]
+越南民主共和國和法國的談判破裂。1946 年 11 月法軍砲擊海防，據估計造成約 6,000 名越南平民死亡，12 月 19 日全面開戰。[war-first-indochina:s1] 越盟一開始實力不如法軍。轉變發生在 1950 年：中共建國後承認越南民主共和國，提供顧問、武器和訓練營；美國則出錢支持法國，部分原因是它在歐洲需要法國的合作。[war-first-indochina:s1][war-first-indochina:s3] 對越南人來說，這是對抗殖民者的民族解放戰爭；1950 年之後，它也成了冷戰兩個陣營在亞洲的較量。[war-first-indochina:s1][war-first-indochina:s3]
 
-1954 年 3 月，武元甲指揮越盟包圍法軍在奠邊府的據點，5 月 7 日法軍投降，一萬一千多人被俘。[war-first-indochina:s1][war-first-indochina:s3] 7 月 21 日，日內瓦會議達成協議：越南以北緯 17 度暫時分成南北，預定 1956 年 7 月舉行全國選舉來統一。[war-first-indochina:s2][war-first-indochina:s3] 會議的最後宣言特別強調這條線的性質：
+1954 年 3 月，武元甲指揮越盟包圍法軍在奠邊府的據點，5 月 7 日法軍投降，一萬一千多人被俘。美國當時沒有出兵救法國：國會和政府只願意在更大的聯盟裡出兵，英國等盟國認為已經救不回來，拒絕參加。[war-first-indochina:s1][war-first-indochina:s3] 八年打下來，各方估計的傷亡差異很大：越盟死亡或失蹤約 17.5 萬到 30 萬人，法方死亡約 7.4 萬人，平民死亡約 12.5 萬到 40 萬人。[war-first-indochina:s1]
+
+7 月 21 日，日內瓦會議達成協議：越南以北緯 17 度暫時分成南北，預定 1956 年 7 月舉行全國選舉來統一。[war-first-indochina:s2][war-first-indochina:s3] 會議的最後宣言特別強調這條線的性質：[war-first-indochina:s2]
 
 > the military demarcation line is provisional（軍事分界線是臨時性的）（《日內瓦會議關於恢復印度支那和平問題的最後宣言》第 6 段，1954 年 7 月 21 日，中文為摘譯。）[war-first-indochina:s2]
 
-**軍事分界線**是停戰時讓雙方軍隊各退一邊的線；宣言還說，它不應被解釋為政治或領土疆界。[war-first-indochina:s2] 可是美國和南方的越南國（法國扶植的政權）都沒有在協議上簽字。1955 年南方成立越南共和國，原訂的選舉沒有舉行。[war-first-indochina:s1][war-first-indochina:s3] 法國走了，留下一條說好要擦掉、卻沒有擦掉的線。
+**軍事分界線**是停戰時讓雙方軍隊各退一邊的線；宣言還說，它不應被解釋為政治或領土疆界。就像兩隊比賽暫停時在場中央畫的線，說好只是暫時分開。[war-first-indochina:s2] 可是美國和南方的越南國（法國扶植的政權）都沒有在協議上簽字，美國隨後在南方扶植吳廷琰政府。1955 年南方成立越南共和國，1956 年法軍全部撤離，原訂的選舉沒有舉行。[war-first-indochina:s1][war-first-indochina:s3] 法國走了，留下一條說好要擦掉、卻沒有擦掉的線。[war-first-indochina:s1]
+
+★ 越盟得到中國援助後打贏法國，日內瓦協議畫下暫時的分界線；選舉沒有舉行，線留了下來。
 
 ## 骨牌與西貢 {war-vietnam-war}
 
-美國為什麼要接手？當時美國用冷戰的「圍堵」邏輯看越南。1954 年艾森豪總統用骨牌打比方，說一個國家倒下會連帶影響其他國家，這個想法後來被稱為**骨牌理論**。美國因此支持南越；北越背後則有蘇聯和中國。[war-vietnam-war:s1][war-vietnam-war:s9]
+法國離開了，為什麼換美國進來？當時美國用冷戰的「圍堵」邏輯看越南。1954 年艾森豪總統用骨牌打比方，說一個國家倒下會連帶影響其他國家，這個想法後來被稱為**骨牌理論**。美國因此支持南越；北越背後則有蘇聯和中國。1960 年底，南越境內成立了南方民族解放陣線，也就是越共，北越也支持在南方展開武裝鬥爭。[war-vietnam-war:s1][war-vietnam-war:s9][war-vietnam-war:s2]
 
-1964 年 8 月，美國軍艦在越南北方的東京灣和北越的魚雷艇交火，這就是東京灣事件。事後美國國會通過決議，授權總統採取「一切必要措施」。美國始終沒有正式宣戰，這份決議就是擴大介入的依據。[war-vietnam-war:s3][war-vietnam-war:s4][war-vietnam-war:s1] 1965 年起美軍轟炸北越並派出地面部隊，1969 年最多時約 54 萬人。[war-vietnam-war:s1] 1968 年春節，北越與越共（南越境內得到北越支持的武裝組織）同時攻擊南越一百多個城鎮。這次攻勢在軍事上多半失敗，卻動搖了美國人對勝利的信心。[war-vietnam-war:s6]
+1964 年 8 月，美國軍艦在越南北方的東京灣和北越的魚雷艇交火，這就是東京灣事件。事後美國國會通過決議，授權總統採取「一切必要措施」。美國始終沒有正式宣戰，這份決議就是擴大介入的依據。[war-vietnam-war:s3][war-vietnam-war:s4][war-vietnam-war:s1] 1965 年起美軍轟炸北越並派出地面部隊，1969 年最多時約 54 萬人。[war-vietnam-war:s1]
 
-1973 年 1 月巴黎和平協定簽訂，美軍撤出，但南北之間的戰事沒有停。1975 年 4 月 30 日北越軍隊進入西貢，南越投降；1976 年越南正式統一。[war-vietnam-war:s7][war-vietnam-war:s8][war-vietnam-war:s1] 越南軍民的死亡人數，各種估計從 97 萬到 300 萬，相差數倍；美軍陣亡約 58,000 人。[war-vietnam-war:s1] 那條暫時的線終於消失了。可是越南的仗還沒打完，下一個對手是昨天的盟友。
+美軍握有空中和海上優勢，卻切不斷北越的補給。北越透過寮國和柬埔寨東部的山區通道，把兵員和物資送往南方，這條路叫胡志明小徑；美軍長期轟炸，北越用人力和分散運輸不斷修復。[war-vietnam-war:s1] 1968 年春節，北越與越共同時攻擊南越一百多個城鎮。這次攻勢在軍事上多半失敗，卻動搖了美國人對勝利的信心。之後美國讓南越軍隊接手作戰，自己逐步撤出。[war-vietnam-war:s6][war-vietnam-war:s1]
+
+1973 年 1 月巴黎和平協定簽訂，美軍撤出，北越軍隊則沒有被要求離開南方，南北之間的戰事沒有停。1975 年 4 月 30 日北越軍隊進入西貢，南越投降；1976 年越南正式統一。[war-vietnam-war:s7][war-vietnam-war:s8][war-vietnam-war:s1] 越南軍民的死亡人數，各種估計從 97 萬到 300 萬，相差數倍；美軍陣亡約 58,000 人。[war-vietnam-war:s1]
+
+這場仗該怎麼定位，史家有兩種強調：一派把它看成冷戰兩大陣營的代理人戰爭，另一派強調它是越南人長期反殖民、爭取統一的延續，外國介入使戰爭擴大。[war-vietnam-war:s1][war-vietnam-war:s9][war-vietnam-war:s2] 那條暫時的線終於消失了。可是越南的仗還沒打完，下一個對手是昨天的盟友。[war-sino-vietnamese-1979:s1]
+
+★ 美國怕骨牌倒下而支持南越、派兵參戰，卻切不斷北越的補給；美軍撤出後，北越統一全國。
 
 ## 昨天的盟友 {war-sino-vietnamese-1979}
 
-越戰期間，中國派人、派物資支援北越。[war-sino-vietnamese-1979:s5] 但中國和蘇聯早已交惡，中國把蘇聯看成最大的威脅，統一後的越南卻倒向蘇聯。1978 年，越南境內的華人大量出逃；11 月越南和蘇聯簽訂友好合作條約，12 月出兵柬埔寨，隔年 1 月推翻了中國支持的赤柬政權。[war-sino-vietnamese-1979:s1][war-sino-vietnamese-1979:s3]
+越戰期間，中國派人、派物資支援北越。[war-sino-vietnamese-1979:s5] 但中國和蘇聯早已交惡，中國把蘇聯看成最大的威脅，統一後的越南卻倒向蘇聯。1978 年，越南境內的華人大量出逃，兩國關係迅速惡化；11 月越南和蘇聯簽訂友好合作條約，12 月出兵柬埔寨，隔年 1 月推翻了中國支持的赤柬政權。[war-sino-vietnamese-1979:s1][war-sino-vietnamese-1979:s3] 在中國看來，自己被蘇聯從南北兩面包圍了。[war-sino-vietnamese-1979:s1][war-sino-vietnamese-1979:s4]
 
-1979 年 1 月，鄧小平訪問美國，私下向卡特總統說明中國的打算：[war-sino-vietnamese-1979:s4]
+1979 年 1 月，鄧小平訪問剛建交的美國，私下向卡特總統說明中國的打算：[war-sino-vietnamese-1979:s4]
 
 > to put a restraint on the wild ambitions of the Vietnamese and to give them an appropriate limited lesson（遏制越南人的野心，給他們一個適當的、有限度的教訓）（卡特與鄧小平會談紀錄，1979 年 1 月 29 日，美國國務院《美國對外關係文件集》，中文為摘譯。）[war-sino-vietnamese-1979:s4]
 
-2 月 17 日，解放軍從廣西、雲南攻入越南北部，3 月初攻下諒山，3 月 16 日撤完。[war-sino-vietnamese-1979:s1][war-sino-vietnamese-1979:s5] 仗只打了約一個月，雙方都說自己贏了，越南也沒有因此撤出柬埔寨。邊境的炮戰和衝突卻拖到 1980 年代末。[war-sino-vietnamese-1979:s1][war-sino-vietnamese-1979:s2][war-sino-vietnamese-1979:s3] 越南一邊留在柬埔寨，一邊把大量兵力放在北方邊境，又被國際孤立，經濟撐得住嗎？
+2 月 17 日，解放軍從廣西、雲南攻入越南北部，3 月初攻下諒山，3 月 16 日撤完。這是一場一開始就設定好範圍和時間的有限戰爭，不打算占領對方。[war-sino-vietnamese-1979:s1][war-sino-vietnamese-1979:s5] 中國為什麼打這一仗，一派強調它要回應越南出兵柬埔寨；另一派強調中蘇對抗，中國想向世界、特別是美國，證明蘇聯保護不了它的盟友。[war-sino-vietnamese-1979:s1][war-sino-vietnamese-1979:s4]
+
+仗只打了約一個月，雙方都說自己贏了。研究多認為兩邊都付出很大代價：中國軍隊暴露出裝備和指揮的問題，越南也沒有因此撤出柬埔寨。[war-sino-vietnamese-1979:s1][war-sino-vietnamese-1979:s3] 邊境的炮戰和衝突更拖到 1980 年代末。[war-sino-vietnamese-1979:s2] 越南一邊留在柬埔寨，一邊把大量兵力放在北方邊境，又被國際孤立，經濟撐得住嗎？[war-sino-vietnamese-1979:s2][event-doi-moi:s1]
+
+★ 統一後的越南倒向蘇聯、出兵柬埔寨，中國出兵「教訓」；邊境衝突拖了十年，越南更加孤立。
 
 ## 1986 年的轉彎 {event-doi-moi}
 
-統一後越南在全國推行集體農場（土地不屬於個人，大家一起耕作、一起分收成）和國營經濟，又因為出兵柬埔寨和中越戰爭受到國際孤立，美國持續禁運。[event-doi-moi:s1][event-doi-moi:s3] 1980 年代中期，物價一年漲好幾倍；從 1970 年代末起，許多人搭小船逃離，被稱為「船民」。[event-doi-moi:s1][event-doi-moi:s8]
+統一後，越南在全國推行集體農場（土地不屬於個人，大家一起耕作、一起分收成）和國營經濟，又因為出兵柬埔寨和中越戰爭受到國際孤立，美國持續禁運。[event-doi-moi:s1][event-doi-moi:s3] 1980 年代中期，物價一年漲好幾倍，物資短缺；從 1970 年代末起，許多人搭小船逃離，被稱為「船民」，很多人在海上喪命。[event-doi-moi:s1][event-doi-moi:s8]
 
-1986 年 12 月，越南共產黨召開第六次全國代表大會，新任總書記阮文靈提出**革新**：讓農民自己經營土地，允許私人做生意，歡迎外國投資，但共產黨繼續一黨執政。[event-doi-moi:s1] 1988 年土地使用權還給農戶，越南從缺糧變成世界主要的稻米出口國。[event-doi-moi:s1][event-doi-moi:s6] 同樣是大量出口米，種米的人從替地主耕作的佃農，變成自己經營的農家。[social-french-indochina-economy:s1][event-doi-moi:s1]
+1986 年 12 月，越南共產黨召開第六次全國代表大會，新任總書記阮文靈提出**革新**：讓農民自己經營土地，允許私人做生意，歡迎外國投資，但共產黨繼續一黨執政。[event-doi-moi:s1] 1988 年土地使用權還給農戶，農民可以退出合作社，越南從缺糧變成世界主要的稻米出口國。[event-doi-moi:s1][event-doi-moi:s6] 同樣是大量出口米，種米的人從替地主耕作的佃農，變成自己經營的農家。[social-french-indochina-economy:s1][event-doi-moi:s1]
 
-蘇聯在 1980 年代末減少援助，1991 年解體，越南失去最大的靠山，只能加快開放。[event-doi-moi:s1][event-doi-moi:s3][event-doi-moi:s6] 它和從前的對手一個一個恢復往來：1989 年從柬埔寨撤軍，1991 年和中國關係正常化。[war-sino-vietnamese-1979:s3][event-doi-moi:s3] 1994 年美國解除禁運，隔年兩國建交，越南也加入東協；2007 年加入世界貿易組織。[event-doi-moi:s6][event-doi-moi:s4][event-doi-moi:s7][event-doi-moi:s5] 和美國建交的那一年，離越戰結束已經二十年。[event-doi-moi:s4]
+外面的環境也在變。蘇聯在 1980 年代末減少援助，1991 年解體，越南失去最大的靠山，只能加快開放。[event-doi-moi:s1][event-doi-moi:s3][event-doi-moi:s6] 它和從前的對手一個一個恢復往來：1989 年從柬埔寨撤軍，1991 年和中國關係正常化。[war-sino-vietnamese-1979:s3][event-doi-moi:s3] 1994 年美國解除禁運，隔年兩國建交，越南也加入東協；2007 年加入世界貿易組織。和美國建交的那一年，離越戰結束已經二十年。[event-doi-moi:s6][event-doi-moi:s4][event-doi-moi:s7][event-doi-moi:s5]
 
-回到開場的問題。從朝貢的王朝到球鞋的產地，是一站接著一站走出來的：禁教給了法國理由，殖民的重稅促成反抗，日本投降的空檔讓越盟上台，法國想回來引出抗法戰爭，沒有擦掉的分界線讓南北對立演變成越戰，統一後昔日的盟友反目、打了邊境戰爭，革新則是在國際孤立和通膨的危機中被逼出來的。[event-french-indochina:s1][social-french-indochina-economy:s6][event-vietnam-1945:s4][war-first-indochina:s1][war-vietnam-war:s1][war-sino-vietnamese-1979:s1][event-doi-moi:s1]
+改革為什麼成功，也有兩種看法：一種強調政策本身，放手讓農民和私人企業經營；一種強調國際環境，冷戰結束、禁運解除之後，外資和出口市場才打開。[event-doi-moi:s1][event-doi-moi:s6][event-doi-moi:s2] 世界銀行在 2026 年 7 月把越南列為中高所得國家，並說這四十年的快速成長，起點就是 1986 年的革新。[event-doi-moi:s2]
+
+★ 國際孤立加上物價飛漲，逼出 1986 年的革新；蘇聯解體後，越南加快開放、和舊日對手恢復往來。
+
+## 回到那雙球鞋
+
+回到開場的問題。從朝貢的王朝到球鞋的產地，是一站接著一站走出來的，每一站都接下上一站沒解決的問題：禁教給了法國理由，殖民的重稅促成反抗，日本投降的空檔讓越盟上台，法國想回來引出抗法戰爭，沒有擦掉的分界線讓南北對立演變成越戰，統一後昔日的盟友反目、打了邊境戰爭，革新則是在國際孤立和通膨的危機中被逼出來的。[event-french-indochina:s1][social-french-indochina-economy:s6][event-vietnam-1945:s4][war-first-indochina:s1][war-vietnam-war:s1][war-sino-vietnamese-1979:s1][event-doi-moi:s1]
 
 這只是其中一條路，每一站都還有別的原因，像冷戰、中蘇交惡、蘇聯解體。[war-vietnam-war:s9][war-sino-vietnamese-1979:s1][event-doi-moi:s6] 革新之後的越南也不是故事的終點：政治上，共產黨仍是唯一的執政黨；靠製造業出口的經濟，也很容易受全球貿易政策和供應鏈變動影響。[event-doi-moi:s1][event-doi-moi:s2]

@@ -26,7 +26,7 @@ recall:
 
 1624 年，今天的臺南安平有人開始蓋城堡。蓋它的不是哪個王國派來的官員，而是一家公司。[event-dutch-formosa:s1][event-dutch-formosa:s2] 這家公司叫**荷蘭東印度公司**，由荷蘭商人合資成立，可以自己養軍隊、宣戰、對當地人課稅，今天的跨國企業沒有這種權力。[event-dutch-formosa:s1][event-dutch-formosa:s3] 它想打進中國貿易，1622 年先占了澎湖；1624 年明軍派數千兵力圍攻，公司同意退出澎湖，轉到對岸的大員，也就是今天的安平，蓋起熱蘭遮城。[event-dutch-formosa:s1][event-dutch-formosa:s3] 那時候臺灣島上的漢人，估計只有大約 1,000 到 1,500 人。[event-dutch-formosa:s1]
 
-從這一年算起，到 1920 年代，這座島先後由荷蘭、鄭氏、清朝、日本統治。[event-dutch-formosa:s1][event-koxinga-taiwan:s1][event-1895-cession:s3] 北部還有一段時間是西班牙人的：荷蘭人占了大員，在馬尼拉的西班牙人怕福建到馬尼拉的航線受騷擾，1626 年北上在雞籠建立據點，到 1642 年才被荷蘭艦隊打敗、離開臺灣。[event-spanish-north-taiwan:s1][event-spanish-north-taiwan:s2] 這個故事要問的是：每一次換手，上一任留下了什麼給下一任？
+從這一年算起，到 1920 年代，這座島先後由荷蘭、鄭氏、清朝、日本統治。[event-dutch-formosa:s1][event-koxinga-taiwan:s1][event-1895-cession:s3] 北部還有一段時間是西班牙人的。荷蘭人占了大員，在馬尼拉的西班牙人怕福建到馬尼拉的航線受騷擾，1626 年北上，在雞籠（今天的基隆）建立據點。1642 年荷蘭艦隊北上攻打，西班牙守軍投降，離開了臺灣。[event-spanish-north-taiwan:s1][event-spanish-north-taiwan:s2] 這個故事要問的是：每一次換手，上一任留下了什麼給下一任？
 
 先看公司留下什麼。公司要的是賺錢：把中國的生絲賣到日本換白銀，把臺灣的鹿皮賣到日本，再找人來種甘蔗做糖。[event-dutch-formosa:s1][event-dutch-formosa:s3] 可是荷蘭人自己人手不夠。他們就從福建招募漢人來開墾，提供免費的船運、工具、耕牛和種子，再向這些人收人頭稅，也就是不看收入、每個人繳一樣多的稅；另外還有狩獵執照費，和農漁產品大約一成的稅。[event-dutch-formosa:s1] 歷史學者歐陽泰把這種關係叫作「共構殖民」：公司提供保護和秩序，換來稅收；漢人移民和公司之間，合作多於衝突。[event-dutch-formosa:s4]
 

@@ -53,7 +53,7 @@ recall:
 
 波斯是當時最大的帝國，也統治著小亞細亞的希臘城邦。前 499 年起，這些城邦起來反抗，雅典出兵支援，起義軍還燒了薩第斯，也就是當年呂底亞的首都。[war-greco-persian:s1][finance-lydian-coinage:s1] 波斯平定起義之後，轉頭討伐幫忙的人。前 490 年，雅典與普拉提亞的軍隊在馬拉松擊退了登陸的波斯軍；十年後，波斯國王薛西斯親自帶大軍再來。[war-greco-persian:s1][war-greco-persian:s2] 希臘這邊並不團結：前 481 年開會組成反波斯同盟時，近 700 個城邦只有約 70 個派代表，很多城邦保持中立或投向波斯。[war-greco-persian:s1]
 
-這支大軍有多大？希羅多德說連後勤超過 500 萬人，現代學者估計陸軍多在 20 萬左右，或 30 萬到 50 萬之間。[war-greco-persian:s10] 差這麼多，是因為資料幾乎都來自希臘一方，勝利者有誇大敵人的理由。[war-greco-persian:s1][war-greco-persian:s10] 希臘人先在溫泉關的隘口守了兩天，直到有人帶波斯軍走山路包抄。電影常把這一仗說成「300 壯士」單獨作戰，其實還有其他城邦的部隊，而且這是一場敗仗。之後雅典城被波斯軍攻占，衛城遭到焚毀。[war-greco-persian:s1][war-greco-persian:s2]
+這支大軍有多大？希羅多德說連後勤超過 500 萬人，現代學者估計陸軍多在 20 萬左右，或 30 萬到 50 萬之間。[war-greco-persian:s10] 差這麼多，是因為資料幾乎都來自希臘一方，勝利者有誇大敵人的理由。[war-greco-persian:s1][war-greco-persian:s10] 希臘人先在溫泉關的隘口守了兩天，直到有人帶波斯軍走山路包抄。電影常把這一仗說成「300 壯士」單獨作戰，其實還有其他城邦的部隊，而且這是一場敗仗。同一年，波斯軍攻上雅典的衛城，燒毀了神廟。[war-greco-persian:s1][war-greco-persian:s2]
 
 真正扭轉局勢的是海上。雅典新造的戰船是**三列槳戰船**，有三層划槳手，靠船頭撞擊敵船，需要大量划槳的人。[war-greco-persian:s2][war-greco-persian:s3] 波斯艦隊的數量，希羅多德記為 1,207 艘，現代估計多在 600 到 800 艘或更少；希臘艦隊只有三百多艘。[war-greco-persian:s2][war-greco-persian:s10] 地米斯托克利故意放出假消息，說希臘人要逃，把波斯艦隊引進狹窄的薩拉米斯海峽。船多的一方擠在一起，反而施展不開，希臘贏了。[war-greco-persian:s2][war-greco-persian:s3]
 
@@ -91,6 +91,6 @@ recall:
 
 ## 錢走過的路
 
-回頭看開場的問題。銀礦的收入變成戰船，戰船在薩拉米斯擋下波斯。[commodity-laurion-silver:s5][war-greco-persian:s3] 勝利之後有了同盟，盟邦的貢金養大了艦隊，也養大了斯巴達的不安。[war-peloponnesian:s2][war-peloponnesian:s8] 戰爭打了 27 年，瘟疫、遠征失敗、銀礦受損、對手拿到波斯的錢，雅典輸了。[war-peloponnesian:s1][war-peloponnesian:s3] 戰敗、換過政權之後的雅典，審判了蘇格拉底。[event-death-of-socrates:s1] 錢讓雅典造得起艦隊、當得上盟主；等到錢的來源被切斷、對手也找到金主，靠錢撐起來的優勢就守不住了。[war-peloponnesian:s2][war-peloponnesian:s3]
+回頭看開場的問題。銀礦的收入變成戰船，戰船在薩拉米斯擋下波斯。[commodity-laurion-silver:s5][war-greco-persian:s3] 勝利之後有了同盟，盟邦的貢金養大了艦隊，也養大了斯巴達的不安。[war-peloponnesian:s2][war-peloponnesian:s8] 戰爭打了 27 年，瘟疫、遠征失敗、銀礦受損、對手拿到波斯的錢，雅典輸了。[war-peloponnesian:s1][war-peloponnesian:s3] 戰敗、換過政權之後的雅典，審判了蘇格拉底。[event-death-of-socrates:s1] 錢讓雅典造得起艦隊、當得上盟主；等到自己的財源受損、對手也找到金主，靠錢撐起來的優勢就守不住了。[war-peloponnesian:s2][war-peloponnesian:s3]
 
 這只是其中一條路。每一站都還有別的原因：薩拉米斯的勝利要算上戰術和地形，戰爭的起因有結構和選擇兩種說法，雅典戰敗也包含瘟疫和遠征西西里這些自己的決定，蘇格拉底的審判更是眾說紛紜。[commodity-laurion-silver:s5][war-peloponnesian:s9][war-peloponnesian:s3][event-death-of-socrates:s1] 還有一件事：雅典的民主常被說成全民參政，但支撐這一切的銀子，是數千名沒有任何權利的奴隸從礦坑裡挖出來的。[commodity-laurion-silver:s1][commodity-laurion-silver:s3]

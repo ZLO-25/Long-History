@@ -32,7 +32,7 @@ recall:
 
 前 111 年，漢武帝滅了南越國，在當地設郡，其中交趾、九真、日南三郡在今天越南的北部與中部。從這時到 938 年，越南北部由中國王朝派官治理，越南的史書把這段時間叫做**北屬**，意思是「屬於北方」。[event-vietnam-northern-rule:s1][event-vietnam-northern-rule:s3] 站在越南人的位置，這是被統治、也一再起來反抗的一千年。40 年起兵的徵氏姐妹，到今天都被當成民族英雄紀念，「不再被北方統治」也成了越南認同的核心。[event-vietnam-northern-rule:s1][event-vietnam-northern-rule:s4][event-vietnam-northern-rule:s6]
 
-不過有一件事很容易弄錯。「被中國統治一千年」說的只是今天越南的北部到中部一帶，不是今天的越南全境；越南的中南部，當時是占婆等其他國家。[event-vietnam-northern-rule:s1] 也就是說，在這個位置上，越南人是被管的一方，而 S 形的下面一大段，這時候還不在故事裡。漢朝最南邊的日南郡裡，有一個縣叫象林。下一個故事，就從這個縣開始。[event-champa:s2]
+不過有一件事很容易弄錯。「被中國統治一千年」說的只是今天越南的北部到中部一帶，不是今天的越南全境；越南的中南部，當時是占婆等其他國家。[event-vietnam-northern-rule:s1] 也就是說，在這個位置上，越南人是被管的一方，而 S 形的下面一大段，這時候還不在故事裡。漢朝的日南郡裡，有一個縣叫象林。下一個故事，就從這個縣開始。[event-champa:s2]
 
 ★ 北屬的一千年讓越南人自認是抵抗北方的一方；但被統治的只是北部到中部，南邊另有國家。
 
@@ -46,7 +46,7 @@ recall:
 
 現在換到**占族**的位置。占族是占婆的主體民族，說的是南島語系的占語，和越南人、高棉人的語言是不同的系統。他們的祖先是沿海擅長航海的南島語族，靠航海和貿易為生，聚落多在海岸邊，很少深入內陸。[event-champa:s1] 大約 4 世紀起，占婆把梵文當成學術語言，奉印度的濕婆神為國教，在美山山谷為濕婆建廟，九百年間不斷增建。[event-champa:s1][event-champa:s4] 印度並沒有派兵來，這是本地的國王借用印度式的名號和神廟來表現王權；占人照樣說自己的占語，印度教也和崇拜大地女神婆那加等本地信仰混在一起。[event-indianization-sea:s1][event-indianization-sea:s4]
 
-這個國家靠海過活。這裡出產沉香，一種會沉入水中的珍貴香木；占婆在南海航線上當轉運站，也一再派使者向中國朝貢，7 世紀時被中國視為南方最主要的朝貢國。[event-champa:s1][event-champa:s2][event-champa:s3] 中國的《新唐書》說它「有文字，喜浮屠道」，意思是有自己的文字、喜歡佛教。[event-champa:s3] 875 到 982 年以北方的因陀羅補羅為中心的時期，被藝術史家稱為占婆藝術與文化的黃金時代。[event-champa:s1]
+這個國家靠海過活。這裡出產沉香，一種會沉入水中的珍貴香木；占婆在南海航線上當轉運站，也一再派使者向中國朝貢，7 世紀時被中國視為南方最主要的朝貢國。[event-champa:s1][event-champa:s2][event-champa:s3] 中國的《新唐書》說它「有文字，喜浮屠道」，意思是有文字、喜歡佛教。[event-champa:s3] 875 到 982 年以北方的因陀羅補羅為中心的時期，被藝術史家稱為占婆藝術與文化的黃金時代。[event-champa:s1]
 
 占婆的樣子，和我們習慣想像的「一個王國」不太一樣。早期法國學者的敘述，讓它看起來像一個統一的王國；後來的學者認為，它比較像好幾個獨立的占族政權組成的聯盟，北方的因陀羅補羅、中部的毗闍耶、南方的賓童龍各有中心。[event-champa:s1] 這一點對後面的故事很重要：各有中心的聯盟，打起仗來常常不是統一行動。[war-nam-tien-champa:s1][war-nam-tien-champa:s2] 它的西邊和真臘（吳哥）打了好幾百年，1177 年水軍還攻進過吳哥的都城；北邊緊鄰的，就是脫離中國自主後的越南，當時叫大越。[event-champa:s1][event-champa:s3][event-champa:s5]
 
@@ -74,7 +74,7 @@ recall:
 
 湄公河三角洲原本是高棉王國的一部分，長達八百多年。今天的胡志明市（西貢），四百年前是柬埔寨的小港口，叫普利安哥。[event-mekong-delta-vietnam:s2][event-mekong-delta-vietnam:s3] 站在高棉人的位置，先要知道自己的處境：這時的柬埔寨國力衰弱，被東西兩邊的鄰國左右，西邊的暹羅不斷施壓。[event-mekong-delta-vietnam:s1][event-mekong-delta-vietnam:s5] 東邊越南南方的阮主，就在這個時候用聯姻、外交和武力，一步步擴大地盤。[event-mekong-delta-vietnam:s9]
 
-第一步是一樁婚事。1620 年前後，阮主把女兒玉萬公主嫁給柬埔寨國王，答應幫柬埔寨對抗暹羅的壓力，這也給了越南介入的機會。[event-mekong-delta-vietnam:s1][event-mekong-delta-vietnam:s5] 1623 年，柬埔寨國王准許越南人在普利安哥設稅關、定居；稅關就是向來往商人收稅的關卡。[event-mekong-delta-vietnam:s2][event-mekong-delta-vietnam:s3] 接著是人。1698 年，阮主派阮有鏡南下設立嘉定，號召中部各地的越南人來開墾，把荒地、沼澤整理成田。[event-mekong-delta-vietnam:s7] 最後是兵。18 世紀中，越南再對柬埔寨用兵，到 1757 年，整個三角洲都歸越南控制。[event-mekong-delta-vietnam:s1]
+第一步是一樁婚事。1620 年前後，阮主把女兒玉萬公主嫁給柬埔寨國王，答應幫柬埔寨對抗暹羅的壓力，這也給了越南介入的機會。[event-mekong-delta-vietnam:s1][event-mekong-delta-vietnam:s5] 1623 年，柬埔寨國王准許越南人在普利安哥設稅關、定居；稅關就是向來往商人收稅的關卡。[event-mekong-delta-vietnam:s2][event-mekong-delta-vietnam:s3] 接著是人。1698 年，阮主派阮有鏡南下設立嘉定，號召中部各地的越南人來定居開墾。[event-mekong-delta-vietnam:s7] 最後是兵。18 世紀中，越南再對柬埔寨用兵，到 1757 年，整個三角洲都歸越南控制。[event-mekong-delta-vietnam:s1]
 
 來開墾的也不只越南人。明清交替的時候，一批躲避清朝的華人難民南下，1679 年阮主讓他們在美湫、邊和、西貢一帶定居。華人鄚玖帶領華人和越南人發展港市河仙，1708 年向阮主稱臣。[event-mekong-delta-vietnam:s3][event-mekong-delta-vietnam:s4]
 

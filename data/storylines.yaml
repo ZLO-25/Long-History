@@ -145,7 +145,7 @@ storylines:
   # 深入專題「三國」的主線（data/dives/three-kingdoms.yaml）
   - id: story-three-kingdoms
     title: 三國：從黃巾之亂到三家歸晉
-    question: 一個統治了四百年的漢朝，怎麼在三十多年裡垮成好幾塊？三家打了半個世紀，為什麼最後得天下的不是曹、劉、孫任何一家，而是司馬家？
+    question: 一個統治了四百年的漢朝，怎麼在三十多年裡垮成好幾塊？三家爭了幾十年，為什麼最後得天下的不是曹、劉、孫任何一家，而是司馬家？
     blurb: 這條線沿著「上一場亂局留下了什麼」走：每一站的勝負，都替下一站畫好了棋盤；看到最後，會發現決定結局的常常不是戰場，而是朝廷裡的權力。
     stops: [event-eunuchs-partisan, event-yellow-turban, event-dong-zhuo-luoyang, war-guandu, war-red-cliffs, war-yiling, war-zhuge-northern-expeditions, event-gaopingling-incident, event-three-kingdoms]
 

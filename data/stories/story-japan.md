@@ -33,7 +33,7 @@ recall:
 
 16 世紀的日本，各地的**大名**（擁有土地和軍隊的領主）互相攻打了一百多年。1582 年，最強的大名織田信長在本能寺之變中身亡，他的部將羽柴秀吉（後來的豐臣秀吉）11 天後打敗叛將明智光秀，接手了信長的勢力。[event-toyotomi-unification:s1] 秀吉出身低微，1585 年卻當上代替天皇處理政務的最高官職「關白」，是第一個平民出身坐上這個位子的人；他始終沒有當過將軍。1590 年他打贏小田原之戰，日本完成統一。這不是他一個人從零開始的成果，他接手的是信長已經打下的大半基礎。[event-toyotomi-unification:s1]
 
-統一的過程裡，秀吉做了兩件和「外面」有關的事。第一件在 1587 年，他下令驅逐天主教傳教士，理由寫在命令的開頭。[event-toyotomi-unification:s1][event-toyotomi-unification:s3]
+統一的過程裡，秀吉做了兩件和「外面」有關的事。第一件在 1587 年，他下令驅逐天主教傳教士，命令裡有這樣一句話。[event-toyotomi-unification:s1][event-toyotomi-unification:s3]
 
 > 日本是神國，卻從基督教國家傳來邪法。（豐臣秀吉〈伴天連追放令〉，1587 年；英譯見哥倫比亞大學 Asia for Educators，中文為摘譯。）[event-toyotomi-unification:s3]
 

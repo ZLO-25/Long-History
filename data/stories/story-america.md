@@ -123,9 +123,9 @@ recall:
 
 1898 年 2 月 15 日，美國軍艦緬因號在古巴哈瓦那港爆炸沉沒，260 多人死亡。爆炸的原因到今天都沒有定論，不能說是西班牙擊沉的。[war-spanish-american:s1][war-spanish-american:s7] 當時古巴人正在反抗西班牙統治，西班牙採取集中居住的政策，許多平民死於飢餓與疾病。美國報紙為了搶銷量，用誇大的方式報導，輿論更容易被點燃。[war-spanish-american:s1][war-spanish-american:s3]
 
-4 月，國會授權用兵，並附帶聲明無意吞併古巴。[war-spanish-american:s1][war-spanish-american:s8] 戰場分在相隔半個地球的兩處，西班牙沒有足夠的現代艦隊同時守住兩邊。5 月 1 日，杜威的艦隊在菲律賓的馬尼拉灣擊潰西班牙艦隊；7 月 3 日，古巴聖地牙哥港的西班牙艦隊出港突圍時被殲滅。[war-spanish-american:s1][war-spanish-american:s3]
+4 月，國會授權用兵，並附帶聲明無意吞併古巴。[war-spanish-american:s1][war-spanish-american:s8] 戰場分在相隔半個地球的兩處，西班牙沒有足夠的現代艦隊同時守住兩邊。5 月，杜威的艦隊在菲律賓的馬尼拉灣擊潰西班牙艦隊；7 月，古巴聖地牙哥港的西班牙艦隊出港突圍時被殲滅。[war-spanish-american:s1][war-spanish-american:s3]
 
-12 月的《巴黎條約》裡，西班牙放棄古巴，把波多黎各、關島讓給美國，菲律賓也割讓給美國，美國付 2,000 萬美元。[war-spanish-american:s4] 古巴沒有被吞併，1902 年名義上獨立，但美國保留了干預古巴內政和設立海軍基地的權利。[war-spanish-american:s9] 這一次，錢換來的是加勒比海和西太平洋上的島。[war-spanish-american:s4]
+12 月的《巴黎條約》裡，西班牙放棄古巴，把波多黎各、關島讓給美國，菲律賓也割讓給美國，美國付 2,000 萬美元。[war-spanish-american:s4] 古巴沒有被吞併，1902 年名義上獨立，但美國保留了干預古巴內政和設立海軍基地的權利。[war-spanish-american:s9] 美國因此在加勒比海和西太平洋都有了領地。[war-spanish-american:s4]
 
 菲律賓人並不接受。革命軍早在 1898 年 6 月就宣布獨立，美國沒有承認；1899 年 2 月雙方開戰，美國到 1902 年才宣布戰爭結束，菲律賓則要到 1946 年才獨立。[war-spanish-american:s6] 在美國國內，這也引發「要不要當帝國」的爭論，參議院批准條約時，只比三分之二的門檻多一票。[war-spanish-american:s1][war-spanish-american:s13] 1898 年算不算美國變成海外強權的轉捩點，史家看法不一：有人這樣看，也有人指出美國向西擴張時早已取得大片土地，海外殖民只是延續。[war-spanish-american:s13][war-spanish-american:s1]
 

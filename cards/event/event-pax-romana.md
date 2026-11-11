@@ -35,6 +35,7 @@ sources:
   - { id: s2, title: "Augustus, Res Gestae Divi Augusti 8–13（Loeb 英譯，LacusCurtius, University of Chicago）", url: "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html", accessed: 2026-11-02, tier: 一手 }
   - { id: s3, title: "Tacitus, Annals 1.11（Loeb 英譯，LacusCurtius, University of Chicago）", url: "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Tacitus/Annals/1A*.html", accessed: 2026-11-02, tier: 一手 }
   - { id: s4, title: "Donald L. Wasson, Pax Romana — World History Encyclopedia (2015)", url: "https://www.worldhistory.org/Pax_Romana/", accessed: 2026-11-02, tier: 通論 }
+  - { id: s5, title: "Imperial Roman army — Wikipedia（奧古斯都留下約 28 個軍團，晚年 25 個；公元 23 年 25 個）", url: "https://en.wikipedia.org/wiki/Imperial_Roman_army", accessed: 2026-11-11, tier: 百科 }
 importance: 3
 learn:
   histories: [希臘羅馬史, 歐洲史]
@@ -64,7 +65,7 @@ lens_status: 無直接論述
 
 ## C1 背景
 
-共和晚期反覆的內戰，在屋大維打敗安東尼後結束；他成為奧古斯都，組成以自己為中心的權貴聯盟，防止內戰再起。[s1] 他維持 23 個軍團的職業軍隊並給予優厚待遇，又把稅收集中到羅馬。[s4]
+共和晚期反覆的內戰，在屋大維打敗安東尼後結束；他成為奧古斯都，組成以自己為中心的權貴聯盟，防止內戰再起。[s1] 他把內戰時膨脹的軍隊裁減成一支職業軍隊並給予優厚待遇，又把稅收集中到羅馬。[s4] 軍團的數目各家寫法不一：一般說他留下 28 個，到他晚年是 25 個；本卡引用的這篇通論則寫 23 個。[s4][s5]
 
 ## C2 經過
 

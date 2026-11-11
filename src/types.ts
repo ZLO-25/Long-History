@@ -11,7 +11,7 @@ export interface Location {
 // 深入專題：人物卡
 export type RelationKind = '主從' | '同盟' | '聯姻' | '敵對' | '背叛' | '師友' | '親屬';
 export interface Relation { id: string; kind: RelationKind; from?: number; to?: number; note: string; sources: CauseSource[] }
-export interface CardImage { url: string; page: string; title: string; creator: string; year: string; holder?: string; license: string; caption: string }
+export interface CardImage { url: string; page: string; title: string; creator: string; year: string; holder?: string; license: string; caption: string; /** 原圖寬高（建置時從 data/image-sizes.json 帶入），用來預留位置 */ w?: number; h?: number }
 export interface Person { role: string; faction?: string; name_romaji: string }
 export interface Section {
   code: string; title: string; level: 'core' | 'deep' | 'optional';

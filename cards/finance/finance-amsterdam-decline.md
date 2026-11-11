@@ -23,10 +23,10 @@ topics: [金融中心, 東印度公司]
 links: [finance-amsterdam-wisselbank, finance-amsterdam-exchange, finance-london-rise, finance-mississippi-bubble, finance-hamilton-financial-plan, finance-bank-of-england, war-american-revolution, event-westward-expansion, event-french-revolution]
 causes:
   - { id: war-american-revolution, rel: 促成, why: 荷蘭和美國革命者往來，英國 1780 年對荷宣戰，荷蘭 1784 年戰敗割地，貿易與資金被戰爭打斷。, src: [s1, war-american-revolution:s12] }
-  - { id: event-french-revolution, rel: 促成, why: 法國革命戰爭中法軍 1795 年入侵荷蘭，成立巴達維亞共和國，荷蘭還得付一億荷盾賠款。, src: [s2] }
+  - { id: event-french-revolution, rel: 促成, why: 法國革命戰爭中法軍 1795 年入侵荷蘭，成立巴達維亞共和國，荷蘭還得付一億荷盾賠款。, src: [s2, s8] }
 effects:
   - { id: finance-london-rise, rel: 促成, why: 阿姆斯特丹被戰爭與占領打擊，銀行家霍普 1794 年移往英國，國際借款也越來越常和倫敦商人合作。, src: [s4, s5, finance-london-rise:s8] }
-  - { id: event-westward-expansion, rel: 背景, why: 荷蘭資本雖然退居幕後，仍大量投向外國證券，霍普銀行和倫敦的巴林一起替 1803 年路易斯安那購地籌款。, src: [s4] }
+  - { id: event-westward-expansion, rel: 背景, why: 荷蘭資本雖然退居幕後，仍大量投向外國證券，霍普銀行和倫敦的霸菱（Baring）一起替 1803 年路易斯安那購地籌款。, src: [s4] }
 counterparts: "無適當對照：中國與東亞軌現有的卡中，沒有「金融中心因戰爭與外國占領而被迫轉移」的對應事件；山西票號、日本泡沫等卡的機制不同，不硬湊。"
 sources:
   - { id: s1, title: "Fourth Anglo-Dutch War — Wikipedia", url: "https://en.wikipedia.org/wiki/Fourth_Anglo-Dutch_War", accessed: 2026-10-31, tier: 百科 }
@@ -35,6 +35,7 @@ sources:
   - { id: s4, title: "Hope & Co. — Wikipedia", url: "https://en.wikipedia.org/wiki/Hope_%26_Co.", accessed: 2026-10-31, tier: 百科 }
   - { id: s5, title: "Dutch Republic — Wikipedia", url: "https://en.wikipedia.org/wiki/Dutch_Republic", accessed: 2026-10-31, tier: 百科 }
   - { id: s6, title: "The Federalist No. 20（Publius，1788）— Avalon Project, Yale Law School", url: "https://avalon.law.yale.edu/18th_century/fed20.asp", accessed: 2026-10-31, tier: 一手 }
+  - { id: s8, title: "Treaty of The Hague (1795) — Wikipedia（1795 年 5 月 16 日簽訂；賠款 1 億荷盾）", url: "https://en.wikipedia.org/wiki/Treaty_of_The_Hague_(1795)", accessed: 2026-11-11, tier: 百科 }
   - { id: s7, title: "荷蘭東印度公司 — 維基百科", url: "https://zh.wikipedia.org/zh-tw/荷蘭東印度公司", accessed: 2026-10-31, tier: 百科 }
 importance: 2
 learn:
@@ -94,13 +95,13 @@ lens_status: 無直接論述
 ## F4 規模與數據
 
 - 第四次英荷戰爭：約四年（1780 年 12 月至 1784 年 5 月）。[s1]
-- 1795 年《海牙條約》賠款：1 億荷盾。[s2]
+- 1795 年 5 月 16 日《海牙條約》賠款：1 億荷盾。[s2][s8]
 - 荷蘭東印度公司債務總額、1763 年前後危機的損失規模：來源不足：本卡未核對這些數字，不寫。
 
 ## F5 改變了什麼
 
 - **資金流向**：荷蘭資本仍大量投向外國證券（包括英國與美國的債券），成為食利式的金融中心；這一點依英文維基概述，細節規模來源不足。[s5]
-- **銀行家的位置**：像霍普這樣的銀行家與倫敦的巴林（Baring）先後參與 1803 年路易斯安那購地款項的籌措，巴林後來退出，由霍普負責法國方面，顯示荷蘭資本仍活躍，但與倫敦夥伴有密切合作。[s4]
+- **銀行家的位置**：像霍普這樣的銀行家與倫敦的霸菱（Baring）先後參與 1803 年路易斯安那購地款項的籌措，巴林後來退出，由霍普負責法國方面，顯示荷蘭資本仍活躍，但與倫敦夥伴有密切合作。[s4]
 - **制度與公司**：荷蘭東印度公司消失，亞洲領地轉為國家管理。[s3][s7]
 - **之後發生的事**：倫敦取代阿姆斯特丹的過程見「倫敦取代阿姆斯特丹」卡，匯兌銀行的命運見「匯兌銀行」卡。本卡 `time.end` 取 1795 年。
 

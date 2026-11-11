@@ -52,7 +52,7 @@ recall:
 
 ## 鐵路、稻田和誰的口袋 {social-french-indochina-economy}
 
-1897 年杜美當上總督時，殖民地每年虧損數百萬法郎。他決心讓殖民地賺錢，對鴉片、葡萄酒和鹽的買賣課稅。這些東西人人都得買，政府就穩穩有收入；繳不起稅的人常常失去房子和田地，只好去打零工。[social-french-indochina-economy:s2] 稅收拿來支付公共工程，政府還徵召人民去修路，做強迫勞動。1910 年通車的滇越鐵路連接海防、河內和雲南昆明，目的之一是把越南的米、煤賣進中國市場，並取得雲南的礦產。[social-french-indochina-economy:s1][social-french-indochina-economy:s3]
+1897 年杜美當上總督時，殖民地每年虧損數百萬法郎。他決心讓殖民地賺錢，對鴉片、酒和鹽的買賣課稅。這些東西人人都得買，政府就穩穩有收入；繳不起稅的人常常失去房子和田地，只好去打零工。[social-french-indochina-economy:s2] 稅收拿來支付公共工程，政府還徵召人民去修路，做強迫勞動。1910 年通車的滇越鐵路連接海防、河內和雲南昆明，目的之一是把越南的米、煤賣進中國市場，並取得雲南的礦產。[social-french-indochina-economy:s1][social-french-indochina-economy:s3]
 
 南部的湄公河三角洲修了水利，1880 到 1930 年稻田面積增加四倍，米大量出口。但土地集中在少數人手上：在交趾支那，只占地主人數不到 3% 的大地主擁有 45% 的土地。許多農民成了**佃農**，自己沒有田，向地主租田來種，最多要交出六成收成當田租，常常還要向地主借錢，越欠越多。[social-french-indochina-economy:s1] 米大量出口，不代表種米的人吃得飽：二戰前，估計約一半的人家沒有自己的田。[social-french-indochina-economy:s1]
 

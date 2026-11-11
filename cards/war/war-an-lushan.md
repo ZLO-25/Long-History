@@ -42,11 +42,11 @@ images:
 - url: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Li_Zhao_Dao_Tang_Ming_Huang_to_Shu.jpg/960px-Li_Zhao_Dao_Tang_Ming_Huang_to_Shu.jpg
   page: https://commons.wikimedia.org/wiki/File:Li_Zhao_Dao_Tang_Ming_Huang_to_Shu.jpg
   title: 明皇幸蜀圖
-  creator: 傳李昭道（後人摹本）
-  year: 約 12 世紀（宋代摹本）
+  creator: 佚名（舊傳唐代李昭道；故宮題為「唐人」作品）
+  year: 年代有爭議（故宮題為唐人；構圖帶有宋代山水的特徵）
   holder: 國立故宮博物院（臺北）
   license: Public domain（PD-Art／PD-old-100-expired；2026-11-10 已核對 Commons 檔案頁）
-  caption: 畫的是安史之亂時唐玄宗逃往四川的隊伍，走在險峻的蜀道上；畫裡沒有直接畫出戰爭，卻畫出皇帝倉皇出逃。
+  caption: 畫的是安史之亂時唐玄宗逃往四川的隊伍，走在險峻的蜀道上；穿紅衣騎馬的就是玄宗。畫裡沒有直接畫出戰爭；這是後人畫的，不是當時的紀錄。
 ---
 
 ## A1 交戰方與聯盟結構

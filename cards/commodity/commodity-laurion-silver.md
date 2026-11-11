@@ -25,7 +25,7 @@ links: [war-greco-persian, war-peloponnesian, building-acropolis, finance-lydian
 causes:
   - { id: finance-lydian-coinage, rel: 背景, why: 鑄幣從小亞細亞傳到希臘本土，雅典才有理由把勞里昂的白銀大量鑄成自己的「貓頭鷹」銀幣。, src: [finance-lydian-coinage:s6] }
 effects:
-  - { id: war-greco-persian, rel: 促成, why: 約前 483 年挖到豐富礦脈，雅典沒有把錢分給公民，而是造了約 200 艘戰船，成為薩拉米斯海戰打敗波斯的主力。, src: [s2, s5, s10] }
+  - { id: war-greco-persian, rel: 促成, why: 約前 483 年挖到豐富礦脈，雅典沒有把錢分給公民，而是拿去造戰船（希羅多德說 200 艘，普魯塔克說 100 艘），成為薩拉米斯海戰打敗波斯的主力。, src: [s2, s5, s10, s11] }
   - { id: finance-athens-trapezitai, rel: 背景, why: 勞里昂的白銀讓雅典鑄出大量成色穩定的銀幣，港口商業興盛，銀行家和海上借貸才有足夠的錢可以周轉。, src: [finance-athens-trapezitai:s3] }
 counterparts:
   - { id: commodity-salt-iron, note: "相似：國家把關鍵礦產收歸公有，收入直接支撐戰爭（雅典艦隊；漢對匈奴）。不同：雅典把開採權租給私人收租；漢朝由官府設鐵官直接生產販賣、禁止民營。", src: [s1, s8] }
@@ -38,6 +38,7 @@ sources:
   - { id: s5, title: "Mark Cartwright, Themistocles — World History Encyclopedia (2016)", url: "https://worldhistory.org/Themistocles", accessed: 2026-10-24, tier: 通論 }
   - { id: s8, title: "Donald B. Wagner, Technology as seen through the case of ferrous metallurgy in Han China", url: "https://donwagner.dk/EncIt/EncIt.html", accessed: 2026-10-25, tier: 學術 }
   - { id: s9, title: "Wu Zhu — Wikipedia", url: "https://en.wikipedia.org/wiki/Wu_Zhu", accessed: 2026-10-25, tier: 百科 }
+  - { id: s11, title: "Themistocles — Wikipedia（Naval policy；引 Plutarch, Themistocles 4：只造 100 艘）", url: "https://en.wikipedia.org/wiki/Themistocles", accessed: 2026-11-11, tier: 百科 }
   - { id: s10, title: "希羅多德《歷史》7.144，G. C. Macaulay 英譯（1890，公有領域）— Lexundria", url: "https://lexundria.com/hdt/7.144/mcly", accessed: 2026-10-25, tier: 一手 }
 crosscheck: { date: 2026-10-25, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "可加強：money_scale 目前只引 s3，建議加色諾芬《雅典的收入》4.14 作為第二來源（一手）。Livius 寫礦區距雅典約 35 公里，story『幾十公里』可接受。WHE 提到礦場約前 503 年已發現、前 483 年是『豐富礦脈』，story 寫『約前 483 年挖到一條特別豐富的礦脈』正確。" }
 importance: 2
@@ -47,7 +48,7 @@ learn:
   - 錢的歷史
   why_care: 雅典的民主、海軍和帕德嫩神廟，背後都有一座靠奴隸挖的銀礦。
   story: |
-    雅典城外幾十公里的勞里昂，地底下有銀。[s1][s2] 雅典把礦區租給私人老闆，老闆再向奴隸主「租」奴隸下坑，奴隸死了或逃了就要賠人。[s3] 約前 483 年挖到一條特別豐富的礦脈，雅典沒有把錢平分給公民，而是造了約 200 艘戰船。[s5][s10] 這支艦隊打贏了波斯，雅典從此成為海上霸主。[s2][s4] 雅典的「貓頭鷹」銀幣也在整個希臘世界流通，就像今天的美元。[s2][s4]
+    雅典城外幾十公里的勞里昂，地底下有銀。[s1][s2] 雅典把礦區租給私人老闆，老闆再向奴隸主「租」奴隸下坑，奴隸死了或逃了就要賠人。[s3] 約前 483 年挖到一條特別豐富的礦脈，雅典沒有把錢平分給公民，而是造了約 200 艘戰船（另一說 100 艘）。[s5][s10] 這支艦隊打贏了波斯，雅典從此成為海上霸主。[s2][s4] 雅典的「貓頭鷹」銀幣也在整個希臘世界流通，就像今天的美元。[s2][s4]
   key_terms:
   - term: 德拉克馬
     plain: 古希臘的銀幣單位。
@@ -92,7 +93,7 @@ lens_status: 無直接論述
 
 ## B6 經濟與財政角色
 
-約前 483/482 年發現的豐富礦脈，讓雅典有了一筆意外財源；地米斯托克利說服公民不把收入分給每個人，而是建造約 200 艘三列槳戰船。[s2][s5] 這是雅典海上霸權的財政起點。[s1][s4] 產量在西元前 5 世紀末下降，部分原因是狄凱里亞的占領；後來仍有人重新淘洗尾礦，但到地理學者保薩尼亞斯的時代（西元 2 世紀）礦山已被說成「過去的事」。[s1]
+約前 483/482 年發現的豐富礦脈，讓雅典有了一筆意外財源；地米斯托克利說服公民不把收入分給每個人，而是建造三列槳戰船：希羅多德說是 200 艘，普魯塔克則說只造了 100 艘。[s2][s5][s10][s11] 這是雅典海上霸權的財政起點。[s1][s4] 產量在西元前 5 世紀末下降，部分原因是狄凱里亞的占領；後來仍有人重新淘洗尾礦，但到地理學者保薩尼亞斯的時代（西元 2 世紀）礦山已被說成「過去的事」。[s1]
 
 ## B7 權力與政治連結
 

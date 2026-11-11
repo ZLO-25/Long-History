@@ -7,7 +7,7 @@ note: 1306 年陳朝把玄珍公主嫁給占婆國王制旻，占婆割讓烏、
 view: [[8, 99], [23.5, 110.5]]
 sources:
   - { title: "Huyền Trân — Wikipedia：1306 年嫁給占婆國王制旻，換得烏、里二州（今廣治、順化、峴港一帶）", url: "https://en.wikipedia.org/wiki/Huy%E1%BB%81n_Tr%C3%A2n", accessed: 2026-11-10, tier: 百科 }
-  - { title: "Champa — Wikipedia：歷代都城（因陀羅補羅 875–982、毗闍耶 982–1471、賓童龍 1471–1832）、1190 年代起成為吳哥屬國約三十年、1697 年成為附庸、1832 年 11 月併吞", url: "https://en.wikipedia.org/wiki/Champa", accessed: 2026-11-10, tier: 百科 }
+  - { title: "Champa — Wikipedia：歷代都城（因陀羅補羅 875–982、毗闍耶 982–1471〔資訊框的說法；內文另說約 1150 年代才成為中心〕、賓童龍 1471–1832）、1190 年代起成為吳哥屬國約三十年、1697 年成為附庸、1832 年 11 月併吞", url: "https://en.wikipedia.org/wiki/Champa", accessed: 2026-11-10, tier: 百科 }
   - { title: "Nam tiến — Wikipedia：1069 年占婆割讓北方三州、1377 與 1403 年圍攻毗闍耶、1471 年攻破都城、1832 年併吞、七百年間國土擴大約三倍", url: "https://en.wikipedia.org/wiki/Nam_ti%E1%BA%BFn", accessed: 2026-11-10, tier: 百科 }
 powers:
   - { name: 大越（陳朝）, en: "Đại Việt (Trần)", color: "#c0503b", card: war-yuan-dai-viet, area: 今越南北部到峴港, regions: [VN-HN, VN-HP, VN-01, VN-02, VN-03, VN-04, VN-05, VN-06, VN-07, VN-09, VN-13, VN-14, VN-18, VN-20, VN-21, VN-22, VN-23, VN-53, VN-54, VN-56, VN-61, VN-63, VN-66, VN-67, VN-68, VN-69, VN-70, VN-71, VN-24, VN-25, VN-26, VN-DN] }

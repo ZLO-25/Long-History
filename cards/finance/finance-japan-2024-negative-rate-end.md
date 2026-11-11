@@ -27,7 +27,7 @@ counterparts: 無適當對照：本站目前沒有其他國家「長期負利率
 sources:
   - { id: s1, title: "Bank of Japan, Changes in the Monetary Policy Framework（2024-03-19）", url: "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2024/k240319a.pdf", accessed: 2026-11-07, tier: 一手 }
   - { id: s2, title: "Bank of Japan, (Reference) Monetary Policy under Quantitative and Qualitative Monetary Easing Introduced in 2013", url: "https://www.boj.or.jp/en/mopo/outline/ref_qqe.htm", accessed: 2026-11-07, tier: 一手 }
-  - { id: s3, title: "Nikkei 225 — Wikipedia", url: "https://en.wikipedia.org/wiki/Nikkei_225", accessed: 2026-11-07, tier: 百科 }
+  - { id: s3, title: "Nikkei 225 — Wikipedia", url: "https://en.wikipedia.org/wiki/Nikkei_225", accessed: 2026-11-11, tier: 百科 }
   - { id: s5, title: "Abenomics — Wikipedia", url: "https://en.wikipedia.org/wiki/Abenomics", accessed: 2026-11-07, tier: 百科 }
 importance: 2
 learn:
@@ -71,7 +71,7 @@ crosscheck: { date: 2026-11-07, by: 獨立查核 agent（未參與寫作）, res
 
 ## F4 規模與數據
 
-- 日經平均指數：1989 年 12 月 29 日收盤 38,915.87 點；2024 年 2 月 22 日收盤 39,098.68 點，相隔 34 年超越；3 月 4 日首次站上 40,000 點；8 月 5 日單日下跌超過 4,200 點，是史上最大單日跌點。[s3]
+- 日經平均指數：1989 年 12 月 29 日收盤 38,915.87 點；2024 年 2 月 22 日收盤 39,098.68 點，相隔 34 年超越；3 月 4 日首次站上 40,000 點；8 月 5 日單日下跌 4,451.28 點（收在 31,458.42 點），是史上最大單日跌點。[s3]
 - 政策利率：由負 0.1% 調整為約 0 至 0.1%。[s1][s2]
 
 ## F5 改變了什麼

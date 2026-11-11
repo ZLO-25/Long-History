@@ -75,8 +75,8 @@ images:
 - url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Brookes_slave_ship%2C_British_Library.jpg/960px-Brookes_slave_ship%2C_British_Library.jpg
   page: https://commons.wikimedia.org/wiki/File:Brookes_slave_ship,_British_Library.jpg
   title: 布魯克斯號奴隸船平面圖
-  creator: James Phillips 印行（廢奴運動）
-  year: 1787
+  creator: 倫敦印刷商 James Phillips 印行（廢奴協會的宣傳單）
+  year: 約 1788–1789（Commons 檔案頁標 1787）
   holder: 大英圖書館
   license: Public domain（PD-old-100-1923；2026-11-10 已核對 Commons 檔案頁）
   caption: 廢奴人士印的奴隸船「布魯克斯號」裝載圖，畫出被奴役的非洲人像貨物一樣排滿船艙；這張圖是廢奴運動最有力的宣傳。

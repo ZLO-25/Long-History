@@ -7,7 +7,7 @@ note: 1754 年越南阮主出兵柬埔寨，1756 年柬埔寨割讓鵝貢、新�
 view: [[8, 99], [23.5, 110.5]]
 sources:
   - { title: "Mekong Delta — Wikipedia：1708 年鄚玖向阮主稱臣、1754 年越南出兵、1756 年割讓鵝貢與新安、1757 年整個三角洲歸越南", url: "https://en.wikipedia.org/wiki/Mekong_Delta", accessed: 2026-11-10, tier: 百科 }
-  - { title: "Champa — Wikipedia：歷代都城（因陀羅補羅 875–982、毗闍耶 982–1471、賓童龍 1471–1832）、1190 年代起成為吳哥屬國約三十年、1697 年成為附庸、1832 年 11 月併吞", url: "https://en.wikipedia.org/wiki/Champa", accessed: 2026-11-10, tier: 百科 }
+  - { title: "Champa — Wikipedia：歷代都城（因陀羅補羅 875–982、毗闍耶 982–1471〔資訊框的說法；內文另說約 1150 年代才成為中心〕、賓童龍 1471–1832）、1190 年代起成為吳哥屬國約三十年、1697 年成為附庸、1832 年 11 月併吞", url: "https://en.wikipedia.org/wiki/Champa", accessed: 2026-11-10, tier: 百科 }
 powers:
   - { name: 大越（鄭主與阮主）, en: "Đại Việt (Trịnh & Nguyễn lords)", color: "#c0503b", card: event-mekong-delta-vietnam, area: 今越南北部到湄公河三角洲（不含寧順、平順與西原高地）, regions: [VN-HN, VN-HP, VN-01, VN-02, VN-03, VN-04, VN-05, VN-06, VN-07, VN-09, VN-13, VN-14, VN-18, VN-20, VN-21, VN-22, VN-23, VN-53, VN-54, VN-56, VN-61, VN-63, VN-66, VN-67, VN-68, VN-69, VN-70, VN-71, VN-24, VN-25, VN-26, VN-DN, VN-27, VN-29, VN-31, VN-32, VN-34, VN-58, VN-37, VN-41, VN-45, VN-44, VN-47, VN-52, VN-46, VN-43, VN-SG, VN-59, VN-55, VN-73, VN-49, VN-51, VN-50, VN-39, VN-57, VN-CT] }
   - { name: 占婆（附庸）, en: "Champa (vassal)", color: "#7fc8bd", card: war-nam-tien-champa, area: 今寧順、平順, regions: [VN-36, VN-40] }

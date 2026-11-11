@@ -204,7 +204,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   })();
   // 卡片長內文還在背景下載時，需要內文的頁面先顯示「載入中」（通常不到一秒）
   const waiting = index.detailReady === false;
-  const content = waiting && !query.trim() && !['home', 'history', 'topics', 'stories', 'dives', 'record', 'peoples'].includes(view.kind) ? <p className="muted loading-detail">載入卡片內容…</p> : contentRaw;
+  const content = waiting && !query.trim() && !['home', 'history', 'topics', 'stories', 'dives', 'peoples'].includes(view.kind) && !(view.kind === 'card' && !!byId(view.id)?.sources.length) && !(view.kind === 'story' && keepRead(view.id)) ? <p className="muted loading-detail">載入卡片內容…</p> : contentRaw;
 
   const topicName = view.kind === 'topic' ? view.name : null;
   const storyId = view.kind === 'story' ? view.id : null;
@@ -217,7 +217,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}}
     peoples={{ on: peoplesOn || (view.kind === 'unit' && !!unitPeople), setOn: (v) => { setPeoplesOn(v); if (!v) setUnitPeople(null); if (!v && view.kind === 'peoples') back(); }, sel: view.kind === 'peoples' ? view.id : view.kind === 'unit' ? unitPeople : null, onPick: (id) => { openPeople(id); if (isMobile && id !== PEOPLE_INTRO) setTab('main'); } }} />;
   const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
-  const cardTab = waiting ? <p className="muted loading-detail">載入卡片內容…</p> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
+  const cardTab = waiting && !byId(lastCard ?? '')?.sources.length ? <p className="muted loading-detail">載入卡片內容…</p> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
 
   const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '單元', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題', peoples: '人群' } as Record<View['kind'], string>)[view.kind];
   const header = (

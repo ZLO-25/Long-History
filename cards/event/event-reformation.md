@@ -25,13 +25,15 @@ links: [tech-printing-press, event-black-death, event-french-revolution]
 effects:
   - { id: war-german-peasants, rel: 促成, why: "改革者挑戰教會權威的風潮也鼓舞了不滿領主的農民起事，但路德譴責暴動，起事被鎮壓，估計約10萬人喪生。", src: [s2, s3] }
   - { id: event-counter-reformation, rel: 回應, why: "天主教會為回應新教，改正部分弊端，同時想把新教地區收回來，讓宗教衝突拖得更久。", src: [s2] }
-  - { id: war-thirty-years, rel: 背景, why: "西歐分裂成多個教派後，各國之間反覆爆發宗教戰爭，其中三十年戰爭估計約800萬人死亡。", src: [s1, s2] }
+  - { id: war-thirty-years, rel: 背景, why: "西歐分裂成多個教派後，各國之間反覆爆發宗教戰爭，其中三十年戰爭估計有450萬到800萬人死亡。", src: [s1, s2] }
 counterparts: "無適當對照：同時期中國沒有一個由下而上挑戰官方宗教權威、並讓宗教分裂成多個教派的運動；硬配儒學或佛教事件會誤導。"
 sources:
   - { id: s1, title: "Reformation — Wikipedia", url: "https://en.wikipedia.org/wiki/Reformation", accessed: 2026-10-25 }
   - { id: s2, title: "Joshua J. Mark, Protestant Reformation — World History Encyclopedia（2021）", url: "https://www.worldhistory.org/Protestant_Reformation/", accessed: 2026-10-25 }
   - { id: s3, title: "German Peasants' War — Wikipedia", url: "https://en.wikipedia.org/wiki/German_Peasants%27_War", accessed: 2026-10-25 }
   - { id: s4, title: "Sapiens 讀者劃線摘錄（Goodreads, Travis）", url: "https://www.goodreads.com/notes/20873740-sapiens/12815256-travis", accessed: 2026-10-25 }
+  - { id: s5, title: "Thirty Years' War — Wikipedia（估計 450 萬到 800 萬軍民死亡）", url: "https://en.wikipedia.org/wiki/Thirty_Years%27_War", accessed: 2026-11-11 }
+  - { id: s6, title: "Printing Press（主題頁）— World History Encyclopedia（古騰堡印刷機約 1450 年）", url: "https://www.worldhistory.org/Printing_Press/", accessed: 2026-11-11 }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 images:
@@ -47,7 +49,7 @@ images:
 
 ## C1 背景
 
-中世紀晚期，天主教會是西歐最有權力的組織，但腐敗問題早就有人批評：英格蘭的威克里夫主張人人能讀英文聖經，波希米亞的胡斯 1415 年被燒死。[s2] 黑死病（1347–1352）時教會無力減輕苦難，威信下降。[s2] 教會為了蓋羅馬聖彼得大教堂大賣「贖罪券」（花錢減輕罪罰的證明），引起強烈不滿。[s2] 約 1440 年出現的印刷機，讓文字可以快速大量複製。[s2]
+中世紀晚期，天主教會是西歐最有權力的組織，但腐敗問題早就有人批評：英格蘭的威克里夫主張人人能讀英文聖經，波希米亞的胡斯 1415 年被燒死。[s2] 黑死病（1347–1352）時教會無力減輕苦難，威信下降。[s2] 教會為了蓋羅馬聖彼得大教堂大賣「贖罪券」（花錢減輕罪罰的證明），引起強烈不滿。[s2] 15 世紀中葉古騰堡的印刷機（資料有的寫約 1440 年、有的寫約 1450 年，見「古騰堡印刷機」卡），讓文字可以快速大量複製。[s2][s6]
 
 ## C2 經過
 
@@ -80,7 +82,7 @@ images:
 
 ## C7 長期影響
 
-宗教改革常被視為中世紀結束、近代開始的標誌之一。[s1] 之後的宗教戰爭估計造成 700 萬到 1700 萬人死亡；其中三十年戰爭（1618–1648）估計約 800 萬人死亡。[s1][s2] 長期來看，識字率與教育受到重視，印刷成為宣傳的核心工具，也與民主思想、民族主義的發展有關。[s2]
+宗教改革常被視為中世紀結束、近代開始的標誌之一。[s1] 之後的宗教戰爭估計造成 700 萬到 1700 萬人死亡；其中三十年戰爭（1618–1648）估計有 450 萬到 800 萬人死亡（各家估計不同，見「三十年戰爭」卡）。[s1][s2][s5] 長期來看，識字率與教育受到重視，印刷成為宣傳的核心工具，也與民主思想、民族主義的發展有關。[s2]
 
 ## C8 雙軌解讀
 

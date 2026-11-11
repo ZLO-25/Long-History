@@ -41,10 +41,10 @@ images:
 - url: https://upload.wikimedia.org/wikipedia/commons/a/af/Bodleian_Library_Gutenberg_Bible_Vol2_563.jpg
   page: https://commons.wikimedia.org/wiki/File:Bodleian_Library_Gutenberg_Bible_Vol2_563.jpg
   title: 古騰堡聖經內頁
-  creator: 古騰堡印刷所
+  creator: 古騰堡印刷所印製；數位影像由 Bodleian Libraries, University of Oxford 提供
   year: 約 1455
   holder: 牛津大學博德利圖書館
-  license: CC BY 4.0（2026-11-10 已核對 Commons 檔案頁；使用時須署名作者）
+  license: CC BY 4.0（2026-11-11 複查 Commons 檔案頁；使用時須署名 Bodleian Libraries, University of Oxford）
   caption: 古騰堡用金屬活字印出的拉丁文聖經；字是印的，彩色字首和花邊則是買家請人另外手繪的。
 ---
 

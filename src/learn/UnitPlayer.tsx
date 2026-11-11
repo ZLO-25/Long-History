@@ -62,6 +62,9 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
   // 在這一步裡點別的國家或遷徙：留在單元裡換頁（地圖跟著跳），有「回到這一步」可以回來
   const [pPage, setPPage] = useState<string | null>(null);
   useEffect(() => setPPage(null), [step]);
+  // 人群步驟：內容放在限高、可自己捲動的框裡（「下一步」不會被擠到四屏之外）；框內換頁時捲回頂端
+  const pBox = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (pBox.current) { pBox.current.scrollTop = 0; if (pPage) pBox.current.scrollIntoView({ block: 'nearest' }); } }, [pPage, step]);
   const peopleId = s?.type === 'peoples' ? pPage ?? s.id : null;
   useEffect(() => { unitPeople?.(peopleId); }, [peopleId]);
   const [pData, setPData] = useState<Peoples | null>(null);
@@ -175,7 +178,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
         <p className="prompt">👉 {s.prompt}</p>
         <p className="muted small">{onMap ? <>地圖已經打開「◎ 人群」圖層，<button className="link" onClick={onMap}>點這裡到地圖看 ▶</button>，看完按下方「單元」回來。</> : '右邊的地圖已經打開「◎ 人群」圖層。'}下面是這一頁的內容；點裡面的國家或其他遷徙，會在這裡換頁，不會離開單元。</p>
         {pPage && pPage !== s.id && <p><button className="btn sm" onClick={() => setPPage(null)}>← 回到這一步：{peopleTitle(pData, s.id)}</button></p>}
-        <div className="unit-peoples"><PeoplePanel id={pPage ?? s.id} onPick={(id) => setPPage(id)} onCard={(id) => onCardRaw(id)} /></div>
+        <div className="unit-peoples" ref={pBox} tabIndex={0} role="region" aria-label="人群圖層這一頁的內容（可捲動）"><PeoplePanel id={pPage ?? s.id} onPick={(id) => setPPage(id)} onCard={(id) => onCardRaw(id)} /></div>
       </>;
       case 'check': {
         const graded = s.items.map((_, i) => checkRes[i]).filter((v) => typeof v === 'boolean');

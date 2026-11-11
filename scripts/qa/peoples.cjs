@@ -161,6 +161,22 @@ const { chromium } = require('playwright');
   ok(await um.$eval('.cmp td', (x) => x.getBoundingClientRect().width > 250).catch(() => false), '手機單元：比較表改成直排小卡');
   ok(um.errs.length === 0, `手機單元沒有錯誤${um.errs.length ? '：' + um.errs.slice(0, 3).join(' / ') : ''}`);
 
+  // 2026-11-11：真的用滑鼠在地圖上滑、點國家（之前只用網址開國家卡，沒測到「上層 canvas 擋住滑鼠」）
+  const ck = await page(1280, 800);
+  await ck.goto(`${base}?mode=research&peoples=intro`); await ck.waitForSelector('.people-panel'); await ck.waitForTimeout(4500);
+  const mb = await (await ck.$('.leaflet-container')).boundingBox();
+  let hover = 0, opened = '';
+  for (let i = 0; i < 45 && !opened; i++) {
+    const x = mb.x + 60 + i * 17, y = mb.y + mb.height * (0.35 + (i % 3) * 0.1);
+    await ck.mouse.move(x, y); await ck.waitForTimeout(80);
+    const t = await ck.$eval('.leaflet-tooltip', (e) => e.textContent).catch(() => '');
+    if (!t) continue; hover++;
+    if (hover >= 3) { await ck.mouse.click(x, y); await ck.waitForTimeout(900); opened = new URL(ck.url()).searchParams.get('peoples') || ''; if (opened === 'intro') opened = ''; }
+  }
+  ok(hover >= 3, `滑鼠滑過地圖會出現國家／語言提示（${hover} 次）`);
+  ok(!!opened, `在地圖上點國家會打開那一國的頁面（${opened || '沒有反應'}）`);
+  await ck.close();
+
   await b.close();
   console.log(fails.length ? `\n${fails.length} 項沒過` : '\n全部通過');
   process.exit(fails.length ? 1 : 0);

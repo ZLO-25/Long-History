@@ -44,9 +44,9 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
         {onTopic && <TopicChips card={c} index={index} onTopic={onTopic} />}
       </div>
 
+      <CardImages images={c.images} />
       <PathNav card={c} index={index} onOpen={onOpen} onStory={(id) => onStory?.(id)} onDive={onDive} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} />
       <CauseList card={c} side="causes" index={index} onOpen={onOpen} />
-      <CardImages images={c.images} />
       <PersonBlock card={c} index={index} onOpen={onOpen} onPlace={onPlace} />
       <PopCulture card={c} render={(t) => <Markdown text={t} sources={c.sources} />} />
 

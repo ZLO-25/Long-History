@@ -40,10 +40,10 @@ images:
   page: https://commons.wikimedia.org/wiki/File:Raphael_-_Coronation_of_Charlemagne.jpg
   title: 查理曼加冕
   creator: 拉斐爾工作室
-  year: 1514–1517
+  year: 約 1516–1517（Commons 檔案頁標 1514–15）
   holder: 梵蒂岡博物館
   license: Public domain（PD-Art／PD-old-auto-expired；2026-11-10 已核對 Commons 檔案頁）
-  caption: 文藝復興畫家畫的公元 800 年教宗為查理曼加冕；畫中人物其實是照當時的教宗利奧十世和法王法蘭索瓦一世畫的。
+  caption: 事件七百多年後，文藝復興畫家畫的公元 800 年教宗為查理曼加冕；畫中人物其實是照當時的教宗利奧十世和法王法蘭索瓦一世畫的。
 ---
 
 ## C1 背景

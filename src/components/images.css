@@ -8,3 +8,7 @@
 .card-img .img-credit { display: block; }
 .card-images.compact .card-img img { max-height: 200px; }
 .more-images summary { cursor: pointer; font-size: 13px; color: #5a544a; margin: 2px 0 6px; }
+.card-img a.sized { margin: 0 auto; border-radius: 8px; background: #f3efe8; overflow: hidden; }
+.card-img a.sized img { width: 100%; height: 100%; max-height: none; }
+.card-img a.img-missing { display: block; padding: 18px 12px; border: 1px dashed #b9b2a4; border-radius: 8px; background: #f7f4ee; color: #4a453c; font-size: 13.5px; text-align: center; text-decoration: none; }
+.card-img .img-src { white-space: nowrap; }

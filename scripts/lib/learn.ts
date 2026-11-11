@@ -140,6 +140,16 @@ export function checkUnits(units: { file: string; unit: any }[], cards: RawCard[
       else if (refsOf(u.reflect).length) warn('reflect 不要用 [s1] 代號：反思題不放新史實');
     } else warn('建議加 reflect：回顧後「回到自己」的反思題（見 docs/lu-method.md）');
     const cc = u.crosscheck;
+    // 選擇題的作答線索：正確選項如果總是四個裡最長的，學生不讀內容也猜得到（2026-11-11 教育者複查）
+    {
+      const qs: { options: string[]; answer: number }[] = [];
+      for (const st of (Array.isArray(u.steps) ? u.steps : []) as any[]) {
+        if (st?.type === 'source' && Array.isArray(st.options)) qs.push(st);
+        if (st?.type === 'check') for (const q of st.items ?? []) if (q?.kind === 'choice' && Array.isArray(q.options)) qs.push(q);
+      }
+      const longest = qs.filter((q) => q.options.every((o, i) => i === q.answer || String(o).length < String(q.options[q.answer] ?? '').length)).length;
+      if (qs.length >= 3 && longest === qs.length) warn(`${qs.length} 題選擇題的正確選項全都是最長的那一個：請把誘答寫長一點或把正解寫短（選項順序畫面上會自動打亂，位置不必調）`);
+    }
     if (!cc) warn('還沒有交叉查核紀錄（crosscheck），不會出現在學習模式');
     else if (cc.result !== '通過') warn('交叉查核不通過，不會出現在學習模式');
     // 上下兩半的長單元：companion 指向另一半，完整步驟（史料、因果鏈、比較、決策、今日對照…）只要兩半合起來齊全即可

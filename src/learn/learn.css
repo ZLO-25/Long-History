@@ -271,3 +271,6 @@
   .cmp td::before { content: attr(data-side); display: block; font-size: .85em; font-weight: 700; color: var(--muted); }
   .cmp td + td { border-top: 1px dashed var(--line); }
 }
+
+/* 單元裡的人群步驟：整頁參考資料放在限高的框裡自己捲，「下一步」按鈕留在看得到的地方（2026-11-11） */
+.unit-peoples { max-height: min(62vh, 640px); overflow: auto; border: 1px solid var(--line, #ddd); border-radius: 8px; padding: 4px 10px; overscroll-behavior: contain; }

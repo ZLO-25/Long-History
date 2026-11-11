@@ -26,7 +26,7 @@ causes:
   - { id: event-srivijaya, rel: 促成, why: 室利佛逝壟斷海峽、強迫商船停靠，被認為阻礙了朱羅王朝和中國之間的貿易，這是遠征最常見的解釋。, src: [s1] }
 sources:
   - { id: s1, title: "Chola invasion of Srivijaya（朱羅王朝遠征室利佛逝）— Wikipedia", url: "https://en.wikipedia.org/wiki/Chola_invasion_of_Srivijaya", accessed: 2026-11-10, tier: 百科 }
-  - { id: s2, title: "Hermann Kulke, K. Kesavapany, Vijay Sakhuja (eds.), Nagapattinam to Suvarnadwipa: Reflections on the Chola Naval Expeditions to Southeast Asia（ISEAS，2009）— Google Books", url: "https://books.google.com/books?id=2swhCXJVRzwC", accessed: 2026-11-10, tier: 學術 }
+  - { id: s2, title: "Hermann Kulke, K. Kesavapany, Vijay Sakhuja (eds.), Nagapattinam to Suvarnadwipa: Reflections on the Chola Naval Expeditions to Southeast Asia（ISEAS，2009；書末收錄 Karashima 與 Tansen Sen 整理的〈Chinese Texts Describing or Referring to the Chola Kingdom as Zhu-nian〉）— Google Books", url: "https://books.google.com/books?id=2swhCXJVRzwC", accessed: 2026-11-10, tier: 學術 }
   - { id: s3, title: "Srivijaya（室利佛逝）— Wikipedia", url: "https://en.wikipedia.org/wiki/Srivijaya", accessed: 2026-11-10, tier: 百科 }
   - { id: s4, title: "脫脫等《宋史·外國傳五》注輦國條（卷四八九）— 維基文庫文本鏡像（GitHub）", url: "https://github.com/michiboo/Classical_Chinese_Wikisource/blob/master/宋史/卷489.txt", accessed: 2026-11-10, tier: 一手 }
   - { id: s5, title: "Indianization of Southeast Asia（東南亞的印度化）— Wikipedia", url: "https://en.wikipedia.org/wiki/Indianization_of_Southeast_Asia", accessed: 2026-11-10, tier: 百科 }
@@ -50,14 +50,14 @@ learn:
   perspectives:
     - { history: 印度史, text: "從印度看，這是印度歷史上獨一無二的跨海遠征，顯示 11 世紀朱羅海軍的實力。[s1]" }
     - { history: 東南亞史, text: "從東南亞看，這是印度國家對東南亞唯一的軍事攻擊，打破了室利佛逝的海峽霸權。[s1][s5]" }
-crosscheck: { date: 2026-11-10, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "開啟並核對：s1 Chola invasion of Srivijaya、s3 Srivijaya、s5 Indianization of SEA（維基），s2 Google Books 書目頁（ISEAS 2009，確認『fourteen key port cities』），s4《宋史》卷489 原文（引文逐字相符）。修正：s1 說艦隊直接駛往蘇門答臘西岸、在巴魯斯補給，改掉『橫渡孟加拉灣』；刪除 s1 未提的恆河征服者城地點；刪除 s2 書目頁不支持的『碑文是勝利者宣傳要小心』，historiography 改為 s1 的薩斯特里、霍爾兩說與『原因不清楚』；霍爾說法依 s1 改為蘇利耶跋摩一世向朱羅求援對付丹眉流；exaggerated 改為以 s1、s3 的戰後變化對照碑文；印度視角『最遠一次』改為 s1 的『獨一無二』；『少見』依 s5 改為『唯一』；海峽控制改標 s3；宋史引文出處刪除無法查證的『使者自述』。未能開啟：無。" }
+crosscheck: { date: 2026-11-10, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "開啟並核對：s1 Chola invasion of Srivijaya、s3 Srivijaya、s5 Indianization of SEA（維基），s2 Google Books 書目頁（ISEAS 2009，確認『fourteen key port cities』），s4《宋史》卷489 原文（引文逐字相符）。修正：s1 說艦隊直接駛往蘇門答臘西岸、在巴魯斯補給，改掉『橫渡孟加拉灣』；刪除 s1 未提的恆河征服者城地點；刪除 s2 書目頁不支持的『碑文是勝利者宣傳要小心』，historiography 改為 s1 的薩斯特里、霍爾兩說與『原因不清楚』；霍爾說法依 s1 改為蘇利耶跋摩一世向朱羅求援對付丹眉流；exaggerated 改為以 s1、s3 的戰後變化對照碑文；印度視角『最遠一次』改為 s1 的『獨一無二』；『少見』依 s5 改為『唯一』；海峽控制改標 s3；宋史引文出處刪除無法查證的『使者自述』。未能開啟：無。 2026-11-11 歷史複查（未參與寫作，WebFetch 開啟來源）：A1 補「注輦＝朱羅」：s4《宋史》注輦條國王羅茶羅乍 1015 年入貢，s2 書目有 Karashima、Sen〈Chinese Texts Describing or Referring to the Chola Kingdom as Zhu-nian〉。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
 
 ## A1 交戰方與聯盟結構
 
-朱羅王朝（南印度）對室利佛逝（蘇門答臘、馬來半島各港）。[s1]
+朱羅王朝（南印度）對室利佛逝（蘇門答臘、馬來半島各港）。[s1] 宋朝的史書把朱羅王朝叫做「注輦」：《宋史》記載注輦國王羅茶羅乍在大中祥符八年（1015 年）第一次派使者到中國進貢；研究朱羅遠征的學術專書，也有專章整理這些把朱羅稱為注輦（Zhu-nian）的中文史料。[s4][s2]
 
 ## A2 起因：結構與導火線
 

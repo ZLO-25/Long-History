@@ -30,7 +30,7 @@ recall:
 
 阿姆斯特丹不是一夕之間垮掉的，打擊是一次一次來的。早在法軍入侵之前，英國就因為荷蘭和美國革命者往來，在 1780 年對荷蘭宣戰。四年的戰爭裡，荷蘭的海外屬地和商船受損，1784 年戰敗，割讓了一處屬地，還得讓英國船進入荷屬東印度航行。[finance-amsterdam-decline:s1] 壟斷亞洲貿易的荷蘭東印度公司經過這場戰爭更加吃緊，1796 年被新政府接管，1799 年底解散，領地和債務由國家接手。[finance-amsterdam-decline:s2][finance-amsterdam-decline:s3][finance-amsterdam-decline:s7] 然後才是 1795 年的法軍、賠款和駐軍。[finance-amsterdam-decline:s2]
 
-這裡有一個容易弄錯的地方：荷蘭人並沒有變窮。荷蘭的資金仍然大量投向外國的證券。1803 年美國的路易斯安那購地案，霍普的銀行還和倫敦的巴林一起參與籌款。[finance-amsterdam-decline:s4][finance-amsterdam-decline:s5] 變的是做生意的地點。「錢是誰的」和「市場在哪裡」，可以分開移動。史家對原因的看法不一，有人強調荷蘭的海運和製造業早就漸漸被英國超越，有人強調一次次戰爭和占領的打擊。[finance-amsterdam-decline:s5][finance-amsterdam-decline:s1] 看得到的變化是，銀行家出走以後，國際借款越來越常和倫敦的商人合作。[finance-amsterdam-decline:s4][finance-london-rise:s8] 而此刻的英國，正在打一場非常花錢的仗。[finance-london-rise:s2]
+這裡有一個容易弄錯的地方：荷蘭人並沒有變窮。荷蘭的資金仍然大量投向外國的證券。1803 年美國的路易斯安那購地案，霍普的銀行還和倫敦的霸菱一起參與籌款。[finance-amsterdam-decline:s4][finance-amsterdam-decline:s5] 變的是做生意的地點。「錢是誰的」和「市場在哪裡」，可以分開移動。史家對原因的看法不一，有人強調荷蘭的海運和製造業早就漸漸被英國超越，有人強調一次次戰爭和占領的打擊。[finance-amsterdam-decline:s5][finance-amsterdam-decline:s1] 看得到的變化是，銀行家出走以後，國際借款越來越常和倫敦的商人合作。[finance-amsterdam-decline:s4][finance-london-rise:s8] 而此刻的英國，正在打一場非常花錢的仗。[finance-london-rise:s2]
 
 ★ 戰爭和占領一次次打擊阿姆斯特丹；荷蘭的錢沒有消失，做生意的地方卻移向倫敦。
 

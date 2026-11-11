@@ -69,6 +69,20 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   // 地圖上的名稱一律「繁中＋英文」：先載入對照表
   useMemo(() => setNameTable(index.names), [index]);
 
+  // 地圖還藏著（手機在別的分頁，容器大小是 0）時算不出該縮放到哪裡：先記下來，等地圖顯示出來再移過去
+  const pendingFly = useRef<(() => void) | null>(null);
+  const flyB = (b: L.LatLngBoundsExpression, o: L.FitBoundsOptions & { duration?: number; floor?: number }) => {
+    const m = map.current; if (!m) return;
+    m.invalidateSize({ animate: false }); // 先重新量容器：剛掛上地圖時 Leaflet 記的可能是版面還沒排好的舊大小
+    const s = m.getSize();
+    if (s.x < 60 || s.y < 60) { pendingFly.current = () => flyB(b, { ...o, duration: 0 }); return; }
+    pendingFly.current = null;
+    // 範圍太大、螢幕太窄（手機看橫跨半個地球的遷徙）時，硬塞進畫面會縮到整個世界只剩一條、站名全疊在一起：
+    // 最小只縮到 floor 指定的級數，以範圍中心為準，其餘讓使用者自己拖
+    const bb = L.latLngBounds(b as L.LatLngBoundsLiteral);
+    if (o.floor != null && m.getBoundsZoom(bb) < o.floor) m.flyTo(bb.getCenter(), o.floor, { duration: o.duration });
+    else m.flyToBounds(b, o);
+  };
   useEffect(() => {
     const m = L.map(el.current!, { zoomControl: true, worldCopyJump: true, preferCanvas: false, zoomSnap: 0.5 }).setView(compact ? [38, 18] : [39, 20], compact ? 4 : 4);
     m.setMaxZoom(12);
@@ -89,7 +103,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     };
     map.current = m;
     // 區塊被拖曳改大小時，馬上讓 Leaflet 重新量容器，地圖才不會留白或偏掉
-    const ro = new ResizeObserver(() => m.invalidateSize({ animate: false }));
+    const ro = new ResizeObserver(() => { m.invalidateSize({ animate: false }); const s = m.getSize(); if (pendingFly.current && s.x >= 60 && s.y >= 60) { const f = pendingFly.current; pendingFly.current = null; f(); } });
     ro.observe(el.current!);
     return () => { ro.disconnect(); m.off('zoomend', topicZoom.current); m.remove(); };
   }, []);
@@ -143,8 +157,18 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
 
   // AWMC 古代道路網（巴林頓地圖集）：依地圖集標註的時代顯示
   const [awmc, setAwmc] = useState<any>(null);
-  useEffect(() => { fetch(`${import.meta.env.BASE_URL}data/awmc-roads.geojson`).then((r) => r.json()).then(setAwmc).catch(() => {}); }, []);
   const era = eraOf(year);
+  // 效能：古道檔很大（gzip 後約 0.5 MB、解析約 2 MB），只有年代落在會畫古道的時代（640 年以前）才下載，
+  // 而且等瀏覽器空閒（首頁資料、卡片內文先下載完）再抓，不跟第一個畫面搶頻寬
+  const wantRoads = era !== 'M';
+  useEffect(() => {
+    if (!wantRoads || awmc) return;
+    let dead = false;
+    const go = () => { if (!dead) fetch(`${import.meta.env.BASE_URL}data/awmc-roads.geojson`).then((r) => r.json()).then((gj) => { if (!dead) setAwmc(gj); }).catch(() => {}); };
+    const ric = (window as any).requestIdleCallback as undefined | ((cb: () => void, o?: { timeout: number }) => number);
+    const t = window.setTimeout(() => (ric ? ric(go, { timeout: 4000 }) : go()), 1200);
+    return () => { dead = true; window.clearTimeout(t); };
+  }, [wantRoads, awmc]);
   useEffect(() => {
     const g = layers.current?.awmc;
     if (!g || !awmc) return;
@@ -278,7 +302,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     m.off('zoomend', topicZoom.current); topicZoom.current = drawMarks; if (marks.length) m.on('zoomend', drawMarks); else layers.current?.topic.clearLayers();
     if (powerOn.current && marks.length > 1) return; // 專題開著勢力圖時，視野以勢力圖為準（卡片編號可能散到朝鮮、臺灣）
     if (pts.length === 1) m.flyTo(pts[0], Math.max(m.getZoom(), 6), { duration: 0.6 });
-    else if (pts.length > 1) m.flyToBounds(L.latLngBounds(pts).pad(0.3), { duration: 0.6, maxZoom: 7 });
+    else if (pts.length > 1) flyB(L.latLngBounds(pts).pad(0.3), { duration: 0.6, maxZoom: 7 });
   }, [highlight, places, index.cards, index.routes]); // eslint-disable-line react-hooks/exhaustive-deps
   // 年代改變時只重畫編號（不移動視角）
   const hasFutureMarks = (highlight.marks ?? []).some((x) => x.start != null);
@@ -301,7 +325,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       L.marker([s.lat, s.lng], { icon: L.divIcon({ className: 'chain-step', html: `<span>${i + 1}</span>`, iconSize: [22, 22] }) })
         .bindTooltip(`${i + 1}. ${biHtml(s.name)}（${s.role}）`).addTo(g);
     });
-    m.flyToBounds(L.latLngBounds(pts).pad(0.2), { duration: 0.6, maxZoom: 8 });
+    flyB(L.latLngBounds(pts).pad(0.2), { duration: 0.6, maxZoom: 8 });
   }, [ch]);
   // 移動中的紅點：同一個標記只更新位置，不每格重畫
   const mover = useRef<L.CircleMarker>();
@@ -371,7 +395,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       };
       draw();
       powerZoom.current = draw; m.on('zoomend', draw);
-      if (all.length) { const bb = gj.view ? L.latLngBounds(gj.view) : L.latLngBounds(all); setPowerBox(bb); m.flyToBounds(bb, { duration: 0.6, maxZoom: 7, paddingBottomRight: [0, compact ? 40 : 90] }); }
+      if (all.length) { const bb = gj.view ? L.latLngBounds(gj.view) : L.latLngBounds(all); setPowerBox(bb); flyB(bb, { duration: 0.6, maxZoom: 7, paddingBottomRight: [0, compact ? 40 : 90] }); }
     }).catch(() => {});
     return () => { cancelled = true; m.off('zoomend', powerZoom.current); };
   }, [powerFile]);
@@ -407,11 +431,14 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   const [pd, setPd] = useState<Peoples | null>(null);
   const [langsOn, setLangsOn] = useState(true);
   const pgeo = useRef<L.GeoJSON | null>(null);
+  const pBuilt = useRef<(() => void) | null>(null);
   useEffect(() => {
     const g = layers.current?.peoples, gl = layers.current?.plangs, gt = layers.current?.ptribes, m = map.current;
     if (!g || !gl || !gt || !m) return;
-    g.clearLayers(); gl.clearLayers(); gt.clearLayers(); pgeo.current = null;
-    if (!peoplesOn) return;
+    // 效能：175 國＋7,600 個語言點只建一次；之後開關圖層只是把整組加回／拿掉地圖（原本每次開都重建，畫面會凍約 1 秒）
+    if (!peoplesOn) { for (const x of [g, gl, gt]) if (m.hasLayer(x)) m.removeLayer(x); return; }
+    if (!m.hasLayer(g)) g.addTo(m);
+    if (pBuilt.current) { const z0 = pBuilt.current; z0(); m.on('zoomend', z0); return () => { m.off('zoomend', z0); }; }
     let cancelled = false;
     Promise.all([loadPeoples(), loadPeopleGeo(), loadPeopleLangs()]).then(([d, geo, langs]: [Peoples, any, PLang[]]) => {
       if (cancelled) return;
@@ -426,10 +453,16 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
           layer.on('click', () => cb.current.onPeople?.(f.properties.n));
         },
       }).addTo(g);
+      // 語言點畫在國家上面：點到語言點時，也當作點了它底下的那個國家（否則密集的地方怎麼點都沒反應）
+      const pickUnder = (e: L.LeafletMouseEvent) => {
+        const pt = m.latLngToLayerPoint(e.latlng); let hit: string | null = null;
+        pgeo.current?.eachLayer((l: any) => { if (!hit && l._containsPoint?.(pt)) hit = l.feature?.properties.n ?? null; });
+        if (hit) cb.current.onPeople?.(hit);
+      };
       for (const [name, lat, lng, fid] of langs) {
         const fm = fam.get(fid);
-        L.circleMarker([lat, lng], { renderer: canvasR.current?.plangs, radius: 2.4, weight: 0.6, color: '#fff', fillColor: fm?.color ?? '#888', fillOpacity: 0.95 })
-          .bindTooltip(`${name}・${fm?.zh ?? ''}<br><small>語言的代表位置（Glottolog），不是人數</small>`).addTo(gl);
+        L.circleMarker([lat, lng], { renderer: canvasR.current?.peoples, pane: 'peoples', radius: 2.4, weight: 0.6, color: '#fff', fillColor: fm?.color ?? '#888', fillOpacity: 0.95 })
+          .bindTooltip(`${name}・${fm?.zh ?? ''}<br><small>語言的代表位置（Glottolog），不是人數</small>`).on('click', pickUnder).addTo(gl);
       }
       for (const t of [...d.taiwan.tribes, ...d.taiwan.plains]) {
         if (t.lat == null || t.lng == null) continue;
@@ -452,6 +485,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
           if (placed.some((q) => r.left < q.right + 2 && r.right > q.left - 2 && r.top < q.bottom + 2 && r.bottom > q.top - 2)) el.style.visibility = 'hidden'; else placed.push(r);
         }
       };
+      pBuilt.current = z;
       z(); m.on('zoomend', z);
       cleanup = () => m.off('zoomend', z);
     }).catch(() => {});
@@ -468,6 +502,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   useEffect(() => {
     const m = map.current, ls = layers.current;
     if (!m || !ls) return;
+    m.getContainer().classList.toggle('peoples-on', peoplesOn); // 人群圖層開著時，上層的古道 canvas 不攔滑鼠（見 styles.css）
     for (const g of [ls.places, ls.routes, ls.awmc, ls.hl, ls.topic]) { if (peoplesOn && m.hasLayer(g)) m.removeLayer(g); else if (!peoplesOn && !m.hasLayer(g)) g.addTo(m); }
   }, [peoplesOn]);
   // 打開的國家加粗外框，並把視野移過去（臺灣直接放大到能看到各族名稱）；看遷徙時國家顏色變淡
@@ -479,8 +514,8 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       l.setStyle?.({ ...(l.feature?.properties.n === peopleSel && peopleSel !== 'Taiwan' ? { color: '#111', weight: 2.5 } : { color: hatch ? '#777' : '#fff', weight: hatch ? 1.2 : 0.8 }), fillOpacity: migView ? 0.14 : hatch ? 0.3 : 0.42 });
     });
     if (migView) return;
-    if (peopleSel === 'Taiwan') m.flyToBounds(TAIWAN_VIEW, { duration: 0.6 });
-    else if (peopleSel && geo) { let b: L.LatLngBounds | null = null; geo.eachLayer((l: any) => { if (l.feature?.properties.n === peopleSel) b = l.getBounds(); }); if (b) m.flyToBounds(b, { duration: 0.6, maxZoom: 5, padding: [20, 20] }); }
+    if (peopleSel === 'Taiwan') flyB(TAIWAN_VIEW, { duration: 0.6 });
+    else if (peopleSel && geo) { let b: L.LatLngBounds | null = null; geo.eachLayer((l: any) => { if (l.feature?.properties.n === peopleSel) b = l.getBounds(); }); if (b) flyB(b, { duration: 0.6, maxZoom: 5, padding: [20, 20] }); }
   }, [peopleSel, peoplesOn, pd, migView]);
 
   // 遷徙（第 2 期）：清單頁畫全部八條，單條頁只畫這一條，並可用下方的時間軸播放
@@ -491,7 +526,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   // 進入遷徙頁時先收起圖例，免得蓋住南半球的路線（圖例按鈕還在，可以再打開）
   useEffect(() => { if (migView) setLegendOpen(false); }, [migView]);
   // 學習模式點到人群圖層的某一頁（例如單元裡的臺灣放大鏡）：圖例也先收起，免得蓋住要看的地方
-  useEffect(() => { if (learn && peopleSel && peopleSel !== PEOPLE_INTRO) setLegendOpen(false); }, [learn, peopleSel]);
+  useEffect(() => { if (peopleSel && peopleSel !== PEOPLE_INTRO) setLegendOpen(false); }, [peopleSel]);
   useEffect(() => {
     if (!migPlay || !migSel) return;
     const years = [...new Set(migSel.stations.map((s) => s.year))].sort((a, b) => a - b);
@@ -539,7 +574,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         if (migSel) L.marker(to, { interactive: false, keyboard: false, icon: L.divIcon({ className: 'mig-stop', html: `<span style="--mc:${mg.color}">${st.name.replace(/（.*）$/, '')}</span>`, iconSize: undefined as any }) }).addTo(g);
       }
     }
-    if (migT == null && all.length) m.flyToBounds(L.latLngBounds(all).pad(0.15), { duration: 0.6, maxZoom: 5 });
+    if (migT == null && all.length) flyB(L.latLngBounds(all).pad(0.15), { duration: 0.6, maxZoom: 5, paddingBottomRight: [0, 56], floor: 2 }); // 右下角留給播放列
   }, [migView, pd, migSel, migT]); // eslint-disable-line react-hooks/exhaustive-deps
   const migYears = migSel ? [...new Set(migSel.stations.map((s) => s.year))].sort((a, b) => a - b) : [];
   const migIdx = migSel ? (migT == null ? migYears.length - 1 : Math.max(0, migYears.findIndex((y) => y >= migT))) : 0;
@@ -575,7 +610,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       </div>
       {migSel && migYears.length > 1 && <div className="mig-play" role="group" aria-label="遷徙時間播放">
         <button className="btn sm" onClick={() => setMigPlay((v) => !v)} aria-pressed={migPlay}>{migPlay ? '❚❚ 暫停' : '▶ 播放'}</button>
-        <input type="range" min={0} max={migYears.length - 1} step={1} value={migIdx} aria-label="時間" onChange={(e) => { setMigPlay(false); const i = Number(e.target.value); setMigT(i >= migYears.length - 1 ? null : migYears[i]); }} />
+        <input type="range" min={0} max={migYears.length - 1} step={1} value={migIdx} aria-label="時間" aria-valuetext={`${fmtYear(migYears[migIdx])} 年`} onChange={(e) => { setMigPlay(false); const i = Number(e.target.value); setMigT(i >= migYears.length - 1 ? null : migYears[i]); }} />
         <output>{fmtYear(migYears[migIdx])} 年</output>
       </div>}
       <div className={`map-legend ${legendOpen ? '' : 'closed'}`}>

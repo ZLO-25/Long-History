@@ -53,7 +53,7 @@ images:
 - url: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/HasekuraPrayer.jpg/960px-HasekuraPrayer.jpg
   page: https://commons.wikimedia.org/wiki/File:HasekuraPrayer.jpg
   title: 支倉常長像（祈禱姿）
-  creator: 佚名（一說 Archita Ricci）
+  creator: 佚名（歐洲畫師；Commons 檔案頁標「畫師不明」）
   year: 1615
   holder: 仙台市博物館（國寶「慶長遣歐使節關係資料」）
   license: Public domain（公有領域；2026-11-10 已核對 Commons 檔案頁）

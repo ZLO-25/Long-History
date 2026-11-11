@@ -17,7 +17,7 @@ place:
   locations:
     - { name_ancient: 俄厄（Óc Eo）, name_modern: 越南安江省俄厄遺址, lat: 10.24, lng: 105.15, precision: schematic, role: 扶南的大港；出土 2 世紀羅馬皇帝時代的金質獎章（座標示意）, src: [s1, s3] }
     - { name_ancient: 吳哥波雷一帶, name_modern: 柬埔寨茶膠省吳哥波雷, lat: 10.99, lng: 104.98, precision: schematic, role: 可能是扶南大部分時間的首都；這裡出土最早有年代的高棉文碑（611 年）（座標示意）, src: [s1, s6] }
-    - { name_ancient: 頓遜, name_modern: 可能在馬來半島（今泰國、緬甸南部一帶）, lat: 9.5, lng: 99.0, precision: disputed, role: 羈屬扶南的港市，史書說這裡「東西交會，日有萬餘人」；確切地點不詳, src: [s2] }
+    - { name_ancient: 頓遜, name_modern: 可能在馬來半島北部（今泰國南部、緬甸南部一帶）, lat: 9.5, lng: 99.0, precision: disputed, role: 羈屬扶南的港市，史書說這裡「東西交會，日有萬餘人」；確切地點不詳，學者多半放在馬來半島北部的克拉地峽一帶，也有緬甸南部的丹那沙林、泰國灣北岸、馬來半島南端等說法, src: [s2, s7] }
   scale: area
 structure_tags: [商路改道, 單一港口依賴, 技術擴散]
 topics: [海上貿易, 航海, 宗教, 朝貢與冊封]
@@ -33,6 +33,7 @@ sources:
   - { id: s4, title: "魏徵等《隋書·南蠻傳》真臘條（卷八十二）— 維基文庫文本鏡像（GitHub）", url: "https://github.com/michiboo/Classical_Chinese_Wikisource/blob/master/隋書/卷82.txt", accessed: 2026-11-10, tier: 一手 }
   - { id: s5, title: "Chenla（真臘）— Wikipedia", url: "https://en.wikipedia.org/wiki/Chenla", accessed: 2026-11-10, tier: 百科 }
   - { id: s6, title: "Khmer script（高棉文字）— Wikipedia", url: "https://en.wikipedia.org/wiki/Khmer_script", accessed: 2026-11-10, tier: 百科 }
+  - { id: s7, title: "Tun Sun（頓遜）— Wikipedia", url: "https://en.wikipedia.org/wiki/Tun_Sun", accessed: 2026-11-11, tier: 百科 }
 importance: 2
 summary_card: true
 learn:
@@ -54,7 +55,7 @@ learn:
   perspectives:
     - { history: 柬埔寨史, text: "從柬埔寨看，史家維克里認為扶南的主要人群就是高棉人（也有學者認為是南島語族或多民族），扶南後來由高棉人的真臘接手。[s1][s5]" }
     - { history: 越南史, text: "從越南看，扶南的大港俄厄就在今天的越南南部；這片土地後來才有越南移民移入。[s1][s3]" }
-crosscheck: { date: 2026-11-10, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "開啟並核對：s1 Funan、s3 Óc Eo、s5 Chenla、s6 Khmer script（維基），s2《梁書》卷54、s4《隋書》卷82 原文（兩段引文逐字相符；柳葉、混填、賈人舶、康泰朱應、五王羈屬扶南皆在原文）。修正：俄厄出土的是羅馬金質獎章而非金幣（why_care、story、C2、座標說明）；刪除無來源的『稻田』『貨物流通到中國』；611 年碑是最早有年代的高棉文碑，不是『東南亞最早』；賈克的理由改為 s1 所述；補上『一群港市』的另一種看法；憍陳如年代依 s1 改約 5 世紀；C1 刪除無來源的季風與地形描述，改用 s1 依賴海上貿易與 s2 頓遜記載；C6 朝貢改為 s1 所述；C7 刪除無來源的『17 世紀越南人南下』，改為 s1 的衰落原因與越南移民；柬埔寨視角改寫為維克里的說法與爭議。未能開啟：無。" }
+crosscheck: { date: 2026-11-10, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "開啟並核對：s1 Funan、s3 Óc Eo、s5 Chenla、s6 Khmer script（維基），s2《梁書》卷54、s4《隋書》卷82 原文（兩段引文逐字相符；柳葉、混填、賈人舶、康泰朱應、五王羈屬扶南皆在原文）。修正：俄厄出土的是羅馬金質獎章而非金幣（why_care、story、C2、座標說明）；刪除無來源的『稻田』『貨物流通到中國』；611 年碑是最早有年代的高棉文碑，不是『東南亞最早』；賈克的理由改為 s1 所述；補上『一群港市』的另一種看法；憍陳如年代依 s1 改約 5 世紀；C1 刪除無來源的季風與地形描述，改用 s1 依賴海上貿易與 s2 頓遜記載；C6 朝貢改為 s1 所述；C7 刪除無來源的『17 世紀越南人南下』，改為 s1 的衰落原因與越南移民；柬埔寨視角改寫為維克里的說法與爭議。未能開啟：無。 2026-11-11 歷史複查（未參與寫作，WebFetch 開啟來源）：C2 質多斯那兼併扶南改為 6 世紀末至 7 世紀初（s5 在位約 600–616）；頓遜位置加 s7 Tun Sun（各家都放在馬來半島或泰國灣北岸，沒有定論）。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
@@ -69,7 +70,7 @@ lens_status: 無直接論述
 - **2 世紀**：俄厄港的遺物包括羅馬皇帝安東尼·庇護時代的金質獎章，顯示這裡和遙遠的地中海有間接的貿易往來。[s1][s3]
 - **3 世紀中**：孫吳的康泰、朱應出使扶南，帶回扶南的見聞。[s1][s2]
 - **約 5 世紀**：婆羅門憍陳如被迎立為王，扶南「用天竺法」。[s2]
-- **6 世紀**：屬國真臘崛起，國王質多斯那「遂兼扶南而有之」。[s4][s5]
+- **6 世紀末至 7 世紀初**：屬國真臘崛起，國王質多斯那（約 600–616 年在位）「遂兼扶南而有之」。[s4][s5]
 
 ## C6 直接結果
 

@@ -9,6 +9,9 @@ import { buildPeoples } from './lib/peoples.ts';
 import { loadCivTaxonomy } from './lib/civ.ts';
 import { SECTIONS, CORE_KEYS, TYPE_LABEL, FIELD_OPTIONS, UNDERSTAND, type CardType } from './lib/fields.ts';
 import { loadNameTable, polityZh } from './lib/labels.ts';
+// 圖片原始寬高（data/image-sizes.json，鍵＝Commons 檔名）：讓網頁在圖還沒載入前就先留好位置，版面不會跳
+const IMG_SIZES: Record<string, [number, number]> = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'image-sizes.json'), 'utf8')); } catch { return {}; } })();
+const imgSize = (page: string) => { let k = ''; try { k = decodeURIComponent(String(page).split('/wiki/')[1] ?? ''); } catch { /* 網址不合法就不帶寬高 */ } const z = IMG_SIZES[k] ?? IMG_SIZES[k.replace(/_/g, ' ')]; return z ? { w: z[0], h: z[1] } : {}; };
 import { orderAliases } from './lib/aliases.ts';
 import { buildEdges, type Edge } from './lib/causes.ts';
 import { loadStorylines, buildStorylines } from './lib/storylines.ts';
@@ -103,7 +106,7 @@ const cards = raw.filter((c) => c.fm?.id).map((c) => {
     // 人物卡（深入專題）：person 區塊與人際關係；關係的來源解析成可點的連結
     person: type === 'person' && f.person ? { role: String(f.person.role ?? ''), faction: f.person.faction ? String(f.person.faction) : undefined, name_romaji: String(f.person.name_romaji ?? '') } : null,
     relations: (Array.isArray(f.relations) ? f.relations : []).map((r: any) => ({ id: r.id, kind: r.kind, from: r.from, to: r.to, note: r.note, sources: (r.src ?? []).map((sid: string) => { const s = (f.sources ?? []).find((y: any) => y.id === sid); return s ? { card: f.id, id: sid, title: s.title, url: s.url } : null; }).filter(Boolean) })),
-    images: (Array.isArray(f.images) ? f.images : []).map((im: any) => ({ url: im.url, page: im.page, title: String(im.title), creator: String(im.creator), year: String(im.year), holder: im.holder ? String(im.holder) : undefined, license: String(im.license), caption: String(im.caption) })),
+    images: (Array.isArray(f.images) ? f.images : []).map((im: any) => ({ ...imgSize(im.page), url: im.url, page: im.page, title: String(im.title), creator: String(im.creator), year: String(im.year), holder: im.holder ? String(im.holder) : undefined, license: String(im.license), caption: String(im.caption) })),
     file: c.file,
     issues: issues.filter((i) => i.file === c.file).map((i) => ({ level: i.level, msg: i.msg })),
     backlinks: [] as string[],
@@ -219,12 +222,15 @@ const econIssues = [...checkEcon(loadEcon()), ...checkChains(loadChains(), raw, 
 if (econIssues.length) console.warn(`注意：經濟數列／物資鏈／今日對照層有 ${econIssues.length} 個問題，請執行 npm run validate`);
 // 效能：卡片的長內文（各節內文、來源、前因後果、學習卡全文）另存 index-detail.json。
 // 首頁先下載較小的 index.json 就能畫出時間軸、地圖、清單；長內文在背景下載，打開卡片時才用到（src/App.tsx mergeDetail）。
-// 留在 index.json 的 learn 欄位：清單、時間軸、篩選要用的（histories、track、understand、why_care、crosscheck）。
-const LEARN_CORE = ['histories', 'track', 'understand', 'why_care', 'crosscheck'];
+// 留在 index.json 的 learn 欄位：清單、時間軸、篩選要用的（histories、track、understand、why_care）。
+// 2026-11-11 再瘦身：查核紀錄 crosscheck（很長的筆記）、今日對照鉤子／不可類比（只在開卡或搜尋結果展開時看）、
+// 學習單元每一步的內文，也都移到 index-detail.json；index.json 只留單元每一步的「骨架」（類型＋指到哪張卡），
+// 首頁、故事線、進度點都還能算。
+const LEARN_CORE = ['histories', 'track', 'understand', 'why_care'];
 const detail: Record<string, any> = {};
 const coreCards = cards.map((c: any) => {
-  const { sections, sources, causes, effects, learn, ...rest } = c;
-  const d: any = { sections, sources, causes, effects };
+  const { sections, sources, causes, effects, learn, today_hook, non_analogous, ...rest } = c;
+  const d: any = { sections, sources, causes, effects }; // today_hook／non_analogous 就是 sections 裡那兩節的文字，網頁併入時再取
   let learnCore = null;
   if (learn) {
     learnCore = { story: '', key_terms: [], primary_source: [], historiography: '' } as any;
@@ -233,9 +239,25 @@ const coreCards = cards.map((c: any) => {
     d.learn = lr;
   }
   detail[c.id] = d;
-  return { ...rest, sections: [], sources: [], causes: [], effects: [], learn: learnCore };
+  return { ...rest, sections: [], sources: [], causes: [], effects: [], today_hook: '', non_analogous: '', learn: learnCore };
 });
-fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...index, cards: coreCards }));
-fs.writeFileSync(path.join(ROOT, 'public', 'index-detail.json'), JSON.stringify({ generated: index.generated, cards: detail }));
+const STEP_CORE = ['type', 'id', 'depth', 'card', 'cards', 'ref', 'sim'];
+const unitDetail: Record<string, any> = {};
+const coreUnits = (index.units as any[]).map((u) => {
+  const { steps, crosscheck, ...rest } = u;
+  unitDetail[u.id] = { steps, crosscheck };
+  return { ...rest, steps: steps.map((s: any) => {
+    const o: any = {};
+    for (const k of STEP_CORE) if (s[k] !== undefined) o[k] = s[k];
+    if (s.type === 'check') o.items = (s.items ?? []).map((q: any) => ({ kind: q.kind }));
+    return o;
+  }) };
+});
+fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...index, cards: coreCards, units: coreUnits }));
+// 效能：每張卡的長內文另外各存一個小檔（public/data/cards/<id>.json，幾 KB）。
+// 別人分享的卡片連結（?card=…）一打開就先抓這個小檔，不必等 1.4 MB 的 index-detail.json 下載完才看得到內文。
+fs.mkdirSync(path.join(pubData, 'cards'), { recursive: true });
+for (const [id, d] of Object.entries(detail)) fs.writeFileSync(path.join(pubData, 'cards', `${id}.json`), JSON.stringify({ generated: index.generated, id, card: d }));
+fs.writeFileSync(path.join(ROOT, 'public', 'index-detail.json'), JSON.stringify({ generated: index.generated, cards: detail, units: unitDetail }));
 const errs = issues.filter((i) => i.level === 'error').length;
 console.log(`build-index：${cards.length} 張卡、${routes.length} 條路線、${index.chains.length} 條物資鏈、人群圖層 ${peoplesInfo.countries} 國／${peoplesInfo.langs} 種語言／${peoplesInfo.migrations} 條遷徙 → public/index.json${errs ? `（注意：有 ${errs} 個 validate 錯誤）` : ''}`);

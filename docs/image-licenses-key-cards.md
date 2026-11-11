@@ -16,7 +16,7 @@ ZL 要在重要卡片補上圖片。挑卡原則：108 課綱重點、各學習�
 ## 怎麼查的
 
 1. 用 Commons API（`generator=search`＋`imageinfo`＋`extmetadata`）找候選，再用 `prop=revisions` 抓**檔案頁原文**，看授權模板（PD-old-100、PD-Taiwan、PD-China、PD-Japan-oldphoto、cc-zero、cc-by-4.0…）。
-2. 只收公有領域、CC0、CC BY、CC BY-SA；作者、年代、收藏處照檔案頁寫，檔案頁寫錯的另外改寫：康熙臺灣輿圖被 Commons 標成「16 世紀」、作者寫成上傳者，卡片改為「康熙年間（約 1699–1704）、國立臺灣博物館藏」，這是依一般通行的說法，**沒有另外開收藏機構網頁核對**，之後可再確認。
+2. 只收公有領域、CC0、CC BY、CC BY-SA；作者、年代、收藏處照檔案頁寫，檔案頁寫錯的另外改寫：康熙臺灣輿圖被 Commons 標成「16 世紀」、作者寫成上傳者，卡片改為「康熙年間（約 1699–1704）、國立臺灣博物館藏」，2026-11-11 複查：英文維基百科 [Kangxi Taiwan map](https://en.wikipedia.org/wiki/Kangxi_Taiwan_map) 寫明繪於康熙 38–43 年（1699–1704）、絹本、長 523 公分高 64 公分、國立臺灣博物館藏、2010 年指定為國寶，和卡片一致（博物館自己的網頁仍未直接打開核對）。
 3. 圖檔網址一律用 API 回傳的路徑：原圖寬 ≤960px 用原檔，更大用 960px 縮圖；`thumb.wikimedia.org` 主機改成 `upload.wikimedia.org`（同一路徑、雲端代理只放行後者）。
 4. 逐一用 HEAD 下載確認（Commons 對同一 IP 限速很兇，分三輪、每次間隔 20–45 秒）。推上時 33／48 已確認回 200，其餘回 429（限速，不是網址錯）；這些路徑都是 API 直接回傳的，不是自己推算。
 
@@ -99,3 +99,17 @@ ZL 要在重要卡片補上圖片。挑卡原則：108 課綱重點、各學習�
 | building-angkor-wat | 吳哥窟中央塔群 | [20171126 Angkor Wat 4712 DxO.jpg](https://commons.wikimedia.org/wiki/File:20171126_Angkor_Wat_4712_DxO.jpg) | CC BY-SA 4.0  |
 | building-my-son | 美山聖地遺址 | [My Son Sanctuary Vietnam 04.jpg](https://commons.wikimedia.org/wiki/File:My_Son_Sanctuary_Vietnam_04.jpg) | CC BY 4.0  |
 | war-cham-khmer-1177 | 巴戎寺浮雕：行軍中的高棉軍隊 | [Angkor Thom Bayon relief of the Battle of Tonlé Sap.jpg](https://commons.wikimedia.org/wiki/File:Angkor_Thom_Bayon_relief_of_the_Battle_of_Tonlé_Sap.jpg) | CC BY-SA 4.0  |
+
+## 2026-11-11 複查（歷史學者 B）
+
+- 用 Commons API（一次 25 個檔名、User-Agent 用一般名稱）重新核對 50 個檔案的授權與說明，另用 `action=raw` 看了 6 個檔案頁原文；其餘 14 個因 429 限速沒有重查。授權全部和卡片相符。
+- 依檔案頁與維基百科條目改的圖說：
+  - 布魯克斯號平面圖：年代由 1787 改為「約 1788–1789」（最早的版本 1788 年在普利茅斯印行，見 [Brooks (1781 ship)](https://en.wikipedia.org/wiki/Brooks_(1781_ship))；Commons 檔案頁標 1787）。
+  - 查理曼加冕：年代改「約 1516–1517」（見 [The Coronation of Charlemagne](https://en.wikipedia.org/wiki/The_Coronation_of_Charlemagne)；Commons 標 1514–15），並寫明是七百多年後畫的。
+  - 獨立宣言（川伯）：補「四十多年後畫的、不是真實場面」（Commons 檔案說明）。
+  - 明皇幸蜀圖：作者改「佚名（舊傳李昭道；故宮題為唐人）」，年代改成「有爭議（故宮題為唐人；構圖帶宋代山水特徵）」（Commons 檔案頁引故宮說明）。
+  - 古騰堡聖經：CC BY 4.0 的署名對象補上 Bodleian Libraries。
+  - 支倉常長像：畫師改「佚名」（Commons 標 Unidentified painter；Archita Ricci 一說指的是另一幅立像）。
+  - 文化協會合影：`holder: 攝於霧峰` 不是收藏處，刪掉，地點與日期寫進圖說。
+  - 康熙臺灣輿圖、鴉片戰爭、馬關條約、大憲章、張騫壁畫的圖說用詞微調。
+- 還沒解決：二二八照片、馬關條約圖的 Commons 來源都是轉貼圖檔的網址，拍攝者／畫家與首次發表處不明；牡丹社合照的人物（Commons 標「Tokitok」）待查。

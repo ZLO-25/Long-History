@@ -212,7 +212,7 @@ function MigView({ d, m, onPick, onCard }: { d: Peoples; m: PMigration; onPick: 
     <h2 className="mig-title" style={{ ['--mc' as any]: m.color }}><i />{m.name} <span className="en">{m.en}</span></h2>
     <p className="small"><b>{m.when}</b>・{m.kind}</p>
     <p>{m.summary}</p>
-    <p className="small muted">地圖右下角可以拖時間、按「▶ 播放」，看各站依年代出現。站的位置是示意，線不是實際走的路。</p>
+    <p className="small muted">地圖上有時間播放列（電腦在地圖右下角；手機請切到「地圖」分頁，在地圖上方）：拖時間或按「▶ 播放」，看各站依年代出現。站的位置是示意，線不是實際走的路。</p>
     <h3>沿途各站</h3>
     <ol className="mig-stations">{m.stations.map((s) => <li key={s.key}><b>{s.name}</b>{s.est && <span className="muted small">（位置示意）</span>}<br /><span className="small">{s.when} {src(s.src)}</span></li>)}</ol>
     {EVID.map(([k, title, how]) => m.evidence[k]?.length ? <section key={k}><h3>{title}</h3><p className="small muted">{how}</p>{claims(m.evidence[k]!)}</section> : null)}

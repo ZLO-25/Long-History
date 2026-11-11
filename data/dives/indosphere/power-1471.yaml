@@ -8,8 +8,8 @@ view: [[8, 99], [23.5, 110.5]]
 sources:
   - { title: "《明史·外國傳·占城》（卷三二四）：成化七年（1471）安南破占城、執王槃羅茶全，改其地為交南州；之後立王孫於「國南邊地」", url: "https://github.com/michiboo/Classical_Chinese_Wikisource/blob/master/明史/卷324.txt", accessed: 2026-11-10, tier: 一手 }
   - { title: "Nam tiến — Wikipedia：1069 年占婆割讓北方三州、1377 與 1403 年圍攻毗闍耶、1471 年攻破都城、1832 年併吞、七百年間國土擴大約三倍", url: "https://en.wikipedia.org/wiki/Nam_ti%E1%BA%BFn", accessed: 2026-11-10, tier: 百科 }
-  - { title: "Champa — Wikipedia：歷代都城（因陀羅補羅 875–982、毗闍耶 982–1471、賓童龍 1471–1832）、1190 年代起成為吳哥屬國約三十年、1697 年成為附庸、1832 年 11 月併吞", url: "https://en.wikipedia.org/wiki/Champa", accessed: 2026-11-10, tier: 百科 }
-  - { title: "Post-Angkor period — Wikipedia：約 1431 年暹羅攻入吳哥，都城南遷到今金邊", url: "https://en.wikipedia.org/wiki/Post-Angkor_period", accessed: 2026-11-10, tier: 百科 }
+  - { title: "Champa — Wikipedia：歷代都城（因陀羅補羅 875–982、毗闍耶 982–1471〔資訊框的說法；內文另說約 1150 年代才成為中心〕、賓童龍 1471–1832）、1190 年代起成為吳哥屬國約三十年、1697 年成為附庸、1832 年 11 月併吞", url: "https://en.wikipedia.org/wiki/Champa", accessed: 2026-11-10, tier: 百科 }
+  - { title: "Post-Angkor period — Wikipedia：約 1431 年暹羅介入吳哥（細節不清），政治中心南移到今金邊一帶", url: "https://en.wikipedia.org/wiki/Post-Angkor_period", accessed: 2026-11-10, tier: 百科 }
 powers:
   - { name: 大越（後黎朝）, en: "Đại Việt (Later Lê)", color: "#c0503b", card: war-nam-tien-champa, area: 今越南北部到平定, regions: [VN-HN, VN-HP, VN-01, VN-02, VN-03, VN-04, VN-05, VN-06, VN-07, VN-09, VN-13, VN-14, VN-18, VN-20, VN-21, VN-22, VN-23, VN-53, VN-54, VN-56, VN-61, VN-63, VN-66, VN-67, VN-68, VN-69, VN-70, VN-71, VN-24, VN-25, VN-26, VN-DN, VN-27, VN-29, VN-31] }
   - { name: 占婆（南方殘存）, en: "Champa (rump state)", color: "#2a9d8f", card: war-nam-tien-champa, area: 今富安、慶和、寧順、平順, regions: [VN-32, VN-34, VN-36, VN-40] }

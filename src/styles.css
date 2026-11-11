@@ -361,3 +361,26 @@ main.dock-main > .splitter.row { grid-area: sr; }
 /* 跳到主要內容：平常藏在畫面外，按 Tab 聚焦時才出現 */
 .skip-link { position: absolute; left: -9999px; top: 8px; z-index: 9999; padding: 8px 14px; background: #fff; border: 2px solid #2b6cb0; border-radius: 8px; font: inherit; }
 .skip-link:focus { left: 8px; }
+
+/* 2026-11-11 UI/UX 複查 */
+/* 人群圖層開著時，上層（古道用）的 canvas 不攔滑鼠，下面的國家才點得到、滑得到 */
+.peoples-on .leaflet-overlay-pane canvas { pointer-events: none; }
+/* 地圖提示框太長時換行，不再一行拉到 400–500px */
+.leaflet-tooltip { white-space: normal; width: max-content; max-width: min(300px, 70vw); }
+/* 版權列只佔一行（滑過／點到才展開），不再折成兩三行蓋住圖例鈕與播放列 */
+.leaflet-container .leaflet-control-attribution { max-width: calc(100% - 4px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-sizing: border-box; }
+.leaflet-container .leaflet-control-attribution:hover, .leaflet-container .leaflet-control-attribution:focus-within { white-space: normal; }
+@media (max-width: 640px) {
+  /* 手機：快速鈕一排可左右滑，讓開左邊的縮放鈕 */
+  .map-views { left: 52px; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
+  .map-views button { flex: none; white-space: nowrap; }
+}
+@media (pointer: coarse) {
+  .map-views button { min-height: 40px; padding: 3px 10px; }
+  .ml-toggle { min-height: 40px; padding: 2px 12px; }
+  .mig-play .btn, .mig-play button { min-height: 40px; }
+  .mig-play input[type=range] { height: 40px; }
+  .lg-langs input { width: 20px; height: 20px; vertical-align: middle; }
+  .pdot { position: relative; }
+  .pdot::after { content: ''; position: absolute; left: -2px; right: -2px; top: -16px; bottom: -16px; }
+}

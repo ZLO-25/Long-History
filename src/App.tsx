@@ -61,8 +61,15 @@ export default function App() {
       setNameTable(ix.names); setIndex({ ...ix, detailReady: false });
       // 帶建置時間當版本號，兩個檔一定是同一次建置（不會拿到快取裡的舊內文）
       const fresh = () => getJson(`${base}index-detail.json?v=${encodeURIComponent(ix.generated)}`);
+      // 只開一張卡的連結：那張卡自己的小檔先到，就先把它的內文併進去（完整內文稍後到，再整批併一次）
+      let full = false;
+      (window as Window & { __hrCard?: Promise<any> }).__hrCard?.then((one) => {
+        if (full || !one || one.generated !== ix.generated) return;
+        mergeDetail(ix, { generated: one.generated, cards: { [one.id]: one.card } });
+        setIndex((cur) => (cur && cur.detailReady === false ? { ...cur } : cur));
+      });
       (early ? early.then((d) => (d?.generated === ix.generated ? d : fresh())) : fresh())
-        .then((d) => setIndex(mergeDetail(ix, d))).catch(() => setError('讀不到卡片內文 index-detail.json，請重新整理頁面。'));
+        .then((d) => { full = true; setIndex(mergeDetail(ix, d)); }).catch(() => setError('讀不到卡片內文 index-detail.json，請重新整理頁面。'));
     }).catch(() => setError('讀不到 public/index.json。請先執行 npm run build:index（npm run dev 會自動執行）。'));
   }, []);
   if (error) return <div className="fatal">{error}</div>;
@@ -73,7 +80,7 @@ export default function App() {
 // 第 6 期：研究模式／學習模式。網址 ?mode=learn 進入學習模式；研究模式的網址參數完全不變
 // 第一次來（網址沒帶任何參數、也沒記住過模式）的人，預設進學習模式；之後記住上次用的模式。
 // 研究模式的網址參數（?card= ?year= ?chain= …）一律維持研究模式，舊連結不受影響。
-type Detail = { generated: string; cards: Record<string, Pick<Card, 'sections' | 'sources' | 'causes' | 'effects'> & { learn?: Partial<NonNullable<Card['learn']>> }> };
+type Detail = { generated: string; cards: Record<string, Pick<Card, 'sections' | 'sources' | 'causes' | 'effects'> & { learn?: Partial<NonNullable<Card['learn']>> }>; units?: Record<string, Partial<Index['units'][number]>> };
 // 效能：長內文直接寫進原本的卡片物件（同一個 cards 陣列），地圖、時間軸、搜尋索引不必因此全部重算；
 // 只有 detailReady 變成 true，讓「載入卡片內容…」換成真正的內容
 function mergeDetail(ix: Index, d: Detail): Index {
@@ -82,10 +89,17 @@ function mergeDetail(ix: Index, d: Detail): Index {
     if (!x) continue;
     const { learn, ...rest } = x;
     Object.assign(c, rest);
+    c.today_hook = rest.sections?.find((x) => x.role === 'today_hook')?.text ?? '';
+    c.non_analogous = rest.sections?.find((x) => x.role === 'non_analogous')?.text ?? '';
     if (c.learn && learn) Object.assign(c.learn, learn);
   }
+  // 學習單元每一步的內文、查核紀錄也在 detail（index.json 只有骨架）
+  for (const u of ix.units ?? []) { const x = d.units?.[u.id]; if (x) Object.assign(u, x); }
   return { ...ix, detailReady: true };
 }
+
+/** 這張卡的長內文到了沒（完整內文還在下載時，單張卡的小檔可能先到） */
+export const cardLoaded = (ix: Index, id: string | null | undefined) => !!ix.cards.find((c) => c.id === id)?.sources.length;
 
 const MODE_KEY = 'history-river-mode';
 function initialMode(): 'learn' | 'research' {
@@ -273,7 +287,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     }
   })();
   // 卡片長內文還在背景下載時，需要內文的面板先顯示「載入中」（通常不到一秒）
-  const side = index.detailReady === false && !['list', 'topics', 'stories', 'dives', 'econ', 'peoples'].includes(panel.kind) ? <p className="muted loading-detail">載入卡片內容…</p> : sideRaw;
+  const side = index.detailReady === false && !['list', 'topics', 'stories', 'dives', 'econ', 'peoples'].includes(panel.kind) && !(panel.kind === 'card' && cardLoaded(index, panel.id)) && !(panel.kind === 'story' && keepRead(panel.id)) ? <p className="muted loading-detail">載入卡片內容…</p> : sideRaw;
 
   const map = <MapView index={index} cards={visible} year={year} highlight={highlight}
     onPlace={(key) => { open({ kind: 'place', key }); if (isMobile) setMobileTab('list'); }}

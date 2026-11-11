@@ -2,7 +2,7 @@
 id: event-estates-general-1789
 type: event
 name: 三級會議與網球場宣誓（1789）
-aliases: [三級會議, 網球場宣誓, Estates General of 1789, Tennis Court Oath, 國民議會, National Assembly, 第三等級是什麼, What Is the Third Estate?, 西耶斯, Sieyès, 第三等級, États généraux, Serment du Jeu de paume, 三级会议]
+aliases: [三級會議, 網球場宣誓, Estates General of 1789, Tennis Court Oath, 國民議會, National Assembly, 第三等級是什麼, What Is the Third Estate?, 西耶斯, 西哀士, 西耶士, Sieyès, 第三等級, États généraux, Serment du Jeu de paume, 三级会议]
 civilization: [法國]
 track: west
 time:

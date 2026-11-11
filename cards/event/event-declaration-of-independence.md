@@ -82,7 +82,7 @@ images:
   year: 1819
   holder: 美國國會大廈圓形大廳
   license: Public domain（PD-Art-two／PD-old-100-expired／PD-USGov-Congress-AOC；2026-11-10 已核對 Commons 檔案頁）
-  caption: 畫的是起草委員會（中間站著的是傑佛遜）把《獨立宣言》草稿交給大陸會議；美國 2 元鈔票背面就是這幅畫。
+  caption: 事件四十多年後畫的：起草委員會（中間站著的是傑佛遜）把《獨立宣言》草稿交給大陸會議。這不是真實場面的紀錄，畫中人從沒有同時在同一個房間裡；美國 2 元鈔票背面就是這幅畫。
 ---
 
 ## C1 背景

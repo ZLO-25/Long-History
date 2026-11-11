@@ -27,7 +27,7 @@ causes:
   - { id: event-angkor-decline, rel: 背景, why: 柬埔寨國力衰弱，被東西兩邊的鄰國左右；阮主和柬埔寨聯姻，答應幫柬埔寨對抗暹羅的壓力，也給了越南介入的機會。, src: [s1, s5] }
   - { id: event-ming-qing-transition, rel: 背景, why: 明清交替之際，一批躲避清朝的華人難民南下，1679 年阮主讓他們在美湫、邊和、西貢定居；生於南明治下雷州的鄚玖，也在河仙帶領華人和越南人發展港市。, src: [s3, s4] }
 effects:
-  - { id: event-nguyen-dynasty-vietnam-name, rel: 背景, why: 阮福映復國主要靠南方嘉定、永隆兩地的兵力，所以取兩地各一字作年號「嘉隆」。, src: [s6] }
+  - { id: event-nguyen-dynasty-vietnam-name, rel: 背景, why: 阮福映是靠南方（嘉定一帶）的兵力復國的；《清史稿》說他因此取嘉定、永隆兩地各一字作年號「嘉隆」，另一個流行的說法是取嘉定和昇龍（河內），但都沒有當時的證據可以確定。, src: [s6, s10] }
   - { id: event-french-indochina, rel: 背景, why: 越南南部成為產米的大糧倉，法國 1862 年最先拿下的就是這片「南圻」，之後才北上。, src: ["event-french-indochina:s1", s1, s3] }
 sources:
   - { id: s1, title: "Mekong Delta（湄公河三角洲）— Wikipedia", url: "https://en.wikipedia.org/wiki/Mekong_Delta", accessed: 2026-11-10, tier: 百科 }
@@ -39,6 +39,7 @@ sources:
   - { id: s7, title: "Nguyễn Hữu Cảnh（阮有鏡）— Wikipedia", url: "https://en.wikipedia.org/wiki/Nguy%E1%BB%85n_H%E1%BB%AFu_C%E1%BA%A3nh", accessed: 2026-11-10, tier: 百科 }
   - { id: s8, title: "Ang Mey（安眉女王）— Wikipedia", url: "https://en.wikipedia.org/wiki/Ang_Mey", accessed: 2026-11-10, tier: 百科 }
   - { id: s9, title: "Nam tiến（南進）— Wikipedia", url: "https://en.wikipedia.org/wiki/Nam_ti%E1%BA%BFn", accessed: 2026-11-10, tier: 百科 }
+  - { id: s10, title: "Gia Long（嘉隆帝）— Wikipedia", url: "https://en.wikipedia.org/wiki/Gia_Long", accessed: 2026-11-11, tier: 百科 }
 importance: 2
 summary_card: true
 learn:
@@ -62,7 +63,7 @@ learn:
   perspectives:
     - { history: 越南史, text: "從越南看，南部是越南人開墾出來的魚米之鄉，也是阮朝起家的地方。[s1][s6]" }
     - { history: 柬埔寨史, text: "從柬埔寨看，這片土地叫「下高棉」，是被越南一步步拿走的故土。[s2]" }
-crosscheck: { date: 2026-11-10, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "開啟並核對：s1 Wikipedia Mekong Delta、s2 Khmer Krom、s3 Ho Chi Minh City、s4 Mạc Cửu、s5 Siamese–Vietnamese War (1841–1845)、s6《清史稿》卷527（第一段引文逐字相符；第二段原文句末為冒號，已刪句號）、s7 Nguyễn Hữu Cảnh、s8 Ang Mey。新增 s9 Wikipedia Nam tiến。修正：刪鄭主阮主對抗（s1 未載）；17 世紀初屬柬埔寨改引 s2 八百年；嘉定府改「嘉定」（s7 稱 garrison）；鄚玖「建立港市」改為帶領發展（s4 說華越居民已先建鎮）；1679 年華人改為躲避清朝的難民（s3），刪「明鄉人」；嘉隆緣由改依《清史稿》原文；1772 年改為築城堡，補學者阮廷頭；史學史刪「柬埔寨人仍有心結」改為 UNPO 事實，越南敘事改引 s9；C5 出海口改為西貢港；C7 1862 改為《西貢條約》；causes 刪「吳哥衰落後」的無來源因果。未能開啟：無。" }
+crosscheck: { date: 2026-11-10, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "開啟並核對：s1 Wikipedia Mekong Delta、s2 Khmer Krom、s3 Ho Chi Minh City、s4 Mạc Cửu、s5 Siamese–Vietnamese War (1841–1845)、s6《清史稿》卷527（第一段引文逐字相符；第二段原文句末為冒號，已刪句號）、s7 Nguyễn Hữu Cảnh、s8 Ang Mey。新增 s9 Wikipedia Nam tiến。修正：刪鄭主阮主對抗（s1 未載）；17 世紀初屬柬埔寨改引 s2 八百年；嘉定府改「嘉定」（s7 稱 garrison）；鄚玖「建立港市」改為帶領發展（s4 說華越居民已先建鎮）；1679 年華人改為躲避清朝的難民（s3），刪「明鄉人」；嘉隆緣由改依《清史稿》原文；1772 年改為築城堡，補學者阮廷頭；史學史刪「柬埔寨人仍有心結」改為 UNPO 事實，越南敘事改引 s9；C5 出海口改為西貢港；C7 1862 改為《西貢條約》；causes 刪「吳哥衰落後」的無來源因果。未能開啟：無。 2026-11-11 歷史複查（未參與寫作，WebFetch 開啟來源）：嘉隆年號由來改為「清史稿說法＋另一說、皆無當時證據」（新增 s10 Gia Long）；安眉即位依 s8 改 1835 年並註明 s5 寫 1834。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
@@ -79,7 +80,7 @@ lens_status: 無直接論述
 - **1698 年**：阮有鏡設立嘉定。[s7]
 - **1708 年**：河仙的鄚玖向阮主稱臣；河仙到 1714 年前仍屬柬埔寨。[s4]
 - **1754–1757 年**：越南再對柬埔寨用兵，到 1757 年整個三角洲歸越南。[s1][s2]
-- **1834–1841 年**：明命帝立安眉為柬埔寨女王，1835 年設「鎮西」；1841 年明命帝死，繼任的紹治帝下令撤軍。[s5][s8]
+- **1835–1841 年**：柬埔寨國王安贊二世去世後，明命帝立他的女兒安眉為女王（1835 年；也有來源寫 1834 年），同年設「鎮西」直接統治；1841 年明命帝死，繼任的紹治帝下令撤軍。[s5][s8]
 - **1841–1847 年**：暹羅與越南在柬埔寨交戰，最後同意共同控制柬埔寨，1847 年越南撤軍。[s5]
 
 ## C5 受益者與受損者

@@ -42,22 +42,29 @@ export function Choice({ q, options, answer, explain, hints, after, onDone, save
 }) {
   const [pick, setPick] = useState<number | null>(saved ?? null);
   const done = pick !== null;
+  // 選項在畫面上的順序：用題目內容做決定性洗牌（同一題每次一樣），正確答案不會固定在某個位置。
+  // pick／answer／saved 仍是「原本的第幾個」，紀錄與對答案都不受影響。有「以上皆…」的題目不洗。
+  const order = useMemo(() => {
+    const idx = options.map((_, i) => i);
+    return options.some((o) => /以上|上述/.test(o)) ? idx : shuffleOptions(idx, options.join('|'));
+  }, [options]);
+  const letter = (i: number) => 'ABCDEF'[order.indexOf(i)];
   return (
     <div className="activity">
       <div className="q">{q}</div>
       <div className="options" role="radiogroup">
-        {options.map((o, i) => (
+        {order.map((i, pos) => (
           <button key={i} role="radio" aria-checked={pick === i} disabled={done}
             className={`opt ${done && i === answer ? 'right' : ''} ${done && pick === i && i !== answer ? 'wrong' : ''}`}
             onClick={() => { setPick(i); onDone?.(i); }}>
-            <span className="opt-key">{'ABCDEF'[i]}</span>{o}
+            <span className="opt-key">{'ABCDEF'[pos]}</span>{options[i]}
           </button>
         ))}
       </div>
       {!done && <Hints hints={hints} />}
       {done && (
         <div className={`feedback ${pick === answer ? 'ok' : 'no'}`}>
-          <b>{pick === answer ? '✔ 答對了！' : `✘ 不太對。正確答案是 ${'ABCDEF'[answer]}。`}</b>
+          <b>{pick === answer ? '✔ 答對了！' : `✘ 不太對。正確答案是 ${letter(answer)}。`}</b>
           <p>{explain}</p>{after}
           {pick !== answer && <button className="btn sm" onClick={() => setPick(null)}>再試一次</button>}
         </div>

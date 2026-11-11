@@ -134,7 +134,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
   );
   const lg = power ? legendOf(power) : null;
   const powerSec = hasPowerVisual(d) && (
-    <details className="dv-sec dv-power" id={`dv-power-${d.id}`} open={!learn}>
+    <details className="dv-sec dv-power" id={`dv-power-${d.id}`} open>
       <summary><h3>{ui.title}<small className="muted">{ui.subtitle}{power ? `（目前：${fmtYear(power.year)} 年）` : ''}</small></h3></summary>
       <div className="dv-chips">
         <button className={`chip ${powerYear == null ? 'on' : ''}`} onClick={() => setPowerYear(null)}>關</button>

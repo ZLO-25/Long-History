@@ -5,7 +5,9 @@ module.exports = async function loadIndex(base) {
     const x = d.cards[c.id];
     if (!x) return c;
     const { learn, ...rest } = x;
-    return { ...c, ...rest, learn: c.learn ? { ...c.learn, ...learn } : null };
+    const role = (r) => (rest.sections || []).find((x) => x.role === r)?.text ?? '';
+    return { ...c, ...rest, today_hook: role('today_hook'), non_analogous: role('non_analogous'), learn: c.learn ? { ...c.learn, ...learn } : null };
   });
+  ix.units = (ix.units || []).map((u) => ({ ...u, ...((d.units || {})[u.id] || {}) }));
   return ix;
 };

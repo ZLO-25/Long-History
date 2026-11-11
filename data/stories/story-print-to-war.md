@@ -91,10 +91,10 @@ recall:
 
 1555 年的原則是人民跟著君主的選擇；這一次，和約規定臣民不必再跟著統治者改信宗教，喀爾文派也獲得承認。[war-thirty-years:s1][war-thirty-years:s3][event-reformation:s2] 這份和約常被說成開創了「主權國家體系」，但多數現代史家把這個說法叫做「西發里亞迷思」，因為條約本身沒有談主權或權力平衡。[war-thirty-years:s3] 也有研究者指出，1648 年可以看成歐洲大型和會時代的開始：交戰各國派代表坐下來，一次談清楚。[war-thirty-years:s4]
 
-★ 互不信任的帝國被拋窗事件引爆；外國為各自的利益參戰，戰爭不只關乎宗教，打了三十年。
+★ 互不信任的帝國被拋窗事件引爆；外國接連參戰，戰爭不只關乎宗教，打了三十年。
 
 ## 一張紙能走多遠
 
 回到開場的問題。紙讓書寫的材料變便宜，印刷機讓複製變快。[tech-paper:s1][tech-printing-press:s1] 路德的著作幾年內印出約 30 萬份，批評教會的話繞過了神職人員，爭論傳開之後停不下來，西歐的教會分裂。[tech-printing-press:s1][event-reformation:s1] 天主教會一面整頓、一面反擊，連信徒能讀什麼都要管，對立延續下去；到 1618 年，在各方互不信任的帝國裡，布拉格的拋窗事件引爆了戰爭。[event-counter-reformation:s1][war-thirty-years:s1]
 
-這只是其中一條路，而且每一段都不是「必然」。紙和印刷機只是工具，離戰爭還隔著好幾層；印刷機對宗教改革有多重要，資料的說法就不一致。[tech-printing-press:s1][tech-printing-press:s4] 路德能站穩，還靠諸侯的保護。[event-reformation:s1][event-reformation:s2] 三十年戰爭打成那樣的規模，也有法國與哈布斯堡家族競爭這類和信仰無關的原因。[war-thirty-years:s1]
+這只是其中一條路，而且每一段都不是「必然」。紙和印刷機只是工具，離戰爭還隔著好幾層；印刷機對宗教改革有多重要，資料的說法就不一致。[tech-printing-press:s1][tech-printing-press:s4] 路德能站穩，還靠諸侯的保護。[event-reformation:s1][event-reformation:s2] 三十年戰爭打成那樣的規模，也有法國與哈布斯堡家族競爭這類外部因素。[war-thirty-years:s1]

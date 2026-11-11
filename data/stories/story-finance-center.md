@@ -30,7 +30,7 @@ recall:
 
 阿姆斯特丹不是一夕之間垮掉的，打擊是一次一次來的。早在法軍入侵之前，英國就因為荷蘭和美國革命者往來，在 1780 年對荷蘭宣戰。四年的戰爭裡，荷蘭的海外屬地和商船受損，1784 年戰敗，割讓了一處屬地，還得讓英國船進入荷屬東印度航行。[finance-amsterdam-decline:s1] 壟斷亞洲貿易的荷蘭東印度公司經過這場戰爭更加吃緊，1796 年被新政府接管，1799 年底解散，領地和債務由國家接手。[finance-amsterdam-decline:s2][finance-amsterdam-decline:s3][finance-amsterdam-decline:s7] 然後才是 1795 年的法軍、賠款和駐軍。[finance-amsterdam-decline:s2]
 
-這裡有一個容易弄錯的地方：荷蘭人並沒有變窮。荷蘭的資金仍然大量投向外國的證券。1803 年美國的路易斯安那購地案，霍普的銀行還和倫敦的巴林一起參與籌款。[finance-amsterdam-decline:s4][finance-amsterdam-decline:s5] 變的是做生意的地點。「錢是誰的」和「市場在哪裡」，可以分開移動。史家對原因的看法不一，有人強調荷蘭的海運和製造業早就漸漸被英國超越，有人強調一次次戰爭和占領的打擊。[finance-amsterdam-decline:s5][finance-amsterdam-decline:s1] 可以確定的是，銀行家出走以後，國際借款越來越常和倫敦的商人合作。[finance-amsterdam-decline:s4][finance-london-rise:s8] 而此刻的英國，正在打一場非常花錢的仗。[finance-london-rise:s2]
+這裡有一個容易弄錯的地方：荷蘭人並沒有變窮。荷蘭的資金仍然大量投向外國的證券。1803 年美國的路易斯安那購地案，霍普的銀行還和倫敦的巴林一起參與籌款。[finance-amsterdam-decline:s4][finance-amsterdam-decline:s5] 變的是做生意的地點。「錢是誰的」和「市場在哪裡」，可以分開移動。史家對原因的看法不一，有人強調荷蘭的海運和製造業早就漸漸被英國超越，有人強調一次次戰爭和占領的打擊。[finance-amsterdam-decline:s5][finance-amsterdam-decline:s1] 看得到的變化是，銀行家出走以後，國際借款越來越常和倫敦的商人合作。[finance-amsterdam-decline:s4][finance-london-rise:s8] 而此刻的英國，正在打一場非常花錢的仗。[finance-london-rise:s2]
 
 ★ 戰爭和占領一次次打擊阿姆斯特丹；荷蘭的錢沒有消失，做生意的地方卻移向倫敦。
 
@@ -92,7 +92,7 @@ recall:
 
 1971 年 8 月 15 日，美國總統尼克森宣布停止美元兌換黃金。[finance-bretton-woods:s3][finance-bretton-woods:s4] 美元從此實際上成了**法定貨幣**：不靠黃金擔保，靠政府的信用和法律讓大家接受。[finance-bretton-woods:s4] 體系也不是當天就結束：各國先用貶值後的美元重新固定匯率，又撐了一陣子，到 1973 年固定匯率才實際被放棄。[finance-bretton-woods:s3] 黃金的承諾沒有了，美元接下來靠什麼？
 
-★ 各國貨幣掛美元、美元掛黃金；流出去的美元超過黃金存量，這個承諾在 1971 年取消。
+★ 各國貨幣掛美元、美元掛黃金；外國手上的美元越積越多，1971 年美國取消了換黃金的承諾。
 
 ## 沒有黃金以後 {finance-petrodollar}
 

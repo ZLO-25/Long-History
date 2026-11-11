@@ -64,7 +64,7 @@ recall:
 
 白銀不是白白流進來的。中國拿絲綢、瓷器這些商品去換，這是買賣。[commodity-silver-flow:s1][commodity-silver-flow:s2] 1567 年，明朝開放民間出海貿易，但仍然禁止直接去日本，走私因為利潤高，一直沒有斷過。[commodity-silver-flow:s6] 當時有人這樣形容海外貿易帶回來的錢。[commodity-silver-flow:s6]
 
-> 所貿金錢，歲無慮數十萬，公私並賴。（周起元〈東西洋考序〉，見張燮《東西洋考》，1617 年成書：每年貿易得到的錢少說幾十萬，官府和民間都靠它。）[commodity-silver-flow:s6]
+> 所貿金錢，歲無慮數十萬，公私並賴。（周起元〈東西洋考序〉，見張燮《東西洋考》，1617 年成書：每年貿易得到的錢大約有幾十萬，官府和民間都靠它。）[commodity-silver-flow:s6]
 
 是什麼力量把白銀拉進中國，學者的重點不同。有人認為中國對白銀的龐大需求，就是推動全球白銀貿易的主力；也有學者認為關鍵在明朝北方的邊防，因為軍隊的開銷改用白銀支付。[commodity-silver-flow:s5][commodity-silver-flow:s8][commodity-silver-flow:s7] 不管重點放在哪裡，結果是一樣的：中國手上的銀子變多了。有了夠多的銀，朝廷才有辦法做下一件事。[commodity-silver-flow:s1][commodity-silver-flow:s6]
 

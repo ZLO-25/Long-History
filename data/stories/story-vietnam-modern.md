@@ -34,7 +34,7 @@ recall:
 
 統一之後，他照著前面幾個王朝的老規矩，派使者到北京請封，也就是請清朝皇帝正式冊封他，取得承認。他想要的國名是「南越」，嘉慶皇帝的大臣卻認為古代的南越國包括廣東、廣西，名字不妥；清朝最後把兩個字倒過來，定名「越南」。[event-nguyen-dynasty-vietnam-name:s1][event-nguyen-dynasty-vietnam-name:s5] 1804 年清朝使者來冊封他為「越南國王」；在國內，他仍然稱皇帝，並仿照清朝的制度治國。有一種看法認為，這樣的請封比較像一種外交禮儀，也是換取和平的方法。[event-nguyen-dynasty-vietnam-name:s1][event-nguyen-dynasty-vietnam-name:s4][event-nguyen-dynasty-vietnam-name:s2]
 
-北邊的問題用老辦法安頓好了，新的問題卻從海上來。鴉片戰爭讓歐洲列強看到清朝打不過近代海軍，法國也想在中國南方找據點和通往雲南的商路。[event-french-indochina:s1][event-french-indochina:s2] 就在這時，阮朝後來的明命、嗣德等皇帝禁止天主教，處死傳教士與教徒，給了法國現成的出兵理由。當年靠傳教士幫忙起家的王朝，留給下一站的問題正是傳教士。[event-french-indochina:s1][event-french-indochina:s3]
+北邊的問題用老辦法安頓好了，新的問題卻從海上來。鴉片戰爭讓歐洲列強看到清朝打不過近代海軍，法國也想在中國南方找據點和通往雲南的商路。[event-french-indochina:s1][event-french-indochina:s2] 另一方面，阮朝後來的明命、嗣德等皇帝禁止天主教，處死傳教士與教徒，給了法國出兵的理由。當年靠傳教士幫忙起家的王朝，留給下一站的問題正是傳教士。[event-french-indochina:s1][event-french-indochina:s3]
 
 ★ 阮朝用請封安頓了和清朝的關係，後來卻因禁教、處死傳教士，給了法國出兵的理由。
 
@@ -42,7 +42,7 @@ recall:
 
 法國不是一次就占領越南的。1858 年，法國聯合西班牙攻打峴港，隔年攻下西貢。1862 年阮朝被迫割讓南部的三個省，1867 年法國再拿下另外三個省，整個南部成了殖民地「交趾支那」。[event-french-indochina:s3]
 
-接著是北部。1873 年，一名法國軍官帶兵在北部作戰，在河內城外被劉永福的黑旗軍殺死；黑旗軍主要是從廣西越境過來的武裝。隔年阮朝簽約，承認南部歸法國，並開放紅河與河內等地通商，法軍暫時撤出北部。[event-french-indochina:s9][event-french-indochina:s8] 1883 年，又一名法國軍官被黑旗軍伏擊身亡，法國國內大怒，急忙增兵。[event-french-indochina:s9][event-french-indochina:s2] 1884 年的條約第一條寫明「安南承認並接受法國的保護」，越南的中部和北部成了法國的**保護國**：名義上還有自己的皇帝，外交、軍事和重要政務卻由外國控制。從攻峴港算起，前後花了二十多年。[event-french-indochina:s10][event-french-indochina:s5][event-french-indochina:s3]
+接著是北部。1873 年，一名法國軍官帶兵在北部作戰，在河內城外被劉永福的黑旗軍殺死；黑旗軍主要是從廣西越境過來的武裝。隔年阮朝簽約開放紅河與河內等地通商，法軍暫時撤出北部。[event-french-indochina:s9][event-french-indochina:s8] 1883 年，又一名法國軍官被黑旗軍伏擊身亡，法國國內大怒，急忙增兵。[event-french-indochina:s9][event-french-indochina:s2] 1884 年的條約第一條寫明「安南承認並接受法國的保護」，越南的中部和北部成了法國的**保護國**：名義上還有自己的皇帝，外交、軍事和重要政務卻由外國控制。從攻峴港算起，前後花了二十多年。[event-french-indochina:s10][event-french-indochina:s5][event-french-indochina:s3]
 
 越南是清朝的藩屬，清朝以宗主國的身分出兵，1884 年爆發中法戰爭。這場仗不只在越南打。法國艦隊攻擊福州，封鎖臺灣北部，在基隆、淡水登陸，滬尾（今天的淡水）一戰被清軍擊退；1885 年清軍又在鎮南關打敗法軍。[event-french-indochina:s2] 誰贏了，說法不一：有人強調清軍在鎮南關、滬尾打了勝仗；也有史家認為清朝確實輸了，因為法國艦隊在福州幾乎消滅福建水師，最後清朝仍承認法國控制越南。[event-french-indochina:s2]
 
@@ -100,7 +100,7 @@ recall:
 
 7 月 21 日，日內瓦會議達成協議：越南以北緯 17 度暫時分成南北，預定 1956 年 7 月舉行全國選舉來統一。[war-first-indochina:s2][war-first-indochina:s3] 會議的最後宣言特別強調這條線的性質：[war-first-indochina:s2]
 
-> the military demarcation line is provisional（軍事分界線是臨時性的）（《日內瓦會議關於恢復印度支那和平問題的最後宣言》第 6 段，1954 年 7 月 21 日，中文為摘譯。）[war-first-indochina:s2]
+> 軍事分界線是臨時性的。（《日內瓦會議關於恢復印度支那和平問題的最後宣言》第 6 段，1954 年 7 月 21 日；引文依通行文本，未重新對照原典，中文為摘譯）[war-first-indochina:s2]
 
 **軍事分界線**是停戰時讓雙方軍隊各退一邊的線；宣言還說，它不應被解釋為政治或領土疆界。就像兩隊比賽暫停時在場中央畫的線，說好只是暫時分開。[war-first-indochina:s2] 可是美國和南方的越南國（法國扶植的政權）都沒有在協議上簽字，美國隨後在南方扶植吳廷琰政府。1955 年南方成立越南共和國，1956 年法軍全部撤離，原訂的選舉沒有舉行。[war-first-indochina:s1][war-first-indochina:s3] 法國走了，留下一條說好要擦掉、卻沒有擦掉的線。[war-first-indochina:s1]
 
@@ -112,13 +112,13 @@ recall:
 
 1964 年 8 月，美國軍艦在越南北方的東京灣和北越的魚雷艇交火，這就是東京灣事件。事後美國國會通過決議，授權總統採取「一切必要措施」。美國始終沒有正式宣戰，這份決議就是擴大介入的依據。[war-vietnam-war:s3][war-vietnam-war:s4][war-vietnam-war:s1] 1965 年起美軍轟炸北越並派出地面部隊，1969 年最多時約 54 萬人。[war-vietnam-war:s1]
 
-美軍握有空中和海上優勢，卻切不斷北越的補給。北越透過寮國和柬埔寨東部的山區通道，把兵員和物資送往南方，這條路叫胡志明小徑；美軍長期轟炸，北越用人力和分散運輸不斷修復。[war-vietnam-war:s1] 1968 年春節，北越與越共同時攻擊南越一百多個城鎮。這次攻勢在軍事上多半失敗，卻動搖了美國人對勝利的信心。之後美國讓南越軍隊接手作戰，自己逐步撤出。[war-vietnam-war:s6][war-vietnam-war:s1]
+美軍握有空中和海上優勢，卻沒辦法完全切斷北越的補給。北越透過寮國和柬埔寨東部的山區通道，把兵員和物資送往南方，這條路叫胡志明小徑；美軍長期轟炸，北越用人力和分散運輸不斷修復。[war-vietnam-war:s1] 1968 年春節，北越與越共同時攻擊南越一百多個城鎮。這次攻勢在軍事上多半失敗，卻動搖了美國人對勝利的信心。之後美國讓南越軍隊接手作戰，自己逐步撤出。[war-vietnam-war:s6][war-vietnam-war:s1]
 
 1973 年 1 月巴黎和平協定簽訂，美軍撤出，北越軍隊則沒有被要求離開南方，南北之間的戰事沒有停。1975 年 4 月 30 日北越軍隊進入西貢，南越投降；1976 年越南正式統一。[war-vietnam-war:s7][war-vietnam-war:s8][war-vietnam-war:s1] 越南軍民的死亡人數，各種估計從 97 萬到 300 萬，相差數倍；美軍陣亡約 58,000 人。[war-vietnam-war:s1]
 
 這場仗該怎麼定位，史家有兩種強調：一派把它看成冷戰兩大陣營的代理人戰爭，另一派強調它是越南人長期反殖民、爭取統一的延續，外國介入使戰爭擴大。[war-vietnam-war:s1][war-vietnam-war:s9][war-vietnam-war:s2] 那條暫時的線終於消失了。可是越南的仗還沒打完，下一個對手是昨天的盟友。[war-sino-vietnamese-1979:s1]
 
-★ 美國怕骨牌倒下而支持南越、派兵參戰，卻切不斷北越的補給；美軍撤出後，北越統一全國。
+★ 美國怕骨牌倒下而支持南越、派兵參戰，卻沒能切斷北越的補給；美軍撤出後，北越統一全國。
 
 ## 昨天的盟友 {war-sino-vietnamese-1979}
 
@@ -126,7 +126,7 @@ recall:
 
 1979 年 1 月，鄧小平訪問剛建交的美國，私下向卡特總統說明中國的打算：[war-sino-vietnamese-1979:s4]
 
-> to put a restraint on the wild ambitions of the Vietnamese and to give them an appropriate limited lesson（遏制越南人的野心，給他們一個適當的、有限度的教訓）（卡特與鄧小平會談紀錄，1979 年 1 月 29 日，美國國務院《美國對外關係文件集》，中文為摘譯。）[war-sino-vietnamese-1979:s4]
+> 遏制越南人的野心，給他們一個適當的、有限度的教訓。（卡特與鄧小平會談紀錄，1979 年 1 月 29 日，美國國務院《美國對外關係文件集》；原紀錄為英文，中文為摘譯）[war-sino-vietnamese-1979:s4]
 
 2 月 17 日，解放軍從廣西、雲南攻入越南北部，3 月初攻下諒山，3 月 16 日撤完。這是一場一開始就設定好範圍和時間的有限戰爭，不打算占領對方。[war-sino-vietnamese-1979:s1][war-sino-vietnamese-1979:s5] 中國為什麼打這一仗，一派強調它要回應越南出兵柬埔寨；另一派強調中蘇對抗，中國想向世界、特別是美國，證明蘇聯保護不了它的盟友。[war-sino-vietnamese-1979:s1][war-sino-vietnamese-1979:s4]
 

@@ -29,3 +29,8 @@
 - 卡片上「這張卡在這些故事裡」會列出它所在的學習單元與故事線、第幾站、上一站／下一站。
 
 測試：`node scripts/qa/story.cjs http://localhost:5173/`
+
+## 故事（2026-11-11）
+
+每條故事線另有一篇 5–15 分鐘可以一口氣讀完的故事（`data/stories/<id>.md`），從故事線頁的「📖 讀故事」打開。寫作規則、檔案格式、查核方式見 [docs/stories.md](stories.md)；每篇的查核紀錄在 `docs/story-checks/`。
+新增故事線時要一起寫故事，否則 `npm run validate` 會警告「還沒有故事」。

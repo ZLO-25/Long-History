@@ -6,6 +6,8 @@
 import type { Card, CauseLink, CauseRel, CauseSource, Index, Storyline } from '../types';
 import { cardEn } from '../lib/bilingual';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { useCallback, useRef, useState } from 'react';
+import { StoryReader, ReadBadge, setReadParam, wantsRead, storyProgress, readStories } from './StoryReader';
 import './story.css';
 
 export const REL_HELP: Record<CauseRel, string> = {
@@ -189,10 +191,17 @@ export function storyMarks(index: Index, id: string) {
 
 interface StoryViewProps extends OpenProps {
   id: string; currentId?: string | null; onAll: () => void; read?: (id: string) => boolean; onMap?: () => void;
+  /** 閱讀頁結尾的「下一個故事」 */
+  onStory?: (id: string) => void;
 }
 
-export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, researchHref, read, onMap }: StoryViewProps) {
+export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, researchHref, read, onMap, onStory }: StoryViewProps) {
   const s = findStory(index, id);
+  // 故事閱讀頁（?read=1）：全螢幕蓋在上面；關掉回到這一頁
+  const [reading, setReading] = useState(() => !!s?.read && wantsRead(id));
+  const readBtn = useRef<HTMLButtonElement>(null);
+  const openRead = () => { setReading(true); setReadParam(true); };
+  const closeRead = useCallback(() => { setReading(false); setReadParam(false); requestAnimationFrame(() => readBtn.current?.focus()); }, []);
   if (!s) return <div className="story-view"><p>找不到這條故事線。</p><button className="link" onClick={onAll}>看全部故事線</button></div>;
   const m = byIdOf(index);
   const first = m.get(s.stops[0].id), last = m.get(s.stops[s.stops.length - 1].id);
@@ -202,6 +211,18 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
       <h2>{s.title}</h2>
       <p className="sv-q">❓ {s.question}</p>
       {s.blurb && <p className="sv-blurb">{s.blurb}</p>}
+      {s.read && (() => {
+        const done = readStories().has(s.id), at = storyProgress(s.id);
+        return (
+          <div className="sv-read">
+            <p className="sv-hook">{s.read.hook}</p>
+            <button ref={readBtn} className="sv-read-btn" onClick={openRead}>📖 {at > 0.03 && at < 0.97 ? '接著讀故事' : done ? '再讀一次故事' : '讀故事'}<small>約 {s.read.minutes} 分鐘</small></button>
+            <p className="sv-read-how muted small">{done ? '✓ 你讀過這篇故事了。' : ''}先把整條線當成一篇故事讀完，再回來一站一站看因果，比較記得住。</p>
+          </div>
+        );
+      })()}
+      {reading && s.read && <StoryReader story={s} index={index} onClose={closeRead} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} onStory={onStory} />}
+      {s.read && <h3 className="sv-walk">一站一站看因果<small>每兩站之間說明「怎麼造成的」</small></h3>}
       <p className="muted small">{s.stops.length} 站{first && last && `・${fmtRange(first.time.start, last.time.end)}`}・每兩站之間的說明，就是兩張卡之間的前因／後果關係。{onMap && <button className="link" onClick={onMap}>在地圖上看</button>}</p>
       <ol className="sv-line">
         {s.stops.map((x, i) => {
@@ -237,7 +258,7 @@ export function StorylineIndex({ index, onStory, onTopics, onDives }: { index: I
   return (
     <div className="story-index">
       <h2>故事線</h2>
-      <p className="muted">沿著「前因 → 後果」的箭頭，把不同時代、不同地區的事件接成一條路。每一站之間都說明「怎麼造成的」。</p>
+      <p className="muted">沿著「前因 → 後果」的箭頭，把不同時代、不同地區的事件接成一條路。每條線都有一篇 5–15 分鐘的故事可以先讀，再一站一站看「怎麼造成的」。</p>
       {onTopics && <p className="small">想看同一種東西（例如 #交易所、#白銀）在各時代的樣子？<button className="link" onClick={onTopics}>看主題標籤</button></p>}
       {onDives && <p className="small">想把一段時代放大來看？<button className="link" onClick={onDives}>看深入專題</button></p>}
       <ul>
@@ -248,7 +269,7 @@ export function StorylineIndex({ index, onStory, onTopics, onDives }: { index: I
               <button className="si-item" onClick={() => onStory(s.id)}>
                 <span className="si-title">{s.title}</span>
                 <span className="si-q">{s.question}</span>
-                <span className="si-meta muted small">{s.stops.length} 站{a && b && `・${fmtRange(a.time.start, b.time.end)}`}</span>
+                <span className="si-meta muted small"><span>{s.stops.length} 站{a && b && `・${fmtRange(a.time.start, b.time.end)}`}</span><ReadBadge s={s} /></span>
               </button>
             </li>
           );

@@ -119,7 +119,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       {unitList.length > 0 && <div className="dv-chips">{unitList.map(unitBtn)}</div>}
       {storyList.length > 0 && <>
         {learn && unitList.length > 0 && <h4 className="dv-sub">想沿著前因後果走：故事線</h4>}
-        <div className="dv-chips">{storyList.map((s) => <button key={s.id} className="dv-story" onClick={() => onStory(s.id)}>故事線《{s.title}》<small>{s.stops.length} 站</small></button>)}</div>
+        <div className="dv-chips">{storyList.map((s) => <button key={s.id} className="dv-story" onClick={() => onStory(s.id)}>故事線《{s.title}》<small>{s.stops.length} 站{s.read && `・📖 故事約 ${s.read.minutes} 分鐘`}</small></button>)}</div>
       </>}
     </section>
   );

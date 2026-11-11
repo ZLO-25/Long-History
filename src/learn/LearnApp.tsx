@@ -14,6 +14,7 @@ import { MapView } from '../components/MapView';
 import { createSearch, matchTopics, useSearchLibs, loadSearchLibs } from '../lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from '../components/Story';
+import { keepRead } from '../components/StoryReader';
 import { DiveView, DiveIndex, diveMarks, diveRoutes, findDive, hasPowerVisual, powerFor, diveYear, prehistDive } from '../components/Dive';
 import { useIsMobile } from '../lib/useIsMobile';
 import { LearnHome } from './LearnHome';
@@ -116,7 +117,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     if (view.kind === 'sim') q.set('sim', view.id);
     if (view.kind === 'topic') q.set('topic', view.name);
     if (view.kind === 'topics') q.set('view', 'topics');
-    if (view.kind === 'story') q.set('story', view.id);
+    if (view.kind === 'story') { q.set('story', view.id); if (keepRead(view.id)) q.set('read', '1'); }
     if (view.kind === 'stories') q.set('view', 'stories');
     if (view.kind === 'dive') q.set('dive', view.id);
     if (view.kind === 'dives') q.set('view', 'dives');
@@ -192,7 +193,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onMap={isMobile ? () => setTab('map') : undefined} />;
       case 'topics': return <TopicIndex index={index} onTopic={openTopic} count={learnCount} />;
       case 'story': return <StorylineView key={view.id} index={index} id={view.id} currentId={lastCard} onOpen={(id) => openCard(id)} onAll={() => push({ kind: 'stories' })}
-        canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onMap={isMobile ? () => setTab('map') : undefined} />;
+        canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onStory={openStory} onMap={isMobile ? () => setTab('map') : undefined} />;
       case 'stories': return <StorylineIndex index={index} onStory={openStory} onTopics={() => push({ kind: 'topics' })} onDives={(index.dives ?? []).length ? () => push({ kind: 'dives' }) : undefined} />;
       case 'dive': return <DiveView key={view.id} index={index} id={view.id} year={year} setYear={setYear} currentId={lastCard} powerYear={powerYear} setPowerYear={setPowerYear}
         onOpen={(id) => openCard(id)} onStory={openStory} onAll={() => push({ kind: 'dives' })} onUnit={openUnit} canOpen={(c) => !!c.learn} researchHref={researchHref} onMap={isMobile ? () => setTab('map') : undefined} learn />;

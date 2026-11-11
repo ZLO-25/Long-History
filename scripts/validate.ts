@@ -9,6 +9,7 @@ import { buildEdges } from './lib/causes.ts';
 import { loadStorylines, checkStorylines } from './lib/storylines.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, loadUnits, checkUnits } from './lib/learn.ts';
 import { loadDives, checkDives } from './lib/dives.ts';
+import { loadStories, checkStories } from './lib/stories.ts';
 
 const cards = loadCards();
 const tagVocab = loadTagVocab();
@@ -24,6 +25,7 @@ const issues = [
   ...checkUnits(units, cards, histories, eligible),
   ...checkTopics(cards),
   ...checkStorylines(loadStorylines(), cards, buildEdges(cards)),
+  ...checkStories(loadStories(), loadStorylines(), cards, { requireAll: true }),
   ...checkDives(loadDives(), cards, new Set(loadStorylines().map((s) => s.id)), new Set(units.map((u) => u.unit?.id)), historyKeys(histories)),
   ...checkCycles(cards),
   ...checkEcon(loadEcon()),

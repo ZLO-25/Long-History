@@ -50,7 +50,15 @@ export type CauseRel = '直接引發' | '促成' | '背景' | '回應';
 export interface CauseSource { card: string; id: string; title: string; url: string }
 export interface CauseLink { id: string | null; name: string; rel: CauseRel; why: string; disputed: boolean; sources: CauseSource[] }
 // 故事線：每一站的 bridge＝到下一站的因果關係（最後一站為 null）
-export interface Storyline { id: string; title: string; question: string; blurb: string; stops: { id: string; bridge: Omit<CauseLink, 'id' | 'name'> | null }[] }
+/** 故事線的故事（data/stories/）：閱讀時間、字數、入口引子；全文另外下載 */
+export interface StoryRead { minutes: number; chars: number; hook: string }
+export interface Storyline { id: string; title: string; question: string; blurb: string; stops: { id: string; bridge: Omit<CauseLink, 'id' | 'name'> | null }[]; read?: StoryRead | null }
+/** public/data/stories/<id>.json：內文裡的出處寫成 [^n]，n 是 sources 的第 n 筆；**粗體** 是關鍵詞 */
+export interface StoryDoc extends StoryRead {
+  id: string; remember: string[]; think: string[];
+  sections: { title: string; cards: string[]; blocks: { kind: 'p' | 'quote'; text: string }[] }[];
+  sources: { card: string; cardName: string; title: string; url: string }[];
+}
 
 // 第 6 期：學習模式
 export type LearnTrack = '臺灣' | '東亞' | '世界';

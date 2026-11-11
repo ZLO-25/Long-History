@@ -1,0 +1,82 @@
+---
+story: story-western-impact
+hook: 英國煤礦裡一台抽水的機器，一百三十年後推著軍艦逆流開進長江；清朝從買砲、辦廠，一路改到沒有皇帝。
+remember:
+  - 蒸汽機不是鴉片戰爭開打的原因，但蒸汽船和火炮的差距影響了戰局，清朝因此簽下第一個不平等條約。
+  - 戰敗後清朝先學武器和技術，科舉與朝廷體制大致不變；甲午戰敗讓許多人認定這條路不夠，轉向變法與革命。
+  - 外來的衝擊是一層一層往裡推的：先是船砲，再是工廠和學堂，最後是政治制度；但推翻帝制之後，並沒有馬上換來穩定的新秩序。
+think:
+  - 「中體西用」就像只換引擎、不改車身。你覺得技術和制度可以分開學嗎？有沒有分得開的例子，和分不開的例子？
+  - 學者艾爾曼認為，人們是在 1895 年戰敗之後，才回頭認定自強運動從一開始就失敗。我們評價一件事的時候，會不會也常常「倒著讀」？
+  - 今天也有新技術從外面進來，改變大家的生活。你覺得它會只停在「工具」這一層，還是也會改變學校、工作或社會的規則？
+---
+
+## 煤礦裡的抽水機 {tech-steam-engine}
+
+1712 年，英國蒂普頓的一座煤礦裡，一台新機器第一次成功運轉。它燒煤把水煮成蒸汽，再讓蒸汽凝結，靠大氣壓力把活塞往下壓，每分鐘大約 12 次。用處只有一個：把礦坑裡的積水抽出來。[tech-steam-engine:s1] 130 年後的 1842 年，英軍靠著能逆風、逆流行駛的蒸汽船溯長江而上，切斷大運河，清朝隨後在南京簽下割地賠款的條約。[war-opium-war:s1] 一台抽水機，怎麼會跟清朝的敗仗扯上關係？戰敗之後，中國又為什麼先學技術、再改制度，最後連皇帝都沒了？這個故事要走的就是這條路。
+
+先看那台機器。18 世紀英國的煤礦越挖越深，礦坑常常淹水，人力和馬力抽不完，蒸汽機最早就是為了這件事造的。[tech-steam-engine:s1][tech-steam-engine:s4] 造出 1712 年那台機器的人叫紐科門。他的機器有個大缺點：每動一次都要往汽缸裡噴冷水，汽缸一冷一熱，浪費大量燃料。[tech-steam-engine:s1][tech-steam-engine:s4] 不過礦場旁邊的煤幾乎不花錢，浪費也沒關係，所以它先在煤礦普及。[tech-steam-engine:s1]
+
+讓蒸汽機走出煤礦的人是瓦特。他在修理一台紐科門機的時候，想到把冷卻的步驟移到另一個容器，讓汽缸一直保持熱。他 1765 年想到這個點子，1769 年取得專利，後來和博爾頓合作，1775 到 1776 年開始賣機器。[tech-steam-engine:s2][tech-steam-engine:s4] 成熟的瓦特蒸汽機，用煤量比同級的紐科門機少了大約 75%。[tech-steam-engine:s2] 1781 年，瓦特又用齒輪把活塞的來回運動變成旋轉運動，蒸汽機從此可以帶動工廠的機器，工廠也不必再蓋在河邊靠水車。[tech-steam-engine:s2][tech-steam-engine:s3]
+
+人類的主要動力，就這樣從人力、獸力、水力，換成了燒煤的機器。[tech-steam-engine:s3] 後來蒸汽機還被裝上火車和輪船。[tech-steam-engine:s3] 打個比方，英國像是替自己換了一顆新引擎。這顆引擎裝上船之後，開到了中國的河口。
+
+## 逆流而上的鐵船 {war-opium-war}
+
+先說清楚一件事：蒸汽機不是這場仗開打的原因。它影響的是戰局。[war-opium-war:s1] 開打的原因，要從一杯茶說起。
+
+英國人愛喝中國茶，卻沒什麼東西能賣給中國。買的比賣的多，錢一直往外流，這叫**貿易逆差**。英國商人於是把印度種的鴉片運進中國換茶。[war-opium-war:s1][war-opium-war:s2] 鴉片輸入從 19 世紀初每年約 4,000 箱，增加到 1831 年將近 20,000 箱。白銀因此從流入中國變成流出，銀價上漲，百姓的稅負加重。[war-opium-war:s1][war-opium-war:s2]
+
+道光皇帝下令嚴禁鴉片，1839 年初林則徐到了廣州。他逼英商交出兩萬多箱鴉片，6 月起在虎門公開銷毀。[war-opium-war:s1][war-opium-war:s2] 他還寫了一封信給英國女王，信裡有這樣一句：[war-opium-war:s5]
+
+> 請問，你們的良心在哪裡？（林則徐〈致英國女王書〉，1839 年；這裡是依 Teng 與 Fairbank 1954 年的英譯摘譯，不是中文原文的字句）[war-opium-war:s5]
+
+史家普遍認為，女王從來沒有收到這封信。[war-opium-war:s8] 這場戰爭該怎麼看，史家也各有強調：中國史家多把它看成外國強加在清朝身上的不義戰爭；也有教材提醒，只看這一面會把畫面看得太窄，清朝內部同樣有官員吸食鴉片、白銀外流擾亂幣制，朝廷還分成主張嚴禁和主張合法課稅的兩派。[war-opium-war:s1][war-opium-war:s6]
+
+衝突在 1839 年 9 月爆發。[war-opium-war:s1][war-opium-war:s2] 兩邊的差距很快就看得出來。英國軍艦火炮多、射程遠，蒸汽鐵甲船「復仇女神號」能逆風、逆流在河裡行駛；清軍大約六到七成還在用傳統兵器。[war-opium-war:s1] 1842 年，英軍溯長江而上，攻下鎮江，切斷了大運河。南方的糧食靠這條運河送往北京，運河一斷，清朝的糧食和財政一起受傷。[war-opium-war:s1]
+
+1842 年 8 月 29 日，清朝簽下《南京條約》：割讓香港島，開放廣州、廈門、福州、寧波、上海五個港口通商，賠款 2,100 萬銀元。[war-opium-war:s1][war-opium-war:s2] 這是第一個**不平等條約**，也就是戰敗的一方被迫簽下、只對另一方有利的條約。條約裡倒是沒有處理鴉片要不要禁。[war-opium-war:s1][war-opium-war:s2]
+
+仗打輸了。清朝有一部分官員得出結論：必須學西方的武器和技術，國家才能「自強」。[event-self-strengthening:s1]
+
+## 只換引擎，不改車身 {event-self-strengthening}
+
+推他們一把的不只是鴉片戰爭，還有國內的太平天國之亂：外有列強、內有民變，朝廷急需新式武器。[event-self-strengthening:s1] 1861 年，清朝成立專門處理對外事務的總理衙門，同年開始買外國武器。這些和西方有關的事務當時叫**洋務**，所以自強運動也叫洋務運動。[event-self-strengthening:s1]
+
+同一年，學者馮桂芬寫成《校邠廬抗議》。他主張學習西方知識、製造西方器械，同時保留儒家倫理。[event-self-strengthening:s3][event-self-strengthening:s4] 書裡問了一個很直接的問題，意思是：為什麼他們小卻強，我們大卻弱？這句話是從英譯本轉述的，不是原書的字句。[event-self-strengthening:s3]
+
+自強運動走的路線，有一個四個字的說法：**中體西用**。意思是以中國的學問和倫理為根本，把西方知識當成實用工具。打個比方，就像只換引擎、不改車身。[event-self-strengthening:s1][event-self-strengthening:s4]
+
+引擎確實換了不少。1865 年李鴻章等人開辦江南製造局，1866 年左宗棠奏請設立福州船政局，還附設學堂；張之洞籌辦的漢陽鐵廠在 1893 年建成。[event-self-strengthening:s1][event-self-strengthening:s5] 這場運動不只是買船買砲，也辦學堂、翻譯西方書籍、開工廠和礦業，還建立了一支新式海軍，叫**北洋艦隊**。[event-self-strengthening:s1][event-self-strengthening:s2] 成績也不差。學者艾爾曼指出，直到 1880 年代，江南製造局和福州船政局還被當時的歐洲人和日本人認為比日本的造船所先進。[event-self-strengthening:s2]
+
+車身呢？科舉和朝廷體制大致沒有動。[event-self-strengthening:s1][event-self-strengthening:s4] 而且洋務是少數地方大員各自推動的，沒有統一的中央規劃。[event-self-strengthening:s1] 新引擎裝在舊車身上，到底跑不跑得動，要等上路才知道。三十多年後，考試來了。
+
+## 黃海上的總檢驗 {war-first-sino-japanese}
+
+考場在朝鮮。清朝把朝鮮看成屬國，明治維新後的日本則想把勢力伸進去。[war-first-sino-japanese:s1] 1894 年，朝鮮爆發東學黨起事，朝鮮國王請清朝出兵，日本也跟著派兵。7 月 25 日，日本海軍擊沉運送清軍的「高陞號」；8 月 1 日，兩國正式宣戰。[war-first-sino-japanese:s1]
+
+依學者艾爾曼的看法，1894 年北洋艦隊的實力大約等於日本整支艦隊。[event-self-strengthening:s2] 結果清軍卻接連失利。9 月，清軍在平壤戰敗，北洋艦隊在黃海海戰損失多艘軍艦，之後退守威海衛。[war-first-sino-japanese:s1][war-first-sino-japanese:s3] 1895 年 1 月，日軍在山東登陸，從陸上進攻威海衛；2 月，北洋艦隊全軍覆沒。[war-first-sino-japanese:s3]
+
+為什麼輸？過去常把責任推給慈禧太后挪用海軍經費去修頤和園；較新的研究則認為，問題更在光緒皇帝受翁同龢影響、忽視軍備。這場仗也普遍被看成自強運動的總檢驗，暴露出官僚互相掣肘、貪腐、各省不協調。[war-first-sino-japanese:s1] 艾爾曼則提醒，是 1895 年的戰敗讓許多中國人認定洋務運動失敗，戰後雙方都把結果「倒著讀」回 1860 年代。[event-self-strengthening:s2]
+
+1895 年 4 月 17 日，李鴻章在日本下關簽下《馬關條約》：承認朝鮮獨立，割讓遼東半島、臺灣和澎湖，賠款二億兩白銀。[war-first-sino-japanese:s2] 俄、德、法三國隨即出面干涉，日本歸還遼東，清朝另付三千萬兩，這件事叫**三國干涉還遼**。[war-first-sino-japanese:s3] 戰爭的起點是爭奪朝鮮，臺灣和澎湖是和談時才被列入割讓的。[war-first-sino-japanese:s1][war-first-sino-japanese:s2]
+
+這一次打贏清朝的，是隔壁的日本。東亞的主導地位第一次從中國轉到日本，清朝的威信大跌。[war-first-sino-japanese:s1] 知識分子大受震撼，1898 年有了戊戌變法，康有為、孫中山等人的改革與革命運動也因此興起。[war-first-sino-japanese:s1][war-first-sino-japanese:s3] 「只學技術、不改制度」這條路受到質疑，越來越多人相信，車身也得換。[event-self-strengthening:s1][event-self-strengthening:s2]
+
+## 輪到車身 {event-xinhai-revolution}
+
+從鴉片戰爭、英法聯軍到甲午戰爭，接連戰敗讓許多人相信必須改變制度。[event-xinhai-revolution:s1] 清朝的麻煩還不只這一樣：滿清統治者和漢人之間的矛盾、不平等條約、財政危機，都在削弱朝廷的威信。[event-xinhai-revolution:s1][event-xinhai-revolution:s2]
+
+朝廷自己也想改，推動新政和預備立憲。但 1911 年 5 月成立的內閣，成員多數是皇族，主張立憲的人認為朝廷沒有誠意。[event-xinhai-revolution:s2] 另一批人早就不指望朝廷。1905 年，孫中山等人組成同盟會，主張建立共和，發動過多次起義，都失敗了。[event-xinhai-revolution:s2]
+
+最後點火的，是鐵路。1911 年 5 月，清廷宣布鐵路收歸國有，並拿路權向外國銀行團借款，四川等地掀起抗議，稱為**保路運動**。9 月 7 日，四川總督逮捕保路領袖，軍隊向群眾開槍。[event-xinhai-revolution:s3] 清廷從湖北調兵入川，武昌的防務因此空虛。[event-xinhai-revolution:s2][event-xinhai-revolution:s3] 10 月 10 日，武昌的新軍起義。大約兩個月內，多個省份宣布脫離清廷獨立。[event-xinhai-revolution:s1][event-xinhai-revolution:s2]
+
+1912 年 1 月 1 日，中華民國臨時政府成立，孫中山是臨時大總統。清廷起用手握北洋軍的袁世凱和革命軍談判；孫中山同意讓位給袁，袁則逼清廷退位。[event-xinhai-revolution:s1][event-xinhai-revolution:s2] 2 月 12 日，6 歲的宣統皇帝溥儀頒布退位詔書。延續兩千多年的帝制，就此結束。[event-xinhai-revolution:s1][event-xinhai-revolution:s2]
+
+## 一層一層往裡推
+
+回到開頭的問題。抽水機怎麼讓清朝打敗仗？蒸汽機先替英國換了動力，再裝上船；它不是開戰的原因，卻讓英軍能逆流駛入內河、切斷運河，清朝打不過，只好簽約。[tech-steam-engine:s3][war-opium-war:s1] 為什麼先學技術、再改制度？因為衝擊是一層一層往裡推的。最先看到的是船和砲，所以先買砲、辦廠；甲午一敗，許多人才認定光換引擎不夠，轉向變法與革命，最後換掉了帝制。[event-self-strengthening:s1][war-first-sino-japanese:s1][event-xinhai-revolution:s1]
+
+故事到這裡並沒有圓滿收場。革命之後沒有立刻出現穩定的民主：袁世凱在 1915 年 12 月稱帝，幾個月後取消，之後中國進入軍閥割據。[event-xinhai-revolution:s1][event-xinhai-revolution:s2]
+
+這也只是其中一條路。每一站都還有別的原因：鴉片戰爭有白銀和貿易的問題，自強運動有太平天國的壓力，甲午戰爭的起點在朝鮮，辛亥革命有鐵路和財政的引信。[war-opium-war:s1][event-self-strengthening:s1][war-first-sino-japanese:s1][event-xinhai-revolution:s3] 自強運動算不算失敗，史家的看法也不一致。[event-self-strengthening:s1] 想知道更多，就把每一站的卡片打開來看。

@@ -12,14 +12,14 @@ storylines:
 
   - id: story-postwar-taiwan
     title: 戰後臺灣：從物價飛漲到戒嚴，再到政黨輪替
-    question: 1945 年戰爭結束，臺灣人本來期待新時代，為什麼短短幾年就走到二二八和長達 38 年的戒嚴？這個戒嚴體制後來又是怎麼走到 2000 年的政黨輪替？
+    question: 1945 年戰爭結束，臺灣換了政府，為什麼短短幾年就走到二二八和長達 38 年的戒嚴？這個戒嚴體制後來又是怎麼走到 2000 年的政黨輪替？
     blurb: 這條線從錢開始：大陸的內戰與通膨傳到臺灣，經濟的苦變成政治的衝突，再變成長期的管制；最後看管制怎麼鬆開。
     stops: [war-chinese-civil-war, finance-gold-yuan-1948, finance-taiwan-1949-currency, event-228-incident, event-taiwan-martial-law, event-taiwan-2000-transition]
 
 
   - id: story-chip
     title: 晶片島是怎麼長出來的
-    question: 臺灣沒有石油、沒有大市場，為什麼會變成全世界最重要的晶片產地，還被捲進美中貿易戰？
+    question: 晶片不是從地底挖出來的資源。一座當年自認「沒有什麼優勢」的島，為什麼會變成全世界最重要的晶片產地，還被捲進美中貿易戰？
     blurb: 這條線看一連串的產業政策怎麼一步接一步：先做加工，再建園區，最後長出半導體。
     stops: [event-kaohsiung-epz, event-hsinchu-park-tsmc, commodity-taiwan-semiconductor, event-us-china-trade-war]
 
@@ -27,7 +27,7 @@ storylines:
   - id: story-qin-han
     title: 從三家分晉到漢朝：中國第一次大一統是怎麼來的？
     question: 戰國七個國家打了兩百多年，為什麼最後贏的是秦？秦統一後又為什麼只撐了十五年，就換成了漢？
-    blurb: 這條線看一個國家怎麼靠改革變強、靠戰爭統一，又怎麼因為統治太急而倒下；接手的漢朝則學到了教訓。
+    blurb: 這條線看一個國家怎麼靠改革變強、靠戰爭統一，又怎麼因為統治太急而倒下；接手的漢朝嘴上和秦劃清界線，實際上接收了秦的大半制度。
     stops: [event-partition-of-jin, event-shang-yang-reform, war-changping, event-qin-unification, event-chen-sheng-wu-guang, war-chu-han, event-han-inherits-qin]
 
 
@@ -40,7 +40,7 @@ storylines:
 
   - id: story-silver
     title: 白銀怎麼把世界串起來
-    question: 明朝的紙鈔失敗了，為什麼最後全中國改用白銀繳稅？這些白銀又是從哪裡來的？
+    question: 明朝的紙鈔失敗了，為什麼最後朝廷改收白銀當稅？這些白銀又是從哪裡來的？
     blurb: 這條線橫跨中國、日本和美洲：一個國家的貨幣問題，牽動了地球另一邊的礦山和航線。
     stops: [finance-ming-baochao, commodity-iwami-silver, commodity-silver-flow, event-single-whip-reform]
 
@@ -68,14 +68,14 @@ storylines:
 
   - id: story-rome-empire
     title: 從凱撒渡河到羅馬和平：共和怎麼變成帝國
-    question: 羅馬人趕走國王、建立共和四百多年，為什麼最後還是出現了一個人說了算的皇帝？軍隊、內戰和「和平」之間有什麼關係？
+    question: 羅馬的共和有法律限制軍隊進入首都，為什麼最後還是出現了一個人說了算的皇帝？軍隊、內戰和「和平」之間有什麼關係？
     blurb: 這條線看共和怎麼一步步被手握軍隊的強人掏空：每一次內戰都把權力集中到更少的人手上，最後剩下一個人。
     stops: [event-rubicon, event-second-triumvirate, war-actium, event-augustan-principate, event-pax-romana]
 
 
   - id: story-print-to-war
     title: 從一張紙到三十年戰爭：印刷術怎麼把歐洲撕成兩半
-    question: 中國發明的造紙術傳到歐洲之後，怎麼會在幾百年後讓一個修士的文章傳遍德意志，最後引發一場死了幾百萬人的戰爭？
+    question: 中國發明的造紙術傳到歐洲之後，怎麼會在幾百年後讓路德的文章傳遍德意志，最後引發一場死了幾百萬人的戰爭？
     blurb: 這條線看一項技術怎麼改變「誰能說話、誰聽得到」：訊息傳得快，爭論就停不下來；教會的回應又把對立推向戰場。
     stops: [tech-paper, tech-printing-press, event-reformation, event-counter-reformation, war-thirty-years]
 
@@ -118,7 +118,7 @@ storylines:
   # 印度化的東南亞（2026-11-10，深入專題 data/dives/indosphere.yaml）
   - id: story-angkor
     title: 從扶南到吳哥：拜印度神的高棉王國
-    question: 一個靠海港起家的小國，怎麼變成蓋出吳哥窟、統治大半個中南半島的帝國？它又為什麼放棄了那座石頭城？
+    question: 湄公河口先有一個靠海港興起的王國，後來這片土地上怎麼出現蓋出吳哥窟、統治大半個中南半島的帝國？這個帝國又為什麼放棄了那座石頭城？
     blurb: 這條線從印度文化坐船來到湄公河口開始，看高棉人的國家怎麼一次次換主人、換都城、換信仰；每一站都接手了上一站留下的土地和傳統。
     stops: [event-indianization-sea, event-funan, event-chenla, event-khmer-empire, war-cham-khmer-1177, social-angkor-zhou-daguan, event-angkor-decline]
 
@@ -129,7 +129,7 @@ storylines:
     stops: [event-vietnam-northern-rule, event-champa, war-nam-tien-champa, event-mekong-delta-vietnam, event-nguyen-dynasty-vietnam-name]
 
   - id: story-india-sea
-    title: 印度往東走：季風、佛法與海峽
+    title: 印度往東走：商船、佛法與海峽
     question: 印度沒有派兵，為什麼東南亞會拜印度神、寫印度字？少見的一次印度王朝渡海出兵，又是為了什麼？
     blurb: 這條線看印度的宗教和文字怎麼坐著商船往東傳；最後一站提醒你，和平的文化交流背後，也有搶奪海上貿易的衝突。
     stops: [event-maurya-empire, event-indianization-sea, event-srivijaya, war-chola-srivijaya-1025]
@@ -163,5 +163,5 @@ storylines:
   - id: story-cold-war-berlin
     title: 冷戰的前線：一座被切成兩半的城市
     question: 二戰後被四國分區占領的柏林，為什麼先被封鎖、再被一道牆切開，又在 1989 年一夜之間打開？這座城市的命運，怎麼跟整個冷戰綁在一起？
-    blurb: 這條線跟著柏林走：戰後歐洲重建的錢（馬歇爾計畫）讓東西兩邊越走越遠，蘇聯封鎖西柏林，西方用飛機運補撐了快一年；十多年後東德築起圍牆擋住逃亡潮；到了 1989 年，圍牆倒下，東歐各國的共產政權接連垮台，冷戰走到終點。
+    blurb: 這條線跟著柏林走：戰後歐洲重建的錢（馬歇爾計畫）讓東西兩邊越走越遠，蘇聯封鎖西柏林，西方用飛機運補撐了快一年；十多年後東德築起圍牆擋住逃亡潮；到了 1989 年，東歐各國的共產政權接連鬆動，圍牆也在這一年打開，冷戰走到終點。
     stops: [war-world-war-two, event-marshall-plan, event-berlin-blockade-1948, event-berlin-wall-1961, event-end-of-cold-war]

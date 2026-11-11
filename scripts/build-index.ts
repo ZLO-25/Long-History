@@ -12,6 +12,7 @@ import { loadNameTable, polityZh } from './lib/labels.ts';
 import { orderAliases } from './lib/aliases.ts';
 import { buildEdges, type Edge } from './lib/causes.ts';
 import { loadStorylines, buildStorylines } from './lib/storylines.ts';
+import { loadStories, checkStories, buildStory } from './lib/stories.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits } from './lib/learn.ts';
 import { loadDives, buildDives, copyPowerMaps } from './lib/dives.ts';
 
@@ -152,6 +153,21 @@ copyPowerMaps(dives, pubData);
 // 人群圖層（data/peoples/，打開圖層時才下載）
 const peoplesInfo = buildPeoples(pubData);
 
+// 故事：每條故事線一篇可以一口氣讀完的文章（docs/stories.md）。每篇另存 public/data/stories/<id>.json，打開才下載；
+// index.json 的故事線只多 read: { minutes, chars, hook }。有 validate 錯誤的故事不輸出。
+const storyMeta = new Map<string, { minutes: number; chars: number; hook: string }>();
+{
+  const stories = loadStories();
+  const bad = new Set(checkStories(stories, loadStorylines(), raw).filter((i) => i.level === 'error').map((i) => i.file));
+  fs.mkdirSync(path.join(pubData, 'stories'), { recursive: true });
+  for (const s of stories) {
+    if (bad.has(s.file)) { console.warn(`注意：${s.file} 有錯誤，沒有輸出，請執行 npm run validate`); continue; }
+    const out = buildStory(s, raw);
+    fs.writeFileSync(path.join(pubData, 'stories', `${out.id}.json`), JSON.stringify(out));
+    storyMeta.set(out.id, { minutes: out.minutes, chars: out.chars, hook: out.hook });
+  }
+}
+
 const index = {
   generated: new Date().toISOString(),
   cards,
@@ -171,7 +187,7 @@ const index = {
   chains: buildChains(loadChains(), raw, routes),
   today: buildToday(loadToday(), routes),
   histories,
-  storylines: buildStorylines(loadStorylines(), edges, cards),
+  storylines: buildStorylines(loadStorylines(), edges, cards).map((l) => ({ ...l, read: storyMeta.get(l.id) ?? null })),
   units: loadUnits().map((u) => u.unit).filter((u) => DEV || u.crosscheck?.result === '通過'),
   // 深入專題：把一段時代的卡片、人物、故事線、勢力圖聚在一起（docs/dives.md）
   dives: buildDives(dives, cards),

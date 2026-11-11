@@ -1,5 +1,6 @@
 // 學習模式首頁：選一個「XX史」→ 選一個謎題 → 開始；也可以隨機來一題
 import type { History, Index, Unit } from '../types';
+import { ReadBadge } from '../components/StoryReader';
 import type { Progress } from './progress';
 import { learnCards, unitsOf } from './util';
 import { DiveEntries } from '../components/Dive';
@@ -87,9 +88,9 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
         <section className="home-topics">
           <h2>2. 或者，順著一條故事線、一個主題往下走</h2>
           {onStory && (index.storylines ?? []).length > 0 && <>
-            <p className="muted"><b>故事線</b>：一件事怎麼引出下一件事，跨越不同時代和地區。每一站之間都說明「怎麼造成的」。</p>
+            <p className="muted"><b>故事線</b>：一件事怎麼引出下一件事，跨越不同時代和地區。每條線都有一篇 5–15 分鐘的故事，讀完再一站一站看「怎麼造成的」。</p>
             <div className="home-stories">
-              {(index.storylines ?? []).map((s) => <button key={s.id} className="si-item" onClick={() => onStory(s.id)}><span className="si-title">{s.title}</span><span className="si-q">{s.question}</span><span className="si-meta muted small">{s.stops.length} 站</span></button>)}
+              {(index.storylines ?? []).map((s) => <button key={s.id} className="si-item" onClick={() => onStory(s.id)}><span className="si-title">{s.title}</span><span className="si-q">{s.question}</span><span className="si-meta muted small"><span>{s.stops.length} 站</span><ReadBadge s={s} /></span></button>)}
             </div>
           </>}
           <p className="muted"><b>主題標籤</b>：每張卡都有「主題標籤」。點一個標籤，就能看到同一件事物從古到今的歷史路徑。</p>

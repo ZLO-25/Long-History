@@ -4,6 +4,7 @@ import type { Index, Card, Filters } from './types';
 import { createSearch, matchTopics, useSearchLibs, loadSearchLibs } from './lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from './components/Topics';
 import { StorylineView, StorylineIndex, storyMarks, findStory } from './components/Story';
+import { keepRead } from './components/StoryReader';
 import { DiveView, DiveIndex, diveMarks, diveRoutes, findDive, hasPowerVisual, powerFor, diveYear, prehistDive } from './components/Dive';
 import { activeAt } from './lib/format';
 import { Timeline } from './components/Timeline';
@@ -244,7 +245,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   useEffect(() => {
     if (panel.kind !== 'card' && panel.kind !== 'topic' && panel.kind !== 'story' && panel.kind !== 'dive' && panel.kind !== 'peoples') return;
     const q = new URLSearchParams({ mode: 'research' });
-    if (panel.kind === 'peoples') q.set('peoples', panel.id); else if (panel.kind === 'card') q.set('card', panel.id); else if (panel.kind === 'story') q.set('story', panel.id); else if (panel.kind === 'dive') q.set('dive', panel.id); else q.set('topic', panel.name);
+    if (panel.kind === 'peoples') q.set('peoples', panel.id); else if (panel.kind === 'card') q.set('card', panel.id); else if (panel.kind === 'story') { q.set('story', panel.id); if (keepRead(panel.id)) q.set('read', '1'); } else if (panel.kind === 'dive') q.set('dive', panel.id); else q.set('topic', panel.name);
     history.replaceState(null, '', `${location.pathname}?${q}`);
   }, [panel]);
 
@@ -264,7 +265,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
       case 'match': return <StructureMatch index={index} initialTags={panel.tags} onOpen={openCard} onToday={openToday} onPlace={(key) => open({ kind: 'place', key })} />;
       case 'topic': return <TopicView key={panel.name} index={index} name={panel.name} currentId={lastOpened} onOpen={openCard} onTopic={openTopic} onAll={() => open({ kind: 'topics' })} onMap={isMobile ? () => setMobileTab('map') : undefined} />;
       case 'topics': return <TopicIndex index={index} onTopic={openTopic} />;
-      case 'story': return <StorylineView key={panel.id} index={index} id={panel.id} currentId={lastOpened} onOpen={openCard} onAll={() => open({ kind: 'stories' })} onMap={isMobile ? () => setMobileTab('map') : undefined} />;
+      case 'story': return <StorylineView key={panel.id} index={index} id={panel.id} currentId={lastOpened} onOpen={openCard} onAll={() => open({ kind: 'stories' })} onStory={openStory} onMap={isMobile ? () => setMobileTab('map') : undefined} />;
       case 'stories': return <StorylineIndex index={index} onStory={openStory} onTopics={() => open({ kind: 'topics' })} onDives={(index.dives ?? []).length ? () => open({ kind: 'dives' }) : undefined} />;
       case 'dive': return <DiveView key={panel.id} index={index} id={panel.id} year={year} setYear={setYear} currentId={lastOpened} powerYear={powerYear} setPowerYear={setPowerYear} onOpen={openCard} onStory={openStory} onAll={() => open({ kind: 'dives' })} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} onMap={isMobile ? () => setMobileTab('map') : undefined} timelineZoomed={!isMobile} />;
       case 'dives': return <DiveIndex index={index} onDive={openDive} />;

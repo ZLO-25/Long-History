@@ -2,6 +2,29 @@
 
 規劃書：[dive-greece-rome-plan.md](dive-greece-rome-plan.md)。專題檔：`data/dives/ancient-greece.yaml`（validate 規定檔名＝id 去掉 `dive-`，所以不是 greece.yaml；勢力圖放 `data/dives/ancient-greece/power-bc431.yaml`，`power_maps` 的 file 寫 `ancient-greece/power-bc431.geojson`）。
 
+## 驗收回報（2026-11-12）
+
+網址：`?dive=dive-ancient-greece`（研究模式）、`?mode=learn&dive=dive-ancient-greece`（學習模式）。
+
+| 項目 | 內容 |
+|---|---|
+| 新卡 14 張 | 事件／社會／技術／戰爭 8（城邦興起與海外殖民、古代奧運、斯巴達、梭倫改革、雅典民主怎麼運作、柏拉圖學園與亞里斯多德、亞歷山卓圖書館、羅馬征服希臘）＋人物 6（地米斯托克利、伯里克里斯、蘇格拉底、阿爾西比亞德斯、亞里斯多德、亞歷山大） |
+| 升級 4 張 | 克里斯提尼改革、蘇格拉底之死、亞歷山大東征、酒神劇場（補成學習卡） |
+| 專題 | 27 張卡全部可進學習模式；人物關係網；4 張勢力圖（前 431／338／323／275） |
+| 新畫面 | 「今日影子」8 條（`legacy`，見 docs/dives.md 第九節） |
+| 故事線與故事 | `story-ancient-greece`（11 站，約 19 分鐘）；蘇格拉底之死不在這條線上（和前後站沒有因果邊），仍在專題與 `story-greece` |
+| 單元 | `unit-greece-1`、`unit-greece-2`；既有 `unit-athens-sparta` 一起列入 |
+| 圖片 | 17 張 Commons 圖，授權逐張查，見 docs/image-licenses-greece-rome.md（亞歷山卓圖書館想像圖授權依據不足，沒有上線） |
+
+查核：兩位獨立查核者查 18 張卡（docs/dive-checks/greece-verify-1.md、-2.md），一位補查來源（greece-recheck.md，重開 28 頁），一位查單元與故事（greece-units.md、docs/story-checks/story-ancient-greece.md）。
+
+已知限制：
+
+- 上網查核額度有限，仍有一批來源沒能重開（清單在 greece-recheck.md 末節：普魯塔克《凱撒傳》49、修昔底德 2.63／2.65、奧運 426 年與休戰長度、圖書館 49 萬卷說的出處等）；卡片上都標明是轉引或說法不一。
+- 譯名已統一：伯里克里斯、阿爾西比亞德斯、尼西阿斯、狄凱里亞、推羅、普魯塔克、安尼圖斯、卡爾基斯。
+- 勢力圖是示意：希臘只分 14 大區，城邦與同盟成員零散，切線見下。
+- 測試：`node scripts/qa/dive.cjs`（全部專題通過）。dev server 在 `build:index` 重建 public/ 後要重開，否則新的每卡小檔會讀不到（測試環境現象，與正式站無關）。
+
 ## 底圖 code 對照表（`npm run basemap -- AEGEAN` → `data/ne/aegean.geojson`，233 KB，100 個區域）
 
 勢力圖 yaml 寫 `basemap: aegean`。來源 Natural Earth 10m admin-1（希臘、土耳其）與 50m admin-0（其餘整國），公有領域；座標 2 位小數。

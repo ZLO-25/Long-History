@@ -62,8 +62,17 @@ learn:
     - { claim: "亞里斯多德教亞歷山大一直教到他成年", fact: "SEP 說大概兩三年，開始時亞歷山大十三歲，也有人推測長達八年；普魯塔克記載亞歷山大十六歲就代父親攝政。[s1][s4]", src: [s1, s4] }
     - { claim: "亞里斯多德認為民主是最好的政體", fact: "《政治學》把民主歸為偏差的政體；他認為最可行的是由中產階級控制的混合政體。[s2]", src: [s2] }
 verification: 交叉確認
-crosscheck: { date: 2026-11-12, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 已開 MIT《政治學》第一卷：第 2 章 political animal、第 4 章 a living possession、第 5 章兩句（marked out for subjection／male superior）與第 3 章反對者一句均逐字相符。「自然奴隸」照實寫，並補脈絡：他自己記下當時有人說奴隸制違反自然；新增一條 misconceptions 與一則 primary_source。2) 已開英文維基〈Aristotle〉（新增 s6）：父親是阿敏塔斯的御醫；斯塔吉拉在哈爾基季基（原卡說「出生地屬於馬其頓地區，所以與王室有往來」不準確，已改）；亞歷山大死後反馬其頓情緒、不敬神指控（維基記在前 322 年，SEP 寫前 323 年離開，兩說並列）。原卡「離開原因來源沒有交代」已補。3) 已開普魯塔克《亞歷山大傳》7–9：學費是重建斯塔吉拉、米埃札、亞歷山大 16 歲攝政；relation 改為前 343–前 340，與亞歷山大卡一致。4) 第 77 章毒殺傳說（s5）未能重開，與查核者所知一致。SEP 兩頁未重開。WebFetch 全團隊共用額度在查核中途用盡，本輪實際打開 7 個來源，其餘依查核者專業知識判斷並改成較保守的說法。" }
+crosscheck: { date: 2026-11-12, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 已開 MIT《政治學》第一卷：第 2 章 political animal、第 4 章 a living possession、第 5 章兩句（marked out for subjection／male superior）與第 3 章反對者一句均逐字相符。「自然奴隸」照實寫，並補脈絡：他自己記下當時有人說奴隸制違反自然；新增一條 misconceptions 與一則 primary_source。2) 已開英文維基〈Aristotle〉（新增 s6）：父親是阿敏塔斯的御醫；斯塔吉拉在哈爾基季基（原卡說「出生地屬於馬其頓地區，所以與王室有往來」不準確，已改）；亞歷山大死後反馬其頓情緒、不敬神指控（維基記在前 322 年，SEP 寫前 323 年離開，兩說並列）。原卡「離開原因來源沒有交代」已補。3) 已開普魯塔克《亞歷山大傳》7–9：學費是重建斯塔吉拉、米埃札、亞歷山大 16 歲攝政；relation 改為前 343–前 340，與亞歷山大卡一致。4) 第 77 章毒殺傳說（s5）未能重開，與查核者所知一致。SEP 兩頁未重開。WebFetch 全團隊共用額度在查核中途用盡，本輪實際打開 7 個來源，其餘依查核者專業知識判斷並改成較保守的說法。 【補查 2026-11-12】已重開 LacusCurtius 普魯塔克《亞歷山大傳》第 66–77 章頁（s5）：77.2–3 說當下沒有人懷疑下毒，後來才有人說亞里斯多德勸安提帕特下手，與卡片相符。仍未重開：SEP 兩頁。" }
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/960px-Aristotle_Altemps_Inv8575.jpg
+  page: https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg
+  title: 亞里斯多德胸像
+  creator: 仿呂西波斯青銅原作的羅馬時代複製品；Jastrow（攝影）
+  year: 羅馬時代仿製（原作約前 330 年）
+  holder: 阿爾滕普斯宮（羅馬國立博物館）
+  license: Public domain（PD-self，攝影者 Jastrow 自行釋出）
+  caption: 羅馬時代的大理石仿製胸像，仿的是約前 330 年的希臘青銅原作；胸前的雪花石披風是近代修復時加上去的。
 ---
 
 ## P1 出身與時代

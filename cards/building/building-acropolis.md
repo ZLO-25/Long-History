@@ -22,23 +22,23 @@ topics: [古代建築, 宗教]
 links: [war-greco-persian, war-peloponnesian, building-theatre-dionysus, commodity-laurion-silver]
 causes:
   - { id: war-greco-persian, rel: 促成, why: 前 480 年波斯人焚毀衛城上興建中的神廟，戰後雅典決定重建，帕德嫩就是為了感謝戰勝波斯而蓋的。, src: [s1, s3] }
-  - { id: event-delian-league, rel: 促成, why: 雅典把盟邦繳的同盟金庫從提洛島搬回雅典，伯里克利才有大筆經費蓋帕德嫩神廟、山門和雅典娜金象牙像。, src: [s2, s7] }
+  - { id: event-delian-league, rel: 促成, why: 雅典把盟邦繳的同盟金庫從提洛島搬回雅典，伯里克里斯才有大筆經費蓋帕德嫩神廟、山門和雅典娜金象牙像。, src: [s2, s7] }
 counterparts:
-  - { id: building-han-changan, note: "相似：都城的大型建設展示權力，花的錢也成為問題（伯里克利挪用提洛同盟貢金；蕭何因花費過多受責備）。不同：衛城以神殿為中心；漢長安城以皇帝宮殿為中心。", src: [s2, s6] }
+  - { id: building-han-changan, note: "相似：都城的大型建設展示權力，花的錢也成為問題（伯里克里斯挪用提洛同盟貢金；蕭何因花費過多受責備）。不同：衛城以神殿為中心；漢長安城以皇帝宮殿為中心。", src: [s2, s6] }
 sources:
   - { id: s1, title: "Parthenon — Wikipedia", url: "https://en.wikipedia.org/wiki/Parthenon", accessed: 2026-10-24, tier: 百科 }
   - { id: s2, title: "Athens' rise to superpower — MoneyMuseum", url: "https://www.moneymuseum.com/en/archive/athens-rise-to-superpower--382?slbox=true", accessed: 2026-10-24, tier: 通論 }
   - { id: s3, title: "Acropolis of Athens — New World Encyclopedia", url: "https://www.newworldencyclopedia.org/entry/Acropolis_of_Athens", accessed: 2026-10-24, tier: 百科 }
   - { id: s4, title: "Acropolis, Athens — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/404/maps", accessed: 2026-10-24, tier: 通論 }
   - { id: s6, title: "Chang'an — Wikipedia", url: "https://en.wikipedia.org/wiki/Chang%27an", accessed: 2026-10-25, tier: 百科 }
-  - { id: s7, title: "普魯塔克《伯里克利傳》第 12 章，Bernadotte Perrin 英譯（1916，公有領域）— Lexundria", url: "https://lexundria.com/plut_per/12/prr", accessed: 2026-10-25, tier: 一手 }
+  - { id: s7, title: "普魯塔克《伯里克里斯傳》第 12 章，Bernadotte Perrin 英譯（1916，公有領域）— Lexundria", url: "https://lexundria.com/plut_per/12/prr", accessed: 2026-10-25, tier: 一手 }
 importance: 2
 learn:
   histories:
   - 希臘羅馬史
   why_care: 世界上最有名的神廟之一，是用「盟友繳的保護費」蓋的。這樣做對嗎？當時的雅典人自己就吵過。
   story: |
-    前 480 年波斯人攻進雅典，把衛城上的神廟燒了。[s1] 三十年後，雅典已經是提洛同盟的老大，還把同盟的金庫從提洛島搬回自己家。[s2] 伯里克利拿這筆錢重建衛城，蓋了獻給雅典娜的帕德嫩神廟。[s1][s2] 反對他的人罵他：這些錢是盟友出來對抗波斯的，怎麼拿去打扮自己的城市？[s7] 大約一千年後，帕德嫩被改成基督教教堂，15 世紀又變成清真寺；1687 年被砲彈擊中，中段炸毀。[s1][s3]
+    前 480 年波斯人攻進雅典，把衛城上的神廟燒了。[s1] 三十年後，雅典已經是提洛同盟的老大，還把同盟的金庫從提洛島搬回自己家。[s2] 伯里克里斯拿這筆錢重建衛城，蓋了獻給雅典娜的帕德嫩神廟。[s1][s2] 反對他的人罵他：這些錢是盟友出來對抗波斯的，怎麼拿去打扮自己的城市？[s7] 大約一千年後，帕德嫩被改成基督教教堂，15 世紀又變成清真寺；1687 年被砲彈擊中，中段炸毀。[s1][s3]
   key_terms:
   - term: 衛城
     plain: 希臘城市裡蓋在高丘上的城堡與神廟區。
@@ -48,10 +48,10 @@ learn:
     example: 學校在校門口蓋一座很大的新校門，讓大家覺得學校很厲害。
   primary_source:
   - text: … we are gilding and bedizening our city, which, for all the world like a wanton woman, adds to her wardrobe precious stones …（……我們把城市鍍金打扮，像愛炫耀的人一樣給自己掛滿寶石……）
-    from: 普魯塔克《伯里克利傳》第 12 章，記伯里克利的政敵在公民大會上的批評（Perrin 英譯；中文為本站摘譯）
+    from: 普魯塔克《伯里克里斯傳》第 12 章，記伯里克里斯的政敵在公民大會上的批評（Perrin 英譯；中文為本站摘譯）
     src: s7
   historiography: |
-    **盟友的錢，可以這樣用嗎？** 普魯塔克記下兩種聲音：反對派說這是挪用盟友的錢；伯里克利則回答，只要雅典有保護盟友，錢怎麼用不必向他們交代，而且工程讓很多公民有工作。[s7]
+    **盟友的錢，可以這樣用嗎？** 普魯塔克記下兩種聲音：反對派說這是挪用盟友的錢；伯里克里斯則回答，只要雅典有保護盟友，錢怎麼用不必向他們交代，而且工程讓很多公民有工作。[s7]
     **今天的看法**：有研究者把它看成「盟主把同盟資金轉為自己城市建設」的典型例子，也就是同盟變成帝國的證據。[s2] 普魯塔克生活在帕德嫩完工後約 500 年，他的記載本身也是後人的整理，要小心使用。[s7]
   misconceptions:
   - 帕德嫩原本是彩色的，有彩繪雕刻；今天看到的純白大理石，是顏料褪去後的樣子。[s1]
@@ -65,7 +65,7 @@ images:
   creator: Jebulon
   year: 2015
   license: CC0（2026-11-10 已核對 Commons 檔案頁）
-  caption: 從雅典市區看衛城；山頂的帕德嫩神廟建於公元前 5 世紀，是伯里克利時代雅典最強盛時的象徵。
+  caption: 從雅典市區看衛城；山頂的帕德嫩神廟建於公元前 5 世紀，是伯里克里斯時代雅典最強盛時的象徵。
 ---
 
 ## D1 功能與象徵
@@ -74,7 +74,7 @@ images:
 
 ## D2 建造者與資金
 
-伯里克利主導建設計畫，由建築師伊克蒂諾斯、卡利克拉特斯與雕刻家菲迪亞斯負責。[s1][s3] 雅典在前 454 年把提洛同盟的金庫從提洛島搬到雅典，並用這筆盟邦貢金支付帕德嫩、山門與菲迪亞斯的金象牙雕像等與防禦波斯無關的工程。[s2] 這是「盟主把同盟資金轉為自己城市建設」的典型例子。
+伯里克里斯主導建設計畫，由建築師伊克蒂諾斯、卡利克拉特斯與雕刻家菲迪亞斯負責。[s1][s3] 雅典在前 454 年把提洛同盟的金庫從提洛島搬到雅典，並用這筆盟邦貢金支付帕德嫩、山門與菲迪亞斯的金象牙雕像等與防禦波斯無關的工程。[s2] 這是「盟主把同盟資金轉為自己城市建設」的典型例子。
 
 ## D3 技術與材料
 

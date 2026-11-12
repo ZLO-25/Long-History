@@ -64,7 +64,16 @@ learn:
     - { claim: "常見說法：呂庫古一人在古代寫下一整套斯巴達制度，從此沒有改變。", fact: "呂庫古是否真實存在有疑問；普魯塔克也記載監察官是後來才設立的，制度是逐步演變的。[s1][s4]", src: [s1, s4] }
 lens_status: 無直接論述
 verification: 交叉確認
-crosscheck: { date: 2026-11-12, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 亞里斯多德《政治學》2.9「nearly two-fifths of the whole country are held by women」：查核者記得 Jowett 譯文此句，並以整句精確片語搜尋命中 MIT 與 Fordham 的 Jowett 譯本頁，引文保留；希洛人伺機而動、公民不足一千、「缺乏人手」、監察官出身貧窮易受賄，均與 2.9 相符。2) 補邊民（perioikoi）：E1、story、key_terms 各一處，並把「還有誰：來源不足」刪掉；普魯塔克〈呂庫古傳〉第 8 章的分地數字原卡寫成「三萬份」不完整，改為拉科尼亞三萬份（給鄉間居民）、斯巴達九千份。3) 監察官補「五位、每年選出、任期一年」。4) 「希洛人保有一半收成」來源對不上（一半是提爾泰奧斯殘篇的說法，普魯塔克說的是固定數量），改成「交出一部分，說法不一」。5) 新增 pop_culture《300 壯士》：依希羅多德 7.202 的守軍名單（斯巴達 300、泰耶阿與曼提尼亞各 500、奧爾霍邁諾斯 120、其餘阿卡迪亞 1,000、科林斯 400、弗利烏斯 200、邁錫尼 80，合計 3,100；塞斯比亞 700、底比斯 400），新增 s6；Lexundria 該頁網址以搜尋確認存在，內容為查核者所知，未能開頁逐字對照。6) 留克特拉：色諾芬 700 名公民兵中約 400 陣亡、克里昂布羅圖斯戰死，與通論一致；effects→event-macedon-rise 為「背景」，強度恰當，保留。7) Pleiades 570685（Sparta）與查核者所知相符，也見於已查核的 war-peloponnesian 卡。8) 限制：WebFetch 共用額度用盡，維基 Sparta、Spartan mirage、Battle of Leuctra 與普魯塔克頁未能重開；「晚到十幾歲後段或二十出頭才結婚」「trophimoi」「Ollier 1933」未重核。" }
+crosscheck: { date: 2026-11-12, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 亞里斯多德《政治學》2.9「nearly two-fifths of the whole country are held by women」：查核者記得 Jowett 譯文此句，並以整句精確片語搜尋命中 MIT 與 Fordham 的 Jowett 譯本頁，引文保留；希洛人伺機而動、公民不足一千、「缺乏人手」、監察官出身貧窮易受賄，均與 2.9 相符。2) 補邊民（perioikoi）：E1、story、key_terms 各一處，並把「還有誰：來源不足」刪掉；普魯塔克〈呂庫古傳〉第 8 章的分地數字原卡寫成「三萬份」不完整，改為拉科尼亞三萬份（給鄉間居民）、斯巴達九千份。3) 監察官補「五位、每年選出、任期一年」。4) 「希洛人保有一半收成」來源對不上（一半是推羅泰奧斯殘篇的說法，普魯塔克說的是固定數量），改成「交出一部分，說法不一」。5) 新增 pop_culture《300 壯士》：依希羅多德 7.202 的守軍名單（斯巴達 300、泰耶阿與曼提尼亞各 500、奧爾霍邁諾斯 120、其餘阿卡迪亞 1,000、科林斯 400、弗利烏斯 200、邁錫尼 80，合計 3,100；塞斯比亞 700、底比斯 400），新增 s6；Lexundria 該頁網址以搜尋確認存在，內容為查核者所知，未能開頁逐字對照。6) 留克特拉：色諾芬 700 名公民兵中約 400 陣亡、克里昂布羅圖斯戰死，與通論一致；effects→event-macedon-rise 為「背景」，強度恰當，保留。7) Pleiades 570685（Sparta）與查核者所知相符，也見於已查核的 war-peloponnesian 卡。8) 限制：WebFetch 共用額度用盡，維基 Sparta、Spartan mirage、Battle of Leuctra 與普魯塔克頁未能重開；「晚到十幾歲後段或二十出頭才結婚」「trophimoi」「Ollier 1933」未重核。 【補查 2026-11-12】已重開 MIT 的 Jowett 譯《政治學》第二卷第 9 章：「nearly two-fifths of the whole country are held by women」逐字相符；公民不足一千（fell below 1000）、「the want of men was their ruin」、監察官貧窮易受賄、希洛人伺機而動，均已核對。已重開 Lexundria 希羅多德 7.202（s6）：斯巴達 300、泰耶阿與曼提尼亞合計 1,000（各半）、奧爾霍邁諾斯 120、其餘阿卡迪亞 1,000、科林斯 400、弗利烏斯 200、邁錫尼 80（合計 3,100），塞斯比亞 700、底比斯 400，與卡片相符。仍未重開：維基三頁與普魯塔克〈呂庫古傳〉。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Statue_of_a_hoplite_known_as_Leonidas_480-470_BCE_Sparta_Acropolis_Sanctuary_of_Athena_Chalkioikos_01.jpg/960px-Statue_of_a_hoplite_known_as_Leonidas_480-470_BCE_Sparta_Acropolis_Sanctuary_of_Athena_Chalkioikos_01.jpg
+  page: https://commons.wikimedia.org/wiki/File:Statue_of_a_hoplite_known_as_Leonidas_480-470_BCE_Sparta_Acropolis_Sanctuary_of_Athena_Chalkioikos_01.jpg
+  title: 斯巴達的重裝步兵像（傳為列奧尼達）
+  creator: 佚名（古代原作）；Mary Harrsch（攝影）
+  year: 約前 480–470 年
+  holder: 斯巴達考古博物館（希臘）
+  license: CC BY-SA 4.0
+  caption: 斯巴達衛城出土的古風末期大理石武士像，一般稱為「列奧尼達」，但這個名字只是傳統叫法，沒有銘文證明。
 ---
 
 ## E1 誰的生活

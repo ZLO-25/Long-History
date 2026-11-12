@@ -16,6 +16,8 @@ place:
   secondary_fields: [城市／都會]
   locations:
     - { name_ancient: 雅典, name_modern: "雅典（希臘）", lat: 37.9715, lng: 23.7257, pleiades_id: "579885", precision: schematic, year: -469, role: "生年依 SEP 為前 469 年（也有寫約前 470）；他是雅典人，一生的討論多在雅典；出生地的細節本卡未查證", src: [s1, s2] }
+    - { name_ancient: 波提狄亞, name_modern: "新波提狄亞（希臘哈爾基迪基）", lat: 40.194, lng: 23.328, precision: schematic, src: [s2, s3], year: -432, role: "以重裝步兵身分參加波提狄亞一役；柏拉圖《申辯篇》28e 裡他自己提到在波提狄亞、安菲波利斯、德里昂都守在崗位上，普魯塔克說他在這裡救了受傷的阿爾西比亞德斯 [s2][s3]" }
+    - { name_ancient: 德里昂, name_modern: "迪萊西（希臘波奧提亞）", lat: 38.348, lng: 23.651, precision: schematic, src: [s3], year: -424, role: "前 424 年雅典在德里昂戰敗，他隨軍撤退；普魯塔克說這次換騎馬的阿爾西比亞德斯護著他 [s3]" }
     - { name_ancient: 雅典廣場, name_modern: "雅典（希臘）", lat: 37.9755, lng: 23.7226, pleiades_id: "807514119", precision: schematic, year: -399, role: "前 399 年在雅典受審、判死，約三十天後在獄中飲毒；審判與牢房的確切位置未定", src: [s1, s2] }
   scale: point
 person: { role: "雅典哲學家，以不斷追問的方式談話，被陪審團判處死刑", faction: "雅典", name_romaji: "Socrates", born: -469, died: -399 }
@@ -52,7 +54,16 @@ learn:
     - { claim: "蘇格拉底在法庭上求饒", fact: "據《申辯篇》，他自比為叮醒城邦的牛虻，並在被問到該受什麼處罰時，先提出「由市政廳供應飲食」，最後才提議罰三十個米納（古希臘錢幣單位）；這是柏拉圖的寫法。[s2]", src: [s2] }
 verification: 交叉確認
 lens_status: 無直接論述
-crosscheck: { date: 2026-11-12, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 《申辯篇》罪名一句：依查核者所記得的 Jowett 譯文，「youth」之後是分號（youth; and who…），原卡作逗號；以整句精確片語搜尋命中 Project Gutenberg #1656 與 Lexundria 的 Jowett 譯本頁，改正標點後保留引文，並在 from 補中文大意。2) 譯名：控告者原作「梅雷托斯」，與已上線的 event-death-of-socrates 卡「美勒托斯」不一致，統一；阿里斯托芬補「又譯亞里斯多芬」（規劃書用字）。3) 「等了約三十天」的數字出自色諾芬《回憶蘇格拉底》4.8.2，不在本卡來源內，改為「大約一個月」。4) 規劃書要求交代他與三十僭主的關係：原卡只寫克里提亞斯是熟人，補《申辯篇》32b–e 他自述的兩件事（反對合併審判阿吉紐西諸將、拒絕替三十僭主逮捕薩拉米斯人萊昂），並補共同控告者安尼圖斯、呂孔（《申辯篇》23e）。5) 核對無誤：生年 SEP 作前 469、《雲》前 423 年、牛虻比喻、三十票之差、先提市政廳供養再提一米納與三十米納、「未經檢視的人生不值得過」、克里提亞斯死於推翻三十僭主之戰、普魯塔克〈阿爾西比亞德斯傳〉第 1 章「不無助益」。6) Pleiades 579885（Athenae）、807514119（Agora of Athens）與 data/places.json 快取相符。7) 限制：WebFetch 共用額度用盡，SEP、Gutenberg、LacusCurtius 三頁都沒能重開逐句對照；SEP 對色諾芬可信度、elenchus 的措辭未重核。陪審團人數（一般說 500 或 501 人）本卡未寫，留給事件卡。" }
+crosscheck: { date: 2026-11-12, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 《申辯篇》罪名一句：依查核者所記得的 Jowett 譯文，「youth」之後是分號（youth; and who…），原卡作逗號；以整句精確片語搜尋命中 Project Gutenberg #1656 與 Lexundria 的 Jowett 譯本頁，改正標點後保留引文，並在 from 補中文大意。2) 譯名：控告者原作「梅雷托斯」，與已上線的 event-death-of-socrates 卡「美勒托斯」不一致，統一；阿里斯托芬補「又譯亞里斯多芬」（規劃書用字）。3) 「等了約三十天」的數字出自色諾芬《回憶蘇格拉底》4.8.2，不在本卡來源內，改為「大約一個月」。4) 規劃書要求交代他與三十僭主的關係：原卡只寫克里提亞斯是熟人，補《申辯篇》32b–e 他自述的兩件事（反對合併審判阿吉紐西諸將、拒絕替三十僭主逮捕薩拉米斯人萊昂），並補共同控告者安尼圖斯、呂孔（《申辯篇》23e）。5) 核對無誤：生年 SEP 作前 469、《雲》前 423 年、牛虻比喻、三十票之差、先提市政廳供養再提一米納與三十米納、「未經檢視的人生不值得過」、克里提亞斯死於推翻三十僭主之戰、普魯塔克〈阿爾西比亞德斯傳〉第 1 章「不無助益」。6) Pleiades 579885（Athenae）、807514119（Agora of Athens）與 data/places.json 快取相符。7) 限制：WebFetch 共用額度用盡，SEP、Gutenberg、LacusCurtius 三頁都沒能重開逐句對照；SEP 對色諾芬可信度、elenchus 的措辭未重核。陪審團人數（一般說 500 或 501 人）本卡未寫，留給事件卡。 【補查 2026-11-12】已重開 Project Gutenberg #1656（Jowett 譯）：罪名一句為「…Socrates is a doer of evil, who corrupts the youth; and who does not believe in the gods of the state, but has other new divinities of his own.」與卡片逐字相符（MIT 網站的 Jowett 舊版作「a doer of evil, and corrupter of the youth」，措辭不同，本卡引的是 Gutenberg 版）。又以 MIT 版核對：三十票之差、公共會堂供養、一米那、三十米那與四位擔保人、牛虻、未經檢視的人生、阿吉紐西審判、薩拉米斯人萊昂、三位控告者美勒托斯、安尼圖斯、呂孔，均相符。仍未重開：SEP、LacusCurtius〈阿爾西比亞德斯傳〉。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Socrates_Louvre.jpg/960px-Socrates_Louvre.jpg
+  page: https://commons.wikimedia.org/wiki/File:Socrates_Louvre.jpg
+  title: 蘇格拉底像
+  creator: 佚名（羅馬時代仿製品）；Eric Gaba（攝影）
+  year: 1 世紀（羅馬時代）
+  holder: 羅浮宮（法國巴黎）
+  license: CC BY-SA 2.5
+  caption: 公元 1 世紀的羅馬大理石像，可能仿自西元前 4 世紀呂西波斯的青銅像；蘇格拉底本人沒留下畫像，後世的樣貌是從這類作品來的。
 ---
 
 ## P1 出身與時代

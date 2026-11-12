@@ -64,6 +64,15 @@ learn:
 lens_status: 無直接論述
 verification: 交叉確認
 crosscheck: { date: 2026-11-12, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 原 effects「殖民→梭倫改革」的理由（兩者同樣出自土地與貧富壓力）是相似而非因果，來源也沒有論證殖民運動促成梭倫改革（docs/causes.md 規則 1、6），這個說法與 disputed 標記已刪。因故事線 story-ancient-greece 第 1→2 站需要前後關係，改寫成站得住的最弱關係「背景」：城邦共同體與字母（成文法的條件，見本卡 C4）是梭倫立法的前提；梭倫的法律寫在木板上公布，見〈梭倫傳〉第 25 章。這條不是「殖民造成改革」。2) 年代與數字憑查核者專業知識核對，與通論一致：殖民高峰約前 750–前 500、皮特庫賽與庫邁為優卑亞人最早據點、馬薩利亞約前 600 由福凱亞人建立、庫勒涅為提拉人所建、哥本哈根城邦研究中心約 1,500 個城邦、基吉花瓶約前 650；黑海 70–90 個是古代作者（老普林尼說米利都建城 90 座）的數字，內文已標示。3) 希羅多德 5.58 原已標示非逐字，改寫成明白的轉述（補上「卡德摩斯」「他認為」），不當成引文。4) story 的出海原因補成多因；「成年宣誓」句加上「依本卡來源」「各城邦細節不同」（查核者所知最明確的例子是雅典）。5) Pleiades：敘拉古 462503、馬薩利亞 148127 與查核者所知相符，462503 也見於已查核的 war-peloponnesian 卡；容器 curl 連不到 pleiades.stoa.org，未能線上重開。6) 限制：WebFetch 全團隊共用額度在查核一開始就用盡，本卡 7 個來源都沒能重開逐句對照；殖民地原居民的處境仍是「來源不足」。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/2/2b/Greek_Colonization_Archaic_Period.svg
+  page: https://commons.wikimedia.org/wiki/File:Greek_Colonization_Archaic_Period.svg
+  title: 古風時代希臘殖民地分布圖
+  creator: Dipa1965（製圖）
+  year: 2017（現代地圖）
+  holder: Wikimedia Commons
+  license: CC BY-SA 4.0
+  caption: 現代製作的地圖，標出古風時代（約前 8–6 世紀）希臘城邦在地中海與黑海沿岸建立的殖民地。
 ---
 
 ## C1 背景

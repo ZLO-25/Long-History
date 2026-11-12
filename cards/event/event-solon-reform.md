@@ -57,7 +57,16 @@ learn:
     - { claim: "常見說法：梭倫是無私的立法者，改革讓所有人都滿意。", fact: "普魯塔克記載，他的朋友事先得知消息，先借錢買地再賴帳，被叫作「賴帳者」；梭倫自己的詩也說他得罪了貴族和平民雙方，並離開雅典十年。[s1][s2]", src: [s1, s2] }
 lens_status: 無直接論述
 verification: 交叉確認
-crosscheck: { date: 2026-11-12, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 《雅典政制》第 6 章「This measure is commonly called the Seisachtheia [= removal of burdens]」：查核者記得 Kenyon 譯文此句，並以精確片語搜尋命中 Kenyon 譯本頁（Avalon、constitution.org 等），引文保留；第 2 章「窮人與妻兒成為富人的農奴、稱 Pelatae 與 Hectemores」、第 7 章雇工級只能參加公民大會與陪審、第 9 章向陪審法庭申訴、第 13 章三派（沿海梅加克利斯、平原呂庫古、山地庇西特拉圖），與查核者所知的原文相符。2) 史家爭論一段原寫「普魯塔克說…；亞里斯多德只明確寫了…」兩句其實是同一件事，改為正確的分歧：普魯塔克〈梭倫傳〉第 15 章另記安德羅提翁之說（只降利息、調整度量與錢幣）；C2「並調整貨幣」原被寫成普魯塔克自己的主張，一併改正。3) 四等級：zeugitai 原譯「重裝步兵級」不妥，改為「雙牛級」，並說明斗（medimnos）。4) C5 原寫女性、外邦人、奴隸「來源沒有談」，其實〈梭倫傳〉有：第 1 章奴隸不得在體育場鍛鍊、第 21 章規範女性外出與哀悼、第 24 章入籍限制，已補寫。5) 殖民→梭倫的因果已在殖民卡刪除；本卡 effects 兩條皆為「背景」，恰當。6) 前 594 年為傳統年代、庇西特拉圖約前 561 年奪權、朋友「賴帳者」醜聞（〈梭倫傳〉第 15 章、《雅典政制》第 6 章）與查核者所知一致。7) 限制：WebFetch 共用額度用盡，MIT 的《雅典政制》、〈梭倫傳〉與維基 Solon 都沒能重開逐句對照；「獎勵橄欖、限制穀物出口」「四百人議事會受質疑」未重核。" }
+crosscheck: { date: 2026-11-12, by: 獨立查核 agent（未參與寫作）, result: 通過, notes: "1) 《雅典政制》第 6 章「This measure is commonly called the Seisachtheia [= removal of burdens]」：查核者記得 Kenyon 譯文此句，並以精確片語搜尋命中 Kenyon 譯本頁（Avalon、constitution.org 等），引文保留；第 2 章「窮人與妻兒成為富人的農奴、稱 Pelatae 與 Hectemores」、第 7 章雇工級只能參加公民大會與陪審、第 9 章向陪審法庭申訴、第 13 章三派（沿海梅加克利斯、平原呂庫古、山地庇西特拉圖），與查核者所知的原文相符。2) 史家爭論一段原寫「普魯塔克說…；亞里斯多德只明確寫了…」兩句其實是同一件事，改為正確的分歧：普魯塔克〈梭倫傳〉第 15 章另記安德羅提翁之說（只降利息、調整度量與錢幣）；C2「並調整貨幣」原被寫成普魯塔克自己的主張，一併改正。3) 四等級：zeugitai 原譯「重裝步兵級」不妥，改為「雙牛級」，並說明斗（medimnos）。4) C5 原寫女性、外邦人、奴隸「來源沒有談」，其實〈梭倫傳〉有：第 1 章奴隸不得在體育場鍛鍊、第 21 章規範女性外出與哀悼、第 24 章入籍限制，已補寫。5) 殖民→梭倫的因果已在殖民卡刪除；本卡 effects 兩條皆為「背景」，恰當。6) 前 594 年為傳統年代、庇西特拉圖約前 561 年奪權、朋友「賴帳者」醜聞（〈梭倫傳〉第 15 章、《雅典政制》第 6 章）與查核者所知一致。7) 限制：WebFetch 共用額度用盡，MIT 的《雅典政制》、〈梭倫傳〉與維基 Solon 都沒能重開逐句對照；「獎勵橄欖、限制穀物出口」「四百人議事會受質疑」未重核。 【補查 2026-11-12】已重開 MIT 的 Kenyon 譯《雅典政制》第 1–22 章頁：第 6 章「This measure is commonly called the Seisachtheia」相符（下接 since thereby the people had their loads removed from them）；第 2 章作「Pelatae and also as Hectemori」（卡片內文拼法 Hectemori 正確，上一輪紀錄寫成 Hectemores 是筆誤）；第 7 章四等級的量（五百、三百、二百斗）與雇工級只能參加公民大會與陪審；第 8 章四百人議事會、每部落一百人；第 13 章三派與領袖，均已核對。仍未重開：普魯塔克〈梭倫傳〉與維基 Solon。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Ignoto%2C_c.d._solone%2C_replica_del_90_dc_ca_da_orig._greco_del_110_ac._ca%2C_6143.JPG/960px-Ignoto%2C_c.d._solone%2C_replica_del_90_dc_ca_da_orig._greco_del_110_ac._ca%2C_6143.JPG
+  page: https://commons.wikimedia.org/wiki/File:Ignoto,_c.d._solone,_replica_del_90_dc_ca_da_orig._greco_del_110_ac._ca,_6143.JPG
+  title: 傳為梭倫的胸像
+  creator: 佚名（羅馬時代仿製品）；Sailko（攝影）
+  year: 約公元 90 年（羅馬時代仿製）
+  holder: 那不勒斯國家考古博物館（義大利）
+  license: CC BY-SA 3.0
+  caption: 法爾內塞收藏中被稱為「梭倫」的羅馬時代胸像；梭倫是前 6 世紀的人，這個身分只是傳統稱呼，並非確定。
 ---
 
 ## C1 背景

@@ -91,7 +91,7 @@ const fs = require('fs');
     await p.goto(base + `?mode=research&dive=${d.id}`, { waitUntil: 'networkidle' }); await p.waitForTimeout(1500);
     ok((await p.textContent('.dive-view h2')).trim() === d.title, '網址 ?dive= 直接打開專題頁');
     // 早於前 800 年的專題（讀書專題）大時間軸不放大，改看深時間軸，由 sapiens.cjs 測
-    if (d.range.start >= -800) ok((await p.textContent('.tl-head')).includes(String(d.range.start)), `時間軸放大到專題年代（${d.range.start}）`);
+    if (d.range.start >= -800) ok((await p.textContent('.tl-head')).includes(fy(d.range.start)), `時間軸放大到專題年代（${d.range.start}）`);
     const laneLabels = await p.$$eval('.timeline .lane-label', (els) => els.map((e) => e.textContent));
     ok(d.lanes.filter((l) => cards.some((c) => l.types.includes(c.type))).every((l) => laneLabels.includes(l.name)), `時間軸改用專題軌道（${laneLabels.join('、')}）`);
     if (sg) ok(laneLabels.includes('戰役') && laneLabels.includes('人物（在世期間）'), '戰國時間軸有「戰役」「人物（在世期間）」軌道');

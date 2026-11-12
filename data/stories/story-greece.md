@@ -69,9 +69,9 @@ recall:
 
 > 雅典勢力的增長，以及它在斯巴達引起的恐懼，使戰爭無可避免。（修昔底德《伯羅奔尼撒戰爭史》卷 1 第 23 章，Crawley 英譯，中文為摘譯）[war-peloponnesian:s8]
 
-照修昔底德的看法，表面上的爭端只是藉口，真正的原因是雅典變強、斯巴達害怕。[war-peloponnesian:s8] 不是每位史家都同意「無可避免」。開戰前，雅典對墨伽拉實施貿易禁令，有些史家把它看成主因。[war-peloponnesian:s2][war-peloponnesian:s3] 耶魯大學的卡根認為，雙方其實都不想打，只是都不肯讓步；雅典領袖伯里克利以為禁運只是「警告」，卻低估了斯巴達的憤怒與恐懼。[war-peloponnesian:s9] 兩種說法差在這裡：戰爭是被大局推著走，還是領導人一連串可以避免的判斷錯誤？[war-peloponnesian:s8][war-peloponnesian:s9]
+照修昔底德的看法，表面上的爭端只是藉口，真正的原因是雅典變強、斯巴達害怕。[war-peloponnesian:s8] 不是每位史家都同意「無可避免」。開戰前，雅典對墨伽拉實施貿易禁令，有些史家把它看成主因。[war-peloponnesian:s2][war-peloponnesian:s3] 耶魯大學的卡根認為，雙方其實都不想打，只是都不肯讓步；雅典領袖伯里克里斯以為禁運只是「警告」，卻低估了斯巴達的憤怒與恐懼。[war-peloponnesian:s9] 兩種說法差在這裡：戰爭是被大局推著走，還是領導人一連串可以避免的判斷錯誤？[war-peloponnesian:s8][war-peloponnesian:s9]
 
-前 431 年，戰爭開始。斯巴達每年攻進雅典的鄉間，燒農田、砍橄欖樹；雅典人靠城牆和海運撐著。[war-peloponnesian:s2] 壞消息卻從城裡冒出來：前 430 年起爆發瘟疫，死亡超過 3 萬人，伯里克利也死於瘟疫。[war-peloponnesian:s2][war-peloponnesian:s3] 前 421 年雙方一度議和，大致回到戰前的狀態，但盟邦與將領並沒有全數遵守。[war-peloponnesian:s2] 前 415 年，雅典派出一百多艘船遠征西西里，後來又增援約 73 艘，結果全軍覆沒；依古代記載，約 7,000 名俘虜被關進敘拉古的採石場，許多雅典人在那裡病死、餓死。[war-peloponnesian:s3][war-peloponnesian:s11]
+前 431 年，戰爭開始。斯巴達每年攻進雅典的鄉間，燒農田、砍橄欖樹；雅典人靠城牆和海運撐著。[war-peloponnesian:s2] 壞消息卻從城裡冒出來：前 430 年起爆發瘟疫，死亡超過 3 萬人，伯里克里斯也死於瘟疫。[war-peloponnesian:s2][war-peloponnesian:s3] 前 421 年雙方一度議和，大致回到戰前的狀態，但盟邦與將領並沒有全數遵守。[war-peloponnesian:s2] 前 415 年，雅典派出一百多艘船遠征西西里，後來又增援約 73 艘，結果全軍覆沒；依古代記載，約 7,000 名俘虜被關進敘拉古的採石場，許多雅典人在那裡病死、餓死。[war-peloponnesian:s3][war-peloponnesian:s11]
 
 錢的來源也出了問題。勞里昂礦區在鄉間，沒有城牆保護。[commodity-laurion-silver:s1][commodity-laurion-silver:s2] 前 413 年起，斯巴達在雅典境內的狄凱里亞築堡常駐，約 2 萬名奴隸逃亡，附近銀礦的生產受到打擊。[war-peloponnesian:s3] 這 2 萬人不全是礦工，但其中很多可能來自勞里昂。[commodity-laurion-silver:s2] 另一邊，原本沒有財力造艦隊的斯巴達找到了金主：波斯出錢，條件是斯巴達承認波斯對小亞細亞的主權。當年被雅典戰船擊退的帝國，現在出錢替雅典的對手造船，戰爭的天平因此轉向。[war-peloponnesian:s2][war-peloponnesian:s3]
 

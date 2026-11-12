@@ -66,8 +66,17 @@ learn:
     - { claim: "常見說法：蘇格拉底說過「我只知道我一無所知」。", fact: "柏拉圖《申辯篇》裡寫的是：他並不知道、也不認為自己知道（I neither know nor think that I know），意思是承認自己沒有智慧，而不是一句口號。[s7]", src: [s7] }
     - { claim: "常見說法：蘇格拉底是自殺的，喝毒藥是他自己選的。", fact: "他是被約 501 人的陪審團判處死刑後，依法處決；他拒絕了朋友的逃亡安排，所以有人說他「接受」死刑，但不是自殺。[s1]", src: [s1] }
 verification: 交叉確認
-crosscheck: { date: 2026-11-12, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 票數：story 與 C2 統一為「約 280 票有罪、220 或 221 票無罪」，並說明是由《申辯篇》36a「30 票改投」推算、看陪審團算 500 或 501 人。2) 「蘇格拉底自己提議的刑罰」原寫成兩種互相矛盾的說法；其實公共會堂吃飯、1 米那、30 米那三步都在《申辯篇》36d–38b，已改寫。3) 劇場→審判的 cause 改為引《申辯篇》（蘇格拉底自己提到阿里斯托芬的喜劇），維持 disputed。4) 「將軍阿爾西比亞德斯」在波提狄亞時還不是將軍，已改；刪去 Gatton（2024）一說（非主流）。5) 「克里提亞斯是學生」改為「年輕時跟過」。未能重開 MIT《申辯篇》與維基；Jowett 譯文三句（unexamined life、gadfly、I neither know nor think that I know）與查核者記憶一致。李彔、哈拉瑞兩欄為既有內容，未重核。WebFetch 全團隊共用額度在查核中途用盡，本輪實際打開 7 個來源，其餘依查核者專業知識判斷並改成較保守的說法。" }
+crosscheck: { date: 2026-11-12, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 票數：story 與 C2 統一為「約 280 票有罪、220 或 221 票無罪」，並說明是由《申辯篇》36a「30 票改投」推算、看陪審團算 500 或 501 人。2) 「蘇格拉底自己提議的刑罰」原寫成兩種互相矛盾的說法；其實公共會堂吃飯、1 米那、30 米那三步都在《申辯篇》36d–38b，已改寫。3) 劇場→審判的 cause 改為引《申辯篇》（蘇格拉底自己提到阿里斯托芬的喜劇），維持 disputed。4) 「將軍阿爾西比亞德斯」在波提狄亞時還不是將軍，已改；刪去 Gatton（2024）一說（非主流）。5) 「克里提亞斯是學生」改為「年輕時跟過」。未能重開 MIT《申辯篇》與維基；Jowett 譯文三句（unexamined life、gadfly、I neither know nor think that I know）與查核者記憶一致。李彔、哈拉瑞兩欄為既有內容，未重核。WebFetch 全團隊共用額度在查核中途用盡，本輪實際打開 7 個來源，其餘依查核者專業知識判斷並改成較保守的說法。 【補查 2026-11-12】已重開 MIT《申辯篇》（Jowett 譯）：「the life which is unexamined is not worth living」「I am that gadfly which God has given the state」「I neither know nor think that I know」三句逐字相符；刑罰三步（maintenance in the Prytaneum、自己付得起一米那、柏拉圖、克里托、克里托布盧斯、阿波羅多羅斯擔保三十米那）、「had thirty votes gone over to the other side, I should have been acquitted」、蘇格拉底自己提到阿里斯托芬喜劇裡的蘇格拉底，均相符。仍未重開：維基 Trial of Socrates（狄奧根尼·拉爾修的票數與罰金）、Britannica、WHE；李彔、哈拉瑞兩欄未重核。" }
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/David_-_The_Death_of_Socrates.jpg/960px-David_-_The_Death_of_Socrates.jpg
+  page: https://commons.wikimedia.org/wiki/File:David_-_The_Death_of_Socrates.jpg
+  title: 蘇格拉底之死
+  creator: 雅克-路易・大衛（Jacques-Louis David）
+  year: 1787
+  holder: 大都會藝術博物館（美國紐約）
+  license: Public domain（PD-art）
+  caption: 法國畫家在蘇格拉底死後約 2200 年畫的作品，描繪他伸手去拿毒藥杯、仍在講道理的樣子；細節是畫家想像的，不是目擊紀錄。
 ---
 
 ## C1 背景
@@ -76,7 +85,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ## C2 經過
 
-前 399 年，美勒托斯正式提告，安尼托斯與呂孔也是控方；罪名是不敬神（不承認城邦的神、引入新神）與敗壞青年。[s1] 陪審團的標準人數是 501 人（柏拉圖與色諾芬沒有寫人數，501 是學者的推定），由抽籤選出；[s1][s8] 投票約 280 票有罪、220 或 221 票無罪（由《申辯篇》36a–b「只要 30 票改投」推算，看陪審團算 500 還是 501 人）；依狄奧根尼·拉爾修，判死刑的票數比判有罪更多。[s1][s7] 蘇格拉底約 70 歲，以毒堇汁處死；《斐多篇》只說「那劑藥」，所以是不是毒堇有討論。[s1][s2]
+前 399 年，美勒托斯正式提告，安尼圖斯與呂孔也是控方；罪名是不敬神（不承認城邦的神、引入新神）與敗壞青年。[s1] 陪審團的標準人數是 501 人（柏拉圖與色諾芬沒有寫人數，501 是學者的推定），由抽籤選出；[s1][s8] 投票約 280 票有罪、220 或 221 票無罪（由《申辯篇》36a–b「只要 30 票改投」推算，看陪審團算 500 還是 501 人）；依狄奧根尼·拉爾修，判死刑的票數比判有罪更多。[s1][s7] 蘇格拉底約 70 歲，以毒堇汁處死；《斐多篇》只說「那劑藥」，所以是不是毒堇有討論。[s1][s2]
 
 ## C3 關鍵人物與群體
 

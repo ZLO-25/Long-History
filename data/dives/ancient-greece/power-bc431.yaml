@@ -1,0 +1,16 @@
+# 畫法同 docs/dives.md 第三節；切線理由見 docs/dive-greece.md「勢力圖切線與理由」
+year: -431
+basemap: aegean
+title: 伯羅奔尼撒戰爭前夕：雅典帝國 vs 伯羅奔尼撒同盟（前 431 年）
+note: "前 431 年春，底比斯偷襲普拉提亞，伯羅奔尼撒戰爭開打。希臘當時有上百個城邦，這張圖只能用今日行政區近似：雅典與提洛同盟涵蓋阿提卡、優卑亞、愛琴海島嶼、色雷斯與馬其頓海岸（含哈爾基迪基）、小亞細亞西岸與兩海峽沿岸；斯巴達與伯羅奔尼撒同盟涵蓋伯羅奔尼撒大部、科林斯、麥加拉、波奧提亞與福基斯一帶（同盟成員多半是個別城邦簽約，不是整區）；阿爾戈斯、色薩利、克里特、愛奧尼亞群島等當時中立或態度搖擺，一律畫成灰色。北方是馬其頓王國與色雷斯人的奧德里西亞王國，小亞細亞內陸屬波斯帝國。範圍以今日省界和經緯線切開，邊界只是示意；切線理由見 docs/dive-greece.md。"
+view: [[34, 19], [43, 36]]
+sources:
+  - { title: "Delian League — Wikipedia：提洛同盟成員、前 431 年只剩開俄斯與列斯堡還出船", url: "https://en.wikipedia.org/wiki/Delian_League", accessed: 2026-11-12, tier: 百科 }
+  - { title: "Peloponnesian League — Wikipedia：同盟成員（科林斯、麥加拉、艾利斯、波奧提亞）；阿爾戈斯未與斯巴達結盟", url: "https://en.wikipedia.org/wiki/Peloponnesian_League", accessed: 2026-11-12, tier: 百科 }
+powers:
+  - { name: "雅典與提洛同盟", en: "Athens & the Delian League", color: "#3b6ea8", card: event-delian-league, area: "阿提卡、優卑亞、基克拉澤斯與多德卡尼斯群島、愛琴海北部島嶼、色雷斯與哈爾基迪基沿海、小亞細亞西岸（愛奧尼亞、卡里亞北部）與達達尼爾海峽、伊斯坦堡一帶", regions: [GR-A1, { code: GR-H, lng_gt: 23.7 }, { code: GR-H, lat_gt: 38.75, lng_gt: 23, lng_lt: 23.7 }, GR-L, GR-K, { code: GR-A, lat_lt: 41.2 }, GR-69, { code: GR-B, lng_gt: 23.7 }, { code: GR-B, lat_lt: 40.55, lng_gt: 23, lng_lt: 23.7 }, TR-17, TR-34, { code: TR-10, lng_lt: 28.3 }, { code: TR-35, lng_lt: 28 }, { code: TR-09, lng_lt: 28 }, { code: TR-48, lng_lt: 28.3 }] }
+  - { name: "斯巴達與伯羅奔尼撒同盟", en: "Sparta & the Peloponnesian League", color: "#c0392b", card: social-sparta, area: "拉科尼亞、美塞尼亞、阿卡迪亞、科林斯、艾利斯、亞該亞，以及中希臘的波奧提亞（底比斯）、福基斯一帶", regions: [{ code: GR-J, lat_lt: 37.3 }, { code: GR-J, lat_gt: 37.3, lat_lt: 37.85, lng_lt: 22.55 }, { code: GR-J, lat_gt: 37.85 }, { code: GR-G, lat_lt: 38.35 }, { code: GR-H, lng_lt: 23.7, lat_lt: 38.75 }] }
+  - { name: "中立與搖擺（阿爾戈斯、色薩利、克里特等）", en: "Neutral & uncommitted", color: "#a3a3a3", minor: true, area: "阿爾戈斯、色薩利、伊庇魯斯、埃托利亞與阿卡納尼亞、愛奧尼亞群島（科基拉與雅典有防禦同盟）、克里特、阿爾巴尼亞一帶的伊利里亞部族", regions: [{ code: GR-J, lat_gt: 37.3, lat_lt: 37.85, lng_gt: 22.55 }, { code: GR-G, lat_gt: 38.35 }, { code: GR-H, lat_gt: 38.75, lng_lt: 23 }, GR-E, GR-D, GR-F, GR-M, AL] }
+  - { name: "馬其頓王國", en: "Kingdom of Macedon", color: "#7b4fa0", card: event-macedon-rise, area: "馬其頓核心（佩拉、艾加伊一帶）與上馬其頓、北馬其頓；國王佩狄卡斯二世，是雅典與斯巴達之間搖擺的小國", regions: [GR-C, MK, { code: GR-B, lng_lt: 23 }, { code: GR-B, lat_gt: 40.55, lng_gt: 23, lng_lt: 23.7 }] }
+  - { name: "奧德里西亞王國（色雷斯人）", en: "Odrysian Kingdom of Thrace", color: "#6f9a6a", minor: true, area: "色雷斯內陸：保加利亞南部與土耳其、希臘的東色雷斯；國王西塔爾克斯與雅典結盟", regions: [BG, TR-22, TR-39, TR-59, { code: GR-A, lat_gt: 41.2 }] }
+  - { name: "波斯帝國（阿契美尼德）", en: "Achaemenid Persian Empire", color: "#c9a03d", card: war-greco-persian, area: "小亞細亞內陸與南岸、賽普勒斯；與雅典有「卡利阿斯和約」（約前 449 年，傳統說法，真偽有爭議），沿海不再派兵", regions: [TR-75, TR-08, TR-73, TR-30, TR-76, TR-04, TR-65, TR-36, TR-47, TR-63, TR-79, TR-27, TR-31, TR-53, TR-61, TR-28, TR-52, TR-55, TR-57, TR-37, TR-74, TR-67, TR-81, TR-54, TR-41, TR-77, TR-16, TR-07, TR-33, TR-01, TR-14, TR-06, TR-11, TR-26, TR-18, TR-78, TR-60, TR-58, TR-19, TR-05, TR-43, TR-42, TR-70, TR-51, TR-38, TR-32, TR-45, TR-20, TR-15, TR-68, TR-50, TR-66, TR-40, TR-64, TR-24, TR-62, TR-03, TR-71, TR-46, TR-49, TR-25, TR-44, TR-23, TR-13, TR-12, TR-80, TR-02, TR-21, TR-72, TR-56, TR-69, TR-29, { code: TR-10, lng_gt: 28.3 }, { code: TR-35, lng_gt: 28 }, { code: TR-09, lng_gt: 28 }, { code: TR-48, lng_gt: 28.3 }, CY, CY-N] }

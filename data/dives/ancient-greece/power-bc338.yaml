@@ -1,0 +1,15 @@
+# 畫法同 docs/dives.md 第三節；切線理由見 docs/dive-greece.md「勢力圖切線與理由」
+year: -338
+basemap: aegean
+title: 喀羅尼亞之後：馬其頓稱霸希臘（前 338 年）
+note: "前 338 年八月，腓力二世在喀羅尼亞打敗雅典與底比斯聯軍。隔年（前 337 年）希臘各邦在科林斯開會，組成「科林斯同盟」：成員彼此保證不互相攻擊，並推腓力為盟主、對波斯作戰的統帥；這張圖畫的是戰後大局，同盟其實在前 337 年才正式成立。馬其頓直接控制馬其頓、色薩利與色雷斯；底比斯、科林斯衛城等要地駐有馬其頓守軍。斯巴達拒絕加入，克里特等地也不在同盟內。小亞細亞仍是波斯帝國的行省。以今日行政區近似，邊界只是示意；切線理由見 docs/dive-greece.md。"
+view: [[34, 19], [43, 36]]
+sources:
+  - { title: "League of Corinth — Wikipedia：前 338–337 年腓力二世成立同盟；斯巴達拒絕加入；馬其頓守軍駐科林斯、底比斯等地", url: "https://en.wikipedia.org/wiki/League_of_Corinth", accessed: 2026-11-12, tier: 百科 }
+  - { title: "Philip II of Macedon — Wikipedia：喀羅尼亞戰役與科林斯同盟", url: "https://en.wikipedia.org/wiki/Philip_II_of_Macedon", accessed: 2026-11-12, tier: 百科 }
+powers:
+  - { name: "馬其頓王國（腓力二世）", en: "Kingdom of Macedon (Philip II)", color: "#7b4fa0", card: event-macedon-rise, area: "馬其頓、哈爾基迪基、色薩利（由腓力出任終身行政長）、色雷斯沿岸與內陸、北馬其頓、保加利亞南部", regions: [GR-C, GR-B, GR-A, GR-69, GR-E, MK, { code: BG, lat_lt: 43 }, TR-22, TR-39, TR-59] }
+  - { name: "科林斯同盟各邦（馬其頓主導）", en: "League of Corinth (Macedon-led)", color: "#3b6ea8", card: event-macedon-rise, area: "雅典、底比斯（波奧提亞）、科林斯、阿爾戈斯、阿卡迪亞、艾利斯、亞該亞、優卑亞、基克拉澤斯群島、科基拉等；喀羅尼亞戰敗後，雅典與底比斯被迫簽和約", regions: [GR-A1, GR-H, { code: GR-J, lat_gt: 37.2 }, { code: GR-J, lat_lt: 37.2, lng_lt: 22.3 }, GR-G, GR-F, { code: GR-L, lng_lt: 26 }] }
+  - { name: "斯巴達（沒有加入）", en: "Sparta (refused to join)", color: "#c0392b", card: social-sparta, area: "拉科尼亞（伯羅奔尼撒東南）；留克特拉戰敗後失去美塞尼亞，勢力縮小，但拒絕承認腓力的安排", regions: [{ code: GR-J, lat_lt: 37.2, lng_gt: 22.3 }] }
+  - { name: "伊庇魯斯", en: "Epirus", color: "#8fae5d", minor: true, area: "伊庇魯斯（今希臘西北）；國王亞歷山大一世是腓力的內兄，勢力依附馬其頓", regions: [GR-D] }
+  - { name: "波斯帝國（阿契美尼德）", en: "Achaemenid Persian Empire", color: "#c9a03d", card: war-greco-persian, area: "小亞細亞全境（含愛奧尼亞沿岸，大王和約後再次歸波斯）、北愛琴海與多德卡尼斯群島（開俄斯、羅德島等由親波斯的寡頭執政）、賽普勒斯", regions: [TR-75, TR-08, TR-73, TR-30, TR-76, TR-04, TR-65, TR-39, TR-22, TR-36, TR-47, TR-63, TR-79, TR-27, TR-31, TR-34, TR-59, TR-17, TR-53, TR-61, TR-28, TR-52, TR-55, TR-57, TR-37, TR-74, TR-67, TR-81, TR-54, TR-41, TR-77, TR-16, TR-10, TR-35, TR-09, TR-48, TR-07, TR-33, TR-01, TR-14, TR-06, TR-11, TR-26, TR-18, TR-78, TR-60, TR-58, TR-19, TR-05, TR-43, TR-42, TR-70, TR-51, TR-38, TR-32, TR-45, TR-20, TR-15, TR-68, TR-50, TR-66, TR-40, TR-64, TR-24, TR-62, TR-03, TR-71, TR-46, TR-49, TR-25, TR-44, TR-23, TR-13, TR-12, TR-80, TR-02, TR-21, TR-72, TR-56, TR-69, TR-29, GR-K, { code: GR-L, lng_gt: 26 }, CY, CY-N] }

@@ -48,21 +48,62 @@ cards:
   - person-alexander
 storylines: [story-ancient-greece, story-greece]
 units: [unit-greece-1, unit-greece-2, unit-athens-sparta]
-# power_maps：前 431、前 338、前 323、前 275 四張，之後補（檔名 ancient-greece/power-bc431.geojson 等）
+power_maps:
+  - { year: -431, file: ancient-greece/power-bc431.geojson }
+  - { year: -338, file: ancient-greece/power-bc338.geojson }
+  - { year: -323, file: ancient-greece/power-bc323.geojson }
+  - { year: -275, file: ancient-greece/power-bc275.geojson }
 legacy:
   title: 今日影子
   items:
+    - then: 雅典人把「人民（dēmos）掌權（kratos）」叫做 dēmokratia，公民自己到公民大會表決。
+      now: 英文 democracy（民主）就是從 dēmokratia 來的；今天很多國家也說「人民說了算」，只是改成選出代表來決定。
+      tag: 制度
+      card: social-athenian-democracy
+      src: [L4]
+    - then: 雅典的陪審員和很多官員不是選舉，而是從公民裡抽籤決定。
+      now: 臺灣的國民法官也是從一般國民裡隨機抽選出來，和法官一起審刑事案件。
+      tag: 制度
+      card: social-athenian-democracy
+      src: [L9, L10]
     - then: 雅典人在陶片上刻下太有權勢的人的名字，投票把他送出城十年。
       now: 英文 ostracize（排擠、孤立）就是從希臘文「用陶片投票放逐」來的，今天用來說把某個人排除在小圈圈之外。
       tag: 制度
       card: event-cleisthenes-reform
       src: [L1, L2]
+    - then: 希臘人把自己的小國叫 polis（城邦），公民一起管城裡的事。
+      now: 英文 politics（政治）、political（政治的）都從 polis 來；亞里斯多德談城邦事務的書叫《政治學》（ta politika）。
+      tag: 制度
+      card: event-greek-polis-colonization
+      src: [L5]
     - then: 希臘人向腓尼基人學了字母，加上母音；前兩個字母叫 alpha 和 beta。
       now: 英文 alphabet（字母表）這個字，就是 alpha 加 beta。
       tag: 語言文字
       card: event-greek-polis-colonization
       src: [L3]
+    - then: 柏拉圖在雅典城外一座以英雄阿卡德摩斯命名的花園裡教學生，學校就叫 Akadēmeia。
+      now: 英文 academy（學院、學會）就是從這個地名來的，今天很多學院、學會、研究院的名字都用它。
+      tag: 科學
+      card: event-greek-philosophy-schools
+      src: [L6]
+    - then: 傳統說法從前 776 年起，希臘各邦的人到奧林匹亞為宙斯辦運動會，優勝者只拿到一頂樹葉編的冠。
+      now: 現代奧運會的得主拿的是金、銀、銅牌；兩千多年前的運動會是現代奧運的遠親，不是同一場比賽。
+      tag: 運動與藝術
+      card: event-olympic-games
+      src: [L8]
+    - then: 古希臘人在劇場演出一種叫 tragōidia 的戲，字面意思是「山羊之歌」。
+      now: 英文 tragedy（悲劇）來自希臘文 tragōidia，字面上是「山羊之歌」；今天電影、戲劇裡的悲劇，就是從那時的舞台來的。
+      tag: 運動與藝術
+      card: building-theatre-dionysus
+      src: [L7]
   sources:
     - { id: L1, title: "Etymonline：ostracism", url: "https://www.etymonline.com/word/ostracism", accessed: 2026-11-12, tier: 通論 }
     - { id: L2, title: "Etymonline：ostracize", url: "https://www.etymonline.com/word/ostracize", accessed: 2026-11-12, tier: 通論 }
     - { id: L3, title: "Etymonline：alphabet", url: "https://www.etymonline.com/word/alphabet", accessed: 2026-11-12, tier: 通論 }
+    - { id: L4, title: "Etymonline：democracy", url: "https://www.etymonline.com/word/democracy", accessed: 2026-11-12, tier: 通論 }
+    - { id: L5, title: "Etymonline：politics", url: "https://www.etymonline.com/word/politics", accessed: 2026-11-12, tier: 通論 }
+    - { id: L6, title: "Etymonline：academy", url: "https://www.etymonline.com/word/academy", accessed: 2026-11-12, tier: 通論 }
+    - { id: L7, title: "Etymonline：tragedy", url: "https://www.etymonline.com/word/tragedy", accessed: 2026-11-12, tier: 通論 }
+    - { id: L8, title: "The Ancient Olympic Games — International Olympic Committee", url: "https://olympics.com/ioc/ancient-olympic-games", accessed: 2026-11-12, tier: 通論 }
+    - { id: L9, title: "Athenian democracy — Wikipedia（抽籤選出陪審員與官員）", url: "https://en.wikipedia.org/wiki/Athenian_democracy", accessed: 2026-11-12, tier: 百科 }
+    - { id: L10, title: "國民法官法 — 全國法規資料庫（法務部）", url: "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030320", accessed: 2026-11-12, tier: 官方 }

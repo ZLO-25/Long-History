@@ -1,0 +1,13 @@
+# 畫法同 docs/dives.md 第三節；切線理由見 docs/dive-greece.md「勢力圖切線與理由」
+year: -323
+basemap: world_countries
+title: 亞歷山大去世時的帝國（前 323 年六月）
+note: "前 323 年六月，亞歷山大在巴比倫去世，只有三十二歲。這張圖畫他征服的範圍：希臘與馬其頓（由安提帕特攝政）、小亞細亞、敘利亞與地中海東岸、埃及、美索不達米亞、波斯高原、中亞南部到印度河流域。埃及只留尼羅河谷與三角洲，中亞只畫阿姆河到錫爾河之間的南部。帝國太大，各地靠當地行省總督治理，並沒有一條明確的邊界；今日國界只能近似。他死後將領們搶了四十多年，帝國分裂（見前 275 年那張圖）。孔雀王朝此時尚未建立，北印度當時是難陀王朝，圖中沒有畫；迦太基與羅馬共和國只標示位置當背景。以今日國界近似，邊界只是示意；切線理由見 docs/dive-greece.md。"
+view: [[20, 4], [48, 78]]
+sources:
+  - { title: "Alexander the Great — Wikipedia：前 323 年六月在巴比倫去世；帝國從希臘、埃及到印度河", url: "https://en.wikipedia.org/wiki/Alexander_the_Great", accessed: 2026-11-12, tier: 百科 }
+  - { title: "Wars of the Diadochi — Wikipedia：亞歷山大死後將領分裂帝國、前 275 年前後的三大王國", url: "https://en.wikipedia.org/wiki/Wars_of_the_Diadochi", accessed: 2026-11-12, tier: 百科 }
+powers:
+  - { name: "亞歷山大帝國", en: "Empire of Alexander the Great", color: "#7b4fa0", card: person-alexander, area: "希臘與馬其頓、保加利亞（色雷斯）、土耳其、賽普勒斯、敘利亞、黎巴嫩、以色列與巴勒斯坦、尼羅河谷與三角洲、伊拉克、亞美尼亞、伊朗、阿富汗、巴基斯坦（印度河流域）、烏茲別克南部、塔吉克、土庫曼南部", regions: [GR, MK, BG, TR, CY, SY, LB, IL, PS, { code: EG, lng_gt: 29, lng_lt: 33.2 }, IQ, AM, IR, AF, PK, { code: UZ, lat_lt: 41 }, TJ, { code: TM, lat_lt: 39.5 }] }
+  - { name: "迦太基（背景）", en: "Carthage", color: "#b9788f", card: war-first-punic, minor: true, area: "今突尼西亞一帶；此時還沒有和羅馬打仗", regions: [TN] }
+  - { name: "羅馬共和國（背景）", en: "Roman Republic", color: "#8b2e3f", card: war-samnite, minor: true, area: "義大利中部（拉丁姆與坎帕尼亞一帶）；此時正與薩謨奈人作戰", regions: [{ code: IT, lng_gt: 10.4, lat_gt: 40.8, lat_lt: 42.4 }] }

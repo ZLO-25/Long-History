@@ -1,0 +1,17 @@
+# 畫法同 docs/dives.md 第三節；切線理由見 docs/dive-greece.md「勢力圖切線與理由」
+year: -275
+basemap: world_countries
+title: 希臘化三大王國（前 275 年前後）
+note: "亞歷山大死後，將領（繼業者）打了四十多年的仗。到前 275 年前後，帝國分成三大王國：馬其頓與希臘本土的安提柯王朝（安提柯二世「岡諾塔斯」前 277 年在呂西馬基亞打敗高盧人後坐穩王位）、從小亞細亞到中亞的塞琉古帝國、埃及為核心的托勒密王國（含賽普勒斯、昔蘭尼加與敘利亞南部）。印度河以東另有孔雀王朝，塞琉古一世約前 305 至前 302 年把阿富汗南部與東部、俾路支一帶讓給旃陀羅笈多；背景再標孔雀以外的小國（帕加馬、安納托利亞北部諸國）、羅馬與迦太基。小亞細亞的界線、孔雀王朝在德干的實際控制範圍都有學者質疑，只能示意。以今日國界近似，邊界只是示意；切線理由見 docs/dive-greece.md。"
+view: [[13, 4], [46, 80]]
+sources:
+  - { title: "Wars of the Diadochi — Wikipedia：前 277 年呂西馬基亞之戰後安提柯二世取得馬其頓；安條克一世統治亞洲領土；托勒密二世統治埃及與敘利亞南部", url: "https://en.wikipedia.org/wiki/Wars_of_the_Diadochi", accessed: 2026-11-12, tier: 百科 }
+  - { title: "Maurya Empire — Wikipedia：塞琉古讓出東部行省給旃陀羅笈多；賓頭沙羅時期的疆域", url: "https://en.wikipedia.org/wiki/Maurya_Empire", accessed: 2026-11-12, tier: 百科 }
+powers:
+  - { name: "安提柯王朝（馬其頓）", en: "Antigonid Kingdom (Macedon)", color: "#7b4fa0", card: event-hellenistic-kingdoms, area: "馬其頓與希臘本土（岡諾塔斯控制的科林斯、雅典等要地，很多城邦其實自治或加入亞該亞、埃托利亞同盟）", regions: [GR, MK] }
+  - { name: "塞琉古帝國", en: "Seleucid Empire", color: "#d9822b", card: event-hellenistic-kingdoms, area: "小亞細亞大部（不含北方與帕加馬）、敘利亞北部、伊拉克、伊朗、阿富汗西部與北部、中亞南部（巴克特里亞、索格底亞那）", regions: [{ code: TR, lat_lt: 40.2, lng_gt: 28.5 }, { code: TR, lat_lt: 38.5, lng_lt: 28.5 }, { code: SY, lat_gt: 33 }, IQ, IR, { code: AF, lng_lt: 65 }, { code: AF, lng_gt: 65, lat_gt: 36 }, { code: UZ, lat_lt: 41 }, TJ, { code: TM, lat_lt: 39.5 }] }
+  - { name: "托勒密王國（埃及）", en: "Ptolemaic Kingdom", color: "#4f9a5a", card: event-hellenistic-kingdoms, area: "埃及、賽普勒斯、昔蘭尼加（今利比亞東部）、敘利亞南部（黎巴嫩、以色列、巴勒斯坦、約旦，當時稱克里敘利亞）", regions: [EG, CY, { code: LY, lng_gt: 19.5, lat_gt: 30.5 }, LB, IL, PS, JO, { code: SY, lat_lt: 33 }] }
+  - { name: "孔雀王朝", en: "Maurya Empire", color: "#2a9d9d", card: event-maurya-empire, area: "印度北部與中部（恆河平原、德干北部到卡納塔克一帶；南端與東岸的羯陵伽此時尚未納入）、尼泊爾、孟加拉、巴基斯坦、阿富汗南部與東部（從塞琉古取得）", regions: [{ code: IN, lat_gt: 15, lng_lt: 82 }, { code: IN, lat_gt: 22.6, lng_gt: 82, lng_lt: 89 }, NP, BD, PK, { code: AF, lng_gt: 65, lat_lt: 36 }] }
+  - { name: "帕加馬與安納托利亞小國（背景）", en: "Pergamon & Anatolian states", color: "#b08fc7", minor: true, area: "帕加馬（愛琴海邊，名義上服從塞琉古）、俾斯尼亞、本都、卡帕多奇亞等北部小國；中部另有入侵的高盧人", regions: [{ code: TR, lat_gt: 38.5, lat_lt: 40.2, lng_lt: 28.5 }, { code: TR, lat_gt: 40.2 }] }
+  - { name: "羅馬共和國（背景）", en: "Roman Republic", color: "#8b2e3f", card: war-samnite, minor: true, area: "義大利半島中南部（前 275 年皮洛士退出，前 272 年攻下塔蘭托）", regions: [{ code: IT, lng_gt: 10.4, lat_gt: 38.3, lat_lt: 44 }, { code: IT, lat_gt: 37.8, lat_lt: 38.3, lng_gt: 15.7 }] }
+  - { name: "迦太基（背景）", en: "Carthage", color: "#b9788f", card: war-first-punic, minor: true, area: "今突尼西亞、利比亞西北沿海、西西里島西部；前 264 年才和羅馬開戰", regions: [TN, { code: LY, lng_lt: 19, lat_gt: 29.5 }, { code: IT, lat_lt: 38.3, lng_lt: 13.6, lng_gt: 10.4 }] }

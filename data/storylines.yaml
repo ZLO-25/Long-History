@@ -171,4 +171,4 @@ storylines:
     title: 從城邦到亞歷山大：人民自己管自己的實驗
     question: 幾百個吵個不停的小城邦，怎麼長出「人民自己管自己」的制度？這個實驗為什麼在贏了波斯之後，反而一路走到自己人打自己人，最後被馬其頓和羅馬收走？
     blurb: 這條線沿著「上一步留下的問題」走：城邦的債務與階級衝突逼出改革，改革撐起了能打贏波斯的公民，勝利又讓雅典變成帝國，帝國引來戰爭，戰爭之後是審判、是新的強權；每一站都比上一站離「人民自己管自己」更遠一點，也更近下一個主人。
-    stops: [event-greek-polis-colonization, event-solon-reform, event-cleisthenes-reform, war-greco-persian, event-delian-league, social-athenian-democracy, war-peloponnesian, event-death-of-socrates, event-macedon-rise, event-alexander-campaign, event-hellenistic-kingdoms, war-roman-conquest-greece]
+    stops: [event-greek-polis-colonization, event-solon-reform, event-cleisthenes-reform, war-greco-persian, event-delian-league, social-athenian-democracy, war-peloponnesian, event-macedon-rise, event-alexander-campaign, event-hellenistic-kingdoms, war-roman-conquest-greece]

@@ -22,7 +22,8 @@ import { MIN_YEAR, MAX_YEAR, ERAS, eraOf } from '../lib/timeScale';
 import { DockLayout, useDock } from '../components/Dock';
 import { useLayout, colSize } from '../lib/layout';
 import { SkipLink } from '../components/SkipLink';
-import { ensureCards, startFullDetail, cardLoaded, waitingText } from '../lib/detail';
+import { DetailWait } from '../ui';
+import { ensureCards, loadMatch, cardLoaded, matchLoaded } from '../lib/detail';
 import type { Pre } from './pre';
 import { MapView, Timeline, PeoplePanel, StorylineView, StorylineIndex, DiveView, DiveIndex } from '../chunks';
 
@@ -230,13 +231,13 @@ export function Main({ index, onLearn, pre }: { index: Index; onLearn: () => voi
       default: return <ResultList query={query} result={result} hits={hits} cards={visible} year={year} onOpen={openCard} topics={topicHits} onTopic={openTopic} />;
     }
   })();
-  // 長內文（src/lib/detail.ts）：只有卡片（那一張）和結構對照（關鍵字要掃過所有卡的內文，等整包）真的用到；
+  // 長內文（src/lib/detail.ts）：只有卡片（那一張）和結構對照（關鍵字要掃過所有卡的內文，等 data/match.json）真的用到；
   // 地點、路線、物資鏈、今日對照、主題、故事線、專題用的都是 index.json 裡就有的欄位，不必等。
   // 卡片：打開時只抓那一張的小檔（通常在滑鼠移上去時就開始了），到了就顯示
   const cardId = panel.kind === 'card' ? panel.id : null;
   useEffect(() => { if (cardId) ensureCards([cardId]); }, [cardId]);
-  useEffect(() => { if (panel.kind === 'match') startFullDetail(); }, [panel.kind]);
-  const side = (panel.kind === 'card' && !cardLoaded(index, panel.id)) || (panel.kind === 'match' && index.detailReady === false) ? <p className="muted loading-detail">{waitingText(index)}</p> : sideRaw;
+  useEffect(() => { if (panel.kind === 'match') loadMatch(); }, [panel.kind]);
+  const side = (panel.kind === 'card' && !cardLoaded(index, panel.id)) || (panel.kind === 'match' && !matchLoaded(index)) ? <DetailWait index={index} /> : sideRaw;
 
   const map = <MapView index={index} cards={visible} year={year} highlight={highlight}
     onPlace={(key) => { open({ kind: 'place', key }); if (isMobile) setMobileTab('list'); }}

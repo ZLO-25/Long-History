@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>歷史長河：國高中生的歷史學習</title>
     <meta name="description" content="給國高中生的互動歷史學習網站：從一個謎題出發，讀卡片、看史料、排因果、比一比，配時間軸與地圖。涵蓋臺灣史、東亞史、世界史與錢的歷史。" />
-    <!-- 效能：首頁資料 home.json（約 20 KB）和程式同時開始下載，不必等程式跑起來才抓；一到就畫學習首頁。
-         卡片核心資料 index.json（約 560 KB）故意不用 preload：它會和程式、css 搶頻寬，把首屏要用的幾十 KB 拖慢好幾倍；
-         改成「程式（entry js）下載完的那一刻」才開始抓（下面的 script），頻寬正好空出來；到了再無縫換成完整資料（src/lib/detail.ts）。
-         抓到的 Promise 放在 window.__hrCore，src/App.tsx startFetch 接手；這段沒跑成（舊瀏覽器）時，startFetch 會自己抓 -->
+    <!-- 載入模型（src/lib/detail.ts、src/chunks.tsx）：HTML → 這個畫面的程式 → 這個畫面的資料，其他都不抓。
+         home.json（約 20 KB）和程式同時開始下載，一到就畫學習首頁；index.json（卡片核心資料）由入口程式一執行就抓（src/App.tsx），
+         到了再無縫換成完整資料。卡片／單元的長內文是各自的小檔，打開或移過去才抓；沒有任何背景下載 -->
     <link rel="preload" href="%BASE_URL%home.json" as="fetch" crossorigin="anonymous" />
     <!-- 靜態骨架（第一個畫面，只靠這份 HTML，不等任何 css／js）：標題列＋幾塊灰色占位，不帶任何資料，電腦與手機都是同一個通用樣子。
          React 一掛上就換掉它；資料還沒到時 App 畫的是同一份 HTML（src/main.tsx），所以不會閃 -->
@@ -24,21 +23,7 @@
       .hr-sk-body .s{width:70%}
     </style>
     <!-- 網址直接指到一張卡（?card=）或一個單元（?unit=）時，一開始就抓那一張卡／那個單元自己的小檔（幾 KB～幾十 KB），
-         內文馬上能看（src/lib/detail.ts 接手這個 Promise）。其他頁面（專題、主題、故事線、物資鏈…）不需要卡片長內文；
-         1.7 MB 的 index-detail.json 一律等畫面和底圖出來後才在背景下載，不搶首頁頻寬 -->
-    <script>(function () {
-      try {
-        new PerformanceObserver(function (l, o) {
-          l.getEntries().forEach(function (e) {
-            if (e.initiatorType === 'script' && /\.js(\?|$)/.test(e.name) && !window.__hrCore) {
-              o.disconnect();
-              window.__hrCore = fetch('%BASE_URL%index.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
-              window.__hrCore.catch(function () {});
-            }
-          });
-        }).observe({ type: 'resource', buffered: true });
-      } catch (e) {}
-    })();</script>
+         內文馬上能看（src/lib/detail.ts 接手這個 Promise）。其他頁面（專題、主題、故事線、物資鏈…）不需要卡片長內文 -->
     <script>(function () {
       var s = location.search, j = function (u) { return fetch(u).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); };
       var u = /[?&]unit=([\w-]+)/.exec(s), c = /[?&]card=([\w-]+)/.exec(s);

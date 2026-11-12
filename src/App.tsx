@@ -8,23 +8,20 @@ import { DockLayout, useDock } from './components/Dock';
 import { useLayout, colSize } from './lib/layout';
 import { SkipLink } from './components/SkipLink';
 import { initStub, adoptCore, failCore, coreReady } from './lib/detail';
-import { ResearchMain, preloadForUrl, warmUp, TL_H } from './chunks';
+import { ResearchMain, preloadForUrl, TL_H } from './chunks';
 import { emptyPre, type Pre } from './research/pre';
 import { Skel, CoreWait } from './ui';
 
 // 首屏：home.json（小）和 index.json（卡片核心資料）同時抓。home.json 一到就畫學習首頁（骨架 index，coreReady:false），
 // index.json 到了再無縫換成完整 index（App 不重新掛載，畫面狀態不丟）。src/lib/detail.ts 說明交接細節。
-declare global { interface Window { __hrShell?: string; __hrCore?: Promise<any> } }
+declare global { interface Window { __hrShell?: string } }
 let booted = false;
 const getJson = (f: string) => fetch(`${import.meta.env.BASE_URL}${f}`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
 let homeP: Promise<any> | null = null, coreP: Promise<any> | null = null;
-/** 開始抓 home.json 和 index.json（main.tsx 一執行就呼叫，不等 React 掛載）。
- *  index.html 只預載 home.json；index.json（約 560 KB）若和程式、css 同時下載，會把首屏要用的那幾十 KB 拖慢好幾倍，
- *  所以由 index.html 的小 script 在「程式下載完」的那一刻開始抓（window.__hrCore），沒跑成就在這裡抓。 */
+/** 開始抓 home.json 和 index.json（main.tsx 在入口程式一執行就呼叫，不等 React 掛載）。index.json 抓不到等一下重試一次（手機網路切換很常見） */
 export function startFetch() {
   homeP ??= getJson('home.json');
-  // index.json 抓不到先等一下重試一次（手機網路切換很常見）
-  coreP ??= (window.__hrCore ?? getJson('index.json')).catch(() => new Promise((r) => setTimeout(r, 2500)).then(() => getJson('index.json')));
+  coreP ??= getJson('index.json').catch(() => new Promise((r) => setTimeout(r, 1500)).then(() => getJson('index.json')));
 }
 function boot(set: Dispatch<SetStateAction<Index | null>>, fatal: (msg: string) => void) {
   if (booted) return; // StrictMode 的 effect 會跑兩次；只抓一次
@@ -42,8 +39,7 @@ function boot(set: Dispatch<SetStateAction<Index | null>>, fatal: (msg: string) 
     coreDone = true;
     setNameTable(ix.names);
     set(adoptCore(ix, base, set));
-    // 完整資料到了才開始在背景預載其他畫面的 chunk，不和 index.json 搶頻寬
-    warmUp();
+    performance.mark('hr:core', { detail: ix.generated });
   }).catch(() => { coreFailed = true; if (homeFailed) fatal(msg); else failCore(set); });
 }
 
@@ -64,11 +60,12 @@ const MODE_KEY = 'history-river-mode';
 function initialMode(): 'learn' | 'research' {
   const q = new URLSearchParams(location.search);
   if (q.get('mode') === 'learn') return 'learn';
-  if (q.get('mode') === 'research' || [...q.keys()].length) return 'research';
+  if (q.get('mode') === 'research' || [...q.keys()].some((k) => k !== 'perf')) return 'research';
   try { return window.localStorage.getItem(MODE_KEY) === 'research' ? 'research' : 'learn'; } catch { return 'learn'; }
 }
 function ModeSwitch({ index }: { index: Index }) {
   const [mode, setMode] = useState<'learn' | 'research'>(initialMode);
+  useEffect(() => { performance.mark('hr:home'); }, []); // 首頁（骨架或完整資料）第一次畫出來
   useEffect(() => { try { window.localStorage.setItem(MODE_KEY, mode); } catch { /* 無痕模式不記 */ } }, [mode]);
   const go = (m: 'learn' | 'research') => { history.replaceState(null, '', m === 'learn' ? `${location.pathname}?mode=learn` : `${location.pathname}?mode=research`); setMode(m); };
   return mode === 'learn' ? <LearnApp index={index} onResearch={() => go('research')} /> : <ResearchApp index={index} onLearn={() => go('learn')} />;

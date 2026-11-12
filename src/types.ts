@@ -156,11 +156,7 @@ export interface Index {
   histories: History[]; units: Unit[]; storylines: Storyline[]; dives?: Dive[];
   // 地圖名稱中英對照（data/labels/names-en.yaml）
   names?: { en: Record<string, string>; zh: Record<string, string> };
-  /** 卡片長內文（index-detail.json）是否已併入；false 時 sections／sources／causes／effects／aliases_show／images／counterparts_none 與學習卡全文暫時是空的 */
-  detailReady?: boolean;
-  /** index-detail.json 的內容雜湊（網址 ?v= 用；內文沒變就不必重抓）。scripts/build-index.ts 產生 */
-  detailV?: string;
-  /** 長內文載入進度（src/lib/detail.ts）：單張卡／單元的小檔先到時記在這裡；all＝整包都到了。各次 setIndex 之間共用同一個物件 */
+  /** 長內文載入進度（src/lib/detail.ts）：單張卡／單元的小檔到了就記在這裡；match＝結構對照要掃的內文到了。各次 setIndex 之間共用同一個物件 */
   detailLoaded?: DetailState;
   /** false＝只有 home.json 的骨架（首頁、清單頁要用的小欄位；cards 是空的），完整的 index.json 還沒到。沒有這個欄位（或 true）＝完整。見 src/lib/detail.ts */
   coreReady?: boolean;
@@ -170,14 +166,14 @@ export interface Index {
 
 /** public/home.json：學習首頁與清單頁（故事線、深入專題、主題標籤）畫得出來、點得動所需的最小資料，不含任何一張卡片。scripts/build-index.ts 產生 */
 export interface HomeData {
-  generated: string; detailV?: string;
+  generated: string;
   histories: History[];
   units: (Pick<Unit, 'id' | 'title' | 'histories' | 'mystery' | 'minutes'> & { nsteps: number })[];
   storylines: { id: string; title: string; question: string; read: StoryRead | null; stops: string[] }[];
   dives: (Pick<Dive, 'id' | 'title' | 'question' | 'range' | 'histories' | 'units' | 'visual' | 'focus_year'> & { power_title?: string; stat: NonNullable<Dive['stat']> })[];
   topicLayers: { name: string; icon: string; topics: { name: string; plain: string; n: number; nl: number }[] }[];
 }
-export interface DetailState { cards: Set<string>; units: Set<string>; all: boolean; failed: boolean }
+export interface DetailState { cards: Set<string>; units: Set<string>; match: boolean; failed: boolean }
 
 export interface Filters { types: CardType[]; fields: string[]; civs: string[] }
 

@@ -3,7 +3,6 @@
 // 瀏覽器不支援 WebGL 或載入失敗時，退回 OpenStreetMap 點陣圖（地名會是各國當地文字）。
 import L from 'leaflet';
 import style from './basemap-style.json';
-import { notifyBasemapDone } from './detail';
 
 export const BASEMAP_ATTRIBUTION = '底圖 <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> © <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a>｜地名 Natural Earth';
 const OSM_ATTRIBUTION = '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
@@ -17,9 +16,8 @@ function addRaster(m: L.Map) {
   m.getContainer().classList.add('basemap-raster');
 }
 
-/** 加上底圖；回傳實際用的是哪一種。底圖處理完（成功或退回點陣圖）就通知 src/lib/detail.ts，之後才開始背景下載卡片整包內文 */
-export const addBasemap = (m: L.Map): Promise<'vector' | 'raster'> => addBasemapNow(m).finally(notifyBasemapDone);
-async function addBasemapNow(m: L.Map): Promise<'vector' | 'raster'> {
+/** 加上底圖；回傳實際用的是哪一種。沒有任何東西等它：慢或失敗只影響底圖自己（失敗退回點陣圖）。 */
+export async function addBasemap(m: L.Map): Promise<'vector' | 'raster'> {
   if (!hasWebGL()) { addRaster(m); return 'raster'; }
   try {
     // 地圖函式庫較大，用到時才載入，不拖慢首頁

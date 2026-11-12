@@ -1,6 +1,5 @@
 // npm run build:index：把 cards/ 與 data/ 編譯成 public/index.json，並複製地圖資料到 public/data/
 import fs from 'node:fs';
-import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { loadCards, loadTagVocab, loadTopicVocab, readYaml, readJson, dateStr, ROOT, refsOf } from './lib/cards.ts';
 import { checkCards, loadContext, exists } from './lib/check.ts';
@@ -222,7 +221,8 @@ const econIssues = [...checkEcon(loadEcon()), ...checkChains(loadChains(), raw, 
   ...checkToday(loadToday(), raw, new Set(tagCats.flatMap((c: any) => c.tags.map((t: any) => t.tag))), new Set(routes.map((r: any) => r.id)))].filter((i) => i.level === 'error');
 if (econIssues.length) console.warn(`注意：經濟數列／物資鏈／今日對照層有 ${econIssues.length} 個問題，請執行 npm run validate`);
 // 效能：卡片的長內文（各節內文、來源、前因後果、學習卡全文）另存 index-detail.json。
-// 首頁先下載較小的 index.json 就能畫出時間軸、地圖、清單；長內文在背景下載，打開卡片時才用到（src/App.tsx mergeDetail）。
+// 首頁只下載較小的 index.json 就能畫出時間軸、地圖、清單；長內文是各卡／各單元的小檔（data/cards、data/units），打開才抓（src/lib/detail.ts）。
+// index-detail.json（整包）網頁不會抓，只給 scripts/qa/load-index.cjs 這類測試合併用。
 // 留在 index.json 的 learn 欄位：清單、時間軸、篩選要用的（histories、track、understand、why_care）。
 // 2026-11-11 再瘦身：查核紀錄 crosscheck（很長的筆記）、今日對照鉤子／不可類比（只在開卡或搜尋結果展開時看）、
 // 學習單元每一步的內文，也都移到 index-detail.json；index.json 只留單元每一步的「骨架」（類型＋指到哪張卡），
@@ -258,12 +258,8 @@ const coreUnits = (index.units as any[]).map((u) => {
     return o;
   }) };
 });
-// 效能：index-detail.json 的網址帶「內容雜湊」當版本號（detailV），不是建置時間。
-// 一天部署好幾次、但卡片長內文沒變時，使用者的瀏覽器快取仍然有效，不必重抓 1.7 MB。
-// 雜湊不含 generated（每次建置都會變）；檔案本身也不放 generated，內容相同就是同一個位元組。
 const detailBody = JSON.stringify({ cards: detail, units: unitDetail });
-const detailV = createHash('sha256').update(detailBody).digest('hex').slice(0, 10);
-fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...index, detailV, cards: coreCards, units: coreUnits }));
+fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...index, cards: coreCards, units: coreUnits }));
 // 效能：public/home.json（約 20 KB gzip）＝學習首頁與清單頁（故事線、深入專題、主題標籤）畫得出來、點得動所需的最小資料，不含任何一張卡片。
 // 網頁同時抓 home.json 與 index.json：home.json 一到（加上程式）就畫首頁，index.json 到了再無縫換成完整資料（src/lib/detail.ts initStub／adoptCore）。
 // 欄位只放首頁／清單頁真的讀的：LearnHome、LearnApp 標題列、StorylineIndex、DiveIndex／DiveEntries、TopicIndex。
@@ -271,7 +267,7 @@ fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...in
 {
   const learnIds = new Set(cards.filter((c: any) => c.learn).map((c: any) => c.id));
   const homeData = {
-    generated: index.generated, detailV,
+    generated: index.generated,
     histories: (index.histories as any[]).map((h) => ({ ...h, n: cards.filter((c: any) => c.learn && (h.all || c.learn.histories.includes(h.id))).length })),
     units: (index.units as any[]).map((u) => ({ id: u.id, title: u.title, histories: u.histories, mystery: u.mystery, minutes: u.minutes, nsteps: u.steps.length })),
     storylines: (index.storylines as any[]).map((s) => ({ id: s.id, title: s.title, question: s.question, read: s.read ?? null, stops: s.stops.map((x: any) => x.id) })),
@@ -288,7 +284,7 @@ fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...in
   fs.writeFileSync(path.join(ROOT, 'public', 'home.json'), JSON.stringify(homeData));
 }
 // 效能：每張卡的長內文另外各存一個小檔（public/data/cards/<id>.json，幾 KB）。
-// 打開一張卡（或別人分享的 ?card= 連結）只抓這個小檔，不必等 1.7 MB 的 index-detail.json（src/lib/detail.ts）。
+// 打開一張卡（或別人分享的 ?card= 連結）只抓這個小檔（src/lib/detail.ts）。
 fs.mkdirSync(path.join(pubData, 'cards'), { recursive: true });
 for (const [id, d] of Object.entries(detail)) fs.writeFileSync(path.join(pubData, 'cards', `${id}.json`), JSON.stringify({ generated: index.generated, id, card: d }));
 // 效能：每個學習單元也各存一個小檔（public/data/units/<id>.json）：單元自己的每一步內文與查核紀錄，
@@ -307,6 +303,9 @@ for (const [id, d] of Object.entries(unitDetail)) {
   for (const cid of [...ids].sort()) cs[cid] = detail[cid];
   fs.writeFileSync(path.join(pubData, 'units', `${id}.json`), JSON.stringify({ generated: index.generated, id, unit: d, cards: cs }));
 }
-fs.writeFileSync(path.join(ROOT, 'public', 'index-detail.json'), `{"v":"${detailV}",${detailBody.slice(1)}`);
+fs.writeFileSync(path.join(ROOT, 'public', 'index-detail.json'), detailBody);
+// 效能：結構對照（src/components/StructureMatch.tsx）要掃過所有卡的內文：只讀各節文字（sections[].role／text）與來源（sources，今日對照鉤子的註記要用），
+// 另存 public/data/match.json（約為 index-detail.json 的 40%），只有打開結構對照才抓（detail.ts loadMatch）。
+fs.writeFileSync(path.join(pubData, 'match.json'), JSON.stringify({ cards: Object.fromEntries(Object.entries(detail).map(([id, d]: [string, any]) => [id, { sections: d.sections.map((s: any) => ({ role: s.role, text: s.text })), sources: d.sources }])) }));
 const errs = issues.filter((i) => i.level === 'error').length;
 console.log(`build-index：${cards.length} 張卡、${routes.length} 條路線、${index.chains.length} 條物資鏈、人群圖層 ${peoplesInfo.countries} 國／${peoplesInfo.langs} 種語言／${peoplesInfo.migrations} 條遷徙 → public/index.json${errs ? `（注意：有 ${errs} 個 validate 錯誤）` : ''}`);

@@ -16,10 +16,10 @@ import { findDive, diveMarks, diveRoutes, hasPowerVisual, powerFor, diveYear, pr
 import { useIsMobile } from '../lib/useIsMobile';
 import { LearnHome } from './LearnHome';
 import { useProgress } from './progress';
-import { ensureCards, ensureUnits, cardLoaded, unitLoaded, waitingText, coreReady } from '../lib/detail';
+import { ensureCards, ensureUnits, cardLoaded, unitLoaded, coreReady } from '../lib/detail';
 import { historyOf, inHistory, learnCards } from './util';
 import { PeoplePanel, MapView, StorylineView, StorylineIndex, DiveView, DiveIndex, UnitPlayer, LearnCard, HistoryPage, LearnTimeline, MyMap, LearnRecord, SimView, preload, TL_H } from '../chunks';
-import { CoreWait, Skel } from '../ui';
+import { CoreWait, DetailWait, Skel } from '../ui';
 import './learn.css';
 
 type View = { kind: 'home' } | { kind: 'history' } | { kind: 'unit'; id: string } | { kind: 'card'; id: string; section?: string }
@@ -232,7 +232,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   }, [view, recordKey]); // eslint-disable-line react-hooks/exhaustive-deps
   const ready = query.trim() || !coreOk ? true : view.kind === 'card' ? cardLoaded(index, view.id) : view.kind === 'unit' ? unitLoaded(index, view.id)
     : view.kind === 'record' ? recordUnits.every((id) => unitLoaded(index, id)) : true;
-  const content = ready ? contentRaw : <p className="muted loading-detail">{waitingText(index)}</p>;
+  const content = ready ? contentRaw : <DetailWait index={index} />;
 
   const topicName = view.kind === 'topic' ? view.name : null;
   const storyId = view.kind === 'story' ? view.id : null;
@@ -245,7 +245,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}}
     peoples={{ on: peoplesOn || (view.kind === 'unit' && !!unitPeople), setOn: (v) => { setPeoplesOn(v); if (!v) setUnitPeople(null); if (!v && view.kind === 'peoples') back(); }, sel: view.kind === 'peoples' ? view.id : view.kind === 'unit' ? unitPeople : null, onPick: (id) => { openPeople(id); if (isMobile && id !== PEOPLE_INTRO) setTab('main'); } }} />;
   const timeline = !coreOk ? <Skel h={TL_H.learn} label="時間軸載入中" /> : <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
-  const cardTab = !coreOk && lastCard ? <CoreWait index={index} /> : lastCard && !cardLoaded(index, lastCard) ? <p className="muted loading-detail">{waitingText(index)}</p> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
+  const cardTab = !coreOk && lastCard ? <CoreWait index={index} /> : lastCard && !cardLoaded(index, lastCard) ? <DetailWait index={index} /> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
 
   const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '單元', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題', peoples: '人群' } as Record<View['kind'], string>)[view.kind];
   const header = (

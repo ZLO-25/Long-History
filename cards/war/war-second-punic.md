@@ -24,23 +24,55 @@ place:
     - { name_ancient: 迦太基, name_modern: 突尼斯（突尼西亞）, lat: 36.85305, lng: 10.32305, pleiades_id: "314921", precision: exact, role: 迦太基首都 }
   scale: area
 structure_tags: [海權對陸權, 補給線過長, 聯盟破裂, 附庸反叛, 關鍵原料壟斷, 地形險阻, 霸權挑戰]
-topics: [對外擴張]
+topics: [對外擴張, 軍事同盟]
 links: [event-twelve-tables, war-actium, commodity-amphora-trade]
 causes:
   - { id: war-first-punic, rel: 背景, why: 迦太基戰敗失去西西里，又被羅馬奪走薩丁尼亞、加重賠款，只好轉往伊比利發展，用當地銀礦和兵源重建實力。, src: [s1, s2, s3] }
 effects:
   - { id: finance-roman-argentarii, rel: 背景, why: 羅馬在和漢尼拔作戰期間整頓幣制，約前 211 年推出第納里烏斯銀幣，之後成為羅馬數百年的標準銀幣。, src: [s4, finance-roman-argentarii:s1] }
   - { id: war-third-punic, rel: 背景, why: 和約讓迦太基不能自行開戰，羅馬又默許努米底亞不斷侵擾迦太基，最後引爆第三次戰爭，迦太基被毀。, src: [s1] }
+  - { id: event-gracchi-reforms, rel: 背景, why: 傳統說法是羅馬靠戰爭與擴張取得大量公地、奴隸和財富，農民失地，後來才有格拉古兄弟的土地改革；近年學者對此有修正。, src: [s5, "event-gracchi-reforms:s1", "event-gracchi-reforms:s3"], disputed: true }
 counterparts:
   - { id: war-changping, note: "相似：守方先採取避免決戰、拖垮對手的戰略，後來換上主張出擊的將領，主力被包圍殲滅（坎尼；長平）。不同：羅馬在坎尼之後仍能重新動員並最終獲勝；趙國的兵源在長平之後再也沒有恢復。", src: [s1, s7] }
 sources:
-  - { id: s1, title: "Second Punic War — Wikipedia", url: "https://en.wikipedia.org/wiki/Second_Punic_War", accessed: 2026-10-24 }
-  - { id: s2, title: "Mark Cartwright, Second Punic War — World History Encyclopedia (2016)", url: "https://www.worldhistory.org/Second_Punic_War/", accessed: 2026-10-24 }
-  - { id: s3, title: "Second Punic War — Encyclopaedia Britannica", url: "https://www.britannica.com/print/article/483518", accessed: 2026-10-24 }
-  - { id: s4, title: "Denarius — Wikipedia", url: "https://en.wikipedia.org/wiki/Denarius", accessed: 2026-10-24 }
-  - { id: s7, title: "Battle of Changping — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Changping", accessed: 2026-10-25 }
-verification: 交叉確認
+  - { id: s1, title: "Second Punic War — Wikipedia", url: "https://en.wikipedia.org/wiki/Second_Punic_War", accessed: 2026-10-24, tier: 百科 }
+  - { id: s2, title: "Mark Cartwright, Second Punic War — World History Encyclopedia (2016)", url: "https://www.worldhistory.org/Second_Punic_War/", accessed: 2026-10-24, tier: 通論 }
+  - { id: s3, title: "Second Punic War — Encyclopaedia Britannica", url: "https://www.britannica.com/print/article/483518", accessed: 2026-10-24, tier: 百科 }
+  - { id: s4, title: "Denarius — Wikipedia", url: "https://en.wikipedia.org/wiki/Denarius", accessed: 2026-10-24, tier: 百科 }
+  - { id: s5, title: "Battle of Cannae — Wikipedia（含波利比烏斯與李維的兵力、傷亡數字並列）", url: "https://en.wikipedia.org/wiki/Battle_of_Cannae", accessed: 2026-11-12, tier: 百科 }
+  - { id: s6, title: "Battle of Zama — Wikipedia（含兵力、傷亡、戰場位置與和約）", url: "https://en.wikipedia.org/wiki/Battle_of_Zama", accessed: 2026-11-12, tier: 百科 }
+  - { id: s8, title: "Quintus Fabius Maximus Verrucosus — Wikipedia", url: "https://en.wikipedia.org/wiki/Quintus_Fabius_Maximus_Verrucosus", accessed: 2026-11-12, tier: 百科 }
+  - { id: s9, title: "波利比烏斯《歷史》第 3 卷（Loeb 版英譯，LacusCurtius, University of Chicago）", url: "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/3*.html", accessed: 2026-11-12, tier: 一手 }
+  - { id: s7, title: "Battle of Changping — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Changping", accessed: 2026-10-25, tier: 百科 }
+importance: 3
+learn:
+  histories: [希臘羅馬史]
+  perspectives:
+    - { history: 希臘羅馬史, text: "從希臘羅馬史看，第二次布匿戰爭是羅馬從義大利強權變成西地中海霸主的關鍵一戰；坎尼的慘敗與羅馬仍能撐下去，顯示它的同盟與動員體系比單場勝負重要。[s1][s2]" }
+  why_care: 漢尼拔在坎尼打出史上最有名的包圍戰，卻沒有贏下戰爭；看懂「為什麼贏了戰役、卻輸了戰爭」，就是看懂同盟、兵源與補給比戰術更重要。[s1][s2][s5]
+  story: |
+    前 218 年，迦太基名將漢尼拔從西班牙出發，翻過阿爾卑斯山進入義大利。[s1][s2] 他連續打敗羅馬軍，前 217 年在特拉西梅諾湖伏擊成功，羅馬任命費邊為獨裁官，費邊選擇避免決戰、拖垮對手，被嘲笑為「拖延者」。[s1][s8] 前 216 年的坎尼會戰，漢尼拔用包圍戰術幾乎殲滅羅馬大軍，波利比烏斯記載約 7 萬名羅馬步兵陣亡，李維則記約 4 萬 5 千人，數字不同。[s5] 但南義的一些城市倒向漢尼拔，多數義大利同盟仍效忠羅馬，羅馬重新動員，海軍封鎖迦太基的增援。[s1][s2] 年輕的西庇阿在西班牙奪下迦太基的基地，前 204 年把戰場帶到非洲；前 202 年的札馬戰役，他擊敗漢尼拔。[s6]
+  key_terms:
+    - { term: 坎尼會戰, plain: 前 216 年漢尼拔在義大利東南部用包圍戰術幾乎殲滅羅馬大軍，是古代史上最有名的包圍戰之一。, example: 像足球賽中對手用兩翼包抄，把你整隊困在中間。 }
+    - { term: 費邊戰術（拖延戰術）, plain: 避免正面決戰，只騷擾、跟蹤、切斷補給，拖垮強大的敵人。, example: 像打消耗戰，不跟對手硬拚，只讓他一直找不到補給。 }
+    - { term: 獨裁官, plain: 羅馬在緊急時任命的臨時最高官員，原本任務完成就辭職。費邊在前 217 年被任命。, example: 像颱風天指定一位總指揮，等風過去就交還權力。 }
+    - { term: 戰象, plain: 迦太基用來衝擊敵陣、嚇敵軍的大象；漢尼拔在翻越阿爾卑斯山的過程中損失很多。, example: 像把大卡車當開路先鋒，威力大，但很難控制、也不好運送。 }
+    - { term: 同盟網絡, plain: 羅馬在義大利的各城邦、殖民地和盟友，必須提供兵力和糧食；坎尼之後多數仍效忠羅馬。, example: 像一個大型社團，成員多，即使領導團隊吃了敗仗，其他分會還是繼續支援。 }
+  primary_source:
+    - { text: "twelve thousand African and eight thousand Iberian foot（一萬二千名非洲步兵與八千名伊比利步兵）；not more than six thousand horse in all（騎兵總共不超過六千）", from: 波利比烏斯《歷史》3.56（漢尼拔自己在拉西尼翁立的銘文所記，Loeb 版英譯，LacusCurtius；中文為本站中譯）, src: s9 }
+  historiography: |
+    **坎尼的數字可信嗎？** 英文維基整理：波利比烏斯記羅馬與盟軍步兵陣亡 7 萬、被俘約 1 萬，約 6,000 名騎兵中只有 370 人逃出，迦太基陣亡 5,700；李維記步兵陣亡 4 萬 5,500、騎兵陣亡 2,700，被俘約 1 萬 9,300（含 3,000 步兵、1,500 騎兵、2,000 名逃兵與兩個營地的 1 萬 2,800 人），迦太基陣亡約 8,000。[s5] 現代學者有人否定波利比烏斯，有人接受李維；Cantalupi（1891）估計羅馬損失 1 萬 500 到 1 萬 6,000，Samuels（1990）認為李維數字太高，Clodfelter 懷疑 4 萬 8,000 到 7 萬的死亡。[s5] 古代數字多出自羅馬一方，讀時要看「誰說的」。
+    **費邊是英雄還是阻礙？** 費邊的戰術一開始被當作怯懦，「拖延者」是侮辱性綽號；坎尼之後，元老院與人民反而轉向他請益。[s8] 詩人恩尼烏斯後來寫「一個人靠拖延為我們挽回了國家」；但他也反對西庇阿入侵非洲，部分原因是個人嫉妒。[s8] 所以評價隨時間與立場而變。
+    **札馬在哪？兵力多少？** 一般認為戰場在今突尼西亞的西卡（今 El Kef）南邊平原，但並非所有學者同意；多數人依波利比烏斯，迦太基約 4 萬（含約 4,000 騎兵），羅馬約 2 萬 9,000 到 3 萬，另有人估計 4 萬；阿庇安的數字（羅馬 3 萬 4,500、迦太基 5 萬）被多數現代學者否定。[s6] 波利比烏斯記迦太基約 2 萬人陣亡、2 萬被俘，羅馬約 1,500 人陣亡；李維對札馬的敘述與波利比烏斯「大相逕庭」。[s6]
+  misconceptions:
+    - 「漢尼拔贏了所有大戰，所以應該贏得戰爭」：他在坎尼大勝，但羅馬的盟友網絡、兵源與制海權讓羅馬能補充兵力，迦太基增援卻很少，戰爭拖了十多年。[s1][s2]
+    - 「費邊戰術就是不打仗」：費邊的辦法是跟蹤、騷擾、切斷補給與焦土，避免的是正面決戰；他也曾因為部下違令而出兵救援。[s8]
+  pop_culture:
+    - { claim: "常見說法：漢尼拔帶著大批戰象翻越阿爾卑斯山，威風凜凜地進入義大利。", fact: "波利比烏斯記載，漢尼拔在隆河時約有 3 萬 8,000 步兵與 8,000 多騎兵，渡阿爾卑斯山時損失大約一半兵力；他自己立的銘文則記到達義大利時有 2 萬名步兵與不超過 6,000 名騎兵。[s9]", src: [s9] }
+    - { claim: "常見說法：坎尼會戰殲滅了羅馬，羅馬從此一蹶不振。", fact: "坎尼是羅馬最嚴重的敗仗之一，但拉丁殖民地和義大利中部多數仍效忠羅馬；羅馬在前 212 年動員超過 10 萬軍團兵，最後在札馬獲勝。[s1][s2][s6]", src: [s1, s2, s6] }
+    - { claim: "常見說法：札馬戰役的記載是定論。", fact: "戰場位置有爭議，兵力與傷亡也因史家而異；李維與波利比烏斯的敘述差異很大，阿庇安的數字多被現代學者否定。[s6]", src: [s6] }
 lens_status: 無直接論述
+verification: 交叉確認
 ---
 
 ## A1 交戰方與聯盟結構
@@ -58,7 +90,7 @@ lens_status: 無直接論述
 
 ## A4 兵力與軍事技術
 
-估計：漢尼拔抵達義大利時約 2 萬步兵、6 千騎兵與少數戰象。[s1][s3] 坎尼會戰羅馬方損失說法不一：一說至少 6.75 萬人陣亡或被俘，一說約 5 萬人陣亡。[s1][s2] 羅馬在不到三年內損失超過 12 萬兵力。[s1]
+估計：漢尼拔抵達義大利時約 2 萬步兵、6 千騎兵與少數戰象。[s1][s3] 波利比烏斯記載，他在隆河時約有 3 萬 8,000 步兵與 8,000 多騎兵，翻越阿爾卑斯山損失了大約一半。[s9] 坎尼會戰羅馬方損失說法不一：一說至少 6.75 萬人陣亡或被俘，一說約 5 萬人陣亡。[s1][s2] 羅馬在不到三年內損失超過 12 萬兵力。[s1] **坎尼的數字並列**：波利比烏斯記羅馬方步兵陣亡 7 萬、被俘 1 萬，騎兵約 6,000 人中僅 370 人逃出；李維記步兵陣亡 4 萬 5,500、騎兵陣亡 2,700、被俘約 1 萬 9,300；迦太基方陣亡，波利比烏斯記 5,700 人、李維記約 8,000 人；現代學者有人否定波利比烏斯，有人接受李維，另有人估計羅馬損失遠低於兩者。[s5]
 
 ## A5 後勤與補給
 
@@ -71,15 +103,16 @@ lens_status: 無直接論述
 ## A7 關鍵轉折
 
 - 前 218：特雷比亞河之戰。[s1][s2]
-- 前 217：特拉西梅諾湖之戰；法比烏斯採取「拖延戰術」，避免正面決戰。[s1][s2]
-- 前 216：坎尼會戰。[s1][s2][s3]
+- 前 217：特拉西梅諾湖之戰；費邊（法比烏斯）被任命為獨裁官，元老院不讓他挑選騎兵長官，由他的政敵米努基烏斯擔任；他採取「拖延戰術」，跟蹤並騷擾漢尼拔、焦土切斷糧食，這個外號「拖延者」一開始是嘲笑。[s1][s2][s8] 米努基烏斯違令出擊，一度被圍，費邊趕去救援；任期結束後，元老院沒有延長他的權力。[s5][s8]
+- 前 216：坎尼會戰；兩位執政官瓦羅與保盧斯輪流指揮，保盧斯主張不要在平原決戰並陣亡，瓦羅被當成代罪羔羊，但英文維基提到學者質疑他的出身被誇大。[s1][s2][s3][s5] 坎尼之後，元老院與人民轉而向費邊請益，他提的建議多半被採納。[s8]
 - 前 211：羅馬收復卡普阿。[s3]
-- 前 209：西庇阿攻下新迦太基；前 206 伊利帕之戰，迦太基失去伊比利。[s1][s2]
-- 前 202：札馬戰役，漢尼拔戰敗。[s1][s2]
+- 前 209：西庇阿攻下新迦太基；前 206 伊利帕之戰，迦太基失去伊比利。[s1][s2] 西庇阿前 210 年接掌伊比利的羅馬軍，前 205 年約 31 歲就當選執政官（低於一般的最低年齡 42 歲）；費邊反對他入侵非洲，限制他的兵力。[s6][s8]
+- 前 204：西庇阿的軍隊在非洲登陸。[s6]
+- 前 202：札馬戰役，漢尼拔戰敗；努米底亞的馬西尼薩帶約 4,000 騎兵在羅馬右翼，戰象失控後他的衝鋒擊潰迦太基的努米底亞騎兵；波利比烏斯記迦太基約 2 萬人陣亡、2 萬人被俘，羅馬約 1,500 人陣亡。[s1][s2][s6] 西庇阿因此得到「阿非利加努斯」的稱號。[s6]
 
 ## A8 結果
 
-前 201 年和約：迦太基失去所有海外領地，50 年內賠償 1 萬塔蘭特白銀，艦隊只准保留 10 艘、不得擁有戰象，未經羅馬許可不得在非洲以外（及非洲境內）作戰。[s1][s2]
+前 201 年和約：迦太基失去所有海外領地，50 年內賠償 1 萬塔蘭特白銀，艦隊只准保留 10 艘、不得擁有戰象，未經羅馬許可不得在非洲境內作戰，也不得在非洲以外作戰，並交出人質；條約在前 201 年春被接受。[s1][s2][s6]
 
 ## A9 長期影響
 

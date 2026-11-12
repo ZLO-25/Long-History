@@ -47,6 +47,7 @@ cards:
   - person-aristotle
   - person-alexander
 storylines: [story-ancient-greece, story-greece]
+compare: [greece-rome]
 units: [unit-greece-1, unit-greece-2, unit-athens-sparta]
 power_maps:
   - { year: -431, file: ancient-greece/power-bc431.geojson }

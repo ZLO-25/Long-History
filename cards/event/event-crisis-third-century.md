@@ -24,6 +24,7 @@ topics: [帝國的衰亡, 鑄幣, 通貨膨脹, 內戰, 疫病]
 links: [event-constitutio-antoniniana, finance-byzantine-solidus, event-fall-western-rome, event-christian-empire, finance-roman-argentarii]
 causes:
   - { id: event-constitutio-antoniniana, rel: 促成, why: "卡拉卡拉為了財政與軍餉，把軍餉提高五成，又推出含銀較少的新銀幣；之後的皇帝一再降低成色，終於在三世紀引爆通膨。", src: ["event-constitutio-antoniniana:s2", "event-constitutio-antoniniana:s3", s4], disputed: true }
+  - { id: event-pax-romana, rel: 背景, why: "羅馬和平靠軍隊只效忠皇帝一人來維持；傳統上 180 年後和平結束，到三世紀軍隊反而一再擁立或殺害皇帝，有學者把兩者看成同一套體制的前後階段。", src: ["event-pax-romana:s4", s1], disputed: true }
 effects:
   - { id: finance-byzantine-solidus, rel: 回應, why: "三世紀銀幣幾乎變成銅幣、一枚幾乎不值錢；君士坦丁推出重量成色固定的索利都斯金幣來重建信用。", src: [s4, "finance-byzantine-solidus:s1"] }
   - { id: event-fall-western-rome, rel: 背景, why: "有學者認為三世紀留下的問題（軍人擁立皇帝、重稅、內戰與繼承不穩）延續到四、五世紀，是西羅馬滅亡的內部原因之一。", src: [s1, "event-fall-western-rome:s1"], disputed: true }

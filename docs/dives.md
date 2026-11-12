@@ -186,3 +186,23 @@ legacy:
 - `tag` 用來分組（制度／語言文字／運動與藝術／科學／建築，依第一次出現的順序排列）。`now` 的說法也要有來源；每條至少一筆 `src`。
 - `npm run validate`：每條要有 then、now、tag、card、src；card 存在（不在專題 cards 裡只警告）；src 都在 sources、sources 要有 id／title／url／accessed／tier；沒人引用的來源警告。build 時指到還不存在的卡的條目先略過。
 - 畫面：`src/components/DiveLegacy.tsx`，研究與學習模式共用 `DiveView`。放在「照順序讀」之後（研究模式專題頁最下方；學習模式在學習單元之後）；桌機兩欄（左「那時候」、中間箭頭、右「今天」），手機上下排；點「看卡片：○○」開卡（學習模式還沒收錄的卡灰框連到研究模式）；出處是每條下方的小字連結。樣式在 `dive.css`，字色 #2d2a26／#5a544a 對白底與 `--dive-bg` 都 ≥ 4.5:1。
+
+## 十、對照表（compare，2026-11-12 起，第一個是希臘 vs 羅馬）
+
+把兩個專題（或兩個文明）放在同一張表裡比：每個「面向」一列，左右各一句話，附可點的卡與出處。資料檔在 `data/dives/compare/<名稱>.yaml`，專題 yaml 用 `compare: [greece-rome]` 引用（古希臘、古羅馬兩個專題都引用同一份）。隨專題資料輸出（`index.json` 的 `dives[].compare`，和 `legacy` 同一層；不進 `home.json`）。
+
+```yaml
+id: greece-rome                # ＝檔名
+title: 希臘 vs 羅馬
+left:  { label: 古希臘（以雅典為主）, dive: dive-ancient-greece }
+right: { label: 古羅馬, dive: dive-ancient-rome }
+rows:
+  - { aspect: 政治怎麼運作, left: …一句話, right: …一句話, left_card: social-athenian-democracy, right_card: event-roman-republic-founding, src: [C1, C2] }
+sources:
+  - { id: C1, title: …, url: …, accessed: 2026-11-12, tier: 百科 }
+```
+
+- `left_card`、`right_card` 選填（可只放一邊）；`src` 至少一筆；每格的說法都要能在 `src` 找到。規劃書預定的面向：政治、公民權、軍隊、宗教、對待被征服者、留給今天的東西。
+- `npm run validate`：left／right 的 dive 存在、id＝檔名、每列 aspect／left／right 都有字、卡存在、src 都在 sources、sources 欄位齊全；沒人引用的來源警告。build 時指到還不存在的卡的欄位，只略過卡片按鈕、文字照留。
+- 畫面：`src/components/DiveCompare.tsx`（研究與學習模式共用 `DiveView`）。桌機三欄（面向｜左｜右），手機每個面向一張卡、左右上下排（每格前面標出是哪一邊）；點「看卡片：○○」開卡；出處是每列下方小字。頁內導覽多一顆「希臘 vs 羅馬」按鈕。樣式在 `dive.css`（`.dv-cp-*`）。
+- `scripts/qa/dive.cjs`：有 `legacy` 的專題檢查今日影子條數，有 `compare` 的專題檢查對照表列數。

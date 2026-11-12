@@ -1,0 +1,82 @@
+# 深入專題：古羅馬（檔名＝id 去掉 dive-）。規劃書 docs/dive-greece-rome-plan.md 第二節；程式說明見 docs/dives.md
+id: dive-ancient-rome
+title: 古羅馬：一座城怎麼變成地中海，又怎麼守不住
+question: 羅馬人趕走國王、發誓不再讓一個人說了算，為什麼五百年後還是出現了皇帝？一個管了整個地中海的帝國，又是怎麼一步步守不住的？
+blurb: 這個專題把前 509 年到西元 476 年的羅馬放大來看：共和的制度怎麼運作、擴張怎麼改變了它、內戰怎麼把權力集中到一個人手上、帝國又怎麼在三世紀的危機之後一步步分裂。最後一區帶你對照希臘與羅馬，看兩個古代文明各自留下了什麼。
+range: { start: -509, end: 476 }
+histories: [希臘羅馬史]
+visual: power
+power_ui:
+  title: 羅馬疆域圖
+  subtitle: 羅馬在什麼時候管到哪裡
+  caveat: 羅馬的疆域邊界很不固定，行省和附庸國也常常改變；這裡只能用今日的國界近似，一個國家只有一部分在羅馬境內時，會用經線或緯線切開，邊界只是示意，不是當時確切的界線。
+  legend: 今日國界
+lanes:
+  - { name: 政治與制度, types: [event, social] }
+  - { name: 戰爭, types: [war] }
+  - { name: 錢、技術與建築, types: [finance, commodity, tech, building] }
+  - { name: 人物（在世期間）, types: [person] }
+cards:
+  # 既有卡
+  - building-forum-romanum
+  - event-conflict-of-orders
+  - event-twelve-tables
+  - war-samnite
+  - building-via-appia
+  - building-roman-aqueducts
+  - war-first-punic
+  - war-second-punic
+  - finance-roman-argentarii
+  - war-roman-conquest-greece
+  - war-third-punic
+  - commodity-amphora-trade
+  - commodity-roman-concrete
+  - event-roman-grain-dole
+  - event-rubicon
+  - event-second-triumvirate
+  - war-actium
+  - commodity-egypt-grain
+  - event-augustan-principate
+  - event-pax-romana
+  - war-teutoburg
+  - war-jerusalem-70
+  - building-colosseum
+  - building-pantheon
+  - building-hadrians-wall
+  - event-constitutio-antoniniana
+  - event-crisis-third-century
+  - finance-byzantine-solidus
+  - event-christian-empire
+  - war-adrianople
+  - event-fall-western-rome
+  - war-vandal-north-africa
+  # 新卡（同事撰寫中）
+  - event-roman-republic-founding
+  - event-gracchi-reforms
+  - event-marian-reforms-sulla
+  - social-roman-slavery-spartacus
+  - social-roman-law
+  - event-pompeii-79
+  - event-early-christianity
+  - event-diocletian-tetrarchy
+  - event-byzantine-afterlife
+  - person-hannibal
+  - person-tiberius-gracchus
+  - person-caesar
+  - person-cleopatra
+  - person-augustus
+  - person-constantine
+storylines: [story-ancient-rome, story-rome-empire]
+compare: [greece-rome]
+units: [unit-rome-1, unit-rome-2, unit-rome-fall]
+power_maps: []
+legacy:
+  title: 今日影子
+  items:
+    - then: 羅馬人把「大家共同的事」叫 res publica，王被趕走之後，由每年改選的執政官管理。
+      now: 英文 republic（共和國）就是從 res publica 來的；今天很多國家的正式名稱仍叫共和國。
+      tag: 制度
+      card: event-roman-republic-founding
+      src: [L1]
+  sources:
+    - { id: L1, title: "Etymonline：republic", url: "https://www.etymonline.com/word/republic", accessed: 2026-11-12, tier: 通論 }

@@ -12,6 +12,7 @@ import { RelationGraph } from './RelationGraph';
 import { BookView, DeepTimeline } from './DiveBook';
 import { DiveCurve } from './DiveCurve';
 import { DiveLegacySec } from './DiveLegacy';
+import { DiveCompareSec } from './DiveCompare';
 
 export { findDive, DEFAULT_POWER_UI, hasPowerVisual, diveRoutes, diveMarks, diveYear, prehistDive, powerFor, DiveEntries };
 const byIdOf = _byIdOf;
@@ -88,6 +89,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
     </section>
   );
   const legacySec = d.legacy && d.legacy.items.length > 0 && <DiveLegacySec legacy={d.legacy} diveId={d.id} byId={m} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} />;
+  const compareSec = (d.compare ?? []).length > 0 && <>{d.compare!.map((c, i) => <DiveCompareSec key={c.id} anchorId={i === 0 ? `dv-compare-${d.id}` : `dv-compare-${c.id}-${d.id}`} compare={c} byId={m} onOpen={onOpen} canOpen={canOpen} researchHref={researchHref} />)}</>;
   const sorted = [...d.power_maps].sort((a, b) => a.year - b.year);
   // 圖例：有卡片連結的主要區塊先列，補到 8 列；其餘收進「其餘 N 個較小的區塊」
   const legendOf = (pw: PowerMap) => { const main = pw.powers.filter((p) => p.card && m.get(p.card)); const rest = pw.powers.filter((p) => !main.includes(p)); const head = [...main, ...rest.slice(0, Math.max(0, 8 - main.length))]; return { head: pw.powers.filter((p) => head.includes(p)), more: pw.powers.filter((p) => !head.includes(p)) }; };
@@ -144,9 +146,9 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       ))}
     </section>
   );
-  const anchors: [string, string, boolean][] = [['dv-read', learn ? '學習單元' : '照順序讀', !!readSec], ['dv-legacy', d.legacy?.title ?? '今日影子', !!legacySec], ['dv-power', d.curves && d.visual === 'curve' ? d.curves.title : ui.title, !!(powerSec || curveSec)], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true]];
+  const anchors: [string, string, boolean][] = [['dv-read', learn ? '學習單元' : '照順序讀', !!readSec], ['dv-legacy', d.legacy?.title ?? '今日影子', !!legacySec], ['dv-compare', d.compare?.[0]?.title ?? '對照表', !!compareSec], ['dv-power', d.curves && d.visual === 'curve' ? d.curves.title : ui.title, !!(powerSec || curveSec)], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true]];
   const bookAnchors: [string, string, boolean][] = d.book ? [['dv-deep', '深時間軸', true], ['dv-book', `照書讀 ${d.book.chapters.length} 站`, true]] : [];
-  const ordered = [...bookAnchors, ...(learn || d.book ? anchors : [anchors[2], anchors[3], anchors[4], anchors[0], anchors[1]])];
+  const ordered = [...bookAnchors, ...(learn || d.book ? anchors : [anchors[3], anchors[4], anchors[5], anchors[0], anchors[1], anchors[2]])];
   return (
     <div className="dive-view" ref={rootRef}>
       <nav className="dv-crumb" aria-label="麵包屑"><button className="link" onClick={onAll}>深入專題</button> <span aria-hidden>›</span> <span>{d.title}</span></nav>
@@ -163,7 +165,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       )}
       {d.book && <BookView dive={d} book={d.book} byId={m} cardBtn={(c) => cardBtn(c, marks.get(c.name))} open={openCh} setOpen={setOpenCh} unitBtn={(uid) => { const i = unitList.findIndex((u) => u.id === uid); return i >= 0 ? unitBtn(unitList[i], i) : null; }} />}
 
-      {learn || d.book ? <>{readSec}{legacySec}{powerSec}{curveSec}{personSec}{cardSec}</> : <>{powerSec}{curveSec}{personSec}{cardSec}{readSec}{legacySec}</>}
+      {learn || d.book ? <>{readSec}{legacySec}{compareSec}{powerSec}{curveSec}{personSec}{cardSec}</> : <>{powerSec}{curveSec}{personSec}{cardSec}{readSec}{legacySec}{compareSec}</>}
       <p className="dv-note muted small">專題只是把這段時代的卡片聚在一起放大看；每張卡仍然在整條長河、地圖和主題標籤裡，可以隨時跳出去比較別的時代。</p>
     </div>
   );

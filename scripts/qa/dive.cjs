@@ -40,6 +40,19 @@ const fs = require('fs');
     const yearsAsc = d.power_maps.map((x) => x.year).sort((a, b2) => a - b2);
     const noLearn = cards.filter((c) => c && c.type !== 'person' && !c.learn);
 
+    // 通用：有 legacy 的專題顯示「今日影子」且條數相符；有 compare 的專題顯示對照表且列數相符（index.json 已略過還沒有卡的條目）
+    const extras = async (pg, tag) => {
+      if (d.legacy && d.legacy.items.length) {
+        ok((await pg.$$('.dive-view .dv-legacy')).length === 1 && (await pg.$$('.dive-view .dv-legacy .dv-lg-item')).length === d.legacy.items.length, `${tag}：顯示今日影子區塊，條數相符（${d.legacy.items.length}）`);
+      }
+      for (const c of d.compare ?? []) {
+        const sec = await pg.$('.dive-view .dv-compare');
+        ok(!!sec && (await sec.$$('.dv-cp-row')).length === c.rows.length, `${tag}：顯示對照表「${c.title}」，列數相符（${c.rows.length}）`);
+        ok(c.rows.every((r) => r.left && r.right && r.src.length), `${tag}：對照表每列左右都有字、有來源`);
+      }
+      if ((d.compare ?? []).length) ok((await pg.$$eval('.dv-anchors .chip', (els) => els.map((e) => e.textContent))).includes(d.compare[0].title), `${tag}：頁內導覽有「${d.compare[0].title}」`);
+    };
+
     // ---- 資料（通用）----
     ok(cards.every(Boolean), '專題的卡片都存在');
     ok(cards.every((c, i) => i === 0 || c.time.start >= cards[i - 1].time.start), '專題卡片依年份排好');
@@ -100,6 +113,7 @@ const fs = require('fs');
     const laneFills = await p.$$eval('.timeline .lane', (els) => els.map((e) => getComputedStyle(e).fill));
     ok(laneFills.length >= 2 && laneFills.every((f) => f !== 'rgb(0, 0, 0)'), `專題時間軸軌道背景不是黑色（${[...new Set(laneFills)].join(' / ')}）`);
     ok((await p.$$('.dv-card')).length >= d.cards.length, '專題頁列出全部卡片');
+    await extras(p, '研究模式');
     ok((await p.$$('.topic-mark')).length >= 3, '地圖上標了卡片編號');
     // 不出現上一個專題寫死的字樣
     const pageText = (await p.textContent('.dive-view')) || '';
@@ -208,6 +222,7 @@ const fs = require('fs');
     ok(!!(await m.$('.dive-view')), '手機：?dive= 打開專題頁');
     ok(!!(await m.$('.dive-view button:has-text("在地圖上看")')), '手機：有「在地圖上看」');
     ok(await m.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), '手機：頁面沒有橫向捲動');
+    await extras(m, '手機');
     await m.screenshot({ path: `${out}/${pre(d)}dive-mobile-390.png` });
     await m.click('.dive-view button:has-text("在地圖上看")'); await m.waitForTimeout(1200);
     if (hasMap) ok((await m.$$('.power-label')).length >= Math.min(3, d.power_maps[0].powers.filter((x) => !x.minor).length), `手機：地圖分頁顯示${ui.title}（${(await m.$$('.power-label')).length} 個標籤）`);
@@ -238,6 +253,7 @@ const fs = require('fs');
     const ld = await b.newPage({ viewport: { width: 1280, height: 900 } }); watch(ld);
     await ld.goto(base + `?mode=learn&dive=${d.id}`, { waitUntil: 'networkidle' }); await ld.waitForTimeout(1500);
     ok(!!(await ld.$('.dive-view')), '學習模式網址 ?dive= 打開專題頁');
+    await extras(ld, '學習模式');
     if (hasMap) ok((await ld.$$('.power-label')).length >= Math.min(3, d.power_maps[0].powers.filter((x) => !x.minor).length), `學習模式地圖也疊上${ui.title}（${(await ld.$$('.power-label')).length}）`);
     if (hasP) ok(!!(await ld.$('.rel-graph')), '學習模式專題頁有人物關係網');
     else ok(!(await ld.$('.rel-graph')) && !((await ld.textContent('.dive-view')) || '').includes('位人物'), '學習模式：沒有人物卡就不顯示人物區');

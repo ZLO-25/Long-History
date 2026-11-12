@@ -1,4 +1,4 @@
-// npm run power：把 data/dives/<專題>/power-<年>.yaml（勢力 → 底圖區域）拼成 power-<年>.geojson（勢力／領土示意圖）
+// npm run power：把 data/dives/<專題>/power-<年>.yaml（勢力 → 底圖區域）拼成 power-<年>.geojson（勢力／領土示意圖）；西元前的年份檔名寫 power-bc431.yaml（year: -431）
 // 底圖多邊形來自 data/ne/<basemap>.geojson（Natural Earth，公有領域）：預設 japan_prefectures（日本都道府縣），美國用 us_states（npm run basemap -- US）。
 // 一個區域含兩個勢力時（例：愛知＝尾張＋三河、懷俄明＝購地＋奧勒岡）用 lng_lt／lng_gt／lat_lt／lat_gt 以經線或緯線切開；切法見 docs/dives.md。
 import fs from 'node:fs';
@@ -47,7 +47,7 @@ const dives = fs.readdirSync(path.join(ROOT, 'data/dives'), { withFileTypes: tru
 let n = 0;
 for (const d of dives) {
   const dir = path.join(ROOT, 'data/dives', d);
-  for (const f of fs.readdirSync(dir).filter((x) => /^power-\d+\.yaml$/.test(x))) {
+  for (const f of fs.readdirSync(dir).filter((x) => /^power-(bc)?\d+\.yaml$/.test(x))) {
     const spec = YAML.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
     const basemap: string = spec.basemap ?? 'japan_prefectures';
     const base = loadBase(basemap);

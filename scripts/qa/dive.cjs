@@ -19,6 +19,8 @@ const fs = require('fs');
   const ok = (cond, msg) => { console.log(`${cond ? '✓' : '✗'} ${msg}`); if (!cond) fail++; };
   const ix = await require('./load-index.cjs')(base);
   const byId = new Map(ix.cards.map((c) => [c.id, c]));
+  // 畫面上的年份寫法（同 src/lib/format.ts fmtYear）：負數年份顯示成「前 431」→ 「前431」
+  const fy = (y) => (y < 0 ? `前${-y}` : String(y));
   const pre = (d) => (d.id === 'dive-sengoku' ? '' : d.id.replace(/^dive-/, '') + '-');
 
   // ---- 專題總數 ----
@@ -105,7 +107,7 @@ const fs = require('fs');
     if (hasMap) {
       ok((await p.textContent('.dv-power h3')).includes(ui.title), `主視覺標題來自 power_ui（${ui.title}）`);
       const onChip = ((await p.textContent('.dv-power .chip.on')) || '').trim();
-      const pm0 = d.power_maps.find((x) => onChip.startsWith(String(x.year))) ?? d.power_maps[0];
+      const pm0 = d.power_maps.find((x) => onChip.startsWith(fy(x.year))) ?? d.power_maps[0];
       ok(pm0.year === yearsAsc[0], `進專題預設打開第一張圖（${pm0.year} 年），不是結局`);
       ok((await p.$$('.dv-legend li')).length === pm0.powers.length, `圖例列出全部區塊（${pm0.year} 年，${pm0.powers.length} 個）`);
       if (ui.legend) ok(await p.$$eval('.dv-legend li small', (els) => els.length > 0 && els.every((e) => /：/.test(e.textContent))), `圖例小字有前綴「${ui.legend}：」`);
@@ -119,15 +121,16 @@ const fs = require('fs');
       // 逐年切換：圖例跟著換、時間軸紅線跟到、疆域標籤用目前年份
       for (const pm of [...d.power_maps].sort((a, b2) => a.year - b2.year)) {
         if (pm.year === pm0.year && d.power_maps.length > 1) continue;
-        await p.click(`.dv-power .chip:has-text("${pm.year}")`); await p.waitForTimeout(900);
+        await p.click(`.dv-power .chip:has-text("${fy(pm.year)}")`); await p.waitForTimeout(900);
         ok((await p.$$('.dv-legend li')).length === pm.powers.length, `切到 ${pm.year} 年：圖例變成 ${pm.powers.length} 個區塊`);
-        ok((await p.textContent('.tl-head')).includes(String(pm.year)), `切年份時，時間軸紅線跟到 ${pm.year}`);
+        ok((await p.textContent('.tl-head')).includes(fy(pm.year)), `切年份時，時間軸紅線跟到 ${pm.year}`);
         const snapTxt = await p.evaluate(() => { const l = document.querySelector('.map-legend'); return l ? l.textContent : ''; });
-        const m2 = /疆域示意：(\d+) 年/.exec(snapTxt);
-        if (m2) ok(Number(m2[1]) === pm.year || Math.abs(Number(m2[1]) - pm.year) <= 3, `地圖圖例的疆域年份跟著目前年份（圖例寫 ${m2[1]}，選 ${pm.year}）`);
+        const m2 = /疆域示意：(前?\d+) 年/.exec(snapTxt);
+        const my = m2 ? (m2[1].startsWith('前') ? -Number(m2[1].slice(1)) : Number(m2[1])) : 0;
+        if (m2) ok(my === pm.year || Math.abs(my - pm.year) <= 3, `地圖圖例的疆域年份跟著目前年份（圖例寫 ${m2[1]}，選 ${pm.year}）`);
         await p.screenshot({ path: `${out}/${pre(d)}power-${pm.year}-1280.png` });
       }
-      await p.click(`.dv-power .chip:has-text("${yearsAsc[0]}")`); await p.waitForTimeout(600);
+      await p.click(`.dv-power .chip:has-text("${fy(yearsAsc[0])}")`); await p.waitForTimeout(600);
     } else if (d.visual === 'curve' && d.curves) {
       const n = (await p.$$('.dv-curve')).length;
       ok(n === d.curves.series.length, `曲線主視覺：每條數列一張小圖（${n}／${d.curves.series.length}）`);
@@ -172,7 +175,7 @@ const fs = require('fs');
     if (hasMap) {
       await p.click('.dv-power .chip:has-text("關")'); await p.waitForTimeout(400);
       ok((await p.$$('.power-label')).length === 0, '按「關」後主視覺消失');
-      await p.click(`.dv-power .chip:has-text("${yearsAsc[0]}")`); await p.waitForTimeout(800);
+      await p.click(`.dv-power .chip:has-text("${fy(yearsAsc[0])}")`); await p.waitForTimeout(800);
     }
     // 點人物
     // 優先挑「有關係、人生軌跡跨得最廣」的人物（一生都在巴黎一帶的人，地圖上年份會合併成一兩個標籤）
@@ -213,7 +216,7 @@ const fs = require('fs');
       // 其他年份的手機地圖截圖（切年份在專題頁，再回地圖）
       for (const y of yearsAsc.filter((_, i) => i > 0 && i < yearsAsc.length)) {
         await m.goto(base + `?mode=research&dive=${d.id}`, { waitUntil: 'networkidle' }); await m.waitForTimeout(900);
-        await m.click(`.dv-power .chip:has-text("${y}")`); await m.waitForTimeout(500);
+        await m.click(`.dv-power .chip:has-text("${fy(y)}")`); await m.waitForTimeout(500);
         await m.click('.dive-view button:has-text("在地圖上看")'); await m.waitForTimeout(1200);
         ok((await m.$$('.power-label')).length >= 1, `手機：${y} 年地圖有標籤（${(await m.$$('.power-label')).length}）`);
         await m.screenshot({ path: `${out}/${pre(d)}power-${y}-mobile-390.png` });

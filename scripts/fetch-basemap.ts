@@ -20,6 +20,10 @@ const BASEMAPS: Record<string, { adm0: string; adm0s?: string[]; url1?: string; 
   // 寮國、泰國整國用 admin-0 補上（吳哥極盛時伸進今天泰國東北、寮國南部，只當背景）
   IC: { adm0: '', adm0s: ['VNM', 'KHM'], url1: 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson', digits: 2, out: 'indochina_provinces', label: '越南 63 省、柬埔寨 24 省（Natural Earth 10m 的舊省界），另加寮國、泰國整國', extra0: [
     { a3: 'LAO', code: 'LA', name: 'Laos' }, { a3: 'THA', code: 'TH', name: 'Thailand' } ] },
+  // 愛琴海世界（古希臘）：希臘 admin-1（10m：14 區＝13 個大區＋阿索斯山）＋土耳其 81 省（愛奧尼亞海岸、小亞細亞）；
+  // 阿爾巴尼亞、北馬其頓、保加利亞、賽普勒斯用 admin-0 整國補上（它們的 admin-1 太碎或不需要）。座標 2 位小數讓檔案變小
+  AEGEAN: { adm0: '', adm0s: ['GRC', 'TUR'], url1: 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson', digits: 2, out: 'aegean', label: '希臘 14 個行政區、土耳其 81 省，另加阿爾巴尼亞、北馬其頓、保加利亞、賽普勒斯整國（CY＋CY-N 合起來是整座島）', extra0: [
+    { a3: 'ALB', code: 'AL', name: 'Albania' }, { a3: 'MKD', code: 'MK', name: 'North Macedonia' }, { a3: 'BGR', code: 'BG', name: 'Bulgaria' }, { a3: 'CYP', code: 'CY', name: 'Cyprus' }, { a3: 'CYN', code: 'CY-N', name: 'Northern Cyprus' } ] },
 };
 
 const key = (process.argv[2] ?? '').toUpperCase();
@@ -71,7 +75,7 @@ if (!features.length) throw new Error(`篩不到 adm0_a3 = ${spec.adm0s ?? spec.
 const out = {
   type: 'FeatureCollection',
   source: `Natural Earth ${spec.url1 ? '10m' : '50m'} admin-1 states/provinces（公有領域）, https://github.com/nvkelso/natural-earth-vector`,
-  note: `只留${spec.label}，座標四捨五入至小數點後 3 位；給 scripts/build-power.ts 拼領土擴張示意圖用`,
+  note: `只留${spec.label}，座標四捨五入至小數點後 ${spec.digits ?? 3} 位；給 scripts/build-power.ts 拼領土擴張示意圖用`,
   features,
 };
 const file = path.join(ROOT, 'data/ne', `${spec.out}.geojson`);

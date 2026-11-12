@@ -1,0 +1,124 @@
+---
+id: person-alcibiades
+type: person
+name: 阿爾西比亞德斯
+aliases: [阿爾西比亞德斯, 阿爾喀比亞德, 亞西比德, 阿爾西比亞德, Alcibiades, Alkibiades, 亞西比得]
+civilization: [古希臘, 波斯]
+track: west
+time:
+  start: -450
+  end: -404
+  precision: approx
+  src: [s1]
+summary_line: 人物｜宮廷／政治中心｜雅典、斯巴達、小亞細亞｜阿爾西比亞德斯
+place:
+  primary_field: 宮廷／政治中心
+  secondary_fields: [戰場, 思想場域]
+  locations:
+    - { name_ancient: 雅典, name_modern: "雅典（希臘）", lat: 37.9715, lng: 23.7257, pleiades_id: "579885", precision: schematic, year: -450, role: "生於前 451／450 年（WHE）；童年住在叔叔輩伯里克里斯家中", src: [s1, s2] }
+    - { name_ancient: 雅典（出征前夕）, name_modern: "雅典與比雷埃夫斯港（希臘）", lat: 37.9420, lng: 23.6470, precision: schematic, year: -415, role: "前 415 年發言說服公民大會遠征西西里；出發前赫爾墨斯像被毀，他成為主要嫌疑人，被召回受審時逃走（港口位置為示意）", src: [s1, s2] }
+    - { name_ancient: 斯巴達, name_modern: "斯巴達（希臘伯羅奔尼撒）", lat: 37.0750, lng: 22.4300, precision: schematic, year: -414, role: "逃往斯巴達，被斯巴達人接納；年份依事件順序推定", src: [s1, s2] }
+    - { name_ancient: 小亞細亞的波斯總督轄區, name_modern: "土耳其西部（愛奧尼亞海岸一帶）", lat: 38.4879, lng: 28.0407, precision: unknown, year: -412, role: "在斯巴達失寵後投靠波斯總督提薩弗涅斯；具體城市與年份未查證，座標僅為示意", src: [s1, s2] }
+    - { name_ancient: 雅典, name_modern: "雅典（希臘）", lat: 37.9715, lng: 23.7257, pleiades_id: "579885", precision: schematic, year: -407, role: "前 407 年凱旋返回，被選為擁有陸海軍全權的將軍", src: [s1, s2] }
+    - { name_ancient: 弗里吉亞, name_modern: "土耳其西部內陸（弗里吉亞）", lat: 39.0000, lng: 30.0000, precision: unknown, year: -404, role: "死亡地；前 404 年在波斯總督法那巴佐斯的轄區被殺，確切村落未查證", src: [s1, s2] }
+  scale: area
+person: { role: "雅典政治家與將軍，西西里遠征的推動者，一生多次換邊", faction: "雅典（曾投靠斯巴達與波斯）", name_romaji: "Alcibiades", born: -450, died: -404 }
+relations:
+  - { id: person-pericles, kind: 親屬, from: -447, to: -429, note: "父親前 447 年在科羅尼亞戰死後，由親屬伯里克里斯和他的兄弟阿里弗隆照顧，普魯塔克稱之為被監護人。", src: [s2, s4] }
+  - { id: person-socrates, kind: 師友, note: "蘇格拉底對他有感情並影響他的名聲，SEP 說蘇格拉底拒絕他的追求；兩人的關係後來成了蘇格拉底被懷疑的背景之一。", src: [s2, s3] }
+structure_tags: [聯盟破裂, 精英內鬥, 外部勢力介入]
+topics: [對外擴張, 軍事同盟, 民主與參政]
+links: [war-peloponnesian, social-athenian-democracy, event-death-of-socrates, event-delian-league, commodity-laurion-silver]
+counterparts: 無適當對照：中國軌沒有「在同一場戰爭中先後替三個敵對陣營效力」的人物卡可直接對照。
+sources:
+  - { id: s1, title: "Alcibiades — World History Encyclopedia", url: "https://www.worldhistory.org/Alcibiades/", accessed: 2026-11-12, tier: 通論 }
+  - { id: s2, title: "Plutarch, Life of Alcibiades（Loeb／Perrin 英譯）— LacusCurtius", url: "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Alcibiades*.html", accessed: 2026-11-12, tier: 一手 }
+  - { id: s3, title: "Socrates — Stanford Encyclopedia of Philosophy", url: "https://plato.stanford.edu/entries/socrates/", accessed: 2026-11-12, tier: 學術 }
+  - { id: s4, title: "Pericles — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Pericles", accessed: 2026-11-12, tier: 百科 }
+importance: 2
+learn:
+  histories: [希臘羅馬史]
+  why_care: 他是雅典最聰明、最會說服人的政治人物，卻先後替雅典、斯巴達、波斯效力；看他，就看得到「才能」和「信任」不是同一回事。
+  story: |
+    阿爾西比亞德斯約前 450 年生於雅典，父親在前 447 年的戰役中死去，他由伯里克里斯照顧長大。[s1][s2][s4] 年輕時他和蘇格拉底很親近。[s2][s3] 前 415 年他在公民大會上說服雅典遠征西西里。[s1] 出發前雅典城裡的赫爾墨斯石像被人破壞，他成為主要嫌疑人；被召回受審時，他逃到斯巴達。[s1][s2] 後來他在斯巴達失寵，轉而投靠波斯總督，前 407 年又風光回到雅典，被選為擁有陸海軍全權的將軍。[s1][s2] 前 404 年他在弗里吉亞被殺。[s1][s2]
+  key_terms:
+    - { term: 赫爾墨斯像（Herm）, plain: 雅典街頭和住家門口常見的石柱，上面有赫爾墨斯神的頭像，被視為守護路人的神像。, example: 像路口的土地公小廟，被人破壞就是大事。 }
+    - { term: 西西里遠征, plain: 雅典在前 415 年派艦隊到西西里的大型軍事行動（結局見伯羅奔尼撒戰爭卡）。, example: 像一支班級代表隊跑到很遠的城市參加比賽，輸贏都很難在短時間回頭。 }
+    - { term: 總督（satrap）, plain: 波斯帝國派在各地的地方長官。, example: 像中央派到各省的省長，替國王管稅收和軍隊。 }
+  primary_source:
+    - { text: "Alcibiades was therefore reared as the ward of Pericles and Ariphron, the sons of Xanthippus, his near kinsmen.", from: "普魯塔克《阿爾西比亞德斯傳》第 1 章（Loeb／Perrin 英譯，LacusCurtius）", src: s2 }
+  historiography: |
+    **才子還是禍害？** 普魯塔克記下阿里斯托芬形容雅典人對他的矛盾心情：「它渴望他、恨他，卻又想要他回來。」[s2] World History Encyclopedia 說他是個天才般的人，但他的換邊讓人無法信任他。[s1]
+    **赫爾墨斯像的案子。** 普魯塔克寫的是，一個叫安德羅克勒斯的人帶來外邦人和奴隸，指控阿爾西比亞德斯和朋友毀壞神像；World History Encyclopedia 只說他是「主要嫌疑人之一」，並沒有給出定論。[s1][s2]
+    **誰殺了他？** 普魯塔克說呂桑德要法那巴佐斯動手，法那巴佐斯派人燒了他的房子，他死於這次襲擊；World History Encyclopedia 認為這可能是呂桑德和三十僭主的命令。[s1][s2] 來源之間對幕後主使沒有一致說法。
+  misconceptions:
+    - 他是個一直叛變、毫無原則的人 → 這個說法只看他的結局；普魯塔克記載雅典人在前 407 年選他為擁有陸海軍全權的將軍，說明當時同一批人還是需要他。[s2]
+  pop_culture:
+    - { claim: "他單純是蘇格拉底帶壞的學生", fact: "SEP 說他是蘇格拉底的親近夥伴，但蘇格拉底拒絕了他的追求；他和克里提亞斯的關係，是蘇格拉底被懷疑的原因之一。[s3]", src: [s3] }
+    - { claim: "他是被雅典人殺死的", fact: "普魯塔克說是波斯總督法那巴佐斯派人殺了他，World History Encyclopedia 認為可能與呂桑德和三十僭主有關。[s1][s2]", src: [s1, s2] }
+verification: 交叉確認
+lens_status: 無直接論述
+---
+
+## P1 出身與時代
+
+阿爾西比亞德斯生於前 451／450 年的雅典，前 404 年死於弗里吉亞。[s1] 他的父親克里尼亞斯戰死在科羅尼亞，他由伯里克里斯和阿里弗隆（兩人是贊提普斯之子，普魯塔克稱他們是他的近親）照顧長大。[s2][s4] 他童年住在伯里克里斯家中。[s1] 他成年時，雅典正與斯巴達打伯羅奔尼撒戰爭，政治人物靠公民大會的演說贏得支持（背景見雅典民主卡）。[s1][s4]
+
+## P2 一生的轉折
+
+1. **前 415 年：說服雅典出兵西西里。** 他在公民大會上發言，贏得投票，以將軍身分出航。[s1]
+2. **前 415 年：赫爾墨斯像事件與受審召回。** 出發前神像被破壞，他是主要嫌疑人；被召回受審時，他逃到斯巴達。[s1][s2]
+3. **在斯巴達。** 斯巴達人接納他；普魯塔克還記載他在斯巴達誘惑了國王之妻提邁婭。[s2]
+4. **在波斯。** 他在斯巴達失寵後投靠波斯總督提薩弗涅斯，普魯塔克說提薩弗涅斯被他的奉承迷住。[s1][s2]
+5. **前 407 年：回到雅典。** 他風光回雅典，舊罪被撤銷，被選為擁有陸海軍全權的將軍。[s1][s2]
+6. **前 404 年：被殺。** 他逃到法那巴佐斯的轄區，在弗里吉亞被殺；蒂曼德拉為他下葬。[s1][s2]
+
+## P3 關鍵決定：當時有哪些選擇
+
+**前 415 年：要不要出兵西西里？** 他在公民大會上發言說服雅典出兵，並贏得投票。[s1] 他看得到的選項（示意）有：不出兵、出小規模兵力，或出大規模遠征。來源只記載他選擇說服公民大會出兵。[s1] 代價是出征前後就陷入神像案，他自己被召回受審（遠征的後續見伯羅奔尼撒戰爭卡）。[s1][s2]
+
+**被召回受審：回去，還是逃走？** 普魯塔克記載他被雅典人召回，要他回來受審。[s2] World History Encyclopedia 說他面對的是很可能被判死刑的審判，選擇逃到斯巴達。[s1] 他當時看得到的選項是：回雅典申辯，賭陪審團信他；或逃走。他選擇逃走。[s1] 代價是他從此被雅典視為叛徒。
+
+**在波斯那邊：要不要回雅典？** 普魯塔克寫他「終於渴望回到故鄉」，回航後被選為將軍。[s2] 他的選項（示意）有：留在波斯總督身邊，或帶著戰功回雅典。[s1][s2] 他選擇回去。這次回去後雅典人給了他陸海軍全權。[s2]
+
+## P4 他改變了什麼
+
+他沒有留下制度，但他的軌跡本身改變了戰爭：他先替雅典推動西西里遠征，再逃到斯巴達，後來又替波斯總督工作，三次換邊都與戰局相關（戰爭本身見伯羅奔尼撒戰爭卡）。[s1][s2] 普魯塔克說他在斯巴達獲得接納，在波斯受到歡迎，在雅典又被選為將軍。[s2]
+
+## P5 從另一邊看他
+
+**雅典的公民。** 阿里斯托芬說雅典人對他「渴望、恨、又想要他回來」。[s2]
+
+**控告他的人。** 安德羅克勒斯帶來外邦人和奴隸，指控他和朋友毀壞神像。[s2]
+
+**斯巴達。** 斯巴達人接受了他；普魯塔克也記他在斯巴達與國王之妻提邁婭有染。[s2] 斯巴達人如何看待他，所查來源沒有更多記載（來源不足）。
+
+**波斯總督。** 普魯塔克說提薩弗涅斯因為他的奉承而「完全拜倒」；World History Encyclopedia 說他最後轉投法那巴佐斯，在那裡被殺。[s1][s2]
+
+**蘇格拉底。** SEP 說蘇格拉底拒絕了他的追求；普魯塔克說蘇格拉底對他的愛「不無助益」地提升了他的名聲。[s2][s3]
+
+## P6 評價怎麼變
+
+**同時代。** 雅典人對他的態度是矛盾的：渴望、恨，卻又想要他回來。[s2]
+
+**古代作者。** 普魯塔克轉述的雅典人態度，是才華出眾卻難以信任。[s2]
+
+**現代。** World History Encyclopedia 把他描述為天才般的政治人物，但因為不斷換邊而讓人無法信任。[s1] 本卡不替他定罪或辯護：赫爾墨斯像的案子沒有定論，他的死因幕後也有不同說法。[s1][s2]
+
+## P7 雙軌解讀
+
+### 李彔
+
+無直接論述：沒有查到李彔直接談阿爾西比亞德斯。
+
+### 哈拉瑞
+
+無直接論述：沒有查到哈拉瑞直接談阿爾西比亞德斯。
+
+## P8 今日對照鉤子
+
+「才能很高但信用不足的人，在制度壓力下不斷換邊」的結構；以及「一場大型政策投資（遠征）還沒開始，主推者就先被政治攻擊拖下台」的結構。[s1][s2]
+
+## P9 不可類比的差異
+
+雅典的將軍由公民投票選出，也可能被公民大會召回審判；他在斯巴達、波斯之間的「換邊」是古代城邦世界中個人與城邦關係鬆散的結果，不能直接比擬現代的叛逃或轉投他國。[s1][s2] 他和蘇格拉底之間的關係，只能透過普魯塔克與 SEP 的轉述理解。[s2][s3]

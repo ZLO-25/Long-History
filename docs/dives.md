@@ -68,6 +68,8 @@ public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
 | `powers[]` | 每個區塊：`name`、`en`、`color`、`card`（選填，點名稱打開那張卡）、`area`（圖例小字；舊檔的 `provinces` 仍可用）、`minor: true`（較小的區塊：縮小時不標名稱、放大到 zoom 7 才標）、`regions` |
 | `regions` | 底圖區域清單：字串 `US-TX`，或 `{ code: US-WY, lat_gt: 42, lng_gt: -109.5 }`。切線 `lng_lt`／`lng_gt`（經線）與 `lat_lt`／`lat_gt`（緯線）可在同一個項目同時出現（取交集）。舊檔的 `prefs`／`pref` 仍可用 |
 
+**西元前年份**：檔名寫 `power-bc431.yaml`（`bc` 加正的年數）、檔內 `year: -431`；`power_maps` 的 `year` 也寫 `-431`，file 寫 `<專題>/power-bc431.geojson`。畫面上一律由 `fmtYear` 顯示成「前431」。`npm run power` 認 `power-(bc)?數字.yaml`；`scripts/qa/dive.cjs` 用同樣的寫法比對年份膠囊與時間軸紅線。底圖 `AEGEAN`（`npm run basemap -- AEGEAN`）的區域 code 見 `docs/dive-greece.md`。
+
 **注意**：yaml 的 `{ }` 行內寫法裡，含半形逗號的值（例如 `en: "United States (Treaty of Paris, 1783)"`）一定要加雙引號，否則會被拆成多個鍵。
 
 **底圖怎麼來**：`npm run basemap -- US`（`scripts/fetch-basemap.ts`）從 Natural Earth 50m admin-1 下載、只留美國 50 州與哥倫比亞特區，存成 `data/ne/us_states.geojson`（約 200 KB）。要別的國家就在腳本的 `BASEMAPS` 加一列。日本的 `japan_prefectures.geojson`（Natural Earth 10m，47 都道府縣）是第 1 期做好的。兩者都是公有領域。
@@ -167,3 +169,20 @@ curves:
 - 紅線＝目前年代；點圖上任何一處，年代跳到那一年（時間軸跟著動）。
 - `npm run validate` 檢查：每條至少 3 點、年份遞增、來源存在且有 tier、事件的卡存在；`visual: curve` 沒寫 `curves` 會報錯。
 - 程式：`src/components/DiveCurve.tsx`。
+
+## 九、今日影子（legacy，2026-11-12 起，第一個是古希臘）
+
+國高中生最常問「學這個要幹嘛」。專題頁多一區「今日影子」：每條＝「那時候」→「今天」，附一張可點的卡與出處。資料寫在專題 yaml，隨專題資料一起輸出（`index.json` 的 `dives[].legacy`，和 `curves`、`book` 同一層；不進 `home.json`）。
+
+```yaml
+legacy:
+  title: 今日影子            # 選填，預設「今日影子」
+  items:
+    - { then: 雅典人用陶片投票放逐權貴, now: 英文 ostracize 就是從這來的, tag: 制度, card: event-cleisthenes-reform, src: [L1] }
+  sources:
+    - { id: L1, title: …, url: …, accessed: 2026-11-12, tier: 通論 }
+```
+
+- `tag` 用來分組（制度／語言文字／運動與藝術／科學／建築，依第一次出現的順序排列）。`now` 的說法也要有來源；每條至少一筆 `src`。
+- `npm run validate`：每條要有 then、now、tag、card、src；card 存在（不在專題 cards 裡只警告）；src 都在 sources、sources 要有 id／title／url／accessed／tier；沒人引用的來源警告。build 時指到還不存在的卡的條目先略過。
+- 畫面：`src/components/DiveLegacy.tsx`，研究與學習模式共用 `DiveView`。放在「照順序讀」之後（研究模式專題頁最下方；學習模式在學習單元之後）；桌機兩欄（左「那時候」、中間箭頭、右「今天」），手機上下排；點「看卡片：○○」開卡（學習模式還沒收錄的卡灰框連到研究模式）；出處是每條下方的小字連結。樣式在 `dive.css`，字色 #2d2a26／#5a544a 對白底與 `--dive-bg` 都 ≥ 4.5:1。

@@ -19,6 +19,31 @@ export interface DiveDef {
   power_ui?: { title: string; subtitle?: string; caveat?: string; legend?: string };
   /** visual: curve 的資料：每條曲線一張小圖（不畫雙軸），事件畫成直線（docs/dives.md 第八節） */
   curves?: CurvesDef;
+  /** 今日影子：那時候 → 今天哪裡還看得到（docs/dives.md 第九節） */
+  legacy?: LegacyDef;
+}
+export interface LegacyDef {
+  title?: string;
+  items: { then: string; now: string; tag: string; card: string; src: string[] }[];
+  sources: { id: string; title: string; url: string; accessed: string; tier?: string }[];
+}
+function checkLegacy(l: LegacyDef, byId: Map<string, any>, cardIds: Set<string>, err: (m: string) => void, warn: (m: string) => void) {
+  const src = new Set((l.sources ?? []).map((x) => x.id));
+  if (src.size !== (l.sources ?? []).length) err('legacy.sources 的 id 重複');
+  for (const x of l.sources ?? []) if (!x.id || !x.title || !x.url || !x.accessed || !x.tier) err(`legacy.sources 的 ${x.id ?? '?'} 要有 id、title、url、accessed、tier`);
+  if (!(l.items ?? []).length) err('legacy.items 至少 1 條');
+  (l.items ?? []).forEach((it, i) => {
+    const w = `legacy.items[${i}]${it.then ? `「${it.then.slice(0, 12)}…」` : ''}`;
+    if (!it.then || !it.now) err(`${w}：要有 then（那時候）與 now（今天）`);
+    if (!it.tag) err(`${w}：要有 tag（分組）`);
+    if (!it.card) err(`${w}：要有 card（點了開哪張卡）`);
+    else if (!byId.has(it.card)) err(`${w}：card ${it.card} 不存在`);
+    else if (!cardIds.has(it.card)) warn(`${w}：card ${it.card} 不在這個專題的 cards 裡`);
+    if (!Array.isArray(it.src) || !it.src.length) err(`${w}：至少要有一筆 src`);
+    for (const k of it.src ?? []) if (!src.has(k)) err(`${w}：來源 ${k} 不在 legacy.sources`);
+  });
+  const used = new Set((l.items ?? []).flatMap((x) => x.src ?? []));
+  for (const x of l.sources ?? []) if (!used.has(x.id)) warn(`legacy.sources 的 ${x.id} 沒有任何一條引用`);
 }
 export interface CurvesDef {
   title: string; subtitle?: string; caveat?: string;
@@ -132,6 +157,7 @@ export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawC
       }
     }
     if (d.book) checkBook(d.book, byId, err, warn, unitIds);
+    if (d.legacy) checkLegacy(d.legacy, byId, new Set(ids), err, warn);
     if (d.curves) checkCurves(d.curves, byId, d.range, err, warn);
     if (d.visual === 'curve' && !d.curves) err('visual: curve 要寫 curves（曲線資料）');
     if (d.focus_year != null && (typeof d.focus_year !== 'number' || (d.range && (d.focus_year < d.range.start || d.focus_year > d.range.end)))) err('focus_year 要是專題年代內的年份');
@@ -157,6 +183,8 @@ export function buildDives(dives: { file: string; dive: DiveDef }[], cards: { id
     book: d.book ? { title: d.book.title, author: d.book.author, note: d.book.note ?? '', sources: d.book.sources ?? [],
       parts: (d.book.parts ?? []).map((p) => ({ ...p, blurb: p.blurb ?? '' })),
       chapters: (d.book.chapters ?? []).map((c) => ({ no: c.no, part: c.part, title: c.title, en: c.en ?? '', zh: c.zh ?? '', claim: c.claim, cards: (c.cards ?? []).filter((id) => has.has(id)), card_notes: c.card_notes ?? {}, debate: (c.debate ?? []).map((d) => ({ ...d, stance: d.stance ?? '' })), think: c.think ?? '', core: !!c.core, minutes: c.minutes ?? null })) } : null,
+    // 今日影子：只隨專題資料輸出（不進 home.json）；指到還不存在的卡的條目先略過
+    legacy: d.legacy ? { title: d.legacy.title ?? '今日影子', items: (d.legacy.items ?? []).filter((x) => has.has(x.card)), sources: d.legacy.sources ?? [] } : null,
     power_maps: (d.power_maps ?? []).map((pm) => {
       const p = path.join(ROOT, 'data', 'dives', pm.file);
       const gj = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : null;

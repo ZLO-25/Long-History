@@ -138,11 +138,15 @@ export interface Dive {
   visual: 'power' | 'curve' | 'none'; power_ui: PowerUi | null;
   /** visual: curve 的曲線資料 */
   curves?: DiveCurves | null;
+  /** 今日影子：那時候 → 今天哪裡還看得到（隨專題資料輸出，不進 home.json） */
+  legacy?: DiveLegacy | null;
   /** 只有 home.json 有（cards、power_maps 等是空的）：專題入口卡要顯示的數字 */
   stat?: { cards: number; persons: number; power: number; curves: number; chapters: number };
 }
 export interface DiveCurveSeries { id: string; name: string; unit: string; color: string; note: string; zero: boolean | null; points: [number, number][]; src: string[] }
 export interface DiveCurves { title: string; subtitle: string; caveat: string; series: DiveCurveSeries[]; events: { year: number; label: string; card?: string }[]; sources: DiveSource[] }
+export interface DiveLegacyItem { then: string; now: string; tag: string; card: string; src: string[] }
+export interface DiveLegacy { title: string; items: DiveLegacyItem[]; sources: DiveSource[] }
 export interface DiveSource { id: string; title: string; url: string; accessed: string; tier?: string }
 export interface DivePart { no: number; name: string; span: string; blurb: string; from: number; to: number; unit?: string }
 export interface DiveChapter { no: number; part: number; title: string; en: string; /** 中文版（天下文化，林俊宏 譯）章名 */ zh: string; claim: string; cards: string[]; card_notes: Record<string, string>; debate: { who: string; text: string; src: string[]; stance: '' | '支持' | '補充' | '反對' }[]; think: string; core: boolean; minutes: number | null }

@@ -264,6 +264,29 @@ const coreUnits = (index.units as any[]).map((u) => {
 const detailBody = JSON.stringify({ cards: detail, units: unitDetail });
 const detailV = createHash('sha256').update(detailBody).digest('hex').slice(0, 10);
 fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...index, detailV, cards: coreCards, units: coreUnits }));
+// 效能：public/home.json（約 20 KB gzip）＝學習首頁與清單頁（故事線、深入專題、主題標籤）畫得出來、點得動所需的最小資料，不含任何一張卡片。
+// 網頁同時抓 home.json 與 index.json：home.json 一到（加上程式）就畫首頁，index.json 到了再無縫換成完整資料（src/lib/detail.ts initStub／adoptCore）。
+// 欄位只放首頁／清單頁真的讀的：LearnHome、LearnApp 標題列、StorylineIndex、DiveIndex／DiveEntries、TopicIndex。
+// 這些欄位的讀取者若有增減，請同步 src/lib/detail.ts 的 stubFromHome。
+{
+  const learnIds = new Set(cards.filter((c: any) => c.learn).map((c: any) => c.id));
+  const homeData = {
+    generated: index.generated, detailV,
+    histories: (index.histories as any[]).map((h) => ({ ...h, n: cards.filter((c: any) => c.learn && (h.all || c.learn.histories.includes(h.id))).length })),
+    units: (index.units as any[]).map((u) => ({ id: u.id, title: u.title, histories: u.histories, mystery: u.mystery, minutes: u.minutes, nsteps: u.steps.length })),
+    storylines: (index.storylines as any[]).map((s) => ({ id: s.id, title: s.title, question: s.question, read: s.read ?? null, stops: s.stops.map((x: any) => x.id) })),
+    dives: (index.dives as any[]).map((d) => {
+      const persons = d.cards.filter((id: string) => cards.find((c: any) => c.id === id)?.type === 'person').length;
+      return {
+        id: d.id, title: d.title, question: d.question, range: d.range, histories: d.histories, units: d.units, visual: d.visual, focus_year: d.focus_year,
+        power_title: d.power_ui?.title,
+        stat: { cards: d.cards.length, persons, power: d.visual === 'power' || d.visual == null ? d.power_maps.length : 0, curves: d.visual === 'curve' && d.curves ? d.curves.series.length : 0, chapters: d.book ? d.book.chapters.length : 0 },
+      };
+    }),
+    topicLayers: (index.topicLayers as any[]).map((l) => ({ name: l.name, icon: l.icon, topics: l.topics.map((t: any) => ({ name: t.name, plain: t.plain, n: t.cards.length, nl: t.cards.filter((id: string) => learnIds.has(id)).length })) })),
+  };
+  fs.writeFileSync(path.join(ROOT, 'public', 'home.json'), JSON.stringify(homeData));
+}
 // 效能：每張卡的長內文另外各存一個小檔（public/data/cards/<id>.json，幾 KB）。
 // 打開一張卡（或別人分享的 ?card= 連結）只抓這個小檔，不必等 1.7 MB 的 index-detail.json（src/lib/detail.ts）。
 fs.mkdirSync(path.join(pubData, 'cards'), { recursive: true });

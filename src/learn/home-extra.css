@@ -1,0 +1,23 @@
+/* 學習首頁會用到、但原本寫在「故事線」「深入專題」頁面樣式檔（story.css、story-reader.css、dive.css）裡的幾條規則。
+   那幾個檔跟著各自的畫面一起延後載入；首頁一開就要看到這些入口卡，所以複製最小一份放在首屏樣式裡（值要和原檔一致）。 */
+:root { --story: #0f766e; --story-bg: #effaf8; --story-line: #b6e2dc; --dive: #7b2d26; --dive-bg: #fbf3f1; --dive-line: #ebcdc7; }
+/* 故事線入口（story.css、story-reader.css） */
+.si-item { display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid var(--line);
+  border-left: 4px solid var(--story); border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+.si-item:hover { background: #f2fbf9; }
+.si-item:focus-visible { outline: 2px solid var(--story); outline-offset: 2px; }
+.si-title { font-weight: 700; color: var(--story); }
+.si-q { font-size: .93em; }
+.home-stories { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; margin: 6px 0 12px; }
+.sr-badge { display: inline-block; font-size: 12px; color: var(--story, #0f766e); background: var(--story-bg, #effaf8); border: 1px solid var(--story-line, #b6e2dc); border-radius: 10px; padding: 0 8px; line-height: 1.6; white-space: nowrap; }
+.sr-badge.done { color: #2f6f4f; background: #e6f4ea; border-color: #b7dcc3; }
+.si-meta { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+/* 深入專題入口（dive.css） */
+.di-item { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; text-align: left; border: 1px solid var(--dive-line); border-radius: 10px; background: #fff; padding: 8px 12px; margin: 6px 0; font: inherit; color: inherit; cursor: pointer; }
+.di-item:hover, .di-item:focus-visible { background: var(--dive-bg); border-color: var(--dive); }
+.di-item:focus-visible { outline: 2px solid var(--dive); outline-offset: 2px; }
+.di-title { font-weight: 600; color: var(--dive); }
+.di-q { font-size: 13.5px; }
+.dive-entries { list-style: none; margin: 6px 0; padding: 0; }
+.dive-entries .di-item { border-left: 4px solid var(--dive); }
+.di-tag { font-size: 11px; color: #fff; background: var(--dive); border-radius: 999px; padding: 0 8px; }

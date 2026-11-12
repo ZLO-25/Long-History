@@ -364,12 +364,8 @@ main.dock-main > .splitter.row { grid-area: sr; }
 
 /* 2026-11-11 UI/UX 複查 */
 /* 人群圖層開著時，上層（古道用）的 canvas 不攔滑鼠，下面的國家才點得到、滑得到 */
-.peoples-on .leaflet-overlay-pane canvas { pointer-events: none; }
 /* 地圖提示框太長時換行，不再一行拉到 400–500px */
-.leaflet-tooltip { white-space: normal; width: max-content; max-width: min(300px, 70vw); }
 /* 版權列只佔一行（滑過／點到才展開），不再折成兩三行蓋住圖例鈕與播放列 */
-.leaflet-container .leaflet-control-attribution { max-width: calc(100% - 4px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-sizing: border-box; }
-.leaflet-container .leaflet-control-attribution:hover, .leaflet-container .leaflet-control-attribution:focus-within { white-space: normal; }
 @media (max-width: 640px) {
   /* 手機：快速鈕一排可左右滑，讓開左邊的縮放鈕 */
   .map-views { left: 52px; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
@@ -391,3 +387,11 @@ main.dock-main > .splitter.row { grid-area: sr; }
 .mig-stop.pl-l { translate: calc(-100% - 9px) -50%; }
 .mig-stop.pl-t { translate: -50% calc(-100% - 8px); }
 .mig-stop.pl-b { translate: -50% 8px; }
+
+/* ---- 程式碼分割／分階段載入的載入畫面（src/chunks.tsx、src/ui.tsx）：灰色占位，版面先留好，資料或程式到了不跳 ---- */
+.view-skel { display: grid; gap: 10px; padding: 10px 2px; }
+.view-skel > i { display: block; height: 14px; border-radius: 6px; background: #ece7db; }
+.view-skel > i:nth-child(1) { width: 62%; } .view-skel > i:nth-child(2) { width: 92%; } .view-skel > i:nth-child(3) { width: 78%; }
+.map-skel { position: absolute; inset: 0; background: #ebe7dc; }
+.chunk-err { padding: 16px; }
+.core-wait .loading-detail { margin: 6px 0 0; }

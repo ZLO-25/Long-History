@@ -2,6 +2,7 @@ node_modules/
 dist/
 public/index.json
 public/index-detail.json
+public/home.json
 public/data/
 .DS_Store
 .obsidian/workspace*.json

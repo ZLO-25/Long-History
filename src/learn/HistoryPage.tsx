@@ -3,7 +3,7 @@ import type { Card, History, Index } from '../types';
 import type { Progress } from './progress';
 import { MysteryList } from './LearnHome';
 import { ERA_BINS, unitsOf, unitYear } from './util';
-import { DiveEntries } from '../components/Dive';
+import { DiveEntries } from '../components/DiveEntries';
 import { fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import { intent } from '../lib/detail';
 

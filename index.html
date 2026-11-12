@@ -5,21 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>歷史長河：國高中生的歷史學習</title>
     <meta name="description" content="給國高中生的互動歷史學習網站：從一個謎題出發，讀卡片、看史料、排因果、比一比，配時間軸與地圖。涵蓋臺灣史、東亞史、世界史與錢的歷史。" />
-    <!-- 效能：卡片資料和程式同時開始下載，不必等程式跑起來才抓 -->
-    <link rel="preload" href="%BASE_URL%index.json" as="fetch" crossorigin="anonymous" />
+    <!-- 效能：首頁資料 home.json（約 20 KB）和程式同時開始下載，不必等程式跑起來才抓；一到就畫學習首頁。
+         卡片核心資料 index.json（約 560 KB）故意不用 preload：它會和程式、css 搶頻寬，把首屏要用的幾十 KB 拖慢好幾倍；
+         改成「程式（entry js）下載完的那一刻」才開始抓（下面的 script），頻寬正好空出來；到了再無縫換成完整資料（src/lib/detail.ts）。
+         抓到的 Promise 放在 window.__hrCore，src/App.tsx startFetch 接手；這段沒跑成（舊瀏覽器）時，startFetch 會自己抓 -->
+    <link rel="preload" href="%BASE_URL%home.json" as="fetch" crossorigin="anonymous" />
+    <!-- 靜態骨架（第一個畫面，只靠這份 HTML，不等任何 css／js）：標題列＋幾塊灰色占位，不帶任何資料，電腦與手機都是同一個通用樣子。
+         React 一掛上就換掉它；資料還沒到時 App 畫的是同一份 HTML（src/main.tsx），所以不會閃 -->
+    <style>
+      body{margin:0;background:#f7f5f0}
+      .hr-sk{min-height:100vh;color:#2a2723;font:16px/1.5 system-ui,-apple-system,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+      .hr-sk-top{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#fffdf8;border-bottom:1px solid #e2ddd2}
+      .hr-sk-top b{font-size:18px;white-space:nowrap}
+      .hr-sk-top i{flex:1;max-width:420px;height:30px;border-radius:15px;background:#ece7db}
+      .hr-sk-body{max-width:760px;margin:0 auto;padding:18px 14px;display:grid;gap:12px}
+      .hr-sk-body i{display:block;border-radius:8px;background:#ece7db;height:16px}
+      .hr-sk-body .t{width:46%;height:26px}.hr-sk-body .c{height:78px;background:#f1ede2;border:1px solid #e2ddd2}
+      .hr-sk-body .s{width:70%}
+    </style>
     <!-- 網址直接指到一張卡（?card=）或一個單元（?unit=）時，一開始就抓那一張卡／那個單元自己的小檔（幾 KB～幾十 KB），
          內文馬上能看（src/lib/detail.ts 接手這個 Promise）。其他頁面（專題、主題、故事線、物資鏈…）不需要卡片長內文；
          1.7 MB 的 index-detail.json 一律等畫面和底圖出來後才在背景下載，不搶首頁頻寬 -->
     <script>(function () {
+      try {
+        new PerformanceObserver(function (l, o) {
+          l.getEntries().forEach(function (e) {
+            if (e.initiatorType === 'script' && /\.js(\?|$)/.test(e.name) && !window.__hrCore) {
+              o.disconnect();
+              window.__hrCore = fetch('%BASE_URL%index.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+              window.__hrCore.catch(function () {});
+            }
+          });
+        }).observe({ type: 'resource', buffered: true });
+      } catch (e) {}
+    })();</script>
+    <script>(function () {
       var s = location.search, j = function (u) { return fetch(u).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); };
       var u = /[?&]unit=([\w-]+)/.exec(s), c = /[?&]card=([\w-]+)/.exec(s);
+      // 故事閱讀頁深連結（?story=…&read=1）：故事全文現在就抓，進瀏覽器快取；閱讀頁掛上去時直接有（和程式、index.json 同時下載）
+      var st = /[?&]story=([\w-]+)/.exec(s);
+      if (st && /[?&]read=1/.test(s)) j('%BASE_URL%data/stories/' + st[1] + '.json');
       if (u) window.__hrUnit = { id: u[1], p: j('%BASE_URL%data/units/' + u[1] + '.json') };
       else if (c && !/[?&](dive|story|sim|topic|chain|today)=/.test(s)) window.__hrCard = { id: c[1], p: j('%BASE_URL%data/cards/' + c[1] + '.json') };
     })();</script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2 20 Q9 12 16 18 T30 14' stroke='%232b6cb0' stroke-width='4' fill='none'/></svg>" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><div class="hr-sk" aria-hidden="true"><div class="hr-sk-top"><b>歷史長河</b><i></i></div><div class="hr-sk-body"><i class="t"></i><i class="s"></i><i class="c"></i><i class="c"></i><i class="s"></i><i class="c"></i></div></div></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

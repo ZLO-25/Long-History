@@ -8,26 +8,18 @@ import { SkipLink } from '../components/SkipLink';
 type LPanel = 'content' | 'map' | 'tl';
 const L_PANELS: readonly LPanel[] = ['content', 'map', 'tl'];
 import type { Card, Index } from '../types';
-import { PeoplePanel } from '../components/PeoplePanel';
 import { PEOPLE_INTRO } from '../lib/peoples';
-import { MapView } from '../components/MapView';
 import { createSearch, matchTopics, useSearchLibs, loadSearchLibs } from '../lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
-import { StorylineView, StorylineIndex, storyMarks, findStory } from '../components/Story';
-import { keepRead } from '../components/StoryReader';
-import { DiveView, DiveIndex, diveMarks, diveRoutes, findDive, hasPowerVisual, powerFor, diveYear, prehistDive } from '../components/Dive';
+import { findStory, storyMarks, keepRead } from '../lib/storyLite';
+import { findDive, diveMarks, diveRoutes, hasPowerVisual, powerFor, diveYear, prehistDive } from '../lib/dive';
 import { useIsMobile } from '../lib/useIsMobile';
 import { LearnHome } from './LearnHome';
-import { HistoryPage } from './HistoryPage';
-import { UnitPlayer } from './UnitPlayer';
-import { LearnCard } from './LearnCard';
-import { LearnTimeline } from './LearnTimeline';
-import { MyMap } from './MyMap';
-import { LearnRecord } from './LearnRecord';
-import { SimView } from './sims/SimView';
 import { useProgress } from './progress';
-import { ensureCards, ensureUnits, cardLoaded, unitLoaded, waitingText } from '../lib/detail';
+import { ensureCards, ensureUnits, cardLoaded, unitLoaded, waitingText, coreReady } from '../lib/detail';
 import { historyOf, inHistory, learnCards } from './util';
+import { PeoplePanel, MapView, StorylineView, StorylineIndex, DiveView, DiveIndex, UnitPlayer, LearnCard, HistoryPage, LearnTimeline, MyMap, LearnRecord, SimView, preload, TL_H } from '../chunks';
+import { CoreWait, Skel } from '../ui';
 import './learn.css';
 
 type View = { kind: 'home' } | { kind: 'history' } | { kind: 'unit'; id: string } | { kind: 'card'; id: string; section?: string }
@@ -35,6 +27,13 @@ type View = { kind: 'home' } | { kind: 'history' } | { kind: 'unit'; id: string 
   | { kind: 'topic'; name: string } | { kind: 'topics' } | { kind: 'story'; id: string } | { kind: 'stories' }
   | { kind: 'dive'; id: string } | { kind: 'dives' } | { kind: 'peoples'; id: string };
 type Tab = 'main' | 'card' | 'map' | 'timeline';
+// 每種畫面要預載的 chunk
+const CHUNK_OF: Partial<Record<View['kind'], () => unknown>> = {
+  unit: preload.unit, card: preload.card, history: preload.history, story: preload.story, stories: preload.story, dive: preload.dive, dives: preload.dive,
+  peoples: preload.people, mymap: preload.misc, record: preload.misc, sim: preload.misc,
+};
+// 需要卡片資料（index.json）才畫得出來的畫面；首頁與「故事線／深入專題／主題標籤」清單頁用骨架資料（home.json）就能畫
+const NEEDS_CORE = new Set<View['kind']>(['unit', 'card', 'history', 'mymap', 'record', 'sim', 'topic', 'story', 'dive']);
 
 function initialView(q: URLSearchParams): View {
   if (q.get('peoples')) return { kind: 'peoples', id: q.get('peoples')! };
@@ -59,6 +58,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const { p, update, markCard, setUnit, reset } = useProgress();
   const [hid, setHid] = useState<string | null>(() => params.get('history') ?? p.history ?? null);
   const h = historyOf(index, hid);
+  const coreOk = coreReady(index);
   const [stack, setStack] = useState<View[]>(() => { const v = initialView(params); return v.kind === 'home' ? [v] : [{ kind: 'home' }, v]; });
   const view = stack[stack.length - 1];
   const [tab, setTab] = useState<Tab>('main');
@@ -132,10 +132,12 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   // 離開單元才關掉單元帶出的人群頁（手機切到地圖分頁時單元會卸載，不能在卸載時關）
   useEffect(() => { if (view.kind !== 'unit') setUnitPeople(null); }, [view.kind]);
   const openPeople = (id: string) => { setPeoplesOn(true); setStack((s) => (s[s.length - 1].kind === 'peoples' ? [...s.slice(0, -1), { kind: 'peoples', id }] : [...s, { kind: 'peoples', id }])); if (!isMobile) setTab('main'); };
-  const push = (v: View) => { setStack((s) => [...s, v]); setTab(v.kind === 'card' ? 'card' : 'main'); window.scrollTo?.(0, 0); };
+  // 點下去就開始載這個畫面的程式（和資料同時），資料還沒到也先記下來：stack 上有這一頁，資料到了自然顯示
+  const push = (v: View) => { CHUNK_OF[v.kind]?.(); setStack((s) => [...s, v]); setTab(v.kind === 'card' ? 'card' : 'main'); window.scrollTo?.(0, 0); };
   const back = () => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s));
   const chooseHistory = (id: string) => { setHid(id); update((o) => ({ ...o, history: id })); push({ kind: 'history' }); };
-  const openCard = (id: string, section?: string) => { if (!byId(id)?.learn) return; markCard(id); setLastCard(id); push({ kind: 'card', id, section }); };
+  // 資料還沒到時不知道這張卡能不能開：先照開（資料到了若發現不能開，會顯示「這張卡還不在學習模式裡」）
+  const openCard = (id: string, section?: string) => { if (coreOk && !byId(id)?.learn) return; markCard(id); setLastCard(id); push({ kind: 'card', id, section }); };
   const openUnit = (id: string) => push({ kind: 'unit', id });
   const openTopic = (name: string) => { setQuery(''); push({ kind: 'topic', name }); };
   const openStory = (id: string) => { setQuery(''); push({ kind: 'story', id }); };
@@ -144,19 +146,31 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const diveBelow = (() => { for (let i = stack.length - 1; i >= 0; i--) { const v = stack[i]; if (v.kind === 'dive') return v.id; if (v.kind !== 'card') return null; } return null; })();
   const activeDive = diveBelow ? findDive(index, diveBelow) ?? null : null;
   const activePower = activeDive && hasPowerVisual(activeDive) && powerYear != null ? activeDive.power_maps.find((x) => x.year === powerYear) ?? null : null;
-  const openDive = (id: string) => {
-    setQuery('');
+  const initDive = (id: string) => {
     const dv = findDive(index, id);
     if (dv) {
       // 年代不在專題範圍內就跳到專題的第一張圖（沒有圖就跳到專題起點）；沒有圖的專題要清掉上一個專題殘留的年份
       if (year < dv.range.start || year > dv.range.end || (dv.focus_year != null && !dv.power_maps.length)) { const y0 = diveYear(dv); setYear(y0); setPowerYear(powerFor(dv, y0)?.year ?? null); }
       else setPowerYear(powerFor(dv, year)?.year ?? null);
     }
+  };
+  // 勢力圖年份要看專題的 power_maps（完整資料才有）：骨架階段點開專題先只開頁，資料到了再補做
+  const [diveInit, setDiveInit] = useState<{ id: string; deep: boolean } | null>(() => (params.get('dive') ? { id: params.get('dive')!, deep: true } : null));
+  const openDive = (id: string) => {
+    setQuery('');
+    if (coreOk) initDive(id); else setDiveInit({ id, deep: false });
     push({ kind: 'dive', id });
   };
+  useEffect(() => {
+    if (!coreOk || !diveInit) return;
+    setDiveInit(null);
+    // 網址直接帶 ?dive= 的情形：年代與勢力圖和原本一樣，從專題的第一張圖開始（不看目前年代）
+    if (diveInit.deep) { const dv = findDive(index, diveInit.id); if (dv) { setYear(diveYear(dv)); setPowerYear(powerFor(dv, dv.range.start)?.year ?? null); } }
+    else initDive(diveInit.id);
+  }, [coreOk]); // eslint-disable-line react-hooks/exhaustive-deps
   const allTopics = useMemo(() => (index.topicLayers ?? []).flatMap((l) => l.topics), [index]);
   // 學習模式的標籤數字只算學習版的卡（和路徑頁「你讀過 n／m」的 m 一致）
-  const learnCount = (t: { cards: string[] }) => t.cards.filter((id) => !!byId(id)?.learn).length;
+  const learnCount = (t: { cards: string[]; nl?: number }) => t.nl ?? t.cards.filter((id) => !!byId(id)?.learn).length;
   const researchHref = (id: string) => `${location.pathname}?mode=research&card=${encodeURIComponent(id)}`;
   const random = () => {
     const pool = index.units.filter((u) => !p.units[u.id]?.done);
@@ -172,6 +186,8 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const topicHits = query.trim() ? matchTopics(allTopics.map((t) => t.name), query) : [];
 
   const contentRaw = (() => {
+    if (query.trim() && !coreOk) return <div className="lsearch"><h2>搜尋「{query}」</h2><CoreWait index={index} /></div>;
+    if (!query.trim() && !coreOk && NEEDS_CORE.has(view.kind)) return <CoreWait index={index} />;
     if (query.trim()) return (
       <div className="lsearch">
         <h2>搜尋「{query}」</h2>
@@ -214,7 +230,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     else if (view.kind === 'unit') ensureUnits([view.id]);
     else if (view.kind === 'record') ensureUnits(recordUnits);
   }, [view, recordKey]); // eslint-disable-line react-hooks/exhaustive-deps
-  const ready = query.trim() ? true : view.kind === 'card' ? cardLoaded(index, view.id) : view.kind === 'unit' ? unitLoaded(index, view.id)
+  const ready = query.trim() || !coreOk ? true : view.kind === 'card' ? cardLoaded(index, view.id) : view.kind === 'unit' ? unitLoaded(index, view.id)
     : view.kind === 'record' ? recordUnits.every((id) => unitLoaded(index, id)) : true;
   const content = ready ? contentRaw : <p className="muted loading-detail">{waitingText(index)}</p>;
 
@@ -223,13 +239,13 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const diveId = view.kind === 'dive' ? view.id : null;
   const hl = useMemo(() => diveId ? { keys: [], routes: diveRoutes(index, diveId), marks: diveMarks(index, diveId) } : storyId ? { keys: [], routes: [], marks: storyMarks(index, storyId) } : topicName ? { keys: [], routes: [], marks: topicMarks(index, topicName) }
     : { keys: selected?.place.locations.map((l) => l.key) ?? [], routes: selected?.routes ?? [] }, [topicName, storyId, diveId, selected?.id, index]);
-  const map = <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={isMobile} home={home}
+  const map = !coreOk ? <div className="map-skel" /> : <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={isMobile} home={home}
     highlight={hl} power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend, files: activeDive?.power_maps.map((x) => x.file) } : null} onCard={(id) => openCard(id)}
     trail={selected?.type === 'person' ? selected.place.locations.filter((l) => typeof l.year === 'number').map((l) => ({ lat: l.lat, lng: l.lng, year: l.year!, name: l.name_ancient })) : null}
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}}
     peoples={{ on: peoplesOn || (view.kind === 'unit' && !!unitPeople), setOn: (v) => { setPeoplesOn(v); if (!v) setUnitPeople(null); if (!v && view.kind === 'peoples') back(); }, sel: view.kind === 'peoples' ? view.id : view.kind === 'unit' ? unitPeople : null, onPick: (id) => { openPeople(id); if (isMobile && id !== PEOPLE_INTRO) setTab('main'); } }} />;
-  const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
-  const cardTab = lastCard && !cardLoaded(index, lastCard) ? <p className="muted loading-detail">{waitingText(index)}</p> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
+  const timeline = !coreOk ? <Skel h={TL_H.learn} label="時間軸載入中" /> : <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
+  const cardTab = !coreOk && lastCard ? <CoreWait index={index} /> : lastCard && !cardLoaded(index, lastCard) ? <p className="muted loading-detail">{waitingText(index)}</p> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
 
   const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '單元', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題', peoples: '人群' } as Record<View['kind'], string>)[view.kind];
   const header = (

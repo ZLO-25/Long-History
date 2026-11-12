@@ -75,6 +75,8 @@ export interface Learn {
 export interface History {
   id: string; name: string; track: '臺灣' | '東亞' | '世界' | '全部' | '專題';
   civs?: string[]; theme?: CardType[]; all?: boolean; blurb?: string;
+  /** 只有 home.json 有：這個史的學習卡張數（首頁在 index.json 還沒到時顯示用，之後改由卡片算） */
+  n?: number;
 }
 export type Step =
   | { type: 'hook'; text: string }
@@ -96,6 +98,8 @@ export interface CheckItem {
 export interface Unit {
   id: string; title: string; histories: string[]; mystery: string; goals: string[]; minutes: number;
   steps: Step[]; next: string[]; teaser?: string;
+  /** 只有 home.json 有：步驟數（骨架單元的 steps 是空的；首頁「第 n／N 步」用） */
+  nsteps?: number;
   /** 回顧後的「回到自己」反思題：把這段歷史的選擇連到學生自己的生活（不放新史實） */
   reflect?: string;
 }
@@ -113,7 +117,11 @@ export interface Framework {
 }
 export interface TagCategory { name: string; tags: { tag: string; def: string; plain?: string; example?: string }[] }
 // 主題標籤（data/topics.yaml）：cards 已依開始年份排好，就是這個主題的歷史路徑
-export interface Topic { name: string; plain: string; path: string; see: string[]; cards: string[] }
+export interface Topic {
+  name: string; plain: string; path: string; see: string[]; cards: string[];
+  /** 只有 home.json 有（cards 是空的）：全部張數、學習卡張數 */
+  n?: number; nl?: number;
+}
 export interface TopicLayer { name: string; icon: string; topics: Topic[] }
 export interface CivNode { name: string; path: string; children: CivNode[] }
 // 深入專題（data/dives/*.yaml）：把一段時代的卡片、人物、故事線、勢力圖聚在一起（docs/dives.md）
@@ -130,6 +138,8 @@ export interface Dive {
   visual: 'power' | 'curve' | 'none'; power_ui: PowerUi | null;
   /** visual: curve 的曲線資料 */
   curves?: DiveCurves | null;
+  /** 只有 home.json 有（cards、power_maps 等是空的）：專題入口卡要顯示的數字 */
+  stat?: { cards: number; persons: number; power: number; curves: number; chapters: number };
 }
 export interface DiveCurveSeries { id: string; name: string; unit: string; color: string; note: string; zero: boolean | null; points: [number, number][]; src: string[] }
 export interface DiveCurves { title: string; subtitle: string; caveat: string; series: DiveCurveSeries[]; events: { year: number; label: string; card?: string }[]; sources: DiveSource[] }
@@ -152,6 +162,20 @@ export interface Index {
   detailV?: string;
   /** 長內文載入進度（src/lib/detail.ts）：單張卡／單元的小檔先到時記在這裡；all＝整包都到了。各次 setIndex 之間共用同一個物件 */
   detailLoaded?: DetailState;
+  /** false＝只有 home.json 的骨架（首頁、清單頁要用的小欄位；cards 是空的），完整的 index.json 還沒到。沒有這個欄位（或 true）＝完整。見 src/lib/detail.ts */
+  coreReady?: boolean;
+  /** index.json 抓不到（重試後仍失敗） */
+  coreFailed?: boolean;
+}
+
+/** public/home.json：學習首頁與清單頁（故事線、深入專題、主題標籤）畫得出來、點得動所需的最小資料，不含任何一張卡片。scripts/build-index.ts 產生 */
+export interface HomeData {
+  generated: string; detailV?: string;
+  histories: History[];
+  units: (Pick<Unit, 'id' | 'title' | 'histories' | 'mystery' | 'minutes'> & { nsteps: number })[];
+  storylines: { id: string; title: string; question: string; read: StoryRead | null; stops: string[] }[];
+  dives: (Pick<Dive, 'id' | 'title' | 'question' | 'range' | 'histories' | 'units' | 'visual' | 'focus_year'> & { power_title?: string; stat: NonNullable<Dive['stat']> })[];
+  topicLayers: { name: string; icon: string; topics: { name: string; plain: string; n: number; nl: number }[] }[];
 }
 export interface DetailState { cards: Set<string>; units: Set<string>; all: boolean; failed: boolean }
 

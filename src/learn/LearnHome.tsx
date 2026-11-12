@@ -1,10 +1,19 @@
 // 學習模式首頁：選一個「XX史」→ 選一個謎題 → 開始；也可以隨機來一題
 import type { History, Index, Unit } from '../types';
-import { ReadBadge } from '../components/StoryReader';
 import type { Progress } from './progress';
 import { learnCards, unitsOf } from './util';
-import { DiveEntries } from '../components/Dive';
+import { DiveEntries } from '../components/DiveEntries';
 import { intent } from '../lib/detail';
+import { readStoriesLite } from '../lib/storyLite';
+import { preload } from '../chunks';
+import './home-extra.css';
+
+// 入口旁的小字：📖 約 N 分鐘（讀完打勾）。同 components/StoryReader.tsx 的 ReadBadge；那個檔連同閱讀頁整包延後載入，首頁用這個輕量版
+function ReadBadge({ s }: { s: { id: string; read?: { minutes: number } | null } }) {
+  if (!s.read) return null;
+  const done = readStoriesLite().has(s.id);
+  return <span className={`sr-badge ${done ? 'done' : ''}`}>{done ? '✓ 讀過' : '📖 故事'}・約 {s.read.minutes} 分鐘</span>;
+}
 
 // 首頁推薦的主題標籤：橫跨古今、國高中課本常見
 const FEATURED = ['交易所', '紙幣', '白銀', '殖民統治', '民主與參政', '工業化', '原住民族', '疫病'];
@@ -17,6 +26,7 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
   index: Index; p: Progress; onHistory: (id: string) => void; onUnit: (id: string) => void; onRandom: () => void; onIntroSeen: () => void; onRecord?: () => void;
   onTopic?: (name: string) => void; onTopics?: () => void; onStory?: (id: string) => void; onDive?: (id: string) => void;
 }) {
+  // 首頁只讀 index.json 之前就有的欄位（home.json）：史的卡數 h.n、主題的學習卡數 t.nl、單元步數 u.nsteps；完整資料到了改由卡片算（數字相同）
   const cards = learnCards(index);
   // 上次做到一半的單元：放在最上面，一鍵接著做
   const resume = index.units.map((u) => [u, p.units[u.id]] as const).filter(([, x]) => x && !x.done && x.step > 0).sort((a, b) => (b[1]!.step) - (a[1]!.step))[0];
@@ -25,8 +35,8 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
     <div className="lhome">
       {resume && (
         <section className="resume">
-          <div><small>上次做到一半</small><b>❓ {resume[0].mystery}</b><span className="muted">{resume[0].title}・第 {resume[1]!.step + 1}／{resume[0].steps.length} 步</span></div>
-          <button className="btn primary" onClick={() => onUnit(resume[0].id)} {...intent('unit', resume[0].id)}>接著做 →</button>
+          <div><small>上次做到一半</small><b>❓ {resume[0].mystery}</b><span className="muted">{resume[0].title}・第 {resume[1]!.step + 1}／{resume[0].nsteps ?? resume[0].steps.length} 步</span></div>
+          <button className="btn primary" onClick={() => onUnit(resume[0].id)} {...intent('unit', resume[0].id, preload.unit)}>接著做 →</button>
         </section>
       )}
       {(doneN > 0 || resume) && <p className="muted small">你已完成 {doneN}／{index.units.length} 個單元。{onRecord && <button className="link" onClick={onRecord}>看學習紀錄 →</button>}</p>}
@@ -60,7 +70,7 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
               <h3>{g}</h3>
               <div className="htiles">
                 {hs.map((h) => {
-                  const us = unitsOf(index, h), n = cards.filter((c) => h.all || c.learn!.histories.includes(h.id)).length;
+                  const us = unitsOf(index, h), n = h.n ?? cards.filter((c) => h.all || c.learn!.histories.includes(h.id)).length;
                   const done = us.filter((u) => p.units[u.id]?.done).length;
                   return (
                     <button key={h.id} className={`htile ${n === 0 ? 'empty' : ''}`} onClick={() => onHistory(h.id)}>
@@ -96,7 +106,7 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
           </>}
           <p className="muted"><b>主題標籤</b>：每張卡都有「主題標籤」。點一個標籤，就能看到同一件事物從古到今的歷史路徑。</p>
           <div className="chips">
-            {FEATURED.map((n) => { const t = (index.topicLayers ?? []).flatMap((l) => l.topics).find((x) => x.name === n); return t ? <button key={n} className="chip topic big" onClick={() => onTopic(n)}>#{n}<small>{t.cards.filter((id) => cards.some((c) => c.id === id)).length}</small></button> : null; })}
+            {FEATURED.map((n) => { const t = (index.topicLayers ?? []).flatMap((l) => l.topics).find((x) => x.name === n); return t ? <button key={n} className="chip topic big" onClick={() => onTopic(n)}>#{n}<small>{t.nl ?? t.cards.filter((id) => cards.some((c) => c.id === id)).length}</small></button> : null; })}
             <button className="btn sm" onClick={onTopics}>看全部 {(index.topicLayers ?? []).reduce((k, l) => k + l.topics.length, 0)} 個標籤 →</button>
           </div>
         </section>
@@ -114,7 +124,7 @@ export function MysteryList({ units, p, onUnit }: { units: Unit[]; p: Progress; 
   return (
     <div className="mysteries">
       {units.map((u) => (
-        <button key={u.id} className={`mystery ${p.units[u.id]?.done ? 'done' : ''}`} onClick={() => onUnit(u.id)} {...intent('unit', u.id)}>
+        <button key={u.id} className={`mystery ${p.units[u.id]?.done ? 'done' : ''}`} onClick={() => onUnit(u.id)} {...intent('unit', u.id, preload.unit)}>
           <span className="q">❓ {u.mystery}</span>
           <span className="meta">{u.title}・約 {u.minutes} 分鐘{p.units[u.id]?.done ? '・🏅 已完成' : p.units[u.id]?.step ? `・進行到第 ${(p.units[u.id]!.step ?? 0) + 1} 步` : ''}</span>
         </button>

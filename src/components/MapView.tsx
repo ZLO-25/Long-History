@@ -1,6 +1,8 @@
 // Leaflet 地圖：歷代疆域（示意）＋道路／航線＋卡片地點；隨年代同步更新
 import { useEffect, useMemo, useRef, useState } from 'react';
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import './map-base.css';
 import type { Index, Card, Chain } from '../types';
 import { posAt } from '../lib/chain';
 import { addBasemap } from '../lib/basemap';

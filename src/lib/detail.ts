@@ -4,8 +4,14 @@
 //     打開卡片或單元時只抓需要的，滑鼠移上去／聚焦／觸碰時就先抓（intent），點下去通常已經在了。
 //  2. 整包 index-detail.json（1.7 MB）：畫面和底圖出來後才在背景下載，到了之後所有東西都有內文，小檔就不再抓。
 // 請求順序：畫面需要的小檔 → 底圖 → index-detail.json → 古道 awmc-roads.geojson（最後，見 whenDetailSettled）。
+//
+// 分階段載入（首屏效能）：
+//  0. home.json（約 20 KB）先到 → initStub：用它組一個「骨架 index」（coreReady:false，cards 是空的）就畫學習首頁與清單頁。
+//  1. index.json（卡片核心資料）到了 → adoptCore：換成完整 index（coreReady:true），App 不重新掛載、畫面狀態不丟。
+//     骨架階段就點開的卡片／單元，小檔照樣先抓，抓到的暫存在 pendCards／pendUnits，adoptCore 時一次併進完整的卡片。
+//  2. 之後和以前一樣：小檔隨點隨抓、整包 index-detail.json 背景下載。
 import type { Dispatch, SetStateAction } from 'react';
-import type { Card, DetailState, Index } from '../types';
+import type { Card, DetailState, Dive, HomeData, Index, Storyline, TopicLayer, Unit } from '../types';
 
 export type CardPart = Pick<Card, 'sections' | 'sources' | 'causes' | 'effects' | 'aliases_show' | 'images' | 'counterparts_none' | 'lens'> & { learn?: Partial<NonNullable<Card['learn']>> };
 export type UnitPart = Partial<Index['units'][number]>;
@@ -34,6 +40,9 @@ export function mergeDetail(ix: Index, d: Detail): Index {
   return { ...ix, detailReady: true };
 }
 
+/** index.json（卡片核心資料）到了沒。false＝目前只是 home.json 的骨架：沒有任何卡片，需要卡片的畫面要等 */
+export const coreReady = (ix: Index) => ix.coreReady !== false;
+
 /** 這張卡的長內文到了沒（整包或單張小檔其中之一到了就算） */
 export const cardLoaded = (ix: Index, id: string | null | undefined) => ix.detailReady !== false || !!(id && ix.detailLoaded?.cards.has(id));
 /** 這個單元的每一步內文到了沒 */
@@ -46,6 +55,9 @@ interface Ctx { ix: Index; base: string; set: Dispatch<SetStateAction<Index | nu
 let ctx: Ctx | null = null;
 const cardP = new Map<string, Promise<void>>();
 const unitP = new Map<string, Promise<void>>();
+// 骨架階段（卡片核心資料還沒到）先抓到的小檔：adoptCore 時一次併進去
+const pendCards = new Map<string, CardPart>();
+const pendUnits = new Map<string, { unit: UnitPart; cards: Record<string, CardPart> }>();
 
 // 同時最多 6 個小檔請求；使用者真的打開的（urgent）排在預取前面
 const MAX_PARALLEL = 6;
@@ -88,32 +100,38 @@ async function getSmall(path: string, early: Promise<any> | null): Promise<any> 
 function cardPromise(id: string, urgent: boolean): Promise<void> {
   let p = cardP.get(id);
   if (p) return p;
-  const c = ctx!;
   const early = takeEarly('__hrCard', id);
   p = limited(() => getSmall(`data/cards/${id}.json`, early), urgent).then((d) => {
-    const st = c.ix.detailLoaded!;
-    const card = c.ix.cards.find((x) => x.id === id);
+    const cx = ctx!, st = cx.ix.detailLoaded!;
+    if (!coreReady(cx.ix)) { if (d?.card) pendCards.set(id, d.card); return; }
+    const card = cx.ix.cards.find((x) => x.id === id);
     if (card && !st.all && d?.card) { applyCard(card, d.card); st.cards.add(id); flush(); }
   }).catch(() => { cardP.delete(id); /* 小檔抓不到：這個畫面繼續等整包，之後再點還會重試 */ });
   cardP.set(id, p);
   return p;
 }
 
+function applyUnitFile(ix: Index, id: string, unit: UnitPart | undefined, cards: Record<string, CardPart> = {}) {
+  const st = ix.detailLoaded!;
+  const u = ix.units.find((x) => x.id === id);
+  if (st.all || !u || !unit) return;
+  applyUnit(u, unit);
+  for (const [cid, part] of Object.entries<CardPart>(cards)) {
+    const card = ix.cards.find((x) => x.id === cid);
+    if (card && !st.cards.has(cid)) { applyCard(card, part); st.cards.add(cid); }
+  }
+  st.units.add(id);
+}
+
 function unitPromise(id: string, urgent: boolean): Promise<void> {
   let p = unitP.get(id);
   if (p) return p;
-  const c = ctx!;
   const early = takeEarly('__hrUnit', id);
   p = limited(() => getSmall(`data/units/${id}.json`, early), urgent).then((d) => {
-    const st = c.ix.detailLoaded!;
-    const u = c.ix.units.find((x) => x.id === id);
-    if (st.all || !u || !d?.unit) return;
-    applyUnit(u, d.unit);
-    for (const [cid, part] of Object.entries<CardPart>(d.cards ?? {})) {
-      const card = c.ix.cards.find((x) => x.id === cid);
-      if (card && !st.cards.has(cid)) { applyCard(card, part); st.cards.add(cid); }
-    }
-    st.units.add(id); flush();
+    const cx = ctx!;
+    if (!coreReady(cx.ix)) { if (d?.unit) pendUnits.set(id, { unit: d.unit, cards: d.cards ?? {} }); return; }
+    applyUnitFile(cx.ix, id, d?.unit, d?.cards);
+    flush();
   }).catch(() => { unitP.delete(id); });
   unitP.set(id, p);
   return p;
@@ -124,7 +142,9 @@ export function ensureCards(ids: Iterable<string | null | undefined>, prefetch =
   const c = ctx;
   if (!c || c.ix.detailLoaded?.all) return Promise.resolve();
   const ps: Promise<void>[] = [];
-  for (const id of new Set(ids)) if (id && !c.ix.detailLoaded!.cards.has(id) && c.ix.cards.some((x) => x.id === id)) ps.push(cardPromise(id, !prefetch));
+  // 骨架階段 cards 是空的，沒辦法確認 id 存在：照抓，抓不到（404）只是失敗一次
+  const stub = !coreReady(c.ix);
+  for (const id of new Set(ids)) if (id && !c.ix.detailLoaded!.cards.has(id) && (stub || c.ix.cards.some((x) => x.id === id))) ps.push(cardPromise(id, !prefetch));
   return Promise.all(ps).then(() => {});
 }
 /** 確保這些單元（每一步的內文＋用到的卡）已經（或正在）載入 */
@@ -139,8 +159,9 @@ export function ensureUnits(ids: Iterable<string | null | undefined>, prefetch =
 // 意圖預取：滑鼠停在單元／卡片上 120 ms、聚焦、或手指碰到，就先抓小檔，點下去時通常已經到了。
 // 用法：<button {...intent('unit', u.id)}>。滑鼠快速掃過一長串清單不會每個都抓
 let hoverTimer = 0;
-export function intent(kind: 'card' | 'unit', id: string) {
-  const go = () => { if (kind === 'card') ensureCards([id], true); else ensureUnits([id], true); };
+// warm：順便預載這個畫面的程式（chunk），例如 intent('unit', id, preload.unit)
+export function intent(kind: 'card' | 'unit', id: string, warm?: () => unknown) {
+  const go = () => { warm?.(); if (kind === 'card') ensureCards([id], true); else ensureUnits([id], true); };
   return {
     onPointerEnter: (e: { pointerType?: string }) => { window.clearTimeout(hoverTimer); if (e.pointerType === 'touch') go(); else hoverTimer = window.setTimeout(go, 120); },
     onPointerLeave: () => window.clearTimeout(hoverTimer),
@@ -164,7 +185,7 @@ export const whenDetailSettled = () => settled;
 /** 馬上開始下載整包（需要掃過所有卡片內文的畫面，例如結構對照的關鍵字搜尋） */
 export function startFullDetail() {
   const c = ctx;
-  if (!c || fullStarted) return;
+  if (!c || fullStarted || !coreReady(c.ix)) return;
   fullStarted = true;
   const url = `${c.base}index-detail.json?v=${encodeURIComponent(c.ix.detailV ?? c.ix.generated)}`;
   const get = async (u: string): Promise<Detail> => { const r = await fetch(u); if (!r.ok) throw new Error(String(r.status)); return r.json(); };
@@ -176,13 +197,54 @@ export function startFullDetail() {
     .finally(() => settleResolve());
 }
 
-/** index.json 讀到之後呼叫一次。回傳要放進 state 的 index */
-export function initDetail(ix: Index, base: string, set: Dispatch<SetStateAction<Index | null>>): Index {
+/** home.json 讀到後呼叫（先於 adoptCore）：組出骨架 index。只有首頁／清單頁要用的欄位，cards 是空的，coreReady:false */
+export function stubFromHome(h: HomeData): Index {
+  const units: Unit[] = h.units.map((u) => ({ ...u, goals: [], next: [], steps: [] }));
+  const storylines: Storyline[] = h.storylines.map((s) => ({ id: s.id, title: s.title, question: s.question, blurb: '', read: s.read, stops: s.stops.map((id) => ({ id, bridge: null })) }));
+  const dives: Dive[] = h.dives.map(({ power_title, ...d }) => ({ ...d, blurb: '', lanes: [], cards: [], storylines: [], power_maps: [], book: null, curves: null, power_ui: power_title ? { title: power_title } : null }));
+  const topicLayers: TopicLayer[] = h.topicLayers.map((l) => ({ ...l, topics: l.topics.map((t) => ({ ...t, path: '', see: [], cards: [] })) }));
+  return {
+    generated: h.generated, detailV: h.detailV, coreReady: false, detailReady: false,
+    cards: [], tagCategories: [], topicLayers, fieldOptions: [], civTree: [], frameworks: [], routes: [],
+    borders: { source: '', license: '', note: '', snapshots: [] }, itinere: false,
+    econ: { metrics: [], series: [] }, chains: [], today: { stale_months: 0, chokepoints: [], chains: [] },
+    histories: h.histories, units, storylines, dives,
+  };
+}
+
+/** home.json 讀到之後呼叫一次：開始管理小檔載入。回傳要放進 state 的骨架 index */
+export function initStub(h: HomeData, base: string, set: Dispatch<SetStateAction<Index | null>>): Index {
+  const ix = stubFromHome(h);
   ix.detailLoaded = newDetailState();
   ctx = { ix, base, set };
+  return ix;
+}
+
+/** index.json 讀到之後呼叫一次（不論 home.json 有沒有先到）。回傳要放進 state 的完整 index：
+ *  - 之前（骨架階段）小檔先到的內文併進去；
+ *  - ctx.ix 換成完整 index，之後的小檔、整包內文都併到它身上；
+ *  - 整包 index-detail.json 的背景下載從這裡才開始排（骨架階段不搶 index.json 的頻寬）。 */
+export function adoptCore(ix: Index, base: string, set: Dispatch<SetStateAction<Index | null>>): Index {
+  const st = ctx?.ix.detailLoaded ?? newDetailState();
+  const full: Index = { ...ix, coreReady: true, detailLoaded: st };
+  ctx = { ix: full, base: ctx?.base ?? base, set: ctx?.set ?? set };
+  for (const [id, part] of pendCards) { const card = full.cards.find((x) => x.id === id); if (card && !st.all) { applyCard(card, part); st.cards.add(id); } }
+  pendCards.clear();
+  for (const [id, f] of pendUnits) applyUnitFile(full, id, f.unit, f.cards);
+  pendUnits.clear();
   // 底圖先、整包後：底圖好了（或 8 秒後，例如手機停在清單頁根本沒開地圖）才開始背景下載
   Promise.race([basemapDone, new Promise<void>((r) => setTimeout(r, 8000))]).then(startFullDetail);
   // 安全時限：整包 20 秒內沒結束，古道檔也不再等
   setTimeout(settleResolve, 20000);
-  return { ...ix, detailReady: false };
+  return { ...full, detailReady: false };
+}
+
+/** index.json 抓不到：骨架階段的畫面改顯示失敗訊息 */
+export function failCore(set: Dispatch<SetStateAction<Index | null>>) {
+  set((cur) => (cur && !coreReady(cur) ? { ...cur, coreFailed: true } : cur));
+}
+
+/** 不經骨架直接用完整 index（例如 home.json 抓不到、或測試用） */
+export function initDetail(ix: Index, base: string, set: Dispatch<SetStateAction<Index | null>>): Index {
+  return adoptCore(ix, base, set);
 }

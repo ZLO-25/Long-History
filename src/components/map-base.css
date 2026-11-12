@@ -1,0 +1,5 @@
+/* 地圖用的樣式：Leaflet 官方 css 之後載入，同權重的規則才壓得過它（原本在 styles.css；官方 css 跟著地圖 chunk 延後載入，所以搬到這裡） */
+.peoples-on .leaflet-overlay-pane canvas { pointer-events: none; }
+.leaflet-tooltip { white-space: normal; width: max-content; max-width: min(300px, 70vw); }
+.leaflet-container .leaflet-control-attribution { max-width: calc(100% - 4px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-sizing: border-box; }
+.leaflet-container .leaflet-control-attribution:hover, .leaflet-container .leaflet-control-attribution:focus-within { white-space: normal; }

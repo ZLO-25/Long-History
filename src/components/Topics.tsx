@@ -125,7 +125,7 @@ export function TopicIndex({ index, onTopic, count }: { index: Index; onTopic: (
           <div className="ti-chips">
             {l.topics.map((t) => (
               <button key={t.name} className="chip topic big" onClick={() => onTopic(t.name)} title={t.plain}>
-                #{t.name}<small>{count ? count(t) : t.cards.length}</small>
+                #{t.name}<small>{count ? count(t) : t.n ?? t.cards.length}</small>
               </button>
             ))}
           </div>

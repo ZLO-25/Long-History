@@ -4,6 +4,7 @@ import { ReadBadge } from '../components/StoryReader';
 import type { Progress } from './progress';
 import { learnCards, unitsOf } from './util';
 import { DiveEntries } from '../components/Dive';
+import { intent } from '../lib/detail';
 
 // 首頁推薦的主題標籤：橫跨古今、國高中課本常見
 const FEATURED = ['交易所', '紙幣', '白銀', '殖民統治', '民主與參政', '工業化', '原住民族', '疫病'];
@@ -25,7 +26,7 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
       {resume && (
         <section className="resume">
           <div><small>上次做到一半</small><b>❓ {resume[0].mystery}</b><span className="muted">{resume[0].title}・第 {resume[1]!.step + 1}／{resume[0].steps.length} 步</span></div>
-          <button className="btn primary" onClick={() => onUnit(resume[0].id)}>接著做 →</button>
+          <button className="btn primary" onClick={() => onUnit(resume[0].id)} {...intent('unit', resume[0].id)}>接著做 →</button>
         </section>
       )}
       {(doneN > 0 || resume) && <p className="muted small">你已完成 {doneN}／{index.units.length} 個單元。{onRecord && <button className="link" onClick={onRecord}>看學習紀錄 →</button>}</p>}
@@ -113,7 +114,7 @@ export function MysteryList({ units, p, onUnit }: { units: Unit[]; p: Progress; 
   return (
     <div className="mysteries">
       {units.map((u) => (
-        <button key={u.id} className={`mystery ${p.units[u.id]?.done ? 'done' : ''}`} onClick={() => onUnit(u.id)}>
+        <button key={u.id} className={`mystery ${p.units[u.id]?.done ? 'done' : ''}`} onClick={() => onUnit(u.id)} {...intent('unit', u.id)}>
           <span className="q">❓ {u.mystery}</span>
           <span className="meta">{u.title}・約 {u.minutes} 分鐘{p.units[u.id]?.done ? '・🏅 已完成' : p.units[u.id]?.step ? `・進行到第 ${(p.units[u.id]!.step ?? 0) + 1} 步` : ''}</span>
         </button>

@@ -146,9 +146,14 @@ export interface Index {
   histories: History[]; units: Unit[]; storylines: Storyline[]; dives?: Dive[];
   // 地圖名稱中英對照（data/labels/names-en.yaml）
   names?: { en: Record<string, string>; zh: Record<string, string> };
-  /** 卡片長內文（index-detail.json）是否已併入；false 時 sections／sources／causes／effects 與學習卡全文暫時是空的 */
+  /** 卡片長內文（index-detail.json）是否已併入；false 時 sections／sources／causes／effects／aliases_show／images／counterparts_none 與學習卡全文暫時是空的 */
   detailReady?: boolean;
+  /** index-detail.json 的內容雜湊（網址 ?v= 用；內文沒變就不必重抓）。scripts/build-index.ts 產生 */
+  detailV?: string;
+  /** 長內文載入進度（src/lib/detail.ts）：單張卡／單元的小檔先到時記在這裡；all＝整包都到了。各次 setIndex 之間共用同一個物件 */
+  detailLoaded?: DetailState;
 }
+export interface DetailState { cards: Set<string>; units: Set<string>; all: boolean; failed: boolean }
 
 export interface Filters { types: CardType[]; fields: string[]; civs: string[] }
 

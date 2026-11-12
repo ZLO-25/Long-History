@@ -1,5 +1,6 @@
 // npm run build:index：把 cards/ 與 data/ 編譯成 public/index.json，並複製地圖資料到 public/data/
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { loadCards, loadTagVocab, loadTopicVocab, readYaml, readJson, dateStr, ROOT, refsOf } from './lib/cards.ts';
 import { checkCards, loadContext, exists } from './lib/check.ts';
@@ -229,8 +230,12 @@ if (econIssues.length) console.warn(`注意：經濟數列／物資鏈／今日�
 const LEARN_CORE = ['histories', 'track', 'understand', 'why_care'];
 const detail: Record<string, any> = {};
 const coreCards = cards.map((c: any) => {
-  const { sections, sources, causes, effects, learn, today_hook, non_analogous, ...rest } = c;
-  const d: any = { sections, sources, causes, effects }; // today_hook／non_analogous 就是 sections 裡那兩節的文字，網頁併入時再取
+  // 2026-11-12 再瘦身：只有開卡才看的欄位也移到 detail。aliases_show（別名顯示順序，只有 CardDetail 用）、
+  // images（圖片，只有 CardDetail／LearnCard 用）、counterparts_none（沒有對照的理由，只有 Counterparts 用）、
+  // lens（李彔／哈拉瑞兩欄，目前沒有任何畫面讀它）。已逐一 grep src/、scripts/qa/、src/lib/search.ts 確認沒有首頁階段的讀取者。
+  // counterparts 留在 index.json：Timeline 選中一張卡時要用它標出相關的卡。
+  const { sections, sources, causes, effects, learn, today_hook, non_analogous, aliases_show, images, counterparts_none, lens, ...rest } = c;
+  const d: any = { sections, sources, causes, effects, aliases_show, images, counterparts_none, lens }; // today_hook／non_analogous 就是 sections 裡那兩節的文字，網頁併入時再取
   let learnCore = null;
   if (learn) {
     learnCore = { story: '', key_terms: [], primary_source: [], historiography: '' } as any;
@@ -239,7 +244,7 @@ const coreCards = cards.map((c: any) => {
     d.learn = lr;
   }
   detail[c.id] = d;
-  return { ...rest, sections: [], sources: [], causes: [], effects: [], today_hook: '', non_analogous: '', learn: learnCore };
+  return { ...rest, sections: [], sources: [], causes: [], effects: [], today_hook: '', non_analogous: '', aliases_show: [], images: [], counterparts_none: '', lens: { lilu: '', harari: '' }, learn: learnCore };
 });
 const STEP_CORE = ['type', 'id', 'depth', 'card', 'cards', 'ref', 'sim'];
 const unitDetail: Record<string, any> = {};
@@ -253,11 +258,32 @@ const coreUnits = (index.units as any[]).map((u) => {
     return o;
   }) };
 });
-fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...index, cards: coreCards, units: coreUnits }));
+// 效能：index-detail.json 的網址帶「內容雜湊」當版本號（detailV），不是建置時間。
+// 一天部署好幾次、但卡片長內文沒變時，使用者的瀏覽器快取仍然有效，不必重抓 1.7 MB。
+// 雜湊不含 generated（每次建置都會變）；檔案本身也不放 generated，內容相同就是同一個位元組。
+const detailBody = JSON.stringify({ cards: detail, units: unitDetail });
+const detailV = createHash('sha256').update(detailBody).digest('hex').slice(0, 10);
+fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...index, detailV, cards: coreCards, units: coreUnits }));
 // 效能：每張卡的長內文另外各存一個小檔（public/data/cards/<id>.json，幾 KB）。
-// 別人分享的卡片連結（?card=…）一打開就先抓這個小檔，不必等 1.4 MB 的 index-detail.json 下載完才看得到內文。
+// 打開一張卡（或別人分享的 ?card= 連結）只抓這個小檔，不必等 1.7 MB 的 index-detail.json（src/lib/detail.ts）。
 fs.mkdirSync(path.join(pubData, 'cards'), { recursive: true });
 for (const [id, d] of Object.entries(detail)) fs.writeFileSync(path.join(pubData, 'cards', `${id}.json`), JSON.stringify({ generated: index.generated, id, card: d }));
-fs.writeFileSync(path.join(ROOT, 'public', 'index-detail.json'), JSON.stringify({ generated: index.generated, cards: detail, units: unitDetail }));
+// 效能：每個學習單元也各存一個小檔（public/data/units/<id>.json）：單元自己的每一步內文與查核紀錄，
+// 加上單元用到的每張卡的長內文（步驟裡的 card／cards／ref／id 指到的卡），打開單元只要一次小請求。
+// 保守作法：把步驟裡所有「剛好等於某張卡 id」的字串（ref 取 # 前面）都算進去，寧可多帶不要漏。
+fs.mkdirSync(path.join(pubData, 'units'), { recursive: true });
+const cardIdsIn = (node: any, out: Set<string>) => {
+  if (typeof node === 'string') { const id = node.split('#')[0]; if (detail[id]) out.add(id); }
+  else if (Array.isArray(node)) node.forEach((x) => cardIdsIn(x, out));
+  else if (node && typeof node === 'object') Object.values(node).forEach((x) => cardIdsIn(x, out));
+};
+for (const [id, d] of Object.entries(unitDetail)) {
+  const ids = new Set<string>();
+  cardIdsIn(d.steps, ids);
+  const cs: Record<string, any> = {};
+  for (const cid of [...ids].sort()) cs[cid] = detail[cid];
+  fs.writeFileSync(path.join(pubData, 'units', `${id}.json`), JSON.stringify({ generated: index.generated, id, unit: d, cards: cs }));
+}
+fs.writeFileSync(path.join(ROOT, 'public', 'index-detail.json'), `{"v":"${detailV}",${detailBody.slice(1)}`);
 const errs = issues.filter((i) => i.level === 'error').length;
 console.log(`build-index：${cards.length} 張卡、${routes.length} 條路線、${index.chains.length} 條物資鏈、人群圖層 ${peoplesInfo.countries} 國／${peoplesInfo.langs} 種語言／${peoplesInfo.migrations} 條遷徙 → public/index.json${errs ? `（注意：有 ${errs} 個 validate 錯誤）` : ''}`);

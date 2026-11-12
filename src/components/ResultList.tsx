@@ -2,6 +2,7 @@
 import type { Card } from '../types';
 import type { Hit } from '../lib/search';
 import { activeAt, fmtRange, fmtYear, yr, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { intent } from '../lib/detail';
 
 interface Props {
   query: string; result: { converted: string; year: number | null }; hits: Hit[];
@@ -37,7 +38,7 @@ export function ResultList({ query, result, hits, cards, year, onOpen, topics, o
         </p>
         {hits.length === 0 && <p>沒有結果。可以試試別名、今日地名、場域（如「港口」）、或年份（如「前431」「212」）。</p>}
         {hits.map((h) => (
-          <button key={h.card.id} className="result" onClick={() => onOpen(h.card.id)}>
+          <button key={h.card.id} className="result" onClick={() => onOpen(h.card.id)} {...intent('card', h.card.id)}>
             <span className="r-type" style={{ color: TYPE_COLOR[h.card.type] }}>{TYPE_ICON[h.card.type]} {h.card.typeLabel}</span>
             <span className="r-name">{h.card.name}</span>
             <span className="r-time">{fmtRange(h.card.time.start, h.card.time.end)}</span>
@@ -66,7 +67,7 @@ export function ResultList({ query, result, hits, cards, year, onOpen, topics, o
         <div key={g} className="vgroup">
           <h4>{g}</h4>
           {list.map((c) => (
-            <button key={c.id} className={`result compact ${activeAt(c, year) ? 'active' : ''}`} onClick={() => onOpen(c.id)}>
+            <button key={c.id} className={`result compact ${activeAt(c, year) ? 'active' : ''}`} onClick={() => onOpen(c.id)} {...intent('card', c.id)}>
               <span className="dot" style={{ background: TYPE_COLOR[c.type] }} />
               <span className="r-time">{fmtYear(c.time.start)}</span>
               <span className="r-name">{c.summary_line}</span>

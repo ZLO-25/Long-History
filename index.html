@@ -7,14 +7,14 @@
     <meta name="description" content="給國高中生的互動歷史學習網站：從一個謎題出發，讀卡片、看史料、排因果、比一比，配時間軸與地圖。涵蓋臺灣史、東亞史、世界史與錢的歷史。" />
     <!-- 效能：卡片資料和程式同時開始下載，不必等程式跑起來才抓 -->
     <link rel="preload" href="%BASE_URL%index.json" as="fetch" crossorigin="anonymous" />
-    <!-- 網址直接指到單元／專題等要讀內文的頁面時，卡片長內文也一開始就抓（src/App.tsx 會接手這個 Promise）。
-         只指到一張卡（?card=）時，先抓那張卡自己的小檔（幾 KB），內文馬上能看；完整內文照常在背景下載 -->
+    <!-- 網址直接指到一張卡（?card=）或一個單元（?unit=）時，一開始就抓那一張卡／那個單元自己的小檔（幾 KB～幾十 KB），
+         內文馬上能看（src/lib/detail.ts 接手這個 Promise）。其他頁面（專題、主題、故事線、物資鏈…）不需要卡片長內文；
+         1.7 MB 的 index-detail.json 一律等畫面和底圖出來後才在背景下載，不搶首頁頻寬 -->
     <script>(function () {
       var s = location.search, j = function (u) { return fetch(u).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); };
-      var c = /[?&]card=([\w-]+)/.exec(s);
-      if (c && !/[?&](unit|dive|story|sim|topic|chain|today)=/.test(s)) window.__hrCard = j('%BASE_URL%data/cards/' + c[1] + '.json');
-      else if (/[?&]story=/.test(s) && /[?&]read=1/.test(s)) { /* 故事閱讀頁自己帶出處，不必搶先抓全部內文 */ }
-      else if (/[?&](card|unit|dive|story|sim|topic|chain|today)=/.test(s)) window.__hrDetail = j('%BASE_URL%index-detail.json');
+      var u = /[?&]unit=([\w-]+)/.exec(s), c = /[?&]card=([\w-]+)/.exec(s);
+      if (u) window.__hrUnit = { id: u[1], p: j('%BASE_URL%data/units/' + u[1] + '.json') };
+      else if (c && !/[?&](dive|story|sim|topic|chain|today)=/.test(s)) window.__hrCard = { id: c[1], p: j('%BASE_URL%data/cards/' + c[1] + '.json') };
     })();</script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2 20 Q9 12 16 18 T30 14' stroke='%232b6cb0' stroke-width='4' fill='none'/></svg>" />
   </head>

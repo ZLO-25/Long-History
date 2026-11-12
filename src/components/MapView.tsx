@@ -4,6 +4,7 @@ import L from 'leaflet';
 import type { Index, Card, Chain } from '../types';
 import { posAt } from '../lib/chain';
 import { addBasemap } from '../lib/basemap';
+import { whenDetailSettled } from '../lib/detail';
 import { labelLayer } from '../lib/labelLayer';
 import { biHtml, biParts, cardEn, setNameTable } from '../lib/bilingual';
 import './peoples.css';
@@ -165,13 +166,14 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   // AWMC 古代道路網（巴林頓地圖集）：依地圖集標註的時代顯示
   const [awmc, setAwmc] = useState<any>(null);
   const era = eraOf(year);
-  // 效能：古道檔很大（gzip 後約 0.5 MB、解析約 2 MB），只有年代落在會畫古道的時代（640 年以前）才下載，
-  // 而且等瀏覽器空閒（首頁資料、卡片內文先下載完）再抓，不跟第一個畫面搶頻寬
+  // 效能：古道檔很大（gzip 後約 0.5 MB、解析約 2 MB），只有年代落在會畫古道的時代（640 年以前）才下載。
+  // 古道畫在任何縮放層級都看得到（沒有縮放門檻），所以不能用縮放延後；改成排在最後：
+  // 畫面需要的小檔 → 底圖 → index-detail.json → 這個檔（等整包內文結束或放棄，最多等 20 秒），再等瀏覽器空閒，不跟第一個畫面搶頻寬
   const wantRoads = era !== 'M';
   useEffect(() => {
     if (!wantRoads || awmc) return;
     let dead = false;
-    const go = () => { if (!dead) fetch(`${import.meta.env.BASE_URL}data/awmc-roads.geojson`).then((r) => r.json()).then((gj) => { if (!dead) setAwmc(gj); }).catch(() => {}); };
+    const go = () => { if (!dead) whenDetailSettled().then(() => { if (!dead) fetch(`${import.meta.env.BASE_URL}data/awmc-roads.geojson`).then((r) => r.json()).then((gj) => { if (!dead) setAwmc(gj); }).catch(() => {}); }); };
     const ric = (window as any).requestIdleCallback as undefined | ((cb: () => void, o?: { timeout: number }) => number);
     const t = window.setTimeout(() => (ric ? ric(go, { timeout: 4000 }) : go()), 1200);
     return () => { dead = true; window.clearTimeout(t); };

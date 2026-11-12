@@ -7,6 +7,7 @@ import { Choice, CheckQ, CompareTable, Decision, Hints, Order, RefLink, Reflect,
 import { SimView } from './sims/SimView';
 import type { UnitProgress } from './progress';
 import { unitHalf } from './util';
+import { intent } from '../lib/detail';
 import { PeoplePanel } from '../components/PeoplePanel';
 import { loadPeoples, PEOPLE_ABOUT, PEOPLE_INTRO, PEOPLE_MIGS, MIG_PREFIX, type Peoples } from '../lib/peoples';
 
@@ -196,11 +197,11 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
           <Reflect key={`r${step}`} q={u.reflect} saved={prog?.answers?.reflect as string | undefined} onSave={(t) => save('reflect', t)} />
           {!prog?.done ? <button className="btn primary big" onClick={() => setProg({ done: true, doneAt: new Date().toISOString().slice(0, 10) })}>完成這個單元 🏅</button>
             : <p className="badge-earned">🏅 你完成了「{u.title}」！它已經點亮在「我的歷史地圖」上。</p>}
-          {nextLesson && dive && <p className="ud-recap-next"><b>{dive.title}專題</b>的下一課：<button className="btn primary" onClick={() => onUnit(nextLesson.id)}>第 {lessonNo + 2}／{lessons.length} 課《{nextLesson.title}》 →</button></p>}
+          {nextLesson && dive && <p className="ud-recap-next"><b>{dive.title}專題</b>的下一課：<button className="btn primary" onClick={() => onUnit(nextLesson.id)} {...intent('unit', nextLesson.id)}>第 {lessonNo + 2}／{lessons.length} 課《{nextLesson.title}》 →</button></p>}
           <h3>接下來可以挖</h3>
           <div className="next-units">
             {u.next.map((id) => index.units.find((x) => x.id === id)).filter((x): x is Unit => !!x).map((n) => (
-              <button key={n.id} className="unit-tile" onClick={() => onUnit(n.id)}><b>{n.title}</b><span>❓ {n.mystery}</span></button>
+              <button key={n.id} className="unit-tile" onClick={() => onUnit(n.id)} {...intent('unit', n.id)}><b>{n.title}</b><span>❓ {n.mystery}</span></button>
             ))}
           </div>
         </div>

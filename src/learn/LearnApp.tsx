@@ -26,6 +26,7 @@ import { MyMap } from './MyMap';
 import { LearnRecord } from './LearnRecord';
 import { SimView } from './sims/SimView';
 import { useProgress } from './progress';
+import { ensureCards, ensureUnits, cardLoaded, unitLoaded, waitingText } from '../lib/detail';
 import { historyOf, inHistory, learnCards } from './util';
 import './learn.css';
 
@@ -203,9 +204,19 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     }
     return null;
   })();
-  // 卡片長內文還在背景下載時，需要內文的頁面先顯示「載入中」（通常不到一秒）
-  const waiting = index.detailReady === false;
-  const content = waiting && !query.trim() && !['home', 'history', 'topics', 'stories', 'dives', 'peoples'].includes(view.kind) && !(view.kind === 'card' && !!byId(view.id)?.sources.length) && !(view.kind === 'story' && keepRead(view.id)) ? <p className="muted loading-detail">載入卡片內容…</p> : contentRaw;
+  // 長內文（src/lib/detail.ts）：只有卡片（那一張）、單元（那一個＋它用到的卡）、學習紀錄（寫過回答的單元，要顯示題目）真的用到；
+  // 首頁、史、主題、故事線、專題、模擬、我的地圖、人群用的都是 index.json 裡就有的欄位，不必等。
+  // 要用的小檔在頁面打開時抓（通常在滑鼠移上去時就開始了），到了才顯示，之前顯示「載入卡片內容…」
+  const recordUnits = index.units.filter((u) => Object.entries(p.units[u.id]?.answers ?? {}).some(([k, v]) => /^s\d+$/.test(k) && typeof v === 'string' && v.trim())).map((u) => u.id);
+  const recordKey = recordUnits.join();
+  useEffect(() => {
+    if (view.kind === 'card') ensureCards([view.id]);
+    else if (view.kind === 'unit') ensureUnits([view.id]);
+    else if (view.kind === 'record') ensureUnits(recordUnits);
+  }, [view, recordKey]); // eslint-disable-line react-hooks/exhaustive-deps
+  const ready = query.trim() ? true : view.kind === 'card' ? cardLoaded(index, view.id) : view.kind === 'unit' ? unitLoaded(index, view.id)
+    : view.kind === 'record' ? recordUnits.every((id) => unitLoaded(index, id)) : true;
+  const content = ready ? contentRaw : <p className="muted loading-detail">{waitingText(index)}</p>;
 
   const topicName = view.kind === 'topic' ? view.name : null;
   const storyId = view.kind === 'story' ? view.id : null;
@@ -218,7 +229,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}}
     peoples={{ on: peoplesOn || (view.kind === 'unit' && !!unitPeople), setOn: (v) => { setPeoplesOn(v); if (!v) setUnitPeople(null); if (!v && view.kind === 'peoples') back(); }, sel: view.kind === 'peoples' ? view.id : view.kind === 'unit' ? unitPeople : null, onPick: (id) => { openPeople(id); if (isMobile && id !== PEOPLE_INTRO) setTab('main'); } }} />;
   const timeline = <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
-  const cardTab = waiting && !byId(lastCard ?? '')?.sources.length ? <p className="muted loading-detail">載入卡片內容…</p> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
+  const cardTab = lastCard && !cardLoaded(index, lastCard) ? <p className="muted loading-detail">{waitingText(index)}</p> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <p className="muted">還沒打開任何卡片。</p>;
 
   const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '單元', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題', peoples: '人群' } as Record<View['kind'], string>)[view.kind];
   const header = (

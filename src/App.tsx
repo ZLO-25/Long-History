@@ -26,6 +26,7 @@ import { LearnApp } from './learn/LearnApp';
 import { DockLayout, useDock } from './components/Dock';
 import { useLayout, colSize } from './lib/layout';
 import { SkipLink } from './components/SkipLink';
+import { initDetail, ensureCards, startFullDetail, cardLoaded, waitingText } from './lib/detail';
 
 type RPanel = 'map' | 'side' | 'tl';
 const R_PANELS: readonly RPanel[] = ['map', 'side', 'tl'];
@@ -51,25 +52,11 @@ export default function App() {
   const [index, setIndex] = useState<Index | null>(null);
   const [error, setError] = useState('');
   useEffect(() => {
-    // 效能：先抓較小的 index.json 畫出畫面；畫面出來後才在背景抓卡片長內文 index-detail.json（不跟首頁搶頻寬），到了再併進來
+    // 效能：先抓較小的 index.json 畫出畫面。長內文（src/lib/detail.ts）：打開卡片／單元時只抓那一張／那一個的小檔；
+    // 整包 index-detail.json 等底圖出來後才在背景下載，到了之後所有東西都有內文
     const base = import.meta.env.BASE_URL;
-    const getJson = (u: string) => fetch(u).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
-    // 網址直接指到卡片／單元／專題時，一開始就要讀內文：兩個檔同時抓（不帶版本號，抓到不同建置再補抓一次）
-    // （index.html 裡的小段程式已經開始抓，這裡接手）
-    const early = (window as Window & { __hrDetail?: Promise<any> }).__hrDetail ?? null;
-    getJson(`${base}index.json`).then((ix: Index) => {
-      setNameTable(ix.names); setIndex({ ...ix, detailReady: false });
-      // 帶建置時間當版本號，兩個檔一定是同一次建置（不會拿到快取裡的舊內文）
-      const fresh = () => getJson(`${base}index-detail.json?v=${encodeURIComponent(ix.generated)}`);
-      // 只開一張卡的連結：那張卡自己的小檔先到，就先把它的內文併進去（完整內文稍後到，再整批併一次）
-      let full = false;
-      (window as Window & { __hrCard?: Promise<any> }).__hrCard?.then((one) => {
-        if (full || !one || one.generated !== ix.generated) return;
-        mergeDetail(ix, { generated: one.generated, cards: { [one.id]: one.card } });
-        setIndex((cur) => (cur && cur.detailReady === false ? { ...cur } : cur));
-      });
-      (early ? early.then((d) => (d?.generated === ix.generated ? d : fresh())) : fresh())
-        .then((d) => { full = true; setIndex(mergeDetail(ix, d)); }).catch(() => setError('讀不到卡片內文 index-detail.json，請重新整理頁面。'));
+    fetch(`${base}index.json`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); }).then((ix: Index) => {
+      setNameTable(ix.names); setIndex(initDetail(ix, base, setIndex));
     }).catch(() => setError('讀不到 public/index.json。請先執行 npm run build:index（npm run dev 會自動執行）。'));
   }, []);
   if (error) return <div className="fatal">{error}</div>;
@@ -80,27 +67,6 @@ export default function App() {
 // 第 6 期：研究模式／學習模式。網址 ?mode=learn 進入學習模式；研究模式的網址參數完全不變
 // 第一次來（網址沒帶任何參數、也沒記住過模式）的人，預設進學習模式；之後記住上次用的模式。
 // 研究模式的網址參數（?card= ?year= ?chain= …）一律維持研究模式，舊連結不受影響。
-type Detail = { generated: string; cards: Record<string, Pick<Card, 'sections' | 'sources' | 'causes' | 'effects'> & { learn?: Partial<NonNullable<Card['learn']>> }>; units?: Record<string, Partial<Index['units'][number]>> };
-// 效能：長內文直接寫進原本的卡片物件（同一個 cards 陣列），地圖、時間軸、搜尋索引不必因此全部重算；
-// 只有 detailReady 變成 true，讓「載入卡片內容…」換成真正的內容
-function mergeDetail(ix: Index, d: Detail): Index {
-  for (const c of ix.cards) {
-    const x = d.cards[c.id];
-    if (!x) continue;
-    const { learn, ...rest } = x;
-    Object.assign(c, rest);
-    c.today_hook = rest.sections?.find((x) => x.role === 'today_hook')?.text ?? '';
-    c.non_analogous = rest.sections?.find((x) => x.role === 'non_analogous')?.text ?? '';
-    if (c.learn && learn) Object.assign(c.learn, learn);
-  }
-  // 學習單元每一步的內文、查核紀錄也在 detail（index.json 只有骨架）
-  for (const u of ix.units ?? []) { const x = d.units?.[u.id]; if (x) Object.assign(u, x); }
-  return { ...ix, detailReady: true };
-}
-
-/** 這張卡的長內文到了沒（完整內文還在下載時，單張卡的小檔可能先到） */
-export const cardLoaded = (ix: Index, id: string | null | undefined) => !!ix.cards.find((c) => c.id === id)?.sources.length;
-
 const MODE_KEY = 'history-river-mode';
 function initialMode(): 'learn' | 'research' {
   const q = new URLSearchParams(location.search);
@@ -295,8 +261,13 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
       default: return <ResultList query={query} result={result} hits={hits} cards={visible} year={year} onOpen={openCard} topics={topicHits} onTopic={openTopic} />;
     }
   })();
-  // 卡片長內文還在背景下載時，需要內文的面板先顯示「載入中」（通常不到一秒）
-  const side = index.detailReady === false && !['list', 'topics', 'stories', 'dives', 'econ', 'peoples'].includes(panel.kind) && !(panel.kind === 'card' && cardLoaded(index, panel.id)) && !(panel.kind === 'story' && keepRead(panel.id)) ? <p className="muted loading-detail">載入卡片內容…</p> : sideRaw;
+  // 長內文（src/lib/detail.ts）：只有卡片（那一張）和結構對照（關鍵字要掃過所有卡的內文，等整包）真的用到；
+  // 地點、路線、物資鏈、今日對照、主題、故事線、專題用的都是 index.json 裡就有的欄位，不必等。
+  // 卡片：打開時只抓那一張的小檔（通常在滑鼠移上去時就開始了），到了就顯示
+  const cardId = panel.kind === 'card' ? panel.id : null;
+  useEffect(() => { if (cardId) ensureCards([cardId]); }, [cardId]);
+  useEffect(() => { if (panel.kind === 'match') startFullDetail(); }, [panel.kind]);
+  const side = (panel.kind === 'card' && !cardLoaded(index, panel.id)) || (panel.kind === 'match' && index.detailReady === false) ? <p className="muted loading-detail">{waitingText(index)}</p> : sideRaw;
 
   const map = <MapView index={index} cards={visible} year={year} highlight={highlight}
     onPlace={(key) => { open({ kind: 'place', key }); if (isMobile) setMobileTab('list'); }}

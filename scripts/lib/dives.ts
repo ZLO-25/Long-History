@@ -21,6 +21,44 @@ export interface DiveDef {
   curves?: CurvesDef;
   /** 今日影子：那時候 → 今天哪裡還看得到（docs/dives.md 第九節） */
   legacy?: LegacyDef;
+  /** 對照表：引用 data/dives/compare/<名稱>.yaml（docs/dives.md 第十節） */
+  compare?: string[];
+}
+export interface CompareDef {
+  id: string; title: string;
+  left: { label: string; dive: string }; right: { label: string; dive: string };
+  rows: { aspect: string; left: string; right: string; left_card?: string; right_card?: string; src: string[] }[];
+  sources: { id: string; title: string; url: string; accessed: string; tier?: string }[];
+}
+export function loadCompare(name: string): CompareDef | null {
+  const p = path.join(ROOT, 'data', 'dives', 'compare', `${name}.yaml`);
+  return fs.existsSync(p) ? YAML.parse(fs.readFileSync(p, 'utf8')) : null;
+}
+function checkCompare(name: string, diveIds: Set<string>, byId: Map<string, any>, err: (m: string) => void, warn: (m: string) => void) {
+  const c = loadCompare(name);
+  if (!c) { err(`compare ${name}：找不到 data/dives/compare/${name}.yaml`); return; }
+  const e = (m: string) => err(`compare ${name}：${m}`);
+  if (c.id !== name) e(`id 要等於檔名（${c.id}）`);
+  if (!c.title) e('缺 title');
+  for (const side of ['left', 'right'] as const) {
+    const sd = c[side];
+    if (!sd?.label || !sd?.dive) e(`${side} 要有 label 與 dive`);
+    else if (!diveIds.has(sd.dive)) e(`${side}.dive ${sd.dive} 不存在`);
+  }
+  const src = new Set((c.sources ?? []).map((x) => x.id));
+  if (src.size !== (c.sources ?? []).length) e('sources 的 id 重複');
+  for (const x of c.sources ?? []) if (!x.id || !x.title || !x.url || !x.accessed || !x.tier) e(`sources 的 ${x.id ?? '?'} 要有 id、title、url、accessed、tier`);
+  if (!(c.rows ?? []).length) e('rows 至少 1 列');
+  (c.rows ?? []).forEach((r, i) => {
+    const w = `rows[${i}]${r.aspect ? `「${r.aspect}」` : ''}`;
+    if (!r.aspect) e(`${w}：要有 aspect`);
+    if (!r.left || !r.right) e(`${w}：left 與 right 都要有字`);
+    for (const k of ['left_card', 'right_card'] as const) if (r[k] && !byId.has(r[k]!)) e(`${w}：${k} ${r[k]} 不存在`);
+    if (!Array.isArray(r.src) || !r.src.length) e(`${w}：至少要有一筆 src`);
+    for (const k of r.src ?? []) if (!src.has(k)) e(`${w}：來源 ${k} 不在 sources`);
+  });
+  const used = new Set((c.rows ?? []).flatMap((x) => x.src ?? []));
+  for (const x of c.sources ?? []) if (!used.has(x.id)) warn(`compare ${name}：sources 的 ${x.id} 沒有任何一列引用`);
 }
 export interface LegacyDef {
   title?: string;
@@ -124,6 +162,7 @@ export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawC
   const out: Issue[] = [];
   const byId = new Map(cards.filter((c) => c.fm?.id).map((c) => [c.fm.id, c.fm]));
   const seen = new Set<string>();
+  const allDiveIds = new Set(dives.map((x) => x.dive?.id));
   for (const { file, dive: d } of dives) {
     const err = (msg: string) => out.push({ level: 'error', file, msg });
     const warn = (msg: string) => out.push({ level: 'warning', file, msg });
@@ -158,6 +197,7 @@ export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawC
     }
     if (d.book) checkBook(d.book, byId, err, warn, unitIds);
     if (d.legacy) checkLegacy(d.legacy, byId, new Set(ids), err, warn);
+    for (const n of d.compare ?? []) checkCompare(n, allDiveIds, byId, err, warn);
     if (d.curves) checkCurves(d.curves, byId, d.range, err, warn);
     if (d.visual === 'curve' && !d.curves) err('visual: curve 要寫 curves（曲線資料）');
     if (d.focus_year != null && (typeof d.focus_year !== 'number' || (d.range && (d.focus_year < d.range.start || d.focus_year > d.range.end)))) err('focus_year 要是專題年代內的年份');
@@ -185,6 +225,11 @@ export function buildDives(dives: { file: string; dive: DiveDef }[], cards: { id
       chapters: (d.book.chapters ?? []).map((c) => ({ no: c.no, part: c.part, title: c.title, en: c.en ?? '', zh: c.zh ?? '', claim: c.claim, cards: (c.cards ?? []).filter((id) => has.has(id)), card_notes: c.card_notes ?? {}, debate: (c.debate ?? []).map((d) => ({ ...d, stance: d.stance ?? '' })), think: c.think ?? '', core: !!c.core, minutes: c.minutes ?? null })) } : null,
     // 今日影子：只隨專題資料輸出（不進 home.json）；指到還不存在的卡的條目先略過
     legacy: d.legacy ? { title: d.legacy.title ?? '今日影子', items: (d.legacy.items ?? []).filter((x) => has.has(x.card)), sources: d.legacy.sources ?? [] } : null,
+    // 對照表：只隨專題資料輸出；指到還不存在的卡的欄位先略過卡片連結（文字照留）
+    compare: (d.compare ?? []).map((n) => loadCompare(n)).filter((c): c is CompareDef => !!c).map((c) => ({
+      id: c.id, title: c.title, left: c.left, right: c.right, sources: c.sources ?? [],
+      rows: (c.rows ?? []).map((r) => ({ aspect: r.aspect, left: r.left, right: r.right, left_card: r.left_card && has.has(r.left_card) ? r.left_card : null, right_card: r.right_card && has.has(r.right_card) ? r.right_card : null, src: r.src })),
+    })),
     power_maps: (d.power_maps ?? []).map((pm) => {
       const p = path.join(ROOT, 'data', 'dives', pm.file);
       const gj = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : null;

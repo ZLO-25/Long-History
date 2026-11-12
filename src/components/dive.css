@@ -121,3 +121,21 @@
   .dv-lg-arrow { transform: rotate(90deg); line-height: 1; }
 }
 @media (pointer: coarse) { .dv-lg-card { min-height: 44px; padding: 0 14px; font-size: 15px; } }
+
+/* 對照表（compare）：桌機三欄（面向｜左｜右），手機每個面向一張卡上下排。字色同今日影子 */
+.dv-cp-table { container-type: inline-size; display: flex; flex-direction: column; gap: 8px; }
+.dv-cp-head, .dv-cp-row { display: grid; grid-template-columns: 110px 1fr 1fr; gap: 6px 10px; }
+.dv-cp-head { font-size: 12px; font-weight: 700; color: var(--dive); border-bottom: 1px solid var(--dive-line); padding: 0 12px 2px; }
+.dv-cp-row { border: 1px solid var(--dive-line); border-radius: 10px; background: #fff; padding: 8px 12px; align-items: start; }
+.dv-cp-aspect { margin: 0; font-size: 14px; color: var(--dive); align-self: center; }
+.dv-cp-cell { border-radius: 8px; padding: 6px 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; overflow-wrap: anywhere; }
+.dv-cp-cell.l { background: #f3efe6; }
+.dv-cp-cell.r { background: var(--dive-bg); }
+.dv-cp-cell p { margin: 0; font-size: 14px; line-height: 1.6; color: #2d2a26; }
+.dv-cp-who { display: none; font-size: 11.5px; color: #5a544a; }
+.dv-cp-src { grid-column: 1 / -1; margin: 0; }
+@container (max-width: 600px) {
+  .dv-cp-head { display: none; }
+  .dv-cp-row { grid-template-columns: 1fr; }
+  .dv-cp-who { display: block; }
+}

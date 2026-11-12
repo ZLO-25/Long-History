@@ -172,3 +172,10 @@ storylines:
     question: 幾百個吵個不停的小城邦，怎麼長出「人民自己管自己」的制度？這個實驗為什麼在贏了波斯之後，反而一路走到自己人打自己人，最後被馬其頓和羅馬收走？
     blurb: 這條線沿著「上一步留下的問題」走：城邦的債務與階級衝突逼出改革，改革撐起了能打贏波斯的公民，勝利又讓雅典變成帝國，帝國引來戰爭，戰爭之後是審判、是新的強權；每一站都比上一站離「人民自己管自己」更遠一點，也更近下一個主人。
     stops: [event-greek-polis-colonization, event-solon-reform, event-cleisthenes-reform, war-greco-persian, event-delian-league, social-athenian-democracy, war-peloponnesian, event-macedon-rise, event-alexander-campaign, event-hellenistic-kingdoms, war-roman-conquest-greece]
+
+  # 深入專題「古羅馬」的主線（data/dives/ancient-rome.yaml）；後半段接既有 story-rome-empire
+  - id: story-ancient-rome
+    title: 從一座城到地中海，再到守不住：羅馬的一千年
+    question: 羅馬人趕走國王、發誓不再讓一個人說了算，為什麼最後還是出現了皇帝？一個管了整個地中海的帝國，又是怎麼一步步守不住的？
+    blurb: 這條線沿著「上一步留下的問題」走：共和的制度撐起了擴張，擴張帶來貧富差距與職業軍隊，軍隊讓將軍越來越大，最後剩下一個人；帝國盛世之後，危機、分治與信仰的改變，一步步把西半部推向終點。
+    stops: [event-roman-republic-founding, event-conflict-of-orders, war-samnite, war-first-punic, war-second-punic, event-gracchi-reforms, event-marian-reforms-sulla, event-rubicon, event-augustan-principate, event-pax-romana, event-crisis-third-century, event-diocletian-tetrarchy, event-christian-empire, event-fall-western-rome]

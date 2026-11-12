@@ -1,0 +1,22 @@
+# 希臘 vs 羅馬對照表（docs/dives.md 第十節）。專題 yaml 用 compare: [greece-rome] 引用；檔名＝id 去掉前綴；資料只隨專題頁載入
+id: greece-rome
+title: 希臘 vs 羅馬
+left: { label: 古希臘（以雅典為主）, dive: dive-ancient-greece }
+right: { label: 古羅馬, dive: dive-ancient-rome }
+rows:
+  - aspect: 政治怎麼運作
+    left: 雅典是直接民主：夠格的公民自己到公民大會表決；大部分官員和陪審員用抽籤決定，只有將軍等少數職位用選的。
+    right: 羅馬共和是混合政體：每年選出兩位執政官互相牽制，終身任職的元老院是政府的中心，人民在公民大會投票，但少數有權勢的家族長期占著高位。
+    left_card: social-athenian-democracy
+    right_card: event-roman-republic-founding
+    src: [C1, C2]
+  - aspect: 誰算公民
+    left: 成年男性才能投票；伯里克里斯時期規定要父母都是雅典人。女性、奴隸、獲釋奴隸、外邦人都被排除在外。
+    right: 一開始也是封閉的，但羅馬在同盟戰爭後把公民權給了義大利的盟友，公民人數大增；西元 212 年卡拉卡拉讓帝國裡幾乎所有自由人都成為公民。
+    left_card: social-athenian-democracy
+    right_card: event-constitutio-antoniniana
+    src: [C1, C2, C3]
+sources:
+  - { id: C1, title: "Athenian democracy — Wikipedia（抽籤、公民資格、被排除的人）", url: "https://en.wikipedia.org/wiki/Athenian_democracy", accessed: 2026-11-12, tier: 百科 }
+  - { id: C2, title: "Roman Republic — Wikipedia（執政官、元老院、同盟戰爭後的公民權）", url: "https://en.wikipedia.org/wiki/Roman_Republic", accessed: 2026-11-12, tier: 百科 }
+  - { id: C3, title: "Constitutio Antoniniana — Wikipedia（212 年）", url: "https://en.wikipedia.org/wiki/Constitutio_Antoniniana", accessed: 2026-11-12, tier: 百科 }

@@ -30,9 +30,38 @@ effects:
 counterparts:
   - { id: war-chu-han, note: "相似：舊秩序瓦解後兩個強人爭天下，勝者建立延續數百年的新政體（元首制；漢朝）。不同：亞克興是羅馬共和制度內兩派的內戰；楚漢是秦帝國崩潰後群雄起兵的混戰。", src: [s1, s5] }
 sources:
-  - { id: s1, title: "Battle of Actium — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Actium", accessed: 2026-10-24 }
-  - { id: s2, title: "Jona Lendering, Actium (31 BCE) — Livius.org", url: "https://www.livius.org/articles/battle/actium-31-bce", accessed: 2026-10-24 }
-  - { id: s5, title: "Chu–Han Contention — Wikipedia", url: "https://en.wikipedia.org/wiki/Chu%E2%80%93Han_Contention", accessed: 2026-10-25 }
+  - { id: s1, title: "Battle of Actium — Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Actium", accessed: 2026-10-24, tier: 百科 }
+  - { id: s2, title: "Jona Lendering, Actium (31 BCE) — Livius.org", url: "https://www.livius.org/articles/battle/actium-31-bce", accessed: 2026-10-24, tier: 通論 }
+  - { id: s5, title: "Chu–Han Contention — Wikipedia", url: "https://en.wikipedia.org/wiki/Chu%E2%80%93Han_Contention", accessed: 2026-10-25, tier: 百科 }
+  - { id: s3, title: "普魯塔克《安東尼傳》第 66 章（Plutarch, Life of Antony，Perrin 英譯）— Lexundria", url: "https://lexundria.com/plut_ant/66/prr", accessed: 2026-11-12, tier: 一手 }
+  - { id: s4, title: "奧古斯都《神君奧古斯都功業錄》（Res Gestae）第 34 章，Shipley 英譯 — Lexundria", url: "https://lexundria.com/aug_anc/0-39/ship", accessed: 2026-11-12, tier: 一手 }
+importance: 3
+learn:
+  histories: [希臘羅馬史]
+  perspectives:
+    - { history: 希臘羅馬史, text: "從希臘羅馬史看，亞克興是羅馬共和內戰的最後一幕：打完之後只剩一個人手握大軍，共和國才有可能變成帝國；但勝利者把它寫成「對外國女王的戰爭」。[s1][s2]" }
+  why_care: 一場海戰決定了羅馬從共和走向帝國，而我們對克麗奧佩脫拉「丟下情人逃走」的印象，很大一部分來自勝利者那一邊的說法。[s1][s2][s3]
+  story: |
+    前 31 年，羅馬內戰的兩大陣營在希臘西岸對峙：一邊是屋大維，艦隊由阿格里帕指揮；一邊是安東尼和埃及女王克麗奧佩脫拉。[s1][s2] 阿格里帕先切斷補給，把安東尼的大軍困在安布拉基亞灣裡，營中出現飢餓、疾病與逃兵。[s1][s2] 前 31 年 9 月 2 日，安東尼決定從灣口突圍。[s1] 普魯塔克說，戰況本來勢均力敵，克麗奧佩脫拉的六十艘船忽然升帆離開，安東尼丟下正在作戰的部下，坐小船追過去。[s3] Livius 則指出，她的船載著國庫，從戰線的缺口衝出，之後安東尼與克麗奧佩脫拉才下令升帆往南。[s2] 之後陸軍投降，前 30 年屋大維進入亞歷山卓，兩人自殺。[s1][s2] 屋大維日後在《功業錄》裡寫，自己平定內戰後把國家交還給元老院與人民。[s4]
+  key_terms:
+    - { term: 三人同盟, plain: 凱撒死後，屋大維、安東尼、雷必達為了掌權組成的聯盟；後來互相不信任，終於破裂。, example: 像三位同學合組班聯會，後來為了分權鬧翻。 }
+    - { term: 海上封鎖, plain: 用艦隊擋住海路，切斷對方的糧食與援軍。, example: 像把學校唯一的福利社大門堵住，裡面的人慢慢沒東西吃。 }
+    - { term: 突圍, plain: 被包圍的一方集中力量從某一點衝出去，目的是脫困，不一定是打贏。, example: 像被圍在教室後面的人，全員衝向前門逃出去。 }
+    - { term: 政治宣傳, plain: 掌權者刻意塑造的說法，用來替自己的行動說話。, example: 像選舉時把對手說成「勾結外人」。 }
+  primary_source:
+    - text: "普魯塔克說：戰局還勢均力敵時，克麗奧佩脫拉的六十艘船被看見升起帆要逃走；安東尼隨後丟下作戰的部下，登上五槳小船去追她。"
+      from: 普魯塔克《安東尼傳》第 66 章（依 Perrin 英譯轉述大意，不是逐字翻譯）
+      src: s3
+  historiography: |
+    **克麗奧佩脫拉是臨陣脫逃，還是照計畫突圍？** 普魯塔克把它寫成她的船忽然逃走、安東尼像被愛情牽著走的追上去。[s3] 維基百科整理了兩種看法：一種是她的分艦隊沒有交戰就撤到外海、安東尼誤以為大勢已去而跟上；另一種是學者 J. M. Carter 的看法，認為安東尼知道自己被包圍，是有意識地突破屋大維艦隊的缺口，把大軍放在後面。[s1] Livius 同樣描述載著國庫的船最先穿過缺口，並說安東尼的目的是離開被封鎖的海灣。[s2]
+    **兵力多少？** 各來源數字差距很大（見 A4），沒有定論。[s1][s2]
+    **誰在寫這場戰爭？** Livius 指出，亞克興成為帝國宣傳的一部分，用外國敵人的形象蓋住「這其實是內戰」的事實。[s2]
+  misconceptions:
+    - 「亞克興是羅馬打埃及的戰爭。」這是屋大維一方的包裝；雙方都是羅馬將領，實質是內戰。[s1][s2]
+    - 「安東尼是在海戰中被打敗的。」他的主力船隊有一部分突圍成功，真正的失敗是失去陸軍與盟友。[s1][s2]
+  pop_culture:
+    - { claim: "常見說法：克麗奧佩脫拉在戰鬥最激烈時臨陣脫逃，安東尼為了愛情丟下大軍追她。", fact: "這是普魯塔克的寫法，他把安東尼寫成受愛情支配。[s3] 但 Livius 描述她載著國庫的船是穿過戰線缺口出海，兩人再下令升帆南行；維基百科也整理了學者主張這是預定的突圍。[s1][s2] 也就是說，「逃走」的說法出自勝利者與後世作者，學界並未定論。[s1][s2][s3]", src: [s1, s2, s3] }
+    - { claim: "常見說法：這是羅馬對埃及的戰爭。", fact: "元老院是對克麗奧佩脫拉宣戰，安東尼被描繪成要為凱撒里昂建立君主制的人；Livius 指出這是用外敵形象掩蓋內戰。[s1][s2]", src: [s1, s2] }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
@@ -64,7 +93,7 @@ lens_status: 無直接論述
 ## A7 關鍵轉折
 
 - 前 32：阿格里帕奪取伯羅奔尼撒西部據點，切斷補給。[s1][s2]
-- 前 31 年 9 月 2 日：海戰；克麗奧佩脫拉的分艦隊先行撤離，安東尼率少數船隻突圍。[s1][s2]
+- 前 31 年 9 月 2 日：海戰；克麗奧佩脫拉的分艦隊（Livius：載著國庫）先穿過缺口出海，安東尼隨後率少數船隻離開。普魯塔克把這寫成她逃走、他追上去；也有學者主張這是預定的突圍（見史家怎麼吵）。[s1][s2][s3]
 - 之後：安東尼的陸軍投降或倒戈，希律王等盟友在冬季改投屋大維。[s1][s2]
 - 前 30：屋大維圍攻亞歷山卓，安東尼與克麗奧佩脫拉自殺。[s1][s2]
 
@@ -74,7 +103,7 @@ lens_status: 無直接論述
 
 ## A9 長期影響
 
-屋大維日後稱「奧古斯都」並統治超過四十年，史家一般把羅馬帝國的開端定在這個時期。[s1][s2] 勝利被大量紀念：尼科波利斯城、各地紀念碑，以及維吉爾的《埃涅阿斯紀》。[s2]
+屋大維日後稱「奧古斯都」並統治超過四十年，史家一般把羅馬帝國的開端定在這個時期。[s1][s2] 勝利被大量紀念：尼科波利斯城（前 29 年建）、各地紀念碑，以及維吉爾的《埃涅阿斯紀》。[s1][s2] 屋大維自己在《功業錄》第 34 章說，內戰平息後他把國家交還給元老院和人民。[s4]
 
 ## A10 雙軌解讀
 

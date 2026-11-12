@@ -1,6 +1,6 @@
 // 故事閱讀頁：每條故事線一篇 5–25 分鐘可以一口氣讀完的文章（docs/stories.md）。
-// 預設「翻頁」：像書一樣一頁一頁翻（寬螢幕左右兩欄），一個畫面盡量多字、不必一直往下滑；也可以改成「捲動」。
-// 上方有進度條、剩餘時間、目錄、顯示設定（翻頁／捲動、字級、出處）；每節結尾有「記住」一句話，文末有「考考自己」。
+// 預設「下拉」：一頁往下滑，寬螢幕右邊固定列出每一節的大標（目前讀到的那節會亮起）；「Aa 顯示」可以改成「翻頁」（像書一樣一頁一頁翻）。
+// 上方有進度條、剩餘時間、目錄、顯示設定（下拉／翻頁、字級、出處）；每節結尾有「記住」一句話，文末有「考考自己」。
 // 研究模式與學習模式共用；全文打開才下載（public/data/stories/<id>.json）。
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -11,7 +11,7 @@ import './story-reader.css';
 const READ_KEY = 'history-river-stories-read';
 const SIZE_KEY = 'history-river-story-size';
 const CITE_KEY = 'history-river-story-cite';
-const MODE_KEY = 'history-river-story-mode';
+const MODE_KEY = 'history-river-story-mode-v2';
 const HINT_KEY = 'history-river-story-hint';
 // 存「讀到第幾個區塊｜進度 0–1」；翻頁與捲動共用，換模式、換字級、轉螢幕都回得到同一段
 const posKey = (id: string) => `story-at-${id}`;
@@ -93,7 +93,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   const [failed, setFailed] = useState(false);
   const [size, setSize] = useState(() => { const raw = lsGet(SIZE_KEY), v = Number(raw); return raw !== null && raw !== '' && v >= 0 && v <= 3 && Number.isInteger(v) ? v : 1; });
   const [cite, setCite] = useState(() => lsGet(CITE_KEY) !== '0');
-  const [paged, setPaged] = useState(() => lsGet(MODE_KEY) !== 'scroll');
+  const [paged, setPaged] = useState(() => lsGet(MODE_KEY) === 'page');
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
   const [sec, setSec] = useState(0);
@@ -176,7 +176,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
     const top = v.getBoundingClientRect().top;
     const end = el.querySelector<HTMLElement>('.sr-end');
     // 進度以「記住這幾件事」為終點（後面還有很長的來源清單）
-    const endAt = end ? Math.max(1, end.offsetTop - v.clientHeight * 0.6) : max;
+    const endAt = end ? Math.max(1, end.getBoundingClientRect().top - top + v.scrollTop - v.clientHeight * 0.6) : max;
     const p = max > 0 ? Math.min(1, v.scrollTop / Math.min(max, endAt)) : 1;
     let cur = 0;
     el.querySelectorAll<HTMLElement>('.sr-sec').forEach((h, i) => { if (h.getBoundingClientRect().top < top + v.clientHeight * 0.4) cur = i; });
@@ -310,6 +310,75 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
 
   const lastPage = pg.page >= pg.pages - 1;
   const coarse = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+  const article = (
+    <article className="sr-page" ref={pageEl} style={paged ? { transform: `translate3d(${-pg.page * pg.step}px,0,0)` } : undefined}>
+      <div className="sr-head" data-b="">
+        <p className="sr-kicker">故事線</p>
+        <h1>{story.title}</h1>
+        <p className="sr-question">{story.question}</p>
+        <p className="sr-meta">
+          {doc ? <>約 {doc.minutes} 分鐘・{doc.chars.toLocaleString()} 字・</> : null}{story.stops.length} 站{first && last && <>・{fmtRange(first.time.start, last.time.end)}</>}
+        </p>
+        {resumed && <p className="sr-resumed" role="status">已回到你上次讀到的地方。<button className="link" onClick={restart}>從頭讀</button></p>}
+        {failed && <p className="sr-fail" role="alert">故事載入失敗，請檢查網路後再試一次。<button className="link" onClick={() => { setFailed(false); loadStory(story.id).then(setDoc).catch(() => setFailed(true)); }}>重試</button></p>}
+        {!doc && !failed && <p className="muted" role="status">載入故事…</p>}
+        {doc && (
+          <nav className="sr-route" aria-label="這篇故事會走過的站">
+            <b>這篇故事會走過</b>
+            <ol>{story.stops.map((x, i) => { const c = byId.get(x.id); if (!c) return null; const at = secOf(x.id); return <li key={x.id}><button onClick={() => at >= 0 && jump(at)} title={`跳到「${doc.sections[at]?.title ?? ''}」`}><i>{i + 1}</i>{c.name}<small>{year(c.time.start)}</small></button></li>; })}</ol>
+          </nav>
+        )}
+      </div>
+
+      {doc?.sections.map((s, i) => (
+        <section key={i} className="sr-sec" aria-labelledby={`sr-h-${i}`}>
+          <h2 id={`sr-h-${i}`} data-b=""><span className="sr-sec-n" aria-hidden>{i + 1}</span>{s.title}</h2>
+          {s.cards.length > 0 && <div className="sr-stops" aria-label="這一節講的站">{s.cards.map(stopChip)}</div>}
+          {s.blocks.map((b, j) => b.kind === 'quote'
+            ? <blockquote key={j} data-b=""><Inline text={b.text} doc={doc} /></blockquote>
+            : b.kind === 'key'
+              ? <p key={j} className="sr-key" data-b=""><b>記住</b><span><Inline text={b.text} doc={doc} /></span></p>
+              : <p key={j} data-b=""><Inline text={b.text} doc={doc} /></p>)}
+        </section>
+      ))}
+
+      {doc && (
+        <footer className="sr-end">
+          {!!doc.recall?.length && (
+            <section className="sr-box recall" aria-labelledby="sr-recall" data-b="">
+              <h2 id="sr-recall">考考自己</h2>
+              <p className="sr-box-how">先不要往回翻，在心裡回答，再點開看答案。自己想過一次，比再讀一遍記得久。</p>
+              <ol>{doc.recall.map((x, i) => (
+                <li key={i}>
+                  <span className="sr-recall-q">{x.q}</span>
+                  {shown.has(i)
+                    ? <span className="sr-recall-a" role="status">{x.a}</span>
+                    : <button className="sr-recall-btn" onClick={() => reveal(i)}>想好了，看答案</button>}
+                </li>
+              ))}</ol>
+            </section>
+          )}
+          <section className="sr-box remember" aria-labelledby="sr-remember" data-b="">
+            <h2 id="sr-remember">記住這幾件事</h2>
+            <ol>{doc.remember.map((x, i) => <li key={i}>{x}</li>)}</ol>
+          </section>
+          <section className="sr-box think" aria-labelledby="sr-think" data-b="">
+            <h2 id="sr-think">想一想</h2>
+            <ul>{doc.think.map((x, i) => <li key={i}>{x}</li>)}</ul>
+          </section>
+          <div className="sr-tail" data-b="">
+            <p className="sr-note">故事只走了其中一條路：每一站通常還有別的原因和別的後果。想看每兩站之間的因果說明和來源，回到故事線一站一站看。</p>
+            <div className="sr-actions">
+              <button className="sr-act primary" onClick={onClose}>一站一站看因果 →</button>
+              {next && onStory && next.id !== story.id && <button className="sr-act" onClick={() => { openReading(next.id); onStory(next.id); }}>下一個故事：{next.title}<small>約 {next.read!.minutes} 分鐘</small></button>}
+            </div>
+            <button className="sr-sources-btn" aria-expanded={srcOpen} onClick={() => setSrcOpen((v) => !v)}>{srcOpen ? '▾' : '▸'} 這篇故事的出處（{doc.sources.length} 筆，都來自各站卡片上的來源）</button>
+          </div>
+          {srcOpen && <ol className="sr-sources">{doc.sources.map((x, i) => <li key={i}><a href={x.url} target="_blank" rel="noreferrer">{x.title}</a><small>（卡片「{x.cardName}」）</small></li>)}</ol>}
+        </footer>
+      )}
+    </article>
+  );
   return createPortal(
     <div className={`sr-overlay sr-size-${SIZES[size]} ${cite ? '' : 'sr-nocite'} ${paged ? 'sr-paged' : 'sr-scroll'}`} role="dialog" aria-modal="true" aria-label={`故事：${story.title}`} ref={overlay}>
       <header className="sr-bar">
@@ -320,7 +389,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
         </div>
         <div className="sr-tools">
           {doc && <button className={`sr-tool ${menu === 'toc' ? 'on' : ''}`} onClick={() => setMenu((v) => (v === 'toc' ? '' : 'toc'))} aria-expanded={menu === 'toc'} aria-controls="sr-toc" title="目錄">☰<span>目錄</span></button>}
-          <button className={`sr-tool ${menu === 'view' ? 'on' : ''}`} onClick={() => setMenu((v) => (v === 'view' ? '' : 'view'))} aria-expanded={menu === 'view'} aria-controls="sr-view-menu" title="顯示設定：翻頁或捲動、字級、出處">Aa<span>顯示</span></button>
+          <button className={`sr-tool ${menu === 'view' ? 'on' : ''}`} onClick={() => setMenu((v) => (v === 'view' ? '' : 'view'))} aria-expanded={menu === 'view'} aria-controls="sr-view-menu" title="顯示設定：下拉或翻頁、字級、出處">Aa<span>顯示</span></button>
         </div>
         <div className="sr-progress" role="progressbar" aria-label="閱讀進度" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress * 100)}><i style={{ transform: `scaleX(${progress})` }} /></div>
         {menu === 'toc' && doc && (
@@ -333,8 +402,8 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
           <div className="sr-pop sr-view-menu" id="sr-view-menu" role="group" aria-label="顯示設定">
             <div className="sr-opt"><span>閱讀方式</span>
               <div className="sr-seg" role="group" aria-label="閱讀方式">
+                <button className={!paged ? 'on' : ''} aria-pressed={!paged} onClick={() => setMode(false)}>下拉</button>
                 <button className={paged ? 'on' : ''} aria-pressed={paged} onClick={() => setMode(true)}>翻頁</button>
-                <button className={!paged ? 'on' : ''} aria-pressed={!paged} onClick={() => setMode(false)}>捲動</button>
               </div>
             </div>
             <div className="sr-opt"><span>字級<small>{SIZE_NAME[size]}</small></span>
@@ -349,79 +418,29 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
                 <button className={!cite ? 'on' : ''} aria-pressed={!cite} aria-label="隱藏出處的小數字" onClick={() => { if (cite) toggleCite(); }}>隱藏</button>
               </div>
             </div>
-            <p className="sr-opt-tip">{paged ? '翻頁：按 → 或空白鍵、滾滑鼠、點「下一頁」；手機可以左右滑或點畫面右側。' : '捲動：像一般網頁一樣往下滑。'}</p>
+            <p className="sr-opt-tip">{paged ? '翻頁：按 → 或空白鍵、滾滑鼠、點「下一頁」；手機可以左右滑或點畫面右側。' : '下拉：像一般網頁一樣往下滑；寬螢幕右邊有大標，點一下就跳到那一節。'}</p>
           </div>
         )}
       </header>
 
       <div className="sr-view" ref={view} tabIndex={-1} onClick={() => menu && setMenu('')}>
-        <article className="sr-page" ref={pageEl} style={paged ? { transform: `translate3d(${-pg.page * pg.step}px,0,0)` } : undefined}>
-          <div className="sr-head" data-b="">
-            <p className="sr-kicker">故事線</p>
-            <h1>{story.title}</h1>
-            <p className="sr-question">{story.question}</p>
-            <p className="sr-meta">
-              {doc ? <>約 {doc.minutes} 分鐘・{doc.chars.toLocaleString()} 字・</> : null}{story.stops.length} 站{first && last && <>・{fmtRange(first.time.start, last.time.end)}</>}
-            </p>
-            {resumed && <p className="sr-resumed" role="status">已回到你上次讀到的地方。<button className="link" onClick={restart}>從頭讀</button></p>}
-            {failed && <p className="sr-fail" role="alert">故事載入失敗，請檢查網路後再試一次。<button className="link" onClick={() => { setFailed(false); loadStory(story.id).then(setDoc).catch(() => setFailed(true)); }}>重試</button></p>}
-            {!doc && !failed && <p className="muted" role="status">載入故事…</p>}
+        {paged ? article : (
+          <div className="sr-wrap">
+            {article}
             {doc && (
-              <nav className="sr-route" aria-label="這篇故事會走過的站">
-                <b>這篇故事會走過</b>
-                <ol>{story.stops.map((x, i) => { const c = byId.get(x.id); if (!c) return null; const at = secOf(x.id); return <li key={x.id}><button onClick={() => at >= 0 && jump(at)} title={`跳到「${doc.sections[at]?.title ?? ''}」`}><i>{i + 1}</i>{c.name}<small>{year(c.time.start)}</small></button></li>; })}</ol>
-              </nav>
+              <aside className="sr-side" aria-label="這篇故事的大標">
+                <p className="sr-side-left">{done ? '讀完了' : `還剩約 ${left} 分鐘`}</p>
+                <h2 className="sr-side-h">這篇故事</h2>
+                <ol>
+                  {doc.sections.map((x, i) => (
+                    <li key={i}><button className={`${i === sec && !done ? 'here' : ''} ${i < sec || done ? 'past' : ''}`} aria-current={i === sec && !done ? 'true' : undefined} onClick={() => jump(i)}><span className="sr-side-n" aria-hidden>{i + 1}</span><span>{x.title}</span></button></li>
+                  ))}
+                  <li><button className={`end ${done ? 'here' : ''}`} aria-current={done ? 'true' : undefined} onClick={() => jumpTo(pageEl.current?.querySelector('.sr-end'))}><span className="sr-side-n" aria-hidden>考</span><span>考考自己・記住這幾件事</span></button></li>
+                </ol>
+              </aside>
             )}
           </div>
-
-          {doc?.sections.map((s, i) => (
-            <section key={i} className="sr-sec" aria-labelledby={`sr-h-${i}`}>
-              <h2 id={`sr-h-${i}`} data-b=""><span className="sr-sec-n" aria-hidden>{i + 1}</span>{s.title}</h2>
-              {s.cards.length > 0 && <div className="sr-stops" aria-label="這一節講的站">{s.cards.map(stopChip)}</div>}
-              {s.blocks.map((b, j) => b.kind === 'quote'
-                ? <blockquote key={j} data-b=""><Inline text={b.text} doc={doc} /></blockquote>
-                : b.kind === 'key'
-                  ? <p key={j} className="sr-key" data-b=""><b>記住</b><span><Inline text={b.text} doc={doc} /></span></p>
-                  : <p key={j} data-b=""><Inline text={b.text} doc={doc} /></p>)}
-            </section>
-          ))}
-
-          {doc && (
-            <footer className="sr-end">
-              {!!doc.recall?.length && (
-                <section className="sr-box recall" aria-labelledby="sr-recall" data-b="">
-                  <h2 id="sr-recall">考考自己</h2>
-                  <p className="sr-box-how">先不要往回翻，在心裡回答，再點開看答案。自己想過一次，比再讀一遍記得久。</p>
-                  <ol>{doc.recall.map((x, i) => (
-                    <li key={i}>
-                      <span className="sr-recall-q">{x.q}</span>
-                      {shown.has(i)
-                        ? <span className="sr-recall-a" role="status">{x.a}</span>
-                        : <button className="sr-recall-btn" onClick={() => reveal(i)}>想好了，看答案</button>}
-                    </li>
-                  ))}</ol>
-                </section>
-              )}
-              <section className="sr-box remember" aria-labelledby="sr-remember" data-b="">
-                <h2 id="sr-remember">記住這幾件事</h2>
-                <ol>{doc.remember.map((x, i) => <li key={i}>{x}</li>)}</ol>
-              </section>
-              <section className="sr-box think" aria-labelledby="sr-think" data-b="">
-                <h2 id="sr-think">想一想</h2>
-                <ul>{doc.think.map((x, i) => <li key={i}>{x}</li>)}</ul>
-              </section>
-              <div className="sr-tail" data-b="">
-                <p className="sr-note">故事只走了其中一條路：每一站通常還有別的原因和別的後果。想看每兩站之間的因果說明和來源，回到故事線一站一站看。</p>
-                <div className="sr-actions">
-                  <button className="sr-act primary" onClick={onClose}>一站一站看因果 →</button>
-                  {next && onStory && next.id !== story.id && <button className="sr-act" onClick={() => { openReading(next.id); onStory(next.id); }}>下一個故事：{next.title}<small>約 {next.read!.minutes} 分鐘</small></button>}
-                </div>
-                <button className="sr-sources-btn" aria-expanded={srcOpen} onClick={() => setSrcOpen((v) => !v)}>{srcOpen ? '▾' : '▸'} 這篇故事的出處（{doc.sources.length} 筆，都來自各站卡片上的來源）</button>
-              </div>
-              {srcOpen && <ol className="sr-sources">{doc.sources.map((x, i) => <li key={i}><a href={x.url} target="_blank" rel="noreferrer">{x.title}</a><small>（卡片「{x.cardName}」）</small></li>)}</ol>}
-            </footer>
-          )}
-        </article>
+        )}
       </div>
 
       {paged && doc && (

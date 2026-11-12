@@ -2,7 +2,7 @@
 // 預設「下拉」：一頁往下滑，寬螢幕右邊固定列出每一節的大標（目前讀到的那節會亮起）；「Aa 顯示」可以改成「翻頁」（像書一樣一頁一頁翻）。
 // 上方有進度條、剩餘時間、目錄、顯示設定（下拉／翻頁、字級、出處）；每節結尾有「記住」一句話，文末有「考考自己」。
 // 研究模式與學習模式共用；全文打開才下載（public/data/stories/<id>.json）。
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { Card, Index, StoryDoc, Storyline } from '../types';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
@@ -52,6 +52,9 @@ const loadStory = (id: string) => {
   return cache.get(id)!;
 };
 
+/** 預先下載故事全文（失敗就算了，打開時會再試） */
+export const prefetchStory = (id: string) => { loadStory(id).catch(() => {}); };
+
 /** 入口旁的小字：📖 約 N 分鐘（讀完打勾） */
 export function ReadBadge({ s }: { s: Storyline }) {
   if (!s.read) return null;
@@ -73,6 +76,75 @@ function Inline({ text, doc }: { text: string; doc: StoryDoc }) {
     return <span key={i}>{p}</span>;
   })}</>;
 }
+
+interface BodyProps {
+  doc: StoryDoc; byId: Map<string, Card>; stopNo: Map<string, number>;
+  canOpen?: (c: Card) => boolean; researchHref?: (id: string) => string; onOpen: (id: string) => void;
+}
+/** 全文各節：捲動時工具列與進度一直在變，這一塊用 memo 擋住，不跟著重畫 */
+const StoryBody = memo(function StoryBody({ doc, byId, stopNo, canOpen, researchHref, onOpen }: BodyProps) {
+  const stopChip = (id: string) => {
+    const c = byId.get(id);
+    if (!c) return null;
+    const label = <><b className="sr-stop-n">{stopNo.get(id)}</b><span aria-hidden>{TYPE_ICON[c.type]}</span> {c.name}<small>{fmtRange(c.time.start, c.time.end)}</small></>;
+    if (canOpen && !canOpen(c)) return researchHref ? <a key={id} className="sr-stop off" href={researchHref(id)} title="這張卡還不在學習模式，到研究模式看">{label}<small>↗</small></a> : <span key={id} className="sr-stop off">{label}</span>;
+    return <button key={id} className="sr-stop" style={{ borderLeftColor: TYPE_COLOR[c.type] }} onClick={() => onOpen(id)} title="打開這張卡看完整內容與來源（之後可以回來接著讀）">{label}</button>;
+  };
+  return <>{doc.sections.map((s, i) => (
+    <section key={i} className="sr-sec" aria-labelledby={`sr-h-${i}`}>
+      <h2 id={`sr-h-${i}`} data-b=""><span className="sr-sec-n" aria-hidden>{i + 1}</span>{s.title}</h2>
+      {s.cards.length > 0 && <div className="sr-stops" aria-label="這一節講的站">{s.cards.map(stopChip)}</div>}
+      {s.blocks.map((b, j) => b.kind === 'quote'
+        ? <blockquote key={j} data-b=""><Inline text={b.text} doc={doc} /></blockquote>
+        : b.kind === 'key'
+          ? <p key={j} className="sr-key" data-b=""><b>記住</b><span><Inline text={b.text} doc={doc} /></span></p>
+          : <p key={j} data-b=""><Inline text={b.text} doc={doc} /></p>)}
+    </section>
+  ))}</>;
+});
+
+interface EndProps {
+  doc: StoryDoc; shown: Set<number>; srcOpen: boolean; reveal: (i: number) => void; toggleSrc: () => void;
+  onClose: () => void; next?: Storyline; onStory?: (id: string) => void;
+}
+/** 結尾：考考自己、記住、想一想、出處 */
+const StoryEnd = memo(function StoryEnd({ doc, shown, srcOpen, reveal, toggleSrc, onClose, next, onStory }: EndProps) {
+  return (
+    <footer className="sr-end">
+      {!!doc.recall?.length && (
+        <section className="sr-box recall" aria-labelledby="sr-recall" data-b="">
+          <h2 id="sr-recall">考考自己</h2>
+          <p className="sr-box-how">先不要往回翻，在心裡回答，再點開看答案。自己想過一次，比再讀一遍記得久。</p>
+          <ol>{doc.recall.map((x, i) => (
+            <li key={i}>
+              <span className="sr-recall-q">{x.q}</span>
+              {shown.has(i)
+                ? <span className="sr-recall-a" role="status">{x.a}</span>
+                : <button className="sr-recall-btn" onClick={() => reveal(i)}>想好了，看答案</button>}
+            </li>
+          ))}</ol>
+        </section>
+      )}
+      <section className="sr-box remember" aria-labelledby="sr-remember" data-b="">
+        <h2 id="sr-remember">記住這幾件事</h2>
+        <ol>{doc.remember.map((x, i) => <li key={i}>{x}</li>)}</ol>
+      </section>
+      <section className="sr-box think" aria-labelledby="sr-think" data-b="">
+        <h2 id="sr-think">想一想</h2>
+        <ul>{doc.think.map((x, i) => <li key={i}>{x}</li>)}</ul>
+      </section>
+      <div className="sr-tail" data-b="">
+        <p className="sr-note">故事只走了其中一條路：每一站通常還有別的原因和別的後果。想看每兩站之間的因果說明和來源，回到故事線一站一站看。</p>
+        <div className="sr-actions">
+          <button className="sr-act primary" onClick={onClose}>一站一站看因果 →</button>
+          {next && onStory && <button className="sr-act" onClick={() => { openReading(next.id); onStory(next.id); }}>下一個故事：{next.title}<small>約 {next.read!.minutes} 分鐘</small></button>}
+        </div>
+        <button className="sr-sources-btn" aria-expanded={srcOpen} onClick={toggleSrc}>{srcOpen ? '▾' : '▸'} 這篇故事的出處（{doc.sources.length} 筆，都來自各站卡片上的來源）</button>
+      </div>
+      {srcOpen && <ol className="sr-sources">{doc.sources.map((x, i) => <li key={i}><a href={x.url} target="_blank" rel="noreferrer">{x.title}</a><small>（卡片「{x.cardName}」）</small></li>)}</ol>}
+    </footer>
+  );
+});
 
 interface ReaderProps {
   story: Storyline; index: Index;
@@ -120,7 +192,39 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   useEffect(() => { activeRead = story.id; return () => { if (activeRead === story.id) activeRead = null; }; }, [story.id]);
 
   const blocks = () => [...(pageEl.current?.querySelectorAll<HTMLElement>('[data-b]') ?? [])];
-  const save = (p: number) => ssSet(posKey(story.id), `${anchor.current}|${p.toFixed(3)}`);
+  // 只在值真的改變時才 set，避免捲動時整頁一直重畫
+  const lastSec = useRef(0), lastProg = useRef(0), lastDone = useRef(false);
+  const putSec = useCallback((v: number) => { if (lastSec.current !== v) { lastSec.current = v; setSec(v); } }, []);
+  const putProg = useCallback((v: number) => { if (lastProg.current !== v) { lastProg.current = v; setProgress(v); } }, []);
+  const putDone = useCallback((v: boolean) => { if (lastDone.current !== v) { lastDone.current = v; setDone(v); } }, []);
+  // 讀到哪裡存在 sessionStorage：捲動時最多每 500ms 寫一次，離開或藏起來時補寫
+  const pend = useRef<{ k: string; v: string } | null>(null), lastW = useRef(0), wTimer = useRef(0);
+  const flush = useCallback(() => {
+    clearTimeout(wTimer.current); wTimer.current = 0;
+    if (pend.current) { ssSet(pend.current.k, pend.current.v); pend.current = null; lastW.current = Date.now(); }
+  }, []);
+  const save = useCallback((p: number, now = false) => {
+    pend.current = { k: posKey(story.id), v: `${anchor.current}|${p.toFixed(3)}` };
+    const wait = 500 - (Date.now() - lastW.current);
+    if (now || wait <= 0) flush(); else if (!wTimer.current) wTimer.current = window.setTimeout(flush, wait);
+  }, [story.id, flush]);
+  useEffect(() => {
+    const onHide = () => flush();
+    const onVis = () => { if (document.visibilityState === 'hidden') flush(); };
+    window.addEventListener('pagehide', onHide); document.addEventListener('visibilitychange', onVis);
+    return () => { window.removeEventListener('pagehide', onHide); document.removeEventListener('visibilitychange', onVis); flush(); };
+  }, [flush, story.id]);
+  // 版面位置快取（相對 .sr-view 內容頂端）：只在排版改變時重算，捲動時不碰 getBoundingClientRect
+  const lay = useRef<{ blocks: number[]; secs: number[]; end: number } | null>(null);
+  const compute = useCallback(() => {
+    const v = view.current, el = pageEl.current;
+    if (!v || !el) return;
+    const vt = v.getBoundingClientRect().top, st = v.scrollTop;
+    const rel = (e: Element) => e.getBoundingClientRect().top - vt + st;
+    const end = el.querySelector('.sr-end');
+    lay.current = { blocks: blocks().map(rel), secs: [...el.querySelectorAll('.sr-sec')].map(rel), end: end ? rel(end) : -1 };
+  }, []);
+  const animRaf = useRef(0), animOff = useRef<(() => void) | null>(null), animating = useRef(false);
 
   // ---------- 翻頁 ----------
   /** 某個元素在第幾頁（用它和整篇文章左緣的距離算；位移動畫中也算得準） */
@@ -138,15 +242,15 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
     if (!keepAnchor) { let a = 0; bs.forEach((b, i) => { if (pageOf(b, step) <= p) a = i; }); anchor.current = a; }
     let cur = 0;
     el.querySelectorAll<HTMLElement>('.sr-sec').forEach((h, i) => { if (pageOf(h, step) <= p) cur = i; });
-    setSec(cur);
+    putSec(cur);
     const end = el.querySelector('.sr-end');
     const endPage = end ? pageOf(end, step) : pages - 1;
     const isDone = p >= endPage;
     const prog = endPage > 0 ? Math.min(1, p / endPage) : 1;
-    setProgress(prog); setDone(isDone);
-    save(prog);
+    putProg(prog); putDone(isDone);
+    save(prog, true);
     if (isDone) markRead(story.id);
-  }, [story.id]);
+  }, [story.id, save, putSec, putProg, putDone]);
 
   /** 重新量頁數，並回到原本讀到的那一段 */
   const relayout = useCallback(() => {
@@ -170,25 +274,59 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
 
   // ---------- 捲動 ----------
   const measure = useCallback(() => {
-    const v = view.current, el = pageEl.current;
-    if (!v || !el || paged) return;
-    const max = v.scrollHeight - v.clientHeight;
-    const top = v.getBoundingClientRect().top;
-    const end = el.querySelector<HTMLElement>('.sr-end');
+    const v = view.current;
+    if (!v || !pageEl.current || paged) return;
+    if (!lay.current) compute();
+    const L = lay.current;
+    if (!L) return;
+    const st = v.scrollTop, ch = v.clientHeight, max = v.scrollHeight - ch;
     // 進度以「記住這幾件事」為終點（後面還有很長的來源清單）
-    const endAt = end ? Math.max(1, end.getBoundingClientRect().top - top + v.scrollTop - v.clientHeight * 0.6) : max;
-    const p = max > 0 ? Math.min(1, v.scrollTop / Math.min(max, endAt)) : 1;
+    const endAt = L.end >= 0 ? Math.max(1, L.end - ch * 0.6) : max;
+    const p = max > 0 ? Math.min(1, st / Math.min(max, endAt)) : 1;
     let cur = 0;
-    el.querySelectorAll<HTMLElement>('.sr-sec').forEach((h, i) => { if (h.getBoundingClientRect().top < top + v.clientHeight * 0.4) cur = i; });
-    let a = 0;
-    blocks().forEach((b, i) => { if (b.getBoundingClientRect().top <= top + 24) a = i; });
+    for (let i = 0; i < L.secs.length; i++) if (L.secs[i] < st + ch * 0.4) cur = i;
+    let a = 0, lo = 0, hi = L.blocks.length - 1;
+    while (lo <= hi) { const m = (lo + hi) >> 1; if (L.blocks[m] <= st + 24) { a = m; lo = m + 1; } else hi = m - 1; }
     anchor.current = a;
-    setSec(cur); setProgress(p); setDone(p >= 0.999);
+    if (!animating.current) putSec(cur);
+    putProg(Math.round(p * 100) / 100);
+    if (p >= 0.999 && !lastDone.current) markRead(story.id);
+    putDone(p >= 0.999);
     save(p);
-    if (p >= 0.999) markRead(story.id);
-  }, [paged, story.id]);
+  }, [paged, story.id, compute, save, putSec, putProg, putDone]);
+
+  /** 結束自己的捲動動畫 */
+  const endAnim = useCallback((remeasure: boolean) => {
+    cancelAnimationFrame(animRaf.current);
+    if (animOff.current) { animOff.current(); animOff.current = null; }
+    if (animating.current) { animating.current = false; if (remeasure) measure(); }
+  }, [measure]);
+  /** 下拉模式的跳轉：自己控制，220ms ease-out；太遠先跳到一個畫面外；使用者一動手就停 */
+  const scrollToY = useCallback((target: number) => {
+    const v = view.current;
+    if (!v) return;
+    endAnim(false);
+    const h = v.clientHeight, y = Math.max(0, Math.min(v.scrollHeight - h, target));
+    let from = v.scrollTop;
+    const reduce = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || Math.abs(y - from) < 1) { v.scrollTop = y; measure(); return; }
+    if (Math.abs(y - from) > 3 * h) { from = y + (from > y ? h : -h); v.scrollTop = from; }
+    animating.current = true;
+    const stop = () => endAnim(true);
+    v.addEventListener('wheel', stop, { passive: true }); v.addEventListener('touchstart', stop, { passive: true }); document.addEventListener('keydown', stop, true);
+    animOff.current = () => { v.removeEventListener('wheel', stop); v.removeEventListener('touchstart', stop); document.removeEventListener('keydown', stop, true); };
+    const t0 = performance.now();
+    const step = (now: number) => {
+      const t = Math.max(0, Math.min(1, (now - t0) / 220));
+      v.scrollTop = from + (y - from) * (1 - (1 - t) ** 3);
+      if (t < 1) animRaf.current = requestAnimationFrame(step); else endAnim(true);
+    };
+    animRaf.current = requestAnimationFrame(step);
+  }, [endAnim, measure]);
+  useEffect(() => () => endAnim(false), [endAnim]);
 
   // 排版：內容、字級、出處、模式、展開答案或來源改變時重排；第一次排好後回到上次讀到的地方
+  const layoutKey = useRef('');
   useLayoutEffect(() => {
     if (!doc || !pageEl.current || !view.current) return;
     if (!restored.current) {
@@ -196,9 +334,17 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
       const a = Number(ssGet(posKey(story.id))?.split('|')[0]);
       if (Number.isInteger(a) && a > 3) { anchor.current = a; setResumed(true); }
     }
-    if (paged) { view.current.scrollTop = 0; relayout(); }
-    else { const b = blocks()[anchor.current]; if (b && anchor.current > 0) b.scrollIntoView({ block: 'start' }); measure(); }
-  }, [doc, size, cite, paged, shown, srcOpen, relayout, measure, story.id]);
+    if (paged) { layoutKey.current = ''; view.current.scrollTop = 0; relayout(); }
+    else {
+      // 展開答案或來源只是內容變長，畫面留在原地；換字級、出處、模式或剛載入才回到原本那一段
+      const key = `${story.id}|${size}|${cite}|${paged}`;
+      const moved = key !== layoutKey.current; layoutKey.current = key;
+      endAnim(false); compute();
+      const t = lay.current?.blocks[anchor.current];
+      if (moved && t !== undefined && anchor.current > 0) view.current.scrollTop = t;
+      measure();
+    }
+  }, [doc, size, cite, paged, shown, srcOpen, relayout, measure, compute, endAnim, story.id]);
 
   useEffect(() => {
     const v = view.current;
@@ -214,11 +360,15 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
       document.fonts?.ready.then(on).catch(() => {});
       return () => { cancelAnimationFrame(raf); ro.disconnect(); v.removeEventListener('scroll', fix); v.removeEventListener('focusin', onFocus); };
     }
+    let raf2 = 0;
     const on = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(measure); };
+    const re = () => { cancelAnimationFrame(raf2); raf2 = requestAnimationFrame(() => { compute(); measure(); }); };
     v.addEventListener('scroll', on, { passive: true });
-    window.addEventListener('resize', on);
-    return () => { cancelAnimationFrame(raf); v.removeEventListener('scroll', on); window.removeEventListener('resize', on); };
-  }, [doc, paged, relayout, measure, settle]);
+    window.addEventListener('resize', re);
+    const ro = new ResizeObserver(re); ro.observe(v); if (pageEl.current) ro.observe(pageEl.current);
+    document.fonts?.ready.then(re).catch(() => {});
+    return () => { cancelAnimationFrame(raf); cancelAnimationFrame(raf2); ro.disconnect(); v.removeEventListener('scroll', on); window.removeEventListener('resize', re); };
+  }, [doc, paged, relayout, measure, settle, compute]);
 
   // 鍵盤：Esc 關閉；翻頁模式用 ← → 空白鍵 PageUp/PageDown；焦點留在閱讀頁裡
   useEffect(() => {
@@ -281,32 +431,30 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
     return () => { v.removeEventListener('wheel', wheel); v.removeEventListener('touchstart', ts); v.removeEventListener('touchend', te); };
   }, [paged, doc, turn]);
 
-  const jumpTo = (el: Element | null | undefined) => {
+  const jumpTo = (el: Element | null | undefined, i?: number) => {
     setMenu('');
     if (!el) return;
-    if (paged) { if (pg.step > 0) settle(pageOf(el, pg.step), pg.pages, pg.step); } else el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (paged) { if (pg.step > 0) settle(pageOf(el, pg.step), pg.pages, pg.step); return; }
+    const v = view.current;
+    if (!v) return;
+    if (i !== undefined) putSec(i); // 大標欄高亮、上方「第 N 節」立刻變
+    scrollToY(el.getBoundingClientRect().top - v.getBoundingClientRect().top + v.scrollTop - 12);
   };
-  const jump = (i: number) => jumpTo(pageEl.current?.querySelectorAll('.sr-sec')[i]);
+  const jump = (i: number) => jumpTo(pageEl.current?.querySelectorAll('.sr-sec')[i], i);
   const restart = () => { setResumed(false); if (paged) go(0); else view.current?.scrollTo({ top: 0 }); };
   const bump = (d: number) => setSize((v) => { const n = Math.max(0, Math.min(SIZES.length - 1, v + d)); lsSet(SIZE_KEY, String(n)); return n; });
   const toggleCite = () => setCite((v) => { lsSet(CITE_KEY, v ? '0' : '1'); return !v; });
   const setMode = (p: boolean) => { lsSet(MODE_KEY, p ? 'page' : 'scroll'); setPaged(p); };
-  const reveal = (i: number) => setShown((s) => { const n = new Set(s); if (n.has(i)) n.delete(i); else n.add(i); return n; });
+  const reveal = useCallback((i: number) => setShown((s) => { const n = new Set(s); if (n.has(i)) n.delete(i); else n.add(i); return n; }), []);
+  const toggleSrc = useCallback(() => setSrcOpen((v) => !v), []);
 
   const left = doc ? Math.max(1, Math.ceil(doc.minutes * (1 - progress))) : 0;
   const all = index.storylines ?? [];
   const withStory = all.filter((x) => x.read);
-  const next = withStory.length > 1 ? withStory[(withStory.findIndex((x) => x.id === story.id) + 1) % withStory.length] : undefined;
+  const next0 = withStory.length > 1 ? withStory[(withStory.findIndex((x) => x.id === story.id) + 1) % withStory.length] : undefined;
+  const next = next0 && next0.id !== story.id ? next0 : undefined;
   const first = byId.get(story.stops[0].id), last = byId.get(story.stops[story.stops.length - 1].id);
   const secOf = (id: string) => doc?.sections.findIndex((s) => s.cards.includes(id)) ?? -1;
-
-  const stopChip = (id: string) => {
-    const c = byId.get(id);
-    if (!c) return null;
-    const label = <><b className="sr-stop-n">{stopNo.get(id)}</b><span aria-hidden>{TYPE_ICON[c.type]}</span> {c.name}<small>{fmtRange(c.time.start, c.time.end)}</small></>;
-    if (canOpen && !canOpen(c)) return researchHref ? <a key={id} className="sr-stop off" href={researchHref(id)} title="這張卡還不在學習模式，到研究模式看">{label}<small>↗</small></a> : <span key={id} className="sr-stop off">{label}</span>;
-    return <button key={id} className="sr-stop" style={{ borderLeftColor: TYPE_COLOR[c.type] }} onClick={() => onOpen(id)} title="打開這張卡看完整內容與來源（之後可以回來接著讀）">{label}</button>;
-  };
 
   const lastPage = pg.page >= pg.pages - 1;
   const coarse = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
@@ -330,53 +478,9 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
         )}
       </div>
 
-      {doc?.sections.map((s, i) => (
-        <section key={i} className="sr-sec" aria-labelledby={`sr-h-${i}`}>
-          <h2 id={`sr-h-${i}`} data-b=""><span className="sr-sec-n" aria-hidden>{i + 1}</span>{s.title}</h2>
-          {s.cards.length > 0 && <div className="sr-stops" aria-label="這一節講的站">{s.cards.map(stopChip)}</div>}
-          {s.blocks.map((b, j) => b.kind === 'quote'
-            ? <blockquote key={j} data-b=""><Inline text={b.text} doc={doc} /></blockquote>
-            : b.kind === 'key'
-              ? <p key={j} className="sr-key" data-b=""><b>記住</b><span><Inline text={b.text} doc={doc} /></span></p>
-              : <p key={j} data-b=""><Inline text={b.text} doc={doc} /></p>)}
-        </section>
-      ))}
+      {doc && <StoryBody doc={doc} byId={byId} stopNo={stopNo} canOpen={canOpen} researchHref={researchHref} onOpen={onOpen} />}
 
-      {doc && (
-        <footer className="sr-end">
-          {!!doc.recall?.length && (
-            <section className="sr-box recall" aria-labelledby="sr-recall" data-b="">
-              <h2 id="sr-recall">考考自己</h2>
-              <p className="sr-box-how">先不要往回翻，在心裡回答，再點開看答案。自己想過一次，比再讀一遍記得久。</p>
-              <ol>{doc.recall.map((x, i) => (
-                <li key={i}>
-                  <span className="sr-recall-q">{x.q}</span>
-                  {shown.has(i)
-                    ? <span className="sr-recall-a" role="status">{x.a}</span>
-                    : <button className="sr-recall-btn" onClick={() => reveal(i)}>想好了，看答案</button>}
-                </li>
-              ))}</ol>
-            </section>
-          )}
-          <section className="sr-box remember" aria-labelledby="sr-remember" data-b="">
-            <h2 id="sr-remember">記住這幾件事</h2>
-            <ol>{doc.remember.map((x, i) => <li key={i}>{x}</li>)}</ol>
-          </section>
-          <section className="sr-box think" aria-labelledby="sr-think" data-b="">
-            <h2 id="sr-think">想一想</h2>
-            <ul>{doc.think.map((x, i) => <li key={i}>{x}</li>)}</ul>
-          </section>
-          <div className="sr-tail" data-b="">
-            <p className="sr-note">故事只走了其中一條路：每一站通常還有別的原因和別的後果。想看每兩站之間的因果說明和來源，回到故事線一站一站看。</p>
-            <div className="sr-actions">
-              <button className="sr-act primary" onClick={onClose}>一站一站看因果 →</button>
-              {next && onStory && next.id !== story.id && <button className="sr-act" onClick={() => { openReading(next.id); onStory(next.id); }}>下一個故事：{next.title}<small>約 {next.read!.minutes} 分鐘</small></button>}
-            </div>
-            <button className="sr-sources-btn" aria-expanded={srcOpen} onClick={() => setSrcOpen((v) => !v)}>{srcOpen ? '▾' : '▸'} 這篇故事的出處（{doc.sources.length} 筆，都來自各站卡片上的來源）</button>
-          </div>
-          {srcOpen && <ol className="sr-sources">{doc.sources.map((x, i) => <li key={i}><a href={x.url} target="_blank" rel="noreferrer">{x.title}</a><small>（卡片「{x.cardName}」）</small></li>)}</ol>}
-        </footer>
-      )}
+      {doc && <StoryEnd doc={doc} shown={shown} srcOpen={srcOpen} reveal={reveal} toggleSrc={toggleSrc} onClose={onClose} next={next} onStory={onStory} />}
     </article>
   );
   return createPortal(

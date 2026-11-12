@@ -7,7 +7,7 @@ import type { Card, CauseLink, CauseRel, CauseSource, Index, Storyline } from '.
 import { cardEn } from '../lib/bilingual';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { StoryReader, ReadBadge, setReadParam, wantsRead, storyProgress, readStories } from './StoryReader';
+import { StoryReader, ReadBadge, prefetchStory, setReadParam, wantsRead, storyProgress, readStories } from './StoryReader';
 import './story.css';
 
 export const REL_HELP: Record<CauseRel, string> = {
@@ -232,6 +232,15 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
   const openFromRead = useCallback((cid: string) => {
     if (pushed.current) { afterBack.current = () => onOpen(cid); history.back(); } else onOpen(cid);
   }, [onOpen]);
+  // 先把故事全文下載好，按「讀故事」時文字馬上出現
+  const hasRead = !!s?.read;
+  useEffect(() => {
+    if (!hasRead) return;
+    const ric = (window as unknown as { requestIdleCallback?: (f: () => void) => number; cancelIdleCallback?: (h: number) => void });
+    if (ric.requestIdleCallback) { const h = ric.requestIdleCallback(() => prefetchStory(id)); return () => ric.cancelIdleCallback?.(h); }
+    const t = setTimeout(() => prefetchStory(id), 300);
+    return () => clearTimeout(t);
+  }, [hasRead, id]);
   if (!s) return <div className="story-view"><p>找不到這條故事線。</p><button className="link" onClick={onAll}>看全部故事線</button></div>;
   const m = byIdOf(index);
   const first = m.get(s.stops[0].id), last = m.get(s.stops[s.stops.length - 1].id);
@@ -246,7 +255,7 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
         return (
           <div className="sv-read">
             <p className="sv-hook">{s.read.hook}</p>
-            <button ref={readBtn} className="sv-read-btn" onClick={openRead}>📖 {at > 0.03 && at < 0.97 ? '接著讀故事' : done ? '再讀一次故事' : '讀故事'}<small>約 {s.read.minutes} 分鐘</small></button>
+            <button ref={readBtn} className="sv-read-btn" onClick={openRead} onPointerEnter={() => prefetchStory(s.id)} onFocus={() => prefetchStory(s.id)}>📖 {at > 0.03 && at < 0.97 ? '接著讀故事' : done ? '再讀一次故事' : '讀故事'}<small>約 {s.read.minutes} 分鐘</small></button>
             <p className="sv-read-how muted small">{done ? '✓ 你讀過這篇故事了。' : ''}先把整條線當成一篇故事讀完，再回來一站一站看因果，比較記得住。</p>
           </div>
         );

@@ -74,10 +74,52 @@ const fs = require('fs');
     await p.waitForTimeout(400);
     const sChars = await visibleChars();
     ok(sChars >= (wide ? 700 : 330), `[${tag}] 下拉一個畫面看得到 ${sChars} 個字（舊版同尺寸約 ${wide ? 550 : 300} 字）`);
-    // 點大標欄（手機用目錄）跳到第 3 節
-    if (wide) await p.locator('.sr-side li button').nth(2).click();
-    else { await p.click('.sr-tool[aria-controls="sr-toc"]'); await p.locator('.sr-toc li button').nth(2).click(); }
-    await p.waitForTimeout(900);
+    // 點大標欄（手機用目錄）跳到第 3 節：要立刻有反應、很快到位、停住
+    const clickSec = async (n) => { if (wide) await p.locator('.sr-side li button').nth(n).click(); else { await p.click('.sr-tool[aria-controls="sr-toc"]'); await p.locator('.sr-toc li button').nth(n).click(); } };
+    const h2Top = (n) => p.evaluate((k) => document.querySelectorAll('.sr-sec h2')[k].getBoundingClientRect().top - document.querySelector('.sr-view').getBoundingClientRect().top, n);
+    const scrollTop = () => p.evaluate(() => document.querySelector('.sr-view').scrollTop);
+    await clickSec(2);
+    await p.waitForTimeout(100);
+    ok(/第 3／/.test(await p.textContent('.sr-bar-meta')) && (!wide || await p.locator('.sr-side li button').nth(2).getAttribute('aria-current') === 'true'), `[${tag}] 點下去 100ms 內，${wide ? '大標欄第 3 項高亮、' : ''}上方就顯示「第 3／」`);
+    await p.waitForTimeout(400);
+    const top3 = await h2Top(2);
+    ok(top3 >= 0 && top3 <= 40, `[${tag}] 500ms 內到位：第 3 節標題離畫面頂端 ${top3.toFixed(1)}px`);
+    const st1 = await scrollTop(); await p.waitForTimeout(400);
+    ok(Math.abs((await scrollTop()) - st1) < 1, `[${tag}] 到位後不再移動`);
+    if (wide) {
+      await clickSec(5); await p.waitForTimeout(50); await clickSec(1); await p.waitForTimeout(600);
+      const top2 = await h2Top(1);
+      ok(top2 >= 0 && top2 <= 40 && /第 2／/.test(await p.textContent('.sr-bar-meta')) && await p.locator('.sr-side li button').nth(1).getAttribute('aria-current') === 'true', `[${tag}] 連續快點第 6 項、第 2 項：停在第 2 節（標題離頂端 ${top2.toFixed(1)}px）`);
+      await clickSec(2); await p.waitForTimeout(700);
+    }
+    // 捲動時文章本體不會被重畫：.sr-page 內的 DOM 變動數 = 0
+    await p.mouse.move(vw / 2, vh / 2);
+    const mut = await p.evaluate(() => { window.__mut = 0; window.__mo = new MutationObserver((l) => { window.__mut += l.length; }); window.__mo.observe(document.querySelector('.sr-page'), { subtree: true, childList: true, characterData: true, attributes: true }); });
+    for (let k = 0; k < 20; k++) { await p.mouse.wheel(0, 200); await p.waitForTimeout(30); }
+    await p.waitForTimeout(600);
+    const nmut = await p.evaluate(() => { window.__mo.takeRecords(); window.__mo.disconnect(); return window.__mut; });
+    ok(nmut === 0, `[${tag}] 滾輪連續捲動 20 次，.sr-page 內 DOM 變動 ${nmut} 次（文章本體沒被重畫）`);
+    console.log(`  [${tag}] 捲動後 scrollTop=${await scrollTop()}`);
+    await clickSec(2); await p.waitForTimeout(700);
+    // CPU 慢 4 倍（只測桌機研究模式一次）
+    if (tag === 'research-1280') {
+      const cdp = await ctx.newCDPSession(p);
+      await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+      await p.evaluate(() => { window.__lt = []; new PerformanceObserver((l) => { for (const e of l.getEntries()) window.__lt.push(e.duration); }).observe({ entryTypes: ['longtask'] }); });
+      await p.evaluate(() => { document.querySelector('.sr-view').scrollTop = 0; }); await p.waitForTimeout(300);
+      const t0 = Date.now();
+      await clickSec(4);
+      let at = -1;
+      while (Date.now() - t0 < 1500) { const t = await h2Top(4); if (t >= 0 && t <= 40) { at = Date.now() - t0; await p.waitForTimeout(80); if ((await h2Top(4)) >= 0) break; } await p.waitForTimeout(16); }
+      ok(at >= 0 && at <= 700, `[${tag}] CPU×4：點大標欄 ${at} ms 到位（含 playwright 點擊與輪詢）`);
+      await p.mouse.move(vw / 2, vh / 2);
+      for (let k = 0; k < 20; k++) { await p.mouse.wheel(0, 200); await p.waitForTimeout(30); }
+      await p.waitForTimeout(400);
+      const lt = await p.evaluate(() => window.__lt);
+      ok(lt.every((d) => d < 100), `[${tag}] CPU×4 滾輪捲動：longtask ${lt.length} 個${lt.length ? '（最長 ' + Math.max(...lt).toFixed(0) + 'ms）' : ''}`);
+      await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
+      await clickSec(2); await p.waitForTimeout(700);
+    }
     ok(/第 3／/.test(await p.textContent('.sr-bar-meta')), `[${tag}] 跳到第 3 節，上方顯示「${(await p.textContent('.sr-bar-meta')).trim()}」`);
     ok(await p.evaluate(() => { const v = document.querySelector('.sr-view').getBoundingClientRect(), h = document.querySelectorAll('.sr-sec h2')[2].getBoundingClientRect(); return h.top >= v.top - 1 && h.bottom <= v.bottom + 1; }), `[${tag}] 第 3 節的標題在畫面上`);
     if (wide) ok(await p.locator('.sr-side li button').nth(2).getAttribute('aria-current') === 'true' && await p.locator('.sr-side [aria-current]').count() === 1, `[${tag}] 大標欄第 3 項高亮（aria-current）`);

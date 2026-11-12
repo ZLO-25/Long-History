@@ -1,4 +1,4 @@
-import { useDeferredValue, useEffect, useMemo, useState, useCallback } from 'react';
+import { useDeferredValue, useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import { setNameTable } from './lib/bilingual';
 import type { Index, Card, Filters } from './types';
 import { createSearch, matchTopics, useSearchLibs, loadSearchLibs } from './lib/search';
@@ -256,7 +256,16 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
   const topicNames = useMemo(() => (index.topicLayers ?? []).flatMap((l) => l.topics.map((t) => ({ name: t.name, n: t.cards.length }))), [index]);
   const topicHits = useMemo(() => { const m = matchTopics(topicNames.map((t) => t.name), query); return topicNames.filter((t) => m.includes(t.name)); }, [topicNames, query, libsReady]); // eslint-disable-line react-hooks/exhaustive-deps
   // 打開卡片或主題路徑時，網址跟著變（?card= / ?topic=），可以直接複製分享
+  const urlFirst = useRef(true);
   useEffect(() => {
+    const first = urlFirst.current; urlFirst.current = false;
+    // 回到清單（例如關掉人群圖層、按首頁）：把上面這些參數拿掉，網址回到 ?mode=research；第一次載入不動，深連結還要靠網址開面板
+    if (panel.kind === 'list') {
+      if (first) return;
+      const u = new URL(location.href), keys = ['card', 'topic', 'story', 'read', 'dive', 'peoples'];
+      if (keys.some((k) => u.searchParams.has(k))) { keys.forEach((k) => u.searchParams.delete(k)); history.replaceState(null, '', `${u.pathname}${u.search}`); }
+      return;
+    }
     if (panel.kind !== 'card' && panel.kind !== 'topic' && panel.kind !== 'story' && panel.kind !== 'dive' && panel.kind !== 'peoples') return;
     const q = new URLSearchParams({ mode: 'research' });
     if (panel.kind === 'peoples') q.set('peoples', panel.id); else if (panel.kind === 'card') q.set('card', panel.id); else if (panel.kind === 'story') { q.set('story', panel.id); if (keepRead(panel.id)) q.set('read', '1'); } else if (panel.kind === 'dive') q.set('dive', panel.id); else q.set('topic', panel.name);
@@ -294,7 +303,7 @@ function Main({ index, onLearn }: { index: Index; onLearn: () => void }) {
     onRoute={(id) => { open({ kind: 'route', id }); if (isMobile) setMobileTab('list'); }} compact={isMobile}
     chain={activeChain ? { chain: activeChain, t: chainT } : null}
     todayOn={todayOn} setTodayOn={setTodayOn} onToday={(id) => { openToday(id); if (isMobile) setMobileTab('list'); }} todaySel={activeToday?.id ?? null}
-    power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend } : null} onCard={(id) => { openCard(id); if (isMobile) setMobileTab('list'); }} trail={trail}
+    power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend, files: activeDive?.power_maps.map((x) => x.file) } : null} onCard={(id) => { openCard(id); if (isMobile) setMobileTab('list'); }} trail={trail}
     peoples={{ on: peoplesOn, setOn: (v) => { setPeoplesOn(v); if (!v && panel.kind === 'peoples') back(); }, sel: panel.kind === 'peoples' ? panel.id : null, onPick: (id) => { openPeople(id); if (isMobile && id !== PEOPLE_INTRO) setMobileTab('list'); } }} />;
 
   return (

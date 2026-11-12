@@ -1,5 +1,5 @@
 // node peoples.cjs baseUrl → 人群圖層：開關、語系上色、語言點、國家卡、臺灣放大鏡、為什麼不畫人種、八條大遷徙（清單、單條、時間播放）、學習模式、手機、學習單元 unit-where-from
-const { chromium } = require('playwright');
+const { chromium, devices } = require('playwright');
 (async () => {
   const base = process.argv[2];
   const b = await chromium.launch();
@@ -103,6 +103,31 @@ const { chromium } = require('playwright');
   await p.waitForTimeout(2500);
   ok(await p.$('.mig-chip:has-text("南島語族")') !== null && await p.$('.mig-chip:has-text("漢人南移")') !== null, '臺灣頁：連到南島、漢人南移兩條遷徙');
   ok(p.errs.length === 0, `遷徙頁沒有錯誤${p.errs.length ? '：' + p.errs.slice(0, 3).join(' / ') : ''}`);
+
+  // 2026-11-12：八條遷徙的站名標籤不互相壓、不壓播放列；桌面至少 60% 的站（含起點與終點）還看得到名字
+  for (const [label, mk] of [['桌面', () => b.newContext({ viewport: { width: 1280, height: 800 } })], ['手機', () => b.newContext({ ...devices['iPhone 13'] })]]) {
+    const cx = await mk();
+    for (const id of ['austronesian', 'bantu', 'indo-european', 'han-south', 'turkic', 'arab', 'european', 'atlantic-slave']) {
+      const q = await cx.newPage();
+      await q.route(/openfreemap/, (r) => r.abort());
+      await q.goto(`${base}?mode=research&peoples=mig-${id}`, { waitUntil: 'networkidle' });
+      if (label === '手機') await q.locator('button', { hasText: /^地圖/ }).first().click();
+      await q.waitForTimeout(2500);
+      const r = await q.evaluate(() => {
+        const all = [...document.querySelectorAll('.mig-stop')];
+        const vis = all.filter((e) => e.style.visibility !== 'hidden');
+        const rs = vis.map((e) => e.getBoundingClientRect());
+        const x = (a, c) => a.left < c.right && a.right > c.left && a.top < c.bottom && a.bottom > c.top;
+        let ov = 0; for (let i = 0; i < rs.length; i++) for (let j = i + 1; j < rs.length; j++) if (x(rs[i], rs[j])) ov++;
+        const pb = document.querySelector('.mig-play')?.getBoundingClientRect();
+        return { all: all.length, vis: vis.length, ov, pb: pb ? rs.filter((a) => x(a, pb)).length : 0, ends: !all.length || (all[0].style.visibility !== 'hidden' && all[all.length - 1].style.visibility !== 'hidden') };
+      });
+      ok(r.all >= 5 && r.ov === 0 && r.pb === 0, `${label}・${id}：站名標籤不互相重疊、不壓播放列（${r.vis}/${r.all} 個，重疊 ${r.ov}、壓播放列 ${r.pb}）`);
+      if (label === '桌面') ok(r.vis >= Math.ceil(r.all * 0.6) && r.ends, `桌面・${id}：至少 60% 的站有標籤，起點與終點都在（${r.vis}/${r.all}）`);
+      await q.close();
+    }
+    await cx.close();
+  }
 
   // 5. 學習模式
   const l = await page(1280, 860);

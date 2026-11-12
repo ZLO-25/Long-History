@@ -41,7 +41,7 @@ ZL 要在重要卡片補上圖片。挑卡原則：108 課綱重點、各學習�
 | event-qing-taiwan-frontier | 康熙臺灣輿圖（局部） | [康熙臺灣輿圖.jpg](https://commons.wikimedia.org/wiki/File:康熙臺灣輿圖.jpg) | Public domain （PD-art／PD-China） |
 | social-siraya-deer | 《皇清職貢圖》中的臺灣平埔族人 | [Siraya people.jpg](https://commons.wikimedia.org/wiki/File:Siraya_people.jpg) | Public domain （PD-old-100） |
 | event-mudan-incident | 1874 年西鄉從道與恆春半島部落領袖合影 | [Soldiers of the Japanese expedition in Taiwan.jpg](https://commons.wikimedia.org/wiki/File:Soldiers_of_the_Japanese_expedition_in_Taiwan.jpg) | Public domain （PD-old-100） |
-| event-1895-cession | 馬關條約簽約圖 | [Scene of signing Treaty of Shimonoseki pictorial.jpg](https://commons.wikimedia.org/wiki/File:Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg) | Public domain （PD-Japan） |
+| event-1895-cession | 下關講和談判（永地秀太，1929，聖德紀念繪畫館；2026-11-12 換圖，舊圖出處不明） | [Peace Conference at Shimonoseki by Nagatochi Hideta (Meiji Memorial Picture Gallery).jpg](https://commons.wikimedia.org/wiki/File:Peace_Conference_at_Shimonoseki_by_Nagatochi_Hideta_(Meiji_Memorial_Picture_Gallery).jpg) | Public domain （PD-Japan／PD-Art） |
 | event-wushe-incident | 莫那・魯道與賽德克族頭目 | [Mona Rudao and Seediq tribal leaders.jpg](https://commons.wikimedia.org/wiki/File:Mona_Rudao_and_Seediq_tribal_leaders.jpg) | Public domain （PD-Japan-oldphoto） |
 | event-taiwan-cultural-association | 臺灣文化協會第一屆理事會合影 | [文化協會第一屆理事會.jpg](https://commons.wikimedia.org/wiki/File:文化協會第一屆理事會.jpg) | Public domain （PD-Taiwan／PD-US-1923） |
 | event-228-incident | 1947 年 2 月 28 日的臺北街頭 | [228 incident of Taiwan.jpg](https://commons.wikimedia.org/wiki/File:228_incident_of_Taiwan.jpg) | Public domain （PD-Taiwan） |

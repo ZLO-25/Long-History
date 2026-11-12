@@ -67,13 +67,14 @@ crosscheck: { date: 2026-10-26, by: 獨立查核 agent（未參與寫作）, res
 verification: 交叉確認
 lens_status: 無直接論述
 images:
-- url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg/960px-Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg
-  page: https://commons.wikimedia.org/wiki/File:Scene_of_signing_Treaty_of_Shimonoseki_pictorial.jpg
-  title: 馬關條約簽約圖
-  creator: 日本畫家（畫上署名）
-  year: 約 1895
-  license: Public domain（PD-Japan；2026-11-10 已核對 Commons 檔案頁）
-  caption: 日本畫家畫的下關春帆樓談判場面（是繪畫，不是照片；原圖出處不明，年代依 Commons 標為約 1895 年）：清朝代表李鴻章與日本代表伊藤博文、陸奧宗光談判；條約把臺灣、澎湖割讓給日本。
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Peace_Conference_at_Shimonoseki_by_Nagatochi_Hideta_%28Meiji_Memorial_Picture_Gallery%29.jpg/960px-Peace_Conference_at_Shimonoseki_by_Nagatochi_Hideta_%28Meiji_Memorial_Picture_Gallery%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Peace_Conference_at_Shimonoseki_by_Nagatochi_Hideta_(Meiji_Memorial_Picture_Gallery).jpg
+  title: 下關講和談判
+  creator: 永地秀太（Nagatochi Hideta，1873–1942）
+  year: 1929
+  holder: 明治神宮外苑聖德紀念繪畫館（日本東京）
+  license: Public domain（PD-Japan／PD-Art，畫家 1942 年去世；2026-11-12 已核對 Commons 檔案頁）
+  caption: 日本畫家在 1929 年畫的馬關（下關）和談場面，是事後畫的畫，不是當時拍的照片；畫中清朝與日本代表圍著桌子談判，條約把臺灣、澎湖割讓給日本。
 ---
 
 ## C1 背景

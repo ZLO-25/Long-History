@@ -384,3 +384,10 @@ main.dock-main > .splitter.row { grid-area: sr; }
   .pdot { position: relative; }
   .pdot::after { content: ''; position: absolute; left: -2px; right: -2px; top: -16px; bottom: -16px; }
 }
+
+/* ===== 2026-11-12 地圖修正 ===== */
+/* 遷徙站名標籤的四個位置（圓點右／左／上／下）；Leaflet 的 inline transform 會蓋掉 transform，所以用獨立的 translate 屬性 */
+.mig-stop.pl-r { translate: 9px -50%; }
+.mig-stop.pl-l { translate: calc(-100% - 9px) -50%; }
+.mig-stop.pl-t { translate: -50% calc(-100% - 8px); }
+.mig-stop.pl-b { translate: -50% 8px; }

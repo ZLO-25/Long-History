@@ -20,7 +20,7 @@ interface Props {
   // 第 6 期學習模式：其他史的卡淡化成背景小點；多一個「東亞」視野；圖例加上疆域示意的說明
   bgCards?: Card[]; learn?: boolean; home?: [[number, number], [number, number]] | null;
   // 深入專題：主視覺（勢力圖／領土圖，public/data/dives/<file>）；人物卡的人生軌跡（依年份連線）
-  power?: { file: string; title: string; legend?: string } | null; onCard?: (id: string) => void;
+  power?: { file: string; title: string; legend?: string; files?: string[] } | null; onCard?: (id: string) => void;
   trail?: { lat: number; lng: number; year: number; name: string }[] | null;
   // 人群圖層（今天）：國家依多數人母語的語系上色＋Glottolog 語言點；sel＝目前打開的國家（Natural Earth 國名）
   peoples?: { on: boolean; setOn: (v: boolean) => void; sel: string | null; onPick: (id: string) => void } | null;
@@ -42,6 +42,13 @@ const borderCache = new Map<string, Promise<any>>();
 const loadBorders = (file: string) => {
   if (!borderCache.has(file)) borderCache.set(file, fetch(`${import.meta.env.BASE_URL}data/borders/${file}`).then((r) => r.json()));
   return borderCache.get(file)!;
+};
+
+// 深入專題的勢力圖：每個檔案只下載、解析一次，切回去不用再等
+const powerCache = new Map<string, Promise<any>>();
+const loadPower = (file: string) => {
+  if (!powerCache.has(file)) powerCache.set(file, fetch(`${import.meta.env.BASE_URL}data/dives/${file}`).then((r) => r.json()).catch((e) => { powerCache.delete(file); throw e; }));
+  return powerCache.get(file)!;
 };
 
 export function MapView({ index, cards, year, highlight, onPlace, onRoute, compact, chain, todayOn, setTodayOn, onToday, todaySel, bgCards, learn, home, power, onCard, trail, peoples }: Props) {
@@ -341,17 +348,18 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
 
   // 深入專題：主視覺（勢力圖／領土圖）。每個區塊一個顏色，名稱標在最大一塊的中央；縮小時只標主要區塊，放大才全部標；點名稱打開對應的卡
   const powerFile = power?.file ?? null;
+  const powerRef = useRef(power); powerRef.current = power;
   const powerOn = useRef(false); powerOn.current = !!powerFile;
   const legendRef = useRef(''); legendRef.current = power?.legend ?? '';
   const powerZoom = useRef<() => void>(() => {});
   useEffect(() => {
     const g = layers.current?.power, m = map.current;
     if (!g || !m) return;
-    g.clearLayers();
     m.off('zoomend', powerZoom.current);
-    if (!powerFile) { setPowerBox(null); return; }
+    // 切換時先不清舊圖，等新圖準備好才換掉（不會閃一下空白）；只有關掉主視覺才立刻清
+    if (!powerFile) { g.clearLayers(); setPowerBox(null); return; }
     let cancelled = false;
-    fetch(`${import.meta.env.BASE_URL}data/dives/${powerFile}`).then((r) => r.json()).then((gj) => {
+    loadPower(powerFile).then((gj) => {
       if (cancelled) return;
       g.clearLayers();
       const all: L.LatLng[] = [];
@@ -382,20 +390,29 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       labels.sort((a, b) => b.size - a.size);
       // 標籤依面積由大到小放，和已放好的標籤相交（留 4px）就拿掉，避免互相壓住
       const draw = () => {
-        const z = m.getZoom(); const placed: DOMRect[] = [];
+        const z = m.getZoom();
+        // 先把該顯示的全部加上去、該拿掉的拿掉（只寫不讀），再一次讀完所有框，最後才拿掉互相壓到的（避免讀寫交錯、反覆重排版）
+        const shown: typeof labels = [];
         labels.forEach((l, i) => {
           const show = z >= 7 || (l.major && (z >= 6 || i < 6));
           if (!show) { if (g.hasLayer(l.mk)) g.removeLayer(l.mk); return; }
           if (!g.hasLayer(l.mk)) l.mk.addTo(g);
-          const el = l.mk.getElement(); if (!el) return;
-          const r = el.getBoundingClientRect();
-          const hit = placed.some((q) => r.left < q.right + 4 && r.right > q.left - 4 && r.top < q.bottom + 4 && r.bottom > q.top - 4);
-          if (hit) g.removeLayer(l.mk); else placed.push(r);
+          shown.push(l);
         });
+        const rects = shown.map((l) => l.mk.getElement()?.getBoundingClientRect());
+        const placed: DOMRect[] = []; const drop: L.Marker[] = [];
+        shown.forEach((l, i) => {
+          const r = rects[i]; if (!r) return;
+          if (placed.some((q) => r.left < q.right + 4 && r.right > q.left - 4 && r.top < q.bottom + 4 && r.bottom > q.top - 4)) drop.push(l.mk); else placed.push(r);
+        });
+        drop.forEach((mk) => g.removeLayer(mk));
       };
       draw();
       powerZoom.current = draw; m.on('zoomend', draw);
       if (all.length) { const bb = gj.view ? L.latLngBounds(gj.view) : L.latLngBounds(all); setPowerBox(bb); flyB(bb, { duration: 0.6, maxZoom: 7, paddingBottomRight: [0, compact ? 40 : 90] }); }
+      // 顯示完之後，閒置時順便把同一專題的其他勢力圖先載好（切換時就是 0 等待）
+      const idle = (window as any).requestIdleCallback ?? ((f: () => void) => window.setTimeout(f, 300));
+      idle(() => { for (const f of powerRef.current?.files ?? []) if (f !== powerFile) loadPower(f).catch(() => {}); });
     }).catch(() => {});
     return () => { cancelled = true; m.off('zoomend', powerZoom.current); };
   }, [powerFile]);
@@ -543,6 +560,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     if (!migView || !pd) return;
     const list = migSel ? [migSel] : pd.migrations;
     const all: L.LatLng[] = [];
+    const stops: { mk: L.Marker; ll: L.LatLng }[] = []; // 單條遷徙的站名標籤（依站序），畫完後做防重疊
     for (const mg of list) {
       // 跨換日線的站（例如斐濟→夏威夷）往同一側展開，線才不會繞地球一圈
       const pos = new Map<string, L.LatLng>();
@@ -571,10 +589,35 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         }
         L.circleMarker(to, { radius: migSel ? 5 : 3.5, color: '#fff', weight: 1.2, fillColor: mg.color, fillOpacity: 1 })
           .bindTooltip(tip(`${stName(st)}：${esc(st.when)}`)).on('click', () => { if (!migSel) cb.current.onPeople?.(MIG_PREFIX + mg.id); }).addTo(g);
-        if (migSel) L.marker(to, { interactive: false, keyboard: false, icon: L.divIcon({ className: 'mig-stop', html: `<span style="--mc:${mg.color}">${st.name.replace(/（.*）$/, '')}</span>`, iconSize: undefined as any }) }).addTo(g);
+        if (migSel) { const mk = L.marker(to, { interactive: false, keyboard: false, icon: L.divIcon({ className: 'mig-stop', html: `<span style="--mc:${mg.color}">${st.name.replace(/（.*）$/, '')}</span>`, iconSize: undefined as any }) }).addTo(g); stops.push({ mk, ll: to }); }
       }
     }
+    // 站名標籤防重疊：起點、終點先放，其餘依站序；右／左／上／下各試一次，第一個不壓到已放的標籤、站點圓點、播放列、右上角按鈕與縮放鈕的就用，都不行就藏起來（圓點的提示還是看得到名字）
+    const PLACES = ['pl-r', 'pl-l', 'pl-t', 'pl-b'];
+    const hitR = (a: { left: number; right: number; top: number; bottom: number }, q: { left: number; right: number; top: number; bottom: number }, pad: number) => a.left < q.right + pad && a.right > q.left - pad && a.top < q.bottom + pad && a.bottom > q.top - pad;
+    const placeStops = () => {
+      if (!stops.length) return;
+      const box = m.getContainer(), cr = box.getBoundingClientRect();
+      const dots = stops.map((s) => { const pt = m.latLngToContainerPoint(s.ll); return { left: cr.left + pt.x - 7, right: cr.left + pt.x + 7, top: cr.top + pt.y - 7, bottom: cr.top + pt.y + 7 }; });
+      const bars = ['.mig-play', '.map-views', '.leaflet-control-zoom'].map((q) => box.parentElement?.querySelector(q)?.getBoundingClientRect()).filter(Boolean) as DOMRect[];
+      const order = [0, ...(stops.length > 1 ? [stops.length - 1] : []), ...stops.map((_, i) => i).slice(1, -1)];
+      const placed: DOMRect[] = [];
+      for (const i of order) {
+        const e = stops[i].mk.getElement(); if (!e) continue;
+        let done = false;
+        for (const pl of PLACES) {
+          e.classList.remove(...PLACES); e.classList.add(pl);
+          const r = e.getBoundingClientRect();
+          if (placed.some((q) => hitR(r, q, 4)) || dots.some((q) => hitR(r, q, 1)) || bars.some((q) => hitR(r, q, 4))) continue;
+          placed.push(r); done = true; break;
+        }
+        e.style.visibility = done ? 'visible' : 'hidden';
+      }
+    };
+    placeStops();
+    if (stops.length) m.on('moveend', placeStops);
     if (migT == null && all.length) flyB(L.latLngBounds(all).pad(0.15), { duration: 0.6, maxZoom: 5, paddingBottomRight: [0, 56], floor: 2 }); // 右下角留給播放列
+    return () => { m.off('moveend', placeStops); };
   }, [migView, pd, migSel, migT]); // eslint-disable-line react-hooks/exhaustive-deps
   const migYears = migSel ? [...new Set(migSel.stations.map((s) => s.year))].sort((a, b) => a - b) : [];
   const migIdx = migSel ? (migT == null ? migYears.length - 1 : Math.max(0, migYears.findIndex((y) => y >= migT))) : 0;

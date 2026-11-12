@@ -19,7 +19,15 @@ const { chromium } = require('playwright');
     ok((await range(p, scope)).includes('中古'), `${tag} 「正在看」寫中古：${await range(p, scope)}`);
     // 只點一下時間軸空白處（沒有拖動）不應取消
     const svg = await p.$(`${scope} svg`); const bb = await svg.boundingBox();
-    await p.mouse.click(bb.x + bb.width * 0.6, bb.y + Math.min(bb.height - 4, 70)); await p.waitForTimeout(200);
+    // 2026-11-12：390px 時卡片條排滿，原本固定的 (60%, 70) 會點到卡片（點卡片＝開卡並移動視野，屬於正常行為）→ 先掃出真正沒有卡片／時代色塊／分軌的點再點
+    const blank = await p.evaluate(({ scope, bb }) => {
+      for (const fx of [0.6, 0.5, 0.7, 0.4, 0.8, 0.3, 0.9]) for (let dy = bb.height - 4; dy > 40; dy -= 4) {
+        const x = bb.x + bb.width * fx, y = bb.y + dy, e = document.elementFromPoint(x, y);
+        if (e && e.closest(`${scope} svg`) && !e.closest('.lnode, .cluster, .era, .bg-lane, .axis-bg, .lcursor-tag, .cursor-tag')) return { x, y };
+      }
+      return null;
+    }, { scope, bb });
+    await p.mouse.click(blank ? blank.x : bb.x + bb.width * 0.6, blank ? blank.y : bb.y + Math.min(bb.height - 4, 70)); await p.waitForTimeout(200);
     ok(JSON.stringify(await pressed(p, scope)) === '["中古"]', `${tag} 點空白處不會取消時代`);
     if (dir && w === 1280) await p.screenshot({ path: `${dir}/era-${mode}-zhonggu.png` });
     if (w === 1280) {

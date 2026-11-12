@@ -40,7 +40,7 @@ images:
   creator: 佚名
   year: 年代不詳（後世繪製）
   holder: 中國國家博物館
-  license: Public domain（PD-Art／PD-old-100；2026-11-10 已核對 Commons 檔案頁）
+  license: Public domain（PD-Art／PD-old-100；2026-11-12 已核對 Commons 檔案頁）
   caption: 後世畫的宋朝宰相王安石像；他在宋神宗支持下推行青苗法、募役法等新法，想讓國家變得富強。
 ---
 

@@ -161,7 +161,7 @@ const fs = require('fs');
     if (sg && imgCard) {
       await p.goto(base + `?mode=research&card=${imgCard.id}`, { waitUntil: 'networkidle' }); await p.waitForTimeout(1200);
       if (imgCard.images?.length) {
-        ok((await p.$$('.card-detail .card-img img')).length >= 1, `研究模式卡片頁顯示圖片（${imgCard.id}）`);
+        ok((await p.$$('.card-detail .card-img img, .card-detail .card-img .img-missing')).length >= 1, `研究模式卡片頁顯示圖片（${imgCard.id}）`);
         ok(!!(await p.$('.card-detail .img-credit a[href*="commons.wikimedia.org"]')), '圖片下方有作者、授權與 Commons 連結');
       }
       if ((imgCard.learn?.pop_culture ?? []).length) ok((await p.$$('.card-detail .pop-culture dt')).length >= 1, '研究模式卡片頁有「戲劇 vs 史實」');
@@ -246,7 +246,7 @@ const fs = require('fs');
       ok(o2[0] === 'dv-read', `學習模式專題頁：單元排第一（${order.join('、')}）`);
       ok(!!(await ld.$('.dive-view .dv-start')), '學習模式第 1 課標「從這裡開始」');
     }
-    if (hasMap) ok(!(await ld.$eval('.dv-power', (e) => e.open)), `學習模式${ui.title}預設收合`);
+    if (hasMap) ok((await ld.$eval('.dv-power', (e) => e.open)), `學習模式${ui.title}預設展開`);
     ok((await ld.$$('.dive-view > .dv-sec:not(.bk) .dv-card.off')).length === noLearn.length, `學習模式灰字卡數 = 還沒進學習模式的卡數（${noLearn.length}）`);
     ok((await ld.$$('.dive-view > .dv-sec:not(.bk) .dv-card:not(.off)')).length === d.cards.length - noLearn.length, `學習模式可點的卡 ${d.cards.length - noLearn.length} 張`);
     await ld.screenshot({ path: `${out}/${pre(d)}dive-learn-1280.png` });

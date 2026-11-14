@@ -58,7 +58,11 @@ export interface StoryDoc extends StoryRead {
   id: string; remember: string[]; think: string[]; recall?: { q: string; a: string }[];
   sections: { title: string; cards: string[]; blocks: { kind: 'p' | 'quote' | 'key'; text: string }[] }[];
   sources: { card: string; cardName: string; title: string; url: string }[];
+  /** 故事地圖（scripts/lib/storyMap.ts）：各節地點；陸地輪廓另存 <id>.map.json */
+  places?: StoryPlace[]; secPt?: number[]; hasMap?: boolean;
 }
+export interface StoryPlace { n: string; m: string; lat: number; lng: number; ap: boolean; roles: { card: string; role: string }[]; secs: number[]; k: string[] }
+export interface StoryMapData { box: [number, number, number, number]; land: number[][]; rivers?: number[][]; lakes?: number[][]; labels: [string, string, number, number, number][]; routes: { id: string; name: string; secs: number[]; c: number[] }[] }
 
 // 第 6 期：學習模式
 export type LearnTrack = '臺灣' | '東亞' | '世界';

@@ -16,6 +16,7 @@ import { orderAliases } from './lib/aliases.ts';
 import { buildEdges, type Edge } from './lib/causes.ts';
 import { loadStorylines, buildStorylines } from './lib/storylines.ts';
 import { loadStories, checkStories, buildStory } from './lib/stories.ts';
+import { storyPlaces, buildStoryMap } from './lib/storyMap.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits } from './lib/learn.ts';
 import { loadDives, buildDives, copyPowerMaps } from './lib/dives.ts';
 
@@ -166,7 +167,11 @@ const storyMeta = new Map<string, { minutes: number; chars: number; hook: string
   for (const s of stories) {
     if (bad.has(s.file)) { console.warn(`注意：${s.file} 有錯誤，沒有輸出，請執行 npm run validate`); continue; }
     const out = buildStory(s, raw);
-    fs.writeFileSync(path.join(pubData, 'stories', `${out.id}.json`), JSON.stringify(out));
+    // 故事地圖：地點清單放進故事本身（內文地名可點）；陸地輪廓與路線另存 .map.json，地圖顯示時才下載
+    const { places, secPt } = storyPlaces(s, raw);
+    const map = buildStoryMap(s, places, raw, routes);
+    fs.writeFileSync(path.join(pubData, 'stories', `${out.id}.json`), JSON.stringify({ ...out, places, secPt, hasMap: !!map }));
+    if (map) fs.writeFileSync(path.join(pubData, 'stories', `${out.id}.map.json`), JSON.stringify(map));
     storyMeta.set(out.id, { minutes: out.minutes, chars: out.chars, hook: out.hook });
   }
 }

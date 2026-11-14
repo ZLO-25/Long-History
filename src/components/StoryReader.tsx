@@ -2,11 +2,31 @@
 // 預設「下拉」：一頁往下滑，寬螢幕右邊固定列出每一節的大標（目前讀到的那節會亮起）；「Aa 顯示」可以改成「翻頁」（像書一樣一頁一頁翻）。
 // 上方有進度條、剩餘時間、目錄、顯示設定（下拉／翻頁、字級、出處）；每節結尾有「記住」一句話，文末有「考考自己」。
 // 研究模式與學習模式共用；全文打開才下載（public/data/stories/<id>.json）。
-import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { lazy, memo, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import type { MouseEvent as ReactMouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 import type { Card, Index, StoryDoc, Storyline } from '../types';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import './story-reader.css';
+import './story-map.css';
+
+// 故事地圖（StoryMap.tsx）：文字先出來，地圖的程式和陸地輪廓晚一點才下載
+const StoryMap = lazy(() => import('./StoryMap'));
+const WIDE = '(min-width: 1000px)';
+function useWide() {
+  const [m, setM] = useState(() => typeof matchMedia === 'function' && matchMedia(WIDE).matches);
+  useEffect(() => { const mq = matchMedia(WIDE); const on = () => setM(mq.matches); mq.addEventListener('change', on); return () => mq.removeEventListener('change', on); }, []);
+  return m;
+}
+/** 內文地名比對：長的名字先比，免得「雅典衛城」被拆成「雅典」 */
+interface PlaceMatch { re: RegExp; idx: Map<string, number> }
+function placeMatcher(doc: StoryDoc): PlaceMatch | null {
+  const idx = new Map<string, number>();
+  (doc.places ?? []).forEach((p, i) => p.k.forEach((k) => { if (!idx.has(k)) idx.set(k, i); }));
+  if (!idx.size) return null;
+  const keys = [...idx.keys()].sort((a, b) => b.length - a.length).map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  return { re: new RegExp(`(${keys.join('|')})`), idx };
+}
 
 const READ_KEY = 'history-river-stories-read';
 const SIZE_KEY = 'history-river-story-size';
@@ -63,8 +83,20 @@ export function ReadBadge({ s }: { s: Storyline }) {
 }
 
 /** 內文：**粗體** 是關鍵詞；[^n] 是第 n 筆來源 */
-function Inline({ text, doc }: { text: string; doc: StoryDoc }) {
+function Inline({ text, doc, pm, seen }: { text: string; doc: StoryDoc; pm?: PlaceMatch | null; seen?: Set<number> }) {
   const parts = text.split(/(\*\*[^*]+\*\*|\[\^\d+\])/).filter(Boolean);
+  // 地名：每段只標第一次出現，點了地圖會移過去（事件委派在 StoryBody 外層）
+  const withPlaces = (t: string, key: number) => {
+    if (!pm || !seen) return <span key={key}>{t}</span>;
+    const bits = t.split(pm.re);
+    if (bits.length === 1) return <span key={key}>{t}</span>;
+    return <span key={key}>{bits.map((b, j) => {
+      const at = j % 2 === 1 ? pm.idx.get(b) : undefined;
+      if (at === undefined || seen.has(at)) return b;
+      seen.add(at);
+      return <span key={j} className="sr-pl" data-p={at} title="在地圖上看這個地方">{b}</span>;
+    })}</span>;
+  };
   return <>{parts.map((p, i) => {
     if (p.startsWith('**')) return <strong key={i}>{p.slice(2, -2)}</strong>;
     const m = p.match(/^\[\^(\d+)\]$/);
@@ -73,16 +105,23 @@ function Inline({ text, doc }: { text: string; doc: StoryDoc }) {
       if (!src) return null;
       return <sup key={i} className="sr-cite"><a href={src.url} target="_blank" rel="noreferrer" title={`來源 ${m[1]}：${src.title}（卡片「${src.cardName}」）`} aria-label={`來源 ${m[1]}`}>{m[1]}</a></sup>;
     }
-    return <span key={i}>{p}</span>;
+    return withPlaces(p, i);
   })}</>;
 }
+/** 這一段提到哪些地點（給地圖亮起來用） */
+const placesIn = (text: string, pm: PlaceMatch | null) => {
+  if (!pm) return '';
+  const g = new RegExp(pm.re.source, 'g'), out = new Set<number>();
+  for (const m of text.replace(/\[\^\d+\]/g, '').matchAll(g)) { const i = pm.idx.get(m[1]); if (i !== undefined) out.add(i); }
+  return [...out].join(',');
+};
 
 interface BodyProps {
-  doc: StoryDoc; byId: Map<string, Card>; stopNo: Map<string, number>;
+  doc: StoryDoc; byId: Map<string, Card>; stopNo: Map<string, number>; pm: PlaceMatch | null;
   canOpen?: (c: Card) => boolean; researchHref?: (id: string) => string; onOpen: (id: string) => void;
 }
 /** 全文各節：捲動時工具列與進度一直在變，這一塊用 memo 擋住，不跟著重畫 */
-const StoryBody = memo(function StoryBody({ doc, byId, stopNo, canOpen, researchHref, onOpen }: BodyProps) {
+const StoryBody = memo(function StoryBody({ doc, byId, stopNo, pm, canOpen, researchHref, onOpen }: BodyProps) {
   const stopChip = (id: string) => {
     const c = byId.get(id);
     if (!c) return null;
@@ -95,10 +134,10 @@ const StoryBody = memo(function StoryBody({ doc, byId, stopNo, canOpen, research
       <h2 id={`sr-h-${i}`} data-b=""><span className="sr-sec-n" aria-hidden>{i + 1}</span>{s.title}</h2>
       {s.cards.length > 0 && <div className="sr-stops" aria-label="這一節講的站">{s.cards.map(stopChip)}</div>}
       {s.blocks.map((b, j) => b.kind === 'quote'
-        ? <blockquote key={j} data-b=""><Inline text={b.text} doc={doc} /></blockquote>
+        ? <blockquote key={j} data-b="" data-pl={placesIn(b.text, pm)}><Inline text={b.text} doc={doc} pm={pm} seen={new Set()} /></blockquote>
         : b.kind === 'key'
           ? <p key={j} className="sr-key" data-b=""><b>記住</b><span><Inline text={b.text} doc={doc} /></span></p>
-          : <p key={j} data-b=""><Inline text={b.text} doc={doc} /></p>)}
+          : <p key={j} data-b="" data-pl={placesIn(b.text, pm)}><Inline text={b.text} doc={doc} pm={pm} seen={new Set()} /></p>)}
     </section>
   ))}</>;
 });
@@ -174,6 +213,12 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   const [hint, setHint] = useState(() => lsGet(HINT_KEY) !== '1');
   const [shown, setShown] = useState<Set<number>>(() => new Set());
   const [srcOpen, setSrcOpen] = useState(false);
+  // 地圖：hot＝正在讀的段落提到的地點；focus＝讀者點的地點；sheet＝窄螢幕或翻頁時從下方拉出的地圖
+  const [hot, setHot] = useState('');
+  const [focus, setFocus] = useState<number | null>(null);
+  const [sheet, setSheet] = useState(false);
+  const [mapReady, setMapReady] = useState(false);
+  const wide = useWide();
   // 翻頁：目前第幾頁、共幾頁、一頁的位移（欄寬＋欄距）
   const [pg, setPg] = useState({ page: 0, pages: 1, step: 0 });
   const pgRef = useRef(pg);
@@ -186,7 +231,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   const byId = useMemo(() => new Map(index.cards.map((c) => [c.id, c])), [index]);
   const stopNo = useMemo(() => new Map(story.stops.map((x, i) => [x.id, i + 1])), [story]);
 
-  useEffect(() => { let on = true; setDoc(null); setFailed(false); restored.current = false; anchor.current = 0; setShown(new Set()); setSrcOpen(false); setResumed(false); loadStory(story.id).then((d) => on && setDoc(d)).catch(() => on && setFailed(true)); return () => { on = false; }; }, [story.id]);
+  useEffect(() => { let on = true; setDoc(null); setFailed(false); restored.current = false; anchor.current = 0; setShown(new Set()); setSrcOpen(false); setResumed(false); setFocus(null); setHot(''); loadStory(story.id).then((d) => on && setDoc(d)).catch(() => on && setFailed(true)); return () => { on = false; }; }, [story.id]);
 
   // 讓外層寫網址時知道閱讀頁開著（子元件的 effect 先跑，外層才寫網址）
   useEffect(() => { activeRead = story.id; return () => { if (activeRead === story.id) activeRead = null; }; }, [story.id]);
@@ -197,6 +242,8 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   const putSec = useCallback((v: number) => { if (lastSec.current !== v) { lastSec.current = v; setSec(v); } }, []);
   const putProg = useCallback((v: number) => { if (lastProg.current !== v) { lastProg.current = v; setProgress(v); } }, []);
   const putDone = useCallback((v: boolean) => { if (lastDone.current !== v) { lastDone.current = v; setDone(v); } }, []);
+  const lastHot = useRef('');
+  const putHot = useCallback((v: string) => { if (lastHot.current !== v) { lastHot.current = v; setHot(v); } }, []);
   // 讀到哪裡存在 sessionStorage：捲動時最多每 500ms 寫一次，離開或藏起來時補寫
   const pend = useRef<{ k: string; v: string } | null>(null), lastW = useRef(0), wTimer = useRef(0);
   const flush = useCallback(() => {
@@ -215,14 +262,15 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
     return () => { window.removeEventListener('pagehide', onHide); document.removeEventListener('visibilitychange', onVis); flush(); };
   }, [flush, story.id]);
   // 版面位置快取（相對 .sr-view 內容頂端）：只在排版改變時重算，捲動時不碰 getBoundingClientRect
-  const lay = useRef<{ blocks: number[]; secs: number[]; end: number } | null>(null);
+  const lay = useRef<{ blocks: number[]; secs: number[]; end: number; pl: string[] } | null>(null);
   const compute = useCallback(() => {
     const v = view.current, el = pageEl.current;
     if (!v || !el) return;
     const vt = v.getBoundingClientRect().top, st = v.scrollTop;
     const rel = (e: Element) => e.getBoundingClientRect().top - vt + st;
     const end = el.querySelector('.sr-end');
-    lay.current = { blocks: blocks().map(rel), secs: [...el.querySelectorAll('.sr-sec')].map(rel), end: end ? rel(end) : -1 };
+    const bs = blocks();
+    lay.current = { blocks: bs.map(rel), secs: [...el.querySelectorAll('.sr-sec')].map(rel), end: end ? rel(end) : -1, pl: bs.map((b) => b.dataset.pl ?? '') };
   }, []);
   const animRaf = useRef(0), animOff = useRef<(() => void) | null>(null), animating = useRef(false);
 
@@ -288,12 +336,15 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
     let a = 0, lo = 0, hi = L.blocks.length - 1;
     while (lo <= hi) { const m = (lo + hi) >> 1; if (L.blocks[m] <= st + 24) { a = m; lo = m + 1; } else hi = m - 1; }
     anchor.current = a;
-    if (!animating.current) putSec(cur);
+    // 正在讀的段落：畫面上方三分之一處那一段
+    let r = 0; lo = 0; hi = L.blocks.length - 1;
+    while (lo <= hi) { const m = (lo + hi) >> 1; if (L.blocks[m] <= st + ch * 0.33) { r = m; lo = m + 1; } else hi = m - 1; }
+    if (!animating.current) { putSec(cur); putHot(L.pl[r] ?? ''); }
     putProg(Math.round(p * 100) / 100);
     if (p >= 0.999 && !lastDone.current) markRead(story.id);
     putDone(p >= 0.999);
     save(p);
-  }, [paged, story.id, compute, save, putSec, putProg, putDone]);
+  }, [paged, story.id, compute, save, putSec, putProg, putDone, putHot]);
 
   /** 結束自己的捲動動畫 */
   const endAnim = useCallback((remeasure: boolean) => {
@@ -456,10 +507,40 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   const first = byId.get(story.stops[0].id), last = byId.get(story.stops[story.stops.length - 1].id);
   const secOf = (id: string) => doc?.sections.findIndex((s) => s.cards.includes(id)) ?? -1;
 
+  const pm = useMemo(() => (doc ? placeMatcher(doc) : null), [doc]);
+  const hotList = useMemo(() => (hot ? hot.split(',').map(Number) : []), [hot]);
+  // 讀到下一節就回到那一節的地點；剛點地名（拉出地圖會讓畫面變矮、節數跳動）的 1.5 秒內不算
+  const focusAt = useRef(0);
+  useEffect(() => { if (Date.now() - focusAt.current > 1500) setFocus(null); }, [sec]);
+  // 地圖晚一點才載入：文字先排好、使用者可以開始讀，空閒時才下載地圖
+  useEffect(() => {
+    if (!doc?.hasMap) { setMapReady(false); return; }
+    const w = window as any;
+    const id = w.requestIdleCallback ? w.requestIdleCallback(() => setMapReady(true), { timeout: 1500 }) : window.setTimeout(() => setMapReady(true), 400);
+    return () => { if (w.cancelIdleCallback) w.cancelIdleCallback(id); else clearTimeout(id); };
+  }, [doc]);
+  const sideMap = wide && !paged;
+  const onArticleClick = (e: ReactMouseEvent) => {
+    const t = (e.target as Element).closest?.('.sr-pl') as HTMLElement | null;
+    if (!t) return;
+    focusAt.current = Date.now();
+    setFocus(Number(t.dataset.p));
+    if (!sideMap && !sheet) {
+      setSheet(true); setMapReady(true);
+      // 地圖從下方拉出後，把剛點的那個字捲回畫面中間，不要被地圖蓋住
+      requestAnimationFrame(() => requestAnimationFrame(() => { if (!paged) t.scrollIntoView({ block: 'center' }); }));
+    }
+  };
+  const mapEl = (compact: boolean) => doc?.hasMap && mapReady ? (
+    <Suspense fallback={<div className="sm sm-wait"><p className="sm-msg">地圖載入中…</p></div>}>
+      <StoryMap doc={doc} byId={byId} sec={sec} hot={hotList} focus={focus} onFocus={setFocus} onSection={(i) => { setSheet(false); jump(i); }} compact={compact} />
+    </Suspense>
+  ) : null;
+
   const lastPage = pg.page >= pg.pages - 1;
   const coarse = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
   const article = (
-    <article className="sr-page" ref={pageEl} style={paged ? { transform: `translate3d(${-pg.page * pg.step}px,0,0)` } : undefined}>
+    <article className="sr-page" ref={pageEl} onClick={onArticleClick} style={paged ? { transform: `translate3d(${-pg.page * pg.step}px,0,0)` } : undefined}>
       <div className="sr-head" data-b="">
         <p className="sr-kicker">故事線</p>
         <h1>{story.title}</h1>
@@ -478,13 +559,13 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
         )}
       </div>
 
-      {doc && <StoryBody doc={doc} byId={byId} stopNo={stopNo} canOpen={canOpen} researchHref={researchHref} onOpen={onOpen} />}
+      {doc && <StoryBody doc={doc} byId={byId} stopNo={stopNo} pm={pm} canOpen={canOpen} researchHref={researchHref} onOpen={onOpen} />}
 
       {doc && <StoryEnd doc={doc} shown={shown} srcOpen={srcOpen} reveal={reveal} toggleSrc={toggleSrc} onClose={onClose} next={next} onStory={onStory} />}
     </article>
   );
   return createPortal(
-    <div className={`sr-overlay sr-size-${SIZES[size]} ${cite ? '' : 'sr-nocite'} ${paged ? 'sr-paged' : 'sr-scroll'}`} role="dialog" aria-modal="true" aria-label={`故事：${story.title}`} ref={overlay}>
+    <div className={`sr-overlay sr-size-${SIZES[size]} ${cite ? '' : 'sr-nocite'} ${paged ? 'sr-paged' : 'sr-scroll'} ${sheet && !sideMap ? 'sr-sheet-open' : ''}`} role="dialog" aria-modal="true" aria-label={`故事：${story.title}`} ref={overlay}>
       <header className="sr-bar">
         <button className="sr-close" onClick={onClose} aria-label="關閉故事，回到故事線">✕<span>關閉</span></button>
         <div className="sr-bar-mid" aria-live="off">
@@ -532,7 +613,8 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
           <div className="sr-wrap">
             {article}
             {doc && (
-              <aside className="sr-side" aria-label="這篇故事的大標">
+              <aside className={`sr-side ${sideMap && doc.hasMap ? 'has-map' : ''}`} aria-label="這篇故事的大標與地圖">
+                {sideMap && doc.hasMap && <div className="sr-side-map">{mapEl(true) ?? <div className="sm sm-wait"><p className="sm-msg">地圖載入中…</p></div>}</div>}
                 <p className="sr-side-left">{done ? '讀完了' : `還剩約 ${left} 分鐘`}</p>
                 <h2 className="sr-side-h">這篇故事</h2>
                 <ol>
@@ -546,6 +628,13 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
           </div>
         )}
       </div>
+
+      {doc?.hasMap && !sideMap && (sheet
+        ? <section className="sr-sheet" aria-label="故事地圖">
+            <button className="sr-sheet-x" onClick={() => setSheet(false)} aria-label="收起地圖">收起地圖 ▾</button>
+            {mapEl(false)}
+          </section>
+        : <button className={`sr-mapbtn ${paged ? 'paged' : ''}`} onClick={() => { setSheet(true); setMapReady(true); }} aria-label="打開故事地圖">🗺<span>地圖</span></button>)}
 
       {paged && doc && (
         <footer className="sr-pager">

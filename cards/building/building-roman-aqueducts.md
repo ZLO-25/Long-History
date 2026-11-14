@@ -36,11 +36,12 @@ sources:
   - { id: s7, title: "李維《羅馬史》9.29（Livy, Ab urbe condita），Perseus 英譯", url: "https://fgh.perseids.org/read/latinLit/phi0914/phi001/perseus-eng3/9.29.1-9.29.6", accessed: 2026-11-12, tier: 一手 }
   - { id: s8, title: "Lead pipes did contaminate water supplies, but not enough to cause severe poisoning — Chemistry World（報導 Delile 等人研究）", url: "https://www.chemistryworld.com/research/lead-piping-unlikely-to-have-poisoned-romans/7279.article", accessed: 2026-11-12, tier: 通論 }
   - { id: s9, title: "Frontinus — WaterHistory.org（引 Bennett 譯「idle Pyramids」一句）", url: "https://waterhistory.org/histories/frontinus", accessed: 2026-11-12, tier: 通論 }
+importance: 2
 learn:
   histories: [希臘羅馬史]
   why_care: 羅馬人把水從幾十公里外送進城，靠的不是幫浦而是一點點坡度；而且第一手報告告訴我們，水道大部分是埋在地下、你根本看不到的。[s1][s6]
   story: |
-    前 312 年，羅馬的監察官阿庇烏斯·克勞狄烏斯同時修了一條路和一條水道，這是羅馬的第一條水道。[s1][s7] 水完全靠地勢一路往下流，不用幫浦。[s1] 很多人以為水道就是高高的拱橋，但弗朗提努斯記錄：這條阿庇亞水道約 11,190 羅馬步長，其中 11,130 步在地下，只有六十步架在墩台上。[s6] 只有遇到山谷才需要橋，例如法國的加爾橋，三層拱高約 48.8 公尺。[s2][s3] 水進城後，先供應公共噴泉和浴場，最後才是付費的私人用戶。[s1] 西元 97 年，弗朗提努斯被任命為水道長官，寫下《論羅馬城的供水》。[s1][s6] 他很自豪地說，拿這些水道去比埃及金字塔和希臘那些有名卻沒用的工程吧。[s6] 到 3 世紀，羅馬城有 11 條國家出資的水道。[s1]
+    前 312 年，羅馬的監察官阿庇烏斯·克勞狄烏斯同時修了一條路和一條水道，這是羅馬的第一條水道。[s1][s7] 水完全靠地勢一路往下流，不用幫浦。[s1] 很多人以為水道就是高高的拱橋，但弗朗提努斯記錄：這條阿庇亞水道約 11,190 羅馬步長，其中 11,130 步在地下，只有六十步架在墩台上。[s6] 只有遇到山谷才需要橋，例如法國的加爾橋，三層拱高約 48.8 公尺。[s2][s3] 水進城後，先供應公共噴泉和浴場，最後才是付費的私人用戶。[s1] 西元 97 年，弗朗提努斯被任命為水道長官，寫下《論羅馬城的供水》。[s1][s6] 他很自豪地說，拿這些水道去比埃及金字塔和希臘那些有名卻沒用的工程吧。[s6][s9] 到 3 世紀，羅馬城有 11 條國家出資的水道。[s1]
   key_terms:
     - { term: 重力輸水, plain: 不用幫浦，只靠水道一路微微向下的坡度讓水流動。, example: 像把水管斜放，水自己會從高處流到低處。 }
     - { term: 水道橋（拱橋）, plain: 遇到山谷時，把水道架在一排拱上跨過去；它只是整條水道的一小部分。, example: 像高速公路大部分在地面，遇到河才架橋。 }

@@ -35,6 +35,7 @@ sources:
   - { id: s3, title: "Dressel 20 — Internet Archaeology（Tyers, Roman amphoras in Britain）", url: "https://intarch.ac.uk/journal/issue1/tyers/DR20.html", accessed: 2026-10-24, tier: 學術 }
   - { id: s7, title: "Terracotta Army — Wikipedia", url: "https://en.wikipedia.org/wiki/Terracotta_Army", accessed: 2026-10-25, tier: 百科 }
   - { id: s8, title: "Trash Talk（Monte Testaccio 發掘報導）— Archaeology（美國考古學會雜誌）", url: "https://www.archaeology.org/exclusives/articles/2892-rome-monte-testaccio-amphoras", accessed: 2026-11-12, tier: 通論 }
+importance: 2
 learn:
   histories: [希臘羅馬史]
   why_care: 羅馬城南邊有一座全由破陶罐堆成的小山；罐子上的字，讓考古學家像看貨運單一樣追蹤兩千年前的橄欖油貿易。[s2][s8]

@@ -33,6 +33,7 @@ sources:
   - { id: s3, title: "Monte Testaccio — Wikipedia", url: "https://en.wikipedia.org/wiki/Monte_Testaccio", accessed: 2026-10-24, tier: 百科 }
   - { id: s4, title: "維特魯威《建築十書》2.6（Vitruvius, Ten Books on Architecture），Gwilt 英譯 — Lexundria", url: "https://lexundria.com/vitr/2.6/gw", accessed: 2026-11-12, tier: 一手 }
   - { id: s5, title: "Masic, Seymour 等，Hot mixing: Mechanistic insights into the durability of ancient Roman concrete — Science Advances 9(1), 2023（MIT DSpace 記錄）", url: "https://dspace.mit.edu/handle/1721.1/147056", accessed: 2026-11-12, tier: 學術 }
+importance: 2
 learn:
   histories: [希臘羅馬史, 科技史]
   why_care: 羅馬人用火山灰做出能在水裡變硬的混凝土，蓋出兩千年後還立著的穹頂與港口；2023 年的研究又替這個老問題提出新答案。[s1][s4][s5]

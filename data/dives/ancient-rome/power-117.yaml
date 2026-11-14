@@ -1,0 +1,14 @@
+# 畫法同 docs/dives.md 第三節；切線理由見 docs/dive-rome.md「勢力圖切線與理由」
+year: 117
+basemap: world_countries
+title: 圖拉真去世時的羅馬（117 年）
+note: "117 年 8 月圖拉真在回程中去世，這是羅馬疆域最大的時候。核心行省從不列顛（英格蘭與威爾斯，哈德良長城以南）、萊茵河與多瑙河以內的日耳曼與多瑙諸省、106 年新設的達契亞（今羅馬尼亞西部），到整個地中海沿岸、埃及與阿拉伯行省。另用橘色標出圖拉真約 113 至 117 年東征新取得的亞美尼亞、美索不達米亞與亞述（今伊拉克與亞美尼亞、土耳其東部）；他一死，繼位的哈德良就放棄了這些地方，所以它們只在這一年短暫出現。東邊的安息是對手。邊界以今日國界近似，萊茵—多瑙河沿線與北非沙漠邊界只是示意；切線理由見 docs/dive-rome.md。"
+view: [[22, -12], [58, 50]]
+sources:
+  - { title: "Trajan — Wikipedia：達契亞戰爭、帕提亞戰爭與 117 年的最大疆域", url: "https://en.wikipedia.org/wiki/Trajan", accessed: 2026-11-13, tier: 百科 }
+  - { title: "Hadrian — Britannica：圖拉真在亞美尼亞與美索不達米亞的征服很快被放棄", url: "https://www.britannica.com/biography/Hadrian", accessed: 2026-11-13, tier: 通論 }
+  - { title: "Roman Empire — Wikipedia：圖拉真時期（117 年）疆域最大", url: "https://en.wikipedia.org/wiki/Roman_Empire", accessed: 2026-11-13, tier: 百科 }
+powers:
+  - { name: "羅馬帝國", en: "Roman Empire", color: "#a23b3b", card: event-pax-romana, area: "義大利、高盧、不列顛南部（長城以南）、西班牙、萊茵河與多瑙河以內（日耳曼西南、奧地利、匈牙利西部、巴爾幹）、達契亞（羅馬尼亞西部與南部）、希臘、小亞細亞、敘利亞與地中海東岸、阿拉伯行省（約旦）、埃及、利比亞沿海、北非西部", regions: [IT, { code: FR, lat_gt: 41 }, BE, LU, CH, { code: NL, lat_lt: 52.1 }, { code: GB, lat_lt: 53.8 }, { code: GB, lat_gt: 53.8, lat_lt: 55, lng_gt: -5 }, ES, PT, { code: DE, lat_lt: 50.4, lng_lt: 9.2 }, { code: DE, lat_lt: 48.95, lng_gt: 9.2, lng_lt: 12.2 }, { code: DE, lat_gt: 50.4, lat_lt: 52, lng_lt: 7 }, { code: AT, lat_lt: 48.35 }, { code: HU, lng_lt: 19 }, SI, HR, BA, { code: RS, lat_lt: 45 }, ME, XK, MK, AL, GR, BG, { code: RO, lng_lt: 24.5 }, { code: RO, lng_gt: 27.7, lat_lt: 45.2 }, { code: TR, lng_lt: 40.5 }, CY, SY, LB, IL, PS, JO, EG, { code: LY, lat_gt: 30.5 }, { code: TN, lat_gt: 33 }, { code: DZ, lat_gt: 34.5 }, { code: MA, lat_gt: 33.6, lng_lt: -4 }] }
+  - { name: "圖拉真新征服（117 年後放棄）", en: "Trajan's conquests, abandoned by Hadrian", color: "#d98a5f", card: event-pax-romana, minor: true, area: "亞美尼亞（土耳其東部與亞美尼亞）、美索不達米亞與亞述（伊拉克）；約 115–116 年取得，繼位的哈德良很快放棄", regions: [{ code: TR, lng_gt: 40.5 }, AM, IQ] }
+  - { name: "安息帝國（背景）", en: "Parthian Empire", color: "#c9a03d", minor: true, area: "伊朗（背景；東界不明）", regions: [IR] }

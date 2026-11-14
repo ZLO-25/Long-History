@@ -24,6 +24,7 @@ topics: [民主與參政, 公民身分, 民變與抗爭, 法律與憲法]
 links: [event-twelve-tables, building-forum-romanum, war-samnite, event-cleisthenes-reform]
 effects:
   - { id: event-twelve-tables, rel: 促成, why: 法律只由貴族祭司解釋，平民常遭任意判決，於是以集體撤離城市為威脅爭取讓步，法律才被寫下來公開。, src: [s3, "event-twelve-tables:s1"] }
+  - { id: war-samnite, rel: 背景, why: 平民是羅馬軍隊的主力，前 367 年起也能當執政官；薩莫奈戰爭就是這樣的羅馬打的。連年戰爭帶來的收入也反過來緩和平民的不滿，誰推動誰看法不一。, src: [s1, s3], disputed: true }
 counterparts: 無適當對照：中國軌沒有「平民以集體罷工、撤離爭取參政權」的對應事件卡；商鞅變法是由上而下的改革，硬比會誤導。
 sources:
   - { id: s1, title: "Conflict of the Orders — Wikipedia", url: "https://en.wikipedia.org/wiki/Conflict_of_the_Orders", accessed: 2026-11-02, tier: 百科 }
@@ -50,7 +51,7 @@ crosscheck:
   date: 2026-11-02
   by: 獨立查核 agent（未參與寫作）
   result: 通過
-  notes: 已打開維基、WHE Plebeians、戴奧尼修斯 6.86–89 核對。WHE 沒寫霍騰西烏斯法，已移除該句的 s3；監察官一項改依維基（前339年法律）；米契爾觀點改為「根本沒有衝突」；刪去來源沒寫的「前執政官」。撤離地點（聖山／阿文提諾山）與首批保民官人數（2／5）仍有分歧，已並列；聖山座標為示意。
+  notes: 【2026-11-14 補】為接上故事線 story-ancient-rome 第 2→3 站，新增 effects → war-samnite（背景、disputed）：依 s1（今天重開：貧窮平民是軍隊主力；前 367 年起每年至少一名平民執政官；連年戰爭給平民工作、收入與榮譽而緩和處境）與本卡既有內文（新統治階層 nobilitas）；只寫「條件」，不寫「造成」，因果方向（內部和解讓羅馬能擴張，或戰爭緩和內部矛盾）史家看法不一。以下為 2026-11-02 原紀錄：已打開維基、WHE Plebeians、戴奧尼修斯 6.86–89 核對。WHE 沒寫霍騰西烏斯法，已移除該句的 s3；監察官一項改依維基（前339年法律）；米契爾觀點改為「根本沒有衝突」；刪去來源沒寫的「前執政官」。撤離地點（聖山／阿文提諾山）與首批保民官人數（2／5）仍有分歧，已並列；聖山座標為示意。
 verification: 交叉確認
 lens_status: 無直接論述
 ---

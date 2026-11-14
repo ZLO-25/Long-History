@@ -1,0 +1,14 @@
+# 畫法同 docs/dives.md 第三節；切線理由見 docs/dive-rome.md「勢力圖切線與理由」
+year: 395
+basemap: world_countries
+title: 狄奧多西死後東西分治（395 年）
+note: "395 年 1 月狄奧多西一世去世，帝國由兩個兒子分治：十歲的霍諾留得到西部（義大利、高盧、西班牙、不列顛、北非西半與伊利里亞西部），阿卡狄烏斯得到東部（巴爾幹東部、希臘、小亞細亞、敘利亞、埃及與昔蘭尼加）。分界大致沿今日波士尼亞與塞爾維亞之間（德里納河一帶）往南，再到利比亞中部的大敘利亞灣（的黎波里塔尼亞屬西，昔蘭尼加屬東）。當時的人並不把它看成永久分裂，之後東西兩邊還會再統一過幾次；西部在 476 年結束，東部延續到 1453 年（見拜占庭尾聲卡）。東邊的對手是薩珊波斯。以今日國界近似，邊界只是示意；切線理由見 docs/dive-rome.md。"
+view: [[22, -12], [58, 50]]
+sources:
+  - { title: "Theodosius I — Wikipedia：395 年去世，帝國分給兩子", url: "https://en.wikipedia.org/wiki/Theodosius_I", accessed: 2026-11-13, tier: 百科 }
+  - { title: "Praetorian prefecture of Illyricum（Eastern Illyricum）— Wikipedia：東部伊利里庫姆含馬其頓與達契亞兩個教區，潘諾尼亞早在 379 年歸義大利一側", url: "https://en.wikipedia.org/wiki/Eastern_Illyricum", accessed: 2026-11-13, tier: 百科 }
+  - { title: "Western Roman Empire — Wikipedia：395 年後霍諾留統治西部、阿卡狄烏斯統治東部", url: "https://en.wikipedia.org/wiki/Western_Roman_Empire", accessed: 2026-11-13, tier: 百科 }
+powers:
+  - { name: "西羅馬帝國", en: "Western Roman Empire", color: "#a23b3b", card: event-fall-western-rome, area: "義大利、高盧（法國、比利時、盧森堡、瑞士）、西班牙與葡萄牙、不列顛南部、萊茵河左岸與多瑙河南岸（德國西部與南部）、奧地利、匈牙利西部（潘諾尼亞）、斯洛維尼亞、克羅埃西亞、波士尼亞、北非西半（摩洛哥北部、阿爾及利亞、突尼西亞、利比亞西部）", regions: [IT, { code: FR, lat_gt: 41 }, BE, LU, CH, { code: GB, lat_lt: 53.8 }, { code: GB, lat_gt: 53.8, lat_lt: 55, lng_gt: -5 }, ES, PT, { code: DE, lng_lt: 7.6, lat_gt: 49, lat_lt: 51.8 }, { code: DE, lat_lt: 48.7, lng_gt: 9.5, lng_lt: 13.5 }, { code: AT, lat_lt: 48.35 }, { code: HU, lng_lt: 19 }, SI, HR, BA, { code: DZ, lat_gt: 34.5 }, TN, { code: LY, lng_lt: 19, lat_gt: 30.5 }, { code: MA, lat_gt: 33.6, lng_lt: -4 }] }
+  - { name: "東羅馬帝國（拜占庭）", en: "Eastern Roman Empire", color: "#3b5ea8", card: event-byzantine-afterlife, area: "巴爾幹東部（塞爾維亞、蒙特內哥羅、科索沃、北馬其頓、阿爾巴尼亞、保加利亞、羅馬尼亞多布羅加）、希臘、土耳其、賽普勒斯、敘利亞與地中海東岸、約旦、埃及、昔蘭尼加（利比亞東部）", regions: [{ code: RS, lat_lt: 45 }, ME, XK, MK, AL, GR, BG, { code: RO, lng_gt: 27.7, lat_lt: 45.2 }, TR, CY, SY, LB, IL, PS, JO, EG, { code: LY, lng_gt: 19, lat_gt: 30.5 }] }
+  - { name: "薩珊波斯（背景）", en: "Sasanian Empire", color: "#c9a03d", minor: true, area: "伊朗與伊拉克（背景）", regions: [IR, IQ] }

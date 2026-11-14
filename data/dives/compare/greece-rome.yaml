@@ -16,7 +16,47 @@ rows:
     left_card: social-athenian-democracy
     right_card: event-constitutio-antoniniana
     src: [C1, C2, C3]
+  - aspect: 軍隊
+    left: 城邦的軍隊是公民自己：重裝步兵自備盔甲和長矛，肩並肩排成密集的方陣作戰，所以「公民就是戰士」。
+    right: 早期羅馬也靠公民當兵；共和晚期兵源放寬、戰事拉長，士兵越來越聽將軍的，到帝國時期變成效忠皇帝的常備軍。羅馬軍團分成小隊、比方陣靈活，在狗頭山和皮德納擊敗馬其頓方陣。
+    left_card: event-greek-polis-colonization
+    right_card: event-marian-reforms-sulla
+    src: [C4, C5, C6]
+  - aspect: 怎麼對待被征服的人
+    left: 提洛同盟本來是共同防波斯，後來盟邦只能繳貢金；想退出的納克索斯、塔索斯被雅典出兵打到投降。
+    right: 羅馬把征服的土地劃成行省，派總督、收稅；對希臘先宣布「自由」，五十年後毀了科林斯、馬其頓成行省。但公民權逐步開放：同盟者戰爭後給義大利人，212 年給帝國裡幾乎所有自由人。
+    left_card: event-delian-league
+    right_card: war-roman-conquest-greece
+    src: [C7, C3, C8]
+  - aspect: 宗教
+    left: 多神信仰，每個城邦有自己的守護神和祭典；雅典在為酒神辦的節日裡舉行戲劇競賽，宗教和公民生活連在一起。
+    right: 同樣信多神；帝國早期基督徒受迫害，313 年起可以公開敬拜，380 年狄奧多西一世把尼西亞派基督教定為官方信仰，391 年禁止異教敬拜。
+    left_card: building-theatre-dionysus
+    right_card: event-christian-empire
+    src: [C9, C10]
+  - aspect: 奴隸
+    left: 奴隸是主人的財產，沒有政治權利；一般認為被釋放的奴隸也不能成為雅典公民，身分和外邦人差不多。
+    right: 羅馬也把奴隸當財產，但被釋放的奴隸可以成為公民、可以投票，只是不能當高級官員，他們的兒子則沒有這些限制；這點和希臘多數城邦不同，但不能因此說羅馬比較人道。
+    left_card: social-athenian-democracy
+    right_card: social-roman-slavery-spartacus
+    src: [C1, C11]
+  - aspect: 留給今天什麼
+    left: 民主、抽籤選陪審員、陶片放逐、劇場與悲劇、學院；英文的 democracy、politics、academy 都是從希臘文來的。
+    right: 共和與元老院的名稱、羅馬法（歐洲大陸多數國家法典的基礎）、拉丁字母、道路與水道、基督教世界的形成；英文的 republic、senate 來自拉丁文。
+    left_card: social-athenian-democracy
+    right_card: social-roman-law
+    src: [C12, C13]
 sources:
   - { id: C1, title: "Athenian democracy — Wikipedia（抽籤、公民資格、被排除的人）", url: "https://en.wikipedia.org/wiki/Athenian_democracy", accessed: 2026-11-12, tier: 百科 }
   - { id: C2, title: "Roman Republic — Wikipedia（執政官、元老院、同盟戰爭後的公民權）", url: "https://en.wikipedia.org/wiki/Roman_Republic", accessed: 2026-11-12, tier: 百科 }
   - { id: C3, title: "Constitutio Antoniniana — Wikipedia（212 年）", url: "https://en.wikipedia.org/wiki/Constitutio_Antoniniana", accessed: 2026-11-12, tier: 百科 }
+  - { id: C4, title: "Phalanx — Wikipedia（重裝步兵方陣）", url: "https://en.wikipedia.org/wiki/Phalanx", accessed: 2026-11-12, tier: 百科 }
+  - { id: C5, title: "Marian reforms — Wikipedia（志願兵、將軍與軍隊的關係；學者對「馬略改革」的修正）", url: "https://en.wikipedia.org/wiki/Marian_reforms", accessed: 2026-11-12, tier: 百科 }
+  - { id: C6, title: "Second Macedonian War — Wikipedia（狗頭山：軍團擊敗方陣）", url: "https://en.wikipedia.org/wiki/Second_Macedonian_War", accessed: 2026-11-12, tier: 百科 }
+  - { id: C7, title: "Delian League — Wikipedia（貢金、盟邦想退出被征討）", url: "https://en.wikipedia.org/wiki/Delian_League", accessed: 2026-11-02, tier: 百科 }
+  - { id: C8, title: "Achaean War — Wikipedia（前 146 年科林斯被毀、希臘併入羅馬）", url: "https://en.wikipedia.org/wiki/Achaean_War", accessed: 2026-11-12, tier: 百科 }
+  - { id: C9, title: "Theatre of Dionysus — Wikipedia（城市酒神節與戲劇競賽）", url: "https://en.wikipedia.org/wiki/Theatre_of_Dionysus", accessed: 2026-10-24, tier: 百科 }
+  - { id: C10, title: "Edict of Thessalonica — Wikipedia（380 年）", url: "https://en.wikipedia.org/wiki/Edict_of_Thessalonica", accessed: 2026-11-02, tier: 百科 }
+  - { id: C11, title: "Slavery in ancient Rome — Wikipedia（釋奴與公民權）", url: "https://en.wikipedia.org/wiki/Slavery_in_ancient_Rome", accessed: 2026-11-12, tier: 百科 }
+  - { id: C12, title: "Etymonline：democracy", url: "https://www.etymonline.com/word/democracy", accessed: 2026-11-12, tier: 通論 }
+  - { id: C13, title: "Roman law — Britannica（羅馬法是歐洲大陸多數國家法典的基礎）", url: "https://www.britannica.com/topic/Roman-law", accessed: 2026-11-13, tier: 通論 }

@@ -1,0 +1,15 @@
+# 畫法同 docs/dives.md 第三節；切線理由見 docs/dive-rome.md「勢力圖切線與理由」
+year: -44
+basemap: world_countries
+title: 凱撒遇刺（前 44 年三月）
+note: "前 44 年三月，凱撒在元老院被刺殺。這時羅馬共和國已管到：義大利（含波河平原）、西西里與薩丁尼亞科西嘉、整個伊比利亞半島（北岸山區要到前 19 年才平定）、高盧（凱撒從前 58 年起征服，約前 50 年完成）、伊利里亞（達爾馬提亞）、馬其頓與希臘、亞細亞行省與比提尼亞—本都、奇里乞亞、敘利亞、昔蘭尼加與北非的阿非利加行省。托勒密埃及名義上獨立，由克麗奧佩脫拉七世統治，但實際靠羅馬支持；凱撒前 47 年讓她的弟妹統治賽普勒斯，所以圖上把賽普勒斯畫在埃及。東邊的安息帝國是羅馬唯一的對等強權，前 53 年卡雷之戰擊敗克拉蘇。小亞細亞中部、亞美尼亞與猶太等是羅馬的附庸王國（背景）。以今日國界近似，邊界只是示意；切線理由見 docs/dive-rome.md。"
+view: [[22, -12], [58, 50]]
+sources:
+  - { title: "Julius Caesar — Wikipedia：高盧戰爭、內戰與前 44 年三月被刺", url: "https://en.wikipedia.org/wiki/Julius_Caesar", accessed: 2026-11-13, tier: 百科 }
+  - { title: "Ptolemy XIII Theos Philopator — World History Encyclopedia：凱撒讓克麗奧佩脫拉的弟妹統治賽普勒斯", url: "https://www.worldhistory.org/Ptolemy_XIII_Theos_Philopator/", accessed: 2026-11-13, tier: 百科 }
+  - { title: "Roman Republic — Wikipedia：前 121 年山南高盧行省、凱撒完成高盧征服", url: "https://en.wikipedia.org/wiki/Roman_Republic", accessed: 2026-11-13, tier: 百科 }
+powers:
+  - { name: "羅馬共和國", en: "Roman Republic", color: "#a23b3b", card: person-caesar, area: "義大利、高盧（法國、比利時、盧森堡、瑞士西部）、西班牙與葡萄牙、伊利里亞（克羅埃西亞沿岸、阿爾巴尼亞等）、馬其頓與希臘、小亞細亞西部與比提尼亞—本都、奇里乞亞、敘利亞、昔蘭尼加、阿非利加（突尼西亞與阿爾及利亞東北）", regions: [{ code: IT, lat_lt: 46.4 }, { code: FR, lat_gt: 41 }, BE, LU, { code: CH, lng_lt: 8 }, ES, PT, { code: HR, lat_lt: 45.3 }, AL, ME, GR, MK, { code: TR, lng_lt: 30.5 }, { code: TR, lng_gt: 30.5, lat_gt: 40.3 }, { code: TR, lng_gt: 30.5, lat_lt: 37.4, lng_lt: 36.5 }, SY, LB, IL, PS, { code: LY, lng_gt: 19.5, lat_gt: 30.5 }, { code: TN, lat_gt: 33 }, { code: DZ, lng_gt: 5.5, lat_gt: 35.2 }] }
+  - { name: "托勒密埃及（克麗奧佩脫拉）", en: "Ptolemaic Egypt", color: "#4f9a5a", card: person-cleopatra, area: "埃及與賽普勒斯（獨立王國，但依附羅馬）", regions: [EG, CY] }
+  - { name: "羅馬的附庸王國（背景）", en: "Roman client kingdoms", color: "#b8aa96", minor: true, area: "加拉太、卡帕多奇亞、科馬基尼、亞美尼亞、猶太、納巴泰（約旦）等", regions: [{ code: TR, lng_gt: 30.5, lat_gt: 37.4, lat_lt: 40.3 }, { code: TR, lng_gt: 36.5, lat_lt: 37.4 }, AM, JO] }
+  - { name: "安息帝國", en: "Parthian Empire", color: "#c9a03d", area: "伊朗與伊拉克（背景）", regions: [IR, IQ] }

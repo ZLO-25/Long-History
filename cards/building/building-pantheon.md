@@ -31,6 +31,7 @@ sources:
   - { id: s6, title: "Yungang Grottoes — Wikipedia", url: "https://en.wikipedia.org/wiki/Yungang_Grottoes", accessed: 2026-10-25, tier: 百科 }
   - { id: s7, title: "Hadrian’s Rome — The Open University（OpenLearn 課程頁）", url: "https://www.open.edu/openlearn/history-the-arts/hadrians-rome/content-section-2.1.1", accessed: 2026-11-12, tier: 通論 }
   - { id: s8, title: "《羅馬君王傳·哈德良》（Historia Augusta, Hadrian）與萬神殿正面銘文 — 據 s7 轉引，未見原典全文", url: "https://www.open.edu/openlearn/history-the-arts/hadrians-rome/content-section-2.1.1", accessed: 2026-11-12, tier: 一手 }
+importance: 2
 learn:
   histories: [希臘羅馬史]
   why_care: 萬神殿門上寫的是阿格里帕的名字，但今天站在裡面的建築是另一位皇帝重建的；它的穹頂至今還是世界最大的無鋼筋混凝土穹頂。[s1][s2][s7]

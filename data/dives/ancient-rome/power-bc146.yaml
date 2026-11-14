@@ -1,0 +1,17 @@
+# 畫法同 docs/dives.md 第三節；切線理由見 docs/dive-rome.md「勢力圖切線與理由」
+year: -146
+basemap: world_countries
+title: 迦太基與科林斯被毀（前 146 年）
+note: "前 146 年，羅馬同時攻陷迦太基與科林斯。迦太基的核心成為『阿非利加』行省（只含突尼西亞北部，鄰近的努米底亞仍是盟友王國）；馬其頓在前 148 年成為行省，希臘各城邦處在羅馬的監督下，亞該亞同盟被解散。羅馬在西班牙握有東岸與南部（西班牙北、西部內陸仍在作戰，前 133 年才攻下努曼提亞）。義大利與西西里、薩丁尼亞與科西嘉原本就是羅馬的；波河平原此時也已有羅馬殖民地。帕加馬是羅馬的盟友；塞琉古與托勒密當背景，安息（帕提亞）正在伊朗崛起。以今日國界近似，邊界只是示意；切線理由見 docs/dive-rome.md。"
+view: [[22, -12], [58, 50]]
+sources:
+  - { title: "Third Punic War — Wikipedia：前 146 年迦太基被毀、設阿非利加行省", url: "https://en.wikipedia.org/wiki/Third_Punic_War", accessed: 2026-11-13, tier: 百科 }
+  - { title: "Roman Republic — Wikipedia：前 2 世紀羅馬取得西班牙、阿非利加與馬其頓", url: "https://en.wikipedia.org/wiki/Roman_Republic", accessed: 2026-11-13, tier: 百科 }
+powers:
+  - { name: "羅馬共和國", en: "Roman Republic", color: "#a23b3b", card: war-third-punic, area: "義大利（含波河平原）、西西里、薩丁尼亞與科西嘉、西班牙南部與東部、阿非利加行省（突尼西亞北部）、馬其頓與希臘（受羅馬監督）、伊利里亞南岸（阿爾巴尼亞、蒙特內哥羅）", regions: [{ code: IT, lat_lt: 45.9 }, { code: FR, lat_lt: 43.2, lng_gt: 8.3 }, { code: ES, lat_lt: 38.5 }, { code: ES, lat_gt: 38.5, lng_gt: -1.8 }, { code: TN, lat_gt: 34.9 }, GR, MK, AL, ME] }
+  - { name: "努米底亞王國（盟友）", en: "Numidia", color: "#c9a77c", card: war-third-punic, minor: true, area: "阿爾及利亞北部與突尼西亞西南（馬西尼薩的王國，迦太基被毀後仍是羅馬盟友）", regions: [{ code: DZ, lat_gt: 33 }, { code: TN, lat_lt: 34.9 }] }
+  - { name: "帕加馬王國（盟友）", en: "Pergamon", color: "#b08fc7", card: event-hellenistic-kingdoms, minor: true, area: "小亞細亞西部（前 188 年阿帕米亞和約後擴大）", regions: [{ code: TR, lat_gt: 37.6, lat_lt: 40.4, lng_lt: 31 }] }
+  - { name: "安納托利亞中北部小國（背景）", en: "Anatolian states", color: "#c4b5a0", minor: true, area: "比提尼亞、本都、卡帕多奇亞、加拉太等（背景）", regions: [{ code: TR, lat_gt: 40.4 }, { code: TR, lat_gt: 37.6, lat_lt: 40.4, lng_gt: 31 }] }
+  - { name: "塞琉古帝國", en: "Seleucid Empire", color: "#d9822b", card: event-hellenistic-kingdoms, minor: true, area: "敘利亞與地中海東岸、伊拉克、奇里乞亞（背景；已在衰落）", regions: [SY, LB, IL, PS, JO, IQ, { code: TR, lat_lt: 37.6, lng_gt: 31 }] }
+  - { name: "托勒密王國（埃及）", en: "Ptolemaic Kingdom", color: "#4f9a5a", card: event-hellenistic-kingdoms, minor: true, area: "埃及、賽普勒斯、昔蘭尼加（背景）", regions: [EG, CY, { code: LY, lng_gt: 19.5, lat_gt: 30.5 }] }
+  - { name: "安息（帕提亞，背景）", en: "Parthia", color: "#c9a03d", minor: true, area: "伊朗（前 148 年起從塞琉古手中奪下米底；示意）", regions: [IR] }

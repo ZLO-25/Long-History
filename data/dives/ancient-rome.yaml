@@ -69,14 +69,79 @@ cards:
 storylines: [story-ancient-rome, story-rome-empire]
 compare: [greece-rome]
 units: [unit-rome-1, unit-rome-2, unit-rome-fall]
-power_maps: []
+power_maps:
+  - { year: -264, file: ancient-rome/power-bc264.geojson }
+  - { year: -146, file: ancient-rome/power-bc146.geojson }
+  - { year: -44, file: ancient-rome/power-bc44.geojson }
+  - { year: 117, file: ancient-rome/power-117.geojson }
+  - { year: 395, file: ancient-rome/power-395.geojson }
 legacy:
   title: 今日影子
   items:
-    - then: 羅馬人把「大家共同的事」叫 res publica，王被趕走之後，由每年改選的執政官管理。
-      now: 英文 republic（共和國）就是從 res publica 來的；今天很多國家的正式名稱仍叫共和國。
+    - then: 羅馬人把「大家共同的事」叫 res publica，王被趕走之後，由每年改選的執政官和一群年長有經驗的人組成的元老院（senatus）一起管理。
+      now: 英文 republic（共和國）就是從 res publica 來的，今天很多國家的正式名稱仍叫共和國；美國國會的上議院叫 Senate（參議院），字根就是拉丁文的「老人」（senex），現在有 100 位參議員。
       tag: 制度
       card: event-roman-republic-founding
-      src: [L1]
+      src: [L1, L2, L3]
+    - then: 羅馬人把年初的第五個月 Quintilis 改名紀念凱撒（前 44 年），又把 Sextilis 改名紀念第一位皇帝奧古斯都（前 8 年）；凱撒還在前 46 年改革曆法，一年算 365 又四分之一天，每四年閏一天。
+      now: 英文的七月 July 和八月 August，就是凱撒（Julius）和奧古斯都（Augustus）的名字；今天通行的格里曆，是 1582 年教宗格里高利十三世把這套儒略曆再修正出來的，每四年閏一天的做法也留了下來。
+      tag: 曆法
+      card: person-caesar
+      src: [L4, L5, L6]
+    - then: 羅馬人用拉丁字母寫字，也用 I、V、X、L、C、D、M 這幾個符號記數。
+      now: 你現在看到的英文字母，就是從拉丁字母來的，今天還有許多歐洲語言用它；有些鐘面至今還用羅馬數字（4 常寫成 IIII）。
+      tag: 語言文字
+      card: event-twelve-tables
+      src: [L7, L8]
+    - then: 6 世紀，東羅馬皇帝查士丁尼把幾百年的羅馬法律整理成《民法大全》，後來中世紀歐洲的法學者一直在讀它、改它。
+      now: 德國、法國等歐洲大陸國家的法典，大多以羅馬法為基礎，這類法律制度叫「大陸法系」。
+      tag: 制度
+      card: social-roman-law
+      src: [L9, L10]
+    - then: 前 312 年，羅馬的監察官阿庇烏斯同時下令修了第一條大路（亞壁古道）和第一條水道，路是為了把軍隊和補給送往南方，水道是為了把水引進城。
+      now: 亞壁古道在 2024 年被列為世界遺產；法國南部的加爾橋是羅馬水道橋，兩千年後仍然立著，也是世界遺產。
+      tag: 建築
+      card: building-via-appia
+      src: [L11, L12, L13]
+    - then: 羅馬人用火山灰混凝土蓋萬神殿，穹頂內徑約 43 公尺，沒有用鋼筋。
+      now: 這座穹頂今天仍是世界上最大的無鋼筋混凝土穹頂；2023 年 MIT 等團隊還在研究羅馬混凝土為什麼那麼耐久。
+      tag: 建築
+      card: building-pantheon
+      src: [L14, L15]
+    - then: 羅馬圓形競技場的中央鋪著沙子，用來吸血；拉丁文的「沙」叫 harena。
+      now: 英文 arena（競技場、比賽場地）就是從這個字來的，今天也用來說任何比賽、競爭的舞台。
+      tag: 運動與藝術
+      card: building-colosseum
+      src: [L16, L17]
+    - then: 詩人尤維納利斯嘲笑羅馬人只關心兩件事：「麵包與馬戲」（panem et circenses），也就是免費的糧食和賽車、角鬥表演。
+      now: 英文 bread and circuses 今天用來批評政府用福利和娛樂安撫人民、轉移他們對公共事務的注意。
+      tag: 制度
+      card: event-roman-grain-dole
+      src: [L18, L19]
+    - then: 380 年，狄奧多西一世頒布敕令，把尼西亞派基督教定為帝國官方信仰；這個原本被迫害的小教派，在不到一百年內變成帝國的宗教。
+      now: 根據 2025 年皮尤研究中心的報告，2020 年全世界約有 23 億基督徒，約占世界人口的 28.8%。
+      tag: 宗教
+      card: event-christian-empire
+      src: [L20, L21]
   sources:
     - { id: L1, title: "Etymonline：republic", url: "https://www.etymonline.com/word/republic", accessed: 2026-11-12, tier: 通論 }
+    - { id: L2, title: "Etymonline：senate（拉丁文 senatus，來自 senex「老人」）", url: "https://www.etymonline.com/word/senate", accessed: 2026-11-13, tier: 通論 }
+    - { id: L3, title: "The Idea of the Senate — U.S. Senate（官方網站，提到 100 位參議員）", url: "https://www.senate.gov/about/origins-foundations/idea-of-the-senate.htm", accessed: 2026-11-13, tier: 官方 }
+    - { id: L4, title: "July — Britannica（Quintilis 前 44 年改名紀念凱撒）", url: "https://www.britannica.com/topic/July", accessed: 2026-11-13, tier: 通論 }
+    - { id: L5, title: "Etymonline：August（前 8 年由 Sextilis 改名紀念奧古斯都）", url: "https://www.etymonline.com/word/August", accessed: 2026-11-13, tier: 通論 }
+    - { id: L6, title: "Julian calendar — Britannica（凱撒前 46 年改曆、365 又 1/4 天、1582 年格里曆取代）", url: "https://www.britannica.com/science/Julian-calendar", accessed: 2026-11-13, tier: 通論 }
+    - { id: L7, title: "Latin alphabet — Britannica（從伊特拉斯坎字母發展，今天仍用於英文與多數歐洲語言）", url: "https://www.britannica.com/topic/Latin-alphabet", accessed: 2026-11-13, tier: 通論 }
+    - { id: L8, title: "Roman numeral — Britannica（I V X L C D M；鐘面常把 4 寫成 IIII）", url: "https://www.britannica.com/topic/Roman-numeral", accessed: 2026-11-13, tier: 通論 }
+    - { id: L9, title: "Roman law — Britannica（十二表法、查士丁尼；羅馬法是歐洲大陸多數國家法典的基礎）", url: "https://www.britannica.com/topic/Roman-law", accessed: 2026-11-13, tier: 通論 }
+    - { id: L10, title: "Corpus Juris Civilis — Wikipedia（查士丁尼《民法大全》）", url: "https://en.wikipedia.org/wiki/Corpus_Juris_Civilis", accessed: 2026-11-12, tier: 百科 }
+    - { id: L11, title: "Appian Way — Wikipedia（前 312 年阿庇烏斯修築）", url: "https://en.wikipedia.org/wiki/Appian_Way", accessed: 2026-10-24, tier: 百科 }
+    - { id: L12, title: "Via Appia. Regina Viarum — worldheritagesite.org（UNESCO 2024 年列入世界遺產）", url: "https://www.worldheritagesite.org/list/id/1708", accessed: 2026-10-24, tier: 通論 }
+    - { id: L13, title: "Pont du Gard (Roman Aqueduct) — UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/list/344", accessed: 2026-10-24, tier: 官方 }
+    - { id: L14, title: "Pantheon, Rome — Wikipedia（穹頂內徑約 43 公尺、無鋼筋）", url: "https://en.wikipedia.org/wiki/Pantheon,_Rome", accessed: 2026-10-24, tier: 百科 }
+    - { id: L15, title: "Riddle solved: Why was Roman concrete so durable? — MIT News (2023-01-06)", url: "https://news.mit.edu/2023/roman-concrete-durability-lime-casts-0106", accessed: 2026-10-24, tier: 通論 }
+    - { id: L16, title: "Etymonline：arena（拉丁文 harena「沙」，羅馬競技場中央鋪沙吸血）", url: "https://www.etymonline.com/word/arena", accessed: 2026-11-13, tier: 通論 }
+    - { id: L17, title: "Colosseum — World History Encyclopedia", url: "https://www.worldhistory.org/Colosseum/", accessed: 2026-10-24, tier: 通論 }
+    - { id: L18, title: "尤維納利斯《諷刺詩》第 10 首第 80–81 行（拉丁原文，The Latin Library）", url: "https://www.thelatinlibrary.com/juvenal/10.shtml", accessed: 2026-11-13, tier: 一手 }
+    - { id: L19, title: "Merriam-Webster：bread and circuses（「用來避免不滿的安撫」）", url: "https://www.merriam-webster.com/dictionary/bread%20and%20circuses", accessed: 2026-11-13, tier: 通論 }
+    - { id: L20, title: "Edict of Thessalonica — Wikipedia（380 年）", url: "https://en.wikipedia.org/wiki/Edict_of_Thessalonica", accessed: 2026-11-02, tier: 百科 }
+    - { id: L21, title: "How the Global Religious Landscape Changed from 2010 to 2020 — Pew Research Center", url: "https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/", accessed: 2026-11-13, tier: 通論 }

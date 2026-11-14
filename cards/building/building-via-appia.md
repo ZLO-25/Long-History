@@ -39,6 +39,7 @@ sources:
   - { id: s8, title: "李維《羅馬史》9.29（Livy, Ab urbe condita），Perseus 英譯", url: "https://fgh.perseids.org/read/latinLit/phi0914/phi001/perseus-eng3/9.29.1-9.29.6", accessed: 2026-11-12, tier: 一手 }
   - { id: s9, title: "阿庇安《羅馬內戰》1.120（Appian, Civil Wars），John Carter 英譯 — Livius.org", url: "https://livius.org/sources/content/appian/appian-spartacus", accessed: 2026-11-12, tier: 一手 }
   - { id: s10, title: "All roads lead to Rome — Wikipedia", url: "https://en.wikipedia.org/wiki/All_roads_lead_to_Rome", accessed: 2026-11-12, tier: 百科 }
+importance: 2
 learn:
   histories: [希臘羅馬史]
   why_care: 「條條大路通羅馬」不是羅馬人的話，但羅馬人真的把路修成一張網；這條路最早是為打仗而修，後來變成整個義大利的動脈。[s1][s2][s10]

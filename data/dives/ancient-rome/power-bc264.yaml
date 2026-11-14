@@ -1,0 +1,16 @@
+# 畫法同 docs/dives.md 第三節；切線理由見 docs/dive-rome.md「勢力圖切線與理由」
+year: -264
+basemap: world_countries
+title: 第一次布匿戰爭前夕（前 264 年）
+note: "前 264 年，羅馬已把義大利半島中南部（波河以南）收進自己的同盟與殖民體系，迦太基則是西地中海最大的海上強權：突尼西亞核心、利比亞與阿爾及利亞的沿海據點、西班牙南岸的幾個港口、西西里西部與薩丁尼亞（科西嘉當時的歸屬不確定，這裡只把島的位置標給迦太基，僅供示意）。西西里東南角是敘拉古王國（希倫二世）；東北角的墨西拿由『馬末爾提諾』傭兵占據，他們向羅馬求援，成為戰爭的導火線，圖中留白。東方的三大希臘化王國（安提柯、塞琉古、托勒密）標示當背景，色彩與古希臘專題一致。以今日國界近似，邊界只是示意；切線理由見 docs/dive-rome.md。"
+view: [[22, -12], [58, 50]]
+sources:
+  - { title: "First Punic War — Wikipedia：前 264 年羅馬介入墨西拿、與迦太基、敘拉古的關係", url: "https://en.wikipedia.org/wiki/First_Punic_War", accessed: 2026-11-13, tier: 百科 }
+  - { title: "Roman Republic — Wikipedia：前 3 世紀羅馬統一義大利半島與同盟體系", url: "https://en.wikipedia.org/wiki/Roman_Republic", accessed: 2026-11-13, tier: 百科 }
+powers:
+  - { name: "羅馬共和國", en: "Roman Republic", color: "#a23b3b", card: war-first-punic, area: "義大利半島中南部（波河以北不含）：羅馬直接統治的土地與同盟城邦；義大利靴尖也算在內", regions: [{ code: IT, lat_gt: 41.4, lat_lt: 44 }, { code: IT, lat_gt: 38.3, lat_lt: 41.4, lng_gt: 9.9 }, { code: IT, lat_gt: 37.8, lat_lt: 38.3, lng_gt: 15.7 }] }
+  - { name: "迦太基", en: "Carthage", color: "#9c4a96", card: war-first-punic, area: "突尼西亞（核心）、利比亞西北沿海（的黎波里塔尼亞）、阿爾及利亞沿海據點、西班牙南岸一條、西西里西部、薩丁尼亞、科西嘉（島上歸屬不確定，僅示意）", regions: [TN, { code: LY, lng_lt: 19, lat_gt: 29.5 }, { code: DZ, lat_gt: 35.4 }, { code: ES, lat_lt: 37.2, lng_gt: -6.5, lng_lt: -1.5 }, { code: IT, lat_lt: 38.3, lng_lt: 14 }, { code: IT, lat_lt: 41.4, lng_lt: 9.9 }, { code: FR, lat_lt: 43.2, lng_gt: 8.3 }] }
+  - { name: "敘拉古王國", en: "Syracuse", color: "#6f9fc8", card: war-first-punic, minor: true, area: "西西里東南部（希倫二世；前 263 年成為羅馬的盟友）", regions: [{ code: IT, lat_lt: 37.9, lng_gt: 14 }] }
+  - { name: "安提柯王朝（馬其頓）", en: "Antigonid Kingdom (Macedon)", color: "#7b4fa0", card: event-hellenistic-kingdoms, minor: true, area: "馬其頓與希臘本土的一部分（背景）", regions: [GR, MK] }
+  - { name: "塞琉古帝國", en: "Seleucid Empire", color: "#d9822b", card: event-hellenistic-kingdoms, minor: true, area: "小亞細亞大部、敘利亞北部、伊拉克、伊朗（背景；前 250 年前後東邊開始脫離）", regions: [{ code: TR, lat_lt: 40.2, lng_gt: 28.5 }, { code: TR, lat_lt: 38.5, lng_lt: 28.5 }, { code: SY, lat_gt: 33 }, IQ, IR] }
+  - { name: "托勒密王國（埃及）", en: "Ptolemaic Kingdom", color: "#4f9a5a", card: event-hellenistic-kingdoms, minor: true, area: "埃及、賽普勒斯、昔蘭尼加、敘利亞南部（背景）", regions: [EG, CY, { code: LY, lng_gt: 19.5, lat_gt: 30.5 }, LB, IL, PS, JO, { code: SY, lat_lt: 33 }] }

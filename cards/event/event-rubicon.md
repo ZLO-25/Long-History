@@ -33,6 +33,7 @@ sources:
   - { id: s4, title: "Sameer Bajaj，Nexus（哈拉瑞《連結》）讀書筆記", url: "https://sameerbajaj.com/nexus/", accessed: 2026-10-25, tier: 摘要 }
   - { id: s5, title: "Reason 書評〈The Fantastical Scenarios of Yuval Noah Harari: From the Roman Past to the AI Future〉（AOL 轉載）", url: "https://aol.com/news/fantastical-scenarios-yuval-noah-harari-110048001.html", accessed: 2026-10-25, tier: 摘要 }
   - { id: s6, title: "Partition of Jin — Wikipedia", url: "https://en.wikipedia.org/wiki/Partition_of_Jin", accessed: 2026-10-25, tier: 百科 }
+  - { id: s7, title: "Plutarch, Life of Caesar 第 32 章（Perrin 英譯）— LacusCurtius", url: "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Caesar*.html", accessed: 2026-11-14, tier: 一手 }
 importance: 3
 learn:
   histories: [希臘羅馬史]
@@ -50,7 +51,7 @@ learn:
   primary_source:
     - { text: "Take we the course which the signs of the gods and the false dealing of our foes point out. The die is cast, said he.（讓我們走諸神的徵兆與敵人的背信所指的路。他說：骰子已經擲下。）", from: 蘇埃托尼烏斯《凱撒傳》32（Loeb 英譯，LacusCurtius；括號中文為本站中譯）, src: s3 }
   historiography: |
-    **他到底說了什麼、用什麼語言？** 蘇埃托尼烏斯寫的拉丁文是 iacta alea est（常被引成 alea iacta est）；普魯塔克則說凱撒引用了劇作家米南德的一句希臘文 anerriphtho kybos，意思是「讓骰子擲下吧」。[s1] 兩種版本一個是過去式的陳述、一個是命令句；英文維基百科還提到另一種讀法：alea 指的是「骰子遊戲」，所以也可譯成「遊戲開始了」。[s1] 這個條目沒有說凱撒實際用哪種語言說，所以不能確定。[s1]
+    **他到底說了什麼、用什麼語言？** 蘇埃托尼烏斯寫的拉丁文是 iacta alea est（常被引成 alea iacta est）；普魯塔克則說凱撒引用了劇作家米南德的一句希臘文 anerriphtho kybos，意思是「讓骰子擲下吧」；Perrin 的英譯就是 Let the die be cast。[s1][s7] 兩種版本一個是過去式的陳述、一個是命令句；英文維基百科還提到另一種讀法：alea 指的是「骰子遊戲」，所以也可譯成「遊戲開始了」。[s1] 這個條目沒有說凱撒實際用哪種語言說，所以不能確定。[s1]
     **河在哪、哪一天？** 確切日期不明，學者通常放在前 49 年 1 月 10–11 日夜間；前一天他的軍隊已進入義大利，副手昆圖斯·霍騰修斯已占領阿里米努姆。[s1] 河道也有爭議，所以本卡的地點標為「爭議」。[s1]
     **共和為什麼守不住？** 哈拉瑞依讀書筆記的說法：公民權擴大後，共和的制衡在當時的資訊條件下無法運作；有書評反駁說，凱撒把《高盧戰記》迅速送回羅馬傳播，顯示共和的資訊網絡其實很強，反而幫他走上獨裁。[s4][s5]
   misconceptions:
@@ -60,6 +61,7 @@ learn:
     - { claim: "常見說法：凱撒在河邊說了一句拉丁文『alea iacta est』，這是千真萬確的名言。", fact: "蘇埃托尼烏斯的拉丁文是 iacta alea est，翻成英文是 The die is cast；普魯塔克則說是希臘文的『讓骰子擲下吧』，並說出自米南德；兩個版本在時態與語氣上都不同，凱撒實際說什麼無法確定。[s1][s3]", src: [s1, s3] }
     - { claim: "常見說法：渡河是凱撒冷靜算計後的單純政治決定。", fact: "蘇埃托尼烏斯寫的渡河場景還帶有神蹟色彩：一個身形與容貌都非凡的人坐在附近吹蘆管，接著才是凱撒那句話；古代作者怎麼寫，反映的是他們的敘事方式，不能當作可驗證的現場紀錄。[s3]", src: [s3] }
 verification: 交叉確認
+crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "已開 LacusCurtius 蘇埃托尼烏斯《凱撒傳》31–32（河邊「過了小橋就靠刀劍」、吹蘆管的異象；英譯 The die is cast）與普魯塔克《凱撒傳》32（英譯 Let the die be cast），相符；補普魯塔克為來源 s7。已開英文維基〈Julius Caesar〉：前 49 年 1 月 10–11 日前後、第十三軍團、前 48 年 8 月 9 日法薩盧斯、前 44 年 2 月中之前成為終身獨裁官，與本卡及凱撒人物卡一致。C4「渡河本身就是叛國行為」改為「依當時的法律等於叛國」。未重開：英文維基〈Crossing of the Rubicon〉（拉丁文 iacta alea est、米南德、霍騰修斯先占阿里米努姆、「越界可判死罪」的法律說法都只依這一頁）、Livius〈Rubico〉、哈拉瑞相關兩份摘要、〈Partition of Jin〉。拉丁原文 iacta alea est 與查核者所知的蘇埃托尼烏斯 32 一致。" }
 lens_status: 依公開資料推論，未對照原書
 ---
 
@@ -77,7 +79,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ## C4 制度或機制變化
 
-渡河本身就是叛國行為，代表「軍隊忠於將領個人」壓過了「法律限制軍隊進入首都」的共和規則。[s1][s2]
+依當時的法律，帶兵越過這條界線等於叛國；這代表「軍隊忠於將領個人」壓過了「法律限制軍隊進入首都」的共和規則。[s1][s2]
 
 ## C6 直接結果
 
@@ -85,7 +87,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ## C7 長期影響
 
-內戰後凱撒成為終身獨裁官；Livius 的評語是「羅馬共和國已經結束」。[s1][s2] 「渡過盧比孔河」後來成為「做出不可回頭的決定」的成語。[s1]
+內戰後凱撒成為終身獨裁官（前 44 年初），同年 3 月 15 日遇刺（見凱撒人物卡）；Livius 的評語是「羅馬共和國已經結束」。[s1][s2] 「渡過盧比孔河」後來成為「做出不可回頭的決定」的成語。[s1]
 
 ## C8 雙軌解讀
 

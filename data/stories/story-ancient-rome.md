@@ -128,7 +128,7 @@ recall:
 
 基督徒是帝國裡拒絕向諸神或皇帝獻祭的團體。64 年羅馬大火後，尼祿把罪名推給基督徒。[event-early-christianity:s1][event-early-christianity:s2] 約 112 年，總督小普林尼問皇帝圖拉真怎麼辦，圖拉真回信說不必主動搜捕，但被告發又證實的要處罰。[event-early-christianity:s3] 學者多半認為，250 年以前迫害主要是地方性的，並非兩百多年一直被拋給獅子。[event-early-christianity:s1] 被處死的人數沒有統計。常被引用的是學者 Frend 估的約 3,000 至 3,500 人，但這個數字指哪一次迫害，出處寫法不一；只能說是幾千人的等級，遠少於「數百萬」。[event-early-christianity:s1][event-early-christianity:s8]
 
-250 年皇帝德西烏斯下令全帝國居民獻祭，303 年又有戴克里先的大迫害，迫害才從地方走向全帝國。[event-early-christianity:s1] 311 年，皇帝伽列里烏斯（又譯加萊里烏斯）下令停止迫害；313 年君士坦丁與李錫尼達成共識，各宗教的信徒都可自由敬拜，但並沒有真的頒布一份「米蘭敕令」。[event-christian-empire:s1][event-christian-empire:s4][person-constantine:s2] 君士坦丁支持教會，325 年召開並主持尼西亞會議，臨終才受洗。[event-christian-empire:s1][person-constantine:s2] 他是否真心信仰，學者的看法不一。[event-christian-empire:s3] 同時，他處死兒子克里斯普斯，妻子法烏斯塔也隨後死去，真相至今不清；他還發動了基督教皇帝對其他基督徒的第一次迫害，對象是不肯讓步的多納圖派。[person-constantine:s2][person-constantine:s3][event-christian-empire:s1]
+250 年皇帝德西烏斯下令全帝國居民獻祭，303 年又有戴克里先的大迫害，迫害才從地方走向全帝國。[event-early-christianity:s1] 311 年，皇帝加萊里烏斯下令停止迫害；313 年君士坦丁與李錫尼達成共識，各宗教的信徒都可自由敬拜，但並沒有真的頒布一份「米蘭敕令」。[event-christian-empire:s1][event-christian-empire:s4][person-constantine:s2] 君士坦丁支持教會，325 年召開並主持尼西亞會議，臨終才受洗。[event-christian-empire:s1][person-constantine:s2] 他是否真心信仰，學者的看法不一。[event-christian-empire:s3] 同時，他處死兒子克里斯普斯，妻子法烏斯塔也隨後死去，真相至今不清；他還發動了基督教皇帝對其他基督徒的第一次迫害，對象是不肯讓步的多納圖派。[person-constantine:s2][person-constantine:s3][event-christian-empire:s1]
 
 380 年，狄奧多西一世頒布帖撒羅尼迦敕令，把尼西亞派基督教定為官方信仰，不同意的人被稱為「異端」，預告他們將受懲罰。[event-christian-empire:s1][event-christian-empire:s2] 它被認為是第一部在序文裡定義宗教正統的世俗法律。391 年他關閉異教神廟，禁止異教敬拜。[event-christian-empire:s2][event-christian-empire:s1] 從大迫害到國家用法律壓制其他信仰與異端，不到一百年。[event-christian-empire:s1][event-christian-empire:s3]
 

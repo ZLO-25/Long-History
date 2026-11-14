@@ -1,7 +1,7 @@
 # 深入專題：古羅馬（檔名＝id 去掉 dive-）。規劃書 docs/dive-greece-rome-plan.md 第二節；程式說明見 docs/dives.md
 id: dive-ancient-rome
 title: 古羅馬：一座城怎麼變成地中海，又怎麼守不住
-question: 羅馬人趕走國王、發誓不再讓一個人說了算，為什麼五百年後還是出現了皇帝？一個管了整個地中海的帝國，又是怎麼一步步守不住的？
+question: 羅馬人趕走國王、不想再讓一個人說了算，為什麼五百年後還是出現了皇帝？一個管了整個地中海的帝國，又是怎麼一步步守不住的？
 blurb: 這個專題把前 509 年到西元 476 年的羅馬放大來看：共和的制度怎麼運作、擴張怎麼改變了它、內戰怎麼把權力集中到一個人手上、帝國又怎麼在三世紀的危機之後一步步分裂。最後一區帶你對照希臘與羅馬，看兩個古代文明各自留下了什麼。
 range: { start: -509, end: 476 }
 histories: [希臘羅馬史]
@@ -132,7 +132,7 @@ legacy:
     - { id: L6, title: "Julian calendar — Britannica（凱撒前 46 年改曆、365 又 1/4 天、1582 年格里曆取代）", url: "https://www.britannica.com/science/Julian-calendar", accessed: 2026-11-13, tier: 通論 }
     - { id: L7, title: "Latin alphabet — Britannica（從伊特拉斯坎字母發展，今天仍用於英文與多數歐洲語言）", url: "https://www.britannica.com/topic/Latin-alphabet", accessed: 2026-11-13, tier: 通論 }
     - { id: L8, title: "Roman numeral — Britannica（I V X L C D M；鐘面常把 4 寫成 IIII）", url: "https://www.britannica.com/topic/Roman-numeral", accessed: 2026-11-13, tier: 通論 }
-    - { id: L9, title: "Roman law — Britannica（十二表法、查士丁尼；羅馬法是歐洲大陸多數國家法典的基礎）", url: "https://www.britannica.com/topic/Roman-law", accessed: 2026-11-13, tier: 通論 }
+    - { id: L9, title: "Roman law — Britannica（十二銅表法、查士丁尼；羅馬法是歐洲大陸多數國家法典的基礎）", url: "https://www.britannica.com/topic/Roman-law", accessed: 2026-11-13, tier: 通論 }
     - { id: L10, title: "Corpus Juris Civilis — Wikipedia（查士丁尼《民法大全》）", url: "https://en.wikipedia.org/wiki/Corpus_Juris_Civilis", accessed: 2026-11-12, tier: 百科 }
     - { id: L11, title: "Appian Way — Wikipedia（前 312 年阿庇烏斯修築）", url: "https://en.wikipedia.org/wiki/Appian_Way", accessed: 2026-10-24, tier: 百科 }
     - { id: L12, title: "Via Appia. Regina Viarum — worldheritagesite.org（UNESCO 2024 年列入世界遺產）", url: "https://www.worldheritagesite.org/list/id/1708", accessed: 2026-10-24, tier: 通論 }

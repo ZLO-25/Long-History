@@ -18,6 +18,24 @@ const fs = require('fs');
   const sizes = [];
   for (const d of docs) { const r = await fetch(`${base}data/stories/${d.id}.map.json`); const t = await r.text(); sizes.push(t.length); const m = JSON.parse(t); if (!m.land.length) ok(false, `${d.id} 地圖沒有陸地`); }
   ok(Math.max(...sizes) < 700_000, `地圖檔都小於 700 KB（最大 ${Math.round(Math.max(...sizes) / 1024)} KB，打開才下載）`);
+  // 同一座城不同寫法（雒陽／洛陽）要合成一個點：列出「很近、今天同一座城、還沒判斷過」的，人工決定放進 data/labels/same-place.yaml 的 groups 或 different
+  {
+    const YAML = require('yaml');
+    const sp = YAML.parse(fs.readFileSync(require('path').join(__dirname, '../../data/labels/same-place.yaml'), 'utf8'));
+    const judged = [...(sp.groups ?? []), ...(sp.different ?? [])];
+    const strip = (s) => s.replace(/[（(][^）)]*[）)]/g, '').trim();
+    const todo = new Set();
+    for (const d of docs) for (let i = 0; i < d.places.length; i++) for (let j = i + 1; j < d.places.length; j++) {
+      const a = d.places[i], c = d.places[j];
+      const km = Math.hypot(a.lat - c.lat, (a.lng - c.lng) * Math.cos(a.lat * Math.PI / 180)) * 111;
+      if (km > 30 || strip(a.m) !== strip(c.m)) continue;
+      const an = a.n.split('／'), cn = c.n.split('／');
+      if (!judged.some((g) => an.some((x) => g.includes(x)) && cn.some((x) => g.includes(x)))) todo.add(`${a.n}／${c.n}（${strip(a.m)}）`);
+    }
+    ok(true, `同一座城的寫法已合併（雒陽／洛陽等 ${(sp.groups ?? []).length} 組）${todo.size ? `；還沒判斷的：${[...todo].join('、')}` : '；沒有還沒判斷的'}`);
+    const lu = docs.find((d) => d.id === 'story-han-to-sui');
+    if (lu) ok(lu.places.filter((p) => p.n.split('／').every((x) => /^(雒陽|洛陽)/.test(x))).length === 1, '「雒陽」和「洛陽」在地圖上是同一個點');
+  }
   const linked = docs.map((d) => d.sections.flatMap((x) => x.blocks).filter((b) => d.places.some((p) => p.k.some((k) => b.text.includes(k)))).length);
   ok(linked.every((n) => n > 0), `每篇內文都有可以點的地名（每篇 ${Math.min(...linked)}–${Math.max(...linked)} 段）`);
 

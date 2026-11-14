@@ -112,3 +112,4 @@ npm run validate                                  # 全站檢查（含故事）
 - 內文地名：每段第一次出現的地名（各站卡片的 `name_ancient`，含括號裡的別名）會有點狀底線，點了地圖移過去並說明今天在哪裡。國名、洲名（中國、美國、希臘…）不標，因為地圖上只能指到一個示意點。
 - 程式：`scripts/lib/storyMap.ts`（地點清單＋裁切陸地／河流／湖泊／地名）→ 故事 json 多 `places`、`secPt`、`hasMap`；`public/data/stories/<id>.map.json` 另存。畫面 `src/components/StoryMap.tsx`＋`story-map.css`（React.lazy，文字先出來，空閒時才下載地圖；手機按了才下載）。河流湖泊 `npx tsx scripts/fetch-rivers.ts` 產生 `data/ne/rivers-lakes-50m.json`。
 - 測試：`node scripts/qa/story-map.cjs <網址> [截圖夾]`。
+- **同一座城不同時代的名字**（雒陽／洛陽、建業／建康、昇龍／河內…）：寫在 `data/labels/same-place.yaml` 的 `groups`，地圖合成一個點、名字並列，內文哪個寫法都點得到。同一座城裡真的不同的地方（雅典衛城 vs 普尼克斯山）放 `different`，地圖分開標。不能全自動合併，因為「很近」分不出這兩種。新增卡片後跑 `story-map.cjs`，會列出還沒判斷的。

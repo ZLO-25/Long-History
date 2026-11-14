@@ -5,6 +5,7 @@
 //   2. public/data/stories/<id>.map.json（陸地輪廓、海洋與地區名、路線）：地圖要顯示時才下載。
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
+import YAML from 'yaml';
 import path from 'node:path';
 import { ROOT, type RawCard } from './cards.ts';
 import type { RawStory } from './stories.ts';
@@ -51,12 +52,18 @@ function matchNames(n: string): string[] {
   return [...out].sort((a, b) => b.length - a.length);
 }
 
+let same: { groups: string[][]; different: string[][] } | null = null;
+/** 同一座城不同時代的名字（data/labels/same-place.yaml，人工判斷過） */
+export const samePlaces = () => (same ??= (() => { const y = YAML.parse(fs.readFileSync(path.join(ROOT, 'data/labels/same-place.yaml'), 'utf8')) ?? {}; return { groups: y.groups ?? [], different: y.different ?? [] }; })());
+const sameCity = (a: string, b: string) => samePlaces().groups.some((g) => g.includes(a) && g.includes(b));
+
 /** 這篇故事各節的地點；故事 json 用 */
 export function storyPlaces(s: RawStory, cards: RawCard[]): { places: StoryPlace[]; secPt: number[] } {
   const byId = new Map(cards.filter((c) => c.fm?.id).map((c) => [c.fm.id as string, c.fm]));
   const places: StoryPlace[] = [];
   /** 每一節的代表點（這節第一站的第一個地點）；畫「故事順序」的虛線用，沒有站的節是 -1 */
   const secPt: number[] = s.sections.map(() => -1);
+  const names = new Map<StoryPlace, string[]>();
   s.sections.forEach((sec, si) => {
     for (const cid of sec.cards) {
       const fm = byId.get(cid);
@@ -64,8 +71,14 @@ export function storyPlaces(s: RawStory, cards: RawCard[]): { places: StoryPlace
         if (typeof l.lat !== 'number' || typeof l.lng !== 'number' || l.precision === 'unknown') continue;
         const name = String(l.name_ancient ?? '').trim();
         // 同名、相距 30 公里內就當同一個地點（雅典、長安在很多張卡都出現）
-        let p = places.find((x) => (x.n === name || strip(x.n) === strip(name)) && Math.abs(x.lat - l.lat) < 0.3 && Math.abs(x.lng - l.lng) < 0.3);
-        if (!p) { p = { n: name, m: String(l.name_modern ?? ''), lat: r3(l.lat), lng: r3(l.lng), ap: l.precision !== 'exact', roles: [], secs: [], k: matchNames(name) }; places.push(p); }
+        // 同一座城不同時代的名字（雒陽／洛陽）也合成一個點，名字依出現先後並列
+        let p = places.find((x) => names.get(x)!.some((n) => n === name || strip(n) === strip(name) || sameCity(n, name)) && Math.abs(x.lat - l.lat) < 0.3 && Math.abs(x.lng - l.lng) < 0.3);
+        if (!p) { p = { n: name, m: String(l.name_modern ?? ''), lat: r3(l.lat), lng: r3(l.lng), ap: l.precision !== 'exact', roles: [], secs: [], k: matchNames(name) }; places.push(p); names.set(p, [name]); }
+        else if (!names.get(p)!.some((n) => n === name || strip(n) === strip(name))) {
+          names.get(p)!.push(name);
+          p.n = names.get(p)!.join('／');
+          p.k = [...new Set([...p.k, ...matchNames(name)])].sort((a, b) => b.length - a.length);
+        }
         if (l.role && !p.roles.some((r) => r.card === cid && r.role === l.role)) p.roles.push({ card: cid, role: String(l.role) });
         if (!p.secs.includes(si)) p.secs.push(si);
         if (secPt[si] < 0) secPt[si] = places.indexOf(p);

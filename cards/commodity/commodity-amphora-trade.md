@@ -30,10 +30,35 @@ causes:
 counterparts:
   - { id: building-terracotta-army, note: "相似：大量、規格化的陶製品，作坊在產品上留下戳記或名號，可以追查來源與品質。不同：雙耳瓶是市場與運輸用的容器；兵馬俑是國家為皇帝陵墓製作、埋入地下的陪葬品。", src: [s1, s7] }
 sources:
-  - { id: s1, title: "Amphora — Wikipedia", url: "https://en.wikipedia.org/wiki/Amphora", accessed: 2026-10-24 }
-  - { id: s2, title: "Monte Testaccio — Wikipedia", url: "https://en.wikipedia.org/wiki/Monte_Testaccio", accessed: 2026-10-24 }
-  - { id: s3, title: "Dressel 20 — Internet Archaeology（Tyers, Roman amphoras in Britain）", url: "https://intarch.ac.uk/journal/issue1/tyers/DR20.html", accessed: 2026-10-24 }
-  - { id: s7, title: "Terracotta Army — Wikipedia", url: "https://en.wikipedia.org/wiki/Terracotta_Army", accessed: 2026-10-25 }
+  - { id: s1, title: "Amphora — Wikipedia", url: "https://en.wikipedia.org/wiki/Amphora", accessed: 2026-10-24, tier: 百科 }
+  - { id: s2, title: "Monte Testaccio — Wikipedia", url: "https://en.wikipedia.org/wiki/Monte_Testaccio", accessed: 2026-10-24, tier: 百科 }
+  - { id: s3, title: "Dressel 20 — Internet Archaeology（Tyers, Roman amphoras in Britain）", url: "https://intarch.ac.uk/journal/issue1/tyers/DR20.html", accessed: 2026-10-24, tier: 學術 }
+  - { id: s7, title: "Terracotta Army — Wikipedia", url: "https://en.wikipedia.org/wiki/Terracotta_Army", accessed: 2026-10-25, tier: 百科 }
+  - { id: s8, title: "Trash Talk（Monte Testaccio 發掘報導）— Archaeology（美國考古學會雜誌）", url: "https://www.archaeology.org/exclusives/articles/2892-rome-monte-testaccio-amphoras", accessed: 2026-11-12, tier: 通論 }
+learn:
+  histories: [希臘羅馬史]
+  why_care: 羅馬城南邊有一座全由破陶罐堆成的小山；罐子上的字，讓考古學家像看貨運單一樣追蹤兩千年前的橄欖油貿易。[s2][s8]
+  story: |
+    在羅馬城南邊的台伯河畔，有一座叫泰斯塔西奧山的人工小山，幾乎全由丟掉的雙耳瓶堆成。[s2][s8] 維基百科估計高約 35 公尺、約含 5,300 萬個瓶子；發掘者雷梅薩爾則估約 2,500 萬件完整的瓶子。[s2][s8] 其中超過 85% 是 Dressel 20，裝的是西班牙南部貝提卡出產的橄欖油。[s8] 油倒出後，厚重彎曲的碎片和油漬很難回收，所以就地丟棄、一層層堆成山。[s1][s2][s8] 這些罐子燒製前在把手蓋上戳記，裝油後再用墨寫上字，記下空罐重量、油的重量、商人名、出口地和檢驗日期。[s1][s8] 學者靠這些字，看出一到三世紀國家怎麼組織、監督食物進口。[s8] 當時的人還在碎片上蓋了石灰，蓋住腐壞橄欖油的臭味。[s8]
+  key_terms:
+    - { term: 雙耳瓶（amphora）, plain: 兩側有把手的陶罐，古代用來運送和儲存酒、油、魚醬等；它是包裝，真正交易的是裡面的東西。, example: 像現在的貨櫃或寶特瓶。 }
+    - { term: 泰斯塔西奧山, plain: 羅馬城裡由破碎雙耳瓶堆成的人工山，也叫陶罐山。, example: 像一座由回收不了的紙箱堆成的山。 }
+    - { term: Dressel 20, plain: 貝提卡（今西班牙南部）典型的橄欖油雙耳瓶，圓肚，容量約 60–65 公升。, example: 像一種固定規格的油桶。 }
+    - { term: 戳記與墨書（tituli picti）, plain: 戳記在燒製前蓋，標示作坊或主人；墨書在裝好後寫，記重量與內容。, example: 像商品包裝上的商標加上貼的貨運標籤。 }
+    - { term: 魚醬（garum）, plain: 羅馬人用魚內臟發酵做的調味醬，也用雙耳瓶運送。, example: 像今天的魚露。 }
+  primary_source:
+    - text: 罐身墨書（titulus pictus）記下空罐重量、油的重量、商人名、出口地點和檢驗日期。（物證描述，不是逐字引文；本站未取得逐字轉錄）
+      from: 泰斯塔西奧山出土 Dressel 20 雙耳瓶上的墨書，據 Archaeology 報導與 Tyers（Internet Archaeology）整理
+      src: s8
+  historiography: |
+    **山有多大、多少瓶？** 維基百科說體積約 58 萬立方公尺、高約 35 公尺、約 5,300 萬個瓶子；Archaeology 報導寫的是約 150 英尺（約 46 公尺）高，發掘者雷梅薩爾估約 2,500 萬件完整瓶。數字不同，並列。[s2][s8]
+    **誰控制油的貿易？** 雷梅薩爾認為戳記標示油的所有人，也有人認為只標製造者；皇帝對油的供應控制多強也有爭論，有學者稱之為「指令經濟」。[s8]
+  misconceptions:
+    - 「雙耳瓶裡裝的主要是葡萄酒。」泰斯塔西奧山超過 85% 是裝橄欖油的 Dressel 20，另約 15% 來自北非。[s8]
+    - 「陶罐山就是隨手亂倒的垃圾堆。」堆法有計畫：用裝滿碎片的瓶子砌成牆形成梯田，後面再倒碎片，一層層退縮往上堆。[s8]
+  pop_culture:
+    - { claim: "常見印象：雙耳瓶是博物館裡漂亮的彩繪花瓶。", fact: "運輸用的雙耳瓶是粗陶包裝，真正交易的是裡面的酒、油和魚醬；泰斯塔西奧山上多數是橄欖油瓶。[s1][s8]", src: [s1, s8] }
+    - { claim: "常見想像：一座垃圾山一定臭氣熏天。", fact: "Archaeology 報導說羅馬人在丟棄的碎片上蓋了厚厚的石灰，以掩蓋腐壞橄欖油的氣味。[s8]", src: [s8] }
 verification: 交叉確認
 lens_status: 無直接論述
 ---
@@ -56,7 +81,7 @@ Dressel 20 大量經海路運到羅馬；在北方行省則沿隆河—萊茵河
 
 ## B5 規模與數量
 
-估計：泰斯塔西奧山體積約 58 萬立方公尺、高約 35 公尺，估計含約 5,300 萬個雙耳瓶，主要堆積年代約西元 140–250 年，約 260 年代停止。[s2] Dressel 20 平均容量約 60–65 公升（40–80 公升不等）。[s3]
+估計：泰斯塔西奧山體積約 58 萬立方公尺、高約 35 公尺，估計含約 5,300 萬個雙耳瓶，主要堆積年代約西元 140–250 年，約 260 年代停止。[s2] 另一種說法：Archaeology 報導寫高約 150 英尺（約 46 公尺），發掘者雷梅薩爾估約 2,500 萬件完整瓶，其中超過 85% 是貝提卡的 Dressel 20，約 15% 來自北非。[s8] Dressel 20 平均容量約 60–65 公升（40–80 公升不等）。[s3]
 
 ## B6 經濟與財政角色
 
@@ -64,7 +89,7 @@ Dressel 20 約在西元 260 年停產，由較小的 Dressel 23 接續到 4 世�
 
 ## B7 權力與政治連結
 
-國家透過配給體系採購並管理運往羅馬的橄欖油，讓遠方行省的農業與首都的民生和軍需綁在一起。[s2]
+國家透過配給體系採購並管理運往羅馬的橄欖油，讓遠方行省的農業與首都的民生和軍需綁在一起。[s2] 罐上的墨書記錄重量、商人、出口地與檢驗日期，雷梅薩爾等人用它研究國家如何監督供應；皇帝控制的程度仍有爭論。[s8]
 
 ## B8 雙軌解讀
 

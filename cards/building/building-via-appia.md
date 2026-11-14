@@ -27,8 +27,8 @@ links: [event-twelve-tables, building-roman-aqueducts, commodity-roman-concrete,
 causes:
   - { id: war-samnite, rel: 促成, why: 羅馬和薩莫奈人作戰，需要把軍隊和補給快速送到卡普阿，於是修了一條跨越彭甸沼澤的軍用大道。, src: [s1] }
 counterparts:
-  - { id: building-qin-straight-road, note: "相似：國家為讓軍隊快速移動而修的大道，同時成為長期交通幹線。不同：阿庇亞大道向南連接新征服的義大利城市；秦直道向北直通對付匈奴的邊疆。", src: [s1, s6] }
-  - { id: building-lingqu, note: "相似：為了把兵員與糧食送到新征服地區而修的交通工程。不同：阿庇亞大道是陸路；靈渠是只有 36.4 公里、連通長江與珠江兩大水系的運河。", src: [s1, s7] }
+  - { id: building-qin-straight-road, note: "相似：國家為讓軍隊快速移動而修的大道，同時成為長期交通幹線。不同：亞壁古道向南連接新征服的義大利城市；秦直道向北直通對付匈奴的邊疆。", src: [s1, s6] }
+  - { id: building-lingqu, note: "相似：為了把兵員與糧食送到新征服地區而修的交通工程。不同：亞壁古道是陸路；靈渠是只有 36.4 公里、連通長江與珠江兩大水系的運河。", src: [s1, s7] }
 sources:
   - { id: s1, title: "Appian Way — Wikipedia", url: "https://en.wikipedia.org/wiki/Appian_Way", accessed: 2026-10-24, tier: 百科 }
   - { id: s2, title: "Roman roads — Wikipedia", url: "https://en.wikipedia.org/wiki/Roman_roads", accessed: 2026-10-24, tier: 百科 }

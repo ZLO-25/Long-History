@@ -25,7 +25,7 @@ causes:
   - { id: war-third-punic, rel: 背景, why: 羅馬征服西西里、北非等地後，海外行省的糧食能大量運到首都，國家才有條件長期低價或免費供糧。, src: [s1, "war-third-punic:s1"] }
 effects:
   - { id: commodity-egypt-grain, rel: 背景, why: 格拉古讓公民低價買糧、後來改為免費發放，國家必須長期取得大量小麥，海外糧倉越來越重要。, src: [s1, s3] }
-  - { id: commodity-amphora-trade, rel: 促成, why: 國家要供應首都居民和軍隊的橄欖油，透過配給體系大量採購，貝提卡的油一船船裝在雙耳瓶裡運到羅馬；塞維魯更把油列入首都配給。, src: [s1, "commodity-amphora-trade:s2"] }
+  - { id: commodity-amphora-trade, rel: 背景, why: 國家要供應首都居民和軍隊的橄欖油，透過配給體系大量採購，貝提卡的油一船船裝在雙耳瓶裡運到羅馬；塞維魯更把油列入首都配給。, src: [s1, "commodity-amphora-trade:s2"] }
 counterparts: 無適當對照：中國軌目前沒有「國家定期向首都居民低價或免費發糧」的對應卡；漢代鹽鐵官營是國家專賣，不是發放，結構不同。
 sources:
   - { id: s1, title: "Cura Annonae — Wikipedia", url: "https://en.wikipedia.org/wiki/Cura_Annonae", accessed: 2026-11-02, tier: 百科 }

@@ -4,6 +4,7 @@
 // 內文正在讀的那一段提到的地點會亮起來；點內文的地名或下面的地點，地圖就移過去。
 // 這個檔案用 React.lazy 載入：先出現文字，地圖晚一點才下載（效能原則：第一眼的畫面先到）。
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import type { PointerEvent as ReactPointerEvent } from 'react';
 import type { Card, StoryDoc, StoryMapData, StoryPlace } from '../types';
 import { fmtRange } from '../lib/format';
 
@@ -27,7 +28,7 @@ function fit(pts: [number, number][], w: number, h: number, pad = 0.2): View {
   if (!pts.length || w <= 0 || h <= 0) return { cx: 128, cy: 100, k: 1 };
   const xs = pts.map((p) => X(p[1])), ys = pts.map((p) => Y(p[0]));
   const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
-  const minSpan = (7 / 360) * 256;
+  const minSpan = (8 / 360) * 256;
   const dx = Math.max(minSpan, x1 - x0), dy = Math.max(minSpan * 0.7, y1 - y0);
   const k = Math.min((w * (1 - 2 * pad)) / dx, (h * (1 - 2 * pad)) / dy);
   return { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2, k: Math.max(0.6, Math.min(k, 900)) };
@@ -44,12 +45,17 @@ interface Props {
   compact?: boolean;
 }
 
-const LABEL_FS: Record<string, number> = { o: 11, r: 10.5, c: 10, v: 10.5 };
+const LABEL_FS: Record<string, number> = { o: 13, r: 12.5, c: 12, v: 12.5 };
 
 export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onFocus, onSection, compact }: Props) {
   const [data, setData] = useState<StoryMapData | null>(null);
   const [failed, setFailed] = useState(false);
   const [all, setAll] = useState(false);
+  // 放大：整個畫面都是地圖（Esc 或「縮回」關掉）
+  const [big, setBig] = useState(false);
+  // 讀者自己拖曳、縮放過；換節或按「回到這一節」就回到自動
+  const [reset, setReset] = useState(0);
+  const dragged = useRef(false);
   const box = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
   const places = doc.places ?? [];
@@ -64,13 +70,20 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
     return () => ro.disconnect();
   }, []);
   useEffect(() => { setAll(false); }, [sec]);
+  useEffect(() => {
+    if (!big) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { e.stopPropagation(); setBig(false); } };
+    document.addEventListener('keydown', onKey, true);
+    return () => document.removeEventListener('keydown', onKey, true);
+  }, [big]);
 
   const secPlaces = useMemo(() => places.map((p, i) => (p.secs.includes(sec) ? i : -1)).filter((i) => i >= 0), [places, sec]);
   // 目標畫面：這一節（加上讀者點的地點）或全篇
   const target = useMemo(() => {
     const ids = all || !secPlaces.length ? places.map((_, i) => i) : [...secPlaces, ...(focus != null && !secPlaces.includes(focus) ? [focus] : [])];
-    return fit(ids.map((i) => [places[i].lat, places[i].lng]), size.w, size.h, compact ? 0.16 : 0.2);
-  }, [all, secPlaces, places, focus, size, compact]);
+    return fit(ids.map((i) => [places[i].lat, places[i].lng]), size.w, size.h, 0.14);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [all, secPlaces, places, focus, size, reset]);
 
   // 換節時地圖平滑移過去（約 0.45 秒）；不喜歡動畫的人直接跳
   const [view, setView] = useState<View>(target);
@@ -94,6 +107,42 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
   const { w, h } = size;
   const sx = (lng: number) => (X(lng) - view.cx) * view.k + w / 2;
   const sy = (lat: number) => (Y(lat) - view.cy) * view.k + h / 2;
+
+  // 拖曳移動、滾輪或兩指縮放、＋－按鈕
+  const ptrs = useRef(new Map<number, { x: number; y: number }>());
+  const zoomAt = (f: number, px = w / 2, py = h / 2) => setView((v) => {
+    const k = Math.max(0.6, Math.min(2000, v.k * f));
+    const mx = v.cx + (px - w / 2) / v.k, my = v.cy + (py - h / 2) / v.k;
+    return { k, cx: mx - (px - w / 2) / k, cy: my - (py - h / 2) / k };
+  });
+  const onDown = (e: ReactPointerEvent) => { ptrs.current.set(e.pointerId, { x: e.clientX, y: e.clientY }); dragged.current = false; };
+  const onMove = (e: ReactPointerEvent) => {
+    const m = ptrs.current, prev = m.get(e.pointerId);
+    if (!prev) return;
+    const r = (e.currentTarget as Element).getBoundingClientRect();
+    if (m.size === 1) {
+      const dx = e.clientX - prev.x, dy = e.clientY - prev.y;
+      if (!dragged.current && Math.hypot(dx, dy) < 4) return;
+      if (!dragged.current) (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
+      dragged.current = true;
+      setView((v) => ({ ...v, cx: v.cx - dx / v.k, cy: v.cy - dy / v.k }));
+    } else if (m.size === 2) {
+      const [a, b] = [...m.entries()], other = a[0] === e.pointerId ? b[1] : a[1];
+      const d0 = Math.hypot(prev.x - other.x, prev.y - other.y), d1 = Math.hypot(e.clientX - other.x, e.clientY - other.y);
+      if (d0 > 0) { dragged.current = true; zoomAt(d1 / d0, (e.clientX + other.x) / 2 - r.left, (e.clientY + other.y) / 2 - r.top); }
+    }
+    m.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  };
+  const onUp = (e: ReactPointerEvent) => { ptrs.current.delete(e.pointerId); };
+  useEffect(() => {
+    const el = box.current;
+    if (!el) return;
+    const wheel = (e: WheelEvent) => { e.preventDefault(); const r = el.getBoundingClientRect(); zoomAt(Math.exp(-e.deltaY * 0.0022), e.clientX - r.left, e.clientY - r.top); };
+    el.addEventListener('wheel', wheel, { passive: false });
+    return () => el.removeEventListener('wheel', wheel);
+  });
+  /** 拖曳結束時的 click 不算點地點 */
+  const tap = (fn: () => void) => () => { if (!dragged.current) fn(); };
 
   // 陸地：世界座標的路徑只算一次，移動地圖只改 transform
   const landD = useMemo(() => data ? data.land.map((r) => { let d = ''; for (let i = 0; i < r.length; i += 2) d += `${i ? 'L' : 'M'}${X(r[i]).toFixed(2)} ${Y(r[i + 1]).toFixed(2)}`; return `${d}Z`; }).join('') : '', [data]);
@@ -128,20 +177,20 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
     const p = places[i];
     if (!p) continue;
     const x = sx(p.lng), y = sy(p.lat);
-    const name = shortName(p), fs = 12.5, wd = tw(name, fs) + 6;
-    for (const [dx, dy] of [[9, -7], [-wd - 9, -7], [-wd / 2, -24], [-wd / 2, 9]] as const) {
+    const name = shortName(p), fs = big ? 17 : 15, wd = tw(name, fs) + 6;
+    for (const [dx, dy] of [[11, -9], [-wd - 11, -9], [-wd / 2, -30], [-wd / 2, 11]] as const) {
       if (free(x + dx, y + dy, wd, fs + 4)) { pinLabels.push(<text key={`pl${i}`} x={x + dx + 3} y={y + dy + fs} className={`sm-plabel ${hotSet.has(i) || focus === i ? 'hot' : ''}`}>{name}</text>); break; }
     }
   }
   // 地點圓點也要占位，底圖文字才不會壓在點上
-  for (const i of mainIds) { const p = places[i]; if (p) taken.push([sx(p.lng) - 6, sy(p.lat) - 6, sx(p.lng) + 6, sy(p.lat) + 6]); }
+  for (const i of mainIds) { const p = places[i]; if (p) taken.push([sx(p.lng) - 9, sy(p.lat) - 9, sx(p.lng) + 9, sy(p.lat) + 9]); }
   const baseLabels: JSX.Element[] = [];
   if (data) {
     // 河名比國名重要（事件常在河邊）；同一級裡先畫海洋與河
     const pri: Record<string, number> = { o: 0, v: 0.2, r: 0.4, c: 0.6 };
     const ls = [...data.labels].filter((l) => l[4] <= z + (l[0] === 'c' ? 0.6 : 1.4)).sort((a, b) => a[4] + pri[a[0]] - (b[4] + pri[b[0]]));
     for (const [t, name, la, ln] of ls) {
-      if (baseLabels.length > (z < 2.5 ? 8 : 14)) break;
+      if (baseLabels.length > (z < 2.5 ? 8 : big ? 24 : 16)) break;
       const fs = LABEL_FS[t] ?? 10, wd = tw(name, fs), x = sx(ln) - wd / 2, y = sy(la) - fs / 2;
       if (free(x, y, wd, fs + 2)) baseLabels.push(<text key={`b${name}${la}`} x={x} y={y + fs} className={`sm-blabel ${t}`}>{name}</text>);
     }
@@ -150,12 +199,14 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
   const fp = focus != null ? places[focus] : null;
   const s0 = doc.sections[sec];
   return (
-    <div className={`sm ${compact ? 'compact' : ''}`}>
+    <div className={`sm ${compact ? 'compact' : ''} ${big ? 'full' : ''}`} role={big ? 'dialog' : undefined} aria-label={big ? '放大的故事地圖' : undefined}>
+      {big && <p className="sm-full-h"><b>第 {sec + 1} 節</b>{s0?.title}</p>}
       <div className="sm-box" ref={box} role="img" aria-label={`地圖：${s0 ? `第 ${sec + 1} 節「${s0.title}」` : ''}的地點有 ${secPlaces.map((i) => shortName(places[i])).join('、') || '（這一節沒有特定地點）'}`}>
         {w > 0 && (
-          <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden>
-            <rect width={w} height={h} className="sm-sea" />
+          <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
             <g transform={`translate(${w / 2 - view.cx * view.k} ${h / 2 - view.cy * view.k}) scale(${view.k})`}>
+              {/* 只有這篇故事範圍內有陸地資料：範圍外用灰底，不要被看成海 */}
+              {data && <rect x={X(data.box[0])} y={Y(data.box[3])} width={X(data.box[2]) - X(data.box[0])} height={Y(data.box[1]) - Y(data.box[3])} className="sm-sea" />}
               {land}
               {routeD.map((d, i) => <path key={i} d={d} className={`sm-route ${data!.routes[i].secs.includes(sec) ? 'on' : ''}`} vectorEffect="non-scaling-stroke"><title>{data!.routes[i].name}</title></path>)}
             </g>
@@ -164,20 +215,20 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
             {places.map((p, i) => {
               if (mainIds.includes(i)) return null;
               const past = p.secs.some((s) => s < sec);
-              return <circle key={i} cx={sx(p.lng)} cy={sy(p.lat)} r={2.6} className={`sm-dot ${past ? 'past' : ''}`}><title>{shortName(p)}（第 {p.secs.map((s) => s + 1).join('、')} 節）</title></circle>;
+              return <circle key={i} cx={sx(p.lng)} cy={sy(p.lat)} r={3.6} className={`sm-dot ${past ? 'past' : ''}`}><title>{shortName(p)}（第 {p.secs.map((s) => s + 1).join('、')} 節）</title></circle>;
             })}
             {order.map(({ p, i }) => i === sec || mainIds.includes(p) ? null : (
-              <g key={`o${i}`} className="sm-num" transform={`translate(${sx(places[p].lng)} ${sy(places[p].lat)})`} onClick={() => onSection?.(i)}>
-                <circle r={7.5} /><text y={3.6}>{i + 1}</text><title>第 {i + 1} 節：{doc.sections[i].title}（點一下跳過去）</title>
+              <g key={`o${i}`} className="sm-num" transform={`translate(${sx(places[p].lng)} ${sy(places[p].lat)})`} onClick={tap(() => { setBig(false); onSection?.(i); })}>
+                <circle r={10.5} /><text y={4.6}>{i + 1}</text><title>第 {i + 1} 節：{doc.sections[i].title}（點一下跳過去）</title>
               </g>
             ))}
             {mainIds.map((i) => {
               const p = places[i]; if (!p) return null;
               const on = hotSet.has(i) || focus === i;
               return (
-                <g key={`m${i}`} transform={`translate(${sx(p.lng)} ${sy(p.lat)})`} className={`sm-pin ${on ? 'hot' : ''} ${p.ap ? 'ap' : ''} ${p.secs.includes(sec) ? '' : 'other'}`} onClick={() => onFocus(focus === i ? null : i)}>
-                  {on && <circle r={13} className="sm-pulse" />}
-                  <circle r={on ? 7 : 5.5} /><title>{shortName(p)}{p.m ? `（今：${p.m}）` : ''}{p.ap ? '・位置為示意' : ''}</title>
+                <g key={`m${i}`} transform={`translate(${sx(p.lng)} ${sy(p.lat)})`} className={`sm-pin ${on ? 'hot' : ''} ${p.ap ? 'ap' : ''} ${p.secs.includes(sec) ? '' : 'other'}`} onClick={tap(() => onFocus(focus === i ? null : i))}>
+                  {on && <circle r={17} className="sm-pulse" />}
+                  <circle r={on ? 9 : 7.5} /><title>{shortName(p)}{p.m ? `（今：${p.m}）` : ''}{p.ap ? '・位置為示意' : ''}</title>
                 </g>
               );
             })}
@@ -186,7 +237,15 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
         )}
         {!data && !failed && <p className="sm-msg">地圖載入中…</p>}
         {failed && <p className="sm-msg">地圖載入失敗。<button className="link" onClick={() => { setFailed(false); loadMap(doc.id).then(setData).catch(() => setFailed(true)); }}>重試</button></p>}
-        <button className="sm-zoom" onClick={() => setAll((v) => !v)} aria-pressed={all} title={all ? '回到這一節的地點' : '看整篇故事走過的地方'}>{all ? '看這一節' : '看全篇'}</button>
+        <div className="sm-tools">
+          <button className="sm-zoom" onClick={() => setAll((v) => !v)} aria-pressed={all} title={all ? '回到這一節的地點' : '看整篇故事走過的地方'}>{all ? '看這一節' : '看全篇'}</button>
+          <button className="sm-zoom big" onClick={() => setBig((v) => !v)} aria-pressed={big}>{big ? '✕ 縮回' : '⛶ 放大'}</button>
+        </div>
+        <div className="sm-pm" role="group" aria-label="縮放地圖">
+          <button onClick={() => zoomAt(1.6)} aria-label="放大一點">＋</button>
+          <button onClick={() => zoomAt(1 / 1.6)} aria-label="縮小一點">－</button>
+          <button onClick={() => setReset((n) => n + 1)} aria-label="回到這一節的範圍" title="回到這一節的範圍">⌖</button>
+        </div>
       </div>
       <div className="sm-cap" aria-live="polite">
         {fp ? (

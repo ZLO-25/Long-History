@@ -76,8 +76,20 @@ const fs = require('fs');
       ok(f.includes(name), `點內文的地名「${name}」，地圖移過去並說明今天的位置`);
       await p.screenshot({ path: `${out}/desktop-focus.png` });
     } else ok(false, '第 6 節內文沒有可點的地名');
+    const mb = await p.$eval('.sr-side-map .sm-box', (x) => { const r = x.getBoundingClientRect(); return { w: Math.round(r.width), h: Math.round(r.height) }; });
+    ok(mb.w >= 450 && mb.h >= 400, `桌機地圖夠大（${mb.w}×${mb.h}，右欄整欄給地圖）`);
+    ok(await p.$$eval('.sr-strip button', (x) => x.length) === doc.sections.length + 1, '大標縮成地圖下方一排編號（含「考考自己」）');
     await p.click('.sm-zoom'); await p.waitForTimeout(700);
     ok(await p.$eval('.sm-zoom', (x) => x.getAttribute('aria-pressed') === 'true'), '「看全篇」可以看整篇故事走過的地方');
+    const k0 = await p.$eval('.sm-box g', (g) => g.getAttribute('transform'));
+    await p.click('.sm-pm button'); await p.waitForTimeout(200);
+    ok(k0 !== await p.$eval('.sm-box g', (g) => g.getAttribute('transform')), '「＋」可以放大地圖');
+    await p.click('.sm-zoom.big'); await p.waitForTimeout(500);
+    const full = await p.$eval('.sm.full .sm-box', (x) => x.getBoundingClientRect().width).catch(() => 0);
+    ok(full >= 1200, `「⛶ 放大」變成全螢幕地圖（${Math.round(full)} px 寬）`);
+    await p.screenshot({ path: `${out}/desktop-full.png` });
+    await p.keyboard.press('Escape'); await p.waitForTimeout(300);
+    ok(!(await p.$('.sm.full')) && !!(await p.$('.sr-overlay')), 'Esc 只縮回地圖，故事還開著');
     await ctx.close();
   }
   // ---- 手機：下方拉出 ----

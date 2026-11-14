@@ -8,6 +8,9 @@ import type { PointerEvent as ReactPointerEvent } from 'react';
 import type { Card, StoryDoc, StoryMapData, StoryPlace } from '../types';
 import { fmtRange } from '../lib/format';
 
+// 全世界的粗略陸地（Natural Earth 1:110m）：故事範圍外也有陸地和海，拖到哪裡都不會是空白；所有故事共用一份
+let worldP: Promise<number[][]> | null = null;
+const loadWorld = () => (worldP ??= fetch(`${import.meta.env.BASE_URL}data/stories/world-110m.json`).then((r) => (r.ok ? r.json() : [])).catch(() => { worldP = null; return []; }));
 const cache = new Map<string, Promise<StoryMapData>>();
 const loadMap = (id: string) => {
   if (!cache.has(id)) {
@@ -50,6 +53,8 @@ const LABEL_FS: Record<string, number> = { o: 13, r: 12.5, c: 12, v: 12.5 };
 export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onFocus, onSection, compact }: Props) {
   const [data, setData] = useState<StoryMapData | null>(null);
   const [failed, setFailed] = useState(false);
+  const [world, setWorld] = useState<number[][]>([]);
+  useEffect(() => { let on = true; loadWorld().then((w) => on && setWorld(w)); return () => { on = false; }; }, []);
   // 放大：整個畫面都是地圖（Esc 或「縮回」關掉）
   const [big, setBig] = useState(false);
   // ⌖ 按一次加一，地圖回到整篇故事的範圍
@@ -93,15 +98,17 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
     requestAnimationFrame(step);
   };
   const whole = () => fit(places.map((p) => [p.lat, p.lng]), size.w, size.h, 0.08);
-  useEffect(() => { if (size.w > 0 && !fitted.current) { fitted.current = true; setView(whole()); } }, [size.w]); // eslint-disable-line react-hooks/exhaustive-deps
+  /** 讀者自己拖曳或縮放過；沒動過時，地圖框大小改變（版面排好、放大成全螢幕）就重新放進整篇的地點 */
+  const touched = useRef(false);
   // 地圖框變大變小（下方說明行數不同、放大成全螢幕）時，左上角固定，地圖內容不跟著跑
   const prevSize = useRef(size);
   useEffect(() => {
     const a = prevSize.current; prevSize.current = size;
-    if (!fitted.current || a.w <= 0 || (a.w === size.w && a.h === size.h)) return;
+    if (size.w <= 0 || (a.w === size.w && a.h === size.h)) return;
+    if (!fitted.current || !touched.current) { fitted.current = true; setView(whole()); return; }
     setView((v) => ({ ...v, cx: v.cx + (size.w - a.w) / 2 / v.k, cy: v.cy + (size.h - a.h) / 2 / v.k }));
   }, [size]);
-  useEffect(() => { if (reset && size.w > 0) animTo(whole()); }, [reset]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (reset && size.w > 0) { touched.current = false; animTo(whole()); } }, [reset]); // eslint-disable-line react-hooks/exhaustive-deps
   // 讀者點了某個地點（內文地名或清單），而那個點不在畫面裡：只平移把它帶進來，不改縮放
   useEffect(() => {
     if (focus == null || size.w <= 0) return;
@@ -116,11 +123,11 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
 
   // 拖曳移動、滾輪或兩指縮放、＋－按鈕
   const ptrs = useRef(new Map<number, { x: number; y: number }>());
-  const zoomAt = (f: number, px = w / 2, py = h / 2) => setView((v) => {
+  const zoomAt = (f: number, px = w / 2, py = h / 2) => { touched.current = true; setView((v) => {
     const k = Math.max(0.6, Math.min(2000, v.k * f));
     const mx = v.cx + (px - w / 2) / v.k, my = v.cy + (py - h / 2) / v.k;
     return { k, cx: mx - (px - w / 2) / k, cy: my - (py - h / 2) / k };
-  });
+  }); };
   const onDown = (e: ReactPointerEvent) => { ptrs.current.set(e.pointerId, { x: e.clientX, y: e.clientY }); dragged.current = false; };
   const onMove = (e: ReactPointerEvent) => {
     const m = ptrs.current, prev = m.get(e.pointerId);
@@ -130,7 +137,7 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
       const dx = e.clientX - prev.x, dy = e.clientY - prev.y;
       if (!dragged.current && Math.hypot(dx, dy) < 4) return;
       if (!dragged.current) (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
-      dragged.current = true;
+      dragged.current = true; touched.current = true;
       setView((v) => ({ ...v, cx: v.cx - dx / v.k, cy: v.cy - dy / v.k }));
     } else if (m.size === 2) {
       const [a, b] = [...m.entries()], other = a[0] === e.pointerId ? b[1] : a[1];
@@ -160,7 +167,13 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
       <path d={(data.rivers ?? []).map((r) => line(r, false)).join('')} className="sm-river" vectorEffect="non-scaling-stroke" />
     </>;
   }, [data]);
-  const land = useMemo(() => <><path d={landD} className="sm-land" fillRule="evenodd" vectorEffect="non-scaling-stroke" />{water}</>, [landD, water]);
+  const worldD = useMemo(() => world.map((r) => { let d = ''; for (let i = 0; i < r.length; i += 2) d += `${i ? 'L' : 'M'}${X(r[i]).toFixed(2)} ${Y(r[i + 1]).toFixed(2)}`; return `${d}Z`; }).join(''), [world]);
+  // 順序：粗略的世界陸地 → 故事範圍蓋一塊海 → 範圍內的精細陸地、河、湖（範圍內不會看到粗略海岸線）
+  const land = useMemo(() => <>
+    <path d={worldD} className="sm-land" fillRule="evenodd" />
+    {data && <rect x={X(data.box[0])} y={Y(data.box[3])} width={X(data.box[2]) - X(data.box[0])} height={Y(data.box[1]) - Y(data.box[3])} className="sm-sea" />}
+    <path d={landD} className="sm-land" fillRule="evenodd" vectorEffect="non-scaling-stroke" />{water}
+  </>, [worldD, landD, water, data]);
   const routeD = useMemo(() => (data?.routes ?? []).map((r) => { let d = ''; for (let i = 0; i < r.c.length; i += 2) d += `${i ? 'L' : 'M'}${X(r.c[i]).toFixed(2)} ${Y(r.c[i + 1]).toFixed(2)}`; return d; }), [data]);
 
   // 故事順序：每節的代表點依序連起來
@@ -211,8 +224,6 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
         {w > 0 && (
           <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
             <g transform={`translate(${w / 2 - view.cx * view.k} ${h / 2 - view.cy * view.k}) scale(${view.k})`}>
-              {/* 只有這篇故事範圍內有陸地資料：範圍外用灰底，不要被看成海 */}
-              {data && <rect x={X(data.box[0])} y={Y(data.box[3])} width={X(data.box[2]) - X(data.box[0])} height={Y(data.box[1]) - Y(data.box[3])} className="sm-sea" />}
               {land}
               {routeD.map((d, i) => <path key={i} d={d} className={`sm-route ${data!.routes[i].secs.includes(sec) ? 'on' : ''}`} vectorEffect="non-scaling-stroke"><title>{data!.routes[i].name}</title></path>)}
             </g>

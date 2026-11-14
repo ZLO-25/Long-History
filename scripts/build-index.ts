@@ -16,7 +16,7 @@ import { orderAliases } from './lib/aliases.ts';
 import { buildEdges, type Edge } from './lib/causes.ts';
 import { loadStorylines, buildStorylines } from './lib/storylines.ts';
 import { loadStories, checkStories, buildStory } from './lib/stories.ts';
-import { storyPlaces, buildStoryMap } from './lib/storyMap.ts';
+import { storyPlaces, buildStoryMap, worldLand110 } from './lib/storyMap.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits } from './lib/learn.ts';
 import { loadDives, buildDives, copyPowerMaps } from './lib/dives.ts';
 
@@ -164,6 +164,7 @@ const storyMeta = new Map<string, { minutes: number; chars: number; hook: string
   const stories = loadStories();
   const bad = new Set(checkStories(stories, loadStorylines(), raw).filter((i) => i.level === 'error').map((i) => i.file));
   fs.mkdirSync(path.join(pubData, 'stories'), { recursive: true });
+  fs.writeFileSync(path.join(pubData, 'stories', 'world-110m.json'), JSON.stringify(worldLand110()));
   for (const s of stories) {
     if (bad.has(s.file)) { console.warn(`注意：${s.file} 有錯誤，沒有輸出，請執行 npm run validate`); continue; }
     const out = buildStory(s, raw);

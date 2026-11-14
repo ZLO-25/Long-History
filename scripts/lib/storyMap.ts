@@ -217,3 +217,19 @@ export function buildStoryMap(s: RawStory, places: StoryPlace[], cards: RawCard[
   });
   return { box: box.map((v) => Math.round(v * 100) / 100), land, rivers, lakes, labels, routes: rs };
 }
+
+/** 全世界粗略陸地（1:110m），故事範圍外的背景；所有故事共用 public/data/stories/world-110m.json */
+export function worldLand110(): number[][] {
+  const topo = require('topojson-client');
+  const w = require('world-atlas/land-110m.json');
+  const out: number[][] = [];
+  for (const f of topo.feature(w, w.objects.land).features) {
+    const polys = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
+    for (const poly of polys) for (let ring of poly) {
+      if (ring.some((p: number[], i: number) => i > 0 && Math.abs(p[0] - ring[i - 1][0]) > 180)) ring = ring.map(([x, y]: number[]) => [x < -90 ? x + 360 : x, y]);
+      ring = ring.filter((p: number[]) => p[1] > -75);
+      if (ring.length >= 3) out.push(ring.flatMap(([x, y]: number[]) => [Math.round(x * 10) / 10, Math.round(y * 10) / 10]));
+    }
+  }
+  return out;
+}

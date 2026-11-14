@@ -63,6 +63,14 @@ learn:
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "已開 LacusCurtius 蘇埃托尼烏斯《凱撒傳》31–32（河邊「過了小橋就靠刀劍」、吹蘆管的異象；英譯 The die is cast）與普魯塔克《凱撒傳》32（英譯 Let the die be cast），相符；補普魯塔克為來源 s7。已開英文維基〈Julius Caesar〉：前 49 年 1 月 10–11 日前後、第十三軍團、前 48 年 8 月 9 日法薩盧斯、前 44 年 2 月中之前成為終身獨裁官，與本卡及凱撒人物卡一致。C4「渡河本身就是叛國行為」改為「依當時的法律等於叛國」。未重開：英文維基〈Crossing of the Rubicon〉（拉丁文 iacta alea est、米南德、霍騰修斯先占阿里米努姆、「越界可判死罪」的法律說法都只依這一頁）、Livius〈Rubico〉、哈拉瑞相關兩份摘要、〈Partition of Jin〉。拉丁原文 iacta alea est 與查核者所知的蘇埃托尼烏斯 32 一致。" }
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/a/a2/Jean_Fouquet_-_Caesar_Crossing_the_Rubicon_-_WGA08034.jpg
+  page: https://commons.wikimedia.org/wiki/File:Jean_Fouquet_-_Caesar_Crossing_the_Rubicon_-_WGA08034.jpg
+  title: "凱撒渡過盧比孔河（15 世紀想像畫）"
+  creator: "尚·富凱（Jean Fouquet）"
+  year: "15 世紀下半葉"
+  license: "Public domain（PD-art）"
+  caption: "15 世紀法國畫家筆下的凱撒渡河，是後人的想像，不是古代的樣子。"
 ---
 
 ## C1 背景

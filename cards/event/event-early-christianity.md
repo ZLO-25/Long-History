@@ -65,6 +65,15 @@ learn:
 lens_status: 無直接論述
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 已開 earlychurchtexts 塔西佗 15.44：引文逐字相符（「suffered the extreme penalty…Pontius Pilatus」「an immense multitude was convicted, not so much of the crime of firing the city, as of hatred against mankind」）；塔西佗寫的是「火是奉命放的」的流言，沒有斷定尼祿放火，pop_culture 已改。頁面只標 Alfred John Church；這是 Church 與 Brodribb 合譯本（查核者所知），來源標題已補。2) 已開 Fordham 小普林尼 10.96–97：「They are not to be sought out」相符；匿名告發不受理是圖拉真自己寫的（原卡說是「學者轉述」，已改）；承認者問三次、堅持的處死、羅馬公民送羅馬；否認者向諸神禱告、向皇帝像獻香酒並咒罵基督（原卡把兩類人混在一起，已分開）；頁面註小普林尼 111–113 年任總督。3) 已開英文維基〈Persecution of Christians in the Roman Empire〉：Ste. Croix 的 91／47／13／18／16、Vincelette 12% 對 75%、Moss、「至少九道帝國命令」、303 年 2 月 24 日、311 年與 313 年、馬克西米努斯在埃及、巴勒斯坦、小亞細亞恢復迫害、Cairns 一句，均相符。Sherwin-White 的三種解釋原卡第一種寫錯（應是「一般禁令」），已改；沒核對到的 Sherwin-White 引文與 Moss「證據很少」一句已刪。4) Frend 3,000–3,500：該維基條目確實放在德西烏斯段落，但另一維基條目（已開 Wikiwand 鏡像，新增 s8）引 Frend《Martyrdom and Persecution》393–394 頁，指戴克里先大迫害；查核者所知後者才對，但原書沒能打開，所以卡片改成並列兩種寫法、只下「幾千人等級」的保守結論。5) 已開 New Advent《迫害者之死》第 12–13 章：界神節（3 月朔日前第 7 天，即 2 月 23 日）拆教堂、燒經書，次日頒敕令，相符。6) 保羅：原卡標「來源不足」，已補《加拉太書》2:7–9（NRSVUE，已開，新增 s6）與 Denova 通論（已開，新增 s7），用「保羅在信裡說」「學者一般認為」的中性寫法。耶穌受難確切年份仍沒有專門來源，維持約數。7) 已開 Ehrman 部落格：40%／43%、1,000／7,400／21 萬／600 萬、6,000 萬上下 1,000 萬、5%–15%、「guestimates」相符；原卡把 40% 與 43% 的歸屬寫反，已改。Stark 原書未開（查核者所知書中用每十年 40%）。8) 宗教語氣：信仰內容都寫成「基督徒相信」「依…記載」。未重開：Frend、Stark、Ste. Croix、Sherwin-White 原著（都是維基或部落格轉述，卡內已標明是估計與學者看法）。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/9/90/Good_Shepherd_Catacomb_of_Priscilla.jpg
+  page: https://commons.wikimedia.org/wiki/File:Good_Shepherd_Catacomb_of_Priscilla.jpg
+  title: "普里西拉地下墓穴的「好牧人」壁畫（複製圖）"
+  creator: "佚名（3 世紀壁畫）；Joseph Wilpert（1903 年書中複製圖）"
+  year: "壁畫約 3 世紀下半葉；複製圖 1903 年"
+  holder: "普里西拉地下墓穴（羅馬）"
+  license: "Public domain（PD-art）"
+  caption: "羅馬地下墓穴裡的壁畫，畫一位把羊扛在肩上的牧人，是早期基督徒愛用的圖像。這張是 1903 年書中的複製圖，不是現況照片，解析度也不高。"
 ---
 
 ## C1 背景

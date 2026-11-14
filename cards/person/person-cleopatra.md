@@ -62,6 +62,15 @@ learn:
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 已開 WHE〈Cleopatra VII〉：生卒年、埃及語流利且希臘語好、族裔希臘文化埃及、前 48 年波提努斯等人政變、托勒密十三世溺死、前 47 年 6 月生凱撒里翁、前 46 年到羅馬與西塞羅語、前 41 年阿爾西諾伊四世被處死、塔爾蘇斯、三個孩子、蛇與眼鏡蛇、羅馬作者的東方妖婦形象，均相符；據此補「被趕下王位的經過」「住在羅馬」「處死妹妹」（原卡 P5 只寫她是受害一方）。注意 WHE 自己寫的是捲在地毯裡、同時說普魯塔克的詞是睡袋。2) 已開 Lexundria 普魯塔克《凱撒傳》49（鋪蓋袋）與《安東尼傳》66。已開 LacusCurtius《安東尼傳》（頁面在第 49 章被截斷）：25 章召她到奇里乞亞答辯資助卡西烏斯的指控、26 章金色船尾的大船與安東尼獨坐法壇、27 章語言與前代國王不學當地話，相符。3) 「不錯的希臘語」易讓學生誤會希臘語是外語，已改寫。4) 宣戰年份：relations 由前 33 改前 32（通說；WHE〈Augustus〉寫離婚在前 33，已並列；本站凱撒遇刺與後三頭卡也把宣戰放在前 33 年底三頭任期結束之後）。5) P4 標題改「她改變了什麼」（比照本站其他女性人物卡）；counterparts 引號位置修正。未重開或沒能打開：普魯塔克《安東尼傳》27 全文、81–82（凱撒里翁之死）、86（死因各說、三十九歲、在位二十二年）——內容與查核者所知一致；亞歷山卓捐贈（前 34 年）因沒有可開來源，未補入。" }
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/-0035_Altes_Museum_Portrait_Kleopatra_VII_anagoria.JPG/960px--0035_Altes_Museum_Portrait_Kleopatra_VII_anagoria.JPG
+  page: https://commons.wikimedia.org/wiki/File:-0035_Altes_Museum_Portrait_Kleopatra_VII_anagoria.JPG
+  title: "克麗奧佩脫拉七世胸像"
+  creator: "佚名（古代雕刻）；Anagoria（攝影）"
+  year: "約前 40–30 年"
+  holder: "柏林舊博物館（德國）"
+  license: "CC BY 3.0（照片；另有 GFDL）；雕像為公有領域（PD-art-old-100）"
+  caption: "柏林舊博物館收藏的大理石頭像，一般認為是克麗奧佩脫拉七世，頭上戴著希臘化君主的頭帶；身分是後人的推定。"
 ---
 
 ## P1 出身與時代

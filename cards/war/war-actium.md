@@ -65,6 +65,15 @@ learn:
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 已開 Lexundria 普魯塔克《安東尼傳》66：海戰勝負未分時克麗奧佩脫拉六十艘船升帆穿過交戰船隻離去；安東尼只帶敘利亞人亞歷克薩斯與斯凱利烏斯，換乘 five-oared galley，拋下為他作戰的人，相符。原卡譯成「五槳小船」「坐小船」，five-oared galley 指五列槳戰船，不是小船，已改。2) 已開 Livius〈Actium〉：230 艘、阿格里帕 300 艘戰艦、飢餓、下午開戰以利北風突圍、中路打開缺口、載國庫的船先穿出、兩人下令升帆往南、餘下艦隊被擊敗焚毀（引狄奧）、軍團投降、戰術成功戰略失敗、帕萊斯特里納浮雕的鱷魚把內戰畫成對外戰爭、尼科波利斯，相符。3) 作者疑點「臨陣脫逃」：原卡已並列普魯塔克（逃走）與 Carter／Livius（預定突圍），維持並補下午開戰一項；misconceptions 第二條「安東尼不是在海戰中被打敗」說得太過（留下的艦隊確實被毀），改寫。4) 梅索尼：原卡寫前 32 年，Livius 沒寫年份，查核者所知為前 31 年春，改成不寫死年份的「海戰之前（前 31 年開戰季）」。5) 譯名統一為凱撒里翁。6) 已開《功業錄》34（Lexundria）。未重開：英文維基〈Battle of Actium〉（船數範圍、Carter 的看法、梅索尼、希律王改投、尼科波利斯前 29 年建、宣戰經過都只依這一頁）、〈Chu–Han Contention〉。Livius 的「5 萬名水手」本輪摘要沒有回報，未能確認。" }
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Castro_Battle_of_Actium.jpg/960px-Castro_Battle_of_Actium.jpg
+  page: https://commons.wikimedia.org/wiki/File:Castro_Battle_of_Actium.jpg
+  title: "《亞克興海戰》（後世想像）"
+  creator: "勞雷斯·阿·卡斯特羅（Laureys a Castro）"
+  year: "1672"
+  holder: "英國皇家博物館格林威治館（國家海事博物館，倫敦）"
+  license: "Public domain（PD-art）"
+  caption: "17 世紀畫家想像的亞克興海戰，畫面是後人的想像，不是當時的記錄。"
 ---
 
 ## A1 交戰方與聯盟結構

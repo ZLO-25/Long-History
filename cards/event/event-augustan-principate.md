@@ -69,6 +69,15 @@ learn:
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 作者疑點 imperium maius 年份：已開 LacusCurtius 卡西烏斯·狄奧 53.32（前 23 年：終身保民官權力、終身總督級指揮權、在各行省高於當地總督）與 54.10（前 19 年：終身執政官權力、坐在兩位執政官之間）。本卡 C2 原寫前 23 年是對的，先前被改成「來源不一（人物卡採前 19 年）」；現在人物卡已改為前 23 年，本卡改回並補前 19 年一行，兩卡一致。2) 狄奧 53.12–13（弱省歸元老院、強省自留、為期十年）、53.16（奧古斯都稱號）與 C2 第一次安排相符；54.14（前 18 年元老院定為六百人）補入 C4，原卡只寫減至 800。3) 已開 Lexundria《功業錄》34、35：引文與「地位高過眾人、職權不比同僚多」「第十三次執政官任內獲國父稱號」相符；「後來更偏好國父稱號」沒有依據，改為前 2 年得到。未重開：英文維基〈Principate〉（蒙森的看法、princeps 原意、失去外交財政戰爭控制權）、WHE〈The Principate of Augustus〉（禁衛軍九個大隊、軍團 60 減為 28、元老院 1,000 減為 800、前 31–前 23 連任執政官）、哈拉瑞相關兩份摘要、〈Han dynasty〉〈Wang Mang〉。「前 2 年」是查核者由第十三次執政官任期換算。" }
 lens_status: 依公開資料推論，未對照原書
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/The_Temple_of_Augustus_and_Rome_with_the_Res_Gestae_Divi_Augusti_%28%22Deeds_of_the_Divine_Augustus%22%29_inscribed_on_the_walls_of_the_cella%2C_Ancyra%2C_Ankara_%28Turkey%29_%2825489757424%29.jpg/960px-thumbnail.jpg
+  page: https://commons.wikimedia.org/wiki/File:The_Temple_of_Augustus_and_Rome_with_the_Res_Gestae_Divi_Augusti_(%22Deeds_of_the_Divine_Augustus%22)_inscribed_on_the_walls_of_the_cella,_Ancyra,_Ankara_(Turkey)_(25489757424).jpg
+  title: "安卡拉的奧古斯都與羅馬神殿，牆上刻著《功業錄》"
+  creator: "佚名（古羅馬建築與銘文）；Carole Raddato（攝影）"
+  year: "公元 1 世紀（銘文刻於奧古斯都死後）"
+  holder: "安卡拉（土耳其）"
+  license: "CC BY-SA 2.0（照片）；建築與銘文為公有領域"
+  caption: "今天土耳其安卡拉的奧古斯都與羅馬神殿（外面搭著保護用的鋼架）。奧古斯都自述一生的《功業錄》就刻在這座神殿的牆上，有拉丁文和希臘文譯本，是這份文件保存最完整的一份。"
 ---
 
 ## C1 背景

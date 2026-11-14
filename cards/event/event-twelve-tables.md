@@ -63,6 +63,14 @@ crosscheck:
   notes: "1) 重開 s3（Perseids，Canon Roberts 1912 英譯李維 3.34）：十表法「still form the source of all public and private jurisprudence」，引文相符（已補譯者）；「two tables were still wanting」一段原轉述不清，已改寫。2) 重開 s1：約前 450 年第一屆十人委員會、前 449 年補完並公布、使節赴希臘之說受質疑（或只到南義希臘城市）、李維說青銅而 Pomponius 說象牙（已補）、原件可能毀於前 387 年高盧人焚城、Dirksen 1824 與 Crawford 1996（後者認為傳統分表有誤，已補）、第十一表禁止不同階級通婚、第三表債務人可被拘禁，相符。s1 沒有寫「從未被正式廢除」，這句只剩 s2（大英百科，未重開）支持，保留並在此註明。3) 「前 451 年」出自 s2 與大英百科 Roman law 條（本輪開啟：enacted in 451–450 bce），與 s1 的「約前 450 年」並存，卡片寫「約前 451–450 年」恰當。4) C5 補一句「誰不算數」：女性即使成年也受監護、奴隸是被當成財產規範的對象（依查核者對第五表的了解，標 s1；本輪摘要沒有回報這一條，未逐字核）。5) 因果：event-conflict-of-orders →（促成）恰當。6) 教育面建議（未改）：禁止通婚一條在前 445 年就被《卡努萊烏斯法》取消，值得日後補上並附來源（李維 4.1–6）。7) 未重開：s2、s4、s5。限制：WebFetch 額度有限（本輪 30 次），摘要工具只回短引文。"
 lens_status: 無直接論述
 verification: 交叉確認
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/3/37/Loix_des_Douze_Tables.jpg
+  page: https://commons.wikimedia.org/wiki/File:Loix_des_Douze_Tables.jpg
+  title: "《十二銅表法》版畫（後世想像）"
+  creator: "Silvestre David Mirys（繪）、Claude-Nicolas Malapeau（刻）"
+  year: "約 1799 年"
+  license: "Public domain（PD-old-100-1923）"
+  caption: "18 世紀末法國版畫《十二銅表法》，是後人想像的畫面，不是古代的實物；原本的銅表早已失傳。"
 ---
 
 ## C1 背景

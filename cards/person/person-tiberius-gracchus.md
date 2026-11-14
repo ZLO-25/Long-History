@@ -53,6 +53,14 @@ learn:
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 已開 LacusCurtius 普魯塔克《提比略·格拉古傳》：3.1 大弟弟九歲、8 五百英畝上限、9 野獸有洞穴一句、10 更嚴厲的法案、12 三十五部落投到十七個時暫停／奧克塔維烏斯流淚後說隨你／自由民拖下講台／僕人被挖眼而提比略趕去制止、14 阿塔羅斯遺囑、19 薩提雷烏斯用椅腳打第一下／三百多人死於棍石無一死於刀劍、20 屍體丟進河、21 納西卡是大祭司長，均相符。2) 作者疑點「第一次流血」：普魯塔克 20 確有「據說這是王政廢除以來第一次以流血收場的內鬥」；已開 LacusCurtius 阿庇安《內戰史》1.2、1.16–17 亦有同類說法。原卡寫「普魯塔克並沒有這樣定性」是錯的，已改成照實引述並註明是兩百多年後的判斷。3) 挖眼一事原卡寫得像提比略指使，已補上普魯塔克說他趕去制止。4) 補帕加馬遺產（普魯塔克 14；遺囑一句已核對，用途與財政外交之爭依查核者所知的同章內容）。5) 公有地術語解釋改寫；500 尤格倫約 125 公頃是查核者換算。未重開 WHE〈Gracchi Brothers〉：蓋烏斯生年、三千人被殺、科爾涅莉雅遷米塞農與查核者所知（普魯塔克《蓋烏斯·格拉古傳》）一致。" }
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/1/1c/Tiberius_Gracchus.jpg
+  page: https://commons.wikimedia.org/wiki/File:Tiberius_Gracchus.jpg
+  title: "提比略·格拉古像（後世想像）"
+  creator: "佚名木刻（Guillaume Rouille 出版）"
+  year: "1553"
+  license: "Public domain（PD-old）"
+  caption: "1553 年出版的人物像集裡的版畫，是 16 世紀的人想像他的樣子，不是他生前留下的肖像。"
 ---
 
 ## P1 出身與時代

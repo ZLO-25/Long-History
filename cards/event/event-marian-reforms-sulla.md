@@ -67,6 +67,15 @@ crosscheck:
   notes: "1) 重開 s1：Lange 1846 首倡、蒙森等傳播、專家多不接受（Taylor 2019 稱 construct of modern scholarship）、志願兵約 3,000–5,000 人、戰後遣散、辛布里戰爭用普通徵兵、Gabba／Harris／Rich／Rosenstein／Cadiou 2018 的看法、薩盧斯特歸因於野心與其他解釋、老普林尼鷹旗說不正確、標槍木釘的設計在前 80 年代到帝國初期的出土物上沒有採用、私人軍隊在凱撒內戰前幾十年才出現、Rosenstein 2022，均相符；作者疑點「學界質疑是轉引」：確是轉引自維基，卡片已逐處寫明「英文維基整理」。2) 重開 s2：前 90 年 10 月《尤利烏斯法》、前 89 年《普勞提烏斯—帕皮里烏斯法》（薩莫奈人與盧卡尼亞人例外）、前 88 年共 12 人被宣布為公敵、共和晚期第一位進軍羅馬並打贏內戰的將軍、前 82 年 11 月 2 日殺 3,000–4,000 名薩莫奈戰俘（古代作者另有更高的數字，已註明是維基的數字）、11 月 3 日第一份名單約 80 人、子孫兩代不得任公職、釋放約一萬名奴隸、保民官不得提案與再任他職、增加法務官與財務官、廢除糧食配給、許多立法在他死後不到十年被廢，均相符。3) 作者疑點「蘇拉辭職年份」：s2 寫前 80 年初辭去獨裁官並任當年執政官（引 Flower 2010、Badian 2012）；s4 的寫法較晚。兩處已改為「蘇拉條目寫前 80 年初，其他來源也有寫前 81 或前 79 年的」，不下定論。4) 重開 s4：蘇拉的頭銜（為立法與重建國家）、destabilizing 先例一句，相符。5) 「護民官」統一為「保民官」；法務官、財務官、執政官、獨裁官補白話。6) 因果：gracchi →（背景、disputed）與 → event-rubicon（背景、disputed）都只說「條件之一」並註明爭論，站得住。7) 未重開：s3（Lexundria 薩盧斯特 86）、s5、s6；引文「not according to the classes in the manner of our forefathers, but allowing anyone to volunteer」依查核者記得的 Rolfe 譯文保留。限制：WebFetch 額度有限（本輪 30 次），摘要工具只回短引文。"
 lens_status: 無直接論述
 verification: 交叉確認
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Marius_Glyptothek_Munich_319.jpg/960px-Marius_Glyptothek_Munich_319.jpg
+  page: https://commons.wikimedia.org/wiki/File:Marius_Glyptothek_Munich_319.jpg
+  title: "所謂「馬略」頭像"
+  creator: "佚名（約奧古斯都時期的仿製品）；Bibi Saint-Pol（攝影）"
+  year: "約前 1 世紀末至公元 1 世紀初（仿前 2 世紀的肖像）"
+  holder: "慕尼黑雕塑館 Glyptothek（德國）"
+  license: "Public domain（PD-self，攝影者自行釋出）"
+  caption: "慕尼黑雕塑館傳統上叫它「馬略」，但它是約奧古斯都時期對前 2 世紀某位羅馬要人肖像的自由仿製，是不是馬略並不確定。"
 ---
 
 ## C1 背景

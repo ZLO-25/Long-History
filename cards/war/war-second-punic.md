@@ -78,6 +78,15 @@ crosscheck:
   notes: "1) 作者疑點「坎尼數字轉引維基」：重開 s5，波利比烏斯 3.117（步兵陣亡 7 萬、被俘 1 萬、逃出約 3,000；6,000 騎兵中 370 人生還；迦太基 5,700）與李維 22.49（步兵 45,500、騎兵 2,700 陣亡；俘虜分項合計約 19,300；迦太基約 8,000 見 22.52）及 Cantalupi、Samuels、Clodfelter 的看法都與卡片一致；這些數字也與查核者所知的原文相符。LacusCurtius 第 3 卷的頁面本輪只讀到第 63 章（頁面分段），3.113–117 沒能開到原文；李維 22.49 以片語搜尋確認 Perseus 有該章，未開頁。所以坎尼數字仍是「轉引維基＋查核者專業判斷」，已在內文補章節號。2) 重開 s9：3.56「twelve thousand African and eight thousand Iberian foot, and not more than six thousand horse in all」與拉西尼翁銘文、3.60 隆河出發時 3 萬 8,000 步兵與 8,000 多騎兵、過山損失約一半，相符；primary_source 原把一句話切成兩段用分號接，改回連續的原文。3) 更正：key_terms 寫戰象「在翻越阿爾卑斯山的過程中損失很多」不對（依波利比烏斯，大象多數過了山，是到義大利後第一個冬天才幾乎死光），改為保守說法「很難控制與長途運送，帶到義大利的只是少數」；pop_culture 的回答原本沒提到大象，已補一句。4) 更正：「元老院不讓他挑選騎兵長官」——依李維 22.8，費邊與米努基烏斯都是人民選出的，不是元老院指派；改為「不是照慣例由他自己挑選」。5) 更正：「低於一般的最低年齡 42 歲」有時代錯置（最低年齡的法律在前 180 年才訂），改為「比慣例年輕得多（後來的法律定在 42 歲）」。6) 費邊「出於嫉妒」改為註明是來源的說法。7) 因果：→ event-gracchi-reforms（背景、disputed）站得住，why 已說明是傳統說法、近年有修正；src 去掉無關的 s5。其餘三條既有因果未動。8) 未重開：s1、s2、s3、s4、s6、s8（札馬兵力與和約、費邊生平、前 212 年動員數字均未重核，依查核者專業判斷無明顯錯誤）。限制：WebFetch 額度有限（本輪 30 次），摘要工具只回短引文。"
 lens_status: 無直接論述
 verification: 交叉確認
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Joseph_Mallord_William_Turner_-_Snow_Storm%2C_Hannibal_and_his_Army_Crossing_the_Alps_-_WGA23167.jpg/960px-Joseph_Mallord_William_Turner_-_Snow_Storm%2C_Hannibal_and_his_Army_Crossing_the_Alps_-_WGA23167.jpg
+  page: https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Snow_Storm,_Hannibal_and_his_Army_Crossing_the_Alps_-_WGA23167.jpg
+  title: "《暴風雪：漢尼拔和他的軍隊翻越阿爾卑斯山》（後世想像）"
+  creator: "約瑟夫·馬洛德·威廉·透納（J. M. W. Turner）"
+  year: "1812"
+  holder: "泰特不列顛美術館（倫敦）"
+  license: "Public domain（PD-art）"
+  caption: "英國畫家透納在 1812 年畫的暴風雪中的山地行軍，是後人想像的畫面，山口位置不是考證結果。"
 ---
 
 ## A1 交戰方與聯盟結構

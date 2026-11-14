@@ -68,6 +68,15 @@ learn:
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 已開 LacusCurtius 普魯塔克《凱撒傳》（頁面在第 45 章被截斷）：15 章八百多城、三百部族、三百萬人中殺一百萬俘一百萬；32 章英譯是 Let the die be cast；42 章法薩盧斯兵力，均相符。已開 Lexundria 普魯塔克 49 章：鋪蓋袋、阿波羅多洛斯、與弟弟共治、國王戰敗失蹤、留她在王位、生凱撒里翁，相符。2) 已開 LacusCurtius 蘇埃托尼烏斯（頁面到第 72 章）：26 章母親死於高盧戰爭期間、31–32 章河邊的話與異象、37 章本都凱旋式三字牌、40 章改曆，相符。已開 Lexundria 蘇埃托尼烏斯 82：二十三刀、只呻吟一聲、「有人寫道」他對布魯圖斯用希臘語說你也是嗎孩子，相符。3) 已開英文維基〈Gallic Wars〉：原卡把資訊欄的「可信估計三萬多死、一萬多傷」當成高盧人死亡數，依欄位排列應是羅馬方損失，已改；戰爭年代改為前 58–前 50（原寫 58–52）；赫爾維提人估計改成具名（德爾布呂克、Gilliver、李維、Henige）；阿圖亞圖契人收益改為「依法歸他個人」。4) 作者疑點：缺通論來源——補英文維基〈Julius Caesar〉（s8）與 WHE〈Julius Caesar〉（s9），兩頁皆已開；據此補生日、前三頭同盟、歷次獨裁官任期、牧神節王冠、3 月 15 日與龐培議事廳、約六十名密謀者、遺囑收養。剖腹產之說：依英文維基與蘇埃托尼烏斯 26 改寫成「沒有證據、母親活到他中年」。Et tu Brute：莎士比亞劇本未開，照實註明。5) 「前 44 年收屋大維為養子」改為遺囑收養、死後生效；「外甥孫」改為甥孫輩並註明未另開來源。未重開或沒能打開：普魯塔克 50（寫信給友人用三字）、57–66 章；蘇埃托尼烏斯 76–80；老普林尼《博物志》7.47 關於 Caesar 一名的說法沒有開，所以沒有寫進卡片；WHE〈Cleopatra VII〉本輪已開（見克麗奧佩脫拉卡）。" }
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Head_of_Julius_Caesar_from_Tusculum_MAntTorino_2089_n01.jpg/960px-Head_of_Julius_Caesar_from_Tusculum_MAntTorino_2089_n01.jpg
+  page: https://commons.wikimedia.org/wiki/File:Head_of_Julius_Caesar_from_Tusculum_MAntTorino_2089_n01.jpg
+  title: "圖斯庫魯姆出土的凱撒頭像"
+  creator: "佚名（古羅馬雕刻）；Marie-Lan Taÿ Pamart（攝影）"
+  year: "約前 45–44 年"
+  holder: "杜林古代博物館（義大利）"
+  license: "CC BY 4.0（照片）；雕像為公有領域（PD-old-100）"
+  caption: "出土於圖斯庫魯姆（Tusculum）的大理石頭像，年代約在前 45–44 年，也就是凱撒生前最後的日子，常被當作少數在世時所作的凱撒肖像。"
 ---
 
 ## P1 出身與時代

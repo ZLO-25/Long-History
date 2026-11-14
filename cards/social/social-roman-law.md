@@ -68,6 +68,15 @@ crosscheck:
   notes: "1) 作者疑點「《學說彙纂》22.3.2」：重開 s3（Trans-Lex）：拉丁文「Ei incumbit probatio qui dicit, non qui negat」、英譯 Proof is incumbent upon the party who affirms a fact, not upon him who denies it、出處 Paulus《論告示》第 69 卷，相符。2) 作者疑點「無罪推定」：重開 s4：維基寫安敦寧·庇護把此原則引入羅馬刑法、日耳曼習慣含推定有罪、Jean Lemoine 的拉丁句，卡片轉述相符。卡片原本就把「舉證規則」與「現代無罪推定」分開，查核者認為這個保守寫法正確；另加一句說明 22.3.2 本身只是舉證規則，安敦寧·庇護一說本卡沒有一手史料。3) 作者疑點「來源偏薄」：新增 s8（大英百科 Roman law，已開啟，頁面只顯示前半）：十二銅表法前 451–450 年、市民法只適用公民、萬民法由官員發展並適用外國人、告示約 131 年由哈德良下令整理、羅馬法是歐陸多數國家法典的基礎；據此補上哈德良。學術專著（如 Berkeley Robbins Collection 的羅馬法導覽）本輪額度用完沒能開啟，建議日後補。4) 「收了 38 位法學家的摘錄」未能重核（常見說法是 39 位），改為「數十位」。5) 重開維基 Slavery in ancient Rome：奴隸證詞須經拷打、帝國時期的限制與很少起訴，相符。6) 裁判官補「又譯法務官」，與其他卡互相對得上。7) 因果：event-twelve-tables →（背景）、→ event-byzantine-afterlife（背景）恰當。8) 未重開：s1、s2、s6、s7（《民法大全》各部年代 529／533／534、《法學階梯》533 年 11 月 21 日與 12 月 30 日、帕比尼安生卒年、約 1070 年波隆那復興，與查核者所知一致，但未逐字重核）。限制：WebFetch 額度有限（本輪 30 次），摘要工具只回短引文。"
 lens_status: 無直接論述
 verification: 交叉確認
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Digestum_vetus_-_accedunt_glossae_-_btv1b10035348p_%28037_of_378%29.jpg/960px-Digestum_vetus_-_accedunt_glossae_-_btv1b10035348p_%28037_of_378%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Digestum_vetus_-_accedunt_glossae_-_btv1b10035348p_(037_of_378).jpg
+  title: "《學說彙纂》抄本（Digestum vetus，附註解）"
+  creator: "佚名抄寫者"
+  year: "14 世紀"
+  holder: "法國國家圖書館（巴黎）"
+  license: "Public domain（PD-France／PD-old-assumed）"
+  caption: "14 世紀手抄的《學說彙纂》（《民法大全》的一部分）前半部，附有中世紀法學家加的註解；羅馬法就是這樣被抄寫、研讀，傳到後世。"
 ---
 
 ## E1 誰的生活

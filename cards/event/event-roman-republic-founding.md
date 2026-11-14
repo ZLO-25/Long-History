@@ -67,6 +67,15 @@ crosscheck:
   notes: "1) 重開 s2（LacusCurtius 波利比烏斯第 6 卷）：6.11「if one fixed one's eyes on the power of the consuls, the constitution seemed completely monarchical and royal」、6.12 執政官出征前掌管羅馬一切公共事務、保民官以外的官員都要服從、6.18「their union is adequate to all emergencies…impossible to find a better political system」逐句相符。2) 重開 s3（Perseids，Canon Roberts 1912 英譯）：「the consular authority was limited to one year」「The first consuls retained all the old jurisdiction and insignia of office」相符，首任執政官為布魯圖斯與科拉提努斯（已補進 C2）；原引號內的「一個自由的羅馬」原文作 a Rome henceforth free，改為不加引號。3) 重開 s1：傳統說法、布魯圖斯「半傳說」、多數現代學者視為王室內部的貴族政變或伊特拉斯坎占領、奧維尼烏斯法與前 312 年補滿 300 人、同盟者戰爭後公民增為三倍，相符。4) 重開 s4：執政官任命、蘇拉前 82 年依法成為無期限獨裁官、第二次布匿戰爭後停用一百多年、前 44 年廢除，相符；「六個月」原句把李維的一段話寫錯（原寫李維稱六個月限制不合常規），已改為並列：通論（新增 s6）說通常六個月，s4 說與實際紀錄不合、重點是任務完成就辭職。查核者補充：六個月上限見於西塞羅《論法律》3.9 與李維多處，是學界通說，s4 採用的是近年的修正看法，本卡兩說並列。5) 作者疑點「缺學術／通論來源」：新增 s6（WHE，Wasson 2016，已開啟；該文寫前 510 年、獨裁官通常六個月、女性與奴隸被排除）。6) 作者疑點「SPQR 沒標來源」：新增 s7（維基 SPQR，已開啟）：縮寫意思、現存銘文約前 80 年起才出現、今日羅馬市徽與井蓋；原「路燈」來源沒寫，改為「市徽和井蓋」。7) 保民官補一句「共和剛成立時還沒有」。8) 因果：→ event-conflict-of-orders（背景）恰當。9) 未重開：s5（Roman citizenship）；C5 女性、釋奴、行省居民幾句依查核者的專業知識判斷無誤。限制：WebFetch 額度有限（本輪 30 次），摘要工具只回短引文。"
 lens_status: 無直接論述
 verification: 交叉確認
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Lupa_Capitolina%2C_Rome.jpg/960px-Lupa_Capitolina%2C_Rome.jpg
+  page: https://commons.wikimedia.org/wiki/File:Lupa_Capitolina,_Rome.jpg
+  title: "卡比托利歐母狼銅像"
+  creator: "佚名（古代或中世紀，有爭議）；Wilfredo Rafael Rodriguez Hernandez（攝影，已去背修圖）"
+  year: "狼身年代有爭議（傳統說古代，近年研究傾向約 12–13 世紀）；吸奶雙胞胎為 15 世紀加上"
+  holder: "卡比托利歐博物館（羅馬）"
+  license: "CC0（照片）；雕像為公有領域（PD-art-70-3d）"
+  caption: "哺育羅慕路斯與雷穆斯的母狼，是羅馬建城傳說的象徵。這件銅像不是共和時代的東西：狼身曾被當成古代作品，近年多認為是中世紀的，兩個嬰兒是 15 世紀才加上去的。"
 ---
 
 ## C1 背景

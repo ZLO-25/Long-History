@@ -66,6 +66,15 @@ crosscheck:
   notes: "1) 重開 s4（Livius.org，John Carter 英譯阿庇安）：「about seventy」、隊伍 70,000 人、後來「120,000 foot soldiers」往羅馬、克拉蘇六個軍團加兩個執政官軍團、「Spartacus' body was never found」、6,000 人「taken prisoner and crucified all the way along the road from Rome to Capua」，兩句引文相符。原卡把「12 萬」只歸給維基、「7 萬」歸給阿庇安，其實阿庇安兩個數字都有，已改正。摘要工具回報該頁克里克蘇斯的人數為 3,000（通行讀法與 s2 都是 30,000），未能逐字再核，內文改註明依 s2。2) 重開 s2：約 70 人（普魯塔克 78、李維 74）、巴提亞圖斯、三位首領、格拉貝爾 3,000 民兵、加爾加努斯山三分之二、十一抽一、沿亞壁古道 6,000 人（引阿庇安 1.120）、龐培 5,000 人、「沒有史料說目標是終結奴隸制」、分裂說是推論，均相符。3) 重開 s3（Scheidel 2005）：「never exceeded one or at most one-and-a-half million」、基準 120 萬（農村 60 萬、羅馬與其他城市各 30 萬）、Brunt 約 300 萬、前 217–前 167 年平均每年 7,600 人（扣掉伊庇魯斯 15 萬為 4,700）、兩百年輸入 200–400 萬、每年 1.5–2 萬，相符。改正兩處：(a) 原寫「Beloch 與 Finley 主張約三分之一或 35%」而 E6 又寫 Finley 與 Bradley，依原文改為 Beloch 200 萬（三分之一）、Finley 與 Bradley 約 35%；(b) 原寫「自然繁殖不足以維持人口」與 Scheidel 的論點相反，改為他的說法：男女比例大概不是生育的大障礙，高死亡率才是限制。Brunt 的總人口 750 萬與「約四成」本輪未核到，已刪。4) 重開 s1：奴隸證詞須經拷打、只有叛國案能指控主人（原句語意不清，已改）、三種正式釋放、尤尼烏斯拉丁人、兩部限制釋奴的法律、克勞狄烏斯／尼祿／安敦寧·庇護的規定與「很少起訴」、凱撒賣 5.3 萬人、金礦童工、釋奴在行省城鎮可任較低階官職，相符。5) 「共和晚期最大的一次」改「最有名的一次」（西西里的兩次奴隸戰爭規模也很大，沒有來源比較大小）。6) 「大法官」改「法務官（praetor）」並加解釋；十一抽一加解釋。7) 因果：war-roman-conquest-greece →（背景）以伊庇魯斯 15 萬人為例，有 s3 支持，恰當。8) 未重開：s5、s6。限制：WebFetch 額度有限（本輪 30 次），摘要工具只回短引文。"
 lens_status: 無直接論述
 verification: 交叉確認
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Inscribed_bronze_slave_collar_%28Rome_MNR_65043%3B_CIL_XV_7194%29.jpg/960px-Inscribed_bronze_slave_collar_%28Rome_MNR_65043%3B_CIL_XV_7194%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Inscribed_bronze_slave_collar_(Rome_MNR_65043%3B_CIL_XV_7194).jpg
+  title: "刻字的青銅奴隸項圈"
+  creator: "佚名（古羅馬工匠）；Mark Landon（攝影）"
+  year: "約 4 世紀（晚期羅馬）"
+  holder: "羅馬國家博物館（戴克里先浴場館）"
+  license: "CC BY 4.0（照片）；項圈為公有領域（PD-art-70-3d）"
+  caption: "套在奴隸脖子上的青銅項圈，刻字大意是「我逃跑了，抓住我，把我送回主人那裡」。它比斯巴達克斯起義晚了好幾個世紀，但能看出羅馬人怎麼把奴隸當成可以追回的財產。"
 ---
 
 ## E1 誰的生活

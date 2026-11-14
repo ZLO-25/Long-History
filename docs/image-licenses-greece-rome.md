@@ -50,3 +50,47 @@
 ## 驗收決定（2026-11-12）
 
 - `tech-alexandria-library` 的 Ancientlibraryalex.jpg 作者生平與年代查不到，授權依據不足，驗收時**已拿掉、不上線**。
+
+
+# 古羅馬專題補圖片：授權查證（2026-11-14）
+
+古羅馬專題 21 張卡各配 1 張 Commons 圖，做法與判準同上（Commons API 讀 extmetadata，再抓檔案頁原文確認授權模板；寬高寫入 `data/image-sizes.json`）。沒動 building-roman-aqueducts、building-via-appia、building-pantheon、commodity-amphora-trade、commodity-roman-concrete（另一位查核者負責）。
+
+| 卡片 | Commons 檔案 | 作者／攝影 | 年代 | 收藏處 | 授權（檔案頁模板） | 寬×高 |
+|---|---|---|---|---|---|---|
+| person-tiberius-gracchus | [Tiberius Gracchus.jpg](https://commons.wikimedia.org/wiki/File:Tiberius_Gracchus.jpg) | Guillaume Rouille 出版（人物像集） | 1553 | — | Public domain（PD-old） | 381×383 |
+| person-caesar | [Head of Julius Caesar from Tusculum MAntTorino 2089 n01.jpg](https://commons.wikimedia.org/wiki/File:Head_of_Julius_Caesar_from_Tusculum_MAntTorino_2089_n01.jpg) | 佚名；Marie-Lan Taÿ Pamart（攝影） | 約前 45–44 | 杜林古代博物館 | CC BY 4.0（照片）＋ PD-old-100-1923（雕像） | 4592×6888 |
+| person-cleopatra | [-0035 Altes Museum Portrait Kleopatra VII anagoria.JPG](https://commons.wikimedia.org/wiki/File:-0035_Altes_Museum_Portrait_Kleopatra_VII_anagoria.JPG) | 佚名；Anagoria（攝影） | 前 40–30（Commons 寫 30-40 BC） | 柏林舊博物館 | CC BY 3.0 ＋ GFDL（照片）；PD-art-old-100-expired（雕像） | 2693×4752 |
+| person-augustus | [Statue-Augustus.jpg](https://commons.wikimedia.org/wiki/File:Statue-Augustus.jpg) | 佚名；Till Niermann（攝影） | 1 世紀 | 梵蒂岡博物館 | CC BY-SA 2.5 ＋ GFDL（照片） | 1500×2250 |
+| person-constantine | [Colossal head of Constantine (M.C. inv. 1072), August 24, 2021.jpg](https://commons.wikimedia.org/wiki/File:Colossal_head_of_Constantine_(M.C._inv._1072),_August_24,_2021.jpg) | 佚名；D. Benjamin Miller（攝影） | 4 世紀 | 卡比托利歐博物館 | CC0（照片）＋ PD-old-100-expired（雕像） | 5449×8173 |
+| event-roman-republic-founding | [Lupa Capitolina, Rome.jpg](https://commons.wikimedia.org/wiki/File:Lupa_Capitolina,_Rome.jpg) | Wilfredo Rafael Rodriguez Hernandez（攝影，已去背修圖） | 狼身年代有爭議；雙胞胎 15 世紀 | 卡比托利歐博物館 | CC0（照片）＋ PD-art-70-3d（雕像） | 7489×4876 |
+| event-gracchi-reforms | [Eugene Guillaume - the Gracchi.jpg](https://commons.wikimedia.org/wiki/File:Eugene_Guillaume_-_the_Gracchi.jpg) | Eugène Guillaume | 19 世紀（Commons 未寫確切年） | — | PD-old-100 | 2894×1964 |
+| event-marian-reforms-sulla | [Marius Glyptothek Munich 319.jpg](https://commons.wikimedia.org/wiki/File:Marius_Glyptothek_Munich_319.jpg) | 佚名（奧古斯都時期仿製）；Bibi Saint-Pol（2007 原始上傳者） | 約前 1 世紀末 | 慕尼黑 Glyptothek | PD-self | 1518×2343 |
+| social-roman-slavery-spartacus | [Inscribed bronze slave collar (Rome MNR 65043; CIL XV 7194).jpg](https://commons.wikimedia.org/wiki/File:Inscribed_bronze_slave_collar_(Rome_MNR_65043;_CIL_XV_7194).jpg) | 佚名；Mark Landon（攝影） | 約 4 世紀 | 羅馬國家博物館（戴克里先浴場館） | CC BY 4.0（照片）＋ PD-art-70-3d | 2460×3378 |
+| social-roman-law | [Digestum vetus - accedunt glossae - btv1b10035348p (037 of 378).jpg](https://commons.wikimedia.org/wiki/File:Digestum_vetus_-_accedunt_glossae_-_btv1b10035348p_(037_of_378).jpg) | 佚名抄寫者（BnF Latin 4464） | 14 世紀 | 法國國家圖書館 | PD-France／PD-US-expired／PD-old-assumed | 3981×5986 |
+| event-pompeii-79 | [Forum (Pompeii) and the Vesuvio.jpg](https://commons.wikimedia.org/wiki/File:Forum_(Pompeii)_and_the_Vesuvio.jpg) | Commonists（攝影） | 2021 | 龐貝遺址 | CC BY-SA 4.0 | 8308×5486 |
+| event-early-christianity | [Good Shepherd Catacomb of Priscilla.jpg](https://commons.wikimedia.org/wiki/File:Good_Shepherd_Catacomb_of_Priscilla.jpg) | 佚名壁畫；Joseph Wilpert 1903 書中複製圖 | 壁畫約 3 世紀下半葉 | 普里西拉地下墓穴 | PD-art | 355×361 |
+| event-diocletian-tetrarchy | [(Venice) Statue of the four tetrarchs St. Mark's Basilica.jpg](https://commons.wikimedia.org/wiki/File:(Venice)_Statue_of_the_four_tetrarchs_St._Mark's_Basilica.jpg) | 佚名；Archaeodontosaurus（攝影） | 約 300 | 威尼斯聖馬可大教堂 | CC BY-SA 4.0（照片） | 5504×8256 |
+| event-byzantine-afterlife | [Hagia Sophia Mars 2013.jpg](https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg) | Arild Vågen（攝影） | 建築 537；照片 2013 | 伊斯坦堡 | CC BY-SA 3.0 | 5514×3681 |
+| event-twelve-tables | [Loix des Douze Tables.jpg](https://commons.wikimedia.org/wiki/File:Loix_des_Douze_Tables.jpg) | Silvestre David Mirys（繪）、Claude-Nicolas Malapeau（刻） | 約 1799 | — | PD-old-100-1923 | 894×671 |
+| war-second-punic | [Joseph Mallord William Turner - Snow Storm, Hannibal and his Army Crossing the Alps - WGA23167.jpg](https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Snow_Storm,_Hannibal_and_his_Army_Crossing_the_Alps_-_WGA23167.jpg) | J. M. W. Turner | 1812 | 泰特不列顛 | Public domain（PD-art） | 1213×750 |
+| event-rubicon | [Jean Fouquet - Caesar Crossing the Rubicon - WGA08034.jpg](https://commons.wikimedia.org/wiki/File:Jean_Fouquet_-_Caesar_Crossing_the_Rubicon_-_WGA08034.jpg) | Jean Fouquet | 15 世紀下半葉 | — | Public domain（PD-art） | 750×1015 |
+| war-actium | [Castro Battle of Actium.jpg](https://commons.wikimedia.org/wiki/File:Castro_Battle_of_Actium.jpg) | Laureys a Castro | 1672 | 國家海事博物館（倫敦） | PD-Art／PD-old-100-1923 | 1600×1125 |
+| event-augustan-principate | [The Temple of Augustus and Rome with the Res Gestae ... (25489757424).jpg](https://commons.wikimedia.org/wiki/File:The_Temple_of_Augustus_and_Rome_with_the_Res_Gestae_Divi_Augusti_(%22Deeds_of_the_Divine_Augustus%22)_inscribed_on_the_walls_of_the_cella,_Ancyra,_Ankara_(Turkey)_(25489757424).jpg) | Carole Raddato（攝影） | 1 世紀；照片 2016 | 安卡拉 | CC BY-SA 2.0 | 3264×4928 |
+| building-forum-romanum | [Forum romanum 6k (5760x2097).jpg](https://commons.wikimedia.org/wiki/File:Forum_romanum_6k_(5760x2097).jpg) | BeBo86（攝影） | 2012 | 羅馬 | CC BY-SA 3.0 | 5760×2097 |
+
+## 存疑與注意
+
+- **extmetadata 的「Public domain」不可信**：Caesar（Tusculum）、Cleopatra（Anagoria）、Augustus（Niermann）三張 API 顯示 Public domain，但檔案頁原文是攝影者的 CC BY 4.0／CC BY 3.0＋GFDL／CC BY-SA 2.5＋GFDL，卡片照原文填。Constantine（Miller）原文是 CC0；Marius 是 PD-self（Bibi Saint-Pol 為 2007 原始上傳者，後來有人改過色調的新版本，Artist 欄是空的，作者名取自檔案歷史）。
+- **person-hannibal**：照片為 Alinari 約 1900 年玻璃底片，檔案頁用 PD-old-assumed-expired（Alinari 是公司，個人作者與卒年不明，屬「推定」公有領域）；來源欄寫的是 Reddit 轉載＋Alinari 目錄號，來源鏈偏弱。胸像身分有爭議，圖說已寫明。若查核者不放心，這張最先該拿掉。
+- **event-roman-republic-founding**：母狼銅像不是共和時代文物，狼身年代有爭議（近年多認為中世紀），雙胞胎 15 世紀加上；圖說寫明。照片是已去背、重度修圖的精選圖（CC0）。
+- **social-roman-slavery-spartacus**：項圈是晚期羅馬（約 4 世紀）物件，比斯巴達克斯晚數百年，圖說寫明；年代「約 4 世紀」取自一般學界說法（Commons 檔案頁未直接寫年，參考文獻為 Trimble 2016 AJA），未逐項核對。
+- **event-gracchi-reforms**：Guillaume 雕塑 Commons 沒寫年，只寫「19 世紀」；圖說寫明是後世想像。
+- **social-roman-law**：Digestum vetus 抄本第 37 頁，未能實際打開圖看版面（下載縮圖時被限速），圖說因此只寫「附註解的 14 世紀抄本」。
+- **event-augustan-principate**：Raddato 照片檔名即「神殿牆上刻《功業錄》」，內容未開圖目視；「保存最完整」「另有希臘文譯本」是一般常識，卡片沒寫。
+- **圖說中卡片沒有的背景**：Augustus（1863 年利維亞別墅出土）、Hannibal（1667 年卡普阿出土）取自 Commons 檔案說明；圖說已儘量只寫圖本身，史實以卡片為準，請查核者複核。
+- 只要是後世畫作／雕塑／版畫（Tiberius Gracchus、Gracchi、Twelve Tables、Turner、Fouquet、Castro），圖說都明寫「後世想像」。
+- Rubicon、Twelve Tables、Actium、Gracchi 等多張未目視圖檔內容，只依檔名與 Commons 說明；Priscilla「好牧人」圖僅 355×361。
+- 未放：無（21 張卡皆有圖）。
+
+- **驗收時拿掉 1 張**：person-hannibal 的卡普阿胸像老照片（Hannibal Barca bust from Capua photo.jpg）。照片作者與卒年不明，只靠 PD-old-assumed，來源欄又是轉載，授權依據不足，所以沒有上線；這張卡暫時沒有圖。

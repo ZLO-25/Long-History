@@ -62,6 +62,15 @@ learn:
 lens_status: 無直接論述
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 已開英文維基〈Byzantine Empire〉：自稱 Rhomaioi／Rhomanía；476、480（維基寫的是奧多亞塞廢除西方皇帝一職）；533 年底征服汪達爾、東哥德王國 554 年大致結束；1071、1204 年 4 月、鮑德溫一世、1261、1453 年 5 月 29 日，均相符。改錯：原卡把「希臘語逐漸取代拉丁語」寫成發生在狄奧多西一世（379–395）時；維基那一句的主詞是狄奧多西立基督教為國教，希臘語取代拉丁語沒有給年份（查核者所知是 6–7 世紀的事），已改。2) 「拜占庭」一詞：維基〈Byzantine Empire〉沒有寫 1557；已開英文維基〈Hieronymus Wolf〉（新增 s8）：1557 年 Corpus Historiae Byzantinae，被視為最早用 Byzantinae 指東羅馬。3) 「所羅門，我超越你了」：已開 Cambridge Core 上 Griffith-Jones 章節頁摘要（新增 s7）：出自 9 世紀的 Diegesis，記 537 年啟用時的話；pop_culture 由「沒有能確認的原始出處」改為寫明出處晚。4) 已開英文維基〈Hagia Sophia〉：532 年 1 月 13–14 日被焚、2 月 23 日開工、537 年 12 月 27 日啟用、553／557 年地震、558 年東半圓頂倒塌、562 年 12 月 24 日重新奉獻、1453 年改清真寺，相符。5) 已開英文維基〈Plague of Justinian〉：541–549、佩魯西翁、每天一萬人與 5,000 人、1,500 萬到 1 億（兩個世紀）、Mordechai 與 Eisenberg 2019、Sarris、2013 年古 DNA、查士丁尼 542 年染病，相符。6) 已開英文維基〈East–West Schism〉：1053 年關閉拉丁教堂、7 月 16 日、利奧九世已去世、只針對使節本人、1009／1204／1277／1484、482–519 與 863–867、1965 年，相符；原卡「7 月 16 日當作互相開除的日期」改成「當作分裂的日期」。7) 別名刪掉「羅馬尼亞」（會和今天的國家混淆），名詞解釋補說明。未重開：英文維基〈Corpus Juris Civilis〉、Trans-Lex《學說彙纂》22.3.2（拉丁文與查核者所知的原文一致）。1453 年城破後居民的遭遇本卡仍沒有來源，維持「來源不足」。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/960px-Hagia_Sophia_Mars_2013.jpg
+  page: https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg
+  title: "聖索菲亞大教堂"
+  creator: "查士丁尼時代建築（537 年落成）；Arild Vågen（攝影）"
+  year: "建築 537 年；照片 2013 年"
+  holder: "伊斯坦堡（土耳其）"
+  license: "CC BY-SA 3.0（照片）"
+  caption: "查士丁尼在 532 年尼卡暴動燒毀舊教堂後重建、537 年底啟用的聖索菲亞大教堂；周圍的尖塔是後來才加的。"
 ---
 
 ## C1 背景

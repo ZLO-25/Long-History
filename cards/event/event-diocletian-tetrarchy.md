@@ -64,6 +64,15 @@ learn:
 lens_status: 無直接論述
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 已開英文維基〈Diocletian〉：284 年 11 月 20 日、286 年 4 月 1 日、293 年 3 月 1 日、305 年 5 月 1 日在尼科米底亞城外退位、「第一位（或許也是唯一）主動退位」、311 年 12 月 3 日（或 312 年）去世、301 年限價敕令「counterproductive and quickly ignored」、297 年起稅制、「last, largest, and bloodiest」，均相符。2) 種菜：已開《諸帝略記》39.5–7（Banchich 英譯，新增 s4）。39.6 寫的是「赫庫利烏斯與加萊里烏斯」請他復位，原卡說「不是對馬克西米安說的」與原典相反，已改正並改用原典措辭；維基把場合放在 308 年卡爾農圖姆（維基也引 39.6）。成書「約 4 世紀末」是查核者所知（該書寫到 395 年）。39.7 說他服毒自盡，卡片沒有採用。3) 已開 New Advent《迫害者之死》：第 7 章「fewer men who paid taxes than there were who received wages」與限價令的後果（流血、不敢賣、更缺、被迫廢除）、第 12–13 章（界神節拆教堂、次日敕令）、第 17–18 章（久病、加萊里烏斯逼退）、第 19 章引文逐字相符；限價失敗原因由「來源不足」改為引拉克坦提烏斯並標明他的立場。4) 「君士坦丁在 324 年之後使基督教成為受偏愛的宗教」是維基原話，但容易讓人以為他 324 年才開始支持基督教，已改寫並指向「基督教成為羅馬國教」一卡。5) 譯名：戴克里先、君士坦丁、加萊里烏斯與站內其他卡一致；補一句君士坦提烏斯與君士坦丁是父子、不要混。未重開：英文維基〈Tetrarchy〉（306–324 年的繼承戰經過依查核者專業知識判斷無誤）。" }
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/%28Venice%29_Statue_of_the_four_tetrarchs_St._Mark%27s_Basilica.jpg/960px-%28Venice%29_Statue_of_the_four_tetrarchs_St._Mark%27s_Basilica.jpg
+  page: https://commons.wikimedia.org/wiki/File:(Venice)_Statue_of_the_four_tetrarchs_St._Mark's_Basilica.jpg
+  title: "四帝共治像"
+  creator: "佚名（晚期羅馬雕刻）；Archaeodontosaurus（攝影）"
+  year: "約 300 年"
+  holder: "威尼斯聖馬可大教堂（義大利）"
+  license: "CC BY-SA 4.0（照片）；雕像為公有領域（PD-old-100）"
+  caption: "四位皇帝兩兩相擁，穿著相似的軍裝，連臉孔都幾乎一樣，常被拿來代表四帝共治；雕像後來被嵌在威尼斯聖馬可大教堂的牆角。"
 ---
 
 ## C1 背景

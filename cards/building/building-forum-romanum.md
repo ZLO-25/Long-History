@@ -58,6 +58,15 @@ learn:
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 已開英文維基〈Roman Forum〉：塔克文家族以大下水道排水（前 7 世紀）；塔克文·普里斯庫斯約前 600 年首次鋪面；集會場約前 650–630 年的夯土地面後來換成碎石；最後的石灰華鋪面屬奧古斯都時代；塞維魯凱旋門 203 年；馬克森提烏斯巴西利卡 312 年是「最後一次重要擴建」；共和時期的演說、審判、角鬥、選舉、凱旋；圖拉真廣場啟用後經濟與司法業務外移；凱撒建尤利亞巴西利卡與新議事堂、屋大維前 29 年建神君凱撒神廟；Campo Vaccino；1540 年代保祿三世拆石蓋聖彼得大教堂；1803 年 Carlo Fea 開始清理、1898 年起官方發掘（Boni），均相符。2) 鋪設年代：原卡只寫「約前 600 年」，已補上考古年代並標明前 600 年是傳統說法。3) 李維 1.35：原卡寫「一位早期國王」，該章整章講塔克文·普里斯庫斯（拉丁原文 ab eodem rege，「同一位國王」），已寫明是他；Perseids 英譯頁本輪沒有重開，依查核者對原典的了解。4) 農神廟：維基寫前 42 年 Munatius Plancus 重建、戴克里先「重新建造」；查核者所知現存柱廊一般歸於 283 年大火之後的重修，沒能找到可開啟來源，所以改成「3 世紀末以後又重修過」的保守寫法。5) 「文藝復興時期拆石材」補上具體年代（1540 年代、保祿三世）。未重開：Britannica〈Roman Forum〉、英文維基〈Chang'an〉（對照欄）。" }
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Forum_romanum_6k_%285760x2097%29.jpg/960px-Forum_romanum_6k_%285760x2097%29.jpg
+  page: https://commons.wikimedia.org/wiki/File:Forum_romanum_6k_(5760x2097).jpg
+  title: "羅馬廣場遺址全景"
+  creator: "BeBo86（攝影）"
+  year: "2012（遺址為古羅馬時代起歷代建築）"
+  holder: "羅馬（義大利）"
+  license: "CC BY-SA 3.0"
+  caption: "今天的羅馬廣場遺址：神殿、凱旋門與柱子的殘跡，是千百年來一層層蓋起、毀壞又重建的結果。"
 ---
 
 ## D1 功能與象徵

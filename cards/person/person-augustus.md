@@ -62,6 +62,15 @@ learn:
 verification: 交叉確認
 crosscheck: { date: 2026-11-14, by: 獨立查核 agent（歷史學者＋教育者，未參與寫作）, result: 通過, notes: "1) 作者疑點 imperium maius 年份：已開 LacusCurtius 卡西烏斯·狄奧 53.32（前 23 年：終身保民官權力、隨時向元老院提案、終身總督級指揮權且入城不必交出、在各行省權力高於當地總督）與 54.10（前 19 年：終身執政官權力、十二束棒、坐在兩位執政官之間）。原卡依 WHE〈Augustus〉寫「前 19 年得 imperium maius」，已改為前 23 年，前 19 年另列執政官等級權力，並註明 WHE 的寫法；元首制事件卡同步修改，兩卡一致。狄奧 53.12–13（十年期行省治理權）、53.16（奧古斯都稱號）亦已核對。2) 已開 Lexundria《功業錄》：1 章十九歲自費募兵、3 章赦免求饒公民／約五十萬人宣誓、三十多萬安置、5 章不受獨裁官、34 章交還國家／奧古斯都稱號／地位高過眾人而職權不比同僚多、35 章第十三次任執政官時獲國父稱號，相符。3) 已開 WHE〈Augustus〉：生日、原名、從不自稱 Octavian、後三頭與責任之爭、腓立比、塞克斯圖斯·龐培與雷必達、亞克興、前 27 年、八月、公元 4 年收養提比略、死於諾拉，相符。原卡「他很少用這個名字」「不喜歡公開用奧古斯都稱號」與來源不符，已改；收養改為遺囑收養；「外甥孫」改為甥孫輩（舅公輩是查核者對 great-uncle 的譯法）。4) P2 年表順序修正（公元 4 年在公元 9 年之前）。未重開：蘇埃托尼烏斯《奧古斯都傳》23、27、28（瓦魯斯、公敵宣告與監護人托拉尼烏斯、兩次考慮恢復共和、磚與大理石）——與查核者所知一致；八月原名 Sextilis、改名年份沒有可開來源，維持原卡「沒有另外查」。公敵人數引自本站凱撒遇刺與後三頭卡，未重核。" }
 lens_status: 無直接論述
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Statue-Augustus.jpg/960px-Statue-Augustus.jpg
+  page: https://commons.wikimedia.org/wiki/File:Statue-Augustus.jpg
+  title: "普里馬波爾塔的奧古斯都像"
+  creator: "佚名（古羅馬雕刻）；Till Niermann（攝影）"
+  year: "公元 1 世紀"
+  holder: "梵蒂岡博物館（Chiaramonti 館新翼）"
+  license: "CC BY-SA 2.5（照片；另有 GFDL）；雕像為公有領域"
+  caption: "1863 年在羅馬北郊普里馬波爾塔（Prima Porta）的利維亞別墅出土的大理石立像，是最常用來代表奧古斯都的像：軍裝、向前伸出的右手，胸甲上刻滿浮雕。"
 ---
 
 ## P1 出身與時代

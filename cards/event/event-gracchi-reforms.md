@@ -68,6 +68,14 @@ crosscheck:
   notes: "1) 重開 s1：公地上限約 120 公頃、執行《李錫尼—塞克斯提烏斯法》、增加合乎財產資格的兵源、奧克塔維烏斯被撤職（effective but unconstitutional）、連任「可能不合法、確實違反慣例」、堂兄兼大祭司西庇阿·納西卡要求執政官動武被拒、長袍蓋頭、石頭與木椅、屍體丟進台伯河、「許多支持者」無數字、分配約 130 萬尤格拉（約 3,268 平方公里）安置 7–13 萬人、de Ligt 與 Roselaar、同盟者反對最烈，均相符。2) 重開 s2：6⅓ 阿斯、德魯蘇斯否決、公民權約三十年未再提、隨從被鐵筆刺死、第一次元老院最終決議、阿文提諾山狄安娜神殿、弗拉庫斯父子被殺、蓋烏斯過台伯河後被殺或自殺、據稱數千人被清算、灌鉛故事受質疑與狄奧多羅斯人名不同、陪審團交騎士只是精英間重分配、前 120 年奧皮米烏斯獲判無罪，均相符；糧食法後來的遭遇加上「據英文維基」「大概」。查核者補充：學界對奧克塔維烏斯法與薩圖尼努斯糧食法是否通過另有討論，本卡只照 s2 寫。3) 重開 s3 相關段落未做（額度）；Roselaar 的說法與 s1 的轉述一致。4) 作者疑點「平民派／貴族派不是政黨沒標來源」：新增 s6（維基 Optimates and populares，已開啟），在〈史家怎麼吵〉補一段：蒙森的政黨說、Gelzer／Meier／Robb 的否定、西塞羅用法帶論戰色彩。5) perspectives 原寫「第一次用人民大會對抗元老院」太強（更早已有保民官繞過元老院立法的例子），改為描述做法，並依 s1 寫「前 133 年傳統上被當作共和走下坡的起點」。6) 騎士階層補白話解釋。7) 因果：war-second-punic →（背景、disputed）站得住，why 已寫明是傳統說法且有爭論，src 去掉無關的 s4；→ event-roman-grain-dole（促成）恰當；→ event-marian-reforms-sulla（背景、disputed）恰當。8) 未重開：s4（Lexundria〈提比略傳〉9）、s5；引文「enjoy the common air and light, indeed, but nothing else」依查核者記得的 Perrin 譯文保留。限制：WebFetch 額度有限（本輪 30 次），摘要工具只回短引文。"
 lens_status: 無直接論述
 verification: 交叉確認
+images:
+- url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Eugene_Guillaume_-_the_Gracchi.jpg/960px-Eugene_Guillaume_-_the_Gracchi.jpg
+  page: https://commons.wikimedia.org/wiki/File:Eugene_Guillaume_-_the_Gracchi.jpg
+  title: "《格拉古兄弟》雕塑（後世想像）"
+  creator: "尤金·紀堯姆（Eugène Guillaume）"
+  year: "19 世紀"
+  license: "Public domain（PD-old-100）"
+  caption: "19 世紀法國雕塑家想像的格拉古兄弟半身像，不是當時的肖像；兩人的手一起按在一卷文件上。"
 ---
 
 ## C1 背景

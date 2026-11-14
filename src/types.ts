@@ -62,7 +62,7 @@ export interface StoryDoc extends StoryRead {
   places?: StoryPlace[]; secPt?: number[]; hasMap?: boolean;
 }
 export interface StoryPlace { n: string; m: string; lat: number; lng: number; ap: boolean; roles: { card: string; role: string }[]; secs: number[]; k: string[] }
-export interface StoryMapData { box: [number, number, number, number]; land: number[][]; rivers?: number[][]; lakes?: number[][]; labels: [string, string, number, number, number][]; routes: { id: string; name: string; secs: number[]; c: number[] }[] }
+export interface StoryMapData { box: [number, number, number, number]; land: number[][]; rivers?: number[][]; lakes?: number[][]; eras?: ({ y: number; file: string } | null)[]; labels: [string, string, number, number, number][]; routes: { id: string; name: string; secs: number[]; c: number[] }[] }
 
 // 第 6 期：學習模式
 export type LearnTrack = '臺灣' | '東亞' | '世界';

@@ -114,3 +114,8 @@
 @media print { .sr-mapbtn, .sr-sheet, .sr-side-map, .sm.full { display: none !important; } }
 @media (prefers-reduced-motion: reduce) { .sm-pulse { animation: none; opacity: .7; } }
 .sr-strip-left { font-size: 13px; font-weight: 400; color: #6f6a62; }
+/* 當時的政權（歷代疆域，示意） */
+.sm-pol path { fill-opacity: .55; stroke: #9c8f74; stroke-width: .8px; stroke-opacity: .7; }
+.sm-pollabel { font-size: 13.5px; font-weight: 600; fill: #5b4a2e; letter-spacing: .06em; paint-order: stroke; stroke: rgba(255, 253, 248, .8); stroke-width: 3px; pointer-events: none; }
+.sm-era { position: absolute; left: 8px; top: 8px; margin: 0; font-size: 13px; padding: 3px 10px; border-radius: 13px; background: rgba(255, 253, 248, .93); color: #4a463f; box-shadow: 0 1px 4px rgba(40, 30, 10, .12); pointer-events: none; }
+.sm-hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); margin: 0; font-size: 14px; padding: 6px 14px; border-radius: 16px; background: rgba(38, 35, 31, .82); color: #fff; pointer-events: none; white-space: nowrap; }

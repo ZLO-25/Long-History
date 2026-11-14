@@ -21,6 +21,40 @@ const loadMap = (id: string) => {
   return cache.get(id)!;
 };
 
+// 當時的政權：研究模式地圖用的同一份歷代疆域（historical-basemaps，示意疆界）；檔案依年代共用快取
+interface Polity { name: string; d: string; lx: number; ly: number; w: number; fill: string }
+// 暖色與綠色系，不用藍色（會被看成海）
+const PALETTE = ['#ecc9a3', '#d4dca4', '#e6c1c6', '#dccbe3', '#f0dc9c', '#c9dfb8', '#e9cfb6', '#dfd2b0'];
+const hue = (s: string) => { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0; return PALETTE[h % PALETTE.length]; };
+const eraCache = new Map<string, Promise<Polity[]>>();
+const loadEra = (file: string) => {
+  if (!eraCache.has(file)) {
+    const p = fetch(`${import.meta.env.BASE_URL}data/borders/${file}`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); }).then((g: any) => g.features.map((f: any): Polity | null => {
+      const name = f.properties.zh || f.properties.name;
+      if (!name || name === '名稱不詳' || name === '?') return null;
+      const polys = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.type === 'MultiPolygon' ? f.geometry.coordinates : [];
+      let d = '', best = 0, lx = 0, ly = 0, bw = 0;
+      for (const poly of polys) for (let ring of poly) {
+        if (ring.some((q: number[], i: number) => i > 0 && Math.abs(q[0] - ring[i - 1][0]) > 180)) ring = ring.map(([x, y]: number[]) => [x < -90 ? x + 360 : x, y]);
+        let a = 0, cx = 0, cy = 0, x0 = 1e9, x1 = -1e9;
+        ring.forEach(([x, y]: number[], i: number) => {
+          const px = X(x), py = Y(y);
+          d += `${i ? 'L' : 'M'}${px.toFixed(2)} ${py.toFixed(2)}`;
+          const [nx, ny] = ring[(i + 1) % ring.length], qx = X(nx), qy = Y(ny), cr = px * qy - qx * py;
+          a += cr; cx += (px + qx) * cr; cy += (py + qy) * cr; x0 = Math.min(x0, px); x1 = Math.max(x1, px);
+        });
+        d += 'Z';
+        if (Math.abs(a) > best) { best = Math.abs(a); lx = cx / (3 * a); ly = cy / (3 * a); bw = x1 - x0; }
+      }
+      return d ? { name, d, lx, ly, w: bw, fill: hue(name) } : null;
+    }).filter(Boolean) as Polity[]);
+    p.catch(() => eraCache.delete(file));
+    eraCache.set(file, p);
+  }
+  return eraCache.get(file)!;
+};
+const fmtEra = (y: number) => (y < 0 ? `西元前 ${-y} 年` : `西元 ${y} 年`);
+
 // Web Mercator：世界寬 256 單位
 const X = (lng: number) => ((lng + 180) / 360) * 256;
 const Y = (lat: number) => { const l = Math.max(-80, Math.min(82, lat)) * Math.PI / 180; return (1 - Math.log(Math.tan(l) + 1 / Math.cos(l)) / Math.PI) / 2 * 256; };
@@ -54,6 +88,12 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
   const [data, setData] = useState<StoryMapData | null>(null);
   const [failed, setFailed] = useState(false);
   const [world, setWorld] = useState<number[][]>([]);
+  // 這一節年代的政權
+  const era = data?.eras?.[sec] ?? data?.eras?.find(Boolean) ?? null;
+  const [polities, setPolities] = useState<{ file: string; list: Polity[] } | null>(null);
+  useEffect(() => { if (!era) return; let on = true; loadEra(era.file).then((list) => on && setPolities({ file: era.file, list })).catch(() => {}); return () => { on = false; }; }, [era?.file]);
+  const polShown = polities && era && polities.file === era.file ? polities.list : [];
+  const [wheelHint, setWheelHint] = useState(false);
   useEffect(() => { let on = true; loadWorld().then((w) => on && setWorld(w)); return () => { on = false; }; }, []);
   // 放大：整個畫面都是地圖（Esc 或「縮回」關掉）
   const [big, setBig] = useState(false);
@@ -150,9 +190,14 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
   useEffect(() => {
     const el = box.current;
     if (!el) return;
-    const wheel = (e: WheelEvent) => { e.preventDefault(); const r = el.getBoundingClientRect(); zoomAt(Math.exp(-e.deltaY * 0.0022), e.clientX - r.left, e.clientY - r.top); };
+    // 滑鼠滾輪：在旁邊的地圖上直接滾是捲動故事（不然讀者滾文章時，游標經過地圖就會不小心縮放）；按住 Ctrl／⌘ 才縮放。放大成全螢幕時直接縮放
+    let hintT = 0;
+    const wheel = (e: WheelEvent) => {
+      if (!big && !e.ctrlKey && !e.metaKey) { setWheelHint(true); clearTimeout(hintT); hintT = window.setTimeout(() => setWheelHint(false), 1200); return; }
+      e.preventDefault(); const r = el.getBoundingClientRect(); zoomAt(Math.exp(-e.deltaY * 0.0022), e.clientX - r.left, e.clientY - r.top);
+    };
     el.addEventListener('wheel', wheel, { passive: false });
-    return () => el.removeEventListener('wheel', wheel);
+    return () => { el.removeEventListener('wheel', wheel); clearTimeout(hintT); };
   });
   /** 拖曳結束時的 click 不算點地點 */
   const tap = (fn: () => void) => () => { if (!dragged.current) fn(); };
@@ -172,10 +217,11 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
   const land = useMemo(() => <>
     <path d={worldD} className="sm-land" fillRule="evenodd" />
     {data && <rect x={X(data.box[0])} y={Y(data.box[3])} width={X(data.box[2]) - X(data.box[0])} height={Y(data.box[1]) - Y(data.box[3])} className="sm-sea" />}
-    <path d={landD} className="sm-land" fillRule="evenodd" vectorEffect="non-scaling-stroke" />{water}
-  </>, [worldD, landD, water, data]);
+    <path d={landD} className="sm-land" fillRule="evenodd" vectorEffect="non-scaling-stroke" />
+  </>, [worldD, landD, data]);
   const routeD = useMemo(() => (data?.routes ?? []).map((r) => { let d = ''; for (let i = 0; i < r.c.length; i += 2) d += `${i ? 'L' : 'M'}${X(r.c[i]).toFixed(2)} ${Y(r.c[i + 1]).toFixed(2)}`; return d; }), [data]);
 
+  const polMemo = useMemo(() => polShown.length ? <g className="sm-pol">{polShown.map((p, i) => <path key={i} d={p.d} fill={p.fill} vectorEffect="non-scaling-stroke"><title>{p.name}</title></path>)}</g> : null, [polShown]);
   // 故事順序：每節的代表點依序連起來
   const order = (doc.secPt ?? []).map((p, i) => ({ p, i })).filter((x) => x.p >= 0);
   const hotSet = new Set(hot);
@@ -203,11 +249,20 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
   }
   // 地點圓點也要占位，底圖文字才不會壓在點上
   for (const i of mainIds) { const p = places[i]; if (p) taken.push([sx(p.lng) - 9, sy(p.lat) - 9, sx(p.lng) + 9, sy(p.lat) + 9]); }
+  // 政權名稱：在畫面上夠寬（放得下名字）才標
+  const polLabels: JSX.Element[] = [];
+  for (const p of [...polShown].sort((a, b) => b.w - a.w)) {
+    const fs = 13.5, wd = tw(p.name, fs);
+    if (p.w * view.k < wd * 0.9) continue;
+    const x = (p.lx - view.cx) * view.k + w / 2 - wd / 2, y = (p.ly - view.cy) * view.k + h / 2 - fs / 2;
+    if (free(x, y, wd, fs + 2)) polLabels.push(<text key={`p${p.name}${p.lx}`} x={x} y={y + fs} className="sm-pollabel">{p.name}</text>);
+    if (polLabels.length > 18) break;
+  }
   const baseLabels: JSX.Element[] = [];
   if (data) {
     // 河名比國名重要（事件常在河邊）；同一級裡先畫海洋與河
     const pri: Record<string, number> = { o: 0, v: 0.2, r: 0.4, c: 0.6 };
-    const ls = [...data.labels].filter((l) => l[4] <= z + (l[0] === 'c' ? 0.6 : 1.4)).sort((a, b) => a[4] + pri[a[0]] - (b[4] + pri[b[0]]));
+    const ls = [...data.labels].filter((l) => (l[0] !== 'c' || !polShown.length) && l[4] <= z + (l[0] === 'c' ? 0.6 : 1.4)).sort((a, b) => a[4] + pri[a[0]] - (b[4] + pri[b[0]]));
     for (const [t, name, la, ln] of ls) {
       if (baseLabels.length > (z < 2.5 ? 8 : big ? 24 : 16)) break;
       const fs = LABEL_FS[t] ?? 10, wd = tw(name, fs), x = sx(ln) - wd / 2, y = sy(la) - fs / 2;
@@ -225,8 +280,11 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
           <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
             <g transform={`translate(${w / 2 - view.cx * view.k} ${h / 2 - view.cy * view.k}) scale(${view.k})`}>
               {land}
+              {polMemo}
+              {water}
               {routeD.map((d, i) => <path key={i} d={d} className={`sm-route ${data!.routes[i].secs.includes(sec) ? 'on' : ''}`} vectorEffect="non-scaling-stroke"><title>{data!.routes[i].name}</title></path>)}
             </g>
+            {polLabels}
             {baseLabels}
             {order.length > 1 && <polyline className="sm-order" points={order.map(({ p }) => `${sx(places[p].lng)},${sy(places[p].lat)}`).join(' ')} />}
             {places.map((p, i) => {
@@ -252,6 +310,8 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
             {pinLabels}
           </svg>
         )}
+        {wheelHint && <p className="sm-hint">按住 Ctrl（Mac 按 ⌘）再滾輪縮放地圖，或按右下角＋－</p>}
+        {era && polShown.length > 0 && <p className="sm-era">色塊：約{fmtEra(era.y)}的政權（示意疆界）</p>}
         {!data && !failed && <p className="sm-msg">地圖載入中…</p>}
         {failed && <p className="sm-msg">地圖載入失敗。<button className="link" onClick={() => { setFailed(false); loadMap(doc.id).then(setData).catch(() => setFailed(true)); }}>重試</button></p>}
         <div className="sm-tools">

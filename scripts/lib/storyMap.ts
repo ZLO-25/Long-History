@@ -215,7 +215,17 @@ export function buildStoryMap(s: RawStory, places: StoryPlace[], cards: RawCard[
       if (!x.secs.includes(si)) x.secs.push(si);
     }
   });
-  return { box: box.map((v) => Math.round(v * 100) / 100), land, rivers, lakes, labels, routes: rs };
+  // 當時的政權（historical-basemaps 示意疆界，研究模式地圖用的同一份 public/data/borders/）：每一節取最接近那節年代的快照
+  const snaps: { year: number; file: string }[] = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/borders/index.json'), 'utf8')).snapshots;
+  const secYear = s.sections.map((sec) => { const ys = sec.cards.map((c) => byId.get(c)?.time?.start).filter((y: any) => typeof y === 'number'); return ys.length ? Math.min(...ys) : null; });
+  const firstY = secYear.find((y) => y != null) ?? null;
+  const eras = secYear.map((y0) => {
+    const y = y0 ?? firstY;
+    if (y == null) return null;
+    const best = snaps.reduce((a, b) => (Math.abs(b.year - y) < Math.abs(a.year - y) ? b : a));
+    return { y: best.year, file: best.file };
+  });
+  return { box: box.map((v) => Math.round(v * 100) / 100), land, rivers, lakes, labels, routes: rs, eras };
 }
 
 /** 全世界粗略陸地（1:110m），故事範圍外的背景；所有故事共用 public/data/stories/world-110m.json */

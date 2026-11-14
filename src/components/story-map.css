@@ -80,13 +80,16 @@
 
 /* 寬螢幕下拉模式：右欄整欄是地圖；大標縮成地圖下方一排編號 */
 @media (min-width: 1000px) {
-  .sr-scroll .sr-wrap:has(.sr-side.has-map) { max-width: 1500px; grid-template-columns: minmax(0, calc(40 * var(--sr-fs))) clamp(400px, 42vw, 720px); column-gap: 28px; }
+  /* 文字欄在左邊區域裡置中（左右留白一樣），不要貼著左邊 */
+  .sr-scroll .sr-wrap:has(.sr-side.has-map) { max-width: 1560px; padding-left: 32px; padding-right: 20px; grid-template-columns: minmax(0, 1fr) clamp(380px, 38vw, 680px); column-gap: 40px; justify-content: stretch; }
+  .sr-scroll .sr-wrap:has(.sr-side.has-map) .sr-page { max-width: calc(40 * var(--sr-fs)); margin: 0 auto; }
   .sr-side.has-map { display: flex; flex-direction: column; overflow: hidden; height: calc(100vh - 78px); max-height: none; top: 12px; padding: 10px 10px 8px; }
   .sr-side.has-map .sr-side-map { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
   .sr-side.has-map .sr-side-map > .sm { flex: 1 1 auto; }
 }
 .sr-strip { flex: none; margin-top: 8px; padding-top: 8px; border-top: 1px solid #eee7d8; }
-.sr-strip-now { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: #26231f; line-height: 1.4; }
+.sr-strip-now { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: #26231f; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sr-side-map .sm-cap { min-height: 76px; }
 .sr-strip-now span { color: var(--story, #0f766e); margin-right: 6px; }
 .sr-strip ol { display: flex; flex-wrap: wrap; gap: 5px; margin: 0; padding: 0; list-style: none; }
 .sr-strip button { font: inherit; font-size: 14px; font-weight: 700; min-width: 34px; height: 34px; padding: 0 6px; border-radius: 17px; border: 1px solid var(--story-line, #b6e2dc); background: #fff; color: var(--story, #0f766e); cursor: pointer; font-variant-numeric: tabular-nums; }

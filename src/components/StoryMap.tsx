@@ -50,10 +50,9 @@ const LABEL_FS: Record<string, number> = { o: 13, r: 12.5, c: 12, v: 12.5 };
 export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onFocus, onSection, compact }: Props) {
   const [data, setData] = useState<StoryMapData | null>(null);
   const [failed, setFailed] = useState(false);
-  const [all, setAll] = useState(false);
   // 放大：整個畫面都是地圖（Esc 或「縮回」關掉）
   const [big, setBig] = useState(false);
-  // 讀者自己拖曳、縮放過；換節或按「回到這一節」就回到自動
+  // ⌖ 按一次加一，地圖回到整篇故事的範圍
   const [reset, setReset] = useState(0);
   const dragged = useRef(false);
   const box = useRef<HTMLDivElement>(null);
@@ -69,7 +68,6 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
     setSize({ w: el.clientWidth, h: el.clientHeight });
     return () => ro.disconnect();
   }, []);
-  useEffect(() => { setAll(false); }, [sec]);
   useEffect(() => {
     if (!big) return;
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { e.stopPropagation(); setBig(false); } };
@@ -78,31 +76,39 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
   }, [big]);
 
   const secPlaces = useMemo(() => places.map((p, i) => (p.secs.includes(sec) ? i : -1)).filter((i) => i >= 0), [places, sec]);
-  // 目標畫面：這一節（加上讀者點的地點）或全篇
-  const target = useMemo(() => {
-    const ids = all || !secPlaces.length ? places.map((_, i) => i) : [...secPlaces, ...(focus != null && !secPlaces.includes(focus) ? [focus] : [])];
-    return fit(ids.map((i) => [places[i].lat, places[i].lng]), size.w, size.h, 0.14);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [all, secPlaces, places, focus, size, reset]);
-
-  // 換節時地圖平滑移過去（約 0.45 秒）；不喜歡動畫的人直接跳
-  const [view, setView] = useState<View>(target);
+  // 地圖畫面固定（ZL 2026-11-14）：一開始放進整篇故事的所有地點，換節時畫面不動，只有點的顏色變；
+  // 要移動、縮放由讀者自己來（拖曳、滾輪、兩指、＋－），⌖ 回到整篇的範圍
+  const [view, setView] = useState<View>({ cx: 128, cy: 100, k: 1 });
   const cur = useRef(view); cur.current = view;
-  const first = useRef(true);
-  useEffect(() => {
-    if (size.w <= 0) return;
+  const fitted = useRef(false);
+  const animTo = (b: View) => {
     const reduce = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (first.current || reduce) { first.current = false; setView(target); return; }
-    const a = cur.current, b = target, t0 = performance.now();
-    let raf = 0;
+    if (reduce) { setView(b); return; }
+    const a = cur.current, t0 = performance.now();
     const step = (now: number) => {
-      const t = Math.min(1, (now - t0) / 450), e = 1 - (1 - t) ** 3;
+      const t = Math.min(1, (now - t0) / 400), e = 1 - (1 - t) ** 3;
       setView({ cx: a.cx + (b.cx - a.cx) * e, cy: a.cy + (b.cy - a.cy) * e, k: Math.exp(Math.log(a.k) + (Math.log(b.k) - Math.log(a.k)) * e) });
-      if (t < 1) raf = requestAnimationFrame(step);
+      if (t < 1) requestAnimationFrame(step);
     };
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [target, size.w]);
+    requestAnimationFrame(step);
+  };
+  const whole = () => fit(places.map((p) => [p.lat, p.lng]), size.w, size.h, 0.08);
+  useEffect(() => { if (size.w > 0 && !fitted.current) { fitted.current = true; setView(whole()); } }, [size.w]); // eslint-disable-line react-hooks/exhaustive-deps
+  // 地圖框變大變小（下方說明行數不同、放大成全螢幕）時，左上角固定，地圖內容不跟著跑
+  const prevSize = useRef(size);
+  useEffect(() => {
+    const a = prevSize.current; prevSize.current = size;
+    if (!fitted.current || a.w <= 0 || (a.w === size.w && a.h === size.h)) return;
+    setView((v) => ({ ...v, cx: v.cx + (size.w - a.w) / 2 / v.k, cy: v.cy + (size.h - a.h) / 2 / v.k }));
+  }, [size]);
+  useEffect(() => { if (reset && size.w > 0) animTo(whole()); }, [reset]); // eslint-disable-line react-hooks/exhaustive-deps
+  // 讀者點了某個地點（內文地名或清單），而那個點不在畫面裡：只平移把它帶進來，不改縮放
+  useEffect(() => {
+    if (focus == null || size.w <= 0) return;
+    const p = places[focus]; if (!p) return;
+    const v = cur.current, x = (X(p.lng) - v.cx) * v.k + size.w / 2, y = (Y(p.lat) - v.cy) * v.k + size.h / 2, m = 40;
+    if (x < m || y < m || x > size.w - m || y > size.h - m) animTo({ ...v, cx: X(p.lng), cy: Y(p.lat) });
+  }, [focus]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const { w, h } = size;
   const sx = (lng: number) => (X(lng) - view.cx) * view.k + w / 2;
@@ -238,13 +244,12 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
         {!data && !failed && <p className="sm-msg">地圖載入中…</p>}
         {failed && <p className="sm-msg">地圖載入失敗。<button className="link" onClick={() => { setFailed(false); loadMap(doc.id).then(setData).catch(() => setFailed(true)); }}>重試</button></p>}
         <div className="sm-tools">
-          <button className="sm-zoom" onClick={() => setAll((v) => !v)} aria-pressed={all} title={all ? '回到這一節的地點' : '看整篇故事走過的地方'}>{all ? '看這一節' : '看全篇'}</button>
           <button className="sm-zoom big" onClick={() => setBig((v) => !v)} aria-pressed={big}>{big ? '✕ 縮回' : '⛶ 放大'}</button>
         </div>
         <div className="sm-pm" role="group" aria-label="縮放地圖">
           <button onClick={() => zoomAt(1.6)} aria-label="放大一點">＋</button>
           <button onClick={() => zoomAt(1 / 1.6)} aria-label="縮小一點">－</button>
-          <button onClick={() => setReset((n) => n + 1)} aria-label="回到這一節的範圍" title="回到這一節的範圍">⌖</button>
+          <button onClick={() => setReset((n) => n + 1)} aria-label="回到整篇故事的範圍" title="回到整篇故事的範圍">⌖</button>
         </div>
       </div>
       <div className="sm-cap" aria-live="polite">
@@ -252,7 +257,7 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
           <div className="sm-focus">
             <b>📍 {shortName(fp)}</b>{fp.m && <span className="sm-today">今天：{fp.m}</span>}{fp.ap && <span className="sm-ap">位置為示意</span>}
             <ul>{fp.roles.slice(0, 3).map((r, j) => { const c = byId.get(r.card); return <li key={j}>{r.role}{c && <small>（{c.name}，{fmtRange(c.time.start, c.time.end)}）</small>}</li>; })}</ul>
-            <button className="link" onClick={() => onFocus(null)}>回到這一節</button>
+            <button className="link" onClick={() => onFocus(null)}>看這一節的地點</button>
           </div>
         ) : secPlaces.length ? (
           <div className="sm-list"><span>第 {sec + 1} 節的地點</span>{secPlaces.map((i) => <button key={i} className={hotSet.has(i) ? 'hot' : ''} onClick={() => onFocus(i)} title={places[i].m ? `今天：${places[i].m}` : undefined}>{shortName(places[i])}</button>)}</div>

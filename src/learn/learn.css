@@ -304,3 +304,12 @@
 .res-missing, .res-writes { margin: 12px 0; } .res-missing ul { padding-left: 1.2em; } .res-missing .link { min-height: 36px; text-align: left; }
 .unit-result .rec-a p { white-space: pre-wrap; }
 @media (max-width: 768px) { .unit .step-nav .btn.primary { max-width: none; } }
+
+/* 2026-11-15 第 3 批（老師用）：複製連結選單、封面的列印按鈕、結果畫面的時間格 */
+.copy-menu { position: relative; display: inline-block; }
+.copy-pop { position: absolute; right: 0; top: calc(100% + 4px); z-index: 20; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 6px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 4px 14px rgba(0, 0, 0, .15); min-width: 12em; }
+.copy-pop .btn { text-align: left; white-space: nowrap; }
+.learn.mobile .copy-pop { left: 0; right: auto; }
+.cover-print { margin: 10px 0 0; display: flex; gap: 8px; flex-wrap: wrap; } .cover-print a.btn { text-decoration: none; display: inline-block; }
+.stat-tiles b.time-tile { font-size: 1.15em; }
+.learn.plain { height: 100vh; } .learn.plain .lplain { flex: 1; min-height: 0; overflow-y: auto; padding: 14px 28px 60px; border: 0; }

@@ -1,0 +1,102 @@
+/* 學習單、匯出作答、老師檢視、學習紀錄的新區塊（2026-11-15 第 3 批）。列印用 A4 */
+@page { size: A4; margin: 14mm; }
+.print-only { display: none; }
+.ok { color: #276749; } .no { color: #c53030; }
+.privacy { background: #f0fff4; border: 1px solid #9ae6b4; border-radius: 8px; padding: 8px 12px; font-size: .9em; line-height: 1.7; }
+.warn { color: #c05621; font-weight: 600; }
+.code-box { width: 100%; box-sizing: border-box; font: 12px/1.4 ui-monospace, Menlo, Consolas, monospace; word-break: break-all; border: 1px solid var(--line); border-radius: 8px; padding: 8px; }
+.t-errors { color: #c53030; font-size: .92em; line-height: 1.7; padding-left: 1.2em; }
+.profile-fields { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 8px 0; }
+.profile-fields label { display: flex; align-items: center; gap: 6px; font-size: .95em; }
+.profile-fields input { width: 9em; padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; font: inherit; }
+.profile-fields label:nth-child(3) input { width: 5em; }
+.profile-line { font-size: 1.05em; } .profile-line u { text-decoration: underline; text-underline-offset: 3px; }
+.rec-all { display: block; margin: 4px 0 8px; font-size: .92em; }
+.rec-lesson { margin: 6px 0; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; background: #fff; }
+.rec-lesson > summary { cursor: pointer; }
+.rec-choices ul { margin: 2px 0; padding-left: 1.2em; font-size: .92em; }
+.reflect-sec { margin: 8px 0; background: #fffbea; border: 1px dashed #d69e2e; border-radius: 8px; padding: 4px 10px; }
+.reflect-sec > summary { cursor: pointer; }
+.backup { margin-top: 24px; border-top: 2px solid var(--line); padding-top: 4px; }
+.backup h4 { margin: 16px 0 4px; }
+.restore-plan { background: #ebf8ff; border: 1px solid #90cdf4; border-radius: 8px; padding: 8px 14px; margin: 8px 0; }
+.restore-plan ul { margin: 4px 0 8px; padding-left: 1.2em; line-height: 1.8; }
+.notme-in { display: block; margin: 8px 0; } .notme-in input { margin-left: 6px; padding: 4px 8px; width: 7em; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* 匯出這一課的作答 */
+.exp { max-width: 820px; }
+.exp-check { display: block; margin: 8px 0; }
+.exp-share { background: #f7fafc; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 10px 0; }
+.exp-sheet { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 14px 0; }
+.exp-rows { padding-left: 0; list-style: none; margin: 8px 0; }
+.exp-row { border-top: 1px solid #e2e8f0; padding: 6px 0; break-inside: avoid; }
+.exp-row p { margin: 2px 0; line-height: 1.7; } .exp-h { font-size: .92em; } .exp-q { color: #4a5568; font-size: .92em; }
+.exp-text { white-space: pre-wrap; background: #f7fafc; border-left: 3px solid #cbd5e0; padding: 4px 10px; }
+.exp-none { opacity: .6; }
+
+/* 學習單／解答 */
+.ws { max-width: 794px; margin: 0 auto; }
+.ws-bar { margin-bottom: 10px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.ws-head, .ws-step { background: #fff; }
+.ws-head { border-bottom: 2px solid #1a202c; padding-bottom: 8px; margin-bottom: 6px; }
+.ws-head h2 { margin: 2px 0; font-size: 1.5em; }
+.ws-site { margin: 0; color: #4a5568; font-size: .9em; } .ws-tag { background: #1a202c; color: #fff; padding: 1px 8px; border-radius: 4px; }
+.ws-who { font-size: 1.05em; line-height: 2.2; margin: 6px 0; }
+.ws-mystery { font-size: 1.15em; font-weight: 700; margin: 6px 0; }
+.ws-goals { margin: 2px 0 6px; padding-left: 1.3em; } .ws-goals-h { margin: 4px 0 0; }
+.ws-url { word-break: break-all; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .92em; }
+.ws-step { margin: 14px 0; } .ws-step h3 { margin: 0 0 6px; font-size: 1.05em; background: #edf2f7; padding: 3px 8px; border-radius: 4px; }
+.ws-q { margin: 8px 0 12px; break-inside: avoid; } .ws-q p { margin: 3px 0; line-height: 1.75; }
+.ws-opts { margin: 2px 0 2px 1.6em; padding: 0; list-style-type: upper-alpha; } .ws-opt { margin: 2px 0; line-height: 1.7; }
+.ws-chain { margin: 2px 0; padding: 0; list-style: none; } .ws-chain li { margin: 3px 0; line-height: 1.7; } .ws-num { font-weight: 700; }
+.ws-seq { letter-spacing: .05em; }
+.ws-lines { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(2.1em - 1px), #718096 calc(2.1em - 1px), #718096 2.1em); margin: 4px 0 2px; }
+.ws-src { margin: 6px 0; padding: 6px 12px; border-left: 4px solid #a0aec0; background: #f7fafc; line-height: 1.8; white-space: pre-wrap; } .ws-src cite { display: block; color: #4a5568; font-size: .9em; font-style: normal; }
+.ws-read { background: #fffbea; border: 1px dashed #d69e2e; padding: 4px 10px; border-radius: 6px; line-height: 1.7; }
+.ws-situation { white-space: pre-wrap; }
+.ws-table { border-collapse: collapse; width: 100%; font-size: .92em; margin: 6px 0; } .ws-table th, .ws-table td { border: 1px solid #4a5568; padding: 6px 8px; vertical-align: top; text-align: left; } .ws-table thead th { background: #edf2f7; } .ws-table tbody th { width: 6em; background: #f7fafc; }
+.ws-key { border: 1.5px solid #c53030; background: #fff5f5; border-radius: 6px; padding: 4px 10px; margin: 4px 0; font-size: .95em; } .ws-key > b { color: #c53030; margin-right: 8px; } .ws-key p { display: inline-block; margin: 2px 0; } .ws-key ul, .ws-key ol { margin: 2px 0; }
+.ws-key > p { display: block; }
+.ws-right { font-weight: 700; color: #9b2c2c; }
+.ws-answers .ws-opt.ws-right { background: #fed7d7; }
+.ws-foot { text-align: center; margin-top: 16px; word-break: break-all; }
+
+/* 老師檢視 */
+.teacher { max-width: 1200px; }
+.t-label { display: block; font-weight: 600; margin: 8px 0 4px; }
+.t-lesson { margin: 22px 0; }
+.t-table { border-collapse: collapse; font-size: .9em; min-width: 100%; }
+.t-table th, .t-table td { border: 1px solid var(--line); padding: 5px 8px; text-align: center; vertical-align: top; }
+.t-table thead th { background: #f7fafc; font-weight: 600; min-width: 5.5em; max-width: 9em; font-size: .88em; line-height: 1.4; }
+.t-table thead th:nth-child(-n+4), .t-table tbody td:nth-child(-n+4) { text-align: left; white-space: nowrap; }
+.t-table tfoot th, .t-table tfoot td { background: #f7fafc; font-size: .88em; }
+.t-table td small { margin-left: 2px; color: #718096; }
+.t-table td b { font-size: 1.1em; }
+.t-low { background: #fff5f5 !important; color: #c53030; font-weight: 700; }
+.t-lowline { background: #fff5f5; border: 1px solid #feb2b2; border-radius: 8px; padding: 6px 12px; } .t-lowline span { display: block; }
+.t-open summary { cursor: pointer; color: #2b6cb0; white-space: nowrap; }
+.t-text { text-align: left; white-space: pre-wrap; min-width: 14em; max-width: 22em; padding: 4px 0; }
+.t-class details { margin: 6px 0; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; background: #fff; } .t-class summary { cursor: pointer; }
+
+
+@media (max-width: 640px) {
+  .profile-fields input { width: 7.5em; }
+  .exp-sheet { padding: 10px; }
+}
+
+@media print {
+  html, body, .learn, .lcontent, .lplain { background: #fff !important; }
+  .learn.plain { height: auto !important; } .lplain { padding: 0 !important; }
+  .print-only { display: block !important; }
+  .rec-lesson { border: 0 !important; padding: 0 !important; }
+  .rec-lesson > summary { font-weight: 700; }
+  .reflect-sec, .backup, .rec-all, .profile-fields { display: none !important; }
+  .exp-sheet { border: 0; padding: 0; margin: 0; }
+  .ws, .exp, .teacher { max-width: none; font-size: 11pt; color: #000; }
+  .ws-step { break-inside: auto; } .ws-step h3 { break-after: avoid; background: #edf2f7 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .ws-lines, .ws-key, .ws-answers .ws-opt.ws-right, .ws-src, .t-low { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .t-lesson { break-inside: avoid-page; } .t-table { font-size: 9pt; }
+  .t-text { max-width: none; }
+  .table-scroll { overflow: visible !important; }
+}

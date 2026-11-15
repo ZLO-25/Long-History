@@ -3,6 +3,8 @@ import type { Index, Step, Unit } from '../types';
 import type { UnitProgress } from './progress';
 import { LEVELS, unitLevel, unitStat, writingsOf } from './level';
 import { intent } from '../lib/detail';
+import { LLink } from './nav';
+import { fmtTime } from './report';
 
 export function UnitResult({ u, prog, index, stepName, onGo, onUnit, onBack, nextLesson, diveTitle, lessonNo, lessonCount }: {
   u: Unit; prog: UnitProgress | undefined; index: Index; stepName: (x: Step) => string;
@@ -25,6 +27,7 @@ export function UnitResult({ u, prog, index, stepName, onGo, onUnit, onBack, nex
         <div><b>{st.answered}<small>／{st.total}</small></b><span>實際作答的互動</span></div>
         {st.recTotal > 0 && <div><b>{st.first}<small>／{st.recTotal}</small></b><span>選擇與排序題：第一次答對</span></div>}
         {st.recTotal > 0 && <div><b>{st.last}<small>／{st.recTotal}</small></b><span>最後答對</span></div>}
+        <div><b className="time-tile">{fmtTime(prog?.time)}</b><span>作答停留時間</span></div>
         {st.gradeTotal > 0 && <div><b>{st.gradeLast}<small>／{st.gradeTotal}</small></b><span>自我檢查（最近一次）</span></div>}
       </div>
       {lv === 'done' && <p className="muted small">再把自我檢查答錯的題目重做一次，最近一次答對到八成，就是「學會」。</p>}
@@ -41,6 +44,7 @@ export function UnitResult({ u, prog, index, stepName, onGo, onUnit, onBack, nex
           {reflect && <div className="rec-a"><p className="muted small">回到自己</p><p>{reflect}</p></div>}
         </div>
       )}
+      <p className="no-print"><LLink className="btn" q={{ view: 'export', unit: u.id }} title="可以列印、複製文字，或產生分享碼給老師">📤 匯出這一課的作答</LLink></p>
       {nextLesson && diveTitle && <p className="ud-recap-next"><b>{diveTitle}專題</b>的下一課：<button className="btn primary" onClick={() => onUnit(nextLesson.id)} {...intent('unit', nextLesson.id)}>第 {lessonNo + 2}／{lessonCount} 課《{nextLesson.title}》 →</button></p>}
       {nexts.length > 0 && <>
         <h4>下一課，接著挖</h4>

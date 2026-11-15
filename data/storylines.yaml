@@ -8,6 +8,8 @@ storylines:
     question: 從 1624 年到 1920 年代，臺灣先後由荷蘭（北部還有西班牙）、鄭氏、清朝、日本統治。每一次換手，是上一次留下了什麼？
     blurb: 這條線看臺灣怎麼被捲進大航海、改朝換代和帝國擴張；每一站都是上一站的結果。
     stops: [event-dutch-formosa, event-koxinga-taiwan, event-qing-taiwan-frontier, event-mudan-incident, event-1895-cession, event-taiwan-cultural-association]
+    level: 國中
+    curriculum: ["歷 Bb-IV-1", "歷 Ca-IV-1", "歷 Ea-IV-1"]
 
 
   - id: story-postwar-taiwan
@@ -15,6 +17,8 @@ storylines:
     question: 1945 年戰爭結束，臺灣換了政府，為什麼短短幾年就走到二二八和長達 38 年的戒嚴？這個戒嚴體制後來又是怎麼走到 2000 年的政黨輪替？
     blurb: 這條線從錢開始：大陸的內戰與通膨傳到臺灣，經濟的苦變成政治的衝突，再變成長期的管制；最後看管制怎麼鬆開。
     stops: [war-chinese-civil-war, finance-gold-yuan-1948, finance-taiwan-1949-currency, event-228-incident, event-taiwan-martial-law, event-taiwan-2000-transition]
+    level: 國中
+    curriculum: ["歷 Fa-IV-1", "歷 Fa-IV-2", "歷 Fb-IV-1"]
 
 
   - id: story-chip
@@ -22,6 +26,8 @@ storylines:
     question: 晶片不是從地底挖出來的資源。一座當年自認「沒有什麼優勢」的島，為什麼會變成全世界最重要的晶片產地，還被捲進美中貿易戰？
     blurb: 這條線看一連串的產業政策怎麼一步接一步：先做加工，再建園區，最後長出半導體。
     stops: [event-kaohsiung-epz, event-hsinchu-park-tsmc, commodity-taiwan-semiconductor, event-us-china-trade-war]
+    level: 皆可
+    curriculum: ["歷 Fb-IV-1"]
 
 
   - id: story-qin-han
@@ -29,6 +35,8 @@ storylines:
     question: 戰國七個國家打了兩百多年，為什麼最後贏的是秦？秦統一後又為什麼只撐了十五年，就換成了漢？
     blurb: 這條線看一個國家怎麼靠改革變強、靠戰爭統一，又怎麼因為統治太急而倒下；接手的漢朝嘴上和秦劃清界線，實際上接收了秦的大半制度。
     stops: [event-partition-of-jin, event-shang-yang-reform, war-changping, event-qin-unification, event-chen-sheng-wu-guang, war-chu-han, event-han-inherits-qin]
+    level: 國中
+    curriculum: ["歷 Ha-IV-1"]
 
 
   - id: story-han-to-sui
@@ -36,6 +44,8 @@ storylines:
     question: 東漢末年皇帝身邊的宦官和讀書人吵起來，怎麼會一路吵到天下分成三國、南北對峙近三百年？最後把中國重新接起來的，又是什麼？
     blurb: 這條線看一個朝廷怎麼先失去士人、再失去地方，分裂之後南方被開發起來；重新統一的隋朝則用一條運河把南北綁在一起。
     stops: [event-eunuchs-partisan, event-yellow-turban, event-three-kingdoms, event-northern-southern, event-sui-unification, building-grand-canal, event-economic-center-south]
+    level: 國中
+    curriculum: ["歷 Ha-IV-1"]
 
 
   - id: story-silver
@@ -43,6 +53,8 @@ storylines:
     question: 明朝的紙鈔失敗了，為什麼最後朝廷改收白銀當稅？這些白銀又是從哪裡來的？
     blurb: 這條線橫跨中國、日本和美洲：一個國家的貨幣問題，牽動了地球另一邊的礦山和航線。
     stops: [finance-ming-baochao, commodity-iwami-silver, commodity-silver-flow, event-single-whip-reform]
+    level: 高中
+    curriculum: ["歷 Ia-IV-2"]
 
 
   - id: story-western-impact
@@ -50,6 +62,8 @@ storylines:
     question: 英國的一台抽水機器，怎麼會在一百多年後讓清朝打了敗仗？戰敗之後，中國為什麼先學技術、再改制度，最後連皇帝都沒了？
     blurb: 這條線從工業革命的技術走到中國的政治變革：看外來的衝擊怎麼一層層往裡推，從武器、工廠到政治制度。
     stops: [tech-steam-engine, war-opium-war, event-self-strengthening, war-first-sino-japanese, event-xinhai-revolution]
+    level: 國中
+    curriculum: ["歷 Ib-IV-1", "歷 Ib-IV-2", "歷 Ka-IV-1"]
 
 
   - id: story-japan
@@ -57,6 +71,8 @@ storylines:
     question: 一個關起門兩百年的國家，怎麼在幾十年內變成列強，最後發動戰爭、要臺灣人改成日本名字？
     blurb: 這條線看日本怎麼回應外來壓力：先關門，再被迫開門，然後學西方、向外擴張；每打贏一場仗，就往下一場仗走近一步。
     stops: [event-toyotomi-unification, event-sakoku, event-black-ships, event-meiji-restoration, war-first-sino-japanese, war-russo-japanese, war-mukden-incident, war-sino-japanese-1937, event-taiwan-kominka]
+    level: 國中
+    curriculum: ["歷 Ib-IV-2", "歷 Kb-IV-2"]
 
 
   - id: story-greece
@@ -64,6 +80,8 @@ storylines:
     question: 一座銀礦的收入，怎麼幫雅典打贏波斯、變成霸主，最後又為什麼走到審判蘇格拉底？
     blurb: 這條線從「錢」開始，看財富怎麼變成海軍、變成霸權，最後在戰爭裡把城邦拖垮。
     stops: [finance-lydian-coinage, commodity-laurion-silver, war-greco-persian, war-peloponnesian, event-death-of-socrates]
+    level: 高中
+    curriculum: []
 
 
   - id: story-rome-empire
@@ -71,6 +89,8 @@ storylines:
     question: 羅馬的共和有法律限制軍隊進入首都，為什麼最後還是出現了一個人說了算的皇帝？軍隊、內戰和「和平」之間有什麼關係？
     blurb: 這條線看共和怎麼一步步被手握軍隊的強人掏空：每一次內戰都把權力集中到更少的人手上，最後剩下一個人。
     stops: [event-rubicon, event-second-triumvirate, war-actium, event-augustan-principate, event-pax-romana]
+    level: 皆可
+    curriculum: []
 
 
   - id: story-print-to-war
@@ -78,6 +98,8 @@ storylines:
     question: 中國發明的造紙術傳到歐洲之後，怎麼會在幾百年後讓路德的文章傳遍德意志，最後引發一場死了幾百萬人的戰爭？
     blurb: 這條線看一項技術怎麼改變「誰能說話、誰聽得到」：訊息傳得快，爭論就停不下來；教會的回應又把對立推向戰場。
     stops: [tech-paper, tech-printing-press, event-reformation, event-counter-reformation, war-thirty-years]
+    level: 高中
+    curriculum: []
 
 
   - id: story-finance-center
@@ -85,6 +107,8 @@ storylines:
     question: 為什麼全世界的錢先集中在阿姆斯特丹，後來是倫敦，最後是紐約？
     blurb: 這條線看戰爭、制度和貨幣規則怎麼讓「錢的中心」一再搬家，一直到今天美元的地位。
     stops: [finance-amsterdam-decline, finance-london-rise, finance-gold-standard, finance-new-york-overtakes-london, finance-bretton-woods, finance-petrodollar]
+    level: 高中
+    curriculum: []
 
 
   - id: story-america
@@ -92,6 +116,8 @@ storylines:
     question: 一份八百年前英國國王簽下的文件，和今天美國成為超級強權，中間是怎麼一步步接起來的？
     blurb: 這條線跨越英國和美國：「國王也要守法」的想法，怎麼變成殖民地的自治、獨立、憲法，再經過內戰與工業化走上世界舞台。
     stops: [event-magna-carta, event-thirteen-colonies, war-american-revolution, event-us-constitution, war-american-civil-war, event-gilded-age-industrialization, war-spanish-american, event-american-century]
+    level: 高中
+    curriculum: []
 
 
   - id: story-cold-war
@@ -99,6 +125,8 @@ storylines:
     question: 二次大戰才剛結束，美國為什麼又在朝鮮、越南打起仗來？打了二十年之後，又為什麼轉身和中國握手？
     blurb: 這條線看「圍堵」的想法怎麼一步步把美國帶進亞洲的戰爭，又怎麼在越戰之後轉了彎。
     stops: [war-world-war-two, event-containment-nato, war-korean-war, war-vietnam-war, event-nixon-china]
+    level: 皆可
+    curriculum: ["歷 Lb-IV-1"]
 
 
   - id: story-vietnam-china
@@ -106,6 +134,8 @@ storylines:
     question: 越南被中國王朝統治了一千年，自主之後又三次打退北方大軍，為什麼還是年年派使者去朝貢，連國名「越南」都是清朝定的？
     blurb: 這條線看越南怎麼一邊學中國的字和制度、一邊在戰場上擋住北方；每一站打完仗，都回到「對外稱臣、對內稱帝」的老辦法。
     stops: [event-vietnam-northern-rule, war-bach-dang-938, war-song-dai-viet-1075, war-yuan-dai-viet, war-ming-dai-viet, event-nguyen-dynasty-vietnam-name]
+    level: 高中
+    curriculum: []
 
 
   - id: story-vietnam-modern
@@ -113,6 +143,8 @@ storylines:
     question: 一個靠朝貢和中國打交道的王朝，怎麼在一百多年裡先被法國吞下，又打了三場大仗，最後變成你身上球鞋的產地？
     blurb: 這條線從阮朝開始，看外國勢力一個換過一個：法國、日本、美國、中國；每一場仗都是上一場留下的問題。
     stops: [event-nguyen-dynasty-vietnam-name, event-french-indochina, social-french-indochina-economy, event-vietnam-anticolonial, event-vietnam-1945, war-first-indochina, war-vietnam-war, war-sino-vietnamese-1979, event-doi-moi]
+    level: 高中
+    curriculum: []
 
 
   # 印度化的東南亞（2026-11-10，深入專題 data/dives/indosphere.yaml）
@@ -121,18 +153,24 @@ storylines:
     question: 湄公河口先有一個靠海港興起的王國，後來這片土地上怎麼出現蓋出吳哥窟、統治大半個中南半島的帝國？這個帝國又為什麼放棄了那座石頭城？
     blurb: 這條線從印度文化坐船來到湄公河口開始，看高棉人的國家怎麼一次次換主人、換都城、換信仰；每一站都接手了上一站留下的土地和傳統。
     stops: [event-indianization-sea, event-funan, event-chenla, event-khmer-empire, war-cham-khmer-1177, social-angkor-zhou-daguan, event-angkor-decline]
+    level: 高中
+    curriculum: []
 
   - id: story-champa
     title: 占婆去哪裡了？越南的南進
     question: 一千年前，越南中部是另一個拜濕婆神、說南島語的國家。它是怎麼一步步從地圖上消失，越南又是怎麼變成今天長長的 S 形？
     blurb: 這條線從越南的「北方」轉到「南方」：同一個越南，對北方是抵抗者，對南方卻是擴張者。讀的時候，試著輪流站在越南人、占族人和高棉人的位置想。
     stops: [event-vietnam-northern-rule, event-champa, war-nam-tien-champa, event-mekong-delta-vietnam, event-nguyen-dynasty-vietnam-name]
+    level: 高中
+    curriculum: []
 
   - id: story-india-sea
     title: 印度往東走：商船、佛法與海峽
     question: 印度沒有派兵，為什麼東南亞會拜印度神、寫印度字？少見的一次印度王朝渡海出兵，又是為了什麼？
     blurb: 這條線看印度的宗教和文字怎麼坐著商船往東傳；最後一站提醒你，和平的文化交流背後，也有搶奪海上貿易的衝突。
     stops: [event-maurya-empire, event-indianization-sea, event-srivijaya, war-chola-srivijaya-1025]
+    level: 高中
+    curriculum: []
 
   # 深入專題「日本戰國」的主線（data/dives/sengoku.yaml）
   - id: story-sengoku
@@ -140,6 +178,8 @@ storylines:
     question: 將軍還在、卻管不動各地的日本，怎麼打了一百多年？信長、秀吉、家康各自接手了什麼局面、做了什麼選擇，最後換來的太平，為什麼伴隨著禁教與對外管制？
     blurb: 這條線沿著「誰接手了上一個人留下的局面」走：每一站的勝利都替下一站鋪路，也留下下一站要解決的問題；但三位天下人並不是同一條路上的接棒者，秀吉擁立信長幼孫、實際接手了織田家的勢力，家康則消滅了豐臣家。
     stops: [war-onin, war-okehazama, war-nagashino, event-honnoji-incident, event-toyotomi-unification, war-sekigahara, war-osaka-sieges, event-buke-shohatto-sankin, war-shimabara, event-sakoku]
+    level: 皆可
+    curriculum: ["歷 Ia-IV-1"]
 
 
   # 深入專題「三國」的主線（data/dives/three-kingdoms.yaml）
@@ -148,6 +188,8 @@ storylines:
     question: 一個統治了四百年的漢朝，怎麼在三十多年裡垮成好幾塊？三家爭了幾十年，為什麼最後得天下的不是曹、劉、孫任何一家，而是司馬家？
     blurb: 這條線沿著「上一場亂局留下了什麼」走：每一站的勝負，都替下一站畫好了棋盤；看到最後，會發現決定結局的常常不是戰場，而是朝廷裡的權力。
     stops: [event-eunuchs-partisan, event-yellow-turban, event-dong-zhuo-luoyang, war-guandu, war-red-cliffs, war-yiling, war-zhuge-northern-expeditions, event-gaopingling-incident, event-three-kingdoms]
+    level: 國中
+    curriculum: ["歷 Ha-IV-1"]
 
   # 深入專題「法國大革命」的主線（data/dives/french-revolution.yaml）
   - id: story-french-revolution
@@ -155,16 +197,22 @@ storylines:
     question: 一筆打仗欠下的債，怎麼一步步變成攻佔監獄、處決國王、恐怖統治，最後換來一位皇帝和一部到今天還在用的法典？
     blurb: 這條線沿著「上一步沒解決的問題」走：財政問題逼出三級會議，議會的主張逼出街頭行動，宣言寫下的原則又逼出「國王還能不能留」的問題；每一站都比上一站走得更遠，直到有人用軍隊把它停下來。
     stops: [war-american-revolution, finance-french-royal-debt, event-estates-general-1789, event-storming-bastille, event-declaration-rights-of-man, event-execution-louis-xvi, event-reign-of-terror, event-brumaire-coup, event-napoleonic-code]
+    level: 皆可
+    curriculum: []
   - id: story-japan-lost-decades
     title: 日本失落 30 年：從泡沫到結束負利率
     question: 一次匯率協議之後，日本怎麼吹出一個巨大的資產泡沫？（匯率協議要負多少責任，史家還在吵。）泡沫破了以後，銀行和日本銀行為什麼一路走到零利率、負利率，花了快四十年才回到「正常」？
     blurb: 這條線沿著「錢」走：日圓升值後，日本自己選擇的低利率吹出泡沫，泡沫破掉留下壞帳，壞帳拖垮銀行，銀行倒閉逼日本銀行把利率降到零，再到安倍經濟學的大規模寬鬆，最後 2024 年才結束負利率。每一站都是上一站留下的問題。
     stops: [finance-plaza-accord, finance-japan-bubble, finance-japan-lost-decade, finance-japan-banking-crisis-1997, finance-boj-zero-rate-qe, finance-abenomics, finance-japan-2024-negative-rate-end]
+    level: 高中
+    curriculum: []
   - id: story-cold-war-berlin
     title: 冷戰的前線：一座被切成兩半的城市
     question: 二戰後被四國分區占領的柏林，為什麼先被封鎖、再被一道牆切開，又在 1989 年一夜之間打開？這座城市的命運，怎麼跟整個冷戰綁在一起？
     blurb: 這條線跟著柏林走：戰後歐洲重建的錢（馬歇爾計畫）讓東西兩邊越走越遠，蘇聯封鎖西柏林，西方用飛機運補撐了快一年；十多年後東德築起圍牆擋住逃亡潮；到了 1989 年，東歐各國的共產政權接連鬆動，圍牆也在這一年打開，冷戰走到終點。
     stops: [war-world-war-two, event-marshall-plan, event-berlin-blockade-1948, event-berlin-wall-1961, event-end-of-cold-war]
+    level: 皆可
+    curriculum: []
 
   # 深入專題「古希臘」的主線（data/dives/greece.yaml）；與既有 story-greece（錢的角度）並列
   - id: story-ancient-greece
@@ -172,6 +220,8 @@ storylines:
     question: 幾百個吵個不停的小城邦，怎麼長出「人民自己管自己」的制度？這個實驗為什麼在贏了波斯之後，反而一路走到自己人打自己人，最後被馬其頓和羅馬收走？
     blurb: 這條線沿著「上一步留下的問題」走：城邦的債務與階級衝突逼出改革，改革撐起了能打贏波斯的公民，勝利又讓雅典變成帝國，帝國引來戰爭，戰爭之後是審判、是新的強權；每一站都比上一站離「人民自己管自己」更遠一點，也更近下一個主人。
     stops: [event-greek-polis-colonization, event-solon-reform, event-cleisthenes-reform, war-greco-persian, event-delian-league, social-athenian-democracy, war-peloponnesian, event-macedon-rise, event-alexander-campaign, event-hellenistic-kingdoms, war-roman-conquest-greece]
+    level: 皆可
+    curriculum: []
 
   # 深入專題「古羅馬」的主線（data/dives/ancient-rome.yaml）；後半段接既有 story-rome-empire
   - id: story-ancient-rome
@@ -179,3 +229,5 @@ storylines:
     question: 羅馬人趕走國王、不想再讓一個人說了算，為什麼最後還是出現了皇帝？一個管了整個地中海的帝國，又是怎麼一步步守不住的？
     blurb: 這條線沿著「上一步留下的問題」走：共和的制度撐起了擴張，擴張帶來貧富差距與職業軍隊，軍隊讓將軍越來越大，最後剩下一個人；帝國盛世之後，危機、分治與信仰的改變，一步步把西半部推向終點。
     stops: [event-roman-republic-founding, event-conflict-of-orders, war-samnite, war-first-punic, war-second-punic, event-gracchi-reforms, event-marian-reforms-sulla, event-rubicon, event-augustan-principate, event-pax-romana, event-crisis-third-century, event-diocletian-tetrarchy, event-christian-empire, event-fall-western-rome]
+    level: 皆可
+    curriculum: []

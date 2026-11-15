@@ -1,0 +1,49 @@
+# 108 課綱社會領域「歷史」學習內容（僅收已取得原文者：國中主題 A–M；N–Q 與高中未能取得）
+source: "https://www.naer.edu.tw/upload/1/16/doc/819/十二年國民基本教育課程綱要國民中小學暨普通型高級中等校-社會領域.pdf"
+fetched: 2026-11-15
+items:
+  - { code: "歷 A-IV-1", stage: 國中, theme: "歷史的基礎觀念", text: "紀年與分期。" }
+  - { code: "歷 Ba-IV-1", stage: 國中, theme: "早期臺灣", text: "考古發掘與史前文化。" }
+  - { code: "歷 Ba-IV-2", stage: 國中, theme: "早期臺灣", text: "臺灣原住民族的遷徙與傳說。" }
+  - { code: "歷 Bb-IV-1", stage: 國中, theme: "早期臺灣", text: "十六、十七世紀東亞海域的各方勢力。" }
+  - { code: "歷 Bb-IV-2", stage: 國中, theme: "早期臺灣", text: "原住民族與外來者的接觸。" }
+  - { code: "歷 Ca-IV-1", stage: 國中, theme: "清帝國時期的臺灣", text: "清帝國的統治政策。" }
+  - { code: "歷 Ca-IV-2", stage: 國中, theme: "清帝國時期的臺灣", text: "農商業的發展。" }
+  - { code: "歷 Cb-IV-1", stage: 國中, theme: "清帝國時期的臺灣", text: "原住民族社會及其變化。" }
+  - { code: "歷 Cb-IV-2", stage: 國中, theme: "清帝國時期的臺灣", text: "漢人社會的活動。" }
+  - { code: "歷 D-IV-1", stage: 國中, theme: "歷史考察（一）", text: "地方史探究（一）。" }
+  - { code: "歷 D-IV-2", stage: 國中, theme: "歷史考察（一）", text: "從主題 B 或 C 挑選適當課題深入探究，或規劃與執行歷史踏查或展演。" }
+  - { code: "歷 Ea-IV-1", stage: 國中, theme: "日本帝國時期的臺灣", text: "殖民統治體制的建立。" }
+  - { code: "歷 Ea-IV-2", stage: 國中, theme: "日本帝國時期的臺灣", text: "基礎建設與產業政策。" }
+  - { code: "歷 Ea-IV-3", stage: 國中, theme: "日本帝國時期的臺灣", text: "「理蕃」政策與原住民族社會的對應。" }
+  - { code: "歷 Eb-IV-1", stage: 國中, theme: "日本帝國時期的臺灣", text: "現代教育與文化啟蒙運動。" }
+  - { code: "歷 Eb-IV-2", stage: 國中, theme: "日本帝國時期的臺灣", text: "都會文化的出現。" }
+  - { code: "歷 Eb-IV-3", stage: 國中, theme: "日本帝國時期的臺灣", text: "新舊文化的衝突與在地社會的調適。" }
+  - { code: "歷 Fa-IV-1", stage: 國中, theme: "當代臺灣", text: "中華民國統治體制的移入與轉變。" }
+  - { code: "歷 Fa-IV-2", stage: 國中, theme: "當代臺灣", text: "二二八事件與白色恐怖。" }
+  - { code: "歷 Fa-IV-3", stage: 國中, theme: "當代臺灣", text: "國家政策下的原住民族。" }
+  - { code: "歷 Fa-IV-4", stage: 國中, theme: "當代臺灣", text: "臺海兩岸關係與臺灣的國際處境。" }
+  - { code: "歷 Fb-IV-1", stage: 國中, theme: "當代臺灣", text: "經濟發展與社會轉型。" }
+  - { code: "歷 Fb-IV-2", stage: 國中, theme: "當代臺灣", text: "大眾文化的演變。" }
+  - { code: "歷 G-IV-1", stage: 國中, theme: "歷史考察（二）", text: "地方史探究（二）。" }
+  - { code: "歷 G-IV-2", stage: 國中, theme: "歷史考察（二）", text: "從主題 E 或 F 挑選適當課題深入探究，或規劃與執行歷史踏查或展演。" }
+  - { code: "歷 Ha-IV-1", stage: 國中, theme: "從古典到傳統時代", text: "商周至隋唐時期國家與社會的重要變遷。" }
+  - { code: "歷 Ha-IV-2", stage: 國中, theme: "從古典到傳統時代", text: "商周至隋唐時期民族與文化的互動。" }
+  - { code: "歷 Hb-IV-1", stage: 國中, theme: "從古典到傳統時代", text: "宋、元時期的國際互動。" }
+  - { code: "歷 Hb-IV-2", stage: 國中, theme: "從古典到傳統時代", text: "宋、元時期的商貿與文化交流。" }
+  - { code: "歷 Ia-IV-1", stage: 國中, theme: "從傳統到現代", text: "明、清時期東亞世界的變動。" }
+  - { code: "歷 Ia-IV-2", stage: 國中, theme: "從傳統到現代", text: "明、清時期東亞世界的商貿與文化交流。" }
+  - { code: "歷 Ib-IV-1", stage: 國中, theme: "從傳統到現代", text: "晚清時期的東西方接觸與衝突。" }
+  - { code: "歷 Ib-IV-2", stage: 國中, theme: "從傳統到現代", text: "甲午戰爭後的政治體制變革。" }
+  - { code: "歷 Ic-IV-1", stage: 國中, theme: "從傳統到現代", text: "城市風貌的改變與新媒體的出現。" }
+  - { code: "歷 Ic-IV-2", stage: 國中, theme: "從傳統到現代", text: "家族與婦女角色的轉變。" }
+  - { code: "歷 J-IV-1", stage: 國中, theme: "歷史考察（三）", text: "從主題 H 或 I 挑選適當課題深入探究，或規劃與執行歷史踏查或展演。" }
+  - { code: "歷 Ka-IV-1", stage: 國中, theme: "現代國家的興起", text: "中華民國的建立與早期發展。" }
+  - { code: "歷 Ka-IV-2", stage: 國中, theme: "現代國家的興起", text: "舊傳統與新思潮間的激盪。" }
+  - { code: "歷 Kb-IV-1", stage: 國中, theme: "現代國家的興起", text: "現代國家的建制與外交發展。" }
+  - { code: "歷 Kb-IV-2", stage: 國中, theme: "現代國家的興起", text: "日本帝國的對外擴張與衝擊。" }
+  - { code: "歷 La-IV-1", stage: 國中, theme: "當代東亞的局勢", text: "中華人民共和國的建立。" }
+  - { code: "歷 La-IV-2", stage: 國中, theme: "當代東亞的局勢", text: "改革開放後的政經發展。" }
+  - { code: "歷 Lb-IV-1", stage: 國中, theme: "當代東亞的局勢", text: "冷戰時期東亞國家間的競合。" }
+  - { code: "歷 Lb-IV-2", stage: 國中, theme: "當代東亞的局勢", text: "東南亞地區國際組織的發展與影響。" }
+  - { code: "歷 M-IV-1", stage: 國中, theme: "歷史考察（四）", text: "從主題 K 或 L 挑選適當課題深入探究，或規劃與執行歷史踏查或展演。" }

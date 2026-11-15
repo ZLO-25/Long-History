@@ -11,6 +11,8 @@ import { loadHistories, historyKeys, historyId, inferHistories, loadUnits, check
 import { loadDives, checkDives } from './lib/dives.ts';
 import { loadStories, checkStories } from './lib/stories.ts';
 import { checkCardShapes, checkUnitShapes } from './lib/shape.ts';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 
 const cards = loadCards();
 const tagVocab = loadTagVocab();
@@ -36,6 +38,15 @@ const issues = [
   ...checkToday(loadToday(), cards, new Set(tagVocab.flatMap((c: any) => c.tags.map((t: any) => t.tag))), new Set(routes.map((r: any) => r.id))),
   ...checkPeoples().map((i) => ({ ...i, file: 'data/peoples/' })),
 ];
+// 壞掉的字（不是合法 UTF-8）：畫面上會變成 ��。曾因用 sed 刪全形冒號只刪到一半而發生
+{
+  const walk = (d: string): string[] => readdirSync(d).flatMap((n) => { const p = join(d, n); return statSync(p).isDirectory() ? walk(p) : /\.(ya?ml|md)$/.test(n) ? [p] : []; });
+  for (const f of [...walk('cards'), ...walk('data')]) {
+    const line = readFileSync(f, 'utf8').split('\n').findIndex((l) => l.includes('\uFFFD'));
+    if (line >= 0) issues.push({ level: 'error', file: f, msg: `第 ${line + 1} 行有壞掉的字（不是合法 UTF-8）` });
+  }
+}
+
 // 文明寫法要能對應到 data/civilizations.yaml 的分類樹
 const civ = loadCivTaxonomy();
 for (const b of civ.badMap) issues.push({ level: 'error', file: 'data/civilizations.yaml', msg: `map 指向不存在的路徑：${b}` });

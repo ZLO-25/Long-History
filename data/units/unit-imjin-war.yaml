@@ -9,6 +9,8 @@ goals:
   - 能比較鳴梁海戰與薩拉米斯海戰，說出「以少勝多」的條件
   - 能從朝鮮、日本、中國三個角度說明同一場戰爭
 minutes: 30
+level: 皆可
+curriculum: ["歷 Ia-IV-1"]
 steps:
   - type: hook
     text: |

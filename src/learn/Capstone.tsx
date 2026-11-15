@@ -71,7 +71,7 @@ export function Capstone({ dive, index, p, update, onUnit }: { dive: Dive; index
         <button className="link small" onClick={() => save({ seen: true, skip: true })}>我真的想不出來</button>
       </div>}
       {seen && (
-        <div className="feedback model cap-model">
+        <div role="status" className="feedback model cap-model">
           {rec?.skip && !ok && <p className="muted">你按了「我真的想不出來」，這也沒關係。看完重點，試著補寫幾句自己的話。</p>}
           <div className="points">
             <p><b>對照一下：這幾個重點，你有寫到嗎？</b></p>

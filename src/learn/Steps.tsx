@@ -200,7 +200,7 @@ export function Order({ prompt, items, explain, hints, seed, after, rec, onRec }
         recRef.current = next; onRec?.(next); setAtt(att + 1); setChecked(true);
       }}>對答案</button><Hints hints={hints} /></div>}
       {checked && (
-        <div className={`feedback ${right === items.length ? 'ok' : 'no'}`} aria-live="polite">
+        <div role="status" className={`feedback ${right === items.length ? 'ok' : 'no'}`} aria-live="polite">
           {shownAns ? <><b>這題之前已經公布過答案，正確順序是：</b><p>{items.map((x, i) => `${i + 1}. ${x}`).join('　')}</p><p>{explain}</p>{after}</> : <>
           <b>{right === items.length ? '✔ 全部排對！' : `排對 ${right}／${items.length} 個（綠色的是對的）。`}</b>
           {right !== items.length && att < 2 && <p>先不公布順序。想一想：哪一個一定要先發生，後面的才會出現？調整紅色的格子，再對一次答案。</p>}
@@ -239,7 +239,7 @@ export function Short({ q, model, hints, after, saved, onSave, label = '看參�
         {!ok && <span className="muted small" aria-live="polite">{n ? `再寫 ${MIN_CHARS - n} 個字就能看` : `先寫至少 ${MIN_CHARS} 個字，才能看參考說法`}</span>}
         {hints && <Hints hints={hints} />}
       </div>}
-      {show && <div className="feedback model"><b>參考說法</b><p>{model}</p>
+      {show && <div role="status" className="feedback model"><b>參考說法</b><p>{model}</p>
         {m.skip && !ok && <p className="muted small">你按了「我真的想不出來」，這也沒關係，已經記下來。看完參考說法，試著補寫一句自己的話。</p>}
         {points && points.length > 0 && <div className="points">
           <p><b>對照一下：這幾個重點，你有寫到嗎？</b></p>
@@ -312,7 +312,7 @@ export function Decision({ role, situation, options: rawOptions, seed, actual, n
         </div>
       </>)}
       {pick !== null && (
-        <div className="feedback model">
+        <div role="status" className="feedback model">
           <p><b>你選了：{options[pick].label}</b></p>
           <p>{options[pick].result}</p>
           <details open><summary>其他選項會怎樣？</summary>{options.map((o, i) => i !== pick && <p key={i}><b>{o.label}：</b>{o.result}</p>)}</details>
@@ -360,7 +360,7 @@ export function Quick({ items, saved, onRate }: { items: { q: string; a: string 
         <div key={j} className="quick-q">
           <div className="q">{items.length > 1 ? `${j + 1}. ` : ''}{it.q}</div>
           {!shown[j] ? <button className="btn primary" onClick={() => setShown(shown.map((x, k) => x || k === j))}>想好了，看答案</button>
-            : <div className="feedback model"><b>參考答案</b><p>{it.a}</p>
+            : <div role="status" className="feedback model"><b>參考答案</b><p>{it.a}</p>
               <div className="rate" role="group" aria-label="你答得怎麼樣"><span className="muted small">我剛才的答案：</span>
                 {RATES.map(([k, l]) => <button key={k} type="button" className={`btn sm ${saved[j] === k ? 'on' : ''}`} aria-pressed={saved[j] === k} onClick={() => onRate(j, k)}>{l}</button>)}</div></div>}
         </div>

@@ -4,7 +4,7 @@ import type { Progress } from './progress';
 import { MysteryList } from './LearnHome';
 import { ERA_BINS, unitsOf, unitYear } from './util';
 import { DiveEntries } from '../components/DiveEntries';
-import { fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtYear, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 import { intent } from '../lib/detail';
 
 export function HistoryPage({ index, h, cards, p, onUnit, onCard, onHistory, onSim, onDive }: {
@@ -36,7 +36,7 @@ export function HistoryPage({ index, h, cards, p, onUnit, onCard, onHistory, onS
         return <div key={era} className="era-group"><h4>{era}</h4>
           {list.map((c) => (
             <button key={c.id} className={`lresult ${p.cards[c.id] ? 'read' : ''}`} onClick={() => onCard(c.id)} {...intent('card', c.id)}>
-              <span className="ic" style={{ color: TYPE_COLOR[c.type] }} aria-label={c.typeLabel}>{TYPE_ICON[c.type]}</span>
+              <span className="ic" style={{ color: TYPE_VAR[c.type] }} aria-label={c.typeLabel}>{TYPE_ICON[c.type]}</span>
               <span className="nm">{c.name}{p.cards[c.id] && <small> ✓讀過</small>}</span>
               <span className="yr">{fmtYear(c.time.start)}</span>
               <span className="why">{c.learn!.why_care}</span>

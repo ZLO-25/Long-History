@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import type { Card, Index, Topic, TopicLayer } from '../types';
 import { cardEn } from '../lib/bilingual';
-import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtRange, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 import './topics.css';
 
 /** 依名稱找主題與它所屬的層面 */
@@ -85,10 +85,10 @@ export function TopicView({ index, name, currentId, onOpen, onTopic, onAll, canO
           const cur = c.id === currentId;
           const body = (
             <>
-              <span className="tv-n" style={{ background: TYPE_COLOR[c.type] }}>{i + 1}</span>
+              <span className="tv-n" style={{ background: TYPE_VAR[c.type] }}>{i + 1}</span>
               <span className="tv-yr">{fmtRange(c.time.start, c.time.end)}</span>
               <span className="tv-nm">{c.name}{cur && <em className="tv-cur">你剛剛看的</em>}{read?.(c.id) && <em className="tv-read">✓讀過</em>}</span>
-              <span className="tv-sub"><span aria-hidden style={{ color: TYPE_COLOR[c.type] }}>{TYPE_ICON[c.type]}</span> {c.typeLabel}・{c.civilization.slice(0, 2).join('、')}</span>
+              <span className="tv-sub"><span aria-hidden style={{ color: TYPE_VAR[c.type] }}>{TYPE_ICON[c.type]}</span> {c.typeLabel}・{c.civilization.slice(0, 2).join('、')}</span>
             </>
           );
           return (

@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>歷史長河：國高中生的歷史學習</title>
+    <!-- 外觀：畫面出現前先決定淺色或深色（跟隨系統，或使用者在「Aa」面板選的），不閃白。之後由 src/lib/theme.ts 接手 -->
+    <script>try{var t=localStorage.getItem('history-river-theme');document.documentElement.dataset.theme=t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}catch(e){}</script>
     <meta name="description" content="給國高中生的互動歷史學習網站：從一個謎題出發，讀卡片、看史料、排因果、比一比，配時間軸與地圖。涵蓋臺灣史、東亞史、世界史與錢的歷史。" />
     <!-- 載入模型（src/lib/detail.ts、src/chunks.tsx）：HTML → 這個畫面的程式 → 這個畫面的資料，其他都不抓。
          home.json（約 20 KB）和程式同時開始下載，一到就畫學習首頁；index.json（卡片核心資料）由入口程式一執行就抓（src/App.tsx），
@@ -21,6 +23,11 @@
       .hr-sk-body i{display:block;border-radius:8px;background:#ece7db;height:16px}
       .hr-sk-body .t{width:46%;height:26px}.hr-sk-body .c{height:78px;background:#f1ede2;border:1px solid #e2ddd2}
       .hr-sk-body .s{width:70%}
+      html[data-theme=dark] body{background:#1b1a18;color-scheme:dark}
+      html[data-theme=dark] .hr-sk{color:#e6e1d8}
+      html[data-theme=dark] .hr-sk-top{background:#141311;border-color:#3a3732}
+      html[data-theme=dark] .hr-sk-top i,html[data-theme=dark] .hr-sk-body i{background:#2c2a26}
+      html[data-theme=dark] .hr-sk-body .c{background:#23211e;border-color:#3a3732}
     </style>
     <!-- 網址直接指到一張卡（?card=）或一個單元（?unit=）時，一開始就抓那一張卡／那個單元自己的小檔（幾 KB～幾十 KB），
          內文馬上能看（src/lib/detail.ts 接手這個 Promise）。其他頁面（專題、主題、故事線、物資鏈…）不需要卡片長內文 -->

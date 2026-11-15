@@ -56,6 +56,8 @@ interface Rec {
 
 export interface Hit {
   card: Card; score: number;
+  /** 精確命中：比對到的文字（名稱、別名、地名…）真的含有搜尋字，或是年份搜尋。拼音近似、錯字容錯的結果是 false，排在精確的後面（學習模式標「可能相關」） */
+  exact?: boolean;
   highlights: { field: string; value: string; ranges?: readonly [number, number][]; via?: string }[];
 }
 
@@ -109,7 +111,9 @@ export function createSearch(cards: Card[]) {
         }
       }
     }
-    const hits = [...found.values()].sort((a, b) => a.score - b.score || a.card.time.start - b.card.time.start);
+    const ql = converted.toLowerCase();
+    for (const h of found.values()) h.exact = year !== null || h.highlights.some((x) => !x.via && x.value.toLowerCase().includes(ql));
+    const hits = [...found.values()].sort((a, b) => Number(!!b.exact) - Number(!!a.exact) || a.score - b.score || a.card.time.start - b.card.time.start);
     for (const h of hits) h.highlights = dedupe(h.highlights);
     return { hits, converted, year };
   };
@@ -189,7 +193,7 @@ export function learnSearch(search: ReturnType<typeof createSearch>, raw: string
   const merged = new Map<string, { hit: Hit; n: number }>();
   for (const k of kws) for (const h of tryOne(k)) {
     const m = merged.get(h.card.id);
-    if (m) { m.n++; m.hit.score = Math.min(m.hit.score, h.score); m.hit.highlights.push(...h.highlights); } else merged.set(h.card.id, { hit: { ...h, highlights: [...h.highlights] }, n: 1 });
+    if (m) { m.n++; m.hit.score = Math.min(m.hit.score, h.score); m.hit.exact = m.hit.exact || h.exact; m.hit.highlights.push(...h.highlights); } else merged.set(h.card.id, { hit: { ...h, highlights: [...h.highlights] }, n: 1 });
   }
-  return [...merged.values()].sort((a, b) => b.n - a.n || a.hit.score - b.hit.score || a.hit.card.time.start - b.hit.card.time.start).map((x) => x.hit);
+  return [...merged.values()].sort((a, b) => b.n - a.n || Number(!!b.hit.exact) - Number(!!a.hit.exact) || a.hit.score - b.hit.score || a.hit.card.time.start - b.hit.card.time.start).map((x) => x.hit);
 }

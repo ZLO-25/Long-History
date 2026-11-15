@@ -2,7 +2,7 @@
 import { Bi } from './Bi';
 import { useEffect, useRef, useState } from 'react';
 import type { Card, Chain } from '../types';
-import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtRange, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 import { AsOf } from './TodayPanel';
 
 const SEC_PER_LEG = 2.5;
@@ -54,7 +54,7 @@ export function ChainPanel({ chain, card, t, setT, onOpen, byId }: { chain: Chai
         <h3>結構相似的歷史卡片</h3>
         {chain.counterparts!.map((id) => { const c = byId?.get(id); return c && (
           <button key={id} className="result" onClick={() => onOpen(id)}>
-            <span className="r-type" style={{ color: TYPE_COLOR[c.type] }}>{TYPE_ICON[c.type]} {c.typeLabel}</span>
+            <span className="r-type" style={{ color: TYPE_VAR[c.type] }}>{TYPE_ICON[c.type]} {c.typeLabel}</span>
             <span className="r-name">{c.name}</span><span className="r-time">{fmtRange(c.time.start, c.time.end)}</span>
           </button>); })}
         <p className="small muted">只比較結構，不預測，也不是投資建議。</p>

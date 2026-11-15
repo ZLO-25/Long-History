@@ -10,6 +10,8 @@ import { LEVELS } from './level';
 import './extra.css';
 import './newsteps.css';
 
+/** 題目本文自己也寫了「先猜猜看」或「（沒有對錯…）」時拿掉，免得和學習單加的標籤重複 */
+const cleanGuessQ = (q: string) => q.replace(/[（(][^（）()]*沒有對錯[^（）()]*[）)]\s*$/, '').replace(/先猜猜看[：:，,]?/g, '').trim();
 const L = 'ABCDEF';
 const CIRC = '①②③④⑤⑥⑦⑧⑨⑩⑪⑫';
 /** 選項在畫面上的順序（和 Steps.tsx 的 Choice 一樣：以上皆…的題目不洗） */
@@ -81,7 +83,7 @@ export default function Worksheet({ index, id, answerKey }: { index: Index; id: 
       case 'hook': {
         if (!s.guess || typeof s.guess !== 'object') return null;
         const g = s.guess, no = ++qn;
-        return <section key={i} className="ws-step">{head()}<div className="ws-q"><p><b>{no}.</b> 先猜猜看（沒有對錯，憑直覺選）：{g.q}</p>
+        return <section key={i} className="ws-step">{head()}<div className="ws-q"><p><b>{no}.</b> 先猜猜看（沒有對錯，憑直覺選）：{cleanGuessQ(g.q)}</p>
           <ol className="ws-opts" type="A">{g.options.map((o, k) => <li key={k} className="ws-opt">{o}</li>)}</ol>
           {key(<p>歷史上的答案：{g.reveal}</p>)}</div></section>;
       }

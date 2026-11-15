@@ -44,7 +44,7 @@
 .lhome .intro .btn { margin-top: 6px; }
 .coverage { margin: 14px 0 6px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 8px; font-size: .92em; }
 .coverage h3 { margin: 0 0 4px; font-size: 1em; } .coverage p { margin: 3px 0; line-height: 1.6; }
-.lv-tag { display: inline-block; font-size: 11.5px; line-height: 1.6; border-radius: 999px; padding: 0 8px; border: 1px solid var(--line); background: #f7f7f2; color: #4a5568; }
+.lv-tag { display: inline-block; font-size: 12px; line-height: 1.6; border-radius: 999px; padding: 0 8px; border: 1px solid var(--line); background: #f7f7f2; color: #4a5568; }
 .lv-tag.lv-jr { background: #e8f3ff; border-color: #b9d8f5; color: #1e4e7a; } .lv-tag.lv-sr { background: #f3ecff; border-color: #d5c5f0; color: #51307f; }
 .unit-meta { margin: 6px 0; } .unit-meta p { margin: 2px 0; }
 .unit-curriculum { font-size: .9em; background: #f7f7f2; border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; }

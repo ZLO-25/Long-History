@@ -1,6 +1,6 @@
 :root {
   --bg: #f7f5f0; --panel: #fffdf8; --ink: #2a2723; --muted: #6f6a62; --line: #e2ddd2;
-  --accent: #2b6cb0; --red: #e53e3e; --mark: #fde68a;
+  --accent: #2b6cb0; --red: #c53030; --mark: #fde68a;
   font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
   color: var(--ink); background: var(--bg);
 }
@@ -117,12 +117,12 @@ a { color: var(--accent); }
 .cd-sec p, .cd-sec li { line-height: 1.75; font-size: 14.5px; margin: 4px 0; }
 .cd-sec ul { padding-left: 20px; margin: 4px 0; }
 .cd-sec.empty { opacity: .55; }
-.code { font-family: ui-monospace, monospace; font-size: 11.5px; background: #eee9df; border-radius: 3px; padding: 0 4px; margin-right: 4px; }
+.code { font-family: ui-monospace, monospace; font-size: 12px; background: #eee9df; border-radius: 3px; padding: 0 4px; margin-right: 4px; }
 .lvl { font-size: 11px; font-weight: 400; border-radius: 3px; padding: 0 5px; }
 .lvl-deep { background: #e6eefb; } .lvl-optional { background: #f1f1f1; color: var(--muted); } .lvl-core { background: #fde8e8; }
 /* 手機版（研究模式）：卡片小節標題不放內部編號（C1）和「核心／深入／選填」，學生看不懂 */
 @media (max-width: 768px) { .cd-sec > h3 > .code, .cd-sec > h3 > .lvl { display: none; } }
-.ref { font-size: 11px; vertical-align: super; text-decoration: none; margin-left: 1px; }
+.ref { font-size: 12px; vertical-align: super; text-decoration: none; margin-left: 1px; }
 .ref.missing { color: var(--red); }
 .kv { display: grid; grid-template-columns: 70px 1fr; gap: 4px 8px; font-size: 14px; margin: 0; }
 .kv dt { color: var(--muted); } .kv dd { margin: 0; min-width: 0; }
@@ -220,7 +220,7 @@ a { color: var(--accent); }
 .econ-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .econ-table th, .econ-table td { border-bottom: 1px solid var(--line); padding: 4px 6px; text-align: left; white-space: nowrap; }
 .econ-table tr { cursor: pointer; } .econ-table tr.on td { background: #ebf4ff; }
-.ref { font-size: 11px; margin-left: 2px; vertical-align: super; text-decoration: none; }
+.ref { font-size: 12px; margin-left: 2px; vertical-align: super; text-decoration: none; }
 
 /* 第 3 期：物資鏈 */
 .chain-btn { margin: 2px 0; text-align: left; }
@@ -263,7 +263,7 @@ a { color: var(--accent); }
 .civ-civ.open { flex-basis: 100%; background: #f6f7f9; border-radius: 8px; padding: 1px 4px; }
 .civ-row { display: inline-flex; align-items: center; }
 .civ-periods { display: inline-flex; flex-wrap: wrap; padding-left: 4px; border-left: 2px solid var(--line); margin-left: 2px; }
-.chip small { margin-left: 4px; opacity: 0.6; font-size: 10.5px; }
+.chip small { margin-left: 4px; opacity: 0.6; font-size: 12px; }
 .chip.region { font-weight: 600; min-width: 5.5em; text-align: left; }
 .chip.period { font-size: 12px; padding: 1px 7px; }
 .civ-exp { border: 0; background: none; cursor: pointer; color: var(--muted); padding: 0 4px; font-size: 13px; }
@@ -335,7 +335,7 @@ h2 .en, .muted .en, .link .en { font-size: .78em; color: #777; font-weight: 400;
 .dock-bar { flex: none; display: flex; align-items: center; gap: 4px; height: 26px; padding: 0 6px; background: #f3efe4; border-bottom: 1px solid var(--line); font-size: 12px; color: var(--muted); }
 .dock-handle { display: inline-flex; align-items: center; gap: 4px; line-height: 1; border: 0; background: none; font: inherit; font-weight: 600; color: #5a5446; cursor: grab; padding: 3px 6px; border-radius: 4px; touch-action: none; user-select: none; }
 .dock-handle:hover, .dock-handle:focus-visible { background: #e6dfcc; }
-.dock-handle .grip { color: #a09a8c; font-size: 13px; }
+.dock-handle .grip { color: #6f6a62; font-size: 13px; }
 .dock-extra { flex: 1; display: flex; justify-content: flex-end; }
 .dock-bar .tl-toggle { position: static; padding: 1px 8px; }
 .dock-btn { border: 1px solid transparent; background: none; font: inherit; color: var(--muted); padding: 1px 6px; border-radius: 4px; cursor: pointer; white-space: nowrap; }

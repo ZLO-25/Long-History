@@ -93,7 +93,7 @@ export default function ExamPage({ index, p, update, initial }: { index: Index; 
         <h3>每一課答對幾題</h3>
         <ul className="exam-per">{per.map((x) => <li key={x.id}><span>《{x.title}》</span><b>{x.right}／{x.n}</b></li>)}</ul>
         <h3>答錯的題目{wrong.length ? `（${wrong.length}）` : ''}</h3>
-        {wrong.length === 0 ? <p className="feedback ok">全部答對，太強了 🎉</p> : (
+        {wrong.length === 0 ? <p role="status" className="feedback ok">全部答對，太強了 🎉</p> : (
           <ol className="exam-wrong">{wrong.map((r, i) => (
             <li key={i}>
               <p className="muted small">《{r.unit.title}》・{r.q.what}</p>
@@ -134,7 +134,7 @@ export default function ExamPage({ index, p, update, initial }: { index: Index; 
         <button className="btn primary big" disabled={!ids.length} onClick={start}>開始（{ids.length} 課）</button>
         {ids.length > 0 && <button className="link small" onClick={copy}>{copied ? '已複製 ✓' : '複製分享連結（帶著勾好的課）'}</button>}
       </div>
-      {fail && <p className="feedback no">有幾課的題目下載失敗，請檢查網路後再按一次「開始」。</p>}
+      {fail && <p role="status" className="feedback no">有幾課的題目下載失敗，請檢查網路後再按一次「開始」。</p>}
       {!ids.length && <p className="muted small">至少勾一課才能開始。</p>}
     </div>
   );

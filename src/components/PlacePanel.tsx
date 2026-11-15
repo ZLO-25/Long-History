@@ -1,7 +1,7 @@
 // 點地圖上的地點：列出地點在此的卡片，以及同一座城市內（約 5 公里內）的其他卡片
 import type { Card, Location } from '../types';
 import { Bi } from './Bi';
-import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 
 const NEAR_DEG = 0.06; // 約 5–7 公里：雅典衛城／劇場、羅馬廣場／競技場算同一區
 
@@ -26,7 +26,7 @@ export function PlacePanel({ placeKey, cards, onOpen }: { placeKey: string; card
   const around = rows.filter((r) => !r.exact);
   const item = ({ c, l }: (typeof rows)[number]) => (
     <button key={c.id} className="result" onClick={() => onOpen(c.id)}>
-      <span className="r-type" style={{ color: TYPE_COLOR[c.type] }}>{TYPE_ICON[c.type]} {c.typeLabel}</span>
+      <span className="r-type" style={{ color: TYPE_VAR[c.type] }}>{TYPE_ICON[c.type]} {c.typeLabel}</span>
       <span className="r-name">{c.name}</span>
       <span className="r-time">{fmtRange(c.time.start, c.time.end)}</span>
       <span className="r-hl">{l!.name_ancient}{l!.role ? `・${l!.role}` : ''}</span>

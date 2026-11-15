@@ -44,7 +44,7 @@
 /* 內文（兩種模式共用的字體設定） */
 .sr-view { flex: 1 1 auto; min-height: 0; position: relative; }
 .sr-page { font-size: var(--sr-fs); line-height: 1.75; letter-spacing: .01em; }
-.sr-kicker { margin: 0; font-size: .72em; font-weight: 700; color: var(--story, #0f766e); letter-spacing: .2em; }
+.sr-kicker { margin: 0; font-size: max(12px, .72em); font-weight: 700; color: var(--story, #0f766e); letter-spacing: .2em; }
 .sr-page h1 { margin: 2px 0 10px; font-size: 1.45em; line-height: 1.35; letter-spacing: .01em; text-wrap: balance; }
 .sr-question { margin: 0 0 8px; padding: 9px 14px; background: var(--story-bg, #effaf8); border-left: 4px solid var(--story, #0f766e); border-radius: 0 10px 10px 0; font-size: .95em; line-height: 1.65; font-weight: 600; }
 .sr-meta { margin: 0 0 8px; font-size: .76em; color: #5d584f; }
@@ -68,7 +68,7 @@
 .sr-stop { font: inherit; font-size: .84em; line-height: 1.45; letter-spacing: 0; display: inline-flex; align-items: baseline; gap: 5px; flex-wrap: wrap; background: #fff; border: 1px solid #ddd5c4; border-left: 3px solid var(--story, #0f766e);
   border-radius: 6px; padding: 4px 10px; color: inherit; cursor: pointer; text-decoration: none; min-height: 32px; text-align: left; }
 .sr-stop:hover { background: #f2fbf9; border-color: var(--story, #0f766e); }
-.sr-stop small { color: #5d584f; font-size: .9em; }
+.sr-stop small { color: #5d584f; font-size: max(12px, .9em); }
 .sr-stop.off { color: #5d584f; background: #f6f4ef; }
 .sr-stop-n { color: var(--story, #0f766e); font-variant-numeric: tabular-nums; }
 .sr-page p { margin: 0 0 .7em; overflow-wrap: break-word; }
@@ -78,7 +78,7 @@
 /* 每一節最後的一句話重點 */
 .sr-page p.sr-key { display: flex; gap: .7em; align-items: baseline; margin: .9em 0 0; padding: .45em .8em; background: var(--story-bg, #effaf8); border: 1px solid var(--story-line, #b6e2dc); border-radius: 8px; font-size: .95em; line-height: 1.6; font-weight: 600; text-align: left; break-inside: avoid; break-before: avoid; }
 .sr-key > b { flex: none; font-size: .78em; color: #fff; background: var(--story, #0f766e); border-radius: 5px; padding: 0 .5em; letter-spacing: .08em; }
-.sr-cite { font-size: .58em; line-height: 0; letter-spacing: 0; margin-left: 1px; }
+.sr-cite { font-size: max(12px, .58em); line-height: 0; letter-spacing: 0; margin-left: 1px; }
 .sr-cite a { color: #5f7f96; text-decoration: none; padding: 0 1px; }
 .sr-cite a:hover, .sr-cite a:focus-visible { color: var(--accent, #2b6cb0); text-decoration: underline; }
 .sr-cite + .sr-cite::before { content: ','; color: #8a95a0; }
@@ -207,3 +207,14 @@
   .sr-page { height: auto !important; columns: 1 !important; transform: none !important; }
   body:has(> .sr-overlay) > #root { display: none; }
 }
+
+/* 文中的「考考自己」：每 2–3 節停下來問一題（quizPlan），看完答案自評，存進學習進度 */
+.sr-quiz { background: #f3f1fb; border: 1px solid #d5cff0; border-radius: 10px; padding: 10px 14px; margin: 1.1em 0; break-inside: avoid; font-size: .94em; }
+.sr-quiz-no { display: block; font-size: max(12px, .8em); font-weight: 700; color: #4c3d99; margin-bottom: 2px; }
+.sr-self { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 6px; }
+.sr-self-q { font-size: max(12px, .84em); color: #4a463f; }
+.sr-self-btn { font: inherit; font-size: max(12px, .84em); min-height: 32px; padding: 2px 11px; border-radius: 999px; border: 1px solid #9a8fd6; background: #fff; color: #4c3d99; cursor: pointer; }
+.sr-self-btn:hover { background: #ebe8fa; }
+.sr-self-btn.on { background: #4c3d99; border-color: #4c3d99; color: #fff; font-weight: 700; }
+.sr-box.recall li > .sr-recall-q + .sr-self, .sr-box.recall li > .sr-recall-a + .sr-self { margin-top: 6px; }
+.sr-score { margin: .6em 0 0; font-size: .9em; }

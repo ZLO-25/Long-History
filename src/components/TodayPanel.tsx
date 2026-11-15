@@ -1,7 +1,7 @@
 // 今日對照層：一個當代咽喉要道的事實、事件、對應的歷史卡與不可類比的差異；每一項都標「資料截至」
 import type { Card, Index, Source, TodayPoint } from '../types';
 import { Bi } from './Bi';
-import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtRange, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 
 export const Refs = ({ list }: { list: Source[] }) => <>{list.map((s) => <a key={s.id} className="ref" href={s.url} target="_blank" rel="noreferrer" title={s.title}>[{s.id}]</a>)}</>;
 
@@ -36,7 +36,7 @@ export function TodayPanel({ point: p, index, byId, onOpen, onTag, onChain }: Pr
         return (
           <div key={x.id} className="cp-item">
             <button className="result" onClick={() => onOpen(t.id)}>
-              <span className="r-type" style={{ color: TYPE_COLOR[t.type] }}>{TYPE_ICON[t.type]} {t.typeLabel}</span>
+              <span className="r-type" style={{ color: TYPE_VAR[t.type] }}>{TYPE_ICON[t.type]} {t.typeLabel}</span>
               <span className="r-name">{t.name}</span>
               <span className="r-time">{fmtRange(t.time.start, t.time.end)}</span>
             </button>

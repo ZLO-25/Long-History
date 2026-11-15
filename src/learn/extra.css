@@ -11,7 +11,7 @@
 .profile-fields input { width: 9em; padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; font: inherit; }
 .profile-fields label:nth-child(3) input { width: 5em; }
 .profile-line { font-size: 1.05em; } .profile-line u { text-decoration: underline; text-underline-offset: 3px; }
-.rec-all { display: block; margin: 4px 0 8px; font-size: .92em; }
+.rec-all { display: block; margin: 4px 0 8px; font-size: max(12px, .92em); }
 .rec-lesson { margin: 6px 0; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; background: #fff; }
 .rec-lesson > summary { cursor: pointer; }
 .rec-choices ul { margin: 2px 0; padding-left: 1.2em; font-size: .92em; }
@@ -45,7 +45,7 @@
 .ws-who { font-size: 1.05em; line-height: 2.2; margin: 6px 0; }
 .ws-mystery { font-size: 1.15em; font-weight: 700; margin: 6px 0; }
 .ws-goals { margin: 2px 0 6px; padding-left: 1.3em; } .ws-goals-h { margin: 4px 0 0; }
-.ws-url { word-break: break-all; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .92em; }
+.ws-url { word-break: break-all; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: max(12px, .92em); }
 .ws-step { margin: 14px 0; } .ws-step h3 { margin: 0 0 6px; font-size: 1.05em; background: #edf2f7; padding: 3px 8px; border-radius: 4px; }
 .ws-q { margin: 8px 0 12px; break-inside: avoid; } .ws-q p { margin: 3px 0; line-height: 1.75; }
 .ws-opts { margin: 2px 0 2px 1.6em; padding: 0; list-style-type: upper-alpha; } .ws-opt { margin: 2px 0; line-height: 1.7; }

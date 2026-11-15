@@ -1,0 +1,46 @@
+/* 第 5 批「收尾」：無障礙、最小字級、點擊範圍、平板版面、深色模式。放在 styles.css 之後載入 */
+
+/* 出處上標（[s1]、ⓘ）：字小，但可點範圍至少 24×24 px（用偽元素撐大點擊區，不撐開行高） */
+.ref, .sr-cite a, .ce-src a, .src-btn { position: relative; }
+/* 相鄰的出處上標隔開一點，兩個 24px 的點擊區才不互相蓋住 */
+.ce-src a + a { margin-left: 11px; }
+.ref + .ref, sup + sup { margin-left: 4px; }
+.ref::after, .sr-cite a::after, .ce-src a::after, .src-btn::after { content: ''; position: absolute; left: 50%; top: 50%; width: max(100%, 24px); height: 24px; transform: translate(-50%, -50%); }
+
+/* 平板直向（769–1100px）：學習模式用單欄＋分頁（LearnApp 的 tablet），閱讀欄不被擠成 400 多 px；內文置中、最寬 780px */
+.learn.tablet .lcontent { padding: 14px max(22px, calc((100% - 780px) / 2)) 40px; }
+.learn.tablet .ltop .lsearch-box { order: 0; flex-basis: auto; }
+/* 地圖上的區域鈕（全球、歐洲、東亞…）靠右排，空間不夠就換行，不鑽到左上角縮放鈕底下 */
+@media (min-width: 769px) {
+  .map-views { max-width: calc(100% - 64px); flex-wrap: wrap; justify-content: flex-end; }
+}
+
+/* 課綱對照：項目符號和文字對齊（符號固定在第一行），標籤跟在文字後面，手機不溢出 */
+.curriculum-page .cur-item { min-width: 0; overflow-wrap: anywhere; }
+.curriculum-page .cur-item > p:first-child { display: flex; align-items: baseline; gap: 6px; }
+.curriculum-page .cur-item > p:first-child .code { flex: none; margin-right: 0; }
+.curriculum-page .cur-item ul { list-style: none; padding-left: 0; margin: 4px 0; }
+.curriculum-page .cur-item li { position: relative; padding-left: 1.2em; margin: 4px 0; line-height: 1.6; }
+.curriculum-page .cur-item li::before { content: '•'; position: absolute; left: .3em; top: 0; color: var(--muted, #666); }
+.curriculum-page .cur-item li .link { display: inline; text-align: left; padding: 0; }
+.curriculum-page .cur-item li .lv-tag { margin-left: 4px; white-space: nowrap; }
+
+/* 搜尋結果裡「可能相關」的分隔標題 */
+.lsearch .maybe-h { margin: 14px 0 4px; font-size: 1em; color: var(--muted, #555); }
+.lsearch .maybe-h small { font-weight: 400; margin-left: 6px; font-size: max(12px, .85em); }
+.lresult.maybe { opacity: .92; }
+
+/* 頁首「Aa」面板：字級與外觀 */
+.aa-wrap { position: relative; display: inline-block; }
+.aa-panel { position: absolute; right: 0; top: calc(100% + 6px); z-index: 900; width: 232px; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; box-shadow: 0 6px 20px rgba(0,0,0,.18); color: var(--ink); }
+.aa-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 6px 0; }
+.aa-h { font-weight: 700; font-size: 14px; } .aa-h small { font-weight: 400; margin-left: 6px; color: var(--muted); font-size: 12px; }
+.aa-seg { display: inline-flex; gap: 4px; }
+.aa-seg .btn.sm { padding: 5px 10px; font-size: 13px; min-height: 32px; }
+.aa-tip { margin: 6px 0 0; font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* 卡片類型色當文字／白字底色（TYPE_VAR）：比 TYPE_COLOR 的商品、建築再深一點，淺色底與白字都 >= 4.5:1；深色模式由 dark-css 自動變亮 */
+:root { --tc-war: #c0392b; --tc-commodity: #946016; --tc-event: #2b6cb0; --tc-building: #2a7a52; --tc-tech: #6b46c1; --tc-finance: #0f766e; --tc-social: #b83280; --tc-person: #8a5a00; }
+
+/* 預設的 <small> 是 .83em，放在 12px 的容器裡會縮到 10px：給下限 */
+small { font-size: max(12px, .83em); }

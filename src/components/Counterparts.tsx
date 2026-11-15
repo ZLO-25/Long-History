@@ -2,7 +2,7 @@
 import type { Card } from '../types';
 import { Markdown } from '../lib/markdown';
 import { regionOf, REGION_LABEL } from '../lib/lane';
-import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtRange, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 
 export function Counterparts({ card: c, byId, onOpen }: { card: Card; byId: Map<string, Card>; onOpen: (id: string) => void }) {
   return (
@@ -16,7 +16,7 @@ export function Counterparts({ card: c, byId, onOpen }: { card: Card; byId: Map<
         return (
           <div key={x.id} className="cp-item">
             <button className="result" onClick={() => onOpen(t.id)}>
-              <span className="r-type" style={{ color: TYPE_COLOR[t.type] }}>{TYPE_ICON[t.type]} {REGION_LABEL[regionOf(t)]}・{t.typeLabel}</span>
+              <span className="r-type" style={{ color: TYPE_VAR[t.type] }}>{TYPE_ICON[t.type]} {REGION_LABEL[regionOf(t)]}・{t.typeLabel}</span>
               <span className="r-name">{t.name}</span>
               <span className="r-time">{fmtRange(t.time.start, t.time.end)}</span>
             </button>

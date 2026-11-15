@@ -55,7 +55,7 @@ export function ReviewQ({ q, uid, index, onResult, onNext, nextLabel }: {
         <p className="muted small">只有選「答對」才算過關；「一半」和「沒答對」明天會再出現。</p>
       </>}
       {res !== null && q.kind !== 'quick' && (
-        <div className={`feedback ${res ? 'ok' : 'no'}`} aria-live="polite">
+        <div role="status" className={`feedback ${res ? 'ok' : 'no'}`} aria-live="polite">
           <b>{res ? '✔ 答對了！' : '✘ 這題要再看看。'}</b>
           {q.kind === 'choice' && !res && <p><b>正確答案：</b>{letterOf[order.indexOf(q.answer!)]}．{answerText(q)}</p>}
           {q.kind === 'choice' && !res && pick != null && q.whyWrong?.[pick] && <p>你選的：{q.whyWrong[pick]}</p>}

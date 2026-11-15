@@ -10,7 +10,7 @@ import { CauseList, PathNav } from './Story';
 import { PersonBlock } from './Person';
 import { CardImages } from './Images';
 import { PopCulture } from './PopCulture';
-import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtRange, PRECISION_LABEL, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 import { directLens } from '../lib/lens';
 
 interface Props {
@@ -29,7 +29,7 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
   return (
     <article className="card-detail">
       <div className="cd-head" style={{ borderColor: TYPE_COLOR[c.type] }}>
-        <span className="type-badge" style={{ background: TYPE_COLOR[c.type] }}>{TYPE_ICON[c.type]} {c.typeLabel}</span>
+        <span className="type-badge" style={{ background: TYPE_VAR[c.type] }}>{TYPE_ICON[c.type]} {c.typeLabel}</span>
         <h2>{c.name}{c.person?.name_romaji && <span className="romaji" lang="ja-Latn">{c.person.name_romaji}</span>}</h2>
         <div className="cd-meta">
           <span>{fmtRange(c.time.start, c.time.end)}（{PRECISION_LABEL[c.time.precision]}）</span>

@@ -7,6 +7,8 @@ import type { MouseEvent as ReactMouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 import type { Card, Index, StoryDoc, Storyline } from '../types';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { THEME_LABEL, useThemePref, type ThemePref } from '../lib/theme';
+import { readStoryRecall, saveStoryRecall, type RecallRec } from '../learn/progress';
 import './story-reader.css';
 import './story-map.css';
 
@@ -116,12 +118,43 @@ const placesIn = (text: string, pm: PlaceMatch | null) => {
   return [...out].join(',');
 };
 
+/** 「考考自己」的題目怎麼分散：每 2–3 節後插 1 題（題目照原順序、平均分散）。回傳 小節序號 → 題號清單。
+ *  題數比「節數 ÷ 2」多時（短故事），只插得下的題放在文中，其餘留在文末的「全部題目」。程式分配，資料格式不變 */
+export function quizPlan(sections: number, questions: number): Map<number, number[]> {
+  const plan = new Map<number, number[]>();
+  if (!sections || !questions) return plan;
+  const n = Math.min(questions, Math.max(1, Math.floor(sections / 2)));
+  for (let j = 0; j < n; j++) {
+    const q = Math.floor((j * questions) / n), at = Math.min(sections - 1, Math.floor(((j + 1) * sections) / n) - 1);
+    plan.set(at, [...(plan.get(at) ?? []), q]);
+  }
+  return plan;
+}
+const SELF: { v: 0 | 1 | 2; t: string }[] = [{ v: 2, t: '我想得出來' }, { v: 1, t: '想到一部分' }, { v: 0, t: '沒想起來' }];
+interface RecallProps { i: number; q: string; a: string; rec?: RecallRec; reveal: (i: number) => void; rate: (i: number, v: 0 | 1 | 2) => void; label?: string }
+/** 一題「考考自己」：先想，按「想好了，看答案」，看完自評（存進學習進度） */
+function RecallItem({ i, q, a, rec, reveal, rate, label }: RecallProps) {
+  return <>
+    {label && <span className="sr-quiz-no">{label}</span>}
+    <span className="sr-recall-q">{q}</span>
+    {rec
+      ? <>
+        <span className="sr-recall-a" role="status">{a}</span>
+        <span className="sr-self" role="group" aria-label="自評：你剛才想得出來嗎？"><span className="sr-self-q">剛才想得出來嗎？</span>
+          {SELF.map((o) => <button key={o.v} className={`sr-self-btn ${rec.s === o.v ? 'on' : ''}`} aria-pressed={rec.s === o.v} onClick={() => rate(i, o.v)}>{o.t}</button>)}</span>
+      </>
+      : <button className="sr-recall-btn" onClick={() => reveal(i)}>想好了，看答案</button>}
+  </>;
+}
+
 interface BodyProps {
   doc: StoryDoc; byId: Map<string, Card>; stopNo: Map<string, number>; pm: PlaceMatch | null;
   canOpen?: (c: Card) => boolean; researchHref?: (id: string) => string; onOpen: (id: string) => void;
+  rec: Record<string, RecallRec>; reveal: (i: number) => void; rate: (i: number, v: 0 | 1 | 2) => void;
 }
 /** 全文各節：捲動時工具列與進度一直在變，這一塊用 memo 擋住，不跟著重畫 */
-const StoryBody = memo(function StoryBody({ doc, byId, stopNo, pm, canOpen, researchHref, onOpen }: BodyProps) {
+const StoryBody = memo(function StoryBody({ doc, byId, stopNo, pm, canOpen, researchHref, onOpen, rec, reveal, rate }: BodyProps) {
+  const plan = useMemo(() => quizPlan(doc.sections.length, doc.recall?.length ?? 0), [doc]);
   const stopChip = (id: string) => {
     const c = byId.get(id);
     if (!c) return null;
@@ -138,30 +171,30 @@ const StoryBody = memo(function StoryBody({ doc, byId, stopNo, pm, canOpen, rese
         : b.kind === 'key'
           ? <p key={j} className="sr-key" data-b=""><b>記住</b><span><Inline text={b.text} doc={doc} /></span></p>
           : <p key={j} data-b="" data-pl={placesIn(b.text, pm)}><Inline text={b.text} doc={doc} pm={pm} seen={new Set()} /></p>)}
+      {(plan.get(i) ?? []).map((qi) => (
+        <aside key={`q${qi}`} className="sr-quiz" data-b="" aria-label={`考考自己第 ${qi + 1} 題`}>
+          <RecallItem i={qi} q={doc.recall![qi].q} a={doc.recall![qi].a} rec={rec[qi]} reveal={reveal} rate={rate} label={`考考自己 ${qi + 1}／${doc.recall!.length}`} />
+        </aside>))}
     </section>
   ))}</>;
 });
 
 interface EndProps {
-  doc: StoryDoc; shown: Set<number>; srcOpen: boolean; reveal: (i: number) => void; toggleSrc: () => void;
+  doc: StoryDoc; rec: Record<string, RecallRec>; srcOpen: boolean; reveal: (i: number) => void; rate: (i: number, v: 0 | 1 | 2) => void; toggleSrc: () => void;
   onClose: () => void; next?: Storyline; onStory?: (id: string) => void;
 }
 /** 結尾：考考自己、記住、想一想、出處 */
-const StoryEnd = memo(function StoryEnd({ doc, shown, srcOpen, reveal, toggleSrc, onClose, next, onStory }: EndProps) {
+const StoryEnd = memo(function StoryEnd({ doc, rec, srcOpen, reveal, rate, toggleSrc, onClose, next, onStory }: EndProps) {
   return (
     <footer className="sr-end">
       {!!doc.recall?.length && (
         <section className="sr-box recall" aria-labelledby="sr-recall" data-b="">
-          <h2 id="sr-recall">考考自己</h2>
-          <p className="sr-box-how">先不要往回翻，在心裡回答，再點開看答案。自己想過一次，比再讀一遍記得久。</p>
+          <h2 id="sr-recall">考考自己・全部題目</h2>
+          <p className="sr-box-how">文中每隔幾節停下來問過一題；這裡是全部的題目，沒看過的現在補上。先不要往回翻，在心裡回答，再點開看答案，看完自評。自己想過一次，比再讀一遍記得久。</p>
           <ol>{doc.recall.map((x, i) => (
-            <li key={i}>
-              <span className="sr-recall-q">{x.q}</span>
-              {shown.has(i)
-                ? <span className="sr-recall-a" role="status">{x.a}</span>
-                : <button className="sr-recall-btn" onClick={() => reveal(i)}>想好了，看答案</button>}
-            </li>
+            <li key={i}><RecallItem i={i} q={x.q} a={x.a} rec={rec[i]} reveal={reveal} rate={rate} /></li>
           ))}</ol>
+          {Object.keys(rec).length > 0 && <p className="sr-score" role="status">{(() => { const v = doc.recall.map((_, i) => rec[i]?.s); const n = (k: number) => v.filter((x) => x === k).length; return <>看過答案 {v.filter((_, i) => rec[i]).length}／{doc.recall.length} 題；自評：想得出來 <b>{n(2)}</b>、想到一部分 <b>{n(1)}</b>、沒想起來 <b>{n(0)}</b>。</>; })()}</p>}
         </section>
       )}
       <section className="sr-box remember" aria-labelledby="sr-remember" data-b="">
@@ -193,13 +226,15 @@ interface ReaderProps {
   canOpen?: (c: Card) => boolean;
   researchHref?: (id: string) => string;
   onStory?: (id: string) => void;
+  /** 學習模式：考考自己的作答存進學習進度（saved＝這篇故事已存的；save＝存一題，null＝清掉）。研究模式沒給，閱讀頁自己讀寫 localStorage */
+  recall?: { saved: Record<string, RecallRec>; save: (i: number, rec: RecallRec | null) => void };
 }
 
 const SIZES = ['s', 'm', 'l', 'xl'] as const;
 const SIZE_NAME = ['小', '中', '大', '特大'];
 const year = (y: number) => (y < 0 ? `前 ${-y}` : `${y}`);
 
-export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHref, onStory }: ReaderProps) {
+export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHref, onStory, recall }: ReaderProps) {
   const [doc, setDoc] = useState<StoryDoc | null>(null);
   const [failed, setFailed] = useState(false);
   const [size, setSize] = useState(() => { const raw = lsGet(SIZE_KEY), v = Number(raw); return raw !== null && raw !== '' && v >= 0 && v <= 3 && Number.isInteger(v) ? v : 1; });
@@ -211,7 +246,9 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   const [resumed, setResumed] = useState(false);
   const [menu, setMenu] = useState<'' | 'toc' | 'view'>('');
   const [hint, setHint] = useState(() => lsGet(HINT_KEY) !== '1');
-  const [shown, setShown] = useState<Set<number>>(() => new Set());
+  const [themePref, setThemePref] = useThemePref();
+  const [recLocal, setRecLocal] = useState<Record<string, RecallRec>>(() => readStoryRecall(story.id));
+  const rec = recall?.saved ?? recLocal;
   const [srcOpen, setSrcOpen] = useState(false);
   // 地圖：hot＝正在讀的段落提到的地點；focus＝讀者點的地點；sheet＝窄螢幕或翻頁時從下方拉出的地圖
   const [hot, setHot] = useState('');
@@ -231,7 +268,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   const byId = useMemo(() => new Map(index.cards.map((c) => [c.id, c])), [index]);
   const stopNo = useMemo(() => new Map(story.stops.map((x, i) => [x.id, i + 1])), [story]);
 
-  useEffect(() => { let on = true; setDoc(null); setFailed(false); restored.current = false; anchor.current = 0; setShown(new Set()); setSrcOpen(false); setResumed(false); setFocus(null); setHot(''); loadStory(story.id).then((d) => on && setDoc(d)).catch(() => on && setFailed(true)); return () => { on = false; }; }, [story.id]);
+  useEffect(() => { let on = true; setDoc(null); setFailed(false); restored.current = false; anchor.current = 0; setRecLocal(readStoryRecall(story.id)); setSrcOpen(false); setResumed(false); setFocus(null); setHot(''); loadStory(story.id).then((d) => on && setDoc(d)).catch(() => on && setFailed(true)); return () => { on = false; }; }, [story.id]);
 
   // 讓外層寫網址時知道閱讀頁開著（子元件的 effect 先跑，外層才寫網址）
   useEffect(() => { activeRead = story.id; return () => { if (activeRead === story.id) activeRead = null; }; }, [story.id]);
@@ -395,7 +432,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
       if (moved && t !== undefined && anchor.current > 0) view.current.scrollTop = t;
       measure();
     }
-  }, [doc, size, cite, paged, shown, srcOpen, relayout, measure, compute, endAnim, story.id]);
+  }, [doc, size, cite, paged, rec, srcOpen, relayout, measure, compute, endAnim, story.id]);
 
   useEffect(() => {
     const v = view.current;
@@ -498,7 +535,14 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   const bump = (d: number) => setSize((v) => { const n = Math.max(0, Math.min(SIZES.length - 1, v + d)); lsSet(SIZE_KEY, String(n)); return n; });
   const toggleCite = () => setCite((v) => { lsSet(CITE_KEY, v ? '0' : '1'); return !v; });
   const setMode = (p: boolean) => { lsSet(MODE_KEY, p ? 'page' : 'scroll'); setPaged(p); };
-  const reveal = useCallback((i: number) => setShown((s) => { const n = new Set(s); if (n.has(i)) n.delete(i); else n.add(i); return n; }), []);
+  // 考考自己：看答案、自評都立刻存（學習模式進 useProgress，研究模式直接寫 localStorage）
+  const recallRef = useRef(recall); recallRef.current = recall; // 函式身分要穩定（StoryBody 是 memo，捲動時不重畫）
+  const saveRec = useCallback((i: number, r: RecallRec | null) => {
+    if (recallRef.current) recallRef.current.save(i, r); else { saveStoryRecall(story.id, i, r); setRecLocal(readStoryRecall(story.id)); }
+  }, [story.id]);
+  const recRef = useRef(rec); recRef.current = rec;
+  const reveal = useCallback((i: number) => saveRec(i, { ...(recRef.current[i]?.s != null ? { s: recRef.current[i]!.s } : {}), t: new Date().toISOString() }), [saveRec]);
+  const rate = useCallback((i: number, v: 0 | 1 | 2) => saveRec(i, { s: v, t: new Date().toISOString() }), [saveRec]);
   const toggleSrc = useCallback(() => setSrcOpen((v) => !v), []);
 
   const left = doc ? Math.max(1, Math.ceil(doc.minutes * (1 - progress))) : 0;
@@ -541,11 +585,13 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
 
   const lastPage = pg.page >= pg.pages - 1;
   const coarse = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+  // 學習模式的外殼已經有（螢幕報讀用的）h1；閱讀頁是浮在上面的對話框，標題降成 h2，整頁維持只有一個 h1
+  const Title = (typeof document !== 'undefined' && document.querySelector('.learn') ? 'h2' : 'h1') as 'h1' | 'h2';
   const article = (
     <article className="sr-page" ref={pageEl} onClick={onArticleClick} style={paged ? { transform: `translate3d(${-pg.page * pg.step}px,0,0)` } : undefined}>
       <div className="sr-head" data-b="">
         <p className="sr-kicker">故事線</p>
-        <h1>{story.title}</h1>
+        <Title>{story.title}</Title>
         <p className="sr-question">{story.question}</p>
         <p className="sr-meta">
           {doc ? <>約 {doc.minutes} 分鐘・{doc.chars.toLocaleString()} 字・</> : null}{story.stops.length} 站{first && last && <>・{fmtRange(first.time.start, last.time.end)}</>}
@@ -561,9 +607,9 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
         )}
       </div>
 
-      {doc && <StoryBody doc={doc} byId={byId} stopNo={stopNo} pm={pm} canOpen={canOpen} researchHref={researchHref} onOpen={onOpen} />}
+      {doc && <StoryBody doc={doc} byId={byId} stopNo={stopNo} pm={pm} canOpen={canOpen} researchHref={researchHref} onOpen={onOpen} rec={rec} reveal={reveal} rate={rate} />}
 
-      {doc && <StoryEnd doc={doc} shown={shown} srcOpen={srcOpen} reveal={reveal} toggleSrc={toggleSrc} onClose={onClose} next={next} onStory={onStory} />}
+      {doc && <StoryEnd doc={doc} rec={rec} srcOpen={srcOpen} reveal={reveal} rate={rate} toggleSrc={toggleSrc} onClose={onClose} next={next} onStory={onStory} />}
     </article>
   );
   return createPortal(
@@ -576,7 +622,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
         </div>
         <div className="sr-tools">
           {doc && <button className={`sr-tool ${menu === 'toc' ? 'on' : ''}`} onClick={() => setMenu((v) => (v === 'toc' ? '' : 'toc'))} aria-expanded={menu === 'toc'} aria-controls="sr-toc" title="目錄">☰<span>目錄</span></button>}
-          <button className={`sr-tool ${menu === 'view' ? 'on' : ''}`} onClick={() => setMenu((v) => (v === 'view' ? '' : 'view'))} aria-expanded={menu === 'view'} aria-controls="sr-view-menu" title="顯示設定：下拉或翻頁、字級、出處">Aa<span>顯示</span></button>
+          <button className={`sr-tool ${menu === 'view' ? 'on' : ''}`} onClick={() => setMenu((v) => (v === 'view' ? '' : 'view'))} aria-expanded={menu === 'view'} aria-controls="sr-view-menu" title="顯示設定：下拉或翻頁、字級、外觀（淺色／深色）、出處">Aa<span>顯示</span></button>
         </div>
         <div className="sr-progress" role="progressbar" aria-label="閱讀進度" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress * 100)}><i style={{ transform: `scaleX(${progress})` }} /></div>
         {menu === 'toc' && doc && (
@@ -597,6 +643,11 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
               <div className="sr-seg">
                 <button onClick={() => bump(-1)} disabled={size === 0} aria-label="字小一點">A−</button>
                 <button onClick={() => bump(1)} disabled={size === SIZES.length - 1} aria-label="字大一點">A＋</button>
+              </div>
+            </div>
+            <div className="sr-opt"><span id="sr-theme-h">外觀</span>
+              <div className="sr-seg" role="radiogroup" aria-labelledby="sr-theme-h">
+                {(['auto', 'light', 'dark'] as ThemePref[]).map((v) => <button key={v} role="radio" aria-checked={themePref === v} className={themePref === v ? 'on' : ''} onClick={() => setThemePref(v)}>{THEME_LABEL[v]}</button>)}
               </div>
             </div>
             <div className="sr-opt"><span>出處小數字</span>

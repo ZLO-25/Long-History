@@ -1,6 +1,6 @@
 // 首屏就會用到的小元件：載入骨架、等卡片核心資料（index.json）的提示
 import type { Index } from './types';
-import { retryDetail } from './lib/detail';
+import { retryDetail, retryCore } from './lib/detail';
 
 /** 灰色骨架：載入中的畫面。h 是最小高度，讓版面不跳 */
 export function Skel({ h, label }: { h?: number | string; label?: string }) {
@@ -15,7 +15,7 @@ export function DetailWait({ index }: { index: Index }) {
 }
 
 export function CoreWait({ index }: { index: Index }) {
-  if (index.coreFailed) return <p className="muted loading-detail" role="alert">卡片資料下載失敗，請檢查網路後重新整理頁面。</p>;
+  if (index.coreFailed) return <p className="muted loading-detail" role="alert">卡片資料下載失敗，請檢查網路後<button className="link" onClick={retryCore}>重試</button>或重新整理頁面。</p>;
   return <div className="core-wait"><p className="muted loading-detail">載入中…</p><Skel label="載入卡片資料" /></div>;
 }
 

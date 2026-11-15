@@ -7,6 +7,7 @@ import type { Card, CauseLink, CauseRel, CauseSource, Index, Storyline } from '.
 import { cardEn } from '../lib/bilingual';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import type { RecallRec } from '../learn/progress';
 import { StoryReader, ReadBadge, prefetchStory, setReadParam, wantsRead, storyProgress, readStories } from './StoryReader';
 import './story.css';
 
@@ -193,9 +194,11 @@ interface StoryViewProps extends OpenProps {
   id: string; currentId?: string | null; onAll: () => void; read?: (id: string) => boolean; onMap?: () => void;
   /** 閱讀頁結尾的「下一個故事」 */
   onStory?: (id: string) => void;
+  /** 學習模式：故事「考考自己」的作答存進學習進度（沒給＝研究模式，閱讀頁自己讀寫 localStorage） */
+  recallApi?: { saved: (storyId: string) => Record<string, RecallRec>; save: (storyId: string, i: number, rec: RecallRec | null) => void };
 }
 
-export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, researchHref, read, onMap, onStory }: StoryViewProps) {
+export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, researchHref, read, onMap, onStory, recallApi }: StoryViewProps) {
   const s = findStory(index, id);
   // 故事閱讀頁（?read=1）：全螢幕蓋在上面；關掉回到這一頁
   const [reading, setReading] = useState(() => !!s?.read && wantsRead(id));
@@ -260,7 +263,7 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
           </div>
         );
       })()}
-      {reading && s.read && <StoryReader story={s} index={index} onClose={closeRead} onOpen={openFromRead} canOpen={canOpen} researchHref={researchHref} onStory={onStory} />}
+      {reading && s.read && <StoryReader story={s} index={index} onClose={closeRead} onOpen={openFromRead} canOpen={canOpen} researchHref={researchHref} onStory={onStory} recall={recallApi ? { saved: recallApi.saved(s.id), save: (i, r) => recallApi.save(s.id, i, r) } : undefined} />}
       {s.read && <h3 className="sv-walk">一站一站看因果<small>每兩站之間說明「怎麼造成的」</small></h3>}
       <p className="muted small">{s.stops.length} 站{first && last && `・${fmtRange(first.time.start, last.time.end)}`}・每兩站之間的說明，就是兩張卡之間的前因／後果關係。{onMap && <button className="link" onClick={onMap}>在地圖上看</button>}</p>
       <ol className="sv-line">

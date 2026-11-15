@@ -1,7 +1,7 @@
 // 搜尋結果（高亮命中欄位）或依年代排列的全部卡片（手機版的「垂直時間軸」）
 import type { Card } from '../types';
 import type { Hit } from '../lib/search';
-import { activeAt, fmtRange, fmtYear, yr, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { activeAt, fmtRange, fmtYear, yr, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 import { intent } from '../lib/detail';
 
 interface Props {
@@ -39,7 +39,7 @@ export function ResultList({ query, result, hits, cards, year, onOpen, topics, o
         {hits.length === 0 && <p>沒有結果。可以試試別名、今日地名、場域（如「港口」）、或年份（如「前431」「212」）。</p>}
         {hits.map((h) => (
           <button key={h.card.id} className="result" onClick={() => onOpen(h.card.id)} {...intent('card', h.card.id)}>
-            <span className="r-type" style={{ color: TYPE_COLOR[h.card.type] }}>{TYPE_ICON[h.card.type]} {h.card.typeLabel}</span>
+            <span className="r-type" style={{ color: TYPE_VAR[h.card.type] }}>{TYPE_ICON[h.card.type]} {h.card.typeLabel}</span>
             <span className="r-name">{h.card.name}</span>
             <span className="r-time">{fmtRange(h.card.time.start, h.card.time.end)}</span>
             <span className="r-hl">

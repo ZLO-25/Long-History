@@ -231,3 +231,12 @@ storylines:
     stops: [event-roman-republic-founding, event-conflict-of-orders, war-samnite, war-first-punic, war-second-punic, event-gracchi-reforms, event-marian-reforms-sulla, event-rubicon, event-augustan-principate, event-pax-romana, event-crisis-third-century, event-diocletian-tetrarchy, event-christian-empire, event-fall-western-rome]
     level: 皆可
     curriculum: ["歷 Na-IV-2"]
+
+  # 以原住民族為主詞的臺灣史：沿著「外來政權如何把獵場與山林納入規則」走（只用既有卡；史前與南島語兩張卡沒有通往後面的因果邊，放在故事開頭的導讀裡）
+  - id: story-taiwan-indigenous
+    title: 從原住民族的角度看臺灣史：獵場、山林與一個個外來政權
+    question: 荷蘭、鄭氏、清朝、日本先後來到這座島。對早就住在這裡的原住民族來說，每一次，土地和生活怎麼變？他們又怎麼回應？
+    blurb: 這條線從平原上的西拉雅人走到山裡的泰雅族、太魯閣族、賽德克族；一站接一站，看外來政權怎麼把獵場與山林納入自己的規則，也看各族、各社不同的回應。
+    stops: [event-dutch-formosa, social-siraya-deer, event-koxinga-taiwan, event-qing-taiwan-frontier, commodity-taiwan-tea-camphor, event-taiwan-aborigine-policy, event-wushe-incident]
+    level: 國中
+    curriculum: ["歷 Bb-IV-2", "歷 Ca-IV-1", "歷 Cb-IV-1", "歷 Ea-IV-3"]

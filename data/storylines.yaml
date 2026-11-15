@@ -9,7 +9,7 @@ storylines:
     blurb: 這條線看臺灣怎麼被捲進大航海、改朝換代和帝國擴張；每一站都是上一站的結果。
     stops: [event-dutch-formosa, event-koxinga-taiwan, event-qing-taiwan-frontier, event-mudan-incident, event-1895-cession, event-taiwan-cultural-association]
     level: 國中
-    curriculum: ["歷 Bb-IV-1", "歷 Ca-IV-1", "歷 Ea-IV-1"]
+    curriculum: ["歷 Bb-IV-1", "歷 Ca-IV-1", "歷 Ea-IV-1", "歷 Da-V-1"]
 
 
   - id: story-postwar-taiwan
@@ -18,7 +18,7 @@ storylines:
     blurb: 這條線從錢開始：大陸的內戰與通膨傳到臺灣，經濟的苦變成政治的衝突，再變成長期的管制；最後看管制怎麼鬆開。
     stops: [war-chinese-civil-war, finance-gold-yuan-1948, finance-taiwan-1949-currency, event-228-incident, event-taiwan-martial-law, event-taiwan-2000-transition]
     level: 國中
-    curriculum: ["歷 Fa-IV-1", "歷 Fa-IV-2", "歷 Fb-IV-1"]
+    curriculum: ["歷 Fa-IV-1", "歷 Fa-IV-2", "歷 Fb-IV-1", "歷 Db-V-2"]
 
 
   - id: story-chip
@@ -54,7 +54,7 @@ storylines:
     blurb: 這條線橫跨中國、日本和美洲：一個國家的貨幣問題，牽動了地球另一邊的礦山和航線。
     stops: [finance-ming-baochao, commodity-iwami-silver, commodity-silver-flow, event-single-whip-reform]
     level: 高中
-    curriculum: ["歷 Ia-IV-2"]
+    curriculum: ["歷 Ia-IV-2", "歷 Mb-V-1"]
 
 
   - id: story-western-impact
@@ -63,7 +63,7 @@ storylines:
     blurb: 這條線從工業革命的技術走到中國的政治變革：看外來的衝擊怎麼一層層往裡推，從武器、工廠到政治制度。
     stops: [tech-steam-engine, war-opium-war, event-self-strengthening, war-first-sino-japanese, event-xinhai-revolution]
     level: 國中
-    curriculum: ["歷 Ib-IV-1", "歷 Ib-IV-2", "歷 Ka-IV-1"]
+    curriculum: ["歷 Ib-IV-1", "歷 Ib-IV-2", "歷 Ka-IV-1", "歷 Ia-V-2"]
 
 
   - id: story-japan
@@ -81,7 +81,7 @@ storylines:
     blurb: 這條線從「錢」開始，看財富怎麼變成海軍、變成霸權，最後在戰爭裡把城邦拖垮。
     stops: [finance-lydian-coinage, commodity-laurion-silver, war-greco-persian, war-peloponnesian, event-death-of-socrates]
     level: 高中
-    curriculum: []
+    curriculum: ["歷 Na-IV-2"]
 
 
   - id: story-rome-empire
@@ -90,7 +90,7 @@ storylines:
     blurb: 這條線看共和怎麼一步步被手握軍隊的強人掏空：每一次內戰都把權力集中到更少的人手上，最後剩下一個人。
     stops: [event-rubicon, event-second-triumvirate, war-actium, event-augustan-principate, event-pax-romana]
     level: 皆可
-    curriculum: []
+    curriculum: ["歷 Na-IV-2"]
 
 
   - id: story-print-to-war
@@ -99,7 +99,7 @@ storylines:
     blurb: 這條線看一項技術怎麼改變「誰能說話、誰聽得到」：訊息傳得快，爭論就停不下來；教會的回應又把對立推向戰場。
     stops: [tech-paper, tech-printing-press, event-reformation, event-counter-reformation, war-thirty-years]
     level: 高中
-    curriculum: []
+    curriculum: ["歷 Oa-IV-2", "歷 Lb-V-1"]
 
 
   - id: story-finance-center
@@ -108,7 +108,7 @@ storylines:
     blurb: 這條線看戰爭、制度和貨幣規則怎麼讓「錢的中心」一再搬家，一直到今天美元的地位。
     stops: [finance-amsterdam-decline, finance-london-rise, finance-gold-standard, finance-new-york-overtakes-london, finance-bretton-woods, finance-petrodollar]
     level: 高中
-    curriculum: []
+    curriculum: ["歷 Lb-V-2"]
 
 
   - id: story-america
@@ -117,7 +117,7 @@ storylines:
     blurb: 這條線跨越英國和美國：「國王也要守法」的想法，怎麼變成殖民地的自治、獨立、憲法，再經過內戰與工業化走上世界舞台。
     stops: [event-magna-carta, event-thirteen-colonies, war-american-revolution, event-us-constitution, war-american-civil-war, event-gilded-age-industrialization, war-spanish-american, event-american-century]
     level: 高中
-    curriculum: []
+    curriculum: ["歷 Qa-IV-1"]
 
 
   - id: story-cold-war
@@ -126,7 +126,7 @@ storylines:
     blurb: 這條線看「圍堵」的想法怎麼一步步把美國帶進亞洲的戰爭，又怎麼在越戰之後轉了彎。
     stops: [war-world-war-two, event-containment-nato, war-korean-war, war-vietnam-war, event-nixon-china]
     level: 皆可
-    curriculum: ["歷 Lb-IV-1"]
+    curriculum: ["歷 Qc-IV-3", "歷 Lb-IV-1", "歷 Na-V-1"]
 
 
   - id: story-vietnam-china
@@ -144,7 +144,7 @@ storylines:
     blurb: 這條線從阮朝開始，看外國勢力一個換過一個：法國、日本、美國、中國；每一場仗都是上一場留下的問題。
     stops: [event-nguyen-dynasty-vietnam-name, event-french-indochina, social-french-indochina-economy, event-vietnam-anticolonial, event-vietnam-1945, war-first-indochina, war-vietnam-war, war-sino-vietnamese-1979, event-doi-moi]
     level: 高中
-    curriculum: []
+    curriculum: ["歷 Qb-IV-2", "歷 Mb-V-3"]
 
 
   # 印度化的東南亞（2026-11-10，深入專題 data/dives/indosphere.yaml）
@@ -154,7 +154,7 @@ storylines:
     blurb: 這條線從印度文化坐船來到湄公河口開始，看高棉人的國家怎麼一次次換主人、換都城、換信仰；每一站都接手了上一站留下的土地和傳統。
     stops: [event-indianization-sea, event-funan, event-chenla, event-khmer-empire, war-cham-khmer-1177, social-angkor-zhou-daguan, event-angkor-decline]
     level: 高中
-    curriculum: []
+    curriculum: ["歷 Ob-IV-3"]
 
   - id: story-champa
     title: 占婆去哪裡了？越南的南進
@@ -162,7 +162,7 @@ storylines:
     blurb: 這條線從越南的「北方」轉到「南方」：同一個越南，對北方是抵抗者，對南方卻是擴張者。讀的時候，試著輪流站在越南人、占族人和高棉人的位置想。
     stops: [event-vietnam-northern-rule, event-champa, war-nam-tien-champa, event-mekong-delta-vietnam, event-nguyen-dynasty-vietnam-name]
     level: 高中
-    curriculum: []
+    curriculum: ["歷 Ob-IV-3"]
 
   - id: story-india-sea
     title: 印度往東走：商船、佛法與海峽
@@ -170,7 +170,7 @@ storylines:
     blurb: 這條線看印度的宗教和文字怎麼坐著商船往東傳；最後一站提醒你，和平的文化交流背後，也有搶奪海上貿易的衝突。
     stops: [event-maurya-empire, event-indianization-sea, event-srivijaya, war-chola-srivijaya-1025]
     level: 高中
-    curriculum: []
+    curriculum: ["歷 Ob-IV-3"]
 
   # 深入專題「日本戰國」的主線（data/dives/sengoku.yaml）
   - id: story-sengoku
@@ -198,7 +198,7 @@ storylines:
     blurb: 這條線沿著「上一步沒解決的問題」走：財政問題逼出三級會議，議會的主張逼出街頭行動，宣言寫下的原則又逼出「國王還能不能留」的問題；每一站都比上一站走得更遠，直到有人用軍隊把它停下來。
     stops: [war-american-revolution, finance-french-royal-debt, event-estates-general-1789, event-storming-bastille, event-declaration-rights-of-man, event-execution-louis-xvi, event-reign-of-terror, event-brumaire-coup, event-napoleonic-code]
     level: 皆可
-    curriculum: []
+    curriculum: ["歷 Qa-IV-1", "歷 Lb-V-3"]
   - id: story-japan-lost-decades
     title: 日本失落 30 年：從泡沫到結束負利率
     question: 一次匯率協議之後，日本怎麼吹出一個巨大的資產泡沫？（匯率協議要負多少責任，史家還在吵。）泡沫破了以後，銀行和日本銀行為什麼一路走到零利率、負利率，花了快四十年才回到「正常」？
@@ -212,7 +212,7 @@ storylines:
     blurb: 這條線跟著柏林走：戰後歐洲重建的錢（馬歇爾計畫）讓東西兩邊越走越遠，蘇聯封鎖西柏林，西方用飛機運補撐了快一年；十多年後東德築起圍牆擋住逃亡潮；到了 1989 年，東歐各國的共產政權接連鬆動，圍牆也在這一年打開，冷戰走到終點。
     stops: [war-world-war-two, event-marshall-plan, event-berlin-blockade-1948, event-berlin-wall-1961, event-end-of-cold-war]
     level: 皆可
-    curriculum: []
+    curriculum: ["歷 Qc-IV-3", "歷 Na-V-1"]
 
   # 深入專題「古希臘」的主線（data/dives/greece.yaml）；與既有 story-greece（錢的角度）並列
   - id: story-ancient-greece
@@ -221,7 +221,7 @@ storylines:
     blurb: 這條線沿著「上一步留下的問題」走：城邦的債務與階級衝突逼出改革，改革撐起了能打贏波斯的公民，勝利又讓雅典變成帝國，帝國引來戰爭，戰爭之後是審判、是新的強權；每一站都比上一站離「人民自己管自己」更遠一點，也更近下一個主人。
     stops: [event-greek-polis-colonization, event-solon-reform, event-cleisthenes-reform, war-greco-persian, event-delian-league, social-athenian-democracy, war-peloponnesian, event-macedon-rise, event-alexander-campaign, event-hellenistic-kingdoms, war-roman-conquest-greece]
     level: 皆可
-    curriculum: []
+    curriculum: ["歷 Na-IV-2"]
 
   # 深入專題「古羅馬」的主線（data/dives/ancient-rome.yaml）；後半段接既有 story-rome-empire
   - id: story-ancient-rome
@@ -230,4 +230,4 @@ storylines:
     blurb: 這條線沿著「上一步留下的問題」走：共和的制度撐起了擴張，擴張帶來貧富差距與職業軍隊，軍隊讓將軍越來越大，最後剩下一個人；帝國盛世之後，危機、分治與信仰的改變，一步步把西半部推向終點。
     stops: [event-roman-republic-founding, event-conflict-of-orders, war-samnite, war-first-punic, war-second-punic, event-gracchi-reforms, event-marian-reforms-sulla, event-rubicon, event-augustan-principate, event-pax-romana, event-crisis-third-century, event-diocletian-tetrarchy, event-christian-empire, event-fall-western-rome]
     level: 皆可
-    curriculum: []
+    curriculum: ["歷 Na-IV-2"]

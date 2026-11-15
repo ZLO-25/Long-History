@@ -10,7 +10,7 @@ goals:
   - 能依時間排出從奧古斯都到西羅馬皇帝被廢的幾個關鍵事件，並分辨國教是哪一年才定下的
 minutes: 55
 level: 高中
-curriculum: []
+curriculum: ["歷 Na-IV-2"]
 companion: unit-rome-1
 steps:
   - type: hook

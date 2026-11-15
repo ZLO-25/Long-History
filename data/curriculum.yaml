@@ -1,4 +1,4 @@
-# 108 課綱社會領域「歷史」學習內容（僅收已取得原文者：國中主題 A–M；N–Q 與高中未能取得）
+# 108 課綱社會領域「歷史」學習內容：國中（第四學習階段）主題 A–Q、普通型高中必修（第五學習階段）主題 A–O。代碼的羅馬數字寫成 IV、V
 source: "https://www.naer.edu.tw/upload/1/16/doc/819/十二年國民基本教育課程綱要國民中小學暨普通型高級中等校-社會領域.pdf"
 fetched: 2026-11-15
 items:
@@ -47,3 +47,75 @@ items:
   - { code: "歷 Lb-IV-1", stage: 國中, theme: "當代東亞的局勢", text: "冷戰時期東亞國家間的競合。" }
   - { code: "歷 Lb-IV-2", stage: 國中, theme: "當代東亞的局勢", text: "東南亞地區國際組織的發展與影響。" }
   - { code: "歷 M-IV-1", stage: 國中, theme: "歷史考察（四）", text: "從主題 K 或 L 挑選適當課題深入探究，或規劃與執行歷史踏查或展演。" }
+  - { code: "歷 Na-IV-1", stage: 國中, theme: "古代文化的遺產", text: "非洲與西亞的早期文化。" }
+  - { code: "歷 Na-IV-2", stage: 國中, theme: "古代文化的遺產", text: "希臘、羅馬的政治及文化。" }
+  - { code: "歷 Nb-IV-1", stage: 國中, theme: "古代文化的遺產", text: "佛教的起源與發展。" }
+  - { code: "歷 Nb-IV-2", stage: 國中, theme: "古代文化的遺產", text: "基督教的起源與發展。" }
+  - { code: "歷 Nb-IV-3", stage: 國中, theme: "古代文化的遺產", text: "伊斯蘭教的起源與發展。" }
+  - { code: "歷 Oa-IV-1", stage: 國中, theme: "近代世界的變革", text: "文藝復興。" }
+  - { code: "歷 Oa-IV-2", stage: 國中, theme: "近代世界的變革", text: "宗教改革。" }
+  - { code: "歷 Oa-IV-3", stage: 國中, theme: "近代世界的變革", text: "科學革命與啟蒙運動。" }
+  - { code: "歷 Ob-IV-1", stage: 國中, theme: "近代世界的變革", text: "歐洲的海外擴張與傳教。" }
+  - { code: "歷 Ob-IV-2", stage: 國中, theme: "近代世界的變革", text: "美洲和澳洲的政治與文化。" }
+  - { code: "歷 Ob-IV-3", stage: 國中, theme: "近代世界的變革", text: "近代南亞與東南亞。" }
+  - { code: "歷 P-IV-1", stage: 國中, theme: "歷史考察（五）", text: "從主題 N 或 O 挑選適當課題深入探究，或規劃與執行歷史踏查或展演。" }
+  - { code: "歷 Qa-IV-1", stage: 國中, theme: "現代世界的發展", text: "美國獨立與法國大革命。" }
+  - { code: "歷 Qa-IV-2", stage: 國中, theme: "現代世界的發展", text: "工業革命與社會變遷。" }
+  - { code: "歷 Qa-IV-3", stage: 國中, theme: "現代世界的發展", text: "民族主義與國家建立。" }
+  - { code: "歷 Qb-IV-1", stage: 國中, theme: "現代世界的發展", text: "歐洲帝國的擴張。" }
+  - { code: "歷 Qb-IV-2", stage: 國中, theme: "現代世界的發展", text: "亞、非、美三洲的發展及回應。" }
+  - { code: "歷 Qb-IV-3", stage: 國中, theme: "現代世界的發展", text: "第一次世界大戰。" }
+  - { code: "歷 Qc-IV-1", stage: 國中, theme: "現代世界的發展", text: "戰間期的世界局勢。" }
+  - { code: "歷 Qc-IV-2", stage: 國中, theme: "現代世界的發展", text: "第二次世界大戰。" }
+  - { code: "歷 Qc-IV-3", stage: 國中, theme: "現代世界的發展", text: "從兩極到多元的戰後世界。" }
+  - { code: "歷 A-V-1", stage: 高中, theme: "如何認識過去？", text: "誰的歷史？誰留下的史料？誰寫的歷史？" }
+  - { code: "歷 Ba-V-1", stage: 高中, theme: "多元族群社會的形成", text: "我群界定、原住民與原住民族的分類。" }
+  - { code: "歷 Ba-V-2", stage: 高中, theme: "多元族群社會的形成", text: "當代原住民族的處境與權利伸張。" }
+  - { code: "歷 Bb-V-1", stage: 高中, theme: "多元族群社會的形成", text: "早期移民的歷史背景及其影響。" }
+  - { code: "歷 Bb-V-2", stage: 高中, theme: "多元族群社會的形成", text: "戰後來臺的各方移民。" }
+  - { code: "歷 Ca-V-1", stage: 高中, theme: "經濟與文化的多樣性", text: "臺灣歷史上的商貿活動。" }
+  - { code: "歷 Ca-V-2", stage: 高中, theme: "經濟與文化的多樣性", text: "臺灣歷史上的土地問題。" }
+  - { code: "歷 Cb-V-1", stage: 高中, theme: "經濟與文化的多樣性", text: "原住民族的語言、傳統信仰與祭儀。" }
+  - { code: "歷 Cb-V-2", stage: 高中, theme: "經濟與文化的多樣性", text: "多元的信仰與祭祀活動。" }
+  - { code: "歷 Cb-V-3", stage: 高中, theme: "經濟與文化的多樣性", text: "從傳統到現代的文學與藝術。" }
+  - { code: "歷 Da-V-1", stage: 高中, theme: "現代國家的形塑", text: "從地方到中央。" }
+  - { code: "歷 Da-V-2", stage: 高中, theme: "現代國家的形塑", text: "國際局勢與臺灣地位。" }
+  - { code: "歷 Da-V-3", stage: 高中, theme: "現代國家的形塑", text: "教育、語言與基礎建設。" }
+  - { code: "歷 Db-V-1", stage: 高中, theme: "現代國家的形塑", text: "日治時期的人權情況與政治、社會運動。" }
+  - { code: "歷 Db-V-2", stage: 高中, theme: "現代國家的形塑", text: "戰後的民主化追求與人權運動。" }
+  - { code: "歷 Db-V-3", stage: 高中, theme: "現代國家的形塑", text: "戰後的社會運動。" }
+  - { code: "歷 E-V-1", stage: 高中, theme: "歷史考察（一）", text: "從主題 B、C 或 D 挑選適當課題深入探究，或規劃與執行歷史踏查或展演。" }
+  - { code: "歷 F-V-1", stage: 高中, theme: "中國與東亞", text: "可以在什麼樣的脈絡中討論中國史？" }
+  - { code: "歷 Ga-V-1", stage: 高中, theme: "國家與社會", text: "傳統政治權威的類型。" }
+  - { code: "歷 Ga-V-2", stage: 高中, theme: "國家與社會", text: "戶籍、土地或賦役與國家統治的關係。" }
+  - { code: "歷 Gb-V-1", stage: 高中, theme: "國家與社會", text: "民間社會組織的型態。" }
+  - { code: "歷 Gb-V-2", stage: 高中, theme: "國家與社會", text: "社會組織與國家的互動。" }
+  - { code: "歷 Ha-V-1", stage: 高中, theme: "人群的移動與交流", text: "從漢、晉到宋、元時期東亞人群移動的特色與影響。" }
+  - { code: "歷 Ha-V-2", stage: 高中, theme: "人群的移動與交流", text: "明、清時期東亞人群移動的特色與影響。" }
+  - { code: "歷 Hb-V-1", stage: 高中, theme: "人群的移動與交流", text: "十九世紀以後東亞的人群移動。" }
+  - { code: "歷 Hb-V-2", stage: 高中, theme: "人群的移動與交流", text: "十九世紀以後東亞人群移動的變遷及其影響。" }
+  - { code: "歷 Ia-V-1", stage: 高中, theme: "現代化的歷程", text: "西方文化傳入東亞的影響。" }
+  - { code: "歷 Ia-V-2", stage: 高中, theme: "現代化的歷程", text: "東亞國家對西方帝國主義的回應。" }
+  - { code: "歷 Ia-V-3", stage: 高中, theme: "現代化的歷程", text: "民間社會與現代化的激盪。" }
+  - { code: "歷 Ib-V-1", stage: 高中, theme: "現代化的歷程", text: "東亞地區人民在二十世紀重大戰爭中的經歷。" }
+  - { code: "歷 Ib-V-2", stage: 高中, theme: "現代化的歷程", text: "共產主義在東亞的發展歷程及對局勢的影響。" }
+  - { code: "歷 Ib-V-3", stage: 高中, theme: "現代化的歷程", text: "區域合作與經貿統合的追求。" }
+  - { code: "歷 J-V-1", stage: 高中, theme: "歷史考察（二）", text: "從主題 G、H 或 I 挑選適當課題深入探究，或規劃與執行歷史踏查或展演。" }
+  - { code: "歷 K-V-1", stage: 高中, theme: "臺灣與世界", text: "可以在什麼樣的脈絡中討論世界史？" }
+  - { code: "歷 La-V-1", stage: 高中, theme: "歐洲文化與現代世界", text: "神話與哲學。" }
+  - { code: "歷 La-V-2", stage: 高中, theme: "歐洲文化與現代世界", text: "中古基督教世界。" }
+  - { code: "歷 La-V-3", stage: 高中, theme: "歐洲文化與現代世界", text: "文藝復興。" }
+  - { code: "歷 Lb-V-1", stage: 高中, theme: "歐洲文化與現代世界", text: "從宗教改革到啟蒙運動。" }
+  - { code: "歷 Lb-V-2", stage: 高中, theme: "歐洲文化與現代世界", text: "資本主義與社會主義。" }
+  - { code: "歷 Lb-V-3", stage: 高中, theme: "歐洲文化與現代世界", text: "民主傳統及其現代挑戰。" }
+  - { code: "歷 Ma-V-1", stage: 高中, theme: "文化的交會與多元世界的發展", text: "伊斯蘭文化的發展與擴張。" }
+  - { code: "歷 Ma-V-2", stage: 高中, theme: "文化的交會與多元世界的發展", text: "伊斯蘭世界與西方的互動。" }
+  - { code: "歷 Mb-V-1", stage: 高中, theme: "文化的交會與多元世界的發展", text: "歐洲與亞洲的交流。" }
+  - { code: "歷 Mb-V-2", stage: 高中, theme: "文化的交會與多元世界的發展", text: "歐洲與非、美兩洲的交流。" }
+  - { code: "歷 Mb-V-3", stage: 高中, theme: "文化的交會與多元世界的發展", text: "反殖民運動的發展。" }
+  - { code: "歷 Na-V-1", stage: 高中, theme: "世界變遷與現代性", text: "冷戰期間的政治局勢。" }
+  - { code: "歷 Na-V-2", stage: 高中, theme: "世界變遷與現代性", text: "社會運動與反戰。" }
+  - { code: "歷 Nb-V-1", stage: 高中, theme: "世界變遷與現代性", text: "現代性與現代文化。" }
+  - { code: "歷 Nb-V-2", stage: 高中, theme: "世界變遷與現代性", text: "「西方」與「反西方」。" }
+  - { code: "歷 Nb-V-3", stage: 高中, theme: "世界變遷與現代性", text: "全球化與多元文化。" }
+  - { code: "歷 O-V-1", stage: 高中, theme: "歷史考察（三）", text: "從主題 L、M 或 N 挑選適當課題深入探究，或規劃與執行歷史踏查或展演。" }

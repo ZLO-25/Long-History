@@ -2,6 +2,7 @@
 // 選擇題自己畫（規則和課內不同：只有一次機會）；排序題用課內的 Order，小題用課內的 Quick，不另寫一套
 import { useMemo, useState } from 'react';
 import type { Index } from '../types';
+import { CardImages } from '../components/Images';
 import { Order, Quick, shuffleOptions } from './Steps';
 import { LLink } from './nav';
 import type { RQ } from './review';
@@ -25,9 +26,12 @@ export function ReviewQ({ q, uid, index, onResult, onNext, nextLabel }: {
   const finish = (ok: boolean) => { if (res !== null) return; setRes(ok); onResult(ok); };
   const src = q.card ? index.cards.find((c) => c.id === q.card)?.learn?.primary_source?.[q.idx ?? 0] : undefined;
   const link = <LLink className="link small rq-link" q={{ unit: uid, step: String(q.step) }}>📖 回這一課看（第 {q.step + 1} 步）</LLink>;
+  const im = q.image ? index.cards.find((c) => c.id === q.image!.card)?.images?.[q.image.idx] : undefined;
   return (
     <div className="rq">
       {src && <figure className="primary"><blockquote>{src.text}</blockquote><figcaption>— {src.from}</figcaption></figure>}
+      {q.quotes?.map((x, k) => <figure key={k} className="primary"><blockquote><b>史料 {k === 0 ? '甲' : '乙'}：</b>{x.text}</blockquote><figcaption>— {x.from}</figcaption></figure>)}
+      {im && <CardImages images={[im]} compact />}
       {q.kind === 'choice' && (
         <div className="activity">
           <div className="q">{q.q}</div>

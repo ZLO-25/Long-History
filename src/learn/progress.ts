@@ -9,7 +9,10 @@ export interface UnitProgress { step: number; done: boolean; recap?: string; ans
 export interface RevRec { s: number; due: string; last?: string; ok: boolean }
 /** 學生自己填的姓名／班級／座號（只存這台瀏覽器；列印與匯出會帶） */
 export interface Profile { name?: string; cls?: string; no?: string }
+/** 深入專題的總結任務（2026-11 第 4f 批）：Progress.capstone[<專題 id>]。text＝寫的內容；pts＝逐條自評；seen＝看過重點；skip＝按了「我真的想不出來」；more＝補寫一句；at＝最後修改日（備份合併取較新的） */
+export interface CapstoneRec { text: string; pts?: (boolean | null)[]; seen?: boolean; skip?: boolean; more?: string; at?: string }
 export interface Progress { units: Record<string, UnitProgress>; cards: Record<string, true>; history?: string; fontScale?: number; seenIntro?: boolean; timelineOpen?: boolean; profile?: Profile;
+  /** 專題總結任務（選填；舊進度沒有） */ capstone?: Record<string, CapstoneRec>;
   /** 間隔複習排程（選填；舊進度沒有）與做過複習的日期（YYYY-MM-DD，由舊到新） */ review?: Record<string, RevRec>; reviewDays?: string[] }
 
 const KEY = 'history-river-learn-v1';
@@ -57,6 +60,11 @@ export function toProgress(x: unknown): Progress | null {
   const out: Progress = { ...d, units, cards };
   if (!d.review || typeof d.review !== 'object' || Array.isArray(d.review)) delete out.review;
   if (!Array.isArray(d.reviewDays)) delete out.reviewDays;
+  if (d.capstone != null) {
+    const cap: Record<string, CapstoneRec> = {};
+    if (typeof d.capstone === 'object' && !Array.isArray(d.capstone)) for (const [id, c] of Object.entries(d.capstone)) if (c && typeof c === 'object' && typeof (c as any).text === 'string') cap[id] = c as CapstoneRec;
+    if (Object.keys(cap).length) out.capstone = cap; else delete out.capstone;
+  }
   return out;
 }
 
@@ -83,7 +91,11 @@ export function mergeProgress(cur: Progress, inc: Progress): Progress {
   const review: Record<string, RevRec> = { ...(inc.review ?? {}) };
   for (const [k, c] of Object.entries(cur.review ?? {})) { const o = review[k]; review[k] = !o || (c.last ?? '') >= (o.last ?? '') ? c : o; }
   const reviewDays = [...new Set([...(inc.reviewDays ?? []), ...(cur.reviewDays ?? [])])].sort();
+  // 專題總結任務：同一個專題取 at 較新的（一樣新就留目前這台的；目前這台是空的就用匯入的）
+  const capstone: Record<string, CapstoneRec> = { ...(inc.capstone ?? {}) };
+  for (const [k, c] of Object.entries(cur.capstone ?? {})) { const o = capstone[k]; capstone[k] = !o ? c : !c.text.trim() ? o : !o.text.trim() ? c : (c.at ?? '') >= (o.at ?? '') ? c : o; }
   const out: Progress = { ...inc, ...cur, units, cards: { ...inc.cards, ...cur.cards }, history: cur.history ?? inc.history, profile: Object.keys(profile).length ? profile : undefined };
+  if (Object.keys(capstone).length) out.capstone = capstone; else delete out.capstone;
   if (Object.keys(review).length) out.review = review; else delete out.review;
   if (reviewDays.length) out.reviewDays = reviewDays; else delete out.reviewDays;
   return out;

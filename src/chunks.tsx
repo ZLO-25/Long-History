@@ -103,6 +103,7 @@ export const CurriculumPage = lazyView<P<typeof import('./learn/ListPages').Curr
 export const UnitMeta = lazyView<P<typeof import('./learn/ListPages').UnitMeta>>(() => listsMod().then((m) => ({ default: m.UnitMeta })), null);
 export const MyMap = lazyView<P<typeof import('./learn/miscChunk').MyMap>>(() => miscMod().then((m) => ({ default: m.MyMap })));
 export const LearnRecord = lazyView<P<typeof import('./learn/miscChunk').LearnRecord>>(() => miscMod().then((m) => ({ default: m.LearnRecord })));
+export const Capstone = lazyView<P<typeof import('./learn/miscChunk').Capstone>>(() => miscMod().then((m) => ({ default: m.Capstone })), null);
 export const SimView = lazyView<P<typeof import('./learn/miscChunk').SimView>>(() => miscMod().then((m) => ({ default: m.SimView })));
 export const PeoplePanel = lazyView<P<typeof import('./components/PeoplePanel').PeoplePanel>>(() => peopleMod().then((m) => ({ default: m.PeoplePanel })));
 export const StorylineView = lazyView<P<typeof import('./components/Story').StorylineView>>(() => storyMod().then((m) => ({ default: m.StorylineView })));

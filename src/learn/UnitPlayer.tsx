@@ -4,6 +4,7 @@ import type { Index, Step, Unit } from '../types';
 import { LearnCard } from './LearnCard';
 import { LearnText } from './LearnText';
 import { Choice, CheckQ, CompareTable, Decision, Guess, Hints, Order, Quick, RefLink, Reflect, Short } from './Steps';
+import { ImageQ, MapQ, Sources2, Transfer } from './NewSteps';
 import { UnitResult } from './UnitResult';
 import { LEVELS, metaOf, recOf, seenSet, unitLevel, type Meta, type Rec } from './level';
 import { SimView } from './sims/SimView';
@@ -22,6 +23,7 @@ const peopleTitle = (d: Peoples | null, id: string) =>
 const STEP_LABEL: Record<Step['type'], string> = {
   hook: '引子', card: '讀卡片', source: '史料判讀', chain: '因果鏈', compare: '觀點比較', decision: '你是決策者',
   today: '今日對照', sim: '金融模擬', peoples: '看人群地圖', check: '自我檢查', recap: '回顧',
+  mapq: '看地圖回答', sources2: '兩份史料對讀', image: '圖像史料', transfer: '換個案例試試',
 };
 
 interface Props {
@@ -110,7 +112,8 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
   const s = step >= 0 ? u.steps[step] : null;
   const byId = (id: string) => index.cards.find((c) => c.id === id);
   // 讓地圖與時間軸跟著目前這一步的卡片走
-  const stepFocus = (x: typeof s) => x && (x.type === 'card' ? x.id : x.type === 'source' || x.type === 'today' ? x.card : x.type === 'compare' ? x.cards[0] : x.type === 'decision' ? x.ref.split('#')[0] : null);
+  const stepFocus = (x: typeof s) => x && (x.type === 'card' ? x.id : x.type === 'source' || x.type === 'today' || x.type === 'image' ? x.card : x.type === 'compare' ? x.cards[0] : x.type === 'decision' ? x.ref.split('#')[0]
+    : x.type === 'mapq' || x.type === 'transfer' ? x.card ?? null : x.type === 'sources2' ? x.a.card ?? null : null);
   // 封面（還沒開始）也讓地圖和年代先跳到這一課的第一張卡，例如會安單元一打開就看越南
   const focusId = s ? stepFocus(s) : u.steps.map(stepFocus).find(Boolean) ?? null;
   useEffect(() => { onFocus?.(focusId ?? null); }, [focusId]);
@@ -268,8 +271,13 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
             saved={A[`cs${step}_${i}`]} onSave={(t) => save(`cs${step}_${i}`, t)} meta={metaOf(prog, `cs${step}_${i}`)} onMeta={(m) => saveMeta(`cs${step}_${i}`, m)} />; })}</div>
         </>;
       }
+      case 'mapq': return <MapQ key={step} s={s} rec={recOf(prog, `m${step}`)} onRec={(r) => saveRec(`m${step}`, r)} after={ref(s.ref)} />;
+      case 'sources2': return <Sources2 key={step} s={s} rec={recOf(prog, `x${step}`)} onRec={(r) => saveRec(`x${step}`, r)} after={ref(s.ref)}
+        openUnlocked={finished(`x${step}`)} openSaved={A[`xo${step}`]} onOpenSave={(t) => save(`xo${step}`, t)} openMeta={metaOf(prog, `xo${step}`)} onOpenMeta={(m) => saveMeta(`xo${step}`, m)} />;
+      case 'image': return <ImageQ key={step} s={s} card={byId(s.card)} rec={recOf(prog, `im${step}`)} onRec={(r) => saveRec(`im${step}`, r)} after={ref(s.ref)} />;
+      case 'transfer': return <Transfer key={step} s={s} after={ref(s.ref)} saved={A[`t${step}`]} onSave={(t) => save(`t${step}`, t)} meta={metaOf(prog, `t${step}`)} onMeta={(m) => saveMeta(`t${step}`, m)} />;
       case 'recap': {
-        const hookI = u.steps.findIndex((x) => x.type === 'hook' && typeof x.guess === 'object');
+        const hookI =u.steps.findIndex((x) => x.type === 'hook' && typeof x.guess === 'object');
         const gs = hookI >= 0 ? (u.steps[hookI] as Extract<Step, { type: 'hook' }>).guess : null;
         const gPick = hookI >= 0 ? A[`g${hookI}`] : undefined;
         if (showResult && prog?.done) return <UnitResult u={u} prog={prog} index={index} stepName={stepName} onGo={jump} onUnit={onUnit} onBack={() => setShowResult(false)}

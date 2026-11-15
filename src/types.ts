@@ -98,7 +98,17 @@ export type Step =
   /** 看人群圖層的一頁（'Taiwan'、'about'、'migrations'、'mig-<id>'、國名）：資料有自己的來源（data/peoples/） */
   | { type: 'peoples'; id: string; prompt: string }
   | { type: 'check'; items: CheckItem[] }
-  | { type: 'recap'; model_answer: string; points?: string[] };
+  | { type: 'recap'; model_answer: string; points?: string[] }
+  /** 看地圖回答（2026-11 第 4f 批）。places 在建置時已解析成 lat／lng／label（寫 key 的會從卡片的地點補齊） */
+  | { type: 'mapq'; question: string; card?: string; mode?: 'where' | 'label'; places: MapqPlace[]; answer: number; explain: string; why_wrong?: (string | null)[]; hints?: string[]; ref?: string }
+  /** 兩份史料對讀：a、b 在建置時已補上 text／from（寫 card＋idx 的從卡片的 primary_source 取）。skeleton 裡 a／b 只剩 card，open 是 true */
+  | { type: 'sources2'; a: Src2; b: Src2; question: string; options: string[]; answer: number; explain: string; why_wrong?: (string | null)[]; hints?: string[]; ref?: string; open?: { question: string; points: string[]; model_answer: string } | true }
+  /** 圖像史料：用卡片的圖片（與授權標示）出選擇題 */
+  | { type: 'image'; card: string; idx?: number; question: string; options: string[]; answer: number; explain: string; why_wrong?: (string | null)[]; look?: string[]; hints?: string[]; ref?: string }
+  /** 遷移：一個這一課沒教過的新情境，用剛學的想法回答（開放題，先寫再看、勾 points） */
+  | { type: 'transfer'; case: string; card?: string; question: string; points: string[]; model_answer: string; hint?: string; ref?: string };
+export interface MapqPlace { key?: string; card?: string; lat: number; lng: number; label: string; hint?: string }
+export interface Src2 { card?: string; idx?: number; text: string; from: string }
 export interface CheckItem {
   kind: 'choice' | 'order' | 'short'; q: string; options?: string[]; answer?: number; items?: string[]; model?: string;
   explain: string; hints: string[]; ref?: string; why_wrong?: (string | null)[]; points?: string[];
@@ -157,9 +167,12 @@ export interface Dive {
   legacy?: DiveLegacy | null;
   /** 對照表（例如希臘 vs 羅馬）：隨專題資料輸出，不進 home.json */
   compare?: DiveCompare[];
+  /** 總結任務（選填）：走完專題所有課之後，專題頁最下面出現的長一點的寫作題 */
+  capstone?: DiveCapstone | null;
   /** 只有 home.json 有（cards、power_maps 等是空的）：專題入口卡要顯示的數字 */
   stat?: { cards: number; persons: number; power: number; curves: number; chapters: number };
 }
+export interface DiveCapstone { question: string; points: string[]; model_answer?: string; /** 至少幾個字才能看重點（預設 60） */ min?: number }
 export interface DiveCurveSeries { id: string; name: string; unit: string; color: string; note: string; zero: boolean | null; points: [number, number][]; src: string[] }
 export interface DiveCurves { title: string; subtitle: string; caveat: string; series: DiveCurveSeries[]; events: { year: number; label: string; card?: string }[]; sources: DiveSource[] }
 export interface DiveLegacyItem { then: string; now: string; tag: string; card: string; src: string[] }

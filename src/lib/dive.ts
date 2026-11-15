@@ -5,6 +5,12 @@ import { cardEn } from './bilingual';
 export function findDive(index: Index, id: string): Dive | undefined {
   return (index.dives ?? []).find((d) => d.id === id);
 }
+/** 製作備註（「切線理由見 docs/…」之類）只藏畫面、不刪資料：去掉含 docs/ 的子句或句子 */
+export function cleanNote(t: string): string {
+  if (!t || !t.includes('docs/')) return t;
+  const out = t.split('。').map((s) => s.split('；').filter((c) => !c.includes('docs/')).join('；')).filter((s) => s.trim()).join('。');
+  return out + (t.trimEnd().endsWith('。') && out ? '。' : '');
+}
 /** 專題沒寫 power_ui 時的預設文字 */
 export const DEFAULT_POWER_UI: PowerUi = { title: '勢力圖', subtitle: '誰在什麼時候最強', caveat: '', legend: '' };
 /** 這個專題有沒有要畫的主視覺地圖（visual 是 power 且至少一張圖） */

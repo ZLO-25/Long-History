@@ -75,7 +75,29 @@ export function loadUnits(): { file: string; unit: any }[] {
     .map((f) => ({ file: `data/units/${f}`, unit: YAML.parse(fs.readFileSync(path.join(dir, f), 'utf8')) }));
 }
 
-const STEP_TYPES = ['hook', 'card', 'source', 'chain', 'compare', 'decision', 'today', 'sim', 'peoples', 'check', 'recap'] as const;
+/** 地點的 key（和 build-index 卡片地點的 key 一樣）：有 pleiades_id 用 p<id>，否則「緯度,經度」兩位小數 */
+const locKey = (l: any) => (l.pleiades_id ? `p${l.pleiades_id}` : `${Number(l.lat).toFixed(2)},${Number(l.lng).toFixed(2)}`);
+const fmOf = (c: any) => c?.fm ?? c;
+const findLoc = (card: any, key: string) => (fmOf(card)?.place?.locations ?? []).find((l: any) => locKey(l) === key || l.name_ancient === key || l.name_modern === key);
+const cardOf = (cards: any[], id: string) => cards.find((c) => (c.id ?? c.fm?.id) === id);
+
+/** 建置時把新步驟補齊（讓畫面、學習單、報表不必再查卡片）：mapq 的 places 補 lat／lng／label；sources2 的 a／b 補 text／from。cards 可以是原始卡（fm）或處理後的卡 */
+export function compileUnit(u: any, cards: any[]) {
+  return { ...u, steps: (u.steps ?? []).map((s: any) => {
+    if (s?.type === 'mapq') return { ...s, places: (s.places ?? []).map((p: any) => {
+      if (p.key == null) return p;
+      const loc = findLoc(cardOf(cards, p.card ?? s.card), p.key);
+      return loc ? { ...p, lat: loc.lat, lng: loc.lng, label: p.label ?? loc.name_ancient } : p;
+    }) };
+    if (s?.type === 'sources2') {
+      const side = (x: any) => { if (!x || x.text) return x; const ps = fmOf(cardOf(cards, x.card))?.learn?.primary_source?.[x.idx ?? 0]; return ps ? { ...x, text: ps.text, from: ps.from } : x; };
+      return { ...s, a: side(s.a), b: side(s.b) };
+    }
+    return s;
+  }) };
+}
+
+const STEP_TYPES = ['hook', 'card', 'source', 'chain', 'compare', 'decision', 'today', 'sim', 'peoples', 'check', 'recap', 'mapq', 'sources2', 'image', 'transfer'] as const;
 // 人群圖層能打開的頁（peoples 步驟、ref 寫 peoples:<頁>）：說明、為什麼不畫人種、遷徙清單、各條遷徙、各國
 let peoplePages: Set<string> | null = null;
 const peoplePage = (id: string) => {
@@ -240,9 +262,69 @@ export function checkUnits(units: { file: string; unit: any }[], cards: RawCard[
             if (q.kind === 'short') checkPoints(q, qw);
           });
           break;
+        case 'mapq': {
+          if (!nonEmpty(s.question)) err(`${w}：缺 question`);
+          if (s.mode !== undefined && !['where', 'label'].includes(s.mode)) err(`${w}：mode 要是 where 或 label`);
+          if (s.card) useCard(s.card, w);
+          const pl = Array.isArray(s.places) ? s.places : [];
+          if (pl.length < 2 || pl.length > 6) err(`${w}：places 要 2–6 個點（標成 A–F）`);
+          pl.forEach((p: any, k: number) => {
+            const pw = `${w} places[${k}]`;
+            if (!p || typeof p !== 'object') { err(`${pw}：要是物件`); return; }
+            if (p.key !== undefined) {
+              const cid = p.card ?? s.card;
+              if (!cid) err(`${pw}：寫 key 時要有 card（這一步或這個點）`);
+              else { const c = useCard(cid, pw); if (c && !findLoc(c, String(p.key))) err(`${pw}：${cid} 沒有地點「${p.key}」（可寫 name_ancient、name_modern 或座標 key）`); }
+            } else if (typeof p.lat !== 'number' || typeof p.lng !== 'number' || Math.abs(p.lat) > 90 || Math.abs(p.lng) > 180 || !nonEmpty(p.label)) err(`${pw}：沒有 key 就要有 lat、lng（數字）與 label`);
+            if (p.label !== undefined && !nonEmpty(p.label)) err(`${pw}：label 不能是空的`);
+            if (p.hint !== undefined && !nonEmpty(p.hint)) err(`${pw}：hint 不能是空的`);
+          });
+          if (typeof s.answer !== 'number' || !Number.isInteger(s.answer) || s.answer < 0 || s.answer >= pl.length) err(`${w}：answer 要是 places 的第幾個（從 0 起）`);
+          if (!nonEmpty(s.explain)) err(`${w}：缺 explain`);
+          checkWhy({ ...s, options: pl }, w);
+          if (s.hints !== undefined) needHints(s, w);
+          useRef(s.ref, w);
+          if (pl.some((p: any) => !nonEmpty(p?.hint))) warn(`${w}：有的點沒有 hint（方位描述）；地圖載不到時只剩 A、B、C 按鈕，複習也不會收這題`);
+          break;
+        }
+        case 'sources2': {
+          const sides: any[] = [];
+          for (const k of ['a', 'b'] as const) {
+            const x = s[k], sw = `${w} ${k}`;
+            if (!x || typeof x !== 'object') { err(`${sw}：要寫 { card, idx } 或 { text, from }`); continue; }
+            if (x.text !== undefined || x.from !== undefined) { if (!nonEmpty(x.text) || !nonEmpty(x.from)) err(`${sw}：直接寫史料時 text 與 from 都要有`); }
+            else { const c = useCard(x.card, sw); if (c && !c.fm.learn?.primary_source?.[x.idx ?? 0]) err(`${sw}：${x.card} 沒有第 ${x.idx ?? 0} 筆 primary_source`); }
+            sides.push(x);
+          }
+          if (sides.length === 2 && sides[0].card && sides[0].card === sides[1].card && (sides[0].idx ?? 0) === (sides[1].idx ?? 0)) err(`${w}：a 和 b 是同一份史料`);
+          if (!nonEmpty(s.question) || !Array.isArray(s.options) || s.options.length < 2 || typeof s.answer !== 'number' || !s.options[s.answer] || !nonEmpty(s.explain)) err(`${w}：需要 question、options（≥2）、answer（第幾個，從 0 起）、explain`);
+          checkWhy(s, w); addMcq(s); if (s.hints !== undefined) needHints(s, w); useRef(s.ref, w);
+          if (s.open !== undefined) {
+            const o = s.open;
+            if (!o || !nonEmpty(o.question) || !nonEmpty(o.model_answer)) err(`${w}：open 需要 question、points、model_answer`);
+            if (o && o.points === undefined) err(`${w}：open 需要 points（2–4 個重點）`); else if (o) checkPoints(o, `${w} open`);
+          }
+          break;
+        }
+        case 'image': {
+          const c = useCard(s.card, w);
+          const imgs = c?.fm.images;
+          if (c && (!Array.isArray(imgs) || !imgs[s.idx ?? 0])) err(`${w}：${s.card} 沒有第 ${s.idx ?? 0} 張圖片（卡片要有 images）`);
+          if (!nonEmpty(s.question) || !Array.isArray(s.options) || s.options.length < 2 || typeof s.answer !== 'number' || !s.options[s.answer] || !nonEmpty(s.explain)) err(`${w}：需要 question、options（≥2）、answer（第幾個，從 0 起）、explain`);
+          checkWhy(s, w); addMcq(s); if (s.hints !== undefined) needHints(s, w); useRef(s.ref, w);
+          if (s.look !== undefined && (!Array.isArray(s.look) || s.look.some((x: any) => !nonEmpty(x)))) err(`${w}：look 要是「先看哪裡」的提示清單（每個一句話）`);
+          break;
+        }
+        case 'transfer':
+          if (!nonEmpty(s.case) || !nonEmpty(s.question) || !nonEmpty(s.model_answer)) err(`${w}：需要 case（新情境）、question、points、model_answer`);
+          if (s.points === undefined) err(`${w}：需要 points（2–4 個重點）`); else checkPoints(s, w);
+          if (s.card) useCard(s.card, w);
+          if (s.hint !== undefined && !nonEmpty(s.hint)) err(`${w}：hint 要是一句話`);
+          useRef(s.ref, w);
+          break;
         case 'recap': if (!s.model_answer) err(`${w}：需要 model_answer（參考說法）`); checkPoints(s, w); break;
       }
-      for (const k of ['text', 'situation', 'explain', 'actual']) if (s[k] && refsOf(String(s[k])).length) warn(`${w}：單元文字不要用 [s1] 代號，請用 ref 連回卡片`);
+      for (const k of ['text', 'situation', 'explain', 'actual', 'case']) if (s[k] && refsOf(String(s[k])).length) warn(`${w}：單元文字不要用 [s1] 代號，請用 ref 連回卡片`);
     });
     if (u.reflect !== undefined) {
       if (typeof u.reflect !== 'string' || !u.reflect.trim()) err('reflect 要是一句反思題（字串）');

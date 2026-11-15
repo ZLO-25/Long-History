@@ -146,3 +146,56 @@
 - `level`：`國中`｜`高中`｜`皆可`。單元與 `data/storylines.yaml` 的故事線都可以寫；首頁與「全部的課」可依年級篩選。
 - `curriculum`：108 課綱歷史學習內容的條目代碼清單，例如 `["歷 Ea-IV-1"]`；代碼必須存在於 `data/curriculum.yaml`（國中 A–Q、高中必修 A–O，原文出自國教院公布的社會領域課綱 PDF），否則 validate 報錯。沒有對應就寫 `[]`。
 - 對照頁：`?mode=learn&view=curriculum`。
+
+## 2026-11 第 4f 批：四種新步驟＋專題總結任務（試用報告 #34，全部選填、舊課照常）
+
+目的：43 課沒有一步是「看地圖回答」，也沒有「兩份史料並排讀」「看圖」「遷移到新案例」；專題頁只是資源目錄。新步驟的事實一律要能在用到的卡片裡找到（不新增史實）。
+
+| type | 做什麼 | 欄位 | 進度鍵 |
+|---|---|---|---|
+| `mapq` 看地圖回答 | 內嵌小地圖（Leaflet，只有這一步才載入；手機高約 260px），點地圖上的 A、B、C… 或按下面的按鈕作答；兩次機會（第一次錯只提示）；答完顯示地名與解析。地圖載不到或離線時退回純按鈕選擇題 | `question`（必填）、`card`（用哪張卡的地點）、`places`（2–6 個，見下）、`answer`（places 的第幾個，從 0 起）、`explain`、`why_wrong`（與 places 等長，正解那格 `null`）、`hints`（2–3 段，選填）、`mode`（選填，`where`＝描述一個地點問在哪；`label`＝給一個地名問是哪一點，資料形狀相同，只是題幹不同）、`ref` | `r:m{步}` |
+| `sources2` 兩份史料對讀 | 兩份史料並排（手機上下排）各標出處；先一題選擇，再一題開放題（先寫 15 字或按「我真的想不出來」才能看參考說法，逐條勾 points） | `a`、`b`（各 `{ card, idx }` 指到卡片 `primary_source` 第幾筆（從 0 起），或直接 `{ text, from }`）、`question`、`options`、`answer`、`explain`、`why_wrong`、`hints`、`ref`、`open`（選填：`{ question, points（2–4 個）, model_answer }`） | `r:x{步}`、`xo{步}`（開放題文字）、`w:xo{步}` |
+| `image` 圖像史料 | 顯示卡片的圖片（沿用卡片圖片元件：授權標示、點圖放大、預留寬高），下面一題選擇題。題目只問圖上看得到的與卡片寫的 | `card`（必填，要有 `images`）、`idx`（第幾張，預設 0）、`question`、`options`、`answer`、`explain`、`why_wrong`、`look`（「先看哪裡」的提示清單）、`hints`、`ref` | `r:im{步}` |
+| `transfer` 換個案例試試 | 標題「換個案例試試」，明示「這題在看你能不能把剛學的想法用到新的地方」；流程同開放題（先寫再看、勾 points、自評） | `case`（必填：一段卡片上有、但這一課前面沒教過的新情境）、`card`（案例出自哪張卡）、`question`、`points`（2–4 個）、`model_answer`、`hint`、`ref` | `t{步}`、`w:t{步}` |
+
+`mapq.places[]`：`{ key 或 lat+lng, label, hint?, card? }`
+
+- `key`：卡片 `place.locations` 的地點，可寫 `name_ancient`、`name_modern` 或座標 key（有 `pleiades_id` 寫 `p<id>`，否則 `緯度,經度` 兩位小數）。地點屬於哪張卡看這個點的 `card`，沒寫就用步驟的 `card`。建置時會把 `lat`、`lng` 補進單元資料（`label` 沒寫就用 `name_ancient`），所以畫面、學習單、報表都不必再查卡片。
+- 沒有 `key` 時 `lat`、`lng`、`label` 都要寫。
+- `label`：作答後才顯示的地名（作答前地圖上只有 A、B、C…）。
+- `hint`：方位描述（例如「臺灣島西邊外海的小島」）。**建議每個點都寫**：地圖載不到時按鈕只剩 hint；複習（review）只有每個點都有 hint 才會收這題；學習單的示意圖下面的選項也用 hint。hint 只能描述座標上看得到的相對位置，不放新史實。
+
+`sources2.a／b` 在建置時會補上 `text`、`from`（寫 `card`＋`idx` 的從卡片取）。`a` 和 `b` 不可以是同一份史料。
+
+### 完成等級、報表、複習
+
+- 新步驟都算「互動有作答」（`mapq`、`sources2` 的選擇題、`image` 是 rec；`sources2.open`、`transfer` 是 open，要寫滿 15 字或按「我真的想不出來」）。**不算自我檢查**：只有 `check` 步驟的選擇／排序題會影響「學會」（八成以上）。
+- 報表（匯出頁、老師檢視、分享碼）一題一列：mapq 的選項寫地名；sources2 開放題與 transfer 列出學生寫的字與自評。
+- 學習單：mapq 印沒有底圖的示意圖（上北下南）加方位 hint；sources2 印兩份史料；image 印圖與授權；transfer 印新案例與作答線；解答版有正解、解析、參考說法與 points。
+- 複習抽題：mapq（每個點都有 hint）、sources2 選擇題（顯示兩份史料）、image 選擇題（顯示圖片）可以進複習與段考；開放題不自動對答案，不進複習。
+- 預估時間：每個新步驟算 1 個互動（sources2 有 open 算 2 個），再加上史料或案例字數。
+
+### 專題總結任務（`data/dives/*.yaml` 的 `capstone`）
+
+```yaml
+capstone:
+  question: 一個較長的寫作題（連結專題各課）
+  min: 80            # 選填：至少幾個字才能對照重點，預設 60，範圍 20–400
+  points:            # 2–6 個重點（來自專題各課的 goals）
+    - ……
+  model_answer: ……   # 選填：參考說法
+```
+
+- 專題頁最下面（學習模式）：專題的 `units` 全部「走完」（按過「完成這一課」）之前顯示鎖住的說明與還差哪幾課（可點進去）；全部走完後出現寫作框。寫到字數才能對照重點，逐條勾「有寫到／沒寫到」，可複製文字、列印（列印版含姓名班級座號與自評）。
+- 進度在 `Progress.capstone[<專題 id>]`（`{ text, pts?, seen?, skip?, more?, at? }`，見 `src/learn/level.ts` 檔頭）；備份匯入合併時同一個專題取 `at` 較新的、目前這台沒寫就用匯入的。
+- 專題頁不顯示「見 docs/…」這類製作備註（`cleanNote`，`src/lib/dive.ts`）：只藏畫面，資料原封不動。
+
+### 示範資料與依據
+
+| 步驟 | 放在哪 | 依據 |
+|---|---|---|
+| mapq | `unit-formosa-wanted` 第 4 步 | `event-dutch-formosa` 的地點（大員、澎湖）與 C1／quick「1622 先占澎湖、1624 被趕出」；`event-spanish-north-taiwan` 的地點（雞籠社寮島、滬尾）與「西班牙主要據點」 |
+| sources2 | `unit-taiwan-colony` 第 5 步 | `event-1895-cession` primary_source[1]（臺灣民主國宣言）、`event-taiwan-cultural-association` primary_source[0]（〈臨床講義〉）；「真正的盤算是希望列強干涉」見單元 quick |
+| image | `unit-japan-meiji` 第 3 步 | `event-sakoku` 的圖片 0（出島圖）圖說，以及 C2／story「長崎可與中國、荷蘭貿易，荷蘭人被限制在出島」、C6「歐洲人中只剩荷蘭人」 |
+| transfer | `unit-qin-rise-fall` recap 之前 | `war-seven-states-rebellion`（`event-han-inherits-qin` 的 effects）的 story、A2、A8 |
+| capstone | `data/dives/sengoku.yaml` | 五課的 goals 與 mystery |

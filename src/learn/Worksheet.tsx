@@ -8,13 +8,32 @@ import { gotoLearn, LLink } from './nav';
 import { allMin, mustMin } from './util';
 import { LEVELS } from './level';
 import './extra.css';
+import './newsteps.css';
 
 const L = 'ABCDEF';
 const CIRC = '①②③④⑤⑥⑦⑧⑨⑩⑪⑫';
 /** 選項在畫面上的順序（和 Steps.tsx 的 Choice 一樣：以上皆…的題目不洗） */
 const optOrder = (options: string[]) => { const idx = options.map((_, i) => i); return options.some((o) => /以上|上述/.test(o)) ? idx : shuffleOptions(idx, options.join('|')); };
 const Lines = ({ n = 2 }: { n?: number }) => <div className="ws-lines" style={{ height: `${n * 2.1}em` }} aria-hidden />;
-const STEP_NAME: Record<Step['type'], string> = { hook: '引子', card: '讀卡片', source: '史料判讀', chain: '因果鏈', compare: '觀點比較', decision: '你是決策者', today: '今日對照', sim: '金融模擬', peoples: '看人群地圖', check: '自我檢查', recap: '回顧' };
+const STEP_NAME: Record<Step['type'], string> = { hook: '引子', card: '讀卡片', source: '史料判讀', chain: '因果鏈', compare: '觀點比較', decision: '你是決策者', today: '今日對照', sim: '金融模擬', peoples: '看人群地圖', check: '自我檢查', recap: '回顧',
+  mapq: '看地圖回答', sources2: '兩份史料對讀', image: '圖像史料', transfer: '換個案例試試' };
+
+/** 看地圖回答的紙本示意圖：只畫點的相對位置（上北下南，沒有底圖），讓沒有電腦也能作答 */
+function PlotSvg({ places }: { places: { lat: number; lng: number }[] }) {
+  const W = 340, H = 190, pad = 28;
+  const meanLat = places.reduce((a, p) => a + p.lat, 0) / places.length, k = Math.cos((meanLat * Math.PI) / 180);
+  const xs = places.map((p) => p.lng * k), ys = places.map((p) => p.lat);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+  const sc = Math.min((W - 2 * pad) / Math.max(x1 - x0, 1e-6), (H - 2 * pad) / Math.max(y1 - y0, 1e-6));
+  const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+  return (
+    <svg className="ws-plot" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="各點的相對位置示意圖（上北下南）">
+      <rect x="1" y="1" width={W - 2} height={H - 2} fill="none" stroke="#555" />
+      <text x={W - 10} y="16" fontSize="12" textAnchor="end" fill="#333">北 ↑</text>
+      {places.map((p, i) => { const x = W / 2 + (p.lng * k - cx) * sc, y = H / 2 - (p.lat - cy) * sc; return <g key={i}><circle cx={x} cy={y} r="11" fill="#fff" stroke="#000" strokeWidth="1.5" /><text x={x} y={y + 5} fontSize="14" textAnchor="middle" fill="#000">{L[i]}</text></g>; })}
+    </svg>
+  );
+}
 
 export default function Worksheet({ index, id, answerKey }: { index: Index; id: string; answerKey: boolean }) {
   const u = index.units.find((x) => x.id === id);
@@ -113,6 +132,34 @@ export default function Worksheet({ index, id, answerKey }: { index: Index; id: 
         {s.items.map((q, k) => <Fragment key={k}>{q.kind === 'choice' ? mcq({ q: q.q, options: q.options!, answer: q.answer!, explain: q.explain, why: q.why_wrong })
           : q.kind === 'order' ? chain({ prompt: q.q, items: q.items!, seed: `${u.id}-${i}-${k}`, explain: q.explain })
             : open({ q: q.q, n: 3, model: q.model ? `${q.model}（${q.explain}）` : q.explain, points: q.points })}</Fragment>)}
+      </section>;
+      case 'mapq': {
+        const no = ++qn;
+        return <section key={i} className="ws-step">{head()}
+          <div className="ws-q"><p><b>{no}.</b> {s.question}</p>
+            <PlotSvg places={s.places} />
+            <p className="muted small">（上圖只是示意各點的相對位置；網站上有真正的地圖可以點。）</p>
+            <ol className="ws-opts" type="A">{s.places.map((p, k) => <li key={k} className={`ws-opt ${answerKey && k === s.answer ? 'ws-right' : ''}`}>{p.hint ?? `圖上的 ${L[k]} 點`}{answerKey && k === s.answer ? '　✔' : ''}</li>)}</ol>
+            {key(<><p>正解：{L[s.answer]}．{s.places[s.answer].label}</p><p>各點：{s.places.map((p, k) => `${L[k]}．${p.label}`).join('　')}</p><p>解析：{s.explain}</p>
+              {s.why_wrong && s.why_wrong.some(Boolean) && <ul>{s.why_wrong.map((w, k) => w ? <li key={k}>選 {L[k]} 的話：{w}</li> : null)}</ul>}</>)}</div>
+        </section>;
+      }
+      case 'sources2': return <section key={i} className="ws-step">{head()}
+        {([s.a, s.b] as const).map((x, k) => <blockquote key={k} className="ws-src"><b>史料 {k === 0 ? '甲' : '乙'}：</b>{x.text}<cite>— {x.from}</cite></blockquote>)}
+        {mcq({ q: s.question, options: s.options, answer: s.answer, explain: s.explain, why: s.why_wrong })}
+        {typeof s.open === 'object' && open({ q: s.open.question, n: 4, model: s.open.model_answer, points: s.open.points })}
+      </section>;
+      case 'image': {
+        const im = byId(s.card)?.images?.[s.idx ?? 0];
+        return <section key={i} className="ws-step">{head()}
+          {im ? <figure className="ws-fig"><img className="ws-img" src={im.url} alt={im.title} /><figcaption>{im.title}・{im.creator}・{im.year}{im.holder ? `・${im.holder}` : ''}・Wikimedia Commons（{im.license.replace(/[（(].*$/, '').trim()}）<br />{im.caption}</figcaption></figure> : <p className="ws-read">請到網站看這張圖片（{byId(s.card)?.name ?? s.card}）。</p>}
+          {s.look && s.look.length > 0 && <p className="muted small">先看哪裡：{s.look.join('；')}</p>}
+          {mcq({ q: s.question, options: s.options, answer: s.answer, explain: s.explain, why: s.why_wrong })}
+        </section>;
+      }
+      case 'transfer': return <section key={i} className="ws-step">{head()}
+        <blockquote className="ws-src"><b>新案例：</b>{s.case}</blockquote>
+        {open({ q: s.question, n: 5, model: s.model_answer, points: s.points })}
       </section>;
       case 'recap': return <section key={i} className="ws-step">{head()}
         {open({ q: `現在，用自己的話回答一開始的謎題：${u.mystery}`, n: 5, model: s.model_answer, points: s.points })}

@@ -7,7 +7,7 @@ const len = (v: unknown) => (typeof v === 'string' ? v.replace(/\[s\d+\]/g, '').
 const lens = (xs: unknown): number => (Array.isArray(xs) ? xs.reduce((a: number, x) => a + lens(x), 0) : typeof xs === 'string' ? len(xs) : 0);
 export const round5 = (m: number) => Math.max(5, Math.round(m / 5) * 5);
 
-type Card = { sections?: { code: string; text?: string; role?: string }[]; learn?: any };
+type Card = { images?: { caption?: string }[]; sections?: { code: string; text?: string; role?: string }[]; learn?: any };
 
 /** 卡片的必讀字數：故事＋focus 的段落；all＝全文 */
 export function cardChars(c: Card | undefined, focus: string[] | undefined, all: boolean): number {
@@ -45,6 +45,10 @@ export function stepLoad(s: any, byCard: (id: string) => Card | undefined, all: 
     case 'sim': return [len(s.prompt) + CPM, 1]; // 玩模擬大約 1 分鐘
     case 'peoples': return [len(s.prompt) + CPM, 0];
     case 'check': return [(s.items ?? []).reduce((a: number, q: any) => a + len(q.q) + lens(q.options) + lens(q.items), 0), (s.items ?? []).length];
+    case 'mapq': return [len(s.question) + (s.places ?? []).reduce((a: number, p: any) => a + len(p.hint), 0), 1];
+    case 'sources2': return [len(s.a?.text) + len(s.b?.text) + mcqChars(s) + len(s.open?.question), 1 + (s.open ? 1 : 0)];
+    case 'image': return [len(byCard(s.card)?.images?.[s.idx ?? 0]?.caption) + mcqChars(s) + lens(s.look), 1];
+    case 'transfer': return [len(s.case) + len(s.question), 1];
     case 'recap': return [len(unit.mystery) + len(unit.reflect), unit.reflect ? 2 : 1];
   }
   return [0, 0];

@@ -1,5 +1,5 @@
 // 一課的作答整理成「一題一列」：匯出頁、學習紀錄、老師檢視頁共用（純函式，不碰畫面）
-// 只讀 level.ts 定義的進度鍵（r:、w:、qk、g、dp、d、s、cs、recap），舊進度照樣讀得出來
+// 只讀 level.ts 定義的進度鍵（r:、w:、qk、g、dp、d、s、cs、recap，以及第 4f 批的 m、x、xo、im、t），舊進度照樣讀得出來
 import type { Unit } from '../types';
 import type { Profile, UnitProgress } from './progress';
 import { answered, firstRight, lastRight, LEVELS, metaOf, recOf, reqOf, textOf, unitLevel, unitStat, type Level, type Req } from './level';
@@ -56,6 +56,7 @@ export function rowsOf(u: U, p?: UnitProgress): Row[] {
         else if (r.key === `s${r.step}k`) { q = s.critique?.question ?? ''; opts = s.critique?.options; ans = s.critique?.answer; }
         else if (r.key === `o${r.step}`) { q = s.prompt ?? ''; }
         else if (r.key === `o${r.step}f`) { q = s.followup?.question ?? ''; opts = s.followup?.options; ans = s.followup?.answer; }
+        else if (r.key === `m${r.step}`) { q = s.question ?? ''; opts = (s.places ?? []).map((x: any) => x.label); ans = s.answer; } // 看地圖回答：選項是地圖上的 A、B、C…，報表上寫地名
         else { q = s.question ?? ''; opts = s.options; ans = s.answer; }
         const rc = recOf(p, r.key);
         const pick = rc?.p ?? (r.key === `s${r.step}` && typeof A[r.key] === 'number' ? (A[r.key] as number) : undefined);
@@ -71,6 +72,7 @@ export function rowsOf(u: U, p?: UnitProgress): Row[] {
         let q = s.question ?? '', points: string[] | undefined = s.points, what = r.what;
         const mc = /^cs(\d+)_(\d+)$/.exec(r.key);
         if (mc) { const it = s.items?.[Number(mc[2])]; q = it?.q ?? ''; points = it?.points; what = `自我檢查簡答 ${Number(mc[2]) + 1}`; }
+        if (r.key === `xo${r.step}`) { q = s.open?.question ?? ''; points = s.open?.points; } // 兩份史料對讀的開放題
         if (r.key === 'recap') q = `用自己的話回答一開始的謎題${u.mystery ? `：${u.mystery}` : ''}`;
         const marks = m?.pts ?? [];
         out.push({ ...base(what, q), text: textOf(p, r).trim(), more: m?.more?.trim() || undefined, skip: !!m?.skip,

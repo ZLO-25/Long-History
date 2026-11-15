@@ -11,7 +11,8 @@ export const inHistory = (c: Card, h: History | null) => !h || h.all || !!c.lear
 export const unitsOf = (index: Index, h: History | null) =>
   index.units.filter((u) => !h || h.all || u.histories.some((x) => x === h.id || x === h.name));
 export const unitCards = (u: Unit) => [...new Set(u.steps.flatMap((s) =>
-  s.type === 'card' ? [s.id] : s.type === 'source' || s.type === 'today' ? [s.card] : s.type === 'compare' ? s.cards : []))];
+  s.type === 'card' ? [s.id] : s.type === 'source' || s.type === 'today' || s.type === 'image' ? [s.card] : s.type === 'compare' ? s.cards
+    : s.type === 'mapq' || s.type === 'transfer' ? (s.card ? [s.card] : []) : s.type === 'sources2' ? [s.a.card, s.b.card].filter((x): x is string => !!x) : []))];
 // 單元的年代：用到的卡最早的開始年份
 export const unitYear = (index: Index, u: Unit) => Math.min(...unitCards(u).map((id) => index.cards.find((c) => c.id === id)?.time.start ?? 9999));
 export const historyOf = (index: Index, key: string | null) => index.histories.find((h) => h.id === key || h.name === key) ?? null;

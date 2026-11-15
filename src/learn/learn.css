@@ -9,7 +9,9 @@
 .hist-chip { font-weight: 700; background: #fefcbf; border-color: #ecc94b; }
 .lsearch-box { flex: 1; min-width: 180px; position: relative; }
 .lsearch-box input { width: 100%; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 15px; background: #fff; }
-.lsearch-box .suggest { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; gap: 10px; flex-wrap: wrap; white-space: nowrap; overflow: hidden; max-height: 1.5em; }
+/* 搜尋框下的「試試：」建議固定一行，三個各佔一份、太長就省略；換行的會被 max-height 切掉卻還留在版面外面，點不到 */
+.lsearch-box .suggest { font-size: 12px; color: var(--muted); margin-top: 2px; display: flex; gap: 10px; flex-wrap: nowrap; align-items: center; white-space: nowrap; overflow: hidden; line-height: 1.5; }
+.lsearch-box .suggest > .link { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; text-align: left; padding: 0; font-size: inherit; }
 .fs { display: inline-flex; gap: 2px; }
 
 .ld-main { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); grid-template-rows: minmax(0, 1fr) auto; }

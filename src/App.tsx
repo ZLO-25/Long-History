@@ -11,6 +11,7 @@ import { initStub, adoptCore, failCore, coreReady } from './lib/detail';
 import { ResearchMain, preloadForUrl, TL_H } from './chunks';
 import { emptyPre, type Pre } from './research/pre';
 import { Skel, CoreWait } from './ui';
+import { urlMode } from './lib/mode';
 
 // 首屏：home.json（小）和 index.json（卡片核心資料）同時抓。home.json 一到就畫學習首頁（骨架 index，coreReady:false），
 // index.json 到了再無縫換成完整 index（App 不重新掛載，畫面狀態不丟）。src/lib/detail.ts 說明交接細節。
@@ -55,18 +56,23 @@ export default function App() {
 
 // 第 6 期：研究模式／學習模式。網址 ?mode=learn 進入學習模式；研究模式的網址參數完全不變
 // 第一次來（網址沒帶任何參數、也沒記住過模式）的人，預設進學習模式；之後記住上次用的模式。
-// 研究模式的網址參數（?card= ?year= ?chain= …）一律維持研究模式，舊連結不受影響。
+// 研究模式的網址參數（?card= ?year= ?chain= …）一律維持研究模式，舊連結不受影響；帶 ?unit= ?dive= ?story= ?topic= ?history= 而沒有 mode 的連結進學習模式（src/lib/mode.ts）。
 const MODE_KEY = 'history-river-mode';
 function initialMode(): 'learn' | 'research' {
-  const q = new URLSearchParams(location.search);
-  if (q.get('mode') === 'learn') return 'learn';
-  if (q.get('mode') === 'research' || [...q.keys()].some((k) => k !== 'perf')) return 'research';
+  const m = urlMode(location.search);
+  if (m) return m;
   try { return window.localStorage.getItem(MODE_KEY) === 'research' ? 'research' : 'learn'; } catch { return 'learn'; }
 }
 function ModeSwitch({ index }: { index: Index }) {
   const [mode, setMode] = useState<'learn' | 'research'>(initialMode);
   useEffect(() => { performance.mark('hr:home'); }, []); // 首頁（骨架或完整資料）第一次畫出來
   useEffect(() => { try { window.localStorage.setItem(MODE_KEY, mode); } catch { /* 無痕模式不記 */ } }, [mode]);
+  // 瀏覽器上一頁／下一頁走到另一個模式的紀錄時，畫面跟著換
+  useEffect(() => {
+    const onPop = () => { const m = urlMode(location.search); if (m && m !== mode) setMode(m); };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, [mode]);
   const go = (m: 'learn' | 'research') => { history.replaceState(null, '', m === 'learn' ? `${location.pathname}?mode=learn` : `${location.pathname}?mode=research`); setMode(m); };
   return mode === 'learn' ? <LearnApp index={index} onResearch={() => go('research')} /> : <ResearchApp index={index} onLearn={() => go('learn')} />;
 }

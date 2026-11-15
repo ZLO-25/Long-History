@@ -89,11 +89,11 @@ const fs = require('fs');
     await p.click('.sm-pm button'); await p.waitForTimeout(200);
     ok(k0 !== await p.$eval('.sm-box g', (g) => g.getAttribute('transform')), '「＋」可以放大地圖');
     await p.click('.sm-zoom.big'); await p.waitForTimeout(500);
-    const full = await p.$eval('.sm.full .sm-box', (x) => x.getBoundingClientRect().width).catch(() => 0);
+    const full = await p.$eval('.smap.full .sm-box', (x) => x.getBoundingClientRect().width).catch(() => 0);
     ok(full >= 1200, `「⛶ 放大」變成全螢幕地圖（${Math.round(full)} px 寬）`);
     await p.screenshot({ path: `${out}/desktop-full.png` });
     await p.keyboard.press('Escape'); await p.waitForTimeout(300);
-    ok(!(await p.$('.sm.full')) && !!(await p.$('.sr-overlay')), 'Esc 只縮回地圖，故事還開著');
+    ok(!(await p.$('.smap.full')) && !!(await p.$('.sr-overlay')), 'Esc 只縮回地圖，故事還開著');
     await ctx.close();
   }
   // ---- 手機：下方拉出 ----
@@ -102,7 +102,7 @@ const fs = require('fs');
     const p = await ctx.newPage(); watch(p);
     await p.goto(`${base}?story=${doc.id}&read=1`);
     await p.waitForSelector('.sr-sec');
-    ok(!(await p.$('.sm svg')), '手機：一開始不畫地圖（文字優先）');
+    ok(!(await p.$('.smap svg')), '手機：一開始不畫地圖（文字優先）');
     await p.click('.sr-mapbtn');
     await p.waitForSelector('.sr-sheet .sm-land', { timeout: 15000 });
     ok(true, '手機：點「地圖」從下方拉出');

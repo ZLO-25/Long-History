@@ -22,7 +22,7 @@ structure_tags: [債務擴張, 主權違約]
 topics: [泡沫與金融危機, 銀行與借貸]
 links: [finance-petrodollar, finance-oil-crisis-1973, finance-asian-financial-crisis, event-latin-american-independence]
 causes:
-  - { id: finance-petrodollar, rel: 促成, why: 美國大銀行把產油國存進來的石油美元大量貸給拉美國家，拉美外債從 1970 年的 290 億美元增加到 1982 年的 3,270 億美元。, src: [s1] }
+  - { id: finance-petrodollar, rel: 促成, why: "美國大銀行把產油國存進來的石油美元大量貸給拉美國家，拉美外債從 1970 年的 290 億美元增加到 1982 年的 3,270 億美元。", src: [s1] }
   - { id: finance-oil-crisis-1973, rel: 背景, why: 油價衝擊讓拉美的石油進口國出現經常帳逆差，只好向外借錢填補。, src: [s1] }
 counterparts:
   - { id: finance-asian-financial-crisis, note: "相似：都是開發中國家大量借外債，外部條件一變就還不出錢，最後要靠國際貨幣基金紓困並實施緊縮。不同：拉美危機的導火線是美國升息、債主主要是美國大銀行；亞洲金融風暴則是短期外資突然撤出、釘住美元的匯率崩潰。", src: [s1, s4] }

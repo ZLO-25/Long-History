@@ -206,7 +206,7 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
   const idRef = useRef(id); idRef.current = id;
   const openRead = () => {
     const q = new URLSearchParams(location.search); q.set('read', '1');
-    history.pushState({ storyRead: 1 }, '', `${location.pathname}?${q}`);
+    history.pushState({ ...(history.state as object | null), storyRead: 1 }, '', `${location.pathname}?${q}`);
     pushed.current = true; setReading(true);
   };
   const closeRead = useCallback(() => {

@@ -93,6 +93,14 @@ export function Main({ index, onLearn, pre }: { index: Index; onLearn: () => voi
     if (td && index.today.chokepoints.some((c) => c.id === td)) return [{ kind: 'list' }, { kind: 'today', id: td }];
     return id && index.cards.some((c) => c.id === id) ? [{ kind: 'list' }, { kind: 'card', id }] : [{ kind: 'list' }];
   });
+  const [missing, setMissing] = useState<{ what: string; id: string } | null>(() => {
+    if (pre.panel) return null;
+    const c = params.get('card'), st = params.get('story'), dv = params.get('dive');
+    if (c && !index.cards.some((x) => x.id === c)) return { what: '卡片', id: c };
+    if (st && !findStory(index, st)) return { what: '故事', id: st };
+    if (dv && !findDive(index, dv)) return { what: '專題', id: dv };
+    return null;
+  });
   const [chainT, setChainT] = useState(0);
   // 今日對照層開關：網址帶 ?today= 或打開今日項目時自動打開
   const [todayOn, setTodayOn] = useState(() => params.has('today') || (params.get('chain') ?? '').startsWith('today-'));
@@ -237,7 +245,11 @@ export function Main({ index, onLearn, pre }: { index: Index; onLearn: () => voi
   const cardId = panel.kind === 'card' ? panel.id : null;
   useEffect(() => { if (cardId) ensureCards([cardId]); }, [cardId]);
   useEffect(() => { if (panel.kind === 'match') loadMatch(); }, [panel.kind]);
-  const side = (panel.kind === 'card' && !cardLoaded(index, panel.id)) || (panel.kind === 'match' && !matchLoaded(index)) ? <DetailWait index={index} /> : sideRaw;
+  const sideBase = (panel.kind === 'card' && !cardLoaded(index, panel.id)) || (panel.kind === 'match' && !matchLoaded(index)) ? <DetailWait index={index} /> : sideRaw;
+  // 網址帶的卡片／故事線／專題不存在：不要默默顯示首頁，說找不到什麼，給「回首頁」
+  const side = missing && panel.kind === 'list'
+    ? <><div className="notfound" role="alert"><p>找不到這個{missing.what}（{missing.id}）。</p><button className="btn" onClick={() => { setMissing(null); setQuery(''); history.replaceState(null, '', `${location.pathname}?mode=research`); }}>回首頁</button></div>{sideBase}</>
+    : sideBase;
 
   const map = <MapView index={index} cards={visible} year={year} highlight={highlight}
     onPlace={(key) => { open({ kind: 'place', key }); if (isMobile) setMobileTab('list'); }}

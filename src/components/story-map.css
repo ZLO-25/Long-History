@@ -1,5 +1,5 @@
 /* 故事地圖（StoryMap.tsx）：寬螢幕＝右欄整欄大地圖（大標縮成地圖下方一排編號）；窄螢幕和翻頁模式從下方拉出；任何時候都能「⛶ 放大」成全螢幕 */
-.sm { display: flex; flex-direction: column; min-height: 0; height: 100%; font-size: 15px; line-height: 1.5; letter-spacing: 0; color: #3a362f; }
+.smap { display: flex; flex-direction: column; min-height: 0; height: 100%; font-size: 15px; line-height: 1.5; letter-spacing: 0; color: #3a362f; }
 .sm-box { position: relative; flex: 1 1 auto; min-height: 220px; border-radius: 10px; overflow: hidden; background: #dce9ef; }
 .sm-box svg { display: block; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
 .sm-box svg:active { cursor: grabbing; }
@@ -24,7 +24,7 @@
 .sm-pulse { fill: none !important; stroke: #c2410c !important; stroke-width: 2.5px !important; animation: sm-pulse 1.6s ease-out infinite; transform-origin: center; transform-box: fill-box; }
 @keyframes sm-pulse { from { opacity: .9; transform: scale(.5); } to { opacity: 0; transform: scale(1.35); } }
 .sm-plabel { font-size: 15px; font-weight: 700; fill: #26231f; paint-order: stroke; stroke: #fffdf8; stroke-width: 4px; stroke-linejoin: round; pointer-events: none; }
-.sm.full .sm-plabel { font-size: 17px; }
+.smap.full .sm-plabel { font-size: 17px; }
 .sm-plabel.hot { fill: #9a3412; }
 .sm-blabel { pointer-events: none; paint-order: stroke; stroke: rgba(255, 253, 248, .75); stroke-width: 3px; }
 .sm-blabel.o { font-size: 13px; font-style: italic; fill: #44708b; stroke: rgba(220, 233, 239, .85); letter-spacing: .1em; }
@@ -68,11 +68,11 @@
 .lg-today { color: #857e71; }
 
 /* 放大：整個畫面都是地圖 */
-.sm.full { position: fixed; inset: 48px 0 0 0; z-index: 5200; height: auto; background: #fffdf8; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); box-sizing: border-box; }
+.smap.full { position: fixed; inset: 48px 0 0 0; z-index: 5200; height: auto; background: #fffdf8; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); box-sizing: border-box; }
 .sm-full-h { flex: none; margin: 0 0 8px; padding-right: 110px; font-size: 17px; font-weight: 700; color: #26231f; }
 .sm-full-h b { color: var(--story, #0f766e); margin-right: 8px; }
-.sm.full .sm-tools { top: 8px; }
-.sm.full .sm-cap { max-width: 1000px; }
+.smap.full .sm-tools { top: 8px; }
+.smap.full .sm-cap { max-width: 1000px; }
 
 /* 內文裡的地名：點了地圖移過去 */
 .sr-pl { cursor: pointer; text-decoration: underline dotted #b07a45; text-decoration-thickness: 1.5px; text-underline-offset: .22em; }
@@ -85,7 +85,7 @@
   .sr-scroll .sr-wrap:has(.sr-side.has-map) .sr-page { max-width: calc(40 * var(--sr-fs)); margin: 0 auto; }
   .sr-side.has-map { display: flex; flex-direction: column; overflow: hidden; height: calc(100vh - 78px); max-height: none; top: 12px; padding: 10px 10px 8px; }
   .sr-side.has-map .sr-side-map { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
-  .sr-side.has-map .sr-side-map > .sm { flex: 1 1 auto; }
+  .sr-side.has-map .sr-side-map > .smap { flex: 1 1 auto; }
 }
 .sr-strip { flex: none; margin-top: 8px; padding-top: 8px; border-top: 1px solid #eee7d8; }
 .sr-strip-now { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: #26231f; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -104,14 +104,14 @@
 .sr-mapbtn.paged { bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
 .sr-sheet { flex: none; width: 100%; max-width: 980px; margin: 0 auto; border-radius: 12px 12px 0 0; height: min(58vh, 620px); display: flex; flex-direction: column; padding: 2px 10px 8px; border-top: 1px solid #e6dfd0; background: #fffdf8; box-shadow: 0 -4px 14px rgba(40, 30, 10, .1); box-sizing: border-box; }
 .sr-sheet-x { align-self: center; font: inherit; font-size: 14px; color: #4a463f; background: none; border: 0; padding: 4px 14px; min-height: 34px; cursor: pointer; }
-.sr-sheet .sm { flex: 1 1 auto; height: auto; }
+.sr-sheet .smap { flex: 1 1 auto; height: auto; }
 .sr-sheet .sm-wait { flex: 1 1 auto; }
 @media (max-width: 600px) {
   .sr-sheet { height: 56vh; padding: 0 6px 6px; }
   .sr-sheet .sm-legend { display: none; }
   .sr-sheet .sm-box { min-height: 0; }
 }
-@media print { .sr-mapbtn, .sr-sheet, .sr-side-map, .sm.full { display: none !important; } }
+@media print { .sr-mapbtn, .sr-sheet, .sr-side-map, .smap.full { display: none !important; } }
 @media (prefers-reduced-motion: reduce) { .sm-pulse { animation: none; opacity: .7; } }
 .sr-strip-left { font-size: 13px; font-weight: 400; color: #6f6a62; }
 /* 當時的政權（歷代疆域，示意） */

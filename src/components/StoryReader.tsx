@@ -430,7 +430,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       // 地圖放大成全螢幕時，Esc 交給地圖（縮回），不要關掉整個故事
-      if (e.key === 'Escape' && document.querySelector('.sm.full')) return;
+      if (e.key === 'Escape' && document.querySelector('.smap.full')) return;
       if (e.key === 'Escape') { e.stopPropagation(); if (menu) setMenu(''); else onClose(); return; }
       const root = overlay.current;
       if (!root) return;
@@ -534,7 +534,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
     }
   };
   const mapEl = (compact: boolean) => doc?.hasMap && mapReady ? (
-    <Suspense fallback={<div className="sm sm-wait"><p className="sm-msg">地圖載入中…</p></div>}>
+    <Suspense fallback={<div className="smap sm-wait"><p className="sm-msg">地圖載入中…</p></div>}>
       <StoryMap doc={doc} byId={byId} sec={sec} hot={hotList} focus={focus} onFocus={setFocus} onSection={(i) => { setSheet(false); jump(i); }} compact={compact} />
     </Suspense>
   ) : null;
@@ -618,7 +618,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
               sideMap && doc.hasMap ? (
                 // 右欄整欄是地圖；大標縮成地圖下方一排編號（目前那節的標題寫在編號上面）
                 <aside className="sr-side has-map" aria-label="故事地圖與各節">
-                  <div className="sr-side-map">{mapEl(true) ?? <div className="sm sm-wait"><p className="sm-msg">地圖載入中…</p></div>}</div>
+                  <div className="sr-side-map">{mapEl(true) ?? <div className="smap sm-wait"><p className="sm-msg">地圖載入中…</p></div>}</div>
                   <nav className="sr-strip" aria-label="這篇故事的各節">
                     <p className="sr-strip-now">{done ? <><span>讀完了</span>考考自己・記住這幾件事</> : <><span>第 {sec + 1}／{doc.sections.length} 節</span>{doc.sections[sec]?.title}<small className="sr-strip-left">・還剩約 {left} 分鐘</small></>}</p>
                     <ol>

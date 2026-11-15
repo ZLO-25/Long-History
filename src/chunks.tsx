@@ -5,9 +5,11 @@
 //
 // 部署後舊頁面可能要一個已被刪掉的舊 chunk：載入失敗（vite:preloadError 或下面 lazyView 的 catch）就重新整理一次
 // （30 秒內已經整理過就不再整理，改顯示錯誤框，避免無限重整）。
-import { Component, createElement, lazy, Suspense, type ComponentType, type ReactNode } from 'react';
+// 斷網（navigator.onLine === false）時不整理：整理會把還能用的畫面換成瀏覽器的錯誤頁；改在該區塊顯示「現在沒有網路」與重試鈕。
+import { Component, createElement, Fragment, lazy, Suspense, useState, type ComponentType, type ReactNode } from 'react';
 import { registerKeepRead } from './lib/storyLite';
 import { Skel } from './ui';
+import { urlMode } from './lib/mode';
 
 type Mod<P> = { default: ComponentType<P> };
 /** preload：背景預載，失敗不丟錯；load：同一個載入，失敗會 reject（呼叫端要知道成敗時用） */
@@ -18,6 +20,7 @@ export const TL_H: { learn: number; research: string } = { learn: 203, research:
 
 /** 載入 chunk 失敗（通常是剛部署、舊 chunk 已刪）：30 秒內沒整理過就整理一次，回傳 true；否則回傳 false，由呼叫端顯示錯誤框 */
 function reloadOnce(): boolean {
+  if (navigator.onLine === false) return false;
   try {
     const t = Number(sessionStorage.getItem('hr-reload') ?? 0);
     if (Date.now() - t < 30000) return false;
@@ -28,16 +31,28 @@ function reloadOnce(): boolean {
 }
 window.addEventListener('vite:preloadError', () => { reloadOnce(); });
 
-class ChunkBoundary extends Component<{ children: ReactNode }, { err: boolean }> {
-  state = { err: false };
-  static getDerivedStateFromError() { return { err: true }; }
+class ChunkBoundary extends Component<{ children: ReactNode; onRetry: () => void }, { err: boolean; offline: boolean; n: number }> {
+  state = { err: false, offline: false, n: 0 };
+  static getDerivedStateFromError() { return { err: true, offline: navigator.onLine === false }; }
+  // 使用者按過重試：瀏覽器會記住「相依模組」載入失敗（例如地圖的 maplibre-gl），原地重試不一定成功；
+  // 這時如果有網路卻又失敗，整理頁面一次（是使用者按了重試的結果，不是自動整理）
+  retried = false;
+  componentDidCatch() { if (this.retried && navigator.onLine !== false) location.reload(); }
+  retry = () => { this.retried = true; this.props.onRetry(); this.setState((s) => ({ err: false, offline: false, n: s.n + 1 })); };
   render() {
-    if (!this.state.err) return this.props.children;
-    // 瀏覽器（Chrome）會記住失敗的 import，原地重試沒有用；整理頁面才會重新抓
+    if (!this.state.err) return <Fragment key={this.state.n}>{this.props.children}</Fragment>;
+    // 斷網：不整理頁面（會換成瀏覽器的錯誤頁），留在原畫面，網路回來後按重試
+    if (this.state.offline) return (
+      <div className="chunk-err" role="alert">
+        <p>現在沒有網路，這一塊還沒下載。</p>
+        <button className="btn" onClick={this.retry}>重試</button>
+      </div>
+    );
+    // 有網路卻失敗：瀏覽器（Chrome）會記住失敗的 import，原地重試不一定有用；先讓人試一次，再不行就整理頁面
     return (
       <div className="chunk-err" role="alert">
         <p>這個畫面沒載入成功，可能是網路不穩，或網站剛更新。</p>
-        <button className="btn" onClick={() => location.reload()}>重新整理頁面</button>
+        <button className="btn" onClick={this.retry}>重試</button> <button className="btn" onClick={() => location.reload()}>重新整理頁面</button>
       </div>
     );
   }
@@ -51,9 +66,10 @@ function lazyView<P extends object>(load: () => Promise<Mod<P>>, defaultFallback
   let L: ReturnType<typeof lazy<ComponentType<P>>> | null = null;
   function View(props: P & { fallback?: ReactNode }) {
     const { fallback, ...rest } = props;
+    const [, bump] = useState(0);
     const C = (L ??= lazy(get));
     return (
-      <ChunkBoundary>
+      <ChunkBoundary onRetry={() => { p = null; L = null; bump((n) => n + 1); }}>
         <Suspense fallback={fallback ?? defaultFallback}>{createElement(C as ComponentType<any>, rest)}</Suspense>
       </ChunkBoundary>
     );
@@ -107,8 +123,7 @@ export const preload = {
 /** 網址是深連結時，這個畫面需要的 chunk（和資料同時開始載，不等首頁畫完） */
 export function preloadForUrl(search = location.search) {
   const q = new URLSearchParams(search);
-  const n = [...q.keys()].filter((k) => k !== 'perf').length;
-  const research = q.get('mode') === 'research' || (q.get('mode') !== 'learn' && n > 0) || (!n && localStorageMode() === 'research');
+  const research = (urlMode(search) ?? (localStorageMode() === 'research' ? 'research' : 'learn')) === 'research';
   const jobs: (() => unknown)[] = [];
   if (research) jobs.push(preload.research);
   else if (q.get('unit')) jobs.push(preload.unit);

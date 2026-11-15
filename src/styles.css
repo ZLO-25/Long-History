@@ -394,4 +394,6 @@ main.dock-main > .splitter.row { grid-area: sr; }
 .view-skel > i:nth-child(1) { width: 62%; } .view-skel > i:nth-child(2) { width: 92%; } .view-skel > i:nth-child(3) { width: 78%; }
 .map-skel { position: absolute; inset: 0; background: #ebe7dc; }
 .chunk-err { padding: 16px; }
+.notfound { padding: 16px 4px; }
+.notfound p { margin: 0 0 10px; }
 .core-wait .loading-detail { margin: 6px 0 0; }

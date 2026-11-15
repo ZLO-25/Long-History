@@ -24,7 +24,7 @@ links: [war-world-war-one, finance-weimar-hyperinflation, war-world-war-two, eve
 causes:
   - { id: war-world-war-one, rel: 直接引發, why: 德國戰敗後，戰勝國在巴黎和會擬定和約，要德國承認戰爭責任、割地裁軍並賠償協約國的損失。, src: [s1, s4] }
 effects:
-  - { id: finance-weimar-hyperinflation, rel: 促成, why: 1921 年定下 1,320 億金馬克賠款、1923 年法比占領魯爾，德國印鈔支付消極抵抗，通膨失控；但也有學者認為主因是德國自己的貨幣政策。, src: [s2, s3], disputed: true }
+  - { id: finance-weimar-hyperinflation, rel: 促成, why: "1921 年定下 1,320 億金馬克賠款、1923 年法比占領魯爾，德國印鈔支付消極抵抗，通膨失控；但也有學者認為主因是德國自己的貨幣政策。", src: [s2, s3], disputed: true }
   - { id: event-may-fourth, rel: 直接引發, why: 和約第 156 條把德國在山東的權益交給日本而非中國，許多中國人覺得被出賣，引發五四運動等大規模示威。, src: [s1] }
   - { id: war-world-war-two, rel: 背景, why: 德國各黨派都把和約看成強加的「命令」，對和約的怨恨被認為助長了納粹崛起，最終促成第二次世界大戰。, src: [s1], disputed: true }
 counterparts: "無適當對照：中國與東亞軌現有卡片中，沒有「戰勝國以條約要求戰敗國承認戰爭責任並長期支付巨額賠款、賠款又牽動國際借貸」的事件卡；馬關條約雖有賠款，但現有卡片聚焦臺灣割讓，不硬湊。"

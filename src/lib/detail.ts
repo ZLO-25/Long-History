@@ -109,11 +109,13 @@ const unitPromise = (id: string) => track(unitP, id, async () => {
 });
 
 /** 等這批都處理完；不是預取的失敗了就記下來，畫面改顯示「下載失敗」＋重試 */
-async function settle(ps: Promise<boolean>[], ids: string[], failed: Set<string>, prefetch: boolean) {
+async function settle(ps: Promise<boolean>[], ids: string[], failed: Set<string>, prefetch: boolean, exists: (id: string) => boolean) {
   const oks = await Promise.all(ps);
   if (prefetch || !ctx) return;
-  oks.forEach((ok, i) => { if (!ok) failed.add(ids[i]); });
-  if (oks.includes(false)) { ctx.ix.detailLoaded!.failed = true; flush(); }
+  // 網址帶了不存在的 id（完整資料到了才能確定）：不算下載失敗，畫面會顯示「找不到」，不要留下「下載失敗」的旗標
+  const bad = ids.filter((id, i) => !oks[i] && (!coreReady(ctx!.ix) || exists(id)));
+  bad.forEach((id) => failed.add(id));
+  if (bad.length) { ctx.ix.detailLoaded!.failed = true; flush(); }
 }
 
 /** 確保這些卡的長內文已經（或正在）載入。回傳的 Promise 在全部處理完（成功或失敗）時完成 */
@@ -123,14 +125,14 @@ export function ensureCards(ids: Iterable<string | null | undefined>, prefetch =
   // 骨架階段 cards 是空的，沒辦法確認 id 存在：照抓，抓不到（404）只是失敗一次
   const stub = !coreReady(c.ix);
   const want = [...new Set(ids)].filter((id): id is string => !!id && !c.ix.detailLoaded!.cards.has(id) && (stub || c.ix.cards.some((x) => x.id === id)));
-  return settle(want.map(cardPromise), want, failedC, prefetch);
+  return settle(want.map(cardPromise), want, failedC, prefetch, (id) => !!ctx && ctx.ix.cards.some((x) => x.id === id));
 }
 /** 確保這些單元（每一步的內文＋用到的卡）已經（或正在）載入 */
 export function ensureUnits(ids: Iterable<string | null | undefined>, prefetch = false): Promise<void> {
   const c = ctx;
   if (!c) return Promise.resolve();
   const want = [...new Set(ids)].filter((id): id is string => !!id && !c.ix.detailLoaded!.units.has(id));
-  return settle(want.map(unitPromise), want, failedU, prefetch);
+  return settle(want.map(unitPromise), want, failedU, prefetch, (id) => !!ctx && ctx.ix.units.some((x) => x.id === id));
 }
 
 /** 結構對照要掃過所有卡的內文：打開它才抓 data/match.json（每張卡只有各節文字與來源）。已經有完整內文的卡不覆蓋 */
@@ -205,6 +207,10 @@ export function adoptCore(ix: Index, base: string, set: Dispatch<SetStateAction<
   pendCards.clear();
   for (const [id, f] of pendUnits) applyUnitFile(full, id, f.unit, f.cards);
   pendUnits.clear();
+  // 骨架階段記下的失敗裡，id 根本不存在的（壞網址）不算：清掉，免得之後別的畫面誤顯示「下載失敗」
+  for (const id of [...failedC]) if (!full.cards.some((x) => x.id === id)) failedC.delete(id);
+  for (const id of [...failedU]) if (!full.units.some((x) => x.id === id)) failedU.delete(id);
+  if (!failedC.size && !failedU.size && !matchFailed) st.failed = false;
   return full;
 }
 

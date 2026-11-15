@@ -146,3 +146,50 @@ export function parseYear(q: string): number | null {
   if (m) return Number(m[1]);
   return null;
 }
+
+// ---- 學習模式的搜尋：學生會打問句（「羅馬為什麼滅亡」）。研究模式的搜尋（createSearch）不動 ----
+// 問句用字：拿掉之後只剩真正的關鍵詞。長的先拆（「是什麼」先於「什麼」）
+const Q_WORDS = ['為什麼會', '為什麼', '為甚麼', '為何', '怎麼樣', '怎麼會', '怎麼', '怎樣', '如何', '是什麼', '是甚麼', '什麼時候', '什麼', '甚麼', '是誰', '哪一個', '哪個', '哪裡', '哪些', '多少', '有沒有', '是不是', '請問', '我想知道', '想知道', '告訴我', '嗎', '呢', '吧', '啊', '呀', '會', '的', '了']
+  .sort((a, b) => b.length - a.length);
+/** 把問句拆成關鍵詞：先拿掉標點與問句用字，剩下的依空白拆開（「羅馬為什麼滅亡」→ 羅馬、滅亡）。太短的單字只在沒有更長的詞時保留 */
+export function learnKeywords(raw: string): string[] {
+  let s = toTrad(raw.trim()).replace(/[？?！!，,。.、；;：:「」『』（）()#\s]+/g, ' ');
+  for (const w of Q_WORDS) s = s.split(w).join(' ');
+  const parts = s.split(/\s+/).filter(Boolean);
+  const long = parts.filter((t) => t.length >= 2);
+  return [...new Set(long.length ? long : parts)];
+}
+
+/** 這筆結果夠不夠像：分數很低（幾乎完全相符），或比對到的文字真的含有搜尋詞。「asdfgh」這種亂碼靠模糊比對會碰到不相干的卡，在這裡擋掉 */
+function relevant(h: Hit, terms: string[]): boolean {
+  if (h.score <= 0.12) return true;
+  // 純英文／拼音的拼錯（napolen → Napoleon）容許一點誤差；亂碼（asdfgh 0.80）分數很差，擋掉
+  if (!/[一-鿿]/.test(terms.join('')) && h.score <= 0.5) return true;
+  const ts = terms.map((t) => t.toLowerCase());
+  return h.highlights.some((x) => {
+    if (x.field === '年份') return true;
+    const v = x.value.toLowerCase();
+    return ts.some((t) => v.includes(t)) || (x.via === '拼音近似' && h.score <= 0.15);
+  });
+}
+
+/** 學習模式搜尋：① 原字串 ② 拿掉問句用字後的整串 ③ 關鍵詞各自比對再合併排序；每一步都過「夠不夠像」的門檻，前面有結果就不往下 */
+export function learnSearch(search: ReturnType<typeof createSearch>, raw: string): Hit[] {
+  const q = raw.trim();
+  if (!q) return [];
+  const tryOne = (s: string) => search(s).hits.filter((h) => relevant(h, [toTrad(s)]));
+  const first = tryOne(q);
+  if (first.length) return first;
+  const kws = learnKeywords(q);
+  if (!kws.length) return [];
+  const joined = kws.join('');
+  if (joined !== q) { const r = tryOne(joined); if (r.length) return r; }
+  if (kws.length < 2) return [];
+  // 各關鍵詞各自比對再合併：每個詞命中的分數取最好的，命中越多個詞排越前面
+  const merged = new Map<string, { hit: Hit; n: number }>();
+  for (const k of kws) for (const h of tryOne(k)) {
+    const m = merged.get(h.card.id);
+    if (m) { m.n++; m.hit.score = Math.min(m.hit.score, h.score); m.hit.highlights.push(...h.highlights); } else merged.set(h.card.id, { hit: { ...h, highlights: [...h.highlights] }, n: 1 });
+  }
+  return [...merged.values()].sort((a, b) => b.n - a.n || a.hit.score - b.hit.score || a.hit.card.time.start - b.hit.card.time.start).map((x) => x.hit);
+}

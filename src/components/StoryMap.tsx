@@ -273,7 +273,7 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
   const fp = focus != null ? places[focus] : null;
   const s0 = doc.sections[sec];
   return (
-    <div className={`sm ${compact ? 'compact' : ''} ${big ? 'full' : ''}`} role={big ? 'dialog' : undefined} aria-label={big ? '放大的故事地圖' : undefined}>
+    <div className={`smap ${compact ? 'compact' : ''} ${big ? 'full' : ''}`} role={big ? 'dialog' : undefined} aria-label={big ? '放大的故事地圖' : undefined}>
       {big && <p className="sm-full-h"><b>第 {sec + 1} 節</b>{s0?.title}</p>}
       <div className="sm-box" ref={box} role="img" aria-label={`地圖：${s0 ? `第 ${sec + 1} 節「${s0.title}」` : ''}的地點有 ${secPlaces.map((i) => shortName(places[i])).join('、') || '（這一節沒有特定地點）'}`}>
         {w > 0 && (

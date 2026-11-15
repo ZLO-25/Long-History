@@ -18,3 +18,8 @@ export function CoreWait({ index }: { index: Index }) {
   if (index.coreFailed) return <p className="muted loading-detail" role="alert">卡片資料下載失敗，請檢查網路後重新整理頁面。</p>;
   return <div className="core-wait"><p className="muted loading-detail">載入中…</p><Skel label="載入卡片資料" /></div>;
 }
+
+/** 網址帶的單元／卡片／故事／專題 id 不存在：說找不到什麼，給「回首頁」（和主題標籤找不到的做法一致） */
+export function NotFound({ what, id, onHome }: { what: string; id?: string; onHome: () => void }) {
+  return <div className="notfound" role="alert"><p>找不到這個{what}{id ? `（${id}）` : ''}。可能是連結寫錯，或這個內容已經移除。</p><button className="btn" onClick={onHome}>回首頁</button></div>;
+}

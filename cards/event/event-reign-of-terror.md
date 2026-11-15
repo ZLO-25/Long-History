@@ -15,7 +15,7 @@ place:
   primary_field: 宮廷／政治中心
   secondary_fields: [城市／都會]
   locations:
-    - { name_ancient: 巴黎, name_modern: 巴黎（法國）, lat: 48.8566, lng: 2.3522, precision: schematic, role: 國民公會、公安委員會與革命法庭所在地；正式死刑判決中 2,639 件在巴黎（座標為今市中心）, src: [s1] }
+    - { name_ancient: 巴黎, name_modern: 巴黎（法國）, lat: 48.8566, lng: 2.3522, precision: schematic, role: "國民公會、公安委員會與革命法庭所在地；正式死刑判決中 2,639 件在巴黎（座標為今市中心）", src: [s1] }
     - { name_ancient: 革命廣場, name_modern: 協和廣場（法國巴黎）, lat: 48.8656, lng: 2.3212, precision: exact, role: 巴黎的主要刑場，1793 年 1 月路易十六在此受刑, src: [s4] }
     - { name_ancient: 里昂, name_modern: 里昂（法國）, lat: 45.764, lng: 4.8357, precision: schematic, role: 反抗國民公會的城市，被富歇與科洛·德布瓦鎮壓（座標為今市中心）, src: [s1] }
     - { name_ancient: 南特, name_modern: 南特（法國）, lat: 47.2184, lng: -1.5536, precision: schematic, role: 特派員卡里耶下令在羅亞爾河溺斃囚犯（座標為今市中心）, src: [s1] }

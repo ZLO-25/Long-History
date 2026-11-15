@@ -16,7 +16,7 @@ place:
   secondary_fields: [宮廷／政治中心]
   locations:
     - { name_ancient: 雅典, name_modern: 雅典（希臘）, lat: 37.97164, lng: 23.72395, pleiades_id: "579885", precision: exact, role: 民主制度運作的城邦, src: [s1] }
-    - { name_ancient: 普尼克斯山丘（公民大會會場）, name_modern: 雅典（希臘）, lat: 37.9728, lng: 23.7172, precision: schematic, role: 公民大會開會的山坡，可容納約 6,000 人（座標為山丘示意）, src: [s2] }
+    - { name_ancient: 普尼克斯山丘（公民大會會場）, name_modern: 雅典（希臘）, lat: 37.9728, lng: 23.7172, precision: schematic, role: "公民大會開會的山坡，可容納約 6,000 人（座標為山丘示意）", src: [s2] }
     - { name_ancient: 雅典廣場（Agora）, name_modern: 雅典（希臘）, lat: 37.9755, lng: 23.72264, pleiades_id: "807514119", precision: schematic, role: 議事會、法庭與抽籤機出土的公共生活中心, src: [s8] }
   scale: area
 structure_tags: [公民身分擴張, 重新設計基本單位, 精英內鬥]
@@ -24,7 +24,7 @@ topics: [民主與參政, 公民身分, 法律與憲法, 奴隸制]
 links: [event-cleisthenes-reform, war-peloponnesian, event-death-of-socrates, event-macedon-rise, event-solon-reform, person-pericles, person-aristotle, event-greek-philosophy-schools]
 causes:
   - { id: event-cleisthenes-reform, rel: 背景, why: 克里斯提尼把公民重新分成十個部落、設立五百人議事會，後來的民主制度就在這個架構上長出來。, src: [s2, s3] }
-  - { id: event-delian-league, rel: 背景, why: 《雅典政制》說，雅典靠貢金、稅收與盟邦供養兩萬多人，包括 6,000 名陪審員和 500 名議事會成員；有學者因此認為帝國收入撐起了津貼，但前 4 世紀沒有帝國時津貼照發。, src: [s3], disputed: true }
+  - { id: event-delian-league, rel: 背景, why: "《雅典政制》說，雅典靠貢金、稅收與盟邦供養兩萬多人，包括 6,000 名陪審員和 500 名議事會成員；有學者因此認為帝國收入撐起了津貼，但前 4 世紀沒有帝國時津貼照發。", src: [s3], disputed: true }
 effects:
   - { id: war-peloponnesian, rel: 背景, why: 在雅典，要不要結盟、要不要開戰、要不要遠征西西里，都由公民大會投票決定；戰爭中的幾個重大決定就是這樣做出來的。民主本身不是開戰的原因。, src: [s2, "war-peloponnesian:s3", "war-peloponnesian:s11"] }
   - { id: event-death-of-socrates, rel: 背景, why: 雅典用抽籤選出的大型公民陪審團審案，蘇格拉底就是被這樣的陪審團判了刑。, src: [s1, "event-death-of-socrates:s1"] }

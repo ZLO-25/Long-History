@@ -41,7 +41,7 @@ learn:
   key_terms:
     - { term: 反法同盟, plain: 英國、奧地利、俄羅斯、普魯士等國為了對抗法國而一再組成的聯盟，前後共七次。, example: 班上幾個小團體平常不合，但為了打敗最強的那隊，暫時聯手。 }
     - { term: 大陸封鎖, plain: 1806 年拿破崙下令，被法國控制的歐洲地區不准和英國做生意。, example: 打不贏對方，就叫全班都不准跟他買東西。 }
-    - { term: 拿破崙法典, plain: 1804 年頒布的《法國民法典》，共 2,281 條，規定法律之前人人平等、保障財產權。, example: 把原本各地不同的班規，統一成一本全校通用的校規。 }
+    - { term: 拿破崙法典, plain: "1804 年頒布的《法國民法典》，共 2,281 條，規定法律之前人人平等、保障財產權。", example: 把原本各地不同的班規，統一成一本全校通用的校規。 }
   primary_source:
     - { text: "resterait une des vraies gloires de son règne（〔他的法典〕將是他統治中真正的榮耀之一）", from: 拿破崙在聖赫勒拿島流放時的回顧（轉引自 Thierry Lentz，Fondation Napoléon；中文為本站摘譯）, src: s3 }
   historiography: |

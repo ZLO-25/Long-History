@@ -16,7 +16,7 @@ place:
   secondary_fields: [其他]
   locations:
     - { name_ancient: 上山遺址, name_modern: 浦江縣（中國浙江）, lat: 29.46, lng: 119.97, precision: schematic, role: 長江下游，約 1 萬–9 千年前的陶片中有稻殼、稻葉與釀酒痕跡（示意點）, src: [s3] }
-    - { name_ancient: 磁山遺址, name_modern: 武安市（中國河北）, lat: 36.5752, lng: 114.112, precision: exact, role: 華北，約 1.03 萬–8,700 年前的窖穴儲存黍（座標依 s2）, src: [s2] }
+    - { name_ancient: 磁山遺址, name_modern: 武安市（中國河北）, lat: 36.5752, lng: 114.112, precision: exact, role: "華北，約 1.03 萬–8,700 年前的窖穴儲存黍（座標依 s2）", src: [s2] }
     - { name_ancient: 賈湖遺址, name_modern: 舞陽縣附近（中國河南）, lat: 33.613, lng: 113.667, precision: exact, role: 淮河流域，約前 7000–前 5700 年同時種稻與粟, src: [s5] }
     - { name_ancient: 河姆渡遺址, name_modern: 餘姚市（中國浙江）, lat: 29.9642, lng: 121.3444, precision: exact, role: 杭州灣南岸，約前 5500–前 3300 年的稻作聚落與干欄式長屋, src: [s6] }
   scale: area

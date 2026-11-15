@@ -17,7 +17,7 @@ place:
   locations:
     - { name_ancient: 恰約尼, name_modern: 恰約尼遺址（土耳其迪亞巴克爾省）, lat: 38.21639, lng: 39.72639, precision: exact, role: 二粒小麥最早可靠的馴化證據之一（約 1.025–0.955 萬年前），也可能是最早馴化豬的地方, src: [s2, s5] }
     - { name_ancient: 甘吉達雷, name_modern: 甘吉達雷遺址（伊朗克爾曼沙阿省）, lat: 34.2721, lng: 47.4758, precision: exact, role: 札格洛斯山區，已知最早的山羊馴化證據（約 1 萬年前）, src: [s4, s6] }
-    - { name_ancient: 耶利哥（蘇丹丘）, name_modern: 耶利哥（約旦河西岸）, lat: 31.871, lng: 35.444, precision: schematic, role: 南黎凡特，馴化亞麻出現地（約 9,900–9,550 年前；示意點）, src: [s2] }
+    - { name_ancient: 耶利哥（蘇丹丘）, name_modern: 耶利哥（約旦河西岸）, lat: 31.871, lng: 35.444, precision: schematic, role: "南黎凡特，馴化亞麻出現地（約 9,900–9,550 年前；示意點）", src: [s2] }
   scale: area
 structure_tags: [慢變結構, 技術擴散]
 topics: [糧食與農業]

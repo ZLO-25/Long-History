@@ -23,5 +23,5 @@
 .rg-node:focus-visible .rg-dot { stroke: #1a73e8; stroke-width: 4; }
 .rg-node:focus-visible text { text-decoration: underline; }
 .rg-pin { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; min-height: 34px; }
-.rel-graph.narrow .rg-node text { font-size: 17px; stroke-width: 4px; }
+.rel-graph.narrow .rg-node text { font-size: 18px; stroke-width: 4px; }
 @media (pointer: coarse) { .rg-kinds .chip, .rg-year .chip, .rg-pin .chip { min-height: 44px; padding: 0 14px; font-size: 15px; } .rg-kinds .link, .rg-pin .link { min-height: 44px; } }

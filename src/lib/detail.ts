@@ -8,6 +8,7 @@
 //  - 失敗：1 秒後重試一次，還是失敗就顯示「下載失敗」與重試連結（DetailWait）。
 //  - 唯一要掃過所有卡片內文的畫面是「結構對照」：打開它才抓 data/match.json（loadMatch）。
 import type { Dispatch, SetStateAction } from 'react';
+import { setNameTable } from './bilingual';
 import type { Card, DetailState, Dive, HomeData, Index, Storyline, TopicLayer, Unit } from '../types';
 
 export type CardPart = Pick<Card, 'sections' | 'sources' | 'causes' | 'effects' | 'aliases_show' | 'images' | 'counterparts_none' | 'lens'> & { learn?: Partial<NonNullable<Card['learn']>> };
@@ -217,4 +218,14 @@ export function adoptCore(ix: Index, base: string, set: Dispatch<SetStateAction<
 /** index.json 抓不到：骨架階段的畫面改顯示失敗訊息 */
 export function failCore(set: Dispatch<SetStateAction<Index | null>>) {
   set((cur) => (cur && !coreReady(cur) ? { ...cur, coreFailed: true } : cur));
+}
+
+/** 「卡片資料下載失敗」後按重試：重新抓 index.json（網路回來後真的會再抓一次，不必整頁重新整理）。home.json 都沒到時（ctx 還沒建立）才整頁重新整理 */
+export function retryCore() {
+  const c = ctx;
+  if (!c) { location.reload(); return; }
+  c.set((cur) => (cur ? { ...cur, coreFailed: false } : cur));
+  fetch(`${c.base}index.json`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+    .then((ix: Index) => { setNameTable(ix.names); c.set(adoptCore(ix, c.base, c.set)); })
+    .catch(() => failCore(c.set));
 }

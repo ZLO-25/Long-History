@@ -191,6 +191,7 @@ function Backup({ index, p, update, onReset }: { index: Index; p: Progress; upda
             <li>新增 {plan.added.length} 課{plan.added.length > 0 && <small className="muted">：{plan.added.map(title).join('、')}</small>}</li>
             <li>用備份裡比較新的取代 {plan.newer.length} 課{plan.newer.length > 0 && <small className="muted">：{plan.newer.map(title).join('、')}</small>}</li>
             <li>這台比較新、保留不動 {plan.kept.length} 課；完全相同 {plan.same.length} 課</li>
+            {(plan.recallsAdded ?? 0) > 0 && <li>故事「考考自己」的作答多 {plan.recallsAdded} 題</li>}
             <li>讀過的卡片多 {plan.cardsAdded} 張{inc.profile?.name && !p.profile?.name ? `；姓名會補上「${inc.profile.name}」` : ''}</li>
           </ul>
           <button className="btn primary" onClick={apply}>確認還原</button>

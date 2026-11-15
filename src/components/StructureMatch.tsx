@@ -1,7 +1,7 @@
 // 結構對照檢索：勾選結構條件 → 依符合條件數排序 → 產出可匯出 Markdown 的對照工作頁
 import { useEffect, useMemo, useState } from 'react';
 import type { Card, Index } from '../types';
-import { fmtRange, TYPE_COLOR } from '../lib/format';
+import { fmtRange, TYPE_COLOR, TYPE_VAR } from '../lib/format';
 import { Markdown, linkRefs } from '../lib/markdown';
 import { regionOf, REGION_LABEL, type Region } from '../lib/lane';
 
@@ -118,7 +118,7 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace, onToday }:
             <div key={r.c.id} className={`mrow ${sheet.picked.includes(r.c.id) ? 'picked' : ''}`}>
               <input type="checkbox" checked={sheet.picked.includes(r.c.id)} aria-label="放入工作頁"
                 onChange={() => setSheet((s) => ({ ...s, picked: toggle(s.picked, r.c.id).slice(-4) }))} />
-              <button className="link" onClick={() => onOpen(r.c.id)} style={{ color: TYPE_COLOR[r.c.type] }}>{r.c.name}</button>
+              <button className="link" onClick={() => onOpen(r.c.id)} style={{ color: TYPE_VAR[r.c.type] }}>{r.c.name}</button>
               <span className="tag-muted">{REGION_LABEL[regionOf(r.c)]}</span>
               <span className="muted small">{fmtRange(r.c.time.start, r.c.time.end)}</span>
               <span className="score">符合 {r.count} 項</span>

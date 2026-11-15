@@ -2,6 +2,7 @@ import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { execFile } from 'node:child_process';
 import path from 'node:path';
+import darkCss from './scripts/lib/dark-css';
 
 // 開發時：cards/、data/、docs/ 有變動就重新編譯 index.json 並重新整理頁面（可邊用 Obsidian 編輯邊看）
 function rebuildIndexOnChange(): Plugin {
@@ -34,5 +35,7 @@ export default defineConfig({
   base: process.env.BASE_PATH || '/',
   plugins: [react(), rebuildIndexOnChange()],
   server: { port: 5173, open: !process.env.NO_OPEN },
+  // 深色模式：每份 CSS 自動附上「深色覆寫」（scripts/lib/dark-css.ts）
+  css: { postcss: { plugins: [darkCss()] } },
   build: { chunkSizeWarningLimit: 2500 },
 });

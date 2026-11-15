@@ -2,7 +2,7 @@
 :root { --story: #0f766e; --story-bg: #effaf8; --story-line: #b6e2dc; }
 
 /* 關係類型：由強到弱，顏色由深到淺 */
-.rel-chip { display: inline-block; font-size: 11.5px; line-height: 1.5; padding: 0 7px; border-radius: 10px; border: 1px solid; white-space: nowrap; cursor: help; font-weight: 600; }
+.rel-chip { display: inline-block; font-size: 12px; line-height: 1.5; padding: 0 7px; border-radius: 10px; border: 1px solid; white-space: nowrap; cursor: help; font-weight: 600; }
 .rel-chip.r-trigger { background: #fde8e8; border-color: #f2a5a5; color: #9b1c1c; }
 .rel-chip.r-push { background: #fff1e0; border-color: #f2c48a; color: #8a4b00; }
 .rel-chip.r-bg { background: #eef2f7; border-color: #c4cfdd; color: #3d4b5c; font-weight: 500; }
@@ -11,7 +11,7 @@
 /* 從哪裡來／往哪裡去 */
 .cause-list { border: 1px solid var(--story-line); background: var(--story-bg); border-radius: 10px; padding: 8px 12px 6px; margin: 10px 0; }
 .cause-list h3 { margin: 0 0 6px; font-size: .98em; color: var(--story); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
-.cause-list h3 small { font-weight: 400; color: var(--muted); font-size: .82em; }
+.cause-list h3 small { font-weight: 400; color: var(--muted); font-size: max(12px, .82em); }
 .cause-list ul { list-style: none; margin: 0; padding: 0; }
 .cause-list li { padding: 6px 0; border-top: 1px dashed var(--story-line); }
 .cause-list li:first-child { border-top: 0; padding-top: 2px; }
@@ -19,7 +19,7 @@
 .ce-rel { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
 .ce-arrow { color: var(--story); font-size: 12px; white-space: nowrap; }
 .ce-why { margin: 3px 0 0; font-size: .92em; line-height: 1.6; }
-.ce-src { margin-left: 3px; font-size: .78em; white-space: nowrap; }
+.ce-src { margin-left: 3px; font-size: max(12px, .78em); white-space: nowrap; }
 .ce-src a { color: var(--accent); text-decoration: none; margin-left: 1px; }
 .ce-src a:hover { text-decoration: underline; }
 .ce-help { margin: 6px 0 2px; }
@@ -35,10 +35,10 @@
 .cr-link:hover, .cr-link:focus-visible { background: #f2fbf9; border-color: var(--story); }
 .cr-link:focus-visible, .pn-step:focus-visible, .si-item:focus-visible { outline: 2px solid var(--story); outline-offset: 2px; }
 .cr-link.off { font-weight: 500; color: var(--muted); background: #f6f4ef; }
-.cr-link small { font-weight: 400; color: var(--muted); font-size: .8em; }
+.cr-link small { font-weight: 400; color: var(--muted); font-size: max(12px, .8em); }
 .cr-year { margin-left: 2px; }
 .cr-none { color: var(--muted); font-weight: 500; }
-.cr-none small { font-size: .8em; margin-left: 2px; }
+.cr-none small { font-size: max(12px, .8em); margin-left: 2px; }
 
 /* 這張卡在這些故事裡 */
 .path-nav { border: 1px solid var(--story-line); border-radius: 10px; background: #fff; margin: 8px 0; padding: 6px 10px; }
@@ -48,7 +48,7 @@
 .pn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; font-size: .93em; padding: 2px 0; }
 .pn-name { text-align: left; }
 .pn-where { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; }
-.pn-kind { font-size: 11px; border-radius: 4px; padding: 0 5px; background: var(--story-bg); color: var(--story); border: 1px solid var(--story-line); white-space: nowrap; }
+.pn-kind { font-size: 12px; border-radius: 4px; padding: 0 5px; background: var(--story-bg); color: var(--story); border: 1px solid var(--story-line); white-space: nowrap; }
 .pn-row.unit .pn-kind { background: #eef4fb; color: #2b6cb0; border-color: #c3d6ee; }
 .pn-row.dive .pn-kind { background: var(--dive-bg, #fbeee8); color: var(--dive, #9b2c2c); border-color: var(--dive, #9b2c2c); }
 .pn-dots { display: inline-flex; gap: 3px; align-items: center; }
@@ -103,6 +103,6 @@
 .home-stories { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; margin: 6px 0 12px; }
 /* 前因裡開始得比本卡晚的事：不是起因，而是後來的轉折／結束，分開列並用小標題說明 */
 .cause-list .ce-turn { margin: 8px 0 2px; padding-top: 6px; border-top: 2px solid var(--story-line); font-size: .9em; color: var(--story); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
-.cause-list .ce-turn small { font-weight: 400; color: var(--muted); font-size: .88em; }
+.cause-list .ce-turn small { font-weight: 400; color: var(--muted); font-size: max(12px, .88em); }
 .cause-list .ce-turn + ul li:first-child { border-top: 0; }
 .pn-more { margin-top: 4px; } .pn-more > summary { cursor: pointer; font-size: 13px; color: var(--story); } @media (pointer: coarse) { .pn-more > summary { min-height: 44px; display: flex; align-items: center; } }

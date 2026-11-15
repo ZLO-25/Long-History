@@ -1,0 +1,15 @@
+/* 深色模式的手工補丁（scripts/lib/dark-css.ts 不處理這個檔）。
+   自動產生的深色覆寫（亮度反轉）只管 CSS 裡寫死的顏色；元件用 style={{ }} 內嵌的顏色要自己想辦法（例如卡片類型色改用 CSS 變數 TYPE_VAR），
+   或在這裡補，讓兩種模式的文字對比都 >= 4.5:1（scripts/qa/polish.cjs 會抽查）。補丁用 !important，因為各頁的 CSS 是延後載入的，順序比這個檔晚。 */
+@media screen {
+  /* 故事地圖是一張淺色地圖：整塊維持淺色（文字色與變數固定成淺色版） */
+  :root[data-theme="dark"] .smap { color: #2a2723 !important; --ink: #2a2723; --muted: #6f6a62; --line: #e2ddd2; --bg: #f7f5f0; --panel: #fffdf8; --accent: #2b6cb0; --red: #e53e3e; }
+  :root[data-theme="dark"] .grip { color: var(--muted) !important; }
+  /* 圖說（.sm-cap）在淺色地圖外面，底是深色面板：文字用淺色 */
+  :root[data-theme="dark"] .smap .sm-cap { color: #e2ded6 !important; --muted: #b4afa5; --ink: #e8e4dc; }
+  :root[data-theme="dark"] .smap .sm-cap .sm-legend, :root[data-theme="dark"] .smap .sm-cap .sm-list, :root[data-theme="dark"] .smap .sm-cap span, :root[data-theme="dark"] .smap .sm-cap small { color: #cfcac1 !important; }
+  :root[data-theme="dark"] .tier { color: #eeeae2 !important; }
+  /* 圖說裡的地點小鈕維持淺底深字（.sm- 開頭的規則不產生深色版，會被全站的 button 深色規則蓋掉字色） */
+  :root[data-theme="dark"] .smap .sm-list button { background: #fff; color: #26231f !important; border-color: #ddd5c4; }
+  :root[data-theme="dark"] .smap .sm-list button.hot { background: #fff4ec; color: #9a3412 !important; border-color: #c2410c; }
+}

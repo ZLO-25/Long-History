@@ -2,7 +2,7 @@
 .chip.topic { background: #fff6e5; border-color: #efc77a; color: #7a4a00; padding: 4px 11px; font-size: 13px; min-height: 28px; }
 .mobile .chip.topic, .learn.mobile .chip.topic { min-height: 32px; padding: 5px 12px; }
 .chip.topic:focus-visible, .tv-item:focus-visible { outline: 2px solid #b45309; outline-offset: 2px; }
-.chip.topic small { margin-left: 4px; font-size: 10.5px; opacity: .7; }
+.chip.topic small { margin-left: 4px; font-size: 12px; opacity: .7; }
 .chip.topic:hover, .chip.topic:focus-visible { background: #ffe9bf; }
 .chip.topic.big { font-size: 14px; padding: 5px 12px; margin: 3px; }
 .topic-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 8px 0 2px; }

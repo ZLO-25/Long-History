@@ -6,7 +6,7 @@ import type { Card, Dive, Index, PowerMap, PowerUi } from '../types';
 import { cardEn } from '../lib/bilingual';
 import { cleanNote, findDive, DEFAULT_POWER_UI, hasPowerVisual, diveRoutes, diveMarks, diveYear, prehistDive, powerFor, diveStat, byIdOf as _byIdOf } from '../lib/dive';
 import { DiveEntries } from './DiveEntries';
-import { fmtRange, fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtRange, fmtYear, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 import './dive.css';
 import { RelationGraph } from './RelationGraph';
 import { BookView, DeepTimeline } from './DiveBook';
@@ -65,7 +65,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
   const power = powerYear != null ? d.power_maps.find((p) => p.year === powerYear) ?? null : null;
   const cardBtn = (c: Card, n?: number) => {
     const inYear = c.time.start <= year && year <= c.time.end;
-    const label = <>{n != null && <span className="dv-n">{n}</span>}<span aria-hidden className="dv-icon" style={{ color: TYPE_COLOR[c.type] }}>{TYPE_ICON[c.type]}</span><span className="dv-name">{c.name.replace(/（\d.*）$/, '')}</span><small className="dv-year">{c.type === 'person' ? `${fmtYear(c.time.start)}–${fmtYear(c.time.end)}` : fmtRange(c.time.start, c.time.end)}</small></>;
+    const label = <>{n != null && <span className="dv-n">{n}</span>}<span aria-hidden className="dv-icon" style={{ color: TYPE_VAR[c.type] }}>{TYPE_ICON[c.type]}</span><span className="dv-name">{c.name.replace(/（\d.*）$/, '')}</span><small className="dv-year">{c.type === 'person' ? `${fmtYear(c.time.start)}–${fmtYear(c.time.end)}` : fmtRange(c.time.start, c.time.end)}</small></>;
     const cls = `dv-card ${currentId === c.id ? 'here' : ''} ${inYear ? 'in-year' : ''}`;
     if (canOpen && !canOpen(c)) return researchHref ? <a key={c.id} className={`${cls} off`} href={researchHref(c.id)} title="這張卡還不在學習模式，到研究模式看">{label}</a> : <span key={c.id} className={`${cls} off`}>{label}</span>;
     return <button key={c.id} className={cls} style={{ borderLeftColor: TYPE_COLOR[c.type] }} onClick={() => onOpen(c.id)}>{label}</button>;

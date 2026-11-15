@@ -12,6 +12,8 @@ export const PRECISION_LABEL: Record<string, string> = {
 export const TYPE_COLOR: Record<string, string> = {
   war: '#c0392b', commodity: '#b7791f', event: '#2b6cb0', building: '#2f855a', tech: '#6b46c1', finance: '#0f766e', social: '#b83280', person: '#8a5a00',
 };
+/** 當「文字顏色」或「白字底色」用的類型色（CSS 變數，定義在 src/polish.css；深色模式自動變亮）。比 TYPE_COLOR 的商品、建築兩色再深一點，白底與白字都 ≥ 4.5:1。TYPE_COLOR 留給圖形（地圖點、時間軸色條、邊線） */
+export const TYPE_VAR: Record<string, string> = Object.fromEntries(Object.keys(TYPE_COLOR).map((k) => [k, `var(--tc-${k})`]));
 export const TYPE_ICON: Record<string, string> = { war: '⚔', commodity: '⚖', event: '◆', building: '▲', tech: '⚙', finance: '¤', social: '☺', person: '👤' };
 export const KIND_LABEL: Record<string, string> = { road: '道路', sea: '航線', wall: '長城／防線', migration: '史前遷徙（示意）' };
 

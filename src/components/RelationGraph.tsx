@@ -20,6 +20,15 @@ export function shortName(name: string, max = 6) {
   return last.length > max ? last.slice(0, max) + '…' : last;
 }
 
+/** 圈上的人名：不截斷，太長（超過 per 字）就拆成兩行 */
+export function nameLines(name: string, per: number): string[] {
+  const base = shortName(name, 99);
+  if (base.length <= per) return [base];
+  const half = Math.ceil(base.length / 2);
+  const second = base.slice(half);
+  return [base.slice(0, half), second.length > per + 1 ? second.slice(0, per) + '…' : second];
+}
+
 interface Props {
   index: Index; persons: Card[]; year: number; onOpen: (id: string) => void; currentId?: string | null;
   /** 可切換的年份（通常是勢力圖的年份）；給了就在圖上方顯示年份徽章與年份膠囊，手機沒有時間軸也能切 */
@@ -124,7 +133,8 @@ export function RelationGraph({ index, persons, year, onOpen, currentId, years, 
               onKeyDown={(ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); tap(id); } else if (ev.key === 'Escape') setPinned(null); }}>
               <circle className="rg-hit" r={24} fill="transparent" stroke="none" />
               <circle className="rg-dot" r={alive ? 9 : 7} />
-              <text x={dx} y={dy} textAnchor={Math.abs(Math.cos(n.t)) < 0.3 ? 'middle' : Math.cos(n.t) > 0 ? 'start' : 'end'} dominantBaseline="middle">{shortName(n.c.name, narrow ? 4 : 6)}</text>
+              <text x={dx} y={dy} textAnchor={Math.abs(Math.cos(n.t)) < 0.3 ? 'middle' : Math.cos(n.t) > 0 ? 'start' : 'end'} dominantBaseline="middle">
+                {nameLines(n.c.name, narrow ? 4 : 6).map((ln, li, a) => <tspan key={li} x={dx} dy={li === 0 ? `${-(a.length - 1) * 0.55}em` : '1.1em'}>{ln}</tspan>)}</text>
               <title>{`${n.c.name}（${fmtYear(n.c.time.start)}–${fmtYear(n.c.time.end)}）`}</title>
             </g>
           );

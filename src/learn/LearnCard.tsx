@@ -2,7 +2,7 @@ import { useIsMobile } from '../lib/useIsMobile';
 // 學習模式的卡片：只有一個詳細版（故事、史料、完整段落、史家爭論一次讀完；2026-11-07 起不再分國中／高中）
 import { useMemo, useState } from 'react';
 import type { Card, History, Index } from '../types';
-import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtRange, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 import { LearnText, SourceList, TermPop, type Term } from './LearnText';
 import { tierOrder } from './util';
 import { TopicChips } from '../components/Topics';
@@ -56,7 +56,8 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
   if (unitMode) {
     // ---- 單元裡的卡片：必讀（故事＋focus）直接展開，其他收成一排「想看更多」 ----
     // focus 寫「通俗作者怎麼說」段落的代號（如 C8）時，畫面上對應的是 'thinkers' 這一塊
-    const focus = (unitMode.focus ?? []).map((k) => (lens && k === lens.code ? 'thinkers' : k));
+    // 今日對照的兩段（today_hook、non_analogous；代號如 C9、C10）在畫面上合成一塊 'today'，所以寫哪一個代號都展開那一塊
+    const focus = [...new Set((unitMode.focus ?? []).map((k) => (lens && k === lens.code ? 'thinkers' : (today && k === today.code) || (nonAn && k === nonAn.code) ? 'today' : k)))];
     type Part = { key: string; label: string; node: React.ReactNode };
     const parts: Part[] = [];
     const add = (key: string, label: string, node: React.ReactNode) => parts.push({ key, label, node });
@@ -92,7 +93,7 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
     return (
       <article className="lcard compact unit-card">
         <header className="lc-head" style={{ borderColor: TYPE_COLOR[c.type] }}>
-          <span className="type-badge" style={{ background: TYPE_COLOR[c.type] }}><span aria-hidden>{TYPE_ICON[c.type]}</span> {c.typeLabel}</span>
+          <span className="type-badge" style={{ background: TYPE_VAR[c.type] }}><span aria-hidden>{TYPE_ICON[c.type]}</span> {c.typeLabel}</span>
           <h2>{c.name}</h2>
           <div className="lc-meta">{fmtRange(c.time.start, c.time.end)}{c.time.precision !== 'exact' && '（約略）'}・{L.track}
             {c.verification === '爭議' && <span className="badge dispute" title="不同來源說法不一，內文並列各方說法">有爭議</span>}</div>
@@ -114,7 +115,7 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
   return (
     <article className={`lcard ${compact ? 'compact' : ''}`}>
       <header className="lc-head" style={{ borderColor: TYPE_COLOR[c.type] }}>
-        <span className="type-badge" style={{ background: TYPE_COLOR[c.type] }}><span aria-hidden>{TYPE_ICON[c.type]}</span> {c.typeLabel}</span>
+        <span className="type-badge" style={{ background: TYPE_VAR[c.type] }}><span aria-hidden>{TYPE_ICON[c.type]}</span> {c.typeLabel}</span>
         <h2>{c.name}</h2>
         <div className="lc-meta">{fmtRange(c.time.start, c.time.end)}{c.time.precision !== 'exact' && '（約略）'}・{L.track}
           {c.verification === '爭議' && <span className="badge dispute" title="不同來源說法不一，內文並列各方說法">有爭議</span>}

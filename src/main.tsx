@@ -1,9 +1,13 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
+import './polish.css';
+import './dark-patches.css';
 import App, { startFetch } from './App';
 import { preloadForUrl } from './chunks';
+import { initTheme } from './lib/theme';
 
+initTheme(); // 外觀（淺色／深色，跟隨系統或使用者選的）；index.html 已經先套過一次，這裡負責之後系統設定改變時跟著變
 // 程式一執行就開始抓資料（home.json、index.json），不等 React 掛載
 startFetch();
 // 網址是深連結時，這個畫面需要的程式碼（chunk）現在就開始載，和資料同時，不等首頁畫完

@@ -96,6 +96,24 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
   // 中場休息：做完上半段的最後一步按「下一步」，先停在休息畫面（不是一定要休息，可以直接繼續）
   const [brk, setBrk] = useState(false);
   const [showResult, setShowResult] = useState(false); // 按「完成這一課」後換成結果畫面
+  // 換步後把鍵盤焦點移到新步驟的標題（讀螢幕報讀器的人才知道換了頁；也不必從頭 Tab）。使用者正在打字（輸入框、文字區）時不搶焦點；第一次進來不動
+  const firstFocus = useRef(true);
+  const touched = useRef(false); // 使用者還沒碰過畫面（網址直接開到某一步、或載入時自動切換）就不搶焦點
+  useEffect(() => {
+    const on = () => { touched.current = true; };
+    window.addEventListener('pointerdown', on, true); window.addEventListener('keydown', on, true);
+    return () => { window.removeEventListener('pointerdown', on, true); window.removeEventListener('keydown', on, true); };
+  }, []);
+  useEffect(() => {
+    if (firstFocus.current) { firstFocus.current = false; return; }
+    if (!touched.current) return;
+    const a = document.activeElement as HTMLElement | null;
+    if (a && (a.tagName === 'INPUT' || a.tagName === 'TEXTAREA' || a.tagName === 'SELECT' || a.isContentEditable)) return;
+    const el = top.current?.querySelector<HTMLElement>('.step-label, .half-break h3, .unit-intro .mystery-big');
+    if (!el) return;
+    el.tabIndex = -1;
+    el.focus({ preventScroll: true });
+  }, [step, brk, cover]);
   // 走過的步驟（進度條的綠點）：離開哪一步就記哪一步；「直接做下半段」不會把上半段算成走過
   const leave = () => [...new Set([...seenSet(prog), ...(step >= 0 && !brk ? [step] : [])])];
   const jump = (to: number) => { setCover(false); setBrk(false); setShowResult(false); setProg({ step: to, seen: leave() }); };

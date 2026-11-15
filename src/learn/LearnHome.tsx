@@ -18,6 +18,9 @@ export const HOME_PICKS = 6;
 const warm = { onPointerEnter: () => { preload.lists(); }, onFocus: () => { preload.lists(); }, onTouchStart: () => { preload.lists(); } };
 const LEVEL_TABS: [LevelPick, string][] = [['all', '全部'], ['國中', '國中'], ['高中', '高中']];
 
+// 最近動作的時間（毫秒）：有 ts 用 ts；舊進度只有日期（lastAt），當成那天 0 點，同一天沒時間戳的再看步數最多的（原本的邏輯）
+const when = (u: { ts?: number; lastAt?: string }) => u.ts ?? (u.lastAt ? Date.parse(u.lastAt) || 0 : 0);
+
 export function LearnHome({ index, p, onUnit, onRandom, onIntroSeen, onRecord, onHistories, onLessons, onStories, onDives, onTopics, onCurriculum, onReview, onExam }: {
   index: Index; p: Progress; onUnit: (id: string) => void; onRandom: () => void; onIntroSeen: () => void; onRecord?: () => void;
   onHistories?: () => void; onLessons?: () => void; onStories?: () => void; onDives?: () => void; onTopics?: () => void; onCurriculum?: () => void; onReview?: () => void; onExam?: () => void;
@@ -25,7 +28,7 @@ export function LearnHome({ index, p, onUnit, onRandom, onIntroSeen, onRecord, o
   const [pick, setPick] = useState<LevelPick>('all');
   // 上次做到一半的課：依最近活動時間（lastAt）選，同一天再看步數
   const resume = index.units.map((u) => [u, p.units[u.id]] as const).filter(([, x]) => x && !x.done && x.step > 0)
-    .sort((a, b) => (b[1]!.lastAt ?? '').localeCompare(a[1]!.lastAt ?? '') || b[1]!.step - a[1]!.step)[0];
+    .sort((a, b) => when(b[1]!) - when(a[1]!) || b[1]!.step - a[1]!.step)[0];
   const doneN = index.units.filter((u) => p.units[u.id]?.done).length;
   const picks = pickUnits(index.units, (id) => !!p.units[id]?.done, pick, HOME_PICKS);
   const levels = hasLevels(index.units);

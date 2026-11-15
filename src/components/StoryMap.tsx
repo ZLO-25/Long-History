@@ -53,6 +53,8 @@ const loadEra = (file: string) => {
   }
   return eraCache.get(file)!;
 };
+/** 考古文化名（鐘形墓文化、納斯卡文化…）：學生看不懂、也不是「國家」，色塊照畫，但預設不標名稱（滑過去的提示說明它是什麼） */
+const isCulture = (name: string) => !name.includes('（') && /(文化群?|酋邦|新石器時代農民|時代晚期)$/.test(name);
 const fmtEra = (y: number) => (y < 0 ? `西元前 ${-y} 年` : `西元 ${y} 年`);
 
 // Web Mercator：世界寬 256 單位
@@ -221,7 +223,7 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
   </>, [worldD, landD, data]);
   const routeD = useMemo(() => (data?.routes ?? []).map((r) => { let d = ''; for (let i = 0; i < r.c.length; i += 2) d += `${i ? 'L' : 'M'}${X(r.c[i]).toFixed(2)} ${Y(r.c[i + 1]).toFixed(2)}`; return d; }), [data]);
 
-  const polMemo = useMemo(() => polShown.length ? <g className="sm-pol">{polShown.map((p, i) => <path key={i} d={p.d} fill={p.fill} vectorEffect="non-scaling-stroke"><title>{p.name}</title></path>)}</g> : null, [polShown]);
+  const polMemo = useMemo(() => polShown.length ? <g className="sm-pol">{polShown.map((p, i) => <path key={i} d={p.d} fill={p.fill} vectorEffect="non-scaling-stroke"><title>{isCulture(p.name) ? `${p.name}（考古學家用器物風格區分的人群，不是國家）` : p.name}</title></path>)}</g> : null, [polShown]);
   // 故事順序：每節的代表點依序連起來
   const order = (doc.secPt ?? []).map((p, i) => ({ p, i })).filter((x) => x.p >= 0);
   const hotSet = new Set(hot);
@@ -252,6 +254,7 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
   // 政權名稱：在畫面上夠寬（放得下名字）才標
   const polLabels: JSX.Element[] = [];
   for (const p of [...polShown].sort((a, b) => b.w - a.w)) {
+    if (isCulture(p.name)) continue;
     const fs = 13.5, wd = tw(p.name, fs);
     if (p.w * view.k < wd * 0.9) continue;
     const x = (p.lx - view.cx) * view.k + w / 2 - wd / 2, y = (p.ly - view.cy) * view.k + h / 2 - fs / 2;
@@ -311,7 +314,7 @@ export const StoryMap = memo(function StoryMap({ doc, byId, sec, hot, focus, onF
           </svg>
         )}
         {wheelHint && <p className="sm-hint">按住 Ctrl（Mac 按 ⌘）再滾輪縮放地圖，或按右下角＋－</p>}
-        {era && polShown.length > 0 && <p className="sm-era">色塊：約{fmtEra(era.y)}的政權（示意疆界）</p>}
+        {era && polShown.length > 0 && <p className="sm-era">色塊：約{fmtEra(era.y)}的政權（示意疆界）{polShown.some((x) => isCulture(x.name)) && '；考古學上的「文化」只上色、不標名稱'}</p>}
         {!data && !failed && <p className="sm-msg">地圖載入中…</p>}
         {failed && <p className="sm-msg">地圖載入失敗。<button className="link" onClick={() => { setFailed(false); loadMap(doc.id).then(setData).catch(() => setFailed(true)); }}>重試</button></p>}
         <div className="sm-tools">

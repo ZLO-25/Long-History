@@ -80,9 +80,9 @@ function Done({ p, today, results, onHome, before }: { index: Index; p: Progress
     <div className="rv-done">
       <p className="rv-score" aria-live="polite">{before > 0 && results.length === 0 ? '今天已經複習完了 ✓' : '複習完成 ✓'}　答對 <b>{right}</b>／{all.length} 題</p>
       {wrong.length > 0 ? (
-        <div className="feedback no"><b>這幾題明天會再出現：</b>
+        <div role="status" className="feedback no"><b>這幾題明天會再出現：</b>
           <ul>{wrong.map((r) => <li key={r.key}>《{r.unit.title}》{r.q.what}：{r.q.q.length > 40 ? `${r.q.q.slice(0, 40)}…` : r.q.q}　<LLink className="link small" q={{ unit: r.unit.id, step: String(r.q.step) }}>回這一課看</LLink></li>)}</ul></div>
-      ) : <p className="feedback ok">全部答對。答對的題會照 1、3、7、21 天的節奏再回來。</p>}
+      ) : <p role="status" className="feedback ok">全部答對。答對的題會照 1、3、7、21 天的節奏再回來。</p>}
       <p>{nx ? <>下次複習：<b>{dayText(nx, today)}</b></> : '所有的題都畢業了，不用再複習。'}</p>
       <div className="row"><button className="btn primary" onClick={onHome}>回首頁</button></div>
     </div>

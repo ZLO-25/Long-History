@@ -1,10 +1,11 @@
 // 第 6 期：自主學習模式。和研究模式共用同一批卡片資料，只是呈現方式不同
 // 網址：?mode=learn&history=japan&unit=unit-xxx&card=war-xxx&sim=bubble&view=mymap｜histories｜lessons｜curriculum
-import { useDeferredValue, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useDeferredValue, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { DockLayout, useDock } from '../components/Dock';
 import { useLayout, colSize } from '../lib/layout';
 import { SkipLink } from '../components/SkipLink';
 
+const NO_RECALL: Record<string, RecallRec> = {};
 type LPanel = 'content' | 'map' | 'tl';
 const L_PANELS: readonly LPanel[] = ['content', 'map', 'tl'];
 import type { Card, Index } from '../types';
@@ -13,9 +14,10 @@ import { createSearch, learnSearch, learnKeywords, matchTopics, useSearchLibs, l
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
 import { findStory, storyMarks, keepRead } from '../lib/storyLite';
 import { findDive, diveMarks, diveRoutes, hasPowerVisual, powerFor, diveYear, prehistDive } from '../lib/dive';
-import { useIsMobile } from '../lib/useIsMobile';
+import { useIsMobile, useTabletPortrait } from '../lib/useIsMobile';
 import { LearnHome } from './LearnHome';
-import { useProgress } from './progress';
+import { AaPanel } from './AaPanel';
+import { useProgress, withRecall, type RecallRec } from './progress';
 import { scheduleUnit } from './review';
 import { ensureCards, ensureUnits, cardLoaded, unitLoaded, coreReady } from '../lib/detail';
 import { historyOf, inHistory, learnCards } from './util';
@@ -45,6 +47,9 @@ const NEEDS_CORE = new Set<View['kind']>(['unit', 'card', 'history', 'mymap', 'r
 interface LH { stack: View[]; hid: string | null; i: number }
 const curLH = () => (history.state as { lh?: LH } | null)?.lh;
 
+/** 捲動的那一塊：手機是 .lm-main，桌機是文字欄 .lcontent */
+const scroller = () => document.querySelector<HTMLElement>('.lm-main') ?? document.querySelector<HTMLElement>('.learn .lcontent');
+
 function initialView(q: URLSearchParams): View {
   if (q.get('view') === 'teacher') return { kind: 'teacher' };
   if (q.get('view') === 'review') return { kind: 'review' };
@@ -71,7 +76,9 @@ function initialView(q: URLSearchParams): View {
 }
 
 export function LearnApp({ index, onResearch }: { index: Index; onResearch: () => void }) {
-  const isMobile = useIsMobile();
+  // 平板直向也用單欄加分頁的版面（見 useTabletPortrait）；手機專用的省空間做法（compact）仍只給手機
+  const phone = useIsMobile(), tablet = useTabletPortrait();
+  const isMobile = phone || tablet;
   const params = useMemo(() => new URLSearchParams(location.search), []);
   const { p, update, markCard, setUnit, reset } = useProgress();
   const [hid, setHid] = useState<string | null>(() => params.get('history') ?? p.history ?? null);
@@ -82,7 +89,9 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   // 下一次網址更新是新增一筆瀏覽紀錄（push）還是改寫目前這筆（replace）；nav() 設定，寫網址的 effect 用完歸零
   const navMode = useRef<'push' | 'replace'>('replace');
   const stackRef = useRef(stack); stackRef.current = stack;
-  const nav = (next: View[] | ((s: View[]) => View[]), mode: 'push' | 'replace' = 'push') => { navMode.current = mode; setStack(next); };
+  // 捲動位置：離開一個畫面（push）時記在那一筆瀏覽紀錄的 state.sy；上一頁／「← 返回」回來時（popstate）捲回去。新畫面從頂端開始
+  const leaveY = useRef(0), restoreY = useRef<number | null>(null);
+  const nav = (next: View[] | ((s: View[]) => View[]), mode: 'push' | 'replace' = 'push') => { if (mode === 'push') leaveY.current = scroller()?.scrollTop ?? 0; navMode.current = mode; setStack(next); };
   const [tab, setTab] = useState<Tab>('main');
   // 人群圖層（今天）：網址帶 ?peoples= 時自動打開
   const [peoplesOn, setPeoplesOn] = useState(() => new URLSearchParams(location.search).has('peoples'));
@@ -122,13 +131,11 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const dock = useDock('l', L_PANELS, useLayout());
   const tlInC = dock.order[2] === 'tl' && !dock.float.tl && !dock.wins.tl;
   const toggleTl = () => update((o) => ({ ...o, timelineOpen: !(o.timelineOpen ?? view.kind !== 'unit') }));
-  // 字級：手機上用一顆按鈕循環（標準 → 大 → 特大 → 標準）
-  const cycleFs = () => update((o) => { const cur = o.fontScale ?? 1; return { ...o, fontScale: cur >= 1.35 ? 1 : cur >= 1.15 ? 1.4 : 1.2 }; });
-  const fsLabel = fs >= 1.35 ? '特大' : fs >= 1.15 ? '大' : '標準';
 
   // 分頁標題跟著目前在看的東西走，瀏覽器歷史與書籤才看得出是哪一課
+  const pageTitle = view.kind === 'unit' ? unit?.title : view.kind === 'card' ? byId(view.id)?.name : view.kind === 'history' ? h?.name : view.kind === 'topic' ? `#${view.name}` : view.kind === 'topics' ? '#標籤' : view.kind === 'histories' ? '依地區與主題' : view.kind === 'lessons' ? '全部的課' : view.kind === 'curriculum' ? '課綱對照' : view.kind === 'story' ? findStory(index, view.id)?.title : view.kind === 'stories' ? '故事線' : view.kind === 'dive' ? findDive(index, view.id)?.title : view.kind === 'dives' ? '深入專題' : view.kind === 'mymap' ? '我的歷史地圖' : view.kind === 'record' ? '我的學習紀錄' : view.kind === 'review' ? '今天的複習' : view.kind === 'exam' ? '段考複習' : null;
   useEffect(() => {
-    const t = view.kind === 'unit' ? unit?.title : view.kind === 'card' ? byId(view.id)?.name : view.kind === 'history' ? h?.name : view.kind === 'topic' ? `#${view.name}` : view.kind === 'topics' ? '#標籤' : view.kind === 'histories' ? '依地區與主題' : view.kind === 'lessons' ? '全部的課' : view.kind === 'curriculum' ? '課綱對照' : view.kind === 'story' ? findStory(index, view.id)?.title : view.kind === 'stories' ? '故事線' : view.kind === 'dive' ? findDive(index, view.id)?.title : view.kind === 'dives' ? '深入專題' : view.kind === 'mymap' ? '我的歷史地圖' : view.kind === 'record' ? '我的學習紀錄' : view.kind === 'review' ? '今天的複習' : view.kind === 'exam' ? '段考複習' : null;
+    const t = pageTitle;
     document.title = t ? `${t}｜歷史長河` : '歷史長河：國高中生的歷史學習';
   }, [view, unit, h]);
 
@@ -164,14 +171,18 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     const mode = navMode.current; navMode.current = 'replace';
     const lh: LH = { stack, hid, i: (curLH()?.i ?? 0) + (mode === 'push' ? 1 : 0) };
     const url = `${location.pathname}?${q}${view.kind === 'teacher' ? location.hash : ''}`; // 老師檢視頁自己讀完 #code= 再清掉
-    if (mode === 'push') history.pushState({ lh }, '', url);
+    if (mode === 'push') {
+      history.replaceState({ ...(history.state as object | null), sy: leaveY.current }, ''); // 目前這一筆（要離開的畫面）記下捲到哪
+      history.pushState({ lh }, '', url);
+      requestAnimationFrame(() => { const el = scroller(); if (el) el.scrollTop = 0; });
+    }
     else history.replaceState({ ...(history.state as object | null), lh }, '', url);
   }, [hid, stack]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // 瀏覽器上一頁／下一頁：還原當時的畫面。故事閱讀頁自己放的那一筆（沒有 lh）由 Story.tsx 處理
   useEffect(() => {
     const onPop = () => {
-      const st = history.state as { lh?: LH; storyRead?: number } | null;
+      const st = history.state as { lh?: LH; storyRead?: number; sy?: number } | null;
       if (!st?.lh && st?.storyRead) return;
       let next: View[], nh: string | null | undefined;
       if (st?.lh) { next = st.lh.stack; nh = st.lh.hid; }
@@ -179,6 +190,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
       if (nh !== undefined) setHid(nh);
       setQuery('');
       if (JSON.stringify(next) === JSON.stringify(stackRef.current)) return; // 例如關掉故事閱讀頁：畫面堆疊沒變
+      restoreY.current = typeof (st as { sy?: number } | null)?.sy === 'number' ? (st as { sy: number }).sy : null;
       const top = next[next.length - 1];
       setStack(next);
       setTab(top.kind === 'card' ? 'card' : 'main');
@@ -188,6 +200,16 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
+  // 回到之前的畫面後，捲回原來的位置（內容可能晚一點才撐高，所以隔一下再試一次）
+  useEffect(() => {
+    const y = restoreY.current;
+    if (y == null) return;
+    restoreY.current = null;
+    const go = () => { const el = scroller(); if (el) el.scrollTop = y; };
+    requestAnimationFrame(go);
+    const t1 = window.setTimeout(go, 150), t2 = window.setTimeout(go, 500);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, [stack]);
   // 人群圖層：連點不同國家時換掉最上面那一頁，不一直疊
   // 離開單元才關掉單元帶出的人群頁（手機切到地圖分頁時單元會卸載，不能在卸載時關）
   useEffect(() => { if (view.kind !== 'unit') setUnitPeople(null); }, [view.kind]);
@@ -264,7 +286,8 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const suggestUnits = useMemo(() => { const pool = index.units.filter((u) => !p.units[u.id]?.done); return (pool.length >= 3 ? pool : index.units).slice(0, 3); }, [index.units, p.units]);
   // 網址帶的單元／卡片／故事／專題 id 不存在：顯示「找不到」＋「回首頁」，不要顯示「下載失敗」或默默回首頁
   const missing = view.kind === 'sheet' || view.kind === 'export' ? (!index.units.some((x) => x.id === view.id) ? '課' : null) : view.kind === 'unit' ? (!unit ? '課' : null) : view.kind === 'card' ? (coreOk && !byId(view.id) ? '卡片' : null)
-    : view.kind === 'story' ? (!findStory(index, view.id) ? '故事' : null) : view.kind === 'dive' ? (!findDive(index, view.id) ? '深入專題' : null) : null;
+    : view.kind === 'story' ? (!findStory(index, view.id) ? '故事' : null) : view.kind === 'dive' ? (!findDive(index, view.id) ? '深入專題' : null)
+    : view.kind === 'sim' ? (!['debase', 'bankrun', 'bubble'].includes(view.id) ? '模擬' : null) : null; // 模擬的 id 清單在 sims/SimView.tsx（延後載入的 chunk），這裡只列 id
 
   const homeEl = <LearnHome index={index} p={p} onUnit={openUnit} onRandom={random} onIntroSeen={() => update((o) => ({ ...o, seenIntro: true }))} onRecord={() => push({ kind: 'record' })}
     onHistories={() => push({ kind: 'histories' })} onLessons={() => push({ kind: 'lessons' })} onStories={() => push({ kind: 'stories' })} onDives={() => push({ kind: 'dives' })} onTopics={() => push({ kind: 'topics' })} onCurriculum={() => push({ kind: 'curriculum' })} onReview={() => push({ kind: 'review' })} onExam={() => push({ kind: 'exam', units: [] })} />;
@@ -277,7 +300,9 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         <h2>搜尋「{query}」</h2>
         {topicHits.length > 0 && <div className="topic-suggest"><span className="muted small">看整條歷史路徑：</span>{topicHits.map((t) => <button key={t} className="chip topic big" onClick={() => openTopic(t)}>#{t}<small>{learnCount(findTopic(index, t)?.topic ?? { cards: [] })}</small></button>)}</div>}
         {unitHits.map((u) => <button key={u.id} className="mystery" onClick={() => { setQuery(''); openUnit(u.id); }}><span className="q">❓ {u.mystery}</span><span className="meta">{u.title}</span></button>)}
-        {hits.map(({ card }) => <button key={card.id} className="lresult" onClick={() => { setQuery(''); openCard(card.id); }}><span className="nm">{card.name}</span><span className="why">{card.learn?.why_care}</span></button>)}
+        {hits.map(({ card, exact }, k) => <Fragment key={card.id}>
+          {!exact && (k === 0 || hits[k - 1].exact) && <h3 className="suggest-h maybe-h">可能相關<small>（沒有直接寫到你打的字，是拼音或字形相近）</small></h3>}
+          <button className={`lresult ${exact ? '' : 'maybe'}`} onClick={() => { setQuery(''); openCard(card.id); }}><span className="nm">{card.name}</span><span className="why">{card.learn?.why_care}</span></button></Fragment>)}
         {!hits.length && !unitHits.length && !topicHits.length && <>
           <p className="muted">學習模式還沒有「{query.trim()}」的卡片。換個說法試試（例如只打人名或地名），可以到研究模式找找看，或試試下面的推薦課。</p>
           <h3 className="suggest-h">推薦課</h3>
@@ -303,7 +328,8 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onMap={isMobile ? () => setTab('map') : undefined} />;
       case 'topics': return <TopicIndex index={index} onTopic={openTopic} count={learnCount} />;
       case 'story': return <StorylineView key={view.id} index={index} id={view.id} currentId={lastCard} onOpen={(id) => openCard(id)} onAll={() => push({ kind: 'stories' })}
-        canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onStory={openStory} onMap={isMobile ? () => setTab('map') : undefined} />;
+        canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onStory={openStory} onMap={isMobile ? () => setTab('map') : undefined}
+        recallApi={{ saved: (sid) => p.stories?.[sid]?.recall ?? NO_RECALL, save: (sid, i, r) => update((o) => withRecall(o, sid, i, r)) }} />;
       case 'stories': return <StorylineIndex index={index} onStory={openStory} onTopics={() => push({ kind: 'topics' })} onDives={(index.dives ?? []).length ? () => push({ kind: 'dives' }) : undefined} />;
       case 'dive': return <DiveView key={view.id} index={index} id={view.id} year={year} setYear={setYear} currentId={lastCard} powerYear={powerYear} setPowerYear={setPowerYear}
         onOpen={(id) => openCard(id)} onStory={openStory} onAll={() => push({ kind: 'dives' })} onUnit={openUnit} canOpen={(c) => !!c.learn} researchHref={researchHref} onMap={isMobile ? () => setTab('map') : undefined} learn
@@ -332,7 +358,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const diveId = view.kind === 'dive' ? view.id : null;
   const hl = useMemo(() => diveId ? { keys: [], routes: diveRoutes(index, diveId), marks: diveMarks(index, diveId) } : storyId ? { keys: [], routes: [], marks: storyMarks(index, storyId) } : topicName ? { keys: [], routes: [], marks: topicMarks(index, topicName) }
     : { keys: selected?.place.locations.map((l) => l.key) ?? [], routes: selected?.routes ?? [] }, [topicName, storyId, diveId, selected?.id, index]);
-  const map = !coreOk ? <div className="map-skel" /> : <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={isMobile} home={home}
+  const map = !coreOk ? <div className="map-skel" /> : <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={phone} home={home}
     highlight={hl} power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend, files: activeDive?.power_maps.map((x) => x.file) } : null} onCard={(id) => openCard(id)}
     trail={selected?.type === 'person' ? selected.place.locations.filter((l) => typeof l.year === 'number').map((l) => ({ lat: l.lat, lng: l.lng, year: l.year!, name: l.name_ancient })) : null}
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}}
@@ -344,6 +370,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const header = (
     <header className="ltop">
       <SkipLink sel=".lcontent, .panel" />
+      <h1 className="sr-only">{pageTitle ? `${pageTitle}｜歷史長河` : '歷史長河：國高中生的歷史學習'}</h1>
       <button className="brand" onClick={goHome} title="回到學習模式首頁">歷史長河</button>
       <div className="mode-switch" role="group" aria-label="切換模式">
         <button onClick={onResearch}>研究模式</button><button className="on" aria-pressed>學習模式</button>
@@ -359,14 +386,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
       <button className={`btn sm ${view.kind === 'topic' || view.kind === 'topics' ? 'on' : ''}`} onClick={() => { setQuery(''); push({ kind: 'topics' }); }} title="#標籤：把同一個主題的卡片依年代串成歷史路徑" aria-label="#標籤">#標籤</button>
       <button className="btn sm" onClick={() => push({ kind: 'mymap' })} title="我的歷史地圖">🗺{!isMobile && ' 我的地圖'}</button>
       <button className="btn sm" onClick={() => push({ kind: 'record' })} title="我的學習紀錄：進度、答對率、寫過的回答">📒{!isMobile && ' 紀錄'}</button>
-      {isMobile ? (
-        <button className="btn sm" onClick={cycleFs} title="切換字級" aria-label={`字級：${fsLabel}，按一下切換`}>Aa{fs >= 1.15 ? '+' : ''}</button>
-      ) : (
-        <div className="fs" role="group" aria-label="字級">
-          <button className="btn sm" onClick={() => update((o) => ({ ...o, fontScale: Math.max(0.85, (o.fontScale ?? 1) - 0.1) }))} aria-label="字變小">A−</button>
-          <button className="btn sm" onClick={() => update((o) => ({ ...o, fontScale: Math.min(1.5, (o.fontScale ?? 1) + 0.1) }))} aria-label="字變大">A＋</button>
-        </div>
-      )}
+      <AaPanel fs={fs} setFs={(v) => update((o) => ({ ...o, fontScale: v }))} />
       {!isMobile && (Object.keys(dock.wins) as LPanel[]).map((id) => <button key={id} className="btn sm dock-back" onClick={() => dock.unpop(id)} title="這個區塊在另一個視窗，按一下收回來">↩ 收回{({ content: '文字欄', map: '地圖', tl: '時間軸' } as const)[id]}</button>)}
       {!isMobile && dock.customized && <button className="btn sm layout-reset" onClick={dock.resetAll} title="恢復預設版面：大小、位置、浮動小窗、彈出的視窗全部歸位">⟲ 版面</button>}
       <button className="btn sm" onClick={() => { update((o) => ({ ...o, seenIntro: false })); goHome(); setQuery(''); }} title="怎麼使用這個網站" aria-label="使用說明">？</button>
@@ -374,7 +394,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   );
 
   if (isMobile) return (
-    <div className="learn mobile" style={{ ['--fs' as any]: fs }}>
+    <div className={`learn mobile ${tablet ? "tablet" : ""}`} style={{ ['--fs' as any]: fs }}>
       {header}
       <main className="lm-main">
         {tab === 'main' && <div className="lcontent">{stack.length > 1 && <button className="back" onClick={back}>← 返回</button>}{content}</div>}

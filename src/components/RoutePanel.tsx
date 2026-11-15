@@ -1,7 +1,7 @@
 // 點地圖上的路線：說明與使用此路線的卡片
 import type { Card, Route } from '../types';
 import { Bi } from './Bi';
-import { fmtRange, KIND_LABEL, METHOD_LABEL, TYPE_COLOR, TYPE_ICON } from '../lib/format';
+import { fmtRange, KIND_LABEL, METHOD_LABEL, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 import { Markdown } from '../lib/markdown';
 
 export function RoutePanel({ route, cards, onOpen }: { route: Route; cards: Card[]; onOpen: (id: string) => void }) {
@@ -21,7 +21,7 @@ export function RoutePanel({ route, cards, onOpen }: { route: Route; cards: Card
       <h3>相關卡片</h3>
       {used.map((c) => (
         <button key={c.id} className="result" onClick={() => onOpen(c.id)}>
-          <span className="r-type" style={{ color: TYPE_COLOR[c.type] }}>{TYPE_ICON[c.type]} {c.typeLabel}</span>
+          <span className="r-type" style={{ color: TYPE_VAR[c.type] }}>{TYPE_ICON[c.type]} {c.typeLabel}</span>
           <span className="r-name">{c.name}</span>
           <span className="r-time">{fmtRange(c.time.start, c.time.end)}</span>
         </button>

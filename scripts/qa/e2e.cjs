@@ -37,7 +37,7 @@ const { chromium } = require('playwright');
         const opt = await p.$('.unit .opt, .unit .choice button');
         if (opt) await opt.click().catch(() => {});
       }
-      const done = await p.$('button:has-text("完成這個單元")');
+      const done = await p.$('button:has-text("完成這一課")');
       if (done) await done.click();
       console.log(`   ${uid}：${n} 步${bad.length ? '；' + bad.join('；') : ''}${errs.length ? '；錯誤：' + errs.slice(0, 2).join(' | ') : ''}`);
       if (bad.length || errs.length) fails.push(uid);

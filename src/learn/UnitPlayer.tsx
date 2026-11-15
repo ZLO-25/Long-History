@@ -93,7 +93,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
   }, []);
   // 中場休息：做完上半段的最後一步按「下一步」，先停在休息畫面（不是一定要休息，可以直接繼續）
   const [brk, setBrk] = useState(false);
-  const [showResult, setShowResult] = useState(false); // 按「完成這個單元」後換成結果畫面
+  const [showResult, setShowResult] = useState(false); // 按「完成這一課」後換成結果畫面
   // 走過的步驟（進度條的綠點）：離開哪一步就記哪一步；「直接做下半段」不會把上半段算成走過
   const leave = () => [...new Set([...seenSet(prog), ...(step >= 0 && !brk ? [step] : [])])];
   const jump = (to: number) => { setCover(false); setBrk(false); setShowResult(false); setProg({ step: to, seen: leave() }); };
@@ -251,7 +251,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
       case 'sim': return <>{s.prompt && <p className="prompt">{s.prompt}</p>}<SimView id={s.sim} index={index} onCard={onCard} /></>;
       case 'peoples': return <>
         <p className="prompt">👉 {s.prompt}</p>
-        <p className="muted small">{onMap ? <>地圖已經打開「◎ 人群」圖層，<button className="link" onClick={onMap}>點這裡到地圖看 ▶</button>，看完按下方「單元」回來。</> : '右邊的地圖已經打開「◎ 人群」圖層。'}下面是這一頁的內容；點裡面的國家或其他遷徙，會在這裡換頁，不會離開單元。</p>
+        <p className="muted small">{onMap ? <>地圖已經打開「◎ 人群」圖層，<button className="link" onClick={onMap}>點這裡到地圖看 ▶</button>，看完按下方「首頁」回來。</> : '右邊的地圖已經打開「◎ 人群」圖層。'}下面是這一頁的內容；點裡面的國家或其他遷徙，會在這裡換頁，不會離開單元。</p>
         {pPage && pPage !== s.id && <p><button className="btn sm" onClick={() => setPPage(null)}>← 回到這一步：{peopleTitle(pData, s.id)}</button></p>}
         <div className="unit-peoples" ref={pBox} tabIndex={0} role="region" aria-label="人群圖層這一頁的內容（可捲動）"><PeoplePanel id={pPage ?? s.id} onPick={(id) => setPPage(id)} onCard={(id) => onCardRaw(id)} /></div>
       </>;
@@ -286,9 +286,9 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
           <Short key={step} q="現在，用你自己的話回答一開始的謎題：" model={s.model_answer} label="寫好了，看參考說法"
             saved={prog?.recap} onSave={(t) => setProg({ recap: t })} points={s.points} meta={metaOf(prog, 'recap')} onMeta={(m) => saveMeta('recap', m)} />
           <Reflect key={`r${step}`} q={u.reflect} saved={prog?.answers?.reflect as string | undefined} onSave={(t) => save('reflect', t)} />
-          {!prog?.done ? <button className="btn primary big" onClick={() => { setProg({ done: true, doneAt: new Date().toISOString().slice(0, 10), seen: leave() }); setShowResult(true); top.current?.scrollIntoView({ block: 'start' }); }}>完成這個單元 🏅</button>
+          {!prog?.done ? <button className="btn primary big" onClick={() => { setProg({ done: true, doneAt: new Date().toISOString().slice(0, 10), seen: leave() }); setShowResult(true); top.current?.scrollIntoView({ block: 'start' }); }}>完成這一課 🏅</button>
             : <p className="badge-earned">{LEVELS[unitLevel(u, prog) ?? 'walked'].icon} 你完成了「{u.title}」（{LEVELS[unitLevel(u, prog) ?? 'walked'].name}）！它已經點亮在「我的歷史地圖」上。<button className="btn sm" onClick={() => setShowResult(true)}>看這一課的結果</button></p>}
-          {nextLesson && dive && <p className="ud-recap-next"><b>{dive.title}專題</b>的下一課：<button className="btn primary" onClick={() => onUnit(nextLesson.id)} {...intent('unit', nextLesson.id)}>第 {lessonNo + 2}／{lessons.length} 課《{nextLesson.title}》 →</button></p>}
+          {nextLesson && dive && <p className="ud-recap-next">深入專題<b>「{dive.title}」</b>的下一課：<button className="btn primary" onClick={() => onUnit(nextLesson.id)} {...intent('unit', nextLesson.id)}>第 {lessonNo + 2}／{lessons.length} 課《{nextLesson.title}》 →</button></p>}
           <h3>接下來可以挖</h3>
           <div className="next-units">
             {u.next.map((id) => index.units.find((x) => x.id === id)).filter((x): x is Unit => !!x).map((n) => (
@@ -305,8 +305,8 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
     <div className="unit" ref={top}>
       <div className="unit-head">
         {dive && lessonNo >= 0 && (
-          <p className="unit-dive"><span className="ud-pos">{dive.title}專題 第 {lessonNo + 1}／{lessons.length} 課</span>
-            {onDive && <button className="link small" onClick={() => onDive(dive.id)}>看專題頁</button>}
+          <p className="unit-dive"><span className="ud-pos">深入專題「{dive.title}」第 {lessonNo + 1}／{lessons.length} 課</span>
+            {onDive && <button className="link small" onClick={() => onDive(dive.id)}>看深入專題頁</button>}
             {nextLesson && <button className="chip ud-next" onClick={() => onUnit(nextLesson.id)}>下一課：《{nextLesson.title}》 →</button>}</p>
         )}
         <div className="unit-title-row"><h2>{u.title}</h2><div className="copy-menu"><button className="btn sm" onClick={() => (step >= 0 ? setMenu(!menu) : copyLink())} aria-expanded={step >= 0 ? menu : undefined} title="複製這一課的連結，可以傳給同學或老師">{copied ? '✓ 已複製' : '🔗 複製連結'}</button>
@@ -320,7 +320,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
       {s && !brk && <div className="step-nav">
         <button className="btn" onClick={() => go(step - 1)}>← 上一步</button>
         {step < u.steps.length - 1 ? <button className="btn primary" onClick={() => go(step + 1)}>{long && step === half - 1 ? '完成上半段 ✓' : <>下一步：{stepName(u.steps[step + 1])} →</>}</button>
-          : <span className="muted small">最後一步了，記得按「完成這個單元」</span>}
+          : <span className="muted small">最後一步了，記得按「完成這一課」</span>}
       </div>}
     </div>
   );

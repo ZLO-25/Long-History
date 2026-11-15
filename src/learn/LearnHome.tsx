@@ -7,6 +7,7 @@ import type { Progress } from './progress';
 import { hasLevels, levelLabel, mustMin, pickUnits, type LevelPick } from './util';
 import { levelText, unitLevel } from './level';
 import { COVERAGE } from './coverage';
+import { LLink } from './nav';
 import { intent } from '../lib/detail';
 import { preload } from '../chunks';
 import './home-extra.css';
@@ -90,6 +91,7 @@ export function LearnHome({ index, p, onUnit, onRandom, onIntroSeen, onRecord, o
         <p><b>講得比較深：</b>{COVERAGE.deep.join('、')}。</p>
         <p><b>還沒有（正在補）：</b>{COVERAGE.gaps.join('、')}。</p>
         <p className="muted small">{COVERAGE.note}{onCurriculum && <> 想知道哪些課綱條目已經有對應的課？<button className="link" onClick={onCurriculum}>看課綱對照 →</button></>}</p>
+        <p className="muted small">老師想派作業？每一課封面可以印學習單，學生做完可以產生分享碼。<LLink className="link" q={{ view: 'teacher' }}>👩‍🏫 老師檢視 →</LLink></p>
       </section>
     </div>
   );

@@ -1,4 +1,4 @@
-// 按「完成這個單元」之後的結果畫面：這一課的等級、答對幾題、還沒作答的步驟、自己寫的回答、下一課
+// 按「完成這一課」之後的結果畫面：這一課的等級、答對幾題、還沒作答的步驟、自己寫的回答、下一課
 import type { Index, Step, Unit } from '../types';
 import type { UnitProgress } from './progress';
 import { LEVELS, unitLevel, unitStat, writingsOf } from './level';
@@ -45,7 +45,7 @@ export function UnitResult({ u, prog, index, stepName, onGo, onUnit, onBack, nex
         </div>
       )}
       <p className="no-print"><LLink className="btn" q={{ view: 'export', unit: u.id }} title="可以列印、複製文字，或產生分享碼給老師">📤 匯出這一課的作答</LLink></p>
-      {nextLesson && diveTitle && <p className="ud-recap-next"><b>{diveTitle}專題</b>的下一課：<button className="btn primary" onClick={() => onUnit(nextLesson.id)} {...intent('unit', nextLesson.id)}>第 {lessonNo + 2}／{lessonCount} 課《{nextLesson.title}》 →</button></p>}
+      {nextLesson && diveTitle && <p className="ud-recap-next">深入專題<b>「{diveTitle}」</b>的下一課：<button className="btn primary" onClick={() => onUnit(nextLesson.id)} {...intent('unit', nextLesson.id)}>第 {lessonNo + 2}／{lessonCount} 課《{nextLesson.title}》 →</button></p>}
       {nexts.length > 0 && <>
         <h4>下一課，接著挖</h4>
         <div className="next-units">{nexts.map((n) => <button key={n.id} className="unit-tile" onClick={() => onUnit(n.id)} {...intent('unit', n.id)}><b>{n.title}</b><span>❓ {n.mystery}</span></button>)}</div>

@@ -146,7 +146,7 @@ const UNIT = 'unit-rome-fall', KEY = 'history-river-learn-v1';
   }
   // 中場休息可能擋住；確認到了回顧
   for (let g = 0; g < 4 && !(await p.locator('.recap').count()); g++) { if (await p.getByRole('button', { name: /繼續下半段/ }).count()) await p.getByRole('button', { name: /繼續下半段/ }).click(); else await p.locator('.step-nav .btn.primary').click(); await p.waitForTimeout(80); }
-  await p.getByRole('button', { name: /完成這個單元/ }).click();
+  await p.getByRole('button', { name: /完成這一課/ }).click();
   await p.waitForSelector('.unit-result');
   const res1 = await p.locator('.unit-result').innerText();
   ok(/走完/.test(res1) && !/學會/.test(res1.split('\n')[1] ?? ''), '不作答連按下一步：結果是「走完」，不是「學會」');
@@ -181,7 +181,7 @@ const UNIT = 'unit-rome-fall', KEY = 'history-river-learn-v1';
     if (s.type === 'recap') { await p.locator('.recap textarea').first().fill(lorem); await p.getByRole('button', { name: '寫好了，看參考說法' }).click(); }
     if (i < stepsT.length - 1) await next();
   }
-  await p.getByRole('button', { name: /完成這個單元/ }).click();
+  await p.getByRole('button', { name: /完成這一課/ }).click();
   await p.waitForSelector('.unit-result');
   const res2 = await p.locator('.unit-result').innerText();
   ok(/學會/.test(res2.split('\n').slice(0, 3).join('')), '全部認真作答：結果是「學會」');

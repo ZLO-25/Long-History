@@ -31,14 +31,54 @@ effects:
 counterparts:
   - { id: event-xinhai-revolution, note: "相似：都是古老帝國在短時間內崩解——一戰後俄、德、奧匈、鄂圖曼帝國瓦解；1912 年清帝退位、中華民國成立。不同：歐洲帝國是被一場大規模國際戰爭拖垮；清朝是被國內的起義與政治談判結束，沒有經過世界大戰。", src: [s1, s2, s9] }
 sources:
-  - { id: s1, title: "World War I — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_I", accessed: 2026-10-25 }
-  - { id: s2, title: "第一次世界大战 — 維基百科（中文）", url: "https://zh.wikipedia.org/wiki/第一次世界大战", accessed: 2026-10-25 }
-  - { id: s3, title: "World War I casualties — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_I_casualties", accessed: 2026-10-25 }
-  - { id: s4, title: "Economic history of World War I — Wikipedia", url: "https://en.wikipedia.org/wiki/Economic_history_of_World_War_I", accessed: 2026-10-25 }
-  - { id: s5, title: "Chinese Labour Corps — Wikipedia", url: "https://en.wikipedia.org/wiki/Chinese_Labour_Corps", accessed: 2026-10-25 }
-  - { id: s6, title: "May Fourth Movement — Wikipedia", url: "https://en.wikipedia.org/wiki/May_Fourth_Movement", accessed: 2026-10-25 }
-  - { id: s7, title: "The World Remembers — National WWI Museum and Memorial", url: "https://theworldwar.org/exhibitions/world-remembers", accessed: 2026-10-25 }
-  - { id: s9, title: "1911 Revolution — Wikipedia", url: "https://en.wikipedia.org/wiki/1911_Revolution", accessed: 2026-10-25 }
+  - { id: s1, title: "World War I — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_I", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "第一次世界大战 — 維基百科（中文）", url: "https://zh.wikipedia.org/wiki/第一次世界大战", accessed: 2026-10-25, tier: 百科 }
+  - { id: s3, title: "World War I casualties — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_I_casualties", accessed: 2026-10-25, tier: 百科 }
+  - { id: s4, title: "Economic history of World War I — Wikipedia", url: "https://en.wikipedia.org/wiki/Economic_history_of_World_War_I", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "Chinese Labour Corps — Wikipedia", url: "https://en.wikipedia.org/wiki/Chinese_Labour_Corps", accessed: 2026-10-25, tier: 百科 }
+  - { id: s6, title: "May Fourth Movement — Wikipedia", url: "https://en.wikipedia.org/wiki/May_Fourth_Movement", accessed: 2026-10-25, tier: 百科 }
+  - { id: s7, title: "The World Remembers — National WWI Museum and Memorial", url: "https://theworldwar.org/exhibitions/world-remembers", accessed: 2026-10-25, tier: 通論 }
+  - { id: s9, title: "1911 Revolution — Wikipedia", url: "https://en.wikipedia.org/wiki/1911_Revolution", accessed: 2026-10-25, tier: 百科 }
+  - { id: s10, title: "The Versailles Treaty, June 28, 1919: Part VIII（Reparation），Article 231 — The Avalon Project, Yale Law School", url: "https://avalon.law.yale.edu/imt/partviii.asp", accessed: 2026-11-15, tier: 一手 }
+importance: 3
+learn:
+  histories: [世界通史, 歐洲史, 中國史]
+  why_care: 奧匈皇儲在塞拉耶佛遇刺，一個多月後就變成多國大戰；戰後的安排留下不滿，成為第二次世界大戰的遠因之一，也讓中國爆發五四運動。
+  story: |
+    1914 年 6 月 28 日，奧匈皇儲斐迪南大公在塞拉耶佛被刺殺。[s1] 7 月 28 日奧匈對塞爾維亞宣戰，俄國動員支援塞爾維亞，德國對俄、法宣戰，英國在德軍入侵比利時後參戰，同盟像骨牌一樣一個推倒一個。[s1][s2] 各國以為能速戰速決，但 9 月馬恩河戰役擋住德軍後，西線戰線凝固成從北海到瑞士的壕溝，雙方數年間幾乎推不動。[s1][s2][s4] 1917 年美國參戰，俄國在革命後於 1918 年 3 月退出；1918 年 11 月 11 日簽訂停戰協定。[s1][s2] 1919 年的《凡爾賽條約》要德國割地、裁軍、賠款。[s1][s2] 中國雖是戰勝國，德國在山東的權益卻轉給日本，北京學生因此上街抗議，這就是五四運動。[s6]
+  key_terms:
+    - term: 協約國與同盟國
+      plain: "一戰的兩大陣營：協約國有法國、英國、俄國（1917 年退出）、義大利、美國、日本等；同盟國有德國、奧匈帝國、鄂圖曼帝國、保加利亞。"
+      example: 像一場大型比賽分成兩隊，隊友之間有約定，一隊出事，另一隊也得下場。
+    - term: 壕溝戰
+      plain: 西線的戰線凝固成長長的壕溝，雙方躲在壕溝裡對打，數年間幾乎推不動。機關槍和大砲的火力讓步兵衝鋒損失慘重。
+      example: 像兩邊都挖好深溝死守，誰衝出去誰就最危險，所以誰也過不去。
+    - term: 無限制潛艇戰
+      plain: 德國在 1917 年恢復的做法：用潛艇攻擊大西洋上的航運，成為美國參戰的原因之一。
+      example: 像在公共道路上不分對象攔截所有車輛，連原本不想捲入的人也被牽連。
+    - term: 《凡爾賽條約》
+      plain: 1919 年巴黎和會簽訂的和約之一，德國要割地、裁軍、支付賠款。
+      example: 像比賽結束後，輸的一方被要求賠償、縮編隊伍。
+    - term: 五四運動
+      plain: 1919 年 5 月 4 日北京學生上街抗議，因為和會把德國在山東的權益轉給日本；中國代表團最後拒絕在《凡爾賽條約》上簽字。
+      example: 像同學明明出了力，成果卻被別人拿走，大家上街表達不滿。
+  primary_source:
+    - text: "……Germany accepts the responsibility of Germany and her allies for causing all the loss and damage……（德國接受：德國及其盟國對造成的一切損失與損害負有責任。）"
+      from: 《凡爾賽條約》第 231 條（1919 年 6 月 28 日簽訂），耶魯大學 Avalon Project 收錄的英文本；中文為本站翻譯
+      src: s10
+  historiography: |
+    本卡的來源沒有列出具名史家之間的辯論，以下是來源之間說法不同、或看問題的角度不同的地方。
+    **戰爭怎麼打起來的？** 來源把原因分成兩層：結構上，德意志帝國崛起打破歐洲原本的權力平衡，加上殖民地競爭、軍備競賽與兩大同盟體系；導火線則是 1914 年 6 月斐迪南大公遇刺。[s1][s2]
+    **戰後安排和下一場戰爭的關係。** 來源說戰後安排沒能帶來穩定，國際聯盟也無法阻止動盪，成為第二次世界大戰的「遠因之一」，也就是說它只是其中一個原因。[s1][s2]
+    **死了多少人？** 總死亡（軍人加平民）約 1,500 萬到 2,200 萬人（英文維基百科引述大英百科），也有估計為 900 萬到 1,500 萬以上；軍人死亡約 900 萬到 1,100 萬人，中文維基百科則寫約 1,000 萬。[s2][s3] 各來源皆為估計，數字至今仍有很大誤差。[s3]
+  misconceptions:
+    - 死亡人數沒有一個公認的數字：不同來源的估計差很多，不宜把某一個數字當成定論。[s3]
+    - 華工的死亡人數也有不同說法：招募方紀錄約 2,000 人，部分中國學者估計可達 2 萬人。[s5]
+  perspectives:
+    - { history: 世界通史, text: 從全世界看，這是一場靠同盟連鎖、工業化消耗拖長的大戰，俄、德、奧匈、鄂圖曼四大帝國因此瓦解。 }
+    - { history: 歐洲史, text: 從歐洲看，戰後出現波蘭、捷克斯洛伐克、南斯拉夫等新國家，也成立了國際聯盟。 }
+    - { history: 中國史, text: 從中國看，中國派出約 14 萬名華工，又因山東問題引爆五四運動。 }
+crosscheck: { date: 2026-11-15, by: Fable 5.2 獨立查核（未參與寫作）, result: 通過, notes: "逐句核對學習區塊與正文 A1–A12、effects：日期（1914-06-28、07-28、1918-03 俄國退出、11-11 停戰、1919-05-04）、陣營名單、死亡估計（1,500–2,200 萬／900–1,500 萬以上／軍人 900–1,100 萬／中文維基約 1,000 萬）、華工約 14 萬與死亡 2,000／2 萬兩說，皆與正文一致，未發現正文沒有的史實，學習區塊未改動。一手引文：2026-11-15 重新開啟 s10（Avalon，頁面標題 The Versailles Treaty June 28, 1919，PART VIII. REPARATION），第 231 條讀到『…Germany accepts the responsibility of Germany and her allies for causing all the loss and damage to which the Allied and…』，引文逐字相符、條號正確；中譯忠實（引文省略開頭『協約及參戰各國政府確認』與後半『因德國及其盟國侵略而強加的戰爭所致』，以刪節號標示）。保留意見：s1–s7、s9 為維基與博物館頁，本次沒有重新開啟，只核對學習區塊與正文一致；本卡除 s10 外沒有學術來源，史家怎麼吵一段已自陳沒有具名史家。" }
 verification: 爭議
 lens_status: 無直接論述
 ---

@@ -35,15 +35,42 @@ effects:
 counterparts:
   - { id: war-sino-japanese-1937, note: "相似：同一場世界大戰的兩個戰場，都是擴張型軸心國（德國／日本）侵略鄰國，最後在 1945 年被同盟國擊敗。不同：歐洲戰場以德國入侵波蘭（1939）為起點，中國戰場從 1937 年（甚至 1931 年）就開打，比歐洲早兩年以上，且中國到 1941 年底前幾乎是獨自抵抗。", src: [s1, s7] }
 sources:
-  - { id: s1, title: "World War II — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_II", accessed: 2026-10-25 }
-  - { id: s2, title: "Research Starters: Worldwide Deaths in World War II — The National WWII Museum", url: "https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war", accessed: 2026-10-25 }
-  - { id: s3, title: "World War II casualties — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_II_casualties", accessed: 2026-10-25 }
-  - { id: s4, title: "Documenting Numbers of Victims of the Holocaust and Nazi Persecution — United States Holocaust Memorial Museum", url: "https://encyclopedia.ushmm.org/content/en/article/documenting-numbers-of-victims-of-the-holocaust-and-nazi-persecution", accessed: 2026-10-25 }
-  - { id: s5, title: "Lend-Lease — Wikipedia", url: "https://en.wikipedia.org/wiki/Lend-Lease", accessed: 2026-10-25 }
-  - { id: s6, title: "Military production during World War II — Wikipedia", url: "https://en.wikipedia.org/wiki/Military_production_during_World_War_II", accessed: 2026-10-25 }
-  - { id: s7, title: "Second Sino-Japanese War — Wikipedia", url: "https://en.wikipedia.org/wiki/Second_Sino-Japanese_War", accessed: 2026-10-25 }
-  - { id: s8, title: "李录：现代化十六讲（之十，现代化的传播与现代化的道路之争）— 虎嗅網，2014-07-24", url: "https://www.huxiu.com/article/38460.html", accessed: 2026-10-25 }
-  - { id: s9, title: "Yuval Noah Harari argues that what's at stake in Ukraine is the direction of human history — The Economist，2022-02-09", url: "https://www.economist.com/by-invitation/2022/02/09/yuval-noah-harari-argues-that-whats-at-stake-in-ukraine-is-the-direction-of-human-history", accessed: 2026-10-25 }
+  - { id: s1, title: "World War II — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_II", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Research Starters: Worldwide Deaths in World War II — The National WWII Museum", url: "https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war", accessed: 2026-10-25, tier: 通論 }
+  - { id: s3, title: "World War II casualties — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_II_casualties", accessed: 2026-10-25, tier: 百科 }
+  - { id: s4, title: "Documenting Numbers of Victims of the Holocaust and Nazi Persecution — United States Holocaust Memorial Museum", url: "https://encyclopedia.ushmm.org/content/en/article/documenting-numbers-of-victims-of-the-holocaust-and-nazi-persecution", accessed: 2026-10-25, tier: 通論 }
+  - { id: s5, title: "Lend-Lease — Wikipedia", url: "https://en.wikipedia.org/wiki/Lend-Lease", accessed: 2026-10-25, tier: 百科 }
+  - { id: s6, title: "Military production during World War II — Wikipedia", url: "https://en.wikipedia.org/wiki/Military_production_during_World_War_II", accessed: 2026-10-25, tier: 百科 }
+  - { id: s7, title: "Second Sino-Japanese War — Wikipedia", url: "https://en.wikipedia.org/wiki/Second_Sino-Japanese_War", accessed: 2026-10-25, tier: 百科 }
+  - { id: s8, title: "李录：现代化十六讲（之十，现代化的传播与现代化的道路之争）— 虎嗅網，2014-07-24", url: "https://www.huxiu.com/article/38460.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s9, title: "Yuval Noah Harari argues that what's at stake in Ukraine is the direction of human history — The Economist，2022-02-09", url: "https://www.economist.com/by-invitation/2022/02/09/yuval-noah-harari-argues-that-whats-at-stake-in-ukraine-is-the-direction-of-human-history", accessed: 2026-10-25, tier: 通論 }
+  - { id: s10, title: "［終戦の詔書］（テキスト），昭和二十年（1945）八月十四日 — 日本國立國會圖書館「日本国憲法の誕生」", url: "https://www.ndl.go.jp/constitution/shiryo/01/017/017tx.html", accessed: 2026-11-15, tier: 一手 }
+importance: 3
+learn:
+  histories: [世界通史, 歐洲史, 日本史, 中國史, 美國史]
+  perspectives:
+    - { history: 中國史, text: "從中國史看，中國戰場牽制了大批日軍；有歷史學者把亞洲戰場的起點定在 1937 年，甚至 1931 年。[s1][s7]" }
+    - { history: 歐洲史, text: "從歐洲史看，德國 1939 年入侵波蘭、英法宣戰，後來蘇聯與美國加入，戰後歐洲的國際影響力下降。[s1]" }
+    - { history: 美國史, text: "從美國史看，美國 1941 年 12 月在珍珠港事件後參戰，並靠龐大的生產力與《租借法案》支援盟國。[s1][s5][s6]" }
+  why_care: 這場戰爭估計有六千萬到八千多萬人死亡（各來源數字不同），也決定了戰後的聯合國、美蘇對立與許多殖民地獨立。[s1][s3]
+  story: |
+    一戰與《凡爾賽條約》留下的不滿，加上法西斯主義與日本軍國主義興起，讓一連串擴張沒有被有效阻止：日本侵占中國東北、義大利入侵衣索比亞、德國併吞奧地利。[s1] 1939 年 9 月 1 日德國入侵波蘭，英、法隨即對德宣戰。[s1] 1941 年 6 月德國入侵蘇聯，12 月日本偷襲珍珠港，美國參戰。[s1] 同盟國的工業產量遠超軸心國，美國也靠《租借法案》把大量物資提供給盟國。[s5][s6] 1944 年盟軍在諾曼第登陸，1945 年 5 月 8 日德國投降；8 月美國在廣島、長崎投下原子彈，日本 8 月 15 日宣布投降，9 月 2 日簽署降書。[s1] 死亡人數各來源差異很大，英文維基百科給出 6,000 萬–7,500 萬人。[s3]
+  key_terms:
+    - { term: 軸心國與同盟國, plain: 軸心國是納粹德國、法西斯義大利與日本帝國；同盟國有英國、美國、蘇聯、法國、中國等。, example: 像一場大賽分成兩個陣營，各自拉盟友。 }
+    - { term: 《租借法案》, plain: 美國 1941 年 3 月通過，把糧食、石油、卡車、坦克、飛機等物資無償提供給盟國。, example: 像鄰居把工具先借給你用，不用先付錢。 }
+    - { term: 安理會常任理事國, plain: 戰後中、法、蘇、英、美成為聯合國安理會的五個常任理事國，這個制度沿用至今。, example: 像戰勝的幾個人，戰後決定了新會議的座位。 }
+    - { term: 納粹大屠殺, plain: 納粹德國殺害約 600 萬名猶太人；另有約 330 萬名蘇聯戰俘、約 180 萬名波蘭平民等受害者。, example: 這不是一個抽象的數字，每一個數字都是一個人。 }
+  primary_source:
+    - { text: "朕ハ帝国政府ヲシテ米英支蘇四国ニ対シ其ノ共同宣言ヲ受諾スル旨通告セシメタリ（本站翻譯：我已讓帝國政府通知美、英、中、蘇四國，表示接受它們的共同宣言。）", from: "昭和天皇《終戰詔書》，詔書日期為 1945 年 8 月 14 日，日文原文（日本國立國會圖書館網頁的文字版，漢字用新字體）；原文的「支」指中國，「共同宣言」即《波茨坦公告》（見「中日戰爭」卡）；中譯為本站翻譯", src: s10 }
+  historiography: |
+    **二戰從什麼時候開始？** 一般以 1939 年德國入侵波蘭為開始；但也有歷史學者把亞洲戰場的起點定在 1937 年中日全面戰爭，甚至 1931 年九一八事變。[s1][s7]
+    **死了多少人？** 英文維基百科給出 6,000 萬–7,500 萬人，另一張統計表給出 7,000 萬–8,500 萬人；美國國家二戰博物館估計軍人約 1,500 萬、平民約 4,500 萬。中國的數字從 1,400 萬到約 2,000 萬以上不等，蘇聯約 2,400 萬到 2,660 萬。[s2][s3]
+    **戰後世界怎麼看？** 哈拉瑞說，1945 年以後國際邊界很少再被外國入侵改變，原因包括核武、知識取代土地成為主要財富，以及各國菁英把戰爭視為可以避免的惡。這是哈拉瑞的說法。[s9]
+  misconceptions:
+    - 二戰不是 1939 年才在全世界同時開始：有歷史學者把亞洲戰場的起點定在 1937 年，甚至 1931 年。[s1][s7]
+    - 傷亡數字不只有一個：尤其中國與蘇聯，各來源差距可達數百萬甚至上千萬，引用時要說明來源。[s2][s3]
+    - 戰爭數字多為估計：同盟國與軸心國的產量與租借物資金額都是估計，不同表格數字有出入。[s5][s6]
+crosscheck: { date: 2026-11-15, by: Fable 5.2 獨立查核（未參與寫作）, result: 通過, notes: "逐句核對學習區塊與正文 A1–A12、causes／effects：1939-09-01、1941-06 與 12 月、1944 諾曼第、1945-05-08、8 月 6 日與 9 日原子彈、8 月 15 日宣布投降與 9 月 2 日降書、租借法案（1941-03）、安理會五常、死亡 6,000–7,500 萬／7,000–8,500 萬與博物館軍人約 1,500 萬、平民約 4,500 萬、中國 1,400–2,000 萬以上、蘇聯 2,400–2,660 萬、納粹大屠殺約 600 萬／330 萬／180 萬，皆與正文一致；開戰年份照正文並列 1939、1937、1931。改動：(1) why_care 的『死亡人數最多的戰爭之一』正文沒有這句比較，改為正文的估計數字並註明各來源不同；(2)『史家怎麼吵』刪去只靠 s8（虎嗅講稿整理，摘要級）的李彔一段，李彔說法仍在正文雙軌解讀；哈拉瑞一段出自他本人在《經濟學人》的文章（s9），保留並標明是他的說法；(3) s10 標題改為頁面實際標題，出處補上詔書日期並刪去頁面沒有寫的『與當時印刷的舊字體不同』。一手引文：2026-11-15 重新開啟 s10（頁面標題［終戦の詔書］(テキスト)｜日本国憲法の誕生，日期昭和二十年八月十四日，國立國會圖書館），讀到『朕ハ帝国政府ヲシテ米英支蘇四国ニ対シ其ノ共同宣言ヲ受諾スル旨通告セシメタリ』逐字相符（頁面用新字體）；中譯由日文直接翻譯，忠實。保留意見：『共同宣言即波茨坦公告』是出處裡的說明，依據是連結的中日戰爭卡（日本接受《波茨坦公告》），本卡正文沒有提波茨坦；一手史料只有日方一筆；s1–s9 本次沒有重新開啟。" }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 images:

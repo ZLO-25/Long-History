@@ -28,12 +28,48 @@ effects:
   - { id: war-thirty-years, rel: 背景, why: "西歐分裂成多個教派後，各國之間反覆爆發宗教戰爭，其中三十年戰爭估計有450萬到800萬人死亡。", src: [s1, s2] }
 counterparts: "無適當對照：同時期中國沒有一個由下而上挑戰官方宗教權威、並讓宗教分裂成多個教派的運動；硬配儒學或佛教事件會誤導。"
 sources:
-  - { id: s1, title: "Reformation — Wikipedia", url: "https://en.wikipedia.org/wiki/Reformation", accessed: 2026-10-25 }
-  - { id: s2, title: "Joshua J. Mark, Protestant Reformation — World History Encyclopedia（2021）", url: "https://www.worldhistory.org/Protestant_Reformation/", accessed: 2026-10-25 }
-  - { id: s3, title: "German Peasants' War — Wikipedia", url: "https://en.wikipedia.org/wiki/German_Peasants%27_War", accessed: 2026-10-25 }
-  - { id: s4, title: "Sapiens 讀者劃線摘錄（Goodreads, Travis）", url: "https://www.goodreads.com/notes/20873740-sapiens/12815256-travis", accessed: 2026-10-25 }
-  - { id: s5, title: "Thirty Years' War — Wikipedia（估計 450 萬到 800 萬軍民死亡）", url: "https://en.wikipedia.org/wiki/Thirty_Years%27_War", accessed: 2026-11-11 }
-  - { id: s6, title: "Printing Press（主題頁）— World History Encyclopedia（古騰堡印刷機約 1450 年）", url: "https://www.worldhistory.org/Printing_Press/", accessed: 2026-11-11 }
+  - { id: s1, title: "Reformation — Wikipedia", url: "https://en.wikipedia.org/wiki/Reformation", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Joshua J. Mark, Protestant Reformation — World History Encyclopedia（2021）", url: "https://www.worldhistory.org/Protestant_Reformation/", accessed: 2026-10-25, tier: 通論 }
+  - { id: s3, title: "German Peasants' War — Wikipedia", url: "https://en.wikipedia.org/wiki/German_Peasants%27_War", accessed: 2026-10-25, tier: 百科 }
+  - { id: s4, title: "Sapiens 讀者劃線摘錄（Goodreads, Travis）", url: "https://www.goodreads.com/notes/20873740-sapiens/12815256-travis", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s5, title: "Thirty Years' War — Wikipedia（估計 450 萬到 800 萬軍民死亡）", url: "https://en.wikipedia.org/wiki/Thirty_Years%27_War", accessed: 2026-11-11, tier: 百科 }
+  - { id: s6, title: "Printing Press（主題頁）— World History Encyclopedia（古騰堡印刷機約 1450 年）", url: "https://www.worldhistory.org/Printing_Press/", accessed: 2026-11-11, tier: 通論 }
+  - { id: s7, title: "Martin Luther's 95 Theses（九十五條論綱英譯，頁面未標示譯者；頁尾署 KDG Wittenberg 1997）— luther.de", url: "https://www.luther.de/en/95thesen.html", accessed: 2026-11-15, tier: 一手 }
+importance: 3
+learn:
+  histories: [歐洲史, 世界通史]
+  why_care: 路德批評贖罪券，加上印刷機讓文字能快速大量複製，西歐從此不再只有一個教會；後來宗教分裂還引發多場戰爭。
+  story: |
+    中世紀晚期，天主教會是西歐最有權力的組織，但教會為了蓋聖彼得大教堂大賣「贖罪券」（花錢減輕罪罰的證明），引起強烈不滿。[s2] 1517 年 10 月 31 日，路德發表《九十五條論綱》，批評贖罪券與教宗權力，論綱 1518 年就傳遍德意志。[s1][s2] 1521 年路德在沃木斯帝國會議上拒絕撤回主張，被宣布為法外之人，薩克森選侯把他藏在瓦特堡，他在那裡翻譯德文聖經。[s1][s2] 1555 年的《奧格斯堡和約》讓各邦君主自己決定境內信天主教或路德宗；西歐不再只有一個教會，宗教衝突之後還打了很多場戰爭。[s1][s2]
+  key_terms:
+    - term: 贖罪券
+      plain: 花錢減輕罪罰的證明。教會為了蓋羅馬聖彼得大教堂大賣贖罪券，引起強烈不滿。
+      example: 像學校讓學生繳錢就能少寫一份處罰作業，有人覺得這樣很不公平。
+    - term: 新教徒（Protestant）
+      plain: 1529 年施派爾帝國會議上提出抗議的諸侯與城市被稱為「抗議者」，這就是新教徒一詞的由來。
+      example: 像在會議上投下反對票的人，後來被大家用那個動作當成他們的名字。
+    - term: 教隨國定
+      plain: 《奧格斯堡和約》讓各邦君主自己決定境內信天主教或路德宗，人民跟著君主的選擇。
+      example: 像一個班的導師決定全班用哪一種規則，學生就照著做。
+    - term: 法外之人
+      plain: 被正式宣布不再受法律保護的人。路德在 1521 年的沃木斯帝國會議上拒絕撤回主張後，被宣布為法外之人。
+      example: 像一個人被正式宣布不受規則保護，所以才需要有人把他藏起來。
+  primary_source:
+    - text: "Any truly repentant Christian has a right to full remission of penalty and guilt, even without indulgence letters.（任何真心悔改的基督徒，即使沒有贖罪券文書，也有權得到罪罰與罪責的完全赦免。）"
+      from: 路德《九十五條論綱》第 36 條（1517 年），luther.de 收錄的英譯，頁面未標示譯者；中文為本站翻譯
+      src: s7
+  historiography: |
+    **「釘在教堂門上」是真的嗎？** 1517 年 10 月 31 日路德發表《九十五條論綱》，這是來源共同的說法；但「把論綱釘在教堂門上」的故事有爭議。[s1][s2]
+    **宗教改革什麼時候結束？** 有人以 1555 年的《奧格斯堡和約》為終點，也有人延到三十年戰爭結束的 1648 年。[s1]
+    **印刷機是哪一年？** 古騰堡的印刷機，資料有的寫約 1440 年、有的寫約 1450 年。[s2][s6]
+    **後來的戰爭死了多少人？** 之後的宗教戰爭估計造成 700 萬到 1,700 萬人死亡；其中三十年戰爭（1618–1648）估計有 450 萬到 800 萬人死亡，各家估計不同。[s1][s2][s5]
+  misconceptions:
+    - 「路德把論綱釘在教堂門上」是很有名的畫面，但這個故事有爭議，來源只確定他在 1517 年發表了《九十五條論綱》。[s1][s2]
+    - 宗教改革不是 1517 年一天完成的：從 1517 年到 1555 年（有人延到 1648 年），中間還有農民戰爭與多場衝突。[s1][s2]
+  perspectives:
+    - { history: 歐洲史, text: 從歐洲看，這是西歐只有一個教會的局面被打破、各邦君主與城市重新選邊的過程，也常被視為中世紀結束、近代開始的標誌之一。 }
+    - { history: 世界通史, text: 從全世界看，新傳播工具（印刷）加上既有權威的信任危機，可以讓舊權威失去對資訊的壟斷。 }
+crosscheck: { date: 2026-11-15, by: Fable 5.2 獨立查核（未參與寫作）, result: 通過, notes: "逐句核對學習區塊與正文 C1–C10、effects：1517-10-31、1518 傳遍德意志、1521 沃木斯與瓦特堡、1529 施派爾『抗議者』、1555 奧格斯堡和約、結束年 1555／1648 兩說、印刷機約 1440／1450 兩說、宗教戰爭 700–1,700 萬與三十年戰爭 450–800 萬（估計），皆與正文一致；『釘在教堂門上』照正文寫成有爭議。改動：(1)『法外之人』原本沒有解釋名詞本身，補上白話定義；(2) 歐洲史觀點『只剩一個教會的局面被打破』語意不通，改為『只有一個教會的局面被打破』；(3) s7 標題改成頁面實際標題。一手引文：2026-11-15 重新開啟 s7，第 36 條全文為『Any truly repentant Christian has a right to full remission of penalty and guilt, even without indulgence letters.』是頁面上完整的一句，不是兩段接成，引文逐字相符、條號正確；頁面沒有標示譯者，中譯忠實。保留意見：一手史料是未署名的英譯，不是拉丁或德文原文；s4（Goodreads）只用於正文哈拉瑞段，學習區塊沒有引用；s1–s6 本次沒有重新開啟。" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 images:

@@ -32,14 +32,41 @@ effects:
 counterparts:
   - { id: event-end-of-cold-war, note: "相似：1980 年代中國與蘇聯都面對計畫經濟停滯，都推動改革。不同：中國先改經濟、保留共產黨一黨統治，1989 年後一度放緩，1992 年南巡後重新加速；蘇聯在戈巴契夫下同時放寬政治，1991 年解體。蘇聯解體也讓中國黨內保守派一度更反對市場改革。", src: [s1, s6] }
 sources:
-  - { id: s1, title: "Reform and opening up — Wikipedia", url: "https://en.wikipedia.org/wiki/Reform_and_opening_up", accessed: 2026-10-25 }
-  - { id: s2, title: "改革开放 — 維基百科（中文）", url: "https://zh.wikipedia.org/wiki/改革开放", accessed: 2026-10-25 }
-  - { id: s3, title: "The World Bank in China: Overview — World Bank", url: "https://www.worldbank.org/en/country/china/overview", accessed: 2026-10-25 }
-  - { id: s4, title: "Special economic zones of China — Wikipedia", url: "https://en.wikipedia.org/wiki/Special_economic_zones_of_China", accessed: 2026-10-25 }
-  - { id: s5, title: "Xiaogang, Anhui — Wikipedia", url: "https://en.wikipedia.org/wiki/Xiaogang,_Anhui", accessed: 2026-10-25 }
-  - { id: s6, title: "Deng Xiaoping's southern tour — Wikipedia", url: "https://en.wikipedia.org/wiki/Deng_Xiaoping%27s_southern_tour", accessed: 2026-10-25 }
-  - { id: s7, title: "李录：现代化十六讲（之十，现代化的传播与现代化的道路之争）— 虎嗅網，2014-07-24", url: "https://www.huxiu.com/article/38460.html", accessed: 2026-10-25 }
-  - { id: s8, title: "李录：现代化十六讲（之十一，现代化的本质和铁律）— 虎嗅網，2014-07-25", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25 }
+  - { id: s1, title: "Reform and opening up — Wikipedia", url: "https://en.wikipedia.org/wiki/Reform_and_opening_up", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "改革开放 — 維基百科（中文）", url: "https://zh.wikipedia.org/wiki/改革开放", accessed: 2026-10-25, tier: 百科 }
+  - { id: s3, title: "The World Bank in China: Overview — World Bank", url: "https://www.worldbank.org/en/country/china/overview", accessed: 2026-10-25, tier: 通論 }
+  - { id: s4, title: "Special economic zones of China — Wikipedia", url: "https://en.wikipedia.org/wiki/Special_economic_zones_of_China", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "Xiaogang, Anhui — Wikipedia", url: "https://en.wikipedia.org/wiki/Xiaogang,_Anhui", accessed: 2026-10-25, tier: 百科 }
+  - { id: s6, title: "Deng Xiaoping's southern tour — Wikipedia", url: "https://en.wikipedia.org/wiki/Deng_Xiaoping%27s_southern_tour", accessed: 2026-10-25, tier: 百科 }
+  - { id: s7, title: "李录：现代化十六讲（之十，现代化的传播与现代化的道路之争）— 虎嗅網，2014-07-24", url: "https://www.huxiu.com/article/38460.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s8, title: "李录：现代化十六讲（之十一，现代化的本质和铁律）— 虎嗅網，2014-07-25", url: "https://www.huxiu.com/article/38559.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s9, title: "中國共產黨第十一屆中央委員會第三次全體會議公報（一九七八年十二月二十二日通過）全文 — 人民網「中國共產黨歷次全國代表大會數據庫」", url: "https://cpc.people.com.cn/GB/64162/64168/64563/65371/4441902.html", accessed: 2026-11-15, tier: 一手 }
+importance: 3
+learn:
+  histories: [中國史, 世界通史]
+  perspectives:
+    - { history: 中國史, text: "從中國史看，改革開放是 1978 年以後從計畫經濟轉向市場機制的一連串改革，一路上也經過 1989 年後的停滯與 1992 年的重新加速。[s1][s2]" }
+    - { history: 世界通史, text: "從世界史看，它發生在冷戰後期與全球化起步階段，西方市場與資本願意大量進入中國，這種國際環境不一定能複製。[s1][s6]" }
+  why_care: 世界第二大經濟體的起點，是一個小村莊裡 18 戶農民的決定，加上國家一步步擴大的試驗。[s2][s5]
+  story: |
+    改革前中國實行中央計畫經濟；大躍進與文化大革命之後，經濟效率低、物資短缺、發展停滯。[s1][s2] 1978 年 12 月，中共十一屆三中全會正式啟動改革開放，口號是「對內改革、對外開放」。[s1][s2] 同月，安徽小崗村 18 戶農民秘密把人民公社的土地分給各戶耕種，約定交足國家與集體的部分後，剩下歸自己；第二年收成超過前五年總和。[s5] 之後農村推行家庭聯產承包責任制，並設立深圳、珠海、汕頭、廈門四個經濟特區引進外資。[s1][s2][s4] 1989 年後改革一度停滯，1992 年沒有正式職位的鄧小平南巡，喊出「發展才是硬道理」，改革重新加速。[s2][s6]
+  key_terms:
+    - { term: 計畫經濟, plain: 由中央計畫決定生產與分配的經濟方式；改革前中國就是這樣。, example: 像學校規定每個社團要做什麼活動、做多少，社團自己不能決定。 }
+    - { term: 家庭聯產承包責任制, plain: 從人民公社集體耕作，改成以家庭為單位承包土地。, example: 像原本全班一起打掃，改成每組負責一區、做得好自己有成果。 }
+    - { term: 經濟特區, plain: 在沿海劃出特別區域，用不同的規則吸引外資與出口。, example: 像學校劃出一間試驗教室，先用新辦法試試看。 }
+    - { term: 價格雙軌制, plain: 國營企業完成計畫配額後，多出來的產品可以用市場價格賣。, example: 像先交完規定的份額，多做的部分可以自己拿去賣。 }
+    - { term: 社會主義市場經濟, plain: 1992 年中共十四大確立的名稱：名稱上仍是「社會主義」，內容則容納了市場機制。, example: 像店名沒改，但賣的東西和做法已經不同。 }
+  primary_source:
+    - { text: "全党工作的着重点应该从一九七九年转移到社会主义现代化建设上来（繁體轉寫：全黨工作的著重點應該從一九七九年轉移到社會主義現代化建設上來）", from: "《中國共產黨第十一屆中央委員會第三次全體會議公報》（1978 年 12 月 22 日通過），人民網收錄的全文，簡體原文；這是中共官方文件，代表當時中共中央的說法", src: s9 }
+    - { text: "在自力更生的基础上积极发展同世界各国平等互利的经济合作（繁體轉寫：在自力更生的基礎上積極發展同世界各國平等互利的經濟合作）", from: "同上公報，簡體原文", src: s9 }
+  historiography: |
+    **成長有多快？** 世界銀行說，1978 年以來中國 GDP 年均成長超過 9%，讓近 8 億人脫離極端貧窮；英文維基百科寫 1978–2013 年年均約 9.5%。[s3][s1] 兩個來源的算法和期間不同，數字略有差異。
+    **經濟特區什麼時候成立？** 中文維基說中央 1979 年批准；英文維基百科也有 1980–81 年正式設立的說法。[s2][s4]
+    **這幾年算「倒退」嗎？** 改革方向在 2005 年後有所調整，國家控制再度增加；學界與媒體對近年是否「倒退」仍有爭議。[s1][s2]
+  misconceptions:
+    - 改革不是一路加速：1988 年物價改革引發通膨而中止，1989 年後保守派抬頭、改革一度停滯，1992 年南巡後才重新加速。[s1][s2][s4][s6]
+    - 小崗村的故事是由下而上的嘗試，後來才被官方樹為典範。[s5]
+crosscheck: { date: 2026-11-15, by: Fable 5.2 獨立查核（未參與寫作）, result: 通過, notes: "逐句核對學習區塊與正文 C1–C10、causes／effects：1978-12 三中全會與『對內改革、對外開放』、小崗村 18 戶與第二年收成、家庭聯產承包、四個經濟特區（1979 批准／1980–81 設立兩說）、1988 物價改革、1989 後停滯、1992 南巡與十四大、世界銀行年均 9% 以上與近 8 億人脫貧、英文維基 9.5%、2005 年後是否『倒退』有爭議，皆與正文一致。改動：(1) 原一手來源（共產黨員網 12371.cn 轉載的 2021 年《人民日報》紀念報導，https://www.12371.cn/2021/03/01/ARTI1614554078125735.shtml）經 2026-11-15 重開確認只是報導，以『公報明確表示』引述兩句，不是公報全文，不能算一手，已從來源清單移除；(2) 另找到人民網『歷次全國代表大會數據庫』收錄的公報全文（標題下註『一九七八年十二月二十二日通過』，分（一）至（五）節），換成新的 s9（一手）；在全文中讀到『全党工作的着重点应该从一九七九年转移到社会主义现代化建设上来』與『在自力更生的基础上积极发展同世界各国平等互利的经济合作』，一手引文改用這兩句並附繁體轉寫，出處註明是中共官方文件的說法；(3) 原第一句『把全党工作的着重点和全国人民的注意力转移到社会主义现代化建设上来』只在那篇報導中讀到，這次沒有在全文頁逐字核對到，所以不再當一手引文；(4)『史家怎麼吵』與『常見誤解』各刪去一條只靠虎嗅講稿整理（s7、s8，摘要級）的李彔說法，李彔說法仍在正文雙軌解讀；(5)『社會主義市場經濟』的白話解釋原寫『用原來的名稱』，容易誤解，改寫。保留意見：一手史料只有官方文件一種立場；學界對改革成效與代價的爭論只有維基層級的整理，沒有學術來源；s1–s6 本次沒有重新開啟。" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 ---

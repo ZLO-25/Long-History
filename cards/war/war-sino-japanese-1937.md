@@ -21,7 +21,7 @@ place:
     - { name_ancient: 南京, name_modern: 南京（中國江蘇）, lat: 32.0603, lng: 118.7969, precision: schematic, role: 國民政府首都，1937 年 12 月陷落並發生大屠殺（座標為今市中心）, src: [s1, s3] }
     - { name_ancient: 花園口, name_modern: 鄭州北郊（中國河南）, lat: 34.9, lng: 113.65, precision: schematic, role: 1938 年黃河決堤處（座標為鄭州北方黃河南岸的示意點）, src: [s4] }
     - { name_ancient: 重慶, name_modern: 重慶（中國）, lat: 29.563, lng: 106.5516, precision: schematic, role: 1938 年武漢失守後國民政府所在地（戰時陪都；座標為今市中心）, src: [s1] }
-    - { name_ancient: 臺北（台北州）, name_modern: 台北（台灣）, lat: 25.033, lng: 121.5654, precision: schematic, role: 日本統治下的台灣總督府所在地（座標為今台北市）, src: [s5] }
+    - { name_ancient: 臺北（台北州）, name_modern: 台北（台灣）, lat: 25.033, lng: 121.5654, precision: schematic, role: 日本統治下的臺灣總督府所在地（座標為今臺北市）, src: [s5] }
   scale: area
 structure_tags: [霸權挑戰, 補給線過長, 外部勢力介入, 全面戰爭, 宗教／意識形態動員, 地形險阻]
 topics: [世界大戰]
@@ -35,17 +35,55 @@ effects:
 counterparts:
   - { id: war-world-war-two, note: "相似：同一場世界大戰的亞洲與歐洲戰場，侵略方（日本／德國）都在 1945 年被同盟國擊敗，戰後都被占領並審判戰犯。不同：中國從 1937 年（東北從 1931 年）就開始抵抗，到 1941 年底前幾乎獨自作戰；1941 年 12 月以後才與英美並肩，併入世界大戰。", src: [s1, s10] }
 sources:
-  - { id: s1, title: "Second Sino-Japanese War — Wikipedia", url: "https://en.wikipedia.org/wiki/Second_Sino-Japanese_War", accessed: 2026-10-25 }
-  - { id: s2, title: "中国抗日战争 — 維基百科（中文）", url: "https://zh.wikipedia.org/wiki/中國抗日戰爭", accessed: 2026-10-25 }
-  - { id: s3, title: "Nanjing Massacre — Wikipedia", url: "https://en.wikipedia.org/wiki/Nanjing_Massacre", accessed: 2026-10-25 }
-  - { id: s4, title: "1938 Yellow River flood — Wikipedia", url: "https://en.wikipedia.org/wiki/1938_Yellow_River_flood", accessed: 2026-10-25 }
-  - { id: s5, title: "Taiwan under Japanese rule — Wikipedia", url: "https://en.wikipedia.org/wiki/Taiwan_under_Japanese_rule", accessed: 2026-10-25 }
-  - { id: s6, title: "Han Cheung, Taiwan in Time: Abandoned by the rising sun — Taipei Times，2018-09-16", url: "https://taipeitimes.com/News/feat/archives/2018/09/16/2003700512", accessed: 2026-10-25 }
-  - { id: s7, title: "The Hump — Wikipedia", url: "https://en.wikipedia.org/wiki/The_Hump", accessed: 2026-10-25 }
-  - { id: s8, title: "李录：现代化十六讲（之十，现代化的传播与现代化的道路之争）— 虎嗅網，2014-07-24", url: "https://www.huxiu.com/article/38460.html", accessed: 2026-10-25 }
-  - { id: s9, title: "Research Starters: Worldwide Deaths in World War II — The National WWII Museum", url: "https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war", accessed: 2026-10-25 }
-  - { id: s10, title: "World War II — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_II", accessed: 2026-10-25 }
-  - { id: s11, title: "World War II casualties — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_II_casualties", accessed: 2026-10-25 }
+  - { id: s1, title: "Second Sino-Japanese War — Wikipedia", url: "https://en.wikipedia.org/wiki/Second_Sino-Japanese_War", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "中国抗日战争 — 維基百科（中文）", url: "https://zh.wikipedia.org/wiki/中國抗日戰爭", accessed: 2026-10-25, tier: 百科 }
+  - { id: s3, title: "Nanjing Massacre — Wikipedia", url: "https://en.wikipedia.org/wiki/Nanjing_Massacre", accessed: 2026-10-25, tier: 百科 }
+  - { id: s4, title: "1938 Yellow River flood — Wikipedia", url: "https://en.wikipedia.org/wiki/1938_Yellow_River_flood", accessed: 2026-10-25, tier: 百科 }
+  - { id: s5, title: "Taiwan under Japanese rule — Wikipedia", url: "https://en.wikipedia.org/wiki/Taiwan_under_Japanese_rule", accessed: 2026-10-25, tier: 百科 }
+  - { id: s6, title: "Han Cheung, Taiwan in Time: Abandoned by the rising sun — Taipei Times，2018-09-16", url: "https://taipeitimes.com/News/feat/archives/2018/09/16/2003700512", accessed: 2026-10-25, tier: 通論 }
+  - { id: s7, title: "The Hump — Wikipedia", url: "https://en.wikipedia.org/wiki/The_Hump", accessed: 2026-10-25, tier: 百科 }
+  - { id: s8, title: "李录：现代化十六讲（之十，现代化的传播与现代化的道路之争）— 虎嗅網，2014-07-24", url: "https://www.huxiu.com/article/38460.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s9, title: "Research Starters: Worldwide Deaths in World War II — The National WWII Museum", url: "https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war", accessed: 2026-10-25, tier: 通論 }
+  - { id: s10, title: "World War II — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_II", accessed: 2026-10-25, tier: 百科 }
+  - { id: s11, title: "World War II casualties — Wikipedia", url: "https://en.wikipedia.org/wiki/World_War_II_casualties", accessed: 2026-10-25, tier: 百科 }
+  - { id: s12, title: "蔣中正，〈對盧溝橋事件之嚴正聲明〉，1937-07-17 — 維基文庫", url: "https://zh.wikisource.org/wiki/%E5%B0%8D%E7%9B%A7%E6%BA%9D%E6%A9%8B%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9A%B4%E6%AD%A3%E8%81%B2%E6%98%8E", accessed: 2026-11-15, tier: 一手 }
+importance: 3
+learn:
+  histories: [中國史, 日本史, 臺灣史, 世界通史]
+  why_care: 這場戰爭從 1937 年盧溝橋事變打到 1945 年日本投降，中國長期抵抗，臺灣人則在日本統治下被動員；傷亡數字與歷史記憶，到今天仍影響中日關係。
+  story: |
+    1931 年 9 月 18 日九一八事變，日本占領中國東北，隔年扶植滿洲國，所以有人把抗戰算成十四年。[s1][s2] 1937 年 7 月 7 日北京附近發生盧溝橋事變，衝突擴大成全面戰爭；淞滬會戰後，12 月首都南京陷落。[s1][s2] 1938 年武漢失守，國民政府遷到內陸的重慶，中國用廣大的內陸縱深把戰爭拖成長期戰。[s1][s2] 沿海被封鎖後，物資靠滇緬公路和「駝峰航線」運進來。[s7] 1941 年 12 月太平洋戰爭爆發，中華民國正式對日宣戰，中國戰場併入世界大戰。[s2] 1945 年 8 月日本接受《波茨坦公告》宣布投降。[s1][s2] 臺灣自 1895 年起由日本統治，依日本 1973 年公布的統計，約 20 萬名臺灣人在日軍中服役。[s5][s6]
+  key_terms:
+    - term: 盧溝橋事變
+      plain: 1937 年 7 月 7 日在北京附近發生的衝突，後來擴大成中日全面戰爭。
+      example: 像一場小摩擦沒處理好，最後變成兩邊全面開打。
+    - term: 八年抗戰與十四年抗戰
+      plain: 同一場戰爭有兩種算法：從 1937 年算起是八年，從 1931 年九一八事變算起是十四年。
+      example: 像一場比賽，有人從正式開賽算，有人從第一次衝突算。
+    - term: 駝峰航線
+      plain: 滇緬公路被切斷後，盟軍從印度阿薩姆飛越喜馬拉雅山東段到昆明運送物資的空中航線。
+      example: 像陸路被封死，只好改用高風險的空運送補給。
+    - term: 皇民化
+      plain: 日本在臺灣推動的「日本化」，戰爭期間也招募、徵召臺灣人當軍人軍屬。
+      example: 像學校要求所有學生換上同一套制服、說同一種話。
+  primary_source:
+    - text: "如果戰端一開，那就是地無分南北，年無分老幼，無論何人，皆有守土抗戰之責任，皆應抱定犧牲一切之決心。"
+      from: 蔣中正〈對盧溝橋事件之嚴正聲明〉，1937 年 7 月 17 日，維基文庫收錄（這是中華民國方面領導人的公開聲明，代表當時中方的立場）
+      src: s12
+  historiography: |
+    **戰爭從哪一年算起？** 有「八年」（1937–1945）與「十四年」（1931–1945）兩種算法；中文維基百科也有「十四年抗戰」的說法。[s1][s2]
+    **死了多少人？** 數字差異極大，部分數字也牽涉政治立場，引用時要並列來源。[s2][s3] 中國平民死亡，中文維基百科寫約 1,700 萬到 2,200 萬，英文維基百科寫 1,200 萬以上到 2,200 萬，美國國家二戰博物館寫中國總死亡約 2,000 萬，歷史學者文安立（Westad）估計平民約 1,200 萬、軍人約 200 萬。[s1][s2][s9][s11]
+    **南京大屠殺的人數。** 東京審判認定超過 20 萬人遇害，許多學者支持此數；較新的研究估計 10 萬到 20 萬人；各種估計從約 4 萬（只算城內）到 34 萬以上（整個滬寧地區）。[s3]
+    **花園口決堤的死亡人數。** 直接淹死約 3 萬到 8.9 萬人，連同饑荒與疫病約 40 萬到 50 萬人；國民政府 1948 年統計為 893,303 人，但計算方式受到質疑。[s4]
+  misconceptions:
+    - 抗戰不是只有一種年代算法：「八年」和「十四年」都有人用，差別在於把 1931 年九一八事變算不算進去。[s2]
+    - 南京大屠殺與花園口決堤的死亡人數都沒有單一的公認數字，不同研究與統計差距很大。[s3][s4]
+  perspectives:
+    - { history: 中國史, text: 從中國看，這是中國長期抵抗日本侵略、國共兩黨雖合作卻彼此防範的八年，戰後兩黨的競爭成為下一階段中國政治的主軸。 }
+    - { history: 日本史, text: 從日本看，這是明治維新後快速現代化並向外擴張、最後在 1945 年投降的過程。 }
+    - { history: 臺灣史, text: 從臺灣看，臺灣當時是日本殖民地，臺灣人在制度上屬於日本一方，不能用今天的國籍或認同去理解當時的選擇。 }
+    - { history: 世界通史, text: 從世界看，1941 年 12 月以後中國戰場併入世界大戰；在此之前中國幾乎獨自作戰。 }
+crosscheck: { date: 2026-11-15, by: Fable 5.2 獨立查核（未參與寫作）, result: 通過, notes: "逐句核對學習區塊與正文 A1–A12、causes／effects：1931-09-18、1937-07-07、淞滬、12 月南京陷落、1938 武漢失守遷重慶、滇緬公路與駝峰航線、1941-12 對日宣戰、1945-08 接受波茨坦公告、臺灣約 20 萬人服役（正文 207,183，日本 1973 年統計）；傷亡、南京、花園口各組數字與正文逐一相符，且都並列來源、標明有爭議。改動：(1) 學習區塊與正文的『偽滿洲國』改為較中性的『滿洲國』（仍說明是日本扶植的傀儡政權）；(2) 正文與地點欄的『台灣／台北』統一為『臺灣／臺北』（別名欄的搜尋用字不動；臺北那筆地點的 name_ancient／name_modern 因為 data/labels/names-en.yaml 以原字串當鍵，維持『臺北（台北州）』『台北（台灣）』不動）。一手引文：2026-11-15 重新開啟 s12（維基文庫，標題〈對盧溝橋事件之嚴正聲明〉，作者蔣中正，1937 年 7 月 17 日），讀到『如果戰端一開，那就是地無分南北，年無分老幼，無論何人，皆有守土抗戰之責任，皆應抱定犧牲一切之決心。』逐字相符，標題與日期正確；出處已註明這是中華民國方面領導人的立場。保留意見：一手史料只有中方一筆，沒有日方史料；s8（虎嗅）只用於正文李彔段與 causes 的來源之一，學習區塊沒有引用；s1–s11 本次沒有重新開啟。" }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 ---
@@ -53,13 +91,13 @@ lens_status: 依公開資料推論，未對照原書
 ## A1 交戰方與聯盟結構
 
 - **中國方面**：中華民國，包括蔣介石領導的國民政府（國民黨）與毛澤東領導的共產黨，兩黨在 1936 年組成「抗日統一戰線」，但彼此仍互相防範。[s1][s2]
-- **日本方面**：日本帝國，以及它扶植的偽滿洲國、汪精衛政權等傀儡政府。[s1][s2]
+- **日本方面**：日本帝國，以及它扶植的滿洲國、汪精衛政權等傀儡政府。[s1][s2]
 - **外援**：戰爭初期蘇聯在簽訂《中蘇互不侵犯條約》後援助中國，也有蘇聯與美國志願人員參戰。[s1] 1941 年 12 月英美對日開戰後，中國成為同盟國的一員。[s1][s2]
-- **台灣**：台灣自 1895 年起由日本統治，因此台灣人是在日本一方被動員。[s5]
+- **臺灣**：臺灣自 1895 年起由日本統治，因此臺灣人是在日本一方被動員。[s5]
 
 ## A2 起因：結構與導火線
 
-**結構**：日本明治維新後快速現代化並對外擴張；1895 年甲午戰爭後取得台灣，此後不斷擴大在中國的勢力。[s5][s8] **前因**：1931 年 9 月 18 日九一八事變，日本占領中國東北，1932 年扶植偽滿洲國——中文維基百科因此也有「十四年抗戰」（1931–1945）的說法。[s1][s2]
+**結構**：日本明治維新後快速現代化並對外擴張；1895 年甲午戰爭後取得臺灣，此後不斷擴大在中國的勢力。[s5][s8] **前因**：1931 年 9 月 18 日九一八事變，日本占領中國東北，1932 年扶植滿洲國——中文維基百科因此也有「十四年抗戰」（1931–1945）的說法。[s1][s2]
 
 **導火線**：1937 年 7 月 7 日北京附近的盧溝橋事變，雙方衝突擴大成全面戰爭。[s1][s2]
 
@@ -84,7 +122,7 @@ lens_status: 依公開資料推論，未對照原書
 ## A6 財政與資源
 
 - 中國抗戰初期依賴蘇聯援助，太平洋戰爭爆發後主要依靠美國援助（經駝峰航線空運）。[s1][s7]
-- 台灣被日本當作「模範殖民地」與向南擴張的基地，鴉片、鹽、樟腦、菸草由官方專賣，增加殖民政府收入。[s5]
+- 臺灣被日本當作「模範殖民地」與向南擴張的基地，鴉片、鹽、樟腦、菸草由官方專賣，增加殖民政府收入。[s5]
 - 來源不足：查到的資料沒有中日雙方戰費總額的可靠數字。
 
 ## A7 關鍵轉折
@@ -98,7 +136,7 @@ lens_status: 依公開資料推論，未對照原書
 
 ## A8 結果
 
-中國與同盟國勝利；中國收回《馬關條約》以來失去的領土，並取得原傀儡政權地區的實際控制。[s1] 依盟軍《一般命令第一號》，台灣在 1945 年 10 月 25 日由中華民國接管。[s5]
+中國與同盟國勝利；中國收回《馬關條約》以來失去的領土，並取得原傀儡政權地區的實際控制。[s1] 依盟軍《一般命令第一號》，臺灣在 1945 年 10 月 25 日由中華民國接管。[s5]
 
 **傷亡（各方數字差異極大，皆為估計）**：
 - 中國軍隊：國民政府官方統計約 322 萬人傷亡；中共統計約 45–58 萬人。[s2]
@@ -110,7 +148,7 @@ lens_status: 依公開資料推論，未對照原書
 ## A9 長期影響
 
 - 抗戰期間國共兩黨雖然合作，彼此仍互相防範；戰後兩黨的競爭成為下一階段中國政治的主軸（來源不足：本卡查到的來源沒有詳述戰後內戰的經過，這裡不寫細節）。[s1][s2]
-- 台灣在 1937–45 年經歷「皇民化」（日本化）時期；依日本 1973 年公布的統計，約 207,183 名台灣人在日軍中服役，傷亡約 30,304 人；台灣也遭受盟軍轟炸。[s5][s6]
+- 臺灣在 1937–45 年經歷「皇民化」（日本化）時期；依日本 1973 年公布的統計，約 207,183 名臺灣人在日軍中服役，傷亡約 30,304 人；臺灣也遭受盟軍轟炸。[s5][s6]
 - 中日之間對戰爭傷亡、南京大屠殺人數的爭議，至今仍影響兩國關係與歷史記憶。[s3]
 
 ## A10 雙軌解讀
@@ -132,5 +170,5 @@ lens_status: 依公開資料推論，未對照原書
 ## A12 不可類比的差異
 
 - 當時的中國是內部分裂（國共、地方軍閥、傀儡政權並存）的弱國，與今天的中國國力完全不同。[s1][s2]
-- 台灣當時是日本殖民地，台灣人在制度上屬於日本一方，不能用今天的國籍或認同去理解當時的選擇。[s5][s6]
+- 臺灣當時是日本殖民地，臺灣人在制度上屬於日本一方，不能用今天的國籍或認同去理解當時的選擇。[s5][s6]
 - 傷亡與屠殺數字在中、日與西方學界間差距很大，部分數字也牽涉政治立場，引用時必須並列來源。[s2][s3]

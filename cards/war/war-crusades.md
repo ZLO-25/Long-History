@@ -29,8 +29,44 @@ causes:
 counterparts:
   - { id: war-jingkang, note: "相似：都在 12 世紀，都是長期的跨文明戰爭，都發生了大城市被攻陷、洗劫、居民被殺或被擄走的慘劇（1099 耶路撒冷、1204 君士坦丁堡；1127 開封）。不同：十字軍是以宗教號召、千里遠征他方；靖康是新興的金國南下攻滅北宋，宋是被攻擊的防守方。", src: [s1, s2] }
 sources:
-  - { id: s1, title: "Crusades — Wikipedia", url: "https://en.wikipedia.org/wiki/Crusades", accessed: 2026-10-25 }
-  - { id: s2, title: "Crusades — HISTORY（A&E Television Networks）", url: "https://www.history.com/articles/crusades", accessed: 2026-10-25 }
+  - { id: s1, title: "Crusades — Wikipedia", url: "https://en.wikipedia.org/wiki/Crusades", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Crusades — HISTORY（A&E Television Networks）", url: "https://www.history.com/articles/crusades", accessed: 2026-10-25, tier: 通論 }
+  - { id: s3, title: "Speech at Council of Clermont, 1095, according to Fulcher of Chartres — Medieval Sourcebook, Fordham University（Thatcher & McNeal, A Source Book for Medieval History, 1905 英譯改編）", url: "https://www.fordham.edu/halsall/source/urban2-fulcher.asp", accessed: 2026-11-15, tier: 一手 }
+importance: 3
+learn:
+  histories: [歐洲史, 伊斯蘭世界史, 世界通史]
+  why_care: 十字軍打了將近兩百年，最後失去聖地所有據點；最戲劇性的轉折是 1204 年，原本應拜占庭求援而來的十字軍，反過來洗劫了拜占庭的首都。
+  story: |
+    1071 年塞爾柱在曼齊刻爾特擊敗拜占庭，安那托利亞向突厥人敞開。[s1] 1095 年拜占庭皇帝向教宗求援；同年 11 月教宗烏爾班二世在克萊蒙會議號召西歐人武裝東征，承諾參加者可減免罪罰（各記載說法不一）。[s1][s2] 1099 年 7 月十字軍攻下耶路撒冷並屠城，建立四個十字軍國家。[s1][s2] 1187 年薩拉丁在哈丁之戰大敗十字軍，收復耶路撒冷；1192 年第三次十字軍與薩拉丁議和，基督徒朝聖者可以進入耶路撒冷。[s1][s2] 1204 年第四次十字軍付不出威尼斯的船錢，被轉向攻打札拉與君士坦丁堡，洗劫了拜占庭首都。[s1][s2] 1291 年阿卡被馬木路克攻陷，十字軍在東方的大陸據點結束。[s1][s2]
+  key_terms:
+    - term: 十字軍
+      plain: 1096 到 1291 年間，西歐人在教宗號召下多次東征的總稱；它是將近兩百年多次不同的遠征，參加者動機（信仰、土地、冒險、贖罪）各不相同。
+      example: 像同一個活動名稱底下，其實有很多次不同的行動，每次參加的人理由都不一樣。
+    - term: 減免罪罰
+      plain: 教宗承諾參加東征的人可以減輕或免除罪罰；後來還允許用錢換掉東征誓言、資助別人出征也能得赦罪。
+      example: 像用做一件事來換成績加分，後來甚至改成出錢也算數。
+    - term: 薩拉丁什一稅
+      plain: 1188 年英、法為第三次十字軍徵收的稅，是收入與動產的 10%。
+      example: 像學校為了辦一場大活動，要求每個人交出零用錢的一成。
+    - term: 十字軍國家
+      plain: 1099 年攻下耶路撒冷後，十字軍在地中海東岸建立的四個國家。
+      example: 像遠征隊占下一片地方後，就地成立自己的小政府。
+  primary_source:
+    - text: "All who die by the way……or in battle against the pagans, shall have immediate remission of sins.（凡在途中……或在對異教徒的戰鬥中死去的人，都立刻得到罪的赦免。）"
+      from: 烏爾班二世 1095 年克萊蒙演說，富爾徹（Fulcher of Chartres）的版本，Fordham 大學 Medieval Sourcebook 收錄的英譯；中文為本站翻譯
+      src: s3
+  historiography: |
+    **教宗到底說了什麼？** 1095 年 11 月烏爾班二世在克萊蒙會議號召東征、承諾參加者減免罪罰，但各記載說法不一；上面的引文只是富爾徹記下的一個版本。[s1][s2]
+    **為什麼去？** 參加者動機各不相同：信仰、土地、冒險、贖罪。所以十字軍不能當成一場有統一目標的戰爭。[s1][s2]
+    **第四次十字軍為什麼轉向？** 來源說，他們向威尼斯訂造能載 33,500 人的船隊，卻付不出錢，結果被轉向攻打札拉與君士坦丁堡。[s1]
+    **長期影響怎麼看？** 來源列出教宗權力與教會財富增加、義大利商人成為地中海貿易主力，也留下對穆斯林與猶太人屠殺的長期怨恨；另外有史家認為往來增加可能為文藝復興鋪路，但這是推測。[s1][s2]
+  misconceptions:
+    - 「十字軍為文藝復興鋪路」只是部分史家的推測，不是定論。[s2]
+    - 教宗在克萊蒙會議上承諾什麼，各記載說法不一；不同版本的演說內容並不相同。[s1][s2]
+  perspectives:
+    - { history: 歐洲史, text: 從歐洲看，這是教宗號召、義大利城邦提供船隊、騎士借錢出征的將近兩百年；打仗的騎士常常負債，提供船隊的義大利城邦卻成為貿易贏家。 }
+    - { history: 伊斯蘭世界史, text: 從伊斯蘭世界看，這是塞爾柱、法蒂瑪王朝、薩拉丁，最後是馬木路克接力抵抗的過程，1187 年薩拉丁收復耶路撒冷，1291 年馬木路克攻陷阿卡。 }
+crosscheck: { date: 2026-11-15, by: Fable 5.2 獨立查核（未參與寫作）, result: 通過, notes: "逐句核對學習區塊與正文 A1–A12、causes：1071 曼齊刻爾特、1095 求援與克萊蒙會議（承諾內容『各記載說法不一』）、1099-07 攻下耶路撒冷並建立四個十字軍國家、1187 哈丁、1192 議和、1204 轉向札拉與君士坦丁堡（33,500 人船隊）、1291 阿卡、1188 薩拉丁什一稅 10%，皆與正文一致；『為文藝復興鋪路』照正文標為推測。未發現正文沒有的史實，學習區塊未改動。一手引文：2026-11-15 重新開啟 s3（Fordham Medieval Sourcebook，頁面標題 Speech at Council of Clermont, 1095, according to Fulcher of Chartres；出自 Thatcher 與 McNeal 編 A Source Book for Medieval History，1905），讀到『All who die by the way, whether by land or by sea, or in battle against the pagans, shall have immediate remission of sins.』引文逐字相符，省略的是『whether by land or by sea』，不改變意思；中譯忠實，出處已說明這只是富爾徹的版本。保留意見：s2 是 HISTORY 頻道網站，標為通論偏寬；本卡除 s3 外沒有學術來源；s1、s2 本次沒有重新開啟。" }
 verification: 交叉確認
 lens_status: 無直接論述
 ---

@@ -29,11 +29,48 @@ effects:
   - { id: event-reformation, rel: 背景, why: "黑死病時教會無力減輕人們的苦難，威信下降，讓後來批評教會的聲音更容易得到支持。", src: [event-reformation:s2] }
 counterparts: "無適當對照：計畫卡中沒有中國的疫病卡；且 14 世紀中國是否也爆發同一波鼠疫，史料證據薄弱（World History Encyclopedia），不宜硬配。"
 sources:
-  - { id: s1, title: "Black Death — Wikipedia", url: "https://en.wikipedia.org/wiki/Black_Death", accessed: 2026-10-25 }
-  - { id: s2, title: "Black Death — World History Encyclopedia", url: "https://www.worldhistory.org/Black_Death/", accessed: 2026-10-25 }
-  - { id: s3, title: "Statute of Labourers 1351 — Wikipedia", url: "https://en.wikipedia.org/wiki/Statute_of_Labourers_1351", accessed: 2026-10-25 }
-  - { id: s4, title: "Homo Deus 第 1 章摘要（LitCharts）", url: "https://www.litcharts.com/lit/homo-deus/chapter-1", accessed: 2026-10-25 }
-  - { id: s5, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s1, title: "Black Death — Wikipedia", url: "https://en.wikipedia.org/wiki/Black_Death", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Black Death — World History Encyclopedia", url: "https://www.worldhistory.org/Black_Death/", accessed: 2026-10-25, tier: 通論 }
+  - { id: s3, title: "Statute of Labourers 1351 — Wikipedia", url: "https://en.wikipedia.org/wiki/Statute_of_Labourers_1351", accessed: 2026-10-25, tier: 百科 }
+  - { id: s4, title: "Homo Deus 第 1 章摘要（LitCharts）", url: "https://www.litcharts.com/lit/homo-deus/chapter-1", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s5, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s6, title: "The Statute of Laborers; 1351 — The Avalon Project, Yale Law School", url: "https://avalon.law.yale.edu/medieval/statlab.asp", accessed: 2026-11-15, tier: 一手 }
+importance: 3
+learn:
+  histories: [歐洲史, 世界通史]
+  why_care: 一場瘟疫在幾年內奪走歐洲估計三成到六成的人，勞工變少、工資上漲，連政府立法想把工資壓回去都壓不住。
+  story: |
+    黑死病由鼠疫桿菌引起，主要靠跳蚤叮咬傳播。[s1][s2] 1340 年代中期，金帳汗國軍隊圍攻黑海港口卡法；據說把病死的屍體拋進城內，但也可能是老鼠傳入。[s1][s2] 1347 年 10 月，熱那亞船隻把疫病帶到西西里；1348 年擴散到義大利本土、法國，6 月前後到達英格蘭。[s1][s2] 歐洲死亡人數估計 2,500 萬到 5,000 萬，約占歐洲人口的 30% 到 60%。[s1] 倖存的勞工能要求更高工資，英格蘭卻在 1349 年和 1351 年立法，把工資上限定在疫情前（1346 年）的水準，並強迫 60 歲以下、有工作能力的人工作；但執行不力，擋不住工資上漲。[s3][s6] 歐洲人口要到約 1550 年才回到 14 世紀的水準。[s1][s2]
+  key_terms:
+    - term: 鼠疫桿菌
+      plain: 引起黑死病的細菌（Yersinia pestis），主要靠跳蚤叮咬傳播，肺炎型也能經飛沫在人與人之間傳播。
+      example: 像一種很小的病菌搭著跳蚤和人群移動，人越擠越容易傳開。
+    - term: 鞭笞者（Flagellants）
+      plain: 在街上鞭打自己、呼籲悔罪的宗教團體。
+      example: 像有一群人在街頭用自我懲罰的方式提醒大家要懺悔。
+    - term: 《勞工法》
+      plain: 英格蘭 1349 年頒布《勞工條例》、1351 年頒布《勞工法》，把工資上限定在疫情前的水準，但執行不力。
+      example: 像政府規定打工時薪不能高於三年前，可是老闆搶不到人還是願意加錢。
+    - term: 隔離檢疫
+      plain: 拉古薩（今杜布羅夫尼克）1377 年規定外來者隔離 30 天，後來延長為 40 天，英文的 quarantine 一詞與此有關。
+      example: 像外地回來的人先在家待一段時間，確認沒事才能出門。
+  primary_source:
+    - text: "……were accustomed to be paid in the twentieth year of our reign of England, or the five or six common years next preceding（〔工資只能領〕國王在位第二十年或其前五六個平常年份慣常支付的數額）"
+      from: 英格蘭國王愛德華三世的勞工法令，耶魯大學 Avalon Project 以「The Statute of Laborers; 1351」為題收錄的英譯；「統治第二十年」約是 1346 年；中文為本站翻譯
+      src: s6
+  historiography: |
+    **疫病從哪裡來？** 發源地有爭議：有中國、中亞、西亞等說法。吉爾吉斯楚河谷地 1338–1339 年的墓碑提到「瘟疫」，常被當作中亞起源的證據；2011 年的基因研究指向中國，但 14 世紀中國爆發鼠疫的史料證據薄弱。[s1][s2]
+    **死了多少人？** 維基百科估計歐洲死亡 2,500 萬到 5,000 萬人；World History Encyclopedia 估計 2,500 萬到 3,000 萬人，平均死亡率約 30%，最嚴重的城市可能接近 50%。[s1][s2] 歐亞合計有估計高達 7,500 萬到 2 億人，但維基百科註明這個數字來源不夠可靠。[s1]
+    **它和文藝復興有關嗎？** 也有史家把黑死病和文藝復興連結，但只能解釋一部分。[s1][s2]
+    **從哪年到哪年？** 維基百科作 1346–1353 年，World History Encyclopedia 作 1347–1352 年；本卡取歐洲最嚴重的 1347–1351 年。[s1][s2]
+  misconceptions:
+    - 卡法圍城「拋屍入城」是一個常被講的說法，但來源只說「據說」，也可能是老鼠傳入。[s1][s2]
+    - 黑死病不是確定從中國來的：2011 年的基因研究指向中國，但史料證據薄弱，發源地仍有爭議。[s2]
+    - 「歐亞死亡 7,500 萬到 2 億人」的說法來源不夠可靠，不宜當成定論。[s1]
+  perspectives:
+    - { history: 歐洲史, text: 從歐洲看，人口驟減讓勞工變貴、農奴制度被削弱，政府想壓工資也壓不住，之後出現多起農民起義。 }
+    - { history: 世界通史, text: 從全世界看，疫病沿著貿易網絡擴散，黑海、地中海的商船航線與熱那亞商人是主要路徑，中東與北非也同樣受創。 }
+crosscheck: { date: 2026-11-15, by: Fable 5.2 獨立查核（未參與寫作）, result: 通過, notes: "逐句核對學習區塊與正文 C1–C10、effects：鼠疫桿菌與傳播方式、卡法『據說』拋屍、1347-10 西西里、1348 義法英、歐洲死亡 2,500–5,000 萬（30%–60%）與 WHE 2,500–3,000 萬兩說、歐亞 7,500 萬–2 億『來源不夠可靠』、發源地爭議、起訖年三種寫法、拉古薩 1377 隔離 30／40 天、約 1550 年人口回復，皆與正文一致。改動：(1) 學習區塊與正文 C4 的『強迫 68 歲以下的人工作』改為 60 歲：s6 法令文本作 able bodied and below the age of sixty years；2026-11-15 重開 s3（英文維基）確實寫 under the age of 68 years，兩者不同，本卡依法令文本並在正文註明；(2) 一手引文補回原句結尾『or the five or six common years next preceding』，原先省略會讓人以為只以單一年份為準；(3) 出處說明改寫。一手引文：2026-11-15 重新開啟 s6，讀到『he shall take only the wages liveries, meed or salary which, in the places where he sought to serve, were accustomed to be paid in the twentieth year of our reign of England, or the five or six common years next preceding.』引文因 160 字上限只引 were accustomed 以下，逐字相符，前面省略的『he shall take only the wages…』在中譯用方括號補出，不改變意思。保留意見：Avalon 頁面標題是 1351 年《勞工法》，但內文是國王致坎特伯里大主教的命令形式、註明出自 Statutes of the Realm 卷一頁 307，查核者認為很可能其實是 1349 年《勞工條例》的文本（1349 與 1351 兩道法令都以疫情前工資為準），未能另找資料確認，所以出處只寫『Avalon 以此為題收錄』；s4（LitCharts）、s5（虎嗅）只用於正文雙軌解讀，學習區塊沒有引用；s1、s2 本次沒有重新開啟。" }
 verification: 爭議
 lens_status: 依公開資料推論，未對照原書
 images:
@@ -68,7 +105,7 @@ images:
 
 ## C4 制度或機制變化
 
-- **工資管制**：英格蘭 1349 年頒布《勞工條例》、1351 年頒布《勞工法》，把工資上限定在疫情前（1346 年）的水準，並強迫 68 歲以下有能力的人工作。[s3] 但執行不力，擋不住工資上漲。[s3]
+- **工資管制**：英格蘭 1349 年頒布《勞工條例》、1351 年頒布《勞工法》，把工資上限定在疫情前（1346 年）的水準，並強迫 60 歲以下有工作能力的人工作（Avalon 收錄的法令英譯作「below the age of sixty years」；英文維基百科條目寫 68 歲，本卡依法令文本）。[s3][s6] 但執行不力，擋不住工資上漲。[s3]
 - **隔離檢疫**：拉古薩（今杜布羅夫尼克）1377 年規定外來者隔離 30 天，後來延長為 40 天，「quarantine」一詞與此有關。[s1]
 
 ## C5 受益者與受損者

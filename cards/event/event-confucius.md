@@ -26,10 +26,35 @@ effects:
 counterparts:
   - { id: event-death-of-socrates, note: "相似：一位自己沒有留下著作的老師，在政治上不得志，學說靠弟子記錄流傳，日後成為整個文明的思想基礎。不同：蘇格拉底被雅典民主處死；孔子周遊列國求官未果，晚年回鄉教書而終，學說在三百多年後被漢朝定為官學。", src: [s1, s2] }
 sources:
-  - { id: s1, title: "Confucius — Wikipedia", url: "https://en.wikipedia.org/wiki/Confucius", accessed: 2026-10-25 }
-  - { id: s2, title: "Jeffrey Riegel, Confucius — Stanford Encyclopedia of Philosophy（2005 年冬季版存檔）", url: "https://plato.stanford.edu/archives/win2005/entries/confucius/", accessed: 2026-10-25 }
-  - { id: s3, title: "Qufu — Wikipedia", url: "https://en.wikipedia.org/wiki/Qufu", accessed: 2026-10-25 }
-  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25 }
+  - { id: s1, title: "Confucius — Wikipedia", url: "https://en.wikipedia.org/wiki/Confucius", accessed: 2026-10-25, tier: 百科 }
+  - { id: s2, title: "Jeffrey Riegel, Confucius — Stanford Encyclopedia of Philosophy（2005 年冬季版存檔）", url: "https://plato.stanford.edu/archives/win2005/entries/confucius/", accessed: 2026-10-25, tier: 學術 }
+  - { id: s3, title: "Qufu — Wikipedia", url: "https://en.wikipedia.org/wiki/Qufu", accessed: 2026-10-25, tier: 百科 }
+  - { id: s4, title: "李彔《現代化十六講》之五、六（農業文明的天花板與三次衝頂；思想革命與制度創新），虎嗅 2014", url: "https://www.huxiu.com/article/38101.html", accessed: 2026-10-25, tier: 摘要 }
+  - { id: s5, title: "《論語·衛靈公》— 中國哲學書電子化計劃（ctext.org）", url: "https://ctext.org/analects/wei-ling-gong", accessed: 2026-11-15, tier: 一手 }
+importance: 3
+learn:
+  histories: [中國史]
+  perspectives:
+    - { history: 中國史, text: "從中國史看，孔子生前求官失敗，他的學說卻在三百多年後被漢朝定為官學，成為國家的意識形態。[s1][s2]" }
+  why_care: 孔子生前沒有任何國君採用他的主張，可是他的學說後來成為中國最重要的思想傳統之一；而關於他的生平，其實很多是後世寫下的。[s1][s2]
+  story: |
+    孔子約生於前 551 年，是魯國陬邑（今山東曲阜）人。那時周王室衰弱，諸侯與卿大夫爭權；他家道中落，少年過得很艱苦。[s1][s2] 三十歲後他開始講學，不收學費，只收象徵性的一束乾肉。[s1] 約五十歲時他在魯定公手下當官，最高做到司寇（掌刑獄）。[s1][s2] 前 497 年，他支持拆除魯國權臣家族城牆的計畫失敗，辭官離開魯國，周遊衛、宋、陳、蔡、楚等國，但沒有國君採用他的主張。[s1][s2] 前 484 年他回到魯國，晚年教學、整理典籍，約前 479 年去世。[s1][s2] 弟子把他的言行編成《論語》，大約在前 2 世紀才接近今天的樣子。[s1][s2]
+  key_terms:
+    - { term: 仁, plain: 愛人，盡到對他人的責任。, example: 像同學有困難時，不只說加油，而是真的幫忙把事情做完。 }
+    - { term: 禮, plain: 禮儀與社會規範，孔子要求要真誠實踐，不是空的形式。, example: 像向長輩問好是真的尊重，而不是只做做樣子。 }
+    - { term: 德治, plain: 統治者以德服人，像北極星一樣讓眾星環繞，而不是靠刑罰。, example: 像班長自己先做到，同學自然願意跟著做。 }
+    - { term: 正名, plain: 每個人的行為要符合他的名分，要從上位者先做起。, example: 像老師要有老師的樣子，學生才會有學生的樣子。 }
+    - { term: 司寇, plain: 魯國掌管刑獄的官職。, example: 像今天管理司法與監獄事務的官員。 }
+  primary_source:
+    - { text: "子貢問曰：「有一言而可以終身行之者乎？」子曰：「其恕乎！己所不欲，勿施於人。」", from: "《論語·衛靈公》（中國哲學書電子化計劃 ctext.org 標為第 24 章）", src: s5 }
+  historiography: |
+    **弟子到底有多少人？** 《史記》說弟子三千、身通六藝者七十二（或七十七）人；史丹佛哲學百科認為三千是誇大，至多約七十人。[s1][s2]
+    **孔子生平有多可靠？** 史丹佛哲學百科提醒：關於孔子生平的資料都是後世寫成的，許多細節最好當作傳說看待。[s2]
+  misconceptions:
+    - 孔子不是改革制度的人：他沒有改變制度，提出的是一套治理與做人的觀念（仁、禮、德、正名）。[s1][s2]
+    - 「孔子原意」很難確定：他的言行經過弟子與後世多次編輯，《論語》大約在前 2 世紀才接近今天的樣子。[s1][s2]
+  exaggerated: 「弟子三千」常被當成事實，但史丹佛哲學百科認為這是誇大，至多約七十人。[s2]
+crosscheck: { date: 2026-11-15, by: Fable 5.2 獨立查核（未參與寫作）, result: 通過, notes: "逐句核對學習區塊與正文 C1–C10、effects、counterparts：約前 551–前 479、陬邑（曲阜）、三十歲後講學與一束乾肉、約五十歲任官至司寇、前 497 離魯周遊列國、前 484 回魯、《論語》約前 2 世紀接近今貌、弟子三千與七十二（七十七）及史丹佛哲學百科的質疑、生平可靠度提醒，皆與正文一致。改動：(1)『史家怎麼吵』刪去只靠 s4（虎嗅講稿整理，摘要級）的李彔一段，李彔說法仍在正文雙軌解讀；(2) 中國史觀點『成為後來兩千年的思想底色』正文沒有，改為正文 C9 的『成為國家的意識形態』；(3)『正名』例句漏字，補為『學生才會有學生的樣子』。一手引文：2026-11-15 重新開啟 s5（ctext《衛靈公》），第 24 章讀到『子貢問曰：有一言而可以終身行之者乎？子曰：其恕乎！己所不欲，勿施於人。』逐字相符（頁面用半形標點），篇名與章號正確；引中文原文，沒有回譯。保留意見：ctext 的章號與部分通行本不同（別的版本可能是第 23 或 24 章），出處已寫明是 ctext 的編號；s1–s3 本次沒有重新開啟。" }
 verification: 交叉確認
 lens_status: 依公開資料推論，未對照原書
 images:

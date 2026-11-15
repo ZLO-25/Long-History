@@ -7,9 +7,10 @@ import { Choice, CheckQ, CompareTable, Decision, Guess, Hints, Order, Quick, Ref
 import { UnitResult } from './UnitResult';
 import { LEVELS, metaOf, recOf, seenSet, unitLevel, type Meta, type Rec } from './level';
 import { SimView } from './sims/SimView';
-import type { UnitProgress } from './progress';
+import { saveTimeNow, type UnitProgress } from './progress';
 import { allMin, mustMin, unitHalf } from './util';
 import { intent } from '../lib/detail';
+import { LLink } from './nav';
 import { PeoplePanel } from '../components/PeoplePanel';
 import { loadPeoples, PEOPLE_ABOUT, PEOPLE_INTRO, PEOPLE_MIGS, MIG_PREFIX, type Peoples } from '../lib/peoples';
 
@@ -43,17 +44,61 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
   const lessons = dive ? dive.units.map((id) => index.units.find((x) => x.id === id)).filter((x): x is Unit => !!x) : [];
   const lessonNo = lessons.findIndex((x) => x.id === u.id);
   const nextLesson = lessonNo >= 0 ? lessons[lessonNo + 1] : undefined;
-  const step = Math.min(prog?.step ?? -1, u.steps.length - 1);
-  const top = useRef<HTMLDivElement>(null);
   const n = u.steps.length, half = unitHalf(u), long = n >= 8;
+  // 網址帶 &step=N（1 起算）：直接到第 N 步；超出範圍就留在封面（#24）。只在這個畫面一打開時讀一次
+  const [urlStep] = useState<number | null>(() => { try { const q = new URLSearchParams(location.search); return q.get('unit') === u.id && q.get('step') != null ? Number(q.get('step')) : null; } catch { return null; } });
+  const urlOk = urlStep != null && Number.isInteger(urlStep) && urlStep >= 1 && urlStep <= n;
+  const [cover, setCover] = useState(urlStep != null && !urlOk);
+  const step = cover ? -1 : Math.min(prog?.step ?? -1, u.steps.length - 1);
+  const top = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (urlOk && prog?.step !== urlStep! - 1) setProg({ step: urlStep! - 1, seen: [...seenSet(prog)] }); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // 網址跟著步驟走（replaceState：不新增瀏覽紀錄）
+  useEffect(() => {
+    try {
+      const q = new URLSearchParams(location.search);
+      if (q.get('unit') !== u.id) return;
+      if (step >= 0) q.set('step', String(step + 1)); else q.delete('step');
+      const next = `${location.pathname}?${q}`;
+      if (next !== location.pathname + location.search) history.replaceState(history.state, '', next);
+    } catch { /* 網址寫不了就算了 */ }
+  }, [step, u.id]);
+  // 作答停留時間（秒）：頁面看得到、在課裡（不是封面）、最近 2 分鐘內有動作才計；每 10 秒、離開頁面、關掉時存一次
+  const progRef = useRef(prog); progRef.current = prog;
+  const setProgRef = useRef(setProg); setProgRef.current = setProg;
+  const inStep = useRef(false); inStep.current = step >= 0;
+  useEffect(() => {
+    let acc = 0, last = Date.now(), lastAct = Date.now(), base: number | null = null, sent = 0;
+    const act = () => { lastAct = Date.now(); };
+    const flush = (now = false) => {
+      const add = Math.floor(acc);
+      if (add < 1 || !progRef.current || (progRef.current.step ?? -1) < 0) return;
+      if (base === null) base = progRef.current.time ?? 0;
+      acc -= add; sent += add;
+      if (now === true) saveTimeNow(u.id, base + sent); else setProgRef.current({ time: base + sent });
+    };
+    const tick = () => {
+      const now = Date.now(), dt = Math.min((now - last) / 1000, 2); last = now;
+      if (document.visibilityState === 'visible' && inStep.current && now - lastAct < 120000) acc += dt;
+      if (acc >= 10) flush();
+    };
+    const vis = () => { if (document.visibilityState === 'hidden') flush(false); else { last = Date.now(); lastAct = Date.now(); } };
+    const evs = ['pointerdown', 'pointermove', 'keydown', 'touchstart', 'wheel'] as const;
+    evs.forEach((e) => window.addEventListener(e, act, { passive: true }));
+    window.addEventListener('scroll', act, { passive: true, capture: true });
+    document.addEventListener('visibilitychange', vis);
+    const pagehide = () => flush(true);
+    window.addEventListener('pagehide', pagehide);
+    const iv = window.setInterval(tick, 1000);
+    return () => { window.clearInterval(iv); flush(false); evs.forEach((e) => window.removeEventListener(e, act)); window.removeEventListener('scroll', act, { capture: true } as EventListenerOptions); document.removeEventListener('visibilitychange', vis); window.removeEventListener('pagehide', pagehide); };
+  }, []);
   // 中場休息：做完上半段的最後一步按「下一步」，先停在休息畫面（不是一定要休息，可以直接繼續）
   const [brk, setBrk] = useState(false);
   const [showResult, setShowResult] = useState(false); // 按「完成這個單元」後換成結果畫面
   // 走過的步驟（進度條的綠點）：離開哪一步就記哪一步；「直接做下半段」不會把上半段算成走過
   const leave = () => [...new Set([...seenSet(prog), ...(step >= 0 && !brk ? [step] : [])])];
-  const jump = (to: number) => { setBrk(false); setShowResult(false); setProg({ step: to, seen: leave() }); };
+  const jump = (to: number) => { setCover(false); setBrk(false); setShowResult(false); setProg({ step: to, seen: leave() }); };
   const go = (to: number) => {
-    if (long && step === half - 1 && to === half && !brk) { setBrk(true); setProg({ step: half, halfBreak: true, seen: leave() }); top.current?.scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
+    if (long && step === half - 1 && to === half && !brk) { setCover(false); setBrk(true); setProg({ step: half, halfBreak: true, seen: leave() }); top.current?.scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
     jump(to); top.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
   const partOf = (i: number) => (!long ? '' : i < half ? '上半' : '下半');
@@ -105,8 +150,10 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
   }, [step, n, brk]);
   // 複製這一課的連結（老師派作業、同學互傳）
   const [copied, setCopied] = useState(false);
-  const copyLink = async () => {
-    const url = `${location.origin}${location.pathname}?mode=learn&unit=${u.id}`;
+  const [menu, setMenu] = useState(false);
+  const baseUrl = `${location.origin}${location.pathname}?mode=learn&unit=${u.id}`;
+  const copyLink = async (url = baseUrl) => {
+    setMenu(false);
     try { await navigator.clipboard.writeText(url); setCopied(true); setTimeout(() => setCopied(false), 1500); }
     catch { window.prompt('複製這個連結：', url); }
   };
@@ -133,7 +180,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
         <p className="muted">必讀約 {mustMin(u)} 分鐘{allMin(u) > mustMin(u) && <>・全部讀完約 {allMin(u)} 分鐘</>}・{u.steps.length} 步・可以隨時離開，進度會記在這台瀏覽器</p>
         <div className="row">
           <button className="btn primary big" onClick={() => go(prog?.step != null && prog.step > 0 ? prog.step : 0)}>{prog?.step != null && prog.step > 0 ? `從第 ${prog.step + 1} 步繼續（${partOf(prog.step) || '接著做'}）` : long ? '開始上半段' : '開始'}</button>
-          {long && !(prog?.step != null && prog.step >= half) && <button className="btn big" onClick={() => { setBrk(false); setProg({ step: half, seen: [...seenSet(prog)] }); }}>直接做下半段</button>}
+          {long && !(prog?.step != null && prog.step >= half) && <button className="btn big" onClick={() => { setCover(false); setBrk(false); setProg({ step: half, seen: [...seenSet(prog)] }); }}>直接做下半段</button>}
         </div>
         <details className="unit-outline"><summary>看全部 {u.steps.length} 步</summary>
         {(long ? [[0, half], [half, n]] : [[0, n]]).map(([a, b], k) => (
@@ -145,6 +192,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
           </div>
         ))}
         </details>
+        <p className="cover-print no-print"><LLink q={{ unit: u.id, print: 'sheet' }} className="btn sm" title="印出題目與作答線（不含答案），可以發給全班">🖨 印學習單</LLink> <LLink q={{ unit: u.id, print: 'key' }} className="btn sm" title="印出正解、解析與參考說法（給老師）">印解答（教師用）</LLink></p>
         {long && <p className="muted small">一節課做不完沒關係：做完上半段會有中場休息，進度自動存好，下次從下半段接著做。</p>}
       </div>
     );
@@ -261,7 +309,8 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
             {onDive && <button className="link small" onClick={() => onDive(dive.id)}>看專題頁</button>}
             {nextLesson && <button className="chip ud-next" onClick={() => onUnit(nextLesson.id)}>下一課：《{nextLesson.title}》 →</button>}</p>
         )}
-        <div className="unit-title-row"><h2>{u.title}</h2><button className="btn sm" onClick={copyLink} title="複製這一課的連結，可以傳給同學或老師">{copied ? '✓ 已複製' : '🔗 複製連結'}</button></div>
+        <div className="unit-title-row"><h2>{u.title}</h2><div className="copy-menu"><button className="btn sm" onClick={() => (step >= 0 ? setMenu(!menu) : copyLink())} aria-expanded={step >= 0 ? menu : undefined} title="複製這一課的連結，可以傳給同學或老師">{copied ? '✓ 已複製' : '🔗 複製連結'}</button>
+          {menu && step >= 0 && <div className="copy-pop" role="menu"><button className="btn sm" role="menuitem" onClick={() => copyLink()}>這一課的連結</button><button className="btn sm" role="menuitem" onClick={() => copyLink(`${baseUrl}&step=${step + 1}`)}>從第 {step + 1} 步開始的連結</button></div>}</div></div>
         {step >= 0 && <div className="progress" aria-label={`第 ${step + 1} 步，共 ${u.steps.length} 步`}>
           {u.steps.map((x, i) => <button key={i} className={`pdot ${seenSet(prog).has(i) && !(i === step && !brk) ? 'done' : ''} ${i === step && !brk ? 'on' : ''} ${long && i === half ? 'half-start' : ''}`} title={`${i + 1}. ${stepName(x)}${long ? `（${partOf(i)}）` : ''}`} onClick={() => jump(i)} />)}
         </div>}

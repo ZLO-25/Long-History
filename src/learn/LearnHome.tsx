@@ -6,7 +6,6 @@ import type { Index, Unit } from '../types';
 import type { Progress } from './progress';
 import { hasLevels, levelLabel, mustMin, pickUnits, type LevelPick } from './util';
 import { levelText, unitLevel } from './level';
-import { COVERAGE } from './coverage';
 import { LLink } from './nav';
 import { intent } from '../lib/detail';
 import { homeReview } from './review';
@@ -104,13 +103,16 @@ export function LearnHome({ index, p, onUnit, onRandom, onIntroSeen, onRecord, o
         </ol>
         <p className="muted small">這四步參考臺大歷史系呂世浩老師公開談過的讀史方法：「古人的歷史是拿來用的」（<a href="http://tedxtaipei.com/talks/2014-shih-hao-lu/" target="_blank" rel="noreferrer">TEDxTaipei 演講介紹</a>）；讀史要「觀史如身在其中……必掩卷自思，使我遇此等事，當作何處之」（他引宋代呂祖謙，<a href="https://www.5070.com.tw/i5070/userfiles/evtrpt/3cp/201406112.pdf" target="_blank" rel="noreferrer">〈《史記》中的智慧〉文稿</a>）；他也提醒思辨根本沒有「標準答案」，「不要把老師的答案當成是『標準答案』」（<a href="https://www.coursera.org/learn/qin-shi-huang" target="_blank" rel="noreferrer">Coursera 秦始皇課程介紹</a>）。把這些話整理成四個步驟，是本站自己的設計，不代表呂老師本人的課程安排。</p>
       </details>
-      <section className="coverage">
-        <h3>{COVERAGE.title}</h3>
-        <p><b>講得比較深：</b>{COVERAGE.deep.join('、')}。</p>
-        <p><b>還沒有（正在補）：</b>{COVERAGE.gaps.join('、')}。</p>
-        <p className="muted small">{COVERAGE.note}{onCurriculum && <> 想知道哪些課綱條目已經有對應的課？<button className="link" onClick={onCurriculum}>看課綱對照 →</button></>}</p>
+      {index.coverage && (
+        <section className="coverage">
+          <h3>{index.coverage.title}</h3>
+          <p className="muted small">目前共 {index.coverage.totals.units} 課、{index.coverage.totals.cards} 張學習卡、{index.coverage.totals.dives} 個深入專題、{index.coverage.totals.storylines} 條故事線。</p>
+          <p><b>講得比較深：</b>{index.coverage.deep.map((d) => `${d.label}（${d.units} 課、${d.cards} 張卡${d.dives ? `、${d.dives} 個深入專題` : ''}）`).join('、')}。</p>
+          <p><b>還沒有或很少（正在補）：</b>{index.coverage.gaps.map((g) => `${g.label}（${g.units ? `${g.units} 課` : '沒有課'}、${g.cards} 張卡）`).join('、')}。</p>
+        <p className="muted small">{index.coverage.note}{onCurriculum && <> 想知道哪些課綱條目已經有對應的課？<button className="link" onClick={onCurriculum}>看課綱對照 →</button></>}</p>
         <p className="muted small">老師想派作業？每一課封面可以印學習單，學生做完可以產生分享碼。<LLink className="link" q={{ view: 'teacher' }}>👩‍🏫 老師檢視 →</LLink></p>
-      </section>
+        </section>
+      )}
     </div>
   );
 }

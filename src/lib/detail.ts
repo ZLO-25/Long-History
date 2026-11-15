@@ -185,7 +185,7 @@ export function stubFromHome(h: HomeData): Index {
     cards: [], tagCategories: [], topicLayers, fieldOptions: [], civTree: [], frameworks: [], routes: [],
     borders: { source: '', license: '', note: '', snapshots: [] }, itinere: false,
     econ: { metrics: [], series: [] }, chains: [], today: { stale_months: 0, chokepoints: [], chains: [] },
-    histories: h.histories, units, storylines, dives,
+    histories: h.histories, units, storylines, dives, coverage: h.coverage,
   };
 }
 

@@ -55,7 +55,7 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
   const causes = <CauseList card={c} side="causes" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />;
   if (unitMode) {
     // ---- 單元裡的卡片：必讀（故事＋focus）直接展開，其他收成一排「想看更多」 ----
-    // focus 寫雙軌解讀段落的代號（如 C8）時，畫面上對應的是「思想家怎麼看」
+    // focus 寫「通俗作者怎麼說」段落的代號（如 C8）時，畫面上對應的是 'thinkers' 這一塊
     const focus = (unitMode.focus ?? []).map((k) => (lens && k === lens.code ? 'thinkers' : k));
     type Part = { key: string; label: string; node: React.ReactNode };
     const parts: Part[] = [];
@@ -70,7 +70,6 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
     add('debate', '⚖ 史家怎麼吵', <section className="lc-sec debate"><h3>⚖ 史家怎麼吵</h3>{T(L.historiography)}</section>);
     if (L.exaggerated) add('exaggerated', '⚠ 可能被誇大', <section className="lc-sec warn"><h3>⚠ 這個故事可能被誇大了</h3>{T(L.exaggerated)}</section>);
     if (isFin && L.hindsight) add('hindsight', '🔍 事後看很清楚的陷阱', <section className="lc-sec warn"><h3>🔍 事後看很清楚的陷阱</h3>{T(L.hindsight)}<p className="muted small">本站內容是歷史學習，不構成投資建議。</p></section>);
-    if (thinkers.length) add('thinkers', '思想家怎麼看', <section className="lc-sec thinkers"><p className="muted small">他們不是歷史學家，以下只收他們直接談到的話，依公開演講與書摘整理，未對照原書。</p>{thinkers.map(([k, t]) => <div key={k}><h4>{k}</h4>{T(t)}</div>)}</section>);
     if (today?.text || nonAn?.text) add('today', '今日對照', <section className="lc-sec today-pair"><div className="pair">
       <div><h4>像的地方</h4>{today?.text ? T(today.text) : <p className="muted">（未填）</p>}</div>
       <div className="not"><h4>不能直接類比的地方</h4>{nonAn?.text ? T(nonAn.text) : <p className="muted">（未填）</p>}</div></div></section>);
@@ -82,6 +81,8 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
     if (onStory) add('paths', '這張卡在哪些故事裡', <p className="muted small">下面的連結會離開這一課；要回來，按左上角「← 返回」。{pathNav}</p>);
     if (onTopic) add('topics', '相關主題', <div className="lc-sec"><p className="muted small">點了會離開這一課，可以按「← 返回」回來。</p><TopicChips card={c} index={index} onTopic={onTopic} count={topicCount} /></div>);
     if (ext.length) add('ext', '延伸（相關，不一定是因果）', <div className="chips">{ext.map((x) => <button key={x.id} className="chip" onClick={() => onOpen(x.id)}>{TYPE_ICON[x.type]} {x.name}</button>)}</div>);
+    // 通俗作者（李彔、哈拉瑞）的看法放在後段：史家怎麼吵、延伸之後，來源之前
+    if (thinkers.length) add('thinkers', '通俗作者怎麼說', <section className="lc-sec thinkers"><h3>通俗作者怎麼說</h3><p className="muted small">這是通俗作者的看法，不是史學界共識；摘要來自公開的二手資料，未逐字對照原書。</p>{thinkers.map(([k, t]) => <div key={k}><h4>{k}</h4>{T(t)}</div>)}</section>);
     add('src', '來源與查核', <div className="lc-sec"><p className="muted small">{L.crosscheck?.result === '通過' ? `✓ 已交叉查核（${L.crosscheck.date}，${L.crosscheck.by}）` : '開發中：尚未查核'}</p>
       <SourceList ids={[...c.sources].sort(tierOrder).map((x) => x.id)} sources={c.sources} />
       <p className="muted small">分級：一手＝當時的人留下的；學術＝學者研究；通論＝可靠機構的介紹；百科；摘要＝書摘或講稿整理。</p></div>);
@@ -155,13 +156,6 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
         {L.money_scale && <section className="lc-sec money"><h3>💰 換算成工作天</h3>{T(L.money_scale)}</section>}
         <section className="lc-sec debate" id={`lc-debate-${c.id}`}><h3>⚖ 史家怎麼吵</h3>{T(L.historiography)}</section>
         {L.exaggerated && <section className="lc-sec warn"><h3>⚠ 這個故事可能被誇大了</h3>{T(L.exaggerated)}</section>}
-        {thinkers.length > 0 && (
-          <details className="lc-sec thinkers">
-            <summary>選讀：思想家怎麼看（{thinkers.map(([k]) => k).join('、')}）</summary>
-            <p className="muted small">他們不是歷史學家，以下只收他們直接談到的話，依公開演講與書摘整理，未對照原書。</p>
-            {thinkers.map(([k, t]) => <div key={k}><h4>{k}</h4>{T(t)}</div>)}
-          </details>
-        )}
       </>
 
       {isFin && L.hindsight && <section className="lc-sec warn"><h3>🔍 事後看很清楚的陷阱</h3>{T(L.hindsight)}<p className="muted small">本站內容是歷史學習，不構成投資建議。</p></section>}
@@ -196,6 +190,14 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
             {ext.map((x) => <button key={x.id} className="chip" onClick={() => onOpen(x.id)}>{TYPE_ICON[x.type]} {x.name}</button>)}
           </div>
         </section>
+      )}
+
+      {thinkers.length > 0 && (
+        <details className="lc-sec thinkers">
+          <summary>選讀：通俗作者怎麼說（{thinkers.map(([k]) => k).join('、')}）</summary>
+          <p className="muted small">這是通俗作者的看法，不是史學界共識；摘要來自公開的二手資料，未逐字對照原書。</p>
+          {thinkers.map(([k, t]) => <div key={k}><h4>{k}</h4>{T(t)}</div>)}
+        </details>
       )}
 
       <details className="lc-sec">

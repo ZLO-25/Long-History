@@ -1,0 +1,26 @@
+# 首頁最下面「這個網站目前講得深的、還沒有的」（review #26）。
+# 名單與說明是手寫的；每一項後面的「N 課、N 張卡」由 scripts/lib/coverage.ts 在 build 時依實際資料算，不手寫數字。
+# 補了內容之後，來這裡改名單即可（例如伊斯蘭世界補了課，數字會自己變，不再算「很少」時就從 gaps 移到 deep）。
+title: 這個網站目前講得深的、還沒有的
+note: 先老實說：這裡不是完整的課本。沒有的部分，請以課本和老師為準；我們正在一項一項補。
+
+# 講得比較深：這一個史（data/histories.yaml 的 id）有 6 課以上或有深入專題
+deep:
+  - { history: china }
+  - { history: taiwan }
+  - { history: japan }
+  - { history: greco-roman }
+  - { history: europe }
+  - { history: usa }
+  - { history: money }
+
+# 還沒有或很少：三種寫法擇一
+#   history: 某個史（課數＝這個史的課，卡數＝學習卡）
+#   civ_path: 文明分類路徑（data/civilizations.yaml）底下的學習卡；課數＝用到這些卡的課
+#   card_ids: 指定的卡；課數同上
+gaps:
+  - { label: 兩次世界大戰, card_ids: [war-world-war-one, war-world-war-two] }
+  - { label: 伊斯蘭世界, history: islam }
+  - { label: 蒙古帝國, civ_path: 東亞/北方草原/蒙古帝國 }
+  - { label: 工業革命, card_ids: [tech-steam-engine, event-gilded-age-industrialization] }
+  - { label: 日治時期的經濟與社會, civ_path: 東亞/臺灣/日治 }

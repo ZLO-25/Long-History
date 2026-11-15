@@ -1,4 +1,4 @@
-// 可縮放的非線性時間軸（D3 zoom）：上方西方軌、中間中國軌（兩軌等高並列）、下方技術軌與金融軌；滑鼠移到卡上會連線到另一軌的對照卡；拖動紅線改變年代
+// 可縮放的非線性時間軸（D3 zoom）：依地區分軌（東亞／歐洲與地中海／其他地區，前兩軌等高並列）、下方技術軌與金融軌；滑鼠移到卡上會連線到另一軌的對照卡；拖動紅線改變年代
 import { startTransition, useEffect, useMemo, useRef, useState } from 'react';
 import { select } from 'd3-selection';
 import { zoom as d3zoom, zoomIdentity, type ZoomTransform } from 'd3-zoom';
@@ -8,6 +8,7 @@ import { fmtEcon, ENTITY_COLORS } from '../lib/format';
 import { makeBaseScale, BREAKS, MIN_YEAR, MAX_YEAR, eraOf } from '../lib/timeScale';
 import { fmtYear, yr, TYPE_COLOR } from '../lib/format';
 import { EraBar } from './EraBar';
+import { regionOf, REGION_LABEL } from '../lib/lane';
 
 const AXIS_H = 26, ROW_H = 20, LANE_PAD = 6, LABEL_PX = 13.5;
 
@@ -18,7 +19,7 @@ interface Props {
   focusIds?: string[] | null;
   /** 深入專題：把畫面放大到這段年代 */
   range?: { start: number; end: number } | null;
-  /** 深入專題：改用專題自己的軌道（依卡片類型分），不分中西 */
+  /** 深入專題：改用專題自己的軌道（依卡片類型分），不分地區 */
   lanesDef?: { name: string; types: string[] }[] | null;
   econ?: Econ; onEcon?: (series: string, point: number) => void; econSel?: { series: string; point: number } | null;
   /** 史前卡（整張卡都早於 MIN_YEAR）不畫在軸上，改成左上角一顆「史前」按鈕；點了打開史前的專題或清單 */
@@ -94,13 +95,13 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
   // 依目前縮放排列：每條軌道內以貪婪法分列，避免重疊
   const showFull = t.k >= 2.5;
   const lanes = useMemo(() => {
-    // 技術卡、金融卡不分中西，各自獨立一條軌
+    // 技術卡、金融卡不分地區，各自獨立一條軌；其餘依文明分類分成東亞／歐洲與地中海／其他地區
     const own = (c: Card) => c.type === 'tech' || c.type === 'finance';
-    const lane = (track: 'west' | 'china' | 'tech' | 'finance') => cards.filter((c) => (track === 'tech' || track === 'finance' ? c.type === track : !own(c) && (track === 'china' ? c.track === 'china' || c.track === 'east' : c.track !== 'china' && c.track !== 'east')));
+    const lane = (track: 'ea' | 'eu' | 'other' | 'tech' | 'finance') => cards.filter((c) => (track === 'tech' || track === 'finance' ? c.type === track : !own(c) && regionOf(c) === track));
     // 深入專題：依專題定義的軌道（卡片類型）分軌；沒對到的放「其他」
     const defs: { track: string; label: string; items: Card[] }[] = lanesDef
       ? (() => { const used = new Set<string>(); const out = lanesDef.map((l, i) => { const items = cards.filter((c) => l.types.includes(c.type)); items.forEach((c) => used.add(c.id)); return { track: `dive-${i % 2}`, label: l.name, items }; }); const rest = cards.filter((c) => !used.has(c.id)); if (rest.length) out.push({ track: `dive-${out.length % 2}`, label: '其他', items: rest }); return out; })()
-      : (['west', 'china', 'tech', 'finance'] as const).map((track) => ({ track, label: { china: '中國與東亞', west: '西方', tech: '技術（發明→普及）', finance: '金融' }[track], items: lane(track) }));
+      : (['ea', 'eu', 'other', 'tech', 'finance'] as const).map((track) => ({ track, label: track === 'tech' ? '技術（發明→普及）' : track === 'finance' ? '金融' : REGION_LABEL[track], items: lane(track) }));
     return defs.map(({ track, label: laneLabel, items: all }) => {
       // 只排目前畫面內的卡：放大到某個時代時，軌道高度只依畫面內的卡數，技術軌與金融軌才不會被擠到下面看不到
       const items = all.filter((c) => x(Math.max(c.time.end, c.time.start)) >= -200 && x(c.time.start) <= width + 10)
@@ -120,7 +121,7 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
     });
   }, [cards, t, base, showFull, width, lanesDef]);
 
-  // 兩軌等高：以列數較多的一軌為準，中西份量在畫面上相同（專題軌道則各自依卡數）
+  // 東亞與歐洲兩軌等高：以列數較多的一軌為準，份量在畫面上相同；其他地區、技術、金融各自依列數（專題軌道則各自依卡數）
   // 專題軌道：軌道名稱自己佔一行（上方多留 12px），不再壓在第一列卡條上
   const topPad = lanesDef ? LANE_PAD + 12 : LANE_PAD;
   const laneHt = lanes.map((ln, i) => (!lanesDef && i < 2 ? Math.max(lanes[0].rows, lanes[1].rows) : ln.rows) * ROW_H + LANE_PAD + topPad);

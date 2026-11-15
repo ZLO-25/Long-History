@@ -191,9 +191,9 @@ export function checkCards(
     for (const r of f.routes ?? []) if (!ctx.routes.has(r)) err(`routes 指向不存在的路線：${r}`);
     for (const fw of f.frameworks ?? []) if (!ctx.frameworks.has(fw)) err(`frameworks 指向不存在的框架：${fw}`);
 
-    // ---- 中西對照：指向另一條軌道的卡；找不到就寫「無適當對照：原因」----
+    // ---- 同時代對照：指向另一條軌道的卡；找不到就寫「無適當對照：原因」----
     const cp = f.counterparts;
-    if (cp === undefined) { if (!f.summary_card) warn('缺少 counterparts（中西對照）；沒有合適對照請寫「無適當對照：原因」'); }
+    if (cp === undefined) { if (!f.summary_card) warn('缺少 counterparts（同時代對照）；沒有合適對照請寫「無適當對照：原因」'); }
     else if (typeof cp === 'string') { if (!cp.startsWith('無適當對照')) err('counterparts 若不是清單，必須以「無適當對照」開頭'); }
     else if (!Array.isArray(cp)) err('counterparts 必須是清單或「無適當對照」字串');
     else cp.forEach((x: any, i: number) => {
@@ -233,7 +233,7 @@ export function checkCards(
         }
         const allNone = LENS_KEYS.every((k) => { const t = sec!.sub?.[k]?.text ?? ''; return t.startsWith('無直接論述') && refsOf(t).length === 0; });
         if (allNone && f.lens_status !== '無直接論述') warn('兩位作者都無直接論述，lens_status 應為「無直接論述」');
-        if (!allNone && f.lens_status === '無直接論述') err('雙軌解讀有內容，lens_status 應為「依公開資料推論，未對照原書」');
+        if (!allNone && f.lens_status === '無直接論述') err('「通俗作者怎麼說」有內容，lens_status 應為「依公開資料推論，未對照原書」');
         continue;
       }
       if (sec!.unknown) sec!.refs.forEach((r) => usedRefs.add(r));

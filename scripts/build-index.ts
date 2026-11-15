@@ -20,6 +20,7 @@ import { storyPlaces, buildStoryMap, worldLand110 } from './lib/storyMap.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits, loadCurriculum } from './lib/learn.ts';
 import { loadDives, buildDives, copyPowerMaps } from './lib/dives.ts';
 import { unitMinutes } from './lib/unit-minutes.ts';
+import { buildCoverage } from './lib/coverage.ts';
 
 const get = (o: any, k: string) => k.split('.').reduce((a, p) => (a == null ? a : a[p]), o);
 const present = (v: any) => (Array.isArray(v) ? v.length > 0 : v !== undefined && v !== null && v !== '');
@@ -207,6 +208,8 @@ const index = {
   dives: buildDives(dives, cards),
   names: loadNameTable(),
 };
+// 首頁「講得深的、還沒有的」：名單手寫（data/coverage.yaml），課數與卡數在這裡依實際資料算
+Object.assign(index, { coverage: buildCoverage(histories, cards, index.units as any[], index.dives as any[], index.storylines as any[]) });
 // 地圖上的名稱要中英並列：列出還沒有英文（或中文）對照的地名
 {
   const CJK = /[\u3400-\u9fff]/, LATIN = /[A-Za-z]/;
@@ -286,6 +289,7 @@ fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...in
     generated: index.generated,
     histories: (index.histories as any[]).map((h) => ({ ...h, n: cards.filter((c: any) => c.learn && (h.all || c.learn.histories.includes(h.id))).length })),
     units: (index.units as any[]).map((u) => ({ id: u.id, title: u.title, histories: u.histories, mystery: u.mystery, minutes: u.minutes, minutes_must: u.minutes_must, minutes_all: u.minutes_all, nsteps: u.steps.length, level: u.level, curriculum: u.curriculum })),
+    coverage: (index as any).coverage,
     storylines: (index.storylines as any[]).map((s) => ({ id: s.id, title: s.title, question: s.question, read: s.read ?? null, stops: s.stops.map((x: any) => x.id), level: s.level, curriculum: s.curriculum })),
     dives: (index.dives as any[]).map((d) => {
       const persons = d.cards.filter((id: string) => cards.find((c: any) => c.id === id)?.type === 'person').length;

@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import type { Card, Index } from '../types';
 import { fmtRange, TYPE_COLOR } from '../lib/format';
 import { Markdown, linkRefs } from '../lib/markdown';
+import { regionOf, REGION_LABEL, type Region } from '../lib/lane';
 
 const TECH_TAGS = ['技術代差', '默會知識外流', '標準化量產', '基礎建設網絡'];
 // 優先順序：同場域 > 同咽喉或物資 > 同聯盟模式 > 同技術階段 > 其他
@@ -24,8 +25,8 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace, onToday }:
   const [fields, setFields] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>(initialTags ?? []);
   const [keyword, setKeyword] = useState('');
-  // 軌道：全部／只看西方／只看中國／中西各挑（預設勾選時兩邊各取最前面的卡）
-  const [track, setTrack] = useState<'all' | 'west' | 'china' | 'both'>('all');
+  // 地區：全部／只看某一地區／東亞與歐洲各挑（預設勾選時兩邊各取最前面的卡）
+  const [track, setTrack] = useState<'all' | Region | 'both'>('all');
   const [sheet, setSheet] = useState<Sheet>(() => {
     try { return { ...empty, ...JSON.parse(localStorage.getItem(STORE) ?? '{}') }; } catch { return empty; }
   });
@@ -50,7 +51,7 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace, onToday }:
       const weight = mf.reduce((s, f) => s + (c.place.primary_field === f ? 8 : 6), 0)
         + mt.reduce((s, t) => s + weightOf(catOf.get(t) ?? '', t), 0) + mk;
       return { c, mf, mt, mk, count, weight };
-    }).filter((r) => r.count > 0 && (track === 'china' ? r.c.track === 'china' : track === 'west' ? r.c.track !== 'china' : true))
+    }).filter((r) => r.count > 0 && (track === 'all' || track === 'both' ? true : regionOf(r.c) === track))
       .sort((a, b) => b.count - a.count || b.weight - a.weight || b.c.completeness - a.c.completeness);
   }, [index, fields, tags, keyword, anyCond, catOf, track]);
 
@@ -60,7 +61,7 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace, onToday }:
     setSheet((s) => {
       const still = s.picked.filter((id) => ranked.some((r) => r.c.id === id));
       if (track === 'both') {
-        const w = ranked.filter((r) => r.c.track !== 'china').slice(0, 2), c = ranked.filter((r) => r.c.track === 'china').slice(0, 2);
+        const w = ranked.filter((r) => regionOf(r.c) === 'eu').slice(0, 2), c = ranked.filter((r) => regionOf(r.c) === 'ea').slice(0, 2);
         return { ...s, picked: [...w, ...c].map((r) => r.c.id) };
       }
       return still.length >= 2 ? { ...s, picked: still } : { ...s, picked: ranked.slice(0, 3).map((r) => r.c.id) };
@@ -102,8 +103,8 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace, onToday }:
         </fieldset>
       ))}
       <fieldset className="conds">
-        <legend>中西</legend>
-        {([['all', '全部'], ['west', '只看西方'], ['china', '只看中國'], ['both', '中西各挑兩張']] as const).map(([k, l]) =>
+        <legend>地區</legend>
+        {([['all', '全部'], ['ea', '只看東亞'], ['eu', '只看歐洲與地中海'], ['other', '只看其他地區'], ['both', '東亞與歐洲各挑兩張']] as const).map(([k, l]) =>
           <button key={k} className={`chip ${track === k ? 'on' : ''}`} onClick={() => setTrack(k)}>{l}</button>)}
       </fieldset>
       <label className="kw">關鍵字（選填）<input value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="例如：糧食、海峽" /></label>
@@ -118,7 +119,7 @@ export function StructureMatch({ index, initialTags, onOpen, onPlace, onToday }:
               <input type="checkbox" checked={sheet.picked.includes(r.c.id)} aria-label="放入工作頁"
                 onChange={() => setSheet((s) => ({ ...s, picked: toggle(s.picked, r.c.id).slice(-4) }))} />
               <button className="link" onClick={() => onOpen(r.c.id)} style={{ color: TYPE_COLOR[r.c.type] }}>{r.c.name}</button>
-              <span className="tag-muted">{r.c.track === 'china' ? '中國' : '西方'}</span>
+              <span className="tag-muted">{REGION_LABEL[regionOf(r.c)]}</span>
               <span className="muted small">{fmtRange(r.c.time.start, r.c.time.end)}</span>
               <span className="score">符合 {r.count} 項</span>
               <span className="small">{[...r.mf, ...r.mt, ...(r.mk ? [`關鍵字「${keyword}」`] : [])].join('、')}</span>

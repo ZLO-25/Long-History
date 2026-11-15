@@ -81,17 +81,10 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
         </dl>
       </section>
 
-      {c.sections.filter((s) => s.role !== 'lens' || directLens(s).length > 0).map((s) => (
+      {c.sections.filter((s) => s.role !== 'lens').map((s) => (
         <section key={s.code} className={`cd-sec ${s.text ? '' : 'empty'}`}>
           <h3><span className="code">{s.code}</span>{s.title}<span className={`lvl lvl-${s.level}`}>{LEVEL[s.level]}</span></h3>
-          {!s.text ? <p className="muted">（未填）</p> : s.role === 'lens' && s.sub ? (
-            <div className="lens">
-              <p className="lens-status">⚠ 只收他們直接談到的話，依公開資料整理，未對照原書</p>
-              {directLens(s).map(([k, t]) => (
-                <div key={k} className="lens-col"><h4>{k}</h4><Markdown text={t} sources={c.sources} /></div>
-              ))}
-            </div>
-          ) : <Markdown text={s.text} sources={c.sources} />}
+          {!s.text ? <p className="muted">（未填）</p> : <Markdown text={s.text} sources={c.sources} />}
         </section>
       ))}
 
@@ -113,6 +106,19 @@ export function CardDetail({ card: c, index, byId, onOpen, onTag, onTopic, onPla
         <LinkList title="連結到" ids={c.links.filter((id) => !causal.has(id))} byId={byId} onOpen={onOpen} />
         <LinkList title="被誰引用" ids={c.backlinks.filter((id) => !causal.has(id))} byId={byId} onOpen={onOpen} />
       </section>
+
+      {/* 通俗作者怎麼說（李彔、哈拉瑞）放在後段：框架提醒、相關卡片之後，來源之前 */}
+      {c.sections.filter((s) => s.role === 'lens' && s.text && s.sub && directLens(s).length > 0).map((s) => (
+        <section key={s.code} className="cd-sec">
+          <h3><span className="code">{s.code}</span>{s.title}<span className={`lvl lvl-${s.level}`}>{LEVEL[s.level]}</span></h3>
+          <div className="lens">
+            <p className="lens-status">⚠ 這是通俗作者的看法，不是史學界共識；摘要來自公開的二手資料，未逐字對照原書</p>
+            {directLens(s).map(([k, t]) => (
+              <div key={k} className="lens-col"><h4>{k}</h4><Markdown text={t} sources={c.sources} /></div>
+            ))}
+          </div>
+        </section>
+      ))}
 
       <section className="cd-sec">
         <h3>來源（{c.sources.length}）</h3>

@@ -177,6 +177,8 @@ export interface Index {
   itinere: boolean;
   econ: Econ; chains: Chain[]; today: Today;
   histories: History[]; units: Unit[]; storylines: Storyline[]; dives?: Dive[];
+  /** 首頁「講得深的、還沒有的」：名單在 data/coverage.yaml，數字 build 時依實際資料算 */
+  coverage?: Coverage;
   // 地圖名稱中英對照（data/labels/names-en.yaml）
   names?: { en: Record<string, string>; zh: Record<string, string> };
   /** 長內文載入進度（src/lib/detail.ts）：單張卡／單元的小檔到了就記在這裡；match＝結構對照要掃的內文到了。各次 setIndex 之間共用同一個物件 */
@@ -188,8 +190,11 @@ export interface Index {
 }
 
 /** public/home.json：學習首頁與清單頁（故事線、深入專題、主題標籤）畫得出來、點得動所需的最小資料，不含任何一張卡片。scripts/build-index.ts 產生 */
+export interface CoverageItem { label: string; units: number; cards: number; dives?: number }
+export interface Coverage { title: string; note: string; totals: { units: number; cards: number; dives: number; storylines: number }; deep: CoverageItem[]; gaps: CoverageItem[] }
 export interface HomeData {
   generated: string;
+  coverage?: Coverage;
   histories: History[];
   units: (Pick<Unit, 'id' | 'title' | 'histories' | 'mystery' | 'minutes' | 'minutes_must' | 'minutes_all' | 'level' | 'curriculum'> & { nsteps: number })[];
   storylines: { id: string; title: string; question: string; read: StoryRead | null; stops: string[]; level?: LessonLevel; curriculum?: string[] }[];

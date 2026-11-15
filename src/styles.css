@@ -73,7 +73,7 @@ a { color: var(--accent); }
 .axis text { font-size: 12px; fill: #3f3b35; font-weight: 500; pointer-events: none; }
 .tick { stroke: #e9e4d9; } .tick.major { stroke: #d8d1c2; }
 .lane { fill: transparent; }
-.lane-west { fill: transparent; } .lane-china { fill: #faf3ea; }
+.lane-ea { fill: transparent; } .lane-eu { fill: #faf3ea; } .lane-other { fill: #f6f3ec; }
 .lane-dive-0 { fill: transparent; } .lane-dive-1 { fill: #faf3ea; }
 .lane-bar { fill: var(--dive, #7b2d26); }
 .lane-label { font-size: 13px; fill: #3f3b35; font-weight: 600; paint-order: stroke; stroke: #fffdf8; stroke-width: 4px; pointer-events: none; }
@@ -192,7 +192,7 @@ a { color: var(--accent); }
   .card-detail h2 { font-size: 20px; }
 }
 
-/* 第 2 期：中西對照 */
+/* 第 2 期：同時代對照（原「中西對照」） */
 .timeline .node.rel rect { stroke: #e53e3e; stroke-width: 2; opacity: 1; }
 .timeline .node.rel text { font-weight: 700; }
 /* 點了一張卡後，沒被點到的卡：色條變淡，但名稱保持深灰（ZL 2026-11-03：要看得清楚） */

@@ -1,13 +1,13 @@
-// 中西對照：本卡指向另一條軌道的卡（含一句「哪裡相似、哪裡不同」），以及別人把本卡列為對照的卡
+// 同時代對照（原「中西對照」）：本卡指向另一個地區的卡（含一句「哪裡相似、哪裡不同」），以及別人把本卡列為對照的卡
 import type { Card } from '../types';
 import { Markdown } from '../lib/markdown';
+import { regionOf, REGION_LABEL } from '../lib/lane';
 import { fmtRange, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 
 export function Counterparts({ card: c, byId, onOpen }: { card: Card; byId: Map<string, Card>; onOpen: (id: string) => void }) {
-  const side = c.track === 'china' ? '西方' : '中國';
   return (
     <section className="cd-sec counterparts">
-      <h3>中西對照<span className="muted small">（另一邊結構相似的卡）</span></h3>
+      <h3>同時代對照<span className="muted small">（另一個地區、結構相似的卡）</span></h3>
       {c.counterparts.length === 0 && !c.counterparts_none && c.counterpart_of.length === 0 && <p className="muted">（未填）</p>}
       {c.counterparts_none && <p className="muted">{c.counterparts_none}</p>}
       {c.counterparts.map((x) => {
@@ -16,7 +16,7 @@ export function Counterparts({ card: c, byId, onOpen }: { card: Card; byId: Map<
         return (
           <div key={x.id} className="cp-item">
             <button className="result" onClick={() => onOpen(t.id)}>
-              <span className="r-type" style={{ color: TYPE_COLOR[t.type] }}>{TYPE_ICON[t.type]} {side}・{t.typeLabel}</span>
+              <span className="r-type" style={{ color: TYPE_COLOR[t.type] }}>{TYPE_ICON[t.type]} {REGION_LABEL[regionOf(t)]}・{t.typeLabel}</span>
               <span className="r-name">{t.name}</span>
               <span className="r-time">{fmtRange(t.time.start, t.time.end)}</span>
             </button>

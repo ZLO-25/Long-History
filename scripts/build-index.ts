@@ -17,7 +17,7 @@ import { buildEdges, type Edge } from './lib/causes.ts';
 import { loadStorylines, buildStorylines } from './lib/storylines.ts';
 import { loadStories, checkStories, buildStory } from './lib/stories.ts';
 import { storyPlaces, buildStoryMap, worldLand110 } from './lib/storyMap.ts';
-import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits, loadCurriculum } from './lib/learn.ts';
+import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits, loadCurriculum, compileUnit } from './lib/learn.ts';
 import { loadDives, buildDives, copyPowerMaps } from './lib/dives.ts';
 import { unitMinutes } from './lib/unit-minutes.ts';
 import { buildCoverage } from './lib/coverage.ts';
@@ -203,7 +203,7 @@ const index = {
     return { ...l, read: storyMeta.get(l.id) ?? null, ...(raw?.level ? { level: raw.level } : {}), ...(raw?.curriculum?.length ? { curriculum: raw.curriculum } : {}) };
   }),
   // 預估時間（minutes_must／minutes_all／step_min）由字數自動算；原 minutes 欄位保留（手填值，沒用到）
-  units: loadUnits().map((u) => u.unit).filter((u) => DEV || u.crosscheck?.result === '通過').map((u) => ({ ...u, ...unitMinutes(u, (id) => cards.find((c: any) => c.id === id)) })),
+  units: loadUnits().map((u) => u.unit).filter((u) => DEV || u.crosscheck?.result === '通過').map((u) => compileUnit(u, cards)).map((u) => ({ ...u, ...unitMinutes(u, (id) => cards.find((c: any) => c.id === id)) })),
   // 深入專題：把一段時代的卡片、人物、故事線、勢力圖聚在一起（docs/dives.md）
   dives: buildDives(dives, cards),
   names: loadNameTable(),
@@ -274,6 +274,8 @@ const coreUnits = (index.units as any[]).map((u) => {
     if (s.type === 'card' && s.quick?.length) o.nq = s.quick.length;
     if (s.type === 'source' && s.critique) o.critique = true;
     if (s.type === 'chain' && s.followup) o.followup = true;
+    if (s.type === 'sources2') { o.a = { card: s.a?.card }; o.b = { card: s.b?.card }; if (s.open) o.open = true; }
+    if (s.type === 'mapq' || s.type === 'transfer') { if (s.card) o.card = s.card; }
     return o;
   }) };
 });

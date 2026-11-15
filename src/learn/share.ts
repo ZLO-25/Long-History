@@ -45,7 +45,7 @@ export interface Payload {
   /** 回顧的字 */ rc?: string;
   /** 作答（level.ts 檔頭定義的鍵）；回到自己 reflect 預設不放 */ a: Record<string, unknown>;
 }
-const KEEP = /^(r:|w:|qk\d|g\d|dp\d|d\d|s\d|cs\d|c\d+_\d)/;
+const KEEP = /^(r:|w:|qk\d|g\d|dp\d|d\d|s\d|cs\d|c\d+_\d|xo\d|t\d)/;
 
 export function buildPayload(u: Pick<Unit, 'id' | 'title' | 'steps'>, p: UnitProgress | undefined, who: Profile | undefined, opt: { reflect: boolean }): Payload {
   const a: Record<string, unknown> = {};

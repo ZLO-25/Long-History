@@ -23,6 +23,8 @@ export interface DiveDef {
   legacy?: LegacyDef;
   /** 對照表：引用 data/dives/compare/<名稱>.yaml（docs/dives.md 第十節） */
   compare?: string[];
+  /** 總結任務：走完專題所有課之後的長寫作題（docs/learn-units.md 最後一節） */
+  capstone?: { question: string; points: string[]; model_answer?: string; min?: number };
 }
 export interface CompareDef {
   id: string; title: string;
@@ -198,6 +200,16 @@ export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawC
     if (d.book) checkBook(d.book, byId, err, warn, unitIds);
     if (d.legacy) checkLegacy(d.legacy, byId, new Set(ids), err, warn);
     for (const n of d.compare ?? []) checkCompare(n, allDiveIds, byId, err, warn);
+    if (d.capstone !== undefined) {
+      const c = d.capstone as any;
+      if (!c || typeof c.question !== 'string' || !c.question.trim()) err('capstone 需要 question');
+      if (!Array.isArray(c?.points) || c.points.length < 2 || c.points.length > 6 || c.points.some((x: any) => typeof x !== 'string' || !x.trim())) err('capstone.points 要 2–6 個重點（每個一句話）');
+      if (c?.model_answer !== undefined && (typeof c.model_answer !== 'string' || !c.model_answer.trim())) err('capstone.model_answer 要是一段文字');
+      if (c?.min !== undefined && (!Number.isInteger(c.min) || c.min < 20 || c.min > 400)) err('capstone.min 要是 20–400 的整數（字數）');
+      if (!(d.units ?? []).length) err('capstone 要搭配 units（沒有課就沒有「走完」可言）');
+      const bad = Object.keys(c ?? {}).filter((k) => !['question', 'points', 'model_answer', 'min'].includes(k));
+      if (bad.length) err(`capstone 出現不認得的鍵「${bad.join('」「')}」`);
+    }
     if (d.curves) checkCurves(d.curves, byId, d.range, err, warn);
     if (d.visual === 'curve' && !d.curves) err('visual: curve 要寫 curves（曲線資料）');
     if (d.focus_year != null && (typeof d.focus_year !== 'number' || (d.range && (d.focus_year < d.range.start || d.focus_year > d.range.end)))) err('focus_year 要是專題年代內的年份');
@@ -226,6 +238,7 @@ export function buildDives(dives: { file: string; dive: DiveDef }[], cards: { id
     // 今日影子：只隨專題資料輸出（不進 home.json）；指到還不存在的卡的條目先略過
     legacy: d.legacy ? { title: d.legacy.title ?? '今日影子', items: (d.legacy.items ?? []).filter((x) => has.has(x.card)), sources: d.legacy.sources ?? [] } : null,
     // 對照表：只隨專題資料輸出；指到還不存在的卡的欄位先略過卡片連結（文字照留）
+    capstone: d.capstone ? { question: d.capstone.question, points: d.capstone.points, model_answer: d.capstone.model_answer ?? '', min: d.capstone.min ?? 60 } : null,
     compare: (d.compare ?? []).map((n) => loadCompare(n)).filter((c): c is CompareDef => !!c).map((c) => ({
       id: c.id, title: c.title, left: c.left, right: c.right, sources: c.sources ?? [],
       rows: (c.rows ?? []).map((r) => ({ aspect: r.aspect, left: r.left, right: r.right, left_card: r.left_card && has.has(r.left_card) ? r.left_card : null, right_card: r.right_card && has.has(r.right_card) ? r.right_card : null, src: r.src })),

@@ -24,6 +24,10 @@ const UNIT_SHAPES: Record<string, string[]> = {
   'guess': ['q', 'options', 'reveal'],
   'critique': ['question', 'options', 'answer', 'explain', 'why_wrong'],
   'followup': ['question', 'options', 'answer', 'explain', 'why_wrong'],
+  'a': ['card', 'idx', 'text', 'from'],
+  'b': ['card', 'idx', 'text', 'from'],
+  'open': ['question', 'points', 'model_answer'],
+  'places': ['key', 'card', 'lat', 'lng', 'label', 'hint'],
 };
 
 const HINT = '值裡有逗號（例如千分位 2,000）時請整個值加雙引號，否則會被切斷';

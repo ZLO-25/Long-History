@@ -2,3 +2,4 @@
 export { MyMap } from './MyMap';
 export { LearnRecord } from './LearnRecord';
 export { SimView } from './sims/SimView';
+export { Capstone } from './Capstone';

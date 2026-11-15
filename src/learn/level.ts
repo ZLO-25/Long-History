@@ -5,6 +5,11 @@
 //   w:<題> = { seen?, skip?, pts?: (boolean|null)[], more?: string }  開放題：看過參考說法、按了「我真的想不出來」、points 自評、補寫的一句
 //          <題>：s{步}＝觀點比較／今日對照（文字存在 s{步}）、cs{步}_{題}＝自我檢查簡答（文字存在 cs{步}_{題}）、recap＝回顧（文字存在 prog.recap）
 //   qk{步}_{j} = 'right'|'half'|'wrong'  card.quick 自評；g{步} = 猜猜看選的選項；dp{步} = 決策選的選項（原本的第幾個）
+// 第 4f 批新步驟（2026-11-15）：都算「互動有作答」，不算「自我檢查」（只有 check 步驟的選擇／排序題才會影響「學會」）
+//   r:m{步} = 看地圖回答（mapq；p 是選的 places 第幾個）　r:x{步} = 兩份史料對讀的選擇題（sources2）　r:im{步} = 圖像史料（image）　以上同 r: 的形狀（f／l／n／p）
+//   xo{步} = 兩份史料對讀的開放題文字（有 open 才有），w:xo{步} = 它的 meta；t{步} = 遷移題（transfer）文字，w:t{步} = 它的 meta（meta 形狀同 w:）
+// 專題總結任務（在 Progress 最上層，不在 UnitProgress）：Progress.capstone[<專題 id>] = { text, pts?: (boolean|null)[], seen?, skip?, more?, at?: 'YYYY-MM-DD' }
+//   text＝寫的內容；pts＝逐條自評；seen＝看過重點與參考說法；skip＝按了「我真的想不出來」；at＝最後修改日（備份合併時取較新的）
 // 間隔複習（review.ts）：Progress.review[`<課id>:<題鍵>`] = { s: 答對幾次複習(0–3，4＝畢業), due: 'YYYY-MM-DD', last?: 上次複習日, ok: 上次是否答對 }；Progress.reviewDays = 做過複習的日期；UnitProgress.rv = 1 表示這一課已排進複習。
 //   複習與段考的對錯只寫 review，不動上面的 r:／w:／qk 紀錄（不影響「學會」等級）。
 // 舊鍵：s{步}（史料選的選項數字／簡答文字）、c{步}_{題}（自我檢查第一次是否答對 true/false）、d{步}（決策自己寫的想法）仍照舊寫入。
@@ -46,6 +51,13 @@ export function reqOf(u: Pick<Unit, 'steps'>): Req[] {
         else out.push({ key: `c${i}_${j}`, kind: 'rec', step: i, grade: true, legacy: `c${i}_${j}`, what: '自我檢查' });
       }); break;
       case 'recap': out.push({ key: 'recap', kind: 'open', step: i, textKey: 'recap', what: '回顧' }); break;
+      case 'mapq': out.push({ key: `m${i}`, kind: 'rec', step: i, what: '看地圖回答' }); break;
+      case 'sources2':
+        out.push({ key: `x${i}`, kind: 'rec', step: i, what: '兩份史料對讀' });
+        if (s.open) out.push({ key: `xo${i}`, kind: 'open', step: i, textKey: `xo${i}`, what: '兩份史料對讀（寫一寫）' });
+        break;
+      case 'image': out.push({ key: `im${i}`, kind: 'rec', step: i, what: '圖像史料' }); break;
+      case 'transfer': out.push({ key: `t${i}`, kind: 'open', step: i, textKey: `t${i}`, what: '換個案例試試' }); break;
     }
   });
   return out;
@@ -116,13 +128,17 @@ export const levelText = (l: Level) => `${LEVELS[l].icon} ${LEVELS[l].name}`;
 /** 走過的步驟：新進度存 seen；舊進度沒有 seen，視為 0..step-1 都走過 */
 export const seenSet = (p: UnitProgress | undefined): Set<number> => new Set(p?.seen ?? Array.from({ length: Math.max(0, p?.step ?? 0) }, (_, i) => i));
 
-/** 自己寫的文字回答（觀點比較、今日對照、自我檢查簡答、回顧；reflect 另外放） */
+/** 自己寫的文字回答（觀點比較、今日對照、自我檢查簡答、兩份史料的開放題、遷移題、回顧；reflect 另外放） */
 export function writingsOf(u: Pick<Unit, 'steps' | 'mystery'>, p: UnitProgress | undefined) {
   const A = (p?.answers ?? {}) as Ans;
   const out: { label: string; text: string; more?: string }[] = [];
   (u.steps as any[]).forEach((s, i) => {
     const v = A[`s${i}`];
     if ((s.type === 'compare' || s.type === 'today') && typeof v === 'string' && v.trim()) out.push({ label: `第 ${i + 1} 步・${s.question ?? ''}`, text: v.trim(), more: A[`w:s${i}`]?.more?.trim() || undefined });
+    if ((s.type === 'sources2' && s.open) || s.type === 'transfer') {
+      const k = s.type === 'transfer' ? `t${i}` : `xo${i}`, v = A[k];
+      if (typeof v === 'string' && v.trim()) out.push({ label: `第 ${i + 1} 步・${s.type === 'transfer' ? `換個案例試試・${s.question}` : `兩份史料對讀・${s.open?.question ?? ''}`}`, text: v.trim(), more: A[`w:${k}`]?.more?.trim() || undefined });
+    }
     if (s.type === 'check') (s.items ?? []).forEach((q: any, j: number) => {
       const t = A[`cs${i}_${j}`];
       if (q.kind === 'short' && typeof t === 'string' && t.trim()) out.push({ label: `第 ${i + 1} 步・自我檢查第 ${j + 1} 題・${q.q ?? ''}`, text: t.trim(), more: A[`w:cs${i}_${j}`]?.more?.trim() || undefined });

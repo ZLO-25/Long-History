@@ -1,0 +1,50 @@
+/* 第 4f 批新互動（2026-11-15）：看地圖回答、兩份史料對讀、圖像史料、換個案例試試、專題總結任務 */
+
+/* 兩份史料並排（手機上下排） */
+.s2-pair { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 8px 0; }
+@media (min-width: 760px) { .s2-pair { grid-template-columns: 1fr 1fr; align-items: start; } }
+.s2-src { margin: 0; position: relative; }
+.s2-src .s2-tag { display: inline-block; font-size: 13px; font-weight: 700; color: #fff; background: #2b6cb0; border-radius: 6px; padding: 1px 8px; margin-bottom: 4px; }
+.s2-src:nth-child(2) .s2-tag { background: #b7791f; }
+.s2-src blockquote { margin: 4px 0; }
+
+/* 圖像史料 */
+.im-step { margin: 8px 0; }
+.im-look { margin: 8px 0; padding: 8px 12px; background: #f7fafc; border: 1px solid var(--line, #cbd5e0); border-radius: 8px; }
+.im-look p { margin: 0 0 4px; }
+.im-look ul { margin: 0; padding-left: 1.2em; }
+.im-look li { line-height: 1.7; }
+
+/* 換個案例試試 */
+.transfer { margin: 6px 0; }
+.tr-title { margin: 4px 0; }
+.tr-case { margin: 8px 0; padding: 10px 14px; border-left: 4px solid #805ad5; background: #faf5ff; border-radius: 0 8px 8px 0; line-height: 1.75; }
+.tr-case .tr-tag { display: block; font-size: 13px; font-weight: 700; color: #6b46c1; margin-bottom: 2px; }
+
+/* 專題總結任務 */
+.dv-capstone { border: 2px solid var(--dive, #2b6cb0); border-radius: 12px; padding: 10px 14px; background: #fff; }
+.dv-capstone.locked { border-style: dashed; background: #f7fafc; }
+.dv-capstone h3 .cap-sub { font-weight: 400; font-size: 13px; color: #4a5568; }
+.cap-q { font-weight: 700; line-height: 1.7; margin: 6px 0; }
+.cap-text { width: 100%; box-sizing: border-box; font: inherit; font-size: 15px; line-height: 1.7; padding: 8px 10px; border: 1px solid var(--line, #cbd5e0); border-radius: 8px; min-height: 9em; }
+.cap-count, .cap-note { font-size: 13px; color: #4a5568; margin: 4px 0; }
+.cap-model { margin-top: 10px; }
+.cap-model .points li { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; justify-content: space-between; }
+.cap-ref { margin: 8px 0; }
+.cap-ref summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; }
+.cap-actions { margin-top: 8px; }
+.cap-actions .btn, .dv-capstone .row .btn { min-height: 40px; }
+.cap-sheet { display: none; }
+
+/* 紙本：看地圖回答的示意圖、圖像史料 */
+.ws-plot { display: block; width: 340px; max-width: 100%; height: auto; margin: 6px 0; }
+.ws-fig { margin: 6px 0; }
+.ws-img { display: block; max-width: 100%; max-height: 9cm; width: auto; height: auto; }
+.ws-fig figcaption { font-size: 12px; color: #333; line-height: 1.5; }
+
+@media print {
+  /* 專題總結任務的列印：只印 .cap-sheet（掛在 body 底下），其餘畫面全部藏起來 */
+  body.print-capstone #root { display: none !important; }
+  body.print-capstone .cap-sheet { display: block; color: #000; background: #fff; padding: 0; font-size: 14px; line-height: 1.8; }
+  body.print-capstone .cap-sheet .cap-sheet-text { white-space: pre-wrap; border: 1px solid #555; padding: 8px; min-height: 8cm; }
+}

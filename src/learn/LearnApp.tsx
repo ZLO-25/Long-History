@@ -19,7 +19,7 @@ import { useProgress } from './progress';
 import { scheduleUnit } from './review';
 import { ensureCards, ensureUnits, cardLoaded, unitLoaded, coreReady } from '../lib/detail';
 import { historyOf, inHistory, learnCards } from './util';
-import { PeoplePanel, MapView, HistoriesPage, LessonsPage, CurriculumPage, UnitMeta, StorylineView, StorylineIndex, DiveView, DiveIndex, UnitPlayer, LearnCard, HistoryPage, LearnTimeline, MyMap, LearnRecord, SimView, preload, TL_H } from '../chunks';
+import { PeoplePanel, MapView, HistoriesPage, LessonsPage, CurriculumPage, UnitMeta, StorylineView, StorylineIndex, DiveView, DiveIndex, UnitPlayer, LearnCard, HistoryPage, LearnTimeline, MyMap, LearnRecord, SimView, Capstone, preload, TL_H } from '../chunks';
 import { CoreWait, DetailWait, NotFound, Skel } from '../ui';
 import { LearnExtra, type ExtraView } from './Extra';
 import './learn.css';
@@ -306,7 +306,8 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onStory={openStory} onMap={isMobile ? () => setTab('map') : undefined} />;
       case 'stories': return <StorylineIndex index={index} onStory={openStory} onTopics={() => push({ kind: 'topics' })} onDives={(index.dives ?? []).length ? () => push({ kind: 'dives' }) : undefined} />;
       case 'dive': return <DiveView key={view.id} index={index} id={view.id} year={year} setYear={setYear} currentId={lastCard} powerYear={powerYear} setPowerYear={setPowerYear}
-        onOpen={(id) => openCard(id)} onStory={openStory} onAll={() => push({ kind: 'dives' })} onUnit={openUnit} canOpen={(c) => !!c.learn} researchHref={researchHref} onMap={isMobile ? () => setTab('map') : undefined} learn />;
+        onOpen={(id) => openCard(id)} onStory={openStory} onAll={() => push({ kind: 'dives' })} onUnit={openUnit} canOpen={(c) => !!c.learn} researchHref={researchHref} onMap={isMobile ? () => setTab('map') : undefined} learn
+        renderCapstone={(dv) => <Capstone dive={dv} index={index} p={p} update={update} onUnit={openUnit} />} />;
       case 'dives': return <DiveIndex index={index} onDive={openDive} />;
       case 'peoples': return <PeoplePanel id={view.id} onPick={openPeople} onCard={openCard} />;
     }
@@ -315,7 +316,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   // 長內文（src/lib/detail.ts）：只有卡片（那一張）、單元（那一個＋它用到的卡）、學習紀錄（寫過回答的單元，要顯示題目）真的用到；
   // 首頁、史、主題、故事線、專題、模擬、我的地圖、人群用的都是 index.json 裡就有的欄位，不必等。
   // 要用的小檔在頁面打開時抓（通常在滑鼠移上去時就開始了），到了才顯示，之前顯示「載入卡片內容…」
-  const recordUnits = index.units.filter((u) => Object.entries(p.units[u.id]?.answers ?? {}).some(([k, v]) => /^(s|cs)\d+(_\d+)?$/.test(k) && typeof v === 'string' && v.trim())).map((u) => u.id);
+  const recordUnits = index.units.filter((u) => Object.entries(p.units[u.id]?.answers ?? {}).some(([k, v]) => /^(s|cs|xo|t)\d+(_\d+)?$/.test(k) && typeof v === 'string' && v.trim())).map((u) => u.id);
   const recordKey = recordUnits.join();
   useEffect(() => {
     if (view.kind === 'card') ensureCards([view.id]);

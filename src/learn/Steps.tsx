@@ -86,7 +86,7 @@ export function Choice({ q, options, answer, explain, hints, after, whyWrong, re
       </div>
       {!done && wrongs.length === 0 && <Hints hints={hints} />}
       {!done && wrongs.length > 0 && (
-        <div className="feedback no" aria-live="polite">
+        <div className="feedback no" role="status" aria-live="polite">
           <b>✘ 不太對。</b>
           {why && <p>{why}</p>}
           <p>先不公布答案，再想一想，換一個選項試試。下面有提示，也可以回到卡片找線索。</p>
@@ -95,7 +95,7 @@ export function Choice({ q, options, answer, explain, hints, after, whyWrong, re
         </div>
       )}
       {done && (
-        <div className={`feedback ${done === 'ok' ? 'ok' : 'no'}`} aria-live="polite">
+        <div className={`feedback ${done === 'ok' ? 'ok' : 'no'}`} role="status" aria-live="polite">
           <b>{done === 'ok' ? (wrongs.length ? '✔ 這次答對了！' : '✔ 答對了！') : `✘ 不太對。正確答案是 ${letter(answer)}。`}</b>
           {done === 'rev' && why && <p>{why}</p>}
           <p>{explain}</p>{after}

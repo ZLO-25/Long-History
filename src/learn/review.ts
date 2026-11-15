@@ -35,6 +35,10 @@ export interface RQ {
   explain: string;
   /** 史料題：要先顯示的那段史料（卡片 id＋第幾段） */
   card?: string; idx?: number;
+  /** 兩份史料對讀：兩段要先顯示的史料（建置時已補好 text／from） */
+  quotes?: { text: string; from: string }[];
+  /** 圖像史料：要先顯示的圖片（卡片 id＋第幾張） */
+  image?: { card: string; idx: number };
 }
 /** 這一課所有可以自動對答案的題（要完整的單元：steps 有內容）。順序依步驟 */
 export function questionsOf(u: Pick<Unit, 'steps'>): RQ[] {
@@ -49,6 +53,17 @@ export function questionsOf(u: Pick<Unit, 'steps'>): RQ[] {
       case 'chain':
         out.push({ key: `o${i}`, step: i, kind: 'order', what: '因果鏈', q: s.prompt, items: s.items, explain: s.explain });
         if (s.followup && typeof s.followup === 'object') out.push({ key: `o${i}f`, step: i, kind: 'choice', what: '因果鏈追問', q: s.followup.question, options: s.followup.options, answer: s.followup.answer, explain: s.followup.explain, whyWrong: s.followup.why_wrong });
+        break;
+      // 第 4f 批新步驟的選擇題（開放題不自動對答案，不進複習）。mapq 離開地圖就沒辦法看點，所以只有每個點都寫了 hint（方位描述）才進複習，選項顯示 hint
+      case 'mapq':
+        if (Array.isArray(s.places) && s.places.length > 1 && s.places.every((p: any) => typeof p.hint === 'string' && p.hint.trim()))
+          out.push({ key: `m${i}`, step: i, kind: 'choice', what: '看地圖回答', q: s.question, options: s.places.map((p: any) => p.hint), answer: s.answer, explain: s.explain, whyWrong: s.why_wrong });
+        break;
+      case 'sources2':
+        if (Array.isArray(s.options)) out.push({ key: `x${i}`, step: i, kind: 'choice', what: '兩份史料對讀', q: s.question, options: s.options, answer: s.answer, explain: s.explain, whyWrong: s.why_wrong, quotes: [s.a, s.b].filter((x) => x?.text).map((x) => ({ text: x.text, from: x.from })) });
+        break;
+      case 'image':
+        if (Array.isArray(s.options)) out.push({ key: `im${i}`, step: i, kind: 'choice', what: '圖像史料', q: s.question, options: s.options, answer: s.answer, explain: s.explain, whyWrong: s.why_wrong, image: { card: s.card, idx: s.idx ?? 0 } });
         break;
       case 'check': (s.items ?? []).forEach((x: any, j: number) => {
         if (x.kind === 'choice') out.push({ key: `c${i}_${j}`, step: i, kind: 'choice', what: '自我檢查', q: x.q, options: x.options, answer: x.answer, explain: x.explain, whyWrong: x.why_wrong });

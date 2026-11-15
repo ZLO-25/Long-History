@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 // 不另開網站、不改卡片格式：所有卡仍是普通卡片，專題只是把它們聚在一起（docs/dives.md）。
 import type { Card, Dive, Index, PowerMap, PowerUi } from '../types';
 import { cardEn } from '../lib/bilingual';
-import { findDive, DEFAULT_POWER_UI, hasPowerVisual, diveRoutes, diveMarks, diveYear, prehistDive, powerFor, diveStat, byIdOf as _byIdOf } from '../lib/dive';
+import { cleanNote, findDive, DEFAULT_POWER_UI, hasPowerVisual, diveRoutes, diveMarks, diveYear, prehistDive, powerFor, diveStat, byIdOf as _byIdOf } from '../lib/dive';
 import { DiveEntries } from './DiveEntries';
 import { fmtRange, fmtYear, TYPE_COLOR, TYPE_ICON } from '../lib/format';
 import './dive.css';
@@ -28,9 +28,11 @@ interface ViewProps {
   learn?: boolean;
   /** 畫面上真的有放大到這段年代的時間軸（只有研究模式桌機版有）才會寫「時間軸已放大」 */
   timelineZoomed?: boolean;
+  /** 學習模式：專題的總結任務（有 capstone 才會呼叫；進度在學習模式那邊） */
+  renderCapstone?: (d: Dive) => import('react').ReactNode;
 }
 
-export function DiveView({ index, id, year, setYear, currentId, powerYear, setPowerYear, onOpen, onStory, onAll, unitHref, onUnit, onMap, canOpen, researchHref, learn, timelineZoomed }: ViewProps) {
+export function DiveView({ index, id, year, setYear, currentId, powerYear, setPowerYear, onOpen, onStory, onAll, unitHref, onUnit, onMap, canOpen, researchHref, learn, timelineZoomed, renderCapstone }: ViewProps) {
   // 從專題點進卡片再按「返回」時，專題頁會重新掛載：打開的站和捲動位置記在 sessionStorage，回來時還原
   const posKey = `dive-pos-${id}${learn ? '-learn' : ''}`;
   const saved = (() => { try { return JSON.parse(sessionStorage.getItem(posKey) ?? 'null') as { ch: number | null; scroll: number } | null; } catch { return null; } })();
@@ -111,11 +113,11 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       {power && lg && (
         <div className="dv-power-info">
           <b>{power.title}</b>
-          <p className="small">{power.note}</p>
+          <p className="small">{cleanNote(power.note)}</p>
           <ul className="dv-legend">{lg.head.map(legendLi)}</ul>
           {lg.more.length > 0 && <details className="small dv-more"><summary>其餘 {lg.more.length} 個較小的區塊</summary><ul className="dv-legend">{lg.more.map(legendLi)}</ul></details>}
           <details className="small"><summary>這張圖怎麼畫的、根據什麼</summary>
-            {ui.caveat && <p className="muted">{ui.caveat}</p>}
+            {ui.caveat && <p className="muted">{cleanNote(ui.caveat)}</p>}
             <ol className="sources">{power.sources.map((s, i) => <li key={i}><a href={s.url} target="_blank" rel="noreferrer">{s.title}</a><span className="muted small">（查閱 {s.accessed}）</span></li>)}</ol>
           </details>
         </div>
@@ -146,15 +148,15 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       ))}
     </section>
   );
-  const anchors: [string, string, boolean][] = [['dv-read', learn ? '課' : '照順序讀', !!readSec], ['dv-legacy', d.legacy?.title ?? '今日影子', !!legacySec], ['dv-compare', d.compare?.[0]?.title ?? '對照表', !!compareSec], ['dv-power', d.curves && d.visual === 'curve' ? d.curves.title : ui.title, !!(powerSec || curveSec)], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true]];
+  const anchors: [string, string, boolean][] = [['dv-read', learn ? '課' : '照順序讀', !!readSec], ['dv-legacy', d.legacy?.title ?? '今日影子', !!legacySec], ['dv-compare', d.compare?.[0]?.title ?? '對照表', !!compareSec], ['dv-power', d.curves && d.visual === 'curve' ? d.curves.title : ui.title, !!(powerSec || curveSec)], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true], ['dv-capstone', '總結任務', !!(d.capstone && renderCapstone)]];
   const bookAnchors: [string, string, boolean][] = d.book ? [['dv-deep', '深時間軸', true], ['dv-book', `照書讀 ${d.book.chapters.length} 站`, true]] : [];
-  const ordered = [...bookAnchors, ...(learn || d.book ? anchors : [anchors[3], anchors[4], anchors[5], anchors[0], anchors[1], anchors[2]])];
+  const ordered = [...bookAnchors, ...(learn || d.book ? anchors : [anchors[3], anchors[4], anchors[5], anchors[0], anchors[1], anchors[2], anchors[6]])];
   return (
     <div className="dive-view" ref={rootRef}>
       <nav className="dv-crumb" aria-label="麵包屑"><button className="link" onClick={onAll}>深入專題</button> <span aria-hidden>›</span> <span>{d.title}</span></nav>
       <h2>{d.title}</h2>
       <p className="dv-q">❓ {d.question}</p>
-      {d.blurb && <p className="dv-blurb">{d.blurb}</p>}
+      {d.blurb && <p className="dv-blurb">{cleanNote(d.blurb)}</p>}
       <p className="muted small">{fmtRange(d.range.start, d.range.end)}・{events.length} 張卡{persons.length > 0 && `、${persons.length} 位人物`}{d.range.start < -800 ? '・年代太長，大時間軸放不下，看下面的深時間軸' : timelineZoomed ? '・時間軸已放大到這段年代' : ''}{onMap && <>・<button className="link" onClick={onMap}>在地圖上看</button></>}</p>
       <nav className="dv-anchors" aria-label="深入專題頁內導覽">{ordered.filter((x) => x[2]).map(([k, label]) => <button key={k} className="chip" onClick={() => goto(k)}>{label}</button>)}</nav>
       {d.book && (
@@ -166,6 +168,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       {d.book && <BookView dive={d} book={d.book} byId={m} cardBtn={(c) => cardBtn(c, marks.get(c.name))} open={openCh} setOpen={setOpenCh} unitBtn={(uid) => { const i = unitList.findIndex((u) => u.id === uid); return i >= 0 ? unitBtn(unitList[i], i) : null; }} />}
 
       {learn || d.book ? <>{readSec}{legacySec}{compareSec}{powerSec}{curveSec}{personSec}{cardSec}</> : <>{powerSec}{curveSec}{personSec}{cardSec}{readSec}{legacySec}{compareSec}</>}
+      {d.capstone && renderCapstone?.(d)}
       <p className="dv-note muted small">深入專題只是把這段時代的卡片聚在一起放大看；每張卡仍然在整條長河、地圖和#標籤裡，可以隨時跳出去比較別的時代。</p>
     </div>
   );

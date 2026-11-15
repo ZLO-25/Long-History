@@ -29,3 +29,7 @@ export function unitScore(u: Unit, answers: Record<string, unknown> | undefined)
     if (typeof v === 'boolean') { answered++; if (v) right++; } }); });
   return { total, right, answered };
 }
+
+/** 畫面上的預估時間：建置時依字數算的「必讀」分鐘；舊資料或骨架還沒到時退回手填的 minutes */
+export const mustMin = (u: { minutes: number; minutes_must?: number }) => u.minutes_must ?? u.minutes;
+export const allMin = (u: { minutes: number; minutes_all?: number; minutes_must?: number }) => u.minutes_all ?? mustMin(u);

@@ -103,12 +103,13 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   useEffect(() => { if (selected) setYear(selected.time.start); }, [selected?.id]);
   const fs = p.fontScale ?? 1;
   // 桌機的時間軸可以收起來，讀單元時留更多空間給文字；記在瀏覽器
-  const tlOpen = p.timelineOpen ?? true;
+  // 讀單元時預設收起時間軸，把空間留給文字；使用者自己展開或收起過，就照他的設定
+  const tlOpen = p.timelineOpen ?? view.kind !== 'unit';
   // 文字欄寬、時間軸高可拖曳調整，記在瀏覽器；「⟲ 版面」恢復預設
   // 三個區塊還可以拖曳交換位置、變浮動小窗、彈出新視窗（components/Dock.tsx）
   const dock = useDock('l', L_PANELS, useLayout());
   const tlInC = dock.order[2] === 'tl' && !dock.float.tl && !dock.wins.tl;
-  const toggleTl = () => update((o) => ({ ...o, timelineOpen: !(o.timelineOpen ?? true) }));
+  const toggleTl = () => update((o) => ({ ...o, timelineOpen: !(o.timelineOpen ?? view.kind !== 'unit') }));
   // 字級：手機上用一顆按鈕循環（標準 → 大 → 特大 → 標準）
   const cycleFs = () => update((o) => { const cur = o.fontScale ?? 1; return { ...o, fontScale: cur >= 1.35 ? 1 : cur >= 1.15 ? 1.4 : 1.2 }; });
   const fsLabel = fs >= 1.35 ? '特大' : fs >= 1.15 ? '大' : '標準';
@@ -284,7 +285,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   // 長內文（src/lib/detail.ts）：只有卡片（那一張）、單元（那一個＋它用到的卡）、學習紀錄（寫過回答的單元，要顯示題目）真的用到；
   // 首頁、史、主題、故事線、專題、模擬、我的地圖、人群用的都是 index.json 裡就有的欄位，不必等。
   // 要用的小檔在頁面打開時抓（通常在滑鼠移上去時就開始了），到了才顯示，之前顯示「載入卡片內容…」
-  const recordUnits = index.units.filter((u) => Object.entries(p.units[u.id]?.answers ?? {}).some(([k, v]) => /^s\d+$/.test(k) && typeof v === 'string' && v.trim())).map((u) => u.id);
+  const recordUnits = index.units.filter((u) => Object.entries(p.units[u.id]?.answers ?? {}).some(([k, v]) => /^(s|cs)\d+(_\d+)?$/.test(k) && typeof v === 'string' && v.trim())).map((u) => u.id);
   const recordKey = recordUnits.join();
   useEffect(() => {
     if (view.kind === 'card') ensureCards([view.id]);

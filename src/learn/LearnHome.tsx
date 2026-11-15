@@ -1,7 +1,8 @@
 // 學習模式首頁：選一個「XX史」→ 選一個謎題 → 開始；也可以隨機來一題
 import type { History, Index, Unit } from '../types';
 import type { Progress } from './progress';
-import { learnCards, unitsOf } from './util';
+import { learnCards, mustMin, unitsOf } from './util';
+import { levelText, unitLevel } from './level';
 import { DiveEntries } from '../components/DiveEntries';
 import { intent } from '../lib/detail';
 import { readStoriesLite } from '../lib/storyLite';
@@ -39,7 +40,7 @@ export function LearnHome({ index, p, onHistory, onUnit, onRandom, onIntroSeen, 
           <button className="btn primary" onClick={() => onUnit(resume[0].id)} {...intent('unit', resume[0].id, preload.unit)}>接著做 →</button>
         </section>
       )}
-      {(doneN > 0 || resume) && <p className="muted small">你已完成 {doneN}／{index.units.length} 個單元。{onRecord && <button className="link" onClick={onRecord}>看學習紀錄 →</button>}</p>}
+      {(doneN > 0 || resume) && <p className="muted small">你已走完 {doneN}／{index.units.length} 課{(() => { const c = { mastered: 0, done: 0, walked: 0 }; index.units.forEach((u) => { const l = unitLevel(u, p.units[u.id]); if (l) c[l]++; }); return doneN ? `（${levelText('mastered')} ${c.mastered}、${levelText('done')} ${c.done}、${levelText('walked')} ${c.walked}）` : ''; })()}。{onRecord && <button className="link" onClick={onRecord}>看學習紀錄 →</button>}</p>}
       {!p.seenIntro && (
         <section className="intro">
           <h2>歡迎來到「歷史長河」自主學習模式</h2>
@@ -126,7 +127,7 @@ export function MysteryList({ units, p, onUnit }: { units: Unit[]; p: Progress; 
       {units.map((u) => (
         <button key={u.id} className={`mystery ${p.units[u.id]?.done ? 'done' : ''}`} onClick={() => onUnit(u.id)} {...intent('unit', u.id, preload.unit)}>
           <span className="q">❓ {u.mystery}</span>
-          <span className="meta">{u.title}・約 {u.minutes} 分鐘{p.units[u.id]?.done ? '・🏅 已完成' : p.units[u.id]?.step ? `・進行到第 ${(p.units[u.id]!.step ?? 0) + 1} 步` : ''}</span>
+          <span className="meta">{u.title}・必讀約 {mustMin(u)} 分鐘{p.units[u.id]?.done ? `・${levelText(unitLevel(u, p.units[u.id]) ?? 'walked')}` : p.units[u.id]?.step ? `・進行到第 ${(p.units[u.id]!.step ?? 0) + 1} 步` : ''}</span>
         </button>
       ))}
     </div>

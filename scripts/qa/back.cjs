@@ -43,6 +43,9 @@ const { chromium } = require('playwright');
   let topicStep = -1;
   for (let i = 1; i < nDots; i++) {
     await p.locator('.pdot').nth(i).click(); await p.waitForTimeout(150);
+    // 2026-11：單元內的卡片把主題標籤收在「想看更多：相關主題」裡，要先展開
+    const more = p.locator('.unit .lc-more .chip', { hasText: '相關主題' });
+    if (await more.count()) { await more.first().click(); await p.waitForTimeout(100); }
     if (await p.locator('.unit .chip.topic').count()) { topicStep = i; break; }
   }
   ok(topicStep > 0, `單元第 ${topicStep + 1} 步有主題標籤`);

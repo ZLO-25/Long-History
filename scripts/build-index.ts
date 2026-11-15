@@ -19,6 +19,7 @@ import { loadStories, checkStories, buildStory } from './lib/stories.ts';
 import { storyPlaces, buildStoryMap, worldLand110 } from './lib/storyMap.ts';
 import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits } from './lib/learn.ts';
 import { loadDives, buildDives, copyPowerMaps } from './lib/dives.ts';
+import { unitMinutes } from './lib/unit-minutes.ts';
 
 const get = (o: any, k: string) => k.split('.').reduce((a, p) => (a == null ? a : a[p]), o);
 const present = (v: any) => (Array.isArray(v) ? v.length > 0 : v !== undefined && v !== null && v !== '');
@@ -197,7 +198,8 @@ const index = {
   today: buildToday(loadToday(), routes),
   histories,
   storylines: buildStorylines(loadStorylines(), edges, cards).map((l) => ({ ...l, read: storyMeta.get(l.id) ?? null })),
-  units: loadUnits().map((u) => u.unit).filter((u) => DEV || u.crosscheck?.result === '通過'),
+  // 預估時間（minutes_must／minutes_all／step_min）由字數自動算；原 minutes 欄位保留（手填值，沒用到）
+  units: loadUnits().map((u) => u.unit).filter((u) => DEV || u.crosscheck?.result === '通過').map((u) => ({ ...u, ...unitMinutes(u, (id) => cards.find((c: any) => c.id === id)) })),
   // 深入專題：把一段時代的卡片、人物、故事線、勢力圖聚在一起（docs/dives.md）
   dives: buildDives(dives, cards),
   names: loadNameTable(),
@@ -261,6 +263,11 @@ const coreUnits = (index.units as any[]).map((u) => {
     const o: any = {};
     for (const k of STEP_CORE) if (s[k] !== undefined) o[k] = s[k];
     if (s.type === 'check') o.items = (s.items ?? []).map((q: any) => ({ kind: q.kind }));
+    // 新欄位的骨架：首頁、紀錄算「做完／學會」要知道這一步有幾個要作答的互動（完整內容在單元小檔）
+    if (s.type === 'hook' && s.guess) o.guess = true;
+    if (s.type === 'card' && s.quick?.length) o.nq = s.quick.length;
+    if (s.type === 'source' && s.critique) o.critique = true;
+    if (s.type === 'chain' && s.followup) o.followup = true;
     return o;
   }) };
 });
@@ -275,7 +282,7 @@ fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...in
   const homeData = {
     generated: index.generated,
     histories: (index.histories as any[]).map((h) => ({ ...h, n: cards.filter((c: any) => c.learn && (h.all || c.learn.histories.includes(h.id))).length })),
-    units: (index.units as any[]).map((u) => ({ id: u.id, title: u.title, histories: u.histories, mystery: u.mystery, minutes: u.minutes, nsteps: u.steps.length })),
+    units: (index.units as any[]).map((u) => ({ id: u.id, title: u.title, histories: u.histories, mystery: u.mystery, minutes: u.minutes, minutes_must: u.minutes_must, minutes_all: u.minutes_all, nsteps: u.steps.length })),
     storylines: (index.storylines as any[]).map((s) => ({ id: s.id, title: s.title, question: s.question, read: s.read ?? null, stops: s.stops.map((x: any) => x.id) })),
     dives: (index.dives as any[]).map((d) => {
       const persons = d.cards.filter((id: string) => cards.find((c: any) => c.id === id)?.type === 'person').length;

@@ -82,25 +82,31 @@ export interface History {
   /** 只有 home.json 有：這個史的學習卡張數（首頁在 index.json 還沒到時顯示用，之後改由卡片算） */
   n?: number;
 }
+/** 第二問（source.critique、chain.followup）：一般選擇題 */
+export interface Mcq { question: string; options: string[]; answer: number; explain: string; why_wrong?: (string | null)[] }
 export type Step =
-  | { type: 'hook'; text: string }
-  | { type: 'card'; id: string; depth: 'story' | 'understand' | 'deep'; prompt?: string }
-  | { type: 'source'; card: string; idx?: number; question: string; options: string[]; answer: number; explain: string; hints: string[]; ref?: string }
-  | { type: 'chain'; prompt: string; items: string[]; explain: string; hints: string[]; ref?: string }
-  | { type: 'compare'; cards: [string, string]; prompt?: string; rows: { aspect: string; a: string; b: string }[]; question: string; model_answer: string; hints: string[] }
+  /** guess：先猜猜看（沒有對錯，回顧時對照）。skeleton（index.json）裡 guess 只是 true */
+  | { type: 'hook'; text: string; guess?: { q: string; options: string[]; reveal: string } | true }
+  /** focus：要展開的段落代號（story／sources／debate／terms 或卡片段落代號）；quick：讀完後的小題。skeleton 裡 quick 換成 nq（題數） */
+  | { type: 'card'; id: string; depth: 'story' | 'understand' | 'deep'; prompt?: string; focus?: string[]; quick?: { q: string; a: string }[]; nq?: number }
+  | { type: 'source'; card: string; idx?: number; question: string; options: string[]; answer: number; explain: string; hints: string[]; ref?: string; why_wrong?: (string | null)[]; critique?: Mcq | true }
+  | { type: 'chain'; prompt: string; items: string[]; explain: string; hints: string[]; ref?: string; followup?: Mcq | true }
+  | { type: 'compare'; cards: [string, string]; prompt?: string; rows: { aspect: string; a: string; b: string }[]; question: string; model_answer: string; hints: string[]; points?: string[] }
   | { type: 'decision'; role: string; situation: string; options: { label: string; result: string }[]; actual: string; ref: string; note?: string }
-  | { type: 'today'; card: string; question: string; model_answer: string }
+  | { type: 'today'; card: string; question: string; model_answer: string; points?: string[] }
   | { type: 'sim'; sim: 'debase' | 'bankrun' | 'bubble'; prompt?: string }
   /** 看人群圖層的一頁（'Taiwan'、'about'、'migrations'、'mig-<id>'、國名）：資料有自己的來源（data/peoples/） */
   | { type: 'peoples'; id: string; prompt: string }
   | { type: 'check'; items: CheckItem[] }
-  | { type: 'recap'; model_answer: string };
+  | { type: 'recap'; model_answer: string; points?: string[] };
 export interface CheckItem {
   kind: 'choice' | 'order' | 'short'; q: string; options?: string[]; answer?: number; items?: string[]; model?: string;
-  explain: string; hints: string[]; ref?: string;
+  explain: string; hints: string[]; ref?: string; why_wrong?: (string | null)[]; points?: string[];
 }
 export interface Unit {
   id: string; title: string; histories: string[]; mystery: string; goals: string[]; minutes: number;
+  /** 建置時依字數算的預估分鐘（五分鐘為單位）：必讀／全部讀完；step_min＝每一步必讀的分鐘（算上下半段用） */
+  minutes_must?: number; minutes_all?: number; step_min?: number[];
   steps: Step[]; next: string[]; teaser?: string;
   /** 只有 home.json 有：步驟數（骨架單元的 steps 是空的；首頁「第 n／N 步」用） */
   nsteps?: number;
@@ -180,7 +186,7 @@ export interface Index {
 export interface HomeData {
   generated: string;
   histories: History[];
-  units: (Pick<Unit, 'id' | 'title' | 'histories' | 'mystery' | 'minutes'> & { nsteps: number })[];
+  units: (Pick<Unit, 'id' | 'title' | 'histories' | 'mystery' | 'minutes' | 'minutes_must' | 'minutes_all'> & { nsteps: number })[];
   storylines: { id: string; title: string; question: string; read: StoryRead | null; stops: string[] }[];
   dives: (Pick<Dive, 'id' | 'title' | 'question' | 'range' | 'histories' | 'units' | 'visual' | 'focus_year'> & { power_title?: string; stat: NonNullable<Dive['stat']> })[];
   topicLayers: { name: string; icon: string; topics: { name: string; plain: string; n: number; nl: number }[] }[];

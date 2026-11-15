@@ -3,10 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 import type { Index, Step, Unit } from '../types';
 import { LearnCard } from './LearnCard';
 import { LearnText } from './LearnText';
-import { Choice, CheckQ, CompareTable, Decision, Hints, Order, RefLink, Reflect, Short } from './Steps';
+import { Choice, CheckQ, CompareTable, Decision, Guess, Hints, Order, Quick, RefLink, Reflect, Short } from './Steps';
+import { UnitResult } from './UnitResult';
+import { LEVELS, metaOf, recOf, seenSet, unitLevel, type Meta, type Rec } from './level';
 import { SimView } from './sims/SimView';
 import type { UnitProgress } from './progress';
-import { unitHalf } from './util';
+import { allMin, mustMin, unitHalf } from './util';
 import { intent } from '../lib/detail';
 import { PeoplePanel } from '../components/PeoplePanel';
 import { loadPeoples, PEOPLE_ABOUT, PEOPLE_INTRO, PEOPLE_MIGS, MIG_PREFIX, type Peoples } from '../lib/peoples';
@@ -46,12 +48,20 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
   const n = u.steps.length, half = unitHalf(u), long = n >= 8;
   // 中場休息：做完上半段的最後一步按「下一步」，先停在休息畫面（不是一定要休息，可以直接繼續）
   const [brk, setBrk] = useState(false);
+  const [showResult, setShowResult] = useState(false); // 按「完成這個單元」後換成結果畫面
+  // 走過的步驟（進度條的綠點）：離開哪一步就記哪一步；「直接做下半段」不會把上半段算成走過
+  const leave = () => [...new Set([...seenSet(prog), ...(step >= 0 && !brk ? [step] : [])])];
+  const jump = (to: number) => { setBrk(false); setShowResult(false); setProg({ step: to, seen: leave() }); };
   const go = (to: number) => {
-    if (long && step === half - 1 && to === half && !brk) { setBrk(true); setProg({ step: half, halfBreak: true }); top.current?.scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
-    setBrk(false); setProg({ step: to }); top.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    if (long && step === half - 1 && to === half && !brk) { setBrk(true); setProg({ step: half, halfBreak: true, seen: leave() }); top.current?.scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
+    jump(to); top.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
   const partOf = (i: number) => (!long ? '' : i < half ? '上半' : '下半');
-  const mins = (a: number, b: number) => Math.max(5, Math.round((u.minutes * (b - a)) / n / 5) * 5);
+  // 上下半段的分鐘：建置時算好每一步的必讀分鐘（step_min），這裡加起來四捨五入到 5 分鐘；沒有就按步數比例
+  const mins = (a: number, b: number) => {
+    const sm = u.step_min && u.step_min.length === n ? u.step_min.slice(a, b).reduce((x, y) => x + y, 0) : (mustMin(u) * (b - a)) / n;
+    return Math.max(5, Math.round(sm / 5) * 5);
+  };
   const s = step >= 0 ? u.steps[step] : null;
   const byId = (id: string) => index.cards.find((c) => c.id === id);
   // 讓地圖與時間軸跟著目前這一步的卡片走
@@ -73,11 +83,14 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
   useEffect(() => { if (hasPeoples) loadPeoples().then(setPData).catch(() => {}); }, [hasPeoples]);
   const stepName = (x: Step) => (x.type === 'peoples' ? `${STEP_LABEL.peoples}・${peopleTitle(pData, x.id)}` : STEP_LABEL[x.type]);
   const ref = (r?: string) => <RefLink refStr={r} index={index} onCard={onCard} />;
-  const save = (k: string, v: unknown) => setProg({ answers: { ...(prog?.answers ?? {}), [k]: v } });
-  const saveMany = (o: Record<string, unknown>) => setProg({ answers: { ...(prog?.answers ?? {}), ...o } });
-  // 自我檢查的小計：每題答對／答錯／簡答（不評分）
-  const [checkRes, setCheckRes] = useState<Record<number, boolean | null>>({});
-  useEffect(() => setCheckRes({}), [step]);
+  // 只傳要改的鍵，進度（progress.ts setUnit）會和原本的合併
+  const save = (k: string, v: unknown) => setProg({ answers: { [k]: v } });
+  const saveMany = (o: Record<string, unknown>) => setProg({ answers: o });
+  const A = (prog?.answers ?? {}) as Record<string, any>;
+  /** 選擇／排序題做完了（答對，或已公布答案）：第二問、追問才出現 */
+  const finished = (key: string, legacy?: unknown) => { const r = recOf(prog, key); return r ? r.l || r.n >= 2 : typeof legacy === 'number' || typeof legacy === 'boolean'; };
+  const saveRec = (key: string, r: Rec, legacy?: Record<string, unknown>) => saveMany({ [`r:${key}`]: r, ...(legacy ?? {}) });
+  const saveMeta = (key: string, m: Meta) => save(`w:${key}`, m);
   // 鍵盤 ← → 換步（打字中不觸發）
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -104,7 +117,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
         <p className="big-emoji" aria-hidden>☕</p>
         <h3>上半段完成！中場休息</h3>
         <p>你已經做完第 1–{half} 步。進度已經存在這台瀏覽器，現在關掉也沒關係，下次打開這一課會從<b>第 {half + 1} 步（下半段）</b>開始。</p>
-        <p className="muted">下半段：{u.steps.slice(half).map((x) => STEP_LABEL[x.type]).join('、')}・約 {mins(half, n)} 分鐘</p>
+        <p className="muted">下半段：{u.steps.slice(half).map((x) => STEP_LABEL[x.type]).join('、')}・約 {mins(half, n)} 分鐘（必讀）</p>
         <div className="row">
           <button className="btn primary big" onClick={() => setBrk(false)}>繼續下半段 →</button>
           {onHome && <button className="btn big" onClick={onHome}>先休息，回學習首頁</button>}
@@ -117,17 +130,17 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
         {u.teaser && <p>{u.teaser}</p>}
         <h3>學完你會</h3>
         <ul>{u.goals.map((g) => <li key={g}>{g}</li>)}</ul>
-        <p className="muted">預估 {u.minutes} 分鐘・{u.steps.length} 步・可以隨時離開，進度會記在這台瀏覽器</p>
+        <p className="muted">必讀約 {mustMin(u)} 分鐘{allMin(u) > mustMin(u) && <>・全部讀完約 {allMin(u)} 分鐘</>}・{u.steps.length} 步・可以隨時離開，進度會記在這台瀏覽器</p>
         <div className="row">
           <button className="btn primary big" onClick={() => go(prog?.step != null && prog.step > 0 ? prog.step : 0)}>{prog?.step != null && prog.step > 0 ? `從第 ${prog.step + 1} 步繼續（${partOf(prog.step) || '接著做'}）` : long ? '開始上半段' : '開始'}</button>
-          {long && !(prog?.step != null && prog.step >= half) && <button className="btn big" onClick={() => { setBrk(false); setProg({ step: half }); }}>直接做下半段</button>}
+          {long && !(prog?.step != null && prog.step >= half) && <button className="btn big" onClick={() => { setBrk(false); setProg({ step: half, seen: [...seenSet(prog)] }); }}>直接做下半段</button>}
         </div>
         <details className="unit-outline"><summary>看全部 {u.steps.length} 步</summary>
         {(long ? [[0, half], [half, n]] : [[0, n]]).map(([a, b], k) => (
           <div key={k} className="half-block">
-            {long && <h4>{k === 0 ? '上半' : '下半'}：第 {a + 1}–{b} 步・約 {mins(a, b)} 分鐘</h4>}
+            {long && <h4>{k === 0 ? '上半' : '下半'}：第 {a + 1}–{b} 步・必讀約 {mins(a, b)} 分鐘</h4>}
             <ol className="step-outline" start={a + 1} aria-label={long ? `${k === 0 ? '上半' : '下半'}的步驟` : '這一課的步驟'}>
-              {u.steps.slice(a, b).map((x, i) => <li key={i} className={prog?.step != null && a + i < prog.step ? 'done' : ''}>{a + i + 1}. {stepName(x)}</li>)}
+              {u.steps.slice(a, b).map((x, i) => <li key={i} className={seenSet(prog).has(a + i) ? 'done' : ''}>{a + i + 1}. {stepName(x)}</li>)}
             </ol>
           </div>
         ))}
@@ -136,33 +149,46 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
       </div>
     );
     switch (s.type) {
-      case 'hook': return <div className="hook-step"><LearnText text={s.text} sources={[]} /></div>;
+      case 'hook': return <div className="hook-step"><LearnText text={s.text} sources={[]} />
+        {s.guess && typeof s.guess === 'object' && <Guess q={s.guess.q} options={s.guess.options} saved={A[`g${step}`]} onPick={(i) => save(`g${step}`, i)} />}</div>;
       case 'card': {
         const c = byId(s.id);
-        return c?.learn ? <>{s.prompt && <p className="prompt">👉 {s.prompt}</p>}<LearnCard key={c.id} card={c} index={index} history={null} onOpen={(id) => onCard(id)} onTopic={onTopic} topicCount={topicCount} onStory={onStory} onUnit={onUnit} hereUnit={u.id} compact /></> : <p>找不到卡片 {s.id}</p>;
+        return c?.learn ? <>{s.prompt && <p className="prompt">👉 {s.prompt}</p>}<LearnCard key={c.id} card={c} index={index} history={null} onOpen={(id) => onCard(id)} onTopic={onTopic} topicCount={topicCount} onStory={onStory} onUnit={onUnit} hereUnit={u.id} compact unitMode={{ focus: s.focus }} />
+          {s.quick && s.quick.length > 0 && <Quick key={`q${step}`} items={s.quick} saved={s.quick.map((_, j) => A[`qk${step}_${j}`] as string | undefined)} onRate={(j, v) => save(`qk${step}_${j}`, v)} />}</> : <p>找不到卡片 {s.id}</p>;
       }
       case 'source': {
         const c = byId(s.card)!;
         const p = c.learn!.primary_source[s.idx ?? 0];
         return <>
           <figure className="primary big"><blockquote>{p.text}</blockquote><figcaption>— {p.from}</figcaption></figure>
-          <Choice key={step} q={s.question} options={s.options} answer={s.answer} explain={s.explain} hints={s.hints} after={ref(s.ref)}
-            saved={prog?.answers?.[`s${step}`] as number | undefined} onDone={(v) => save(`s${step}`, v)} />
+          <Choice key={step} q={s.question} options={s.options} answer={s.answer} explain={s.explain} hints={s.hints} after={ref(s.ref)} whyWrong={s.why_wrong}
+            rec={recOf(prog, `s${step}`)} legacyPick={typeof A[`s${step}`] === 'number' ? A[`s${step}`] : undefined}
+            onRec={(r) => saveRec(`s${step}`, r, { [`s${step}`]: r.p })} />
+          {typeof s.critique === 'object' && finished(`s${step}`, A[`s${step}`]) && (
+            <div className="critique"><p className="muted small">第二問：讀史料，不只問「說了什麼」，還要問「誰說的、為什麼這樣說」。</p>
+              <Choice key={`${step}k`} q={s.critique.question} options={s.critique.options} answer={s.critique.answer} explain={s.critique.explain} hints={[]} after={ref(s.ref)} whyWrong={s.critique.why_wrong}
+                rec={recOf(prog, `s${step}k`)} onRec={(r) => saveRec(`s${step}k`, r)} /></div>)}
           <p className="muted small">讀史料先問三件事：誰寫的？什麼時候寫的？他為什麼這樣寫？</p>
         </>;
       }
-      case 'chain': return <Order key={step} prompt={s.prompt} items={s.items} explain={s.explain} hints={s.hints} seed={`${u.id}-${step}`} after={ref(s.ref)} />;
+      case 'chain': return <>
+        <Order key={step} prompt={s.prompt} items={s.items} explain={s.explain} hints={s.hints} seed={`${u.id}-${step}`} after={ref(s.ref)} rec={recOf(prog, `o${step}`)} onRec={(r) => saveRec(`o${step}`, r)} />
+        {typeof s.followup === 'object' && finished(`o${step}`) && (
+          <div className="critique"><p className="muted small">再想一步：</p>
+            <Choice key={`${step}f`} q={s.followup.question} options={s.followup.options} answer={s.followup.answer} explain={s.followup.explain} hints={[]} after={ref(s.ref)} whyWrong={s.followup.why_wrong}
+              rec={recOf(prog, `o${step}f`)} onRec={(r) => saveRec(`o${step}f`, r)} /></div>)}
+      </>;
       case 'compare': {
         const [a, b] = s.cards.map(byId);
         return <>
           {s.prompt && <p className="prompt">{s.prompt}</p>}
           {a && b && <CompareTable a={a} b={b} rows={s.rows} />}
           <div className="chips">{[a, b].map((c) => c && <button key={c.id} className="chip" onClick={() => onCard(c.id)}>📖 {c.name}</button>)}</div>
-          <Short key={step} q={s.question} model={s.model_answer} hints={s.hints} saved={prog?.answers?.[`s${step}`] as string | undefined} onSave={(t) => save(`s${step}`, t)} />
+          <Short key={step} q={s.question} model={s.model_answer} hints={s.hints} saved={A[`s${step}`]} onSave={(t) => save(`s${step}`, t)} points={s.points} meta={metaOf(prog, `s${step}`)} onMeta={(m) => saveMeta(`s${step}`, m)} />
         </>;
       }
       case 'decision': return <Decision key={step} role={s.role} situation={s.situation} options={s.options} seed={`${u.id}-${step}`} actual={s.actual} note={s.note} after={ref(s.ref)}
-        saved={prog?.answers?.[`d${step}`] as string | undefined} onSave={(t) => save(`d${step}`, t)} />;
+        saved={A[`d${step}`]} onSave={(t) => save(`d${step}`, t)} onPick={(i) => save(`dp${step}`, i)} />;
       case 'today': {
         const c = byId(s.card)!;
         const hook = c.sections.find((x) => x.role === 'today_hook'), no = c.sections.find((x) => x.role === 'non_analogous');
@@ -171,7 +197,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
             <div><h4>像的地方</h4><LearnText text={hook?.text ?? ''} sources={c.sources} /></div>
             <div className="not"><h4>不能直接類比的地方</h4><LearnText text={no?.text ?? ''} sources={c.sources} /></div>
           </div></div>
-          <Short key={step} q={s.question} model={s.model_answer} saved={prog?.answers?.[`s${step}`] as string | undefined} onSave={(t) => save(`s${step}`, t)} />
+          <Short key={step} q={s.question} model={s.model_answer} saved={A[`s${step}`]} onSave={(t) => save(`s${step}`, t)} points={s.points} meta={metaOf(prog, `s${step}`)} onMeta={(m) => saveMeta(`s${step}`, m)} />
         </>;
       }
       case 'sim': return <>{s.prompt && <p className="prompt">{s.prompt}</p>}<SimView id={s.sim} index={index} onCard={onCard} /></>;
@@ -182,21 +208,38 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
         <div className="unit-peoples" ref={pBox} tabIndex={0} role="region" aria-label="人群圖層這一頁的內容（可捲動）"><PeoplePanel id={pPage ?? s.id} onPick={(id) => setPPage(id)} onCard={(id) => onCardRaw(id)} /></div>
       </>;
       case 'check': {
-        const graded = s.items.map((_, i) => checkRes[i]).filter((v) => typeof v === 'boolean');
-        const right = graded.filter(Boolean).length, nGrade = s.items.filter((q) => q.kind !== 'short').length;
+        // 小計直接由進度算：選擇與排序題「最近一次」答對幾題（簡答不評分）
+        const nGrade = s.items.filter((q) => q.kind !== 'short').length;
+        const res = s.items.map((q, i) => { if (q.kind === 'short') return undefined; const r = recOf(prog, `c${step}_${i}`); return r ? (r.l || r.n >= 2 ? r.l : undefined) : typeof A[`c${step}_${i}`] === 'boolean' ? A[`c${step}_${i}`] as boolean : undefined; });
+        const graded = res.filter((v) => typeof v === 'boolean') as boolean[];
+        const right = graded.filter(Boolean).length;
         return <>
-          <p className="check-tally" aria-live="polite">{graded.length ? <>選擇與排序題：答對 <b>{right}</b>／{nGrade}（已作答 {graded.length}）{graded.length === nGrade && (right === nGrade ? '・全對，太強了 🎉' : '・答錯的題目下面有「回到卡片看」，看完再試一次')}</> : `共 ${s.items.length} 題，答完每一題都會馬上有解析。`}</p>
-          <div className="checks-list">{s.items.map((q, i) => <CheckQ key={`${step}-${i}`} q={q} i={i} seed={`${u.id}-${step}`} index={index} onCard={onCard} onResult={(ok) => { setCheckRes((r) => (r[i] === ok ? r : { ...r, [i]: ok })); if (typeof ok === 'boolean' && typeof prog?.answers?.[`c${step}_${i}`] !== 'boolean') saveMany({ [`c${step}_${i}`]: ok }); }} />)}</div>
+          <p className="check-tally" aria-live="polite">{graded.length ? <>選擇與排序題：答對 <b>{right}</b>／{nGrade}（已作答 {graded.length}）{graded.length === nGrade && (right === nGrade ? '・全對，太強了 🎉' : '・答錯的題目下面有「回到卡片看」，看完再試一次')}</> : `共 ${s.items.length} 題，第一次答錯會先給提示，第二次才公布答案。`}</p>
+          <div className="checks-list">{s.items.map((q, i) => { const key = `c${step}_${i}`; return <CheckQ key={`${step}-${i}`} q={q} i={i} seed={`${u.id}-${step}`} index={index} onCard={onCard}
+            rec={recOf(prog, key)} onRec={(r) => saveRec(key, r, { [key]: r.f })}
+            saved={A[`cs${step}_${i}`]} onSave={(t) => save(`cs${step}_${i}`, t)} meta={metaOf(prog, `cs${step}_${i}`)} onMeta={(m) => saveMeta(`cs${step}_${i}`, m)} />; })}</div>
         </>;
       }
-      case 'recap': return (
+      case 'recap': {
+        const hookI = u.steps.findIndex((x) => x.type === 'hook' && typeof x.guess === 'object');
+        const gs = hookI >= 0 ? (u.steps[hookI] as Extract<Step, { type: 'hook' }>).guess : null;
+        const gPick = hookI >= 0 ? A[`g${hookI}`] : undefined;
+        if (showResult && prog?.done) return <UnitResult u={u} prog={prog} index={index} stepName={stepName} onGo={jump} onUnit={onUnit} onBack={() => setShowResult(false)}
+          nextLesson={nextLesson} diveTitle={dive?.title} lessonNo={lessonNo} lessonCount={lessons.length} />;
+        return (
         <div className="recap">
           <p className="mystery-big">❓ {u.mystery}</p>
+          {gs && typeof gs === 'object' && (
+            <div className="guess-back">
+              <p>{typeof gPick === 'number' ? <>你一開始猜的是：<b>{gs.options[gPick]}</b></> : '你一開始沒有猜。'}</p>
+              <p><b>歷史上的答案：</b>{gs.reveal}</p>
+              <p className="muted small">和你猜的一樣嗎？不一樣的話，是哪一步讓你改變想法？</p>
+            </div>)}
           <Short key={step} q="現在，用你自己的話回答一開始的謎題：" model={s.model_answer} label="寫好了，看參考說法"
-            saved={prog?.recap} onSave={(t) => setProg({ recap: t })} />
+            saved={prog?.recap} onSave={(t) => setProg({ recap: t })} points={s.points} meta={metaOf(prog, 'recap')} onMeta={(m) => saveMeta('recap', m)} />
           <Reflect key={`r${step}`} q={u.reflect} saved={prog?.answers?.reflect as string | undefined} onSave={(t) => save('reflect', t)} />
-          {!prog?.done ? <button className="btn primary big" onClick={() => setProg({ done: true, doneAt: new Date().toISOString().slice(0, 10) })}>完成這個單元 🏅</button>
-            : <p className="badge-earned">🏅 你完成了「{u.title}」！它已經點亮在「我的歷史地圖」上。</p>}
+          {!prog?.done ? <button className="btn primary big" onClick={() => { setProg({ done: true, doneAt: new Date().toISOString().slice(0, 10), seen: leave() }); setShowResult(true); top.current?.scrollIntoView({ block: 'start' }); }}>完成這個單元 🏅</button>
+            : <p className="badge-earned">{LEVELS[unitLevel(u, prog) ?? 'walked'].icon} 你完成了「{u.title}」（{LEVELS[unitLevel(u, prog) ?? 'walked'].name}）！它已經點亮在「我的歷史地圖」上。<button className="btn sm" onClick={() => setShowResult(true)}>看這一課的結果</button></p>}
           {nextLesson && dive && <p className="ud-recap-next"><b>{dive.title}專題</b>的下一課：<button className="btn primary" onClick={() => onUnit(nextLesson.id)} {...intent('unit', nextLesson.id)}>第 {lessonNo + 2}／{lessons.length} 課《{nextLesson.title}》 →</button></p>}
           <h3>接下來可以挖</h3>
           <div className="next-units">
@@ -205,7 +248,8 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
             ))}
           </div>
         </div>
-      );
+        );
+      }
     }
   })();
 
@@ -219,7 +263,7 @@ export function UnitPlayer({ unit: u, index, prog, setProg, onCard: onCardRaw, o
         )}
         <div className="unit-title-row"><h2>{u.title}</h2><button className="btn sm" onClick={copyLink} title="複製這一課的連結，可以傳給同學或老師">{copied ? '✓ 已複製' : '🔗 複製連結'}</button></div>
         {step >= 0 && <div className="progress" aria-label={`第 ${step + 1} 步，共 ${u.steps.length} 步`}>
-          {u.steps.map((x, i) => <button key={i} className={`pdot ${i < step || (brk && i < half) ? 'done' : ''} ${i === step && !brk ? 'on' : ''} ${long && i === half ? 'half-start' : ''}`} title={`${i + 1}. ${stepName(x)}${long ? `（${partOf(i)}）` : ''}`} onClick={() => { setBrk(false); setProg({ step: i }); }} />)}
+          {u.steps.map((x, i) => <button key={i} className={`pdot ${seenSet(prog).has(i) && !(i === step && !brk) ? 'done' : ''} ${i === step && !brk ? 'on' : ''} ${long && i === half ? 'half-start' : ''}`} title={`${i + 1}. ${stepName(x)}${long ? `（${partOf(i)}）` : ''}`} onClick={() => jump(i)} />)}
         </div>}
         {s && !brk && <p className="step-label">{long && <span className="part-tag">{partOf(step)}</span>}第 {step + 1}／{u.steps.length} 步・{stepName(s)}{step < u.steps.length - 1 && <span className="muted">・下一步：{stepName(u.steps[step + 1])}</span>}</p>}
       </div>

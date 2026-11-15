@@ -14,14 +14,14 @@ export function DiveEntries({ index, history, onDive, className }: { index: Inde
       {list.map((d) => {
         const st = diveStat(d, m), persons = st.persons;
         const us = d.units.map((uid) => (index.units ?? []).find((x) => x.id === uid)).filter((u): u is NonNullable<typeof u> => !!u);
-        const mins = us.reduce((a, u) => a + u.minutes, 0);
+        const mins = us.reduce((a, u) => a + (u.minutes_must ?? u.minutes), 0);
         return (
           <li key={d.id}>
             <button className="di-item" onClick={() => onDive(d.id)}>
               <span className="di-tag">深入專題</span>
               <span className="di-title">{d.title}</span>
               <span className="di-q">❓ {d.question}</span>
-              <span className="di-meta muted small">{fmtRange(d.range.start, d.range.end)}・{us.length ? `${us.length} 課・約 ${mins} 分鐘・` : ''}{st.cards - persons} 張卡{persons > 0 ? `、${persons} 位人物` : ''} →</span>
+              <span className="di-meta muted small">{fmtRange(d.range.start, d.range.end)}・{us.length ? `${us.length} 課・必讀約 ${mins} 分鐘・` : ''}{st.cards - persons} 張卡{persons > 0 ? `、${persons} 位人物` : ''} →</span>
             </button>
           </li>
         );

@@ -21,10 +21,13 @@ interface Props {
   onTopic?: (name: string) => void; topicCount?: (t: { cards: string[] }) => number;
   /** 這張卡在哪些單元／故事線（上一站、下一站）；hereUnit＝正在讀的單元，不重複列 */
   onStory?: (id: string) => void; onUnit?: (id: string) => void; hereUnit?: string; onDive?: (id: string) => void;
+  /** 在單元裡讀：只展開「故事＋focus 段落」，其餘收成「想看更多」，不放會離開單元的跳站鈕與標籤。從單元外開卡片不傳這個＝完整顯示 */
+  unitMode?: { focus?: string[] };
 }
 
-export function LearnCard({ card: c, index, history, onOpen, onHistory, compact, onTopic, topicCount, onStory, onUnit, hereUnit, onDive }: Props) {
+export function LearnCard({ card: c, index, history, onOpen, onHistory, compact, onTopic, topicCount, onStory, onUnit, hereUnit, onDive, unitMode }: Props) {
   const [term, setTerm] = useState<Term | null>(null);
+  const [more, setMore] = useState<Set<string>>(() => new Set()); // 單元裡「想看更多」展開了哪些（不記）
   const L = c.learn!;
   // 從哪個史看：預設是目前選的史（如果這張卡屬於它）
   const views = L.histories.map((id) => index.histories.find((h) => h.id === id)).filter((h): h is History => !!h && !h.all && !h.theme);
@@ -50,6 +53,63 @@ export function LearnCard({ card: c, index, history, onOpen, onHistory, compact,
   const mobile = useIsMobile();
   const pathNav = onStory && <PathNav card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} onUnit={onUnit} onStory={onStory} hereUnit={hereUnit} onDive={onDive} />;
   const causes = <CauseList card={c} side="causes" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />;
+  if (unitMode) {
+    // ---- 單元裡的卡片：必讀（故事＋focus）直接展開，其他收成一排「想看更多」 ----
+    // focus 寫雙軌解讀段落的代號（如 C8）時，畫面上對應的是「思想家怎麼看」
+    const focus = (unitMode.focus ?? []).map((k) => (lens && k === lens.code ? 'thinkers' : k));
+    type Part = { key: string; label: string; node: React.ReactNode };
+    const parts: Part[] = [];
+    const add = (key: string, label: string, node: React.ReactNode) => parts.push({ key, label, node });
+    if (L.primary_source.length) add('sources', '📜 史料', <>{L.primary_source.map((p, i) => (
+      <figure key={i} className="primary"><blockquote>{p.text}</blockquote><figcaption>— {p.from} <SourceList ids={[].concat(p.src as any)} sources={c.sources} /></figcaption></figure>))}</>);
+    for (const s of c.sections) {
+      if (!s.text || s.role === 'lens' || s.role === 'today_hook' || s.role === 'non_analogous') continue;
+      add(s.code, s.title, <section className="lc-sec"><h3>{s.title}</h3>{T(s.text)}</section>);
+    }
+    if (L.money_scale) add('money', '💰 換算成工作天', <section className="lc-sec money"><h3>💰 換算成工作天</h3>{T(L.money_scale)}</section>);
+    add('debate', '⚖ 史家怎麼吵', <section className="lc-sec debate"><h3>⚖ 史家怎麼吵</h3>{T(L.historiography)}</section>);
+    if (L.exaggerated) add('exaggerated', '⚠ 可能被誇大', <section className="lc-sec warn"><h3>⚠ 這個故事可能被誇大了</h3>{T(L.exaggerated)}</section>);
+    if (isFin && L.hindsight) add('hindsight', '🔍 事後看很清楚的陷阱', <section className="lc-sec warn"><h3>🔍 事後看很清楚的陷阱</h3>{T(L.hindsight)}<p className="muted small">本站內容是歷史學習，不構成投資建議。</p></section>);
+    if (thinkers.length) add('thinkers', '思想家怎麼看', <section className="lc-sec thinkers"><p className="muted small">他們不是歷史學家，以下只收他們直接談到的話，依公開演講與書摘整理，未對照原書。</p>{thinkers.map(([k, t]) => <div key={k}><h4>{k}</h4>{T(t)}</div>)}</section>);
+    if (today?.text || nonAn?.text) add('today', '今日對照', <section className="lc-sec today-pair"><div className="pair">
+      <div><h4>像的地方</h4>{today?.text ? T(today.text) : <p className="muted">（未填）</p>}</div>
+      <div className="not"><h4>不能直接類比的地方</h4>{nonAn?.text ? T(nonAn.text) : <p className="muted">（未填）</p>}</div></div></section>);
+    if ((L.misconceptions ?? []).length) add('misc', '常見誤解', <section className="lc-sec"><h3>常見誤解</h3>{(L.misconceptions ?? []).map((m, i) => <div key={i}>{T(m)}</div>)}</section>);
+    if (terms.length) add('terms', '名詞小抄', <section className="lc-sec"><h3>名詞小抄</h3><dl className="glossary">{terms.map((t) => <div key={t.term}><dt>{t.term}</dt><dd>{t.plain}<br /><span className="muted">例：{t.example}</span></dd></div>)}</dl></section>);
+    add('causal', '前因後果', <><CauseList card={c} side="causes" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} /><CauseList card={c} side="effects" index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} /></>);
+    if (c.type === 'person') add('person', '人物小檔', <PersonBlock card={c} index={index} onOpen={onOpen} canOpen={learnOk} researchHref={researchHref} compact={compact} />);
+    add('pop', '流行文化', <PopCulture card={c} render={T} />);
+    if (onStory) add('paths', '這張卡在哪些故事裡', <p className="muted small">下面的連結會離開這一課；要回來，按左上角「← 返回」。{pathNav}</p>);
+    if (onTopic) add('topics', '相關主題', <div className="lc-sec"><p className="muted small">點了會離開這一課，可以按「← 返回」回來。</p><TopicChips card={c} index={index} onTopic={onTopic} count={topicCount} /></div>);
+    if (ext.length) add('ext', '延伸（相關，不一定是因果）', <div className="chips">{ext.map((x) => <button key={x.id} className="chip" onClick={() => onOpen(x.id)}>{TYPE_ICON[x.type]} {x.name}</button>)}</div>);
+    add('src', '來源與查核', <div className="lc-sec"><p className="muted small">{L.crosscheck?.result === '通過' ? `✓ 已交叉查核（${L.crosscheck.date}，${L.crosscheck.by}）` : '開發中：尚未查核'}</p>
+      <SourceList ids={[...c.sources].sort(tierOrder).map((x) => x.id)} sources={c.sources} />
+      <p className="muted small">分級：一手＝當時的人留下的；學術＝學者研究；通論＝可靠機構的介紹；百科；摘要＝書摘或講稿整理。</p></div>);
+    const isOpen = (k: string) => focus.includes(k) || more.has(k);
+    // 內容為空的部分（例如 focus 寫了、卡片沒有這一段）自然略過
+    const shown = parts.filter((x) => focus.includes(x.key)), rest = parts.filter((x) => !focus.includes(x.key));
+    return (
+      <article className="lcard compact unit-card">
+        <header className="lc-head" style={{ borderColor: TYPE_COLOR[c.type] }}>
+          <span className="type-badge" style={{ background: TYPE_COLOR[c.type] }}><span aria-hidden>{TYPE_ICON[c.type]}</span> {c.typeLabel}</span>
+          <h2>{c.name}</h2>
+          <div className="lc-meta">{fmtRange(c.time.start, c.time.end)}{c.time.precision !== 'exact' && '（約略）'}・{L.track}
+            {c.verification === '爭議' && <span className="badge dispute" title="不同來源說法不一，內文並列各方說法">有爭議</span>}</div>
+          <p className="why">💡 {L.why_care.replace(/\[s\d+\]/g, '')}</p>
+        </header>
+        <CardImages images={c.images} compact={compact} />
+        <section className="lc-sec story" id={`lc-story-${c.id}`}><h3>📖 故事</h3>{T(L.story)}</section>
+        {shown.map((x) => <div key={x.key} className="lc-focus">{x.node}</div>)}
+        {rest.length > 0 && <div className="lc-more" role="group" aria-label="想看更多">
+          <span className="lc-more-h">想看更多：</span>
+          {rest.map((x) => <button key={x.key} type="button" className={`chip ${more.has(x.key) ? 'on' : ''}`} aria-expanded={more.has(x.key)}
+            onClick={() => setMore((o) => { const n = new Set(o); if (n.has(x.key)) n.delete(x.key); else n.add(x.key); return n; })}>{more.has(x.key) ? '－ ' : '＋ '}{x.label}</button>)}
+        </div>}
+        {rest.filter((x) => isOpen(x.key)).map((x) => <div key={x.key} className="lc-opened">{x.node}</div>)}
+        <TermPop term={term} onClose={() => setTerm(null)} />
+      </article>
+    );
+  }
   return (
     <article className={`lcard ${compact ? 'compact' : ''}`}>
       <header className="lc-head" style={{ borderColor: TYPE_COLOR[c.type] }}>

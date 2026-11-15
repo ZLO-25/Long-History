@@ -74,7 +74,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
   const storyList = d.storylines.map((sid) => (index.storylines ?? []).find((x) => x.id === sid)).filter((x): x is NonNullable<typeof x> => !!x);
   const unitBtn = (u: typeof unitList[number], i: number) => {
     const start = learn && i === 0;
-    const lbl = <>{start && <b className="dv-start">從這裡開始</b>}<span>{unitList.length > 1 && <>第 {i + 1} 課・</>}《{u.title}》</span><small>{u.minutes} 分鐘</small></>;
+    const lbl = <>{start && <b className="dv-start">從這裡開始</b>}<span>{unitList.length > 1 && <>第 {i + 1} 課・</>}《{u.title}》</span><small>必讀約 {u.minutes_must ?? u.minutes} 分鐘</small></>;
     const cls = `dv-story unit ${start ? 'start' : ''}`;
     return onUnit ? <button key={u.id} className={cls} onClick={() => onUnit(u.id)}>{lbl}</button> : unitHref ? <a key={u.id} className={cls} href={unitHref(u.id)}>{lbl}</a> : null;
   };

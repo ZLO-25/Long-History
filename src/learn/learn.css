@@ -276,3 +276,31 @@
 
 /* 單元裡的人群步驟：整頁參考資料放在限高的框裡自己捲，「下一步」按鈕留在看得到的地方（2026-11-11） */
 .unit-peoples { max-height: min(62vh, 640px); overflow: auto; border: 1px solid var(--line, #ddd); border-radius: 8px; padding: 4px 10px; overscroll-behavior: contain; }
+
+/* 2026-11 第 2 批：卡片只展開必讀、小題、先猜猜看、開放題先寫、完成三級 */
+/* 下一步／上一步固定在內容區底部（手機在底部分頁上方；桌機在文字欄底部），背景不透明、不蓋住內容 */
+.unit .step-nav { position: sticky; bottom: 0; z-index: 5; background: var(--panel, #fff); margin: 18px -14px 0; padding: 8px 14px calc(8px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); box-shadow: 0 -4px 10px rgba(0,0,0,.06); }
+.learn.desktop .unit .step-nav { margin: 18px -22px -60px; padding-left: 22px; padding-right: 22px; }
+.unit .step-nav .btn { min-height: 44px; }
+.unit .step-nav .btn.primary { flex: 1; max-width: 70%; }
+.lc-more { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 12px 0 6px; padding: 8px 10px; background: #f7fafc; border: 1px dashed var(--line); border-radius: 10px; }
+.lc-more-h { font-weight: 700; font-size: .92em; color: #2d3748; }
+.lc-more .chip { min-height: 36px; }
+.lc-opened { border-left: 3px solid #cbd5e0; padding-left: 10px; margin: 8px 0; }
+.quick { background: #f0f9ff; border: 1px solid #bee3f8; border-radius: 12px; padding: 4px 12px 10px; margin: 14px 0; }
+.quick h4, .guess h4 { margin: 8px 0 2px; }
+.quick-q { margin: 8px 0; }
+.rate { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; } .rate .btn { min-height: 36px; }
+.guess { background: #fffbea; border: 1px solid #f6e05e; border-radius: 12px; padding: 4px 12px 10px; margin: 14px 0; }
+.guess-back { background: #fffbea; border: 1px solid #f6e05e; border-radius: 10px; padding: 6px 12px; margin: 10px 0; } .guess-back p { margin: 4px 0; }
+.critique { margin-top: 14px; padding-top: 8px; border-top: 1px dashed var(--line); }
+.points ul { list-style: none; padding: 0; margin: 6px 0; }
+.points li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.points li > span:first-child { flex: 1 1 200px; }
+.pt-btns { display: inline-flex; gap: 6px; } .pt-btns .btn { min-height: 36px; }
+.more-line { display: block; margin: 8px 0; } .more-line input { width: 100%; box-sizing: border-box; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font: inherit; }
+.activity .row .link.small { min-height: 36px; }
+.unit-result { text-align: left; } .unit-result .big-emoji { font-size: 44px; margin: 0; text-align: center; } .unit-result h3 { text-align: center; }
+.res-missing, .res-writes { margin: 12px 0; } .res-missing ul { padding-left: 1.2em; } .res-missing .link { min-height: 36px; text-align: left; }
+.unit-result .rec-a p { white-space: pre-wrap; }
+@media (max-width: 768px) { .unit .step-nav .btn.primary { max-width: none; } }

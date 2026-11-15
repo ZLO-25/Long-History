@@ -20,6 +20,10 @@ const CARD_SHAPES: Record<string, string[]> = {
 const UNIT_SHAPES: Record<string, string[]> = {
   'rows': ['aspect', 'a', 'b'],
   'options': ['label', 'result'],
+  'quick': ['q', 'a'],
+  'guess': ['q', 'options', 'reveal'],
+  'critique': ['question', 'options', 'answer', 'explain', 'why_wrong'],
+  'followup': ['question', 'options', 'answer', 'explain', 'why_wrong'],
 };
 
 const HINT = '值裡有逗號（例如千分位 2,000）時請整個值加雙引號，否則會被切斷';

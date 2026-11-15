@@ -28,7 +28,7 @@ causes:
 effects:
   - { id: event-taiwan-cultural-association, rel: 背景, why: 割臺後六三法讓總督可以自己立法，臺灣人沒有議會可參與，後來才有要求設立臺灣議會的請願。, src: [s5, s6, event-taiwan-cultural-association:s2] }
 counterparts:
-  - { id: war-opium-war, note: "相似：都是清朝戰敗後用條約割讓土地給戰勝國，1842 年割香港島、1895 年割臺灣澎湖。不同：香港當時是人口很少的港口，臺灣是幾百萬人的全島，而且臺灣官民自組「民主國」武裝抵抗了半年，日本要靠軍隊一路打到臺南才接收。", src: [s1, s3] }
+  - { id: war-opium-war, note: "相似：都是清朝戰敗後用條約割讓土地給戰勝國，1842 年割香港島、1895 年割臺灣澎湖。不同：香港當時是人口很少的港口，臺灣是幾百萬人的全島，而且臺灣官民自組「民主國」武裝抵抗了約五個月，日本要靠軍隊一路打到臺南才接收。", src: [s1, s3] }
 sources:
   - { id: s1, title: "日清媾和條約（馬關條約）日文原文，1895-04-17，出自《日本外交年表竝主要文書》上卷 — 東京大學東洋文化研究所・政策研究大學院大學「世界と日本」資料庫", url: "https://worldjpn.net/documents/texts/pw/18950417.T1J.html", accessed: 2026-10-26, tier: 一手 }
   - { id: s2, title: "Republic of Formosa — Wikipedia", url: "https://en.wikipedia.org/wiki/Republic_of_Formosa", accessed: 2026-10-26, tier: 百科 }

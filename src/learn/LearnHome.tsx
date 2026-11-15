@@ -9,17 +9,19 @@ import { levelText, unitLevel } from './level';
 import { COVERAGE } from './coverage';
 import { LLink } from './nav';
 import { intent } from '../lib/detail';
+import { homeReview } from './review';
 import { preload } from '../chunks';
 import './home-extra.css';
+import './review.css';
 
 export const HOME_PICKS = 6;
 // 滑鼠移上去／聚焦／手指碰到入口時先載清單頁的程式（點下去通常已經到了）
 const warm = { onPointerEnter: () => { preload.lists(); }, onFocus: () => { preload.lists(); }, onTouchStart: () => { preload.lists(); } };
 const LEVEL_TABS: [LevelPick, string][] = [['all', '全部'], ['國中', '國中'], ['高中', '高中']];
 
-export function LearnHome({ index, p, onUnit, onRandom, onIntroSeen, onRecord, onHistories, onLessons, onStories, onDives, onTopics, onCurriculum }: {
+export function LearnHome({ index, p, onUnit, onRandom, onIntroSeen, onRecord, onHistories, onLessons, onStories, onDives, onTopics, onCurriculum, onReview, onExam }: {
   index: Index; p: Progress; onUnit: (id: string) => void; onRandom: () => void; onIntroSeen: () => void; onRecord?: () => void;
-  onHistories?: () => void; onLessons?: () => void; onStories?: () => void; onDives?: () => void; onTopics?: () => void; onCurriculum?: () => void;
+  onHistories?: () => void; onLessons?: () => void; onStories?: () => void; onDives?: () => void; onTopics?: () => void; onCurriculum?: () => void; onReview?: () => void; onExam?: () => void;
 }) {
   const [pick, setPick] = useState<LevelPick>('all');
   // 上次做到一半的課：依最近活動時間（lastAt）選，同一天再看步數
@@ -28,6 +30,7 @@ export function LearnHome({ index, p, onUnit, onRandom, onIntroSeen, onRecord, o
   const doneN = index.units.filter((u) => p.units[u.id]?.done).length;
   const picks = pickUnits(index.units, (id) => !!p.units[id]?.done, pick, HOME_PICKS);
   const levels = hasLevels(index.units);
+  const rv = homeReview(p); // 只靠 localStorage 的進度算，不需要題目內容
   const nTopics = (index.topicLayers ?? []).reduce((k, l) => k + l.topics.length, 0);
   const nStories = (index.storylines ?? []).length, nDives = (index.dives ?? []).length;
   const nHist = index.histories.filter((h) => index.units.some((u) => u.histories.some((x) => x === h.id || x === h.name)) || (h.n ?? 0) > 0).length;
@@ -53,8 +56,23 @@ export function LearnHome({ index, p, onUnit, onRandom, onIntroSeen, onRecord, o
         </section>
       )}
       {doneN > 0 && <p className="muted small">你已走完 {doneN}／{index.units.length} 課{(() => { const c = { mastered: 0, done: 0, walked: 0 }; index.units.forEach((u) => { const l = unitLevel(u, p.units[u.id]); if (l) c[l]++; }); return `（${levelText('mastered')} ${c.mastered}、${levelText('done')} ${c.done}、${levelText('walked')} ${c.walked}）`; })()}。{onRecord && <button className="link" onClick={onRecord}>看學習紀錄 →</button>}</p>}
-      {/* 「今天的複習」之後放在這裡（另一位同事負責內容） */}
-      <div id="home-review-slot" />
+      <div id="home-review-slot">
+        {onReview && rv.any && (rv.due > 0 || rv.legacy > 0 ? (
+          <section className="home-review" aria-label="今天的 3 分鐘複習">
+            <div><small>🔁 間隔複習</small>
+              <b>{rv.due > 0 ? `今天的 3 分鐘複習：${rv.due} 題` : `有 ${rv.legacy} 課該複習了`}</b>
+              <span className="muted">{rv.doneToday ? `今天已經做了 ${rv.doneToday.n} 題（答對 ${rv.doneToday.right}）。` : ''}{rv.due > 0 && rv.legacy > 0 ? `另外有 ${rv.legacy} 課該複習了。` : '做過的課，隔天、第 3、7、21 天各回來一次。'}</span></div>
+            <div className="resume-act">
+              <button className="btn primary" onClick={onReview}>{rv.doneToday ? '繼續複習 →' : '開始複習 →'}</button>
+              {onExam && <button className="link small" onClick={onExam}>📝 段考複習</button>}
+            </div>
+          </section>
+        ) : rv.doneToday ? (
+          <p className="home-review-done muted small">今天複習完了 ✓（答對 {rv.doneToday.right}／{rv.doneToday.n}）。{onExam && <> <button className="link" onClick={onExam}>📝 段考複習</button></>}</p>
+        ) : (
+          <p className="home-review-done muted small">今天沒有要複習的，明天再來。{onExam && <> <button className="link" onClick={onExam}>📝 段考複習</button></>}</p>
+        ))}
+      </div>
       <section className="home-pick">
         <h2>挑一課開始</h2>
         <div className="seg" role="group" aria-label="年級">

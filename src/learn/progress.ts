@@ -2,10 +2,15 @@
 import { useCallback, useEffect, useState } from 'react';
 
 export interface UnitProgress { step: number; done: boolean; recap?: string; answers?: Record<string, unknown>; doneAt?: string; lastAt?: string; halfBreak?: boolean; /** 走過的步驟（舊進度沒有，見 level.ts seenSet） */ seen?: number[];
-  /** 這一課的作答停留時間（秒）。頁面可見、在單元內、沒閒置超過 2 分鐘才累計；舊進度沒有這個欄位（顯示「—」） */ time?: number }
+  /** 這一課的作答停留時間（秒）。頁面可見、在單元內、沒閒置超過 2 分鐘才累計；舊進度沒有這個欄位（顯示「—」） */ time?: number;
+  /** 1＝這一課的題目已經排進間隔複習（Progress.review）。完成時寫入；舊進度沒有，進複習頁時補建（review.ts） */ rv?: 1 }
+/** 間隔複習的一題（鍵是「<課id>:<題鍵>」，題鍵同 level.ts，例如 unit-x:c5_2、unit-x:qk3_0）。
+ *  s＝已經答對幾次複習（0–3，4＝畢業不再出）；due＝下次到期日；last＝上次複習日（還沒複習過就沒有）；ok＝上次複習是否答對（還沒複習過是 true；段考答錯會設 false） */
+export interface RevRec { s: number; due: string; last?: string; ok: boolean }
 /** 學生自己填的姓名／班級／座號（只存這台瀏覽器；列印與匯出會帶） */
 export interface Profile { name?: string; cls?: string; no?: string }
-export interface Progress { units: Record<string, UnitProgress>; cards: Record<string, true>; history?: string; fontScale?: number; seenIntro?: boolean; timelineOpen?: boolean; profile?: Profile }
+export interface Progress { units: Record<string, UnitProgress>; cards: Record<string, true>; history?: string; fontScale?: number; seenIntro?: boolean; timelineOpen?: boolean; profile?: Profile;
+  /** 間隔複習排程（選填；舊進度沒有）與做過複習的日期（YYYY-MM-DD，由舊到新） */ review?: Record<string, RevRec>; reviewDays?: string[] }
 
 const KEY = 'history-river-learn-v1';
 const empty = (): Progress => ({ units: {}, cards: {} });
@@ -49,7 +54,10 @@ export function toProgress(x: unknown): Progress | null {
   for (const [id, u] of Object.entries(d.units ?? {})) if (u && typeof u === 'object') units[id] = u as UnitProgress;
   const cards: Record<string, true> = {};
   for (const id of Object.keys(d.cards ?? {})) cards[id] = true;
-  return { ...d, units, cards };
+  const out: Progress = { ...d, units, cards };
+  if (!d.review || typeof d.review !== 'object' || Array.isArray(d.review)) delete out.review;
+  if (!Array.isArray(d.reviewDays)) delete out.reviewDays;
+  return out;
 }
 
 export interface MergePlan { added: string[]; newer: string[]; kept: string[]; same: string[]; cardsAdded: number }
@@ -71,7 +79,14 @@ export function mergeProgress(cur: Progress, inc: Progress): Progress {
   const units = { ...cur.units };
   for (const id of [...plan.added, ...plan.newer]) units[id] = inc.units[id];
   const profile = { ...(inc.profile ?? {}), ...Object.fromEntries(Object.entries(cur.profile ?? {}).filter(([, v]) => v)) };
-  return { ...inc, ...cur, units, cards: { ...inc.cards, ...cur.cards }, history: cur.history ?? inc.history, profile: Object.keys(profile).length ? profile : undefined };
+  // 複習排程：同一題取 last 較新的（一樣新就留目前這台的）；做過複習的日期取聯集
+  const review: Record<string, RevRec> = { ...(inc.review ?? {}) };
+  for (const [k, c] of Object.entries(cur.review ?? {})) { const o = review[k]; review[k] = !o || (c.last ?? '') >= (o.last ?? '') ? c : o; }
+  const reviewDays = [...new Set([...(inc.reviewDays ?? []), ...(cur.reviewDays ?? [])])].sort();
+  const out: Progress = { ...inc, ...cur, units, cards: { ...inc.cards, ...cur.cards }, history: cur.history ?? inc.history, profile: Object.keys(profile).length ? profile : undefined };
+  if (Object.keys(review).length) out.review = review; else delete out.review;
+  if (reviewDays.length) out.reviewDays = reviewDays; else delete out.reviewDays;
+  return out;
 }
 
 /** 頁面要關掉了（pagehide）：React 的存檔來不及，直接把這一課的停留時間寫進 localStorage */

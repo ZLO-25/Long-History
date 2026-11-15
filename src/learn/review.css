@@ -1,0 +1,35 @@
+/* 今天的 3 分鐘複習（首頁卡片）、複習畫面、段考複習。新檔，不動既有規則 */
+.home-review { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #ebf8ff; border: 1px solid #90cdf4; border-radius: 12px; padding: 10px 14px; margin: 10px 0; }
+.home-review > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.home-review small { color: #2c5282; font-weight: 700; } .home-review b { line-height: 1.4; } .home-review .muted { font-size: .85em; }
+.home-review .btn { white-space: nowrap; min-height: 40px; }
+.learn.mobile .home-review { flex-direction: column; align-items: stretch; }
+.home-review-done { margin: 8px 0; font-size: 13px; } .home-review-done .link { font-size: 13px; padding: 8px 4px; }
+
+.review-page h2, .exam-page h2 { margin: 12px 0 8px; font-size: 1.35em; }
+.rq-head { margin: 6px 0 4px; line-height: 1.6; font-size: 14px; }
+.rq-bar { height: 6px; border-radius: 3px; background: #e2e8f0; overflow: hidden; margin: 0 0 10px; }
+.rq-bar i { display: block; height: 100%; background: #2f855a; transition: width .2s; }
+.rq .opt { min-height: 44px; font-size: 15px; }
+.rq .options { display: flex; flex-direction: column; gap: 8px; }
+.rq .q { font-size: 16px; }
+.rq-link { display: inline-block; padding: 10px 0; font-size: 14px; }
+.rq-next { margin: 12px 0 24px; }
+.rq-next .btn, .exam-act .btn, .rv-done .btn { min-height: 44px; font-size: 15px; }
+.rv-score { font-size: 1.15em; margin: 8px 0; }
+.rv-done ul { margin: 6px 0; padding-left: 1.2em; } .rv-done li { margin: 6px 0; line-height: 1.6; }
+.rv-done .link { font-size: 14px; }
+
+.exam-tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+.exam-tools .btn { min-height: 40px; font-size: 14px; }
+.exam-list { list-style: none; margin: 6px 0 12px; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.exam-list label { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; cursor: pointer; }
+.exam-list label.on { border-color: #2f855a; background: #f0fff4; }
+.exam-list input { width: 22px; height: 22px; flex: none; }
+.exam-list .et { display: flex; flex-direction: column; gap: 1px; min-width: 0; line-height: 1.4; } .exam-list .et .muted { font-size: 13px; }
+.exam-start { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; position: sticky; bottom: 0; padding: 10px 0; background: var(--panel); }
+.exam-start .btn { min-height: 44px; } .exam-start .seg button { min-height: 40px; font-size: 14px; } .exam-start .link { padding: 10px 4px; font-size: 13px; }
+.exam-per { list-style: none; padding: 0; margin: 6px 0; } .exam-per li { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.exam-wrong { padding-left: 1.3em; } .exam-wrong li { margin: 12px 0; padding-bottom: 8px; border-bottom: 1px dashed var(--line); line-height: 1.7; } .exam-wrong .q { font-weight: 700; }
+.exam-act { flex-wrap: wrap; gap: 8px; margin: 12px 0 24px; }
+.exam-page .seg button { min-height: 40px; }

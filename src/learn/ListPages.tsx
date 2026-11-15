@@ -46,7 +46,7 @@ export function HistoriesPage({ index, p, onHistory }: { index: Index; p: Progre
 }
 
 /** 看全部 N 課：可依地區、年級篩選 */
-export function LessonsPage({ index, p, onUnit, onCurriculum }: { index: Index; p: Progress; onUnit: (id: string) => void; onCurriculum?: () => void }) {
+export function LessonsPage({ index, p, onUnit, onCurriculum, onExam }: { index: Index; p: Progress; onUnit: (id: string) => void; onCurriculum?: () => void; onExam?: () => void }) {
   const [region, setRegion] = useState('all');
   const [lv, setLv] = useState<LevelPick>('all');
   const any = hasLevels(index.units);
@@ -56,6 +56,7 @@ export function LessonsPage({ index, p, onUnit, onCurriculum }: { index: Index; 
     <div className="lists-page">
       <h2>全部 {index.units.length} 課</h2>
       <p className="muted">每一課從一個問題開始，必讀約 5–25 分鐘。{onCurriculum && <button className="link" onClick={onCurriculum}>想對照課綱？看課綱對照 →</button>}</p>
+      {onExam && <p><button className="btn" onClick={onExam}>📝 段考複習</button> <span className="muted small">勾幾課，只出題，不用讀卡片</span></p>}
       <div className="filter-row"><span className="muted small">地區</span>
         <div className="seg" role="group" aria-label="地區">{REGIONS.map(([k, l]) => <button key={k} className={region === k ? 'on' : ''} aria-pressed={region === k} onClick={() => setRegion(k)}>{l}</button>)}</div></div>
       <div className="filter-row"><span className="muted small">年級</span>

@@ -5,6 +5,8 @@
 //   w:<題> = { seen?, skip?, pts?: (boolean|null)[], more?: string }  開放題：看過參考說法、按了「我真的想不出來」、points 自評、補寫的一句
 //          <題>：s{步}＝觀點比較／今日對照（文字存在 s{步}）、cs{步}_{題}＝自我檢查簡答（文字存在 cs{步}_{題}）、recap＝回顧（文字存在 prog.recap）
 //   qk{步}_{j} = 'right'|'half'|'wrong'  card.quick 自評；g{步} = 猜猜看選的選項；dp{步} = 決策選的選項（原本的第幾個）
+// 間隔複習（review.ts）：Progress.review[`<課id>:<題鍵>`] = { s: 答對幾次複習(0–3，4＝畢業), due: 'YYYY-MM-DD', last?: 上次複習日, ok: 上次是否答對 }；Progress.reviewDays = 做過複習的日期；UnitProgress.rv = 1 表示這一課已排進複習。
+//   複習與段考的對錯只寫 review，不動上面的 r:／w:／qk 紀錄（不影響「學會」等級）。
 // 舊鍵：s{步}（史料選的選項數字／簡答文字）、c{步}_{題}（自我檢查第一次是否答對 true/false）、d{步}（決策自己寫的想法）仍照舊寫入。
 import type { Step, Unit } from '../types';
 import type { UnitProgress } from './progress';

@@ -21,8 +21,8 @@ export function MyMap({ index, cards, p, onCard, onUnit, onRecord }: { index: In
   return (
     <div className="mymap">
       <h2>🗺 我的歷史地圖</h2>
-      <p className="muted">讀過的卡片、完成的單元會點亮對應的地區和年代。顏色越深，去過越多次。只存在這台瀏覽器。{onRecord && <> 想看每一課的進度和答對率？<button className="link" onClick={onRecord}>📒 看學習紀錄</button></>}</p>
-      <p>已完成單元：{doneUnits.length ? doneUnits.map((u) => { const l = LEVELS[unitLevel(u, p.units[u.id]) ?? 'walked']; return <span key={u.id} className="badge-mini" title={`${l.name}：${l.desc}`}>{l.icon} {u.title}・{l.name}</span>; }) : '還沒有，挑一個謎題開始吧！'}</p>
+      <p className="muted">讀過的卡片、完成的課會點亮對應的地區和年代。顏色越深，去過越多次。只存在這台瀏覽器。{onRecord && <> 想看每一課的進度和答對率？<button className="link" onClick={onRecord}>📒 看學習紀錄</button></>}</p>
+      <p>已完成的課：{doneUnits.length ? doneUnits.map((u) => { const l = LEVELS[unitLevel(u, p.units[u.id]) ?? 'walked']; return <span key={u.id} className="badge-mini" title={`${l.name}：${l.desc}`}>{l.icon} {u.title}・{l.name}</span>; }) : '還沒有，挑一課開始吧！'}</p>
       <div className="table-scroll">
         <table className="mm">
           <thead><tr><th></th>{ERA_BINS.map(([e]) => <th key={e}>{e}</th>)}</tr></thead>
@@ -40,7 +40,7 @@ export function MyMap({ index, cards, p, onCard, onUnit, onRecord }: { index: In
           ))}</tbody>
         </table>
       </div>
-      {index.units.length > doneUnits.length && <p><button className="btn" onClick={() => { const u = index.units.find((x) => !p.units[x.id]?.done); if (u) onUnit(u.id); }}>挑一個還沒做的單元</button></p>}
+      {index.units.length > doneUnits.length && <p><button className="btn" onClick={() => { const u = index.units.find((x) => !p.units[x.id]?.done); if (u) onUnit(u.id); }}>挑一課還沒做的</button></p>}
     </div>
   );
 }

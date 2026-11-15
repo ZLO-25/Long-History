@@ -134,7 +134,7 @@ export function LearnTimeline({ cards: cardsIn, history, year, setYear, selected
     <div className="ltimeline" ref={wrap}>
       <div className="tl-head">
         <span>時間軸：{lanes.map((l) => <button key={l} className={`chip ${l === main ? 'on' : ''}`} onClick={() => setMain(l)} title="點一下讓這條軌展開">{l === '專題' ? history?.name : l}</button>)}</span>
-        {prehist.length > 0 && <button className="chip tl-prehist" onClick={onPrehistory} disabled={!onPrehistory} title={`比前 800 年更早的 ${prehist.length} 張卡：時間太長，畫在專題的「深時間軸」`}>◂ 史前 {prehist.length}</button>}
+        {prehist.length > 0 && <button className="chip tl-prehist" onClick={onPrehistory} disabled={!onPrehistory} title={`比前 800 年更早的 ${prehist.length} 張卡：時間太長，畫在深入專題的「深時間軸」`}>◂ 史前 {prehist.length}</button>}
         <EraBar active={eraSel} range={[viewA, viewB]} onAll={() => (svgRef.current as any)?.__zoom_reset?.()} onEra={goEra} />
         <span className="tl-year" title="地圖顯示的年代（紅線）">紅線：{yr(year)}・{eraOf(year)}</span>
         <span className="muted small">{overview ? '拉近（滾輪或兩指）看卡片；點時代色塊直接放大' : '細線＝其他軌的大事'}</span>

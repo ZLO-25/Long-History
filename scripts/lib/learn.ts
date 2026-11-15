@@ -4,6 +4,7 @@ import path from 'node:path';
 import YAML from 'yaml';
 import { ROOT, readYaml, refsOf, type RawCard } from './cards.ts';
 import { exists } from './check.ts';
+import { loadStorylines } from './storylines.ts';
 import { SECTIONS, type CardType } from './fields.ts';
 
 export interface History {
@@ -31,6 +32,41 @@ export function learnTrack(civPaths: string[]): '臺灣' | '東亞' | '世界' {
   if (civPaths.some((p) => p.startsWith('東亞/'))) return '東亞';
   return '世界';
 }
+
+// 年級與課綱（2026-11 新增）：單元與故事線可有 level（國中／高中／皆可）、curriculum（課綱條目代碼）。條目清單在 data/curriculum.yaml
+export const LEVELS = ['國中', '高中', '皆可'];
+export interface CurriculumItem { code: string; stage: '國中' | '高中'; theme: string; text: string }
+/** data/curriculum.yaml 的 items；檔案不存在回傳 null（檢查會跳過） */
+export function loadCurriculum(): CurriculumItem[] | null {
+  return exists('data/curriculum.yaml') ? readYaml('data/curriculum.yaml')?.items ?? [] : null;
+}
+/** 檢查 level／curriculum 寫法；codes＝條目代碼集合（null＝沒有 curriculum.yaml，不檢查代碼是否存在） */
+export function checkLevelCurriculum(o: any, codes: Set<string> | null, err: (m: string) => void) {
+  if (o.level !== undefined && !LEVELS.includes(o.level)) err(`level 要是 ${LEVELS.join('／')} 其中一個：「${o.level}」`);
+  if (o.curriculum === undefined) return;
+  if (!Array.isArray(o.curriculum) || o.curriculum.some((c: any) => typeof c !== 'string' || !c.trim())) { err('curriculum 要是條目代碼字串的陣列，例如 ["歷 Ba-IV-1"]'); return; }
+  if (codes) for (const c of o.curriculum) if (!codes.has(c)) err(`curriculum 的「${c}」不在 data/curriculum.yaml`);
+}
+/** data/curriculum.yaml 本身的格式檢查 */
+export function checkCurriculumFile(items: CurriculumItem[] | null): LearnIssue[] {
+  const out: LearnIssue[] = [];
+  if (!items) return out;
+  const file = 'data/curriculum.yaml';
+  const err = (msg: string) => out.push({ file, level: 'error', msg });
+  const seen = new Set<string>();
+  items.forEach((it: any, i) => {
+    const w = `items[${i}]${it?.code ? `（${it.code}）` : ''}`;
+    if (!it || typeof it !== 'object') { err(`${w} 不是物件`); return; }
+    const bad = Object.keys(it).filter((k) => !['code', 'stage', 'theme', 'text'].includes(k));
+    if (bad.length) err(`${w} 出現不認得的鍵「${bad.join('」「')}」（允許：code、stage、theme、text）。值裡有逗號時請整個值加雙引號`);
+    for (const k of ['code', 'theme', 'text']) if (!nonEmptyStr(it[k])) err(`${w} 缺 ${k}`);
+    if (!['國中', '高中'].includes(it.stage)) err(`${w} 的 stage 要是 國中／高中：「${it.stage}」`);
+    if (seen.has(it.code)) err(`${w} 代碼重複`);
+    seen.add(it.code);
+  });
+  return out;
+}
+const nonEmptyStr = (v: any) => typeof v === 'string' && v.trim().length > 0;
 
 export function loadUnits(): { file: string; unit: any }[] {
   const dir = path.join(ROOT, 'data', 'units');
@@ -75,6 +111,11 @@ export function checkUnits(units: { file: string; unit: any }[], cards: RawCard[
   const byId = new Map(cards.map((c) => [c.fm?.id, c]));
   const unitIds = new Set(units.map((u) => u.unit?.id));
   const hk = historyKeys(hs);
+  const curr = loadCurriculum();
+  const codes = curr ? new Set(curr.map((x) => x.code)) : null;
+  out.push(...checkCurriculumFile(curr));
+  // 故事線的 level／curriculum（data/storylines.yaml）
+  for (const l of loadStorylines()) checkLevelCurriculum(l, codes, (msg) => out.push({ file: 'data/storylines.yaml', level: 'error', msg: `故事線 ${l.id}：${msg}` }));
   for (const { file, unit: u } of units) {
     const err = (msg: string) => out.push({ file, level: 'error', msg });
     const warn = (msg: string) => out.push({ file, level: 'warning', msg });
@@ -85,6 +126,7 @@ export function checkUnits(units: { file: string; unit: any }[], cards: RawCard[
     if (!Array.isArray(u.goals) || !u.goals.length) err('goals 至少 1 個');
     if (typeof u.minutes !== 'number') err('minutes 必須是數字（預估自學分鐘數）');
     if (!Array.isArray(u.histories) || !u.histories.length) err('histories 至少 1 個');
+    checkLevelCurriculum(u, codes, err);
     for (const h of u.histories ?? []) if (!hk.has(h)) err(`histories 的「${h}」不在 data/histories.yaml`);
     for (const n of u.next ?? []) if (!unitIds.has(n)) err(`next 指向不存在的單元：${n}`);
     if (!Array.isArray(u.next) || u.next.length < 2) warn('「接下來可以挖」建議 2–3 個單元');

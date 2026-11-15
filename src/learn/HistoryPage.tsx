@@ -17,8 +17,8 @@ export function HistoryPage({ index, h, cards, p, onUnit, onCard, onHistory, onS
       <h2>{h.name}</h2>
       <p className="muted">{h.blurb}</p>
       {onDive && <DiveEntries index={index} history={h} onDive={onDive} />}
-      <h3>謎題（依年代排）</h3>
-      {units.length ? <MysteryList units={units} p={p} onUnit={onUnit} /> : <p className="muted">這個史的單元還在製作中。你可以先讀下面的卡片，或換一個史。</p>}
+      <h3>課（依年代排）</h3>
+      {units.length ? <MysteryList units={units} p={p} onUnit={onUnit} /> : <p className="muted">這個史的課還在製作中。你可以先讀下面的卡片，或換一個史。</p>}
       {h.id === 'money' && (
         <>
           <h3>🧪 金融小模擬</h3>

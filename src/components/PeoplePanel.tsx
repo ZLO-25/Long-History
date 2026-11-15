@@ -198,7 +198,7 @@ function MigList({ d, onPick }: { d: Peoples; onPick: (id: string) => void }) {
         </button>
       </li>)}
     </ol>
-    <p className="small muted">時間尺：前 3500 年到今天；更早的智人走出非洲等史前遷徙，見「人類大歷史」專題。</p>
+    <p className="small muted">時間尺：前 3500 年到今天；更早的智人走出非洲等史前遷徙，見「人類大歷史」深入專題。</p>
   </>;
 }
 

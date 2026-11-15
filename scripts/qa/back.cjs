@@ -25,6 +25,7 @@ const { chromium } = require('playwright');
   const len0 = await p.evaluate(() => history.length);
 
   // ---- 往前走 ----
+  await p.locator('.entry', { hasText: '依地區與主題' }).click(); await p.waitForSelector('.htile');
   await p.locator('.htile').filter({ hasText: '臺灣史' }).first().click();
   await p.waitForSelector('.hpage');
   const hid = (await q()).history;
@@ -36,7 +37,7 @@ const { chromium } = require('playwright');
   await p.click('.unit-intro button.btn.primary');
   await p.waitForSelector('.pdot');
   const lenUnit = await p.evaluate(() => history.length);
-  ok(lenUnit === len0 + 2, `進 XX史、單元各多一筆紀錄（${len0} → ${lenUnit}）`);
+  ok(lenUnit === len0 + 3, `進「依地區與主題」清單、XX史、單元各多一筆紀錄（${len0} → ${lenUnit}）`);
   // 單元內換步：不新增紀錄（replaceState）
   const nDots = await p.$$eval('.pdot', (x) => x.length);
   await p.locator('.pdot').nth(1).click(); await p.waitForTimeout(200);
@@ -59,7 +60,7 @@ const { chromium } = require('playwright');
   await p.waitForSelector('.lc-head');
   const cid = (await q()).card;
   ok(!!cid, `卡片頁：網址 card=${cid}`);
-  ok((await p.evaluate(() => history.length)) === len0 + 4, '主題頁、卡片頁各多一筆（共 4 筆：史、單元、主題、卡片）');
+  ok((await p.evaluate(() => history.length)) === len0 + 5, '主題頁、卡片頁各多一筆（共 5 筆：史清單、史、單元、主題、卡片）');
   await inSite('走到卡片');
 
   // ---- 瀏覽器上一頁，逐步退回 ----
@@ -73,12 +74,15 @@ const { chromium } = require('playwright');
   await inSite('上一頁 → 臺灣史頁');
   ok(!!(await p.$('.hpage')) && (await q()).history === 'taiwan' && !(await q()).unit, '回到臺灣史頁');
   await back();
+  await inSite('上一頁 → 依地區與主題清單');
+  ok(!!(await p.$('.htile')) && (await q()).view === 'histories', '回到「依地區與主題」清單頁，網址 view=histories');
+  await back();
   await inSite('上一頁 → 首頁');
   const qh = await q();
   ok(!!(await p.$('.lhome')) && !qh.unit && !qh.history, `回到首頁，網址沒有殘留 history=（${JSON.stringify(qh)}）`);
   ok(!!(await p.$('.ltop')), '首頁頁首還在');
   // 往前：下一頁走回臺灣史頁
-  await p.goForward(); await p.waitForTimeout(500);
+  await p.goForward(); await p.waitForTimeout(500); await p.goForward(); await p.waitForTimeout(500);
   ok(!!(await p.$('.hpage')) && (await q()).history === 'taiwan', '下一頁：回到臺灣史頁');
   await inSite('下一頁');
 
@@ -91,11 +95,14 @@ const { chromium } = require('playwright');
   ok(!!(await p.$('.hpage')) && !(await q()).unit, '「← 返回」：單元 → 臺灣史頁');
   await p.click('.lcontent > button.back');
   await p.waitForTimeout(500);
-  ok(!!(await p.$('.lhome')), '「← 返回」：臺灣史頁 → 首頁');
+  ok(!!(await p.$('.htile')), '「← 返回」：臺灣史頁 → 依地區與主題清單');
+  await p.click('.lcontent > button.back');
+  await p.waitForTimeout(500);
+  ok(!!(await p.$('.lhome')), '「← 返回」：清單 → 首頁');
   ok((await q()).history === undefined, '回首頁後網址沒有 history=');
   await inSite('按畫面返回');
   // 返回走的是 history.back()：上一頁之後可以「下一頁」回到單元
-  await p.goForward(); await p.waitForTimeout(400); await p.goForward(); await p.waitForTimeout(500);
+  await p.goForward(); await p.waitForTimeout(400); await p.goForward(); await p.waitForTimeout(400); await p.goForward(); await p.waitForTimeout(500);
   ok(!!(await p.$('.unit-intro, .unit')) && (await q()).unit === uid, '返回是真的「上一頁」：下一頁可以回到單元');
   void len1;
 

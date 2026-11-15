@@ -85,6 +85,7 @@ const tlMod = () => import('./components/Timeline');
 const learnMod = () => import('./learn/learnChunk');
 const ltlMod = () => import('./learn/LearnTimeline');
 const miscMod = () => import('./learn/miscChunk');
+const listsMod = () => import('./learn/ListPages');
 const peopleMod = () => import('./components/PeoplePanel');
 const researchMod = () => import('./research/Main');
 
@@ -96,6 +97,10 @@ export const LearnTimeline = lazyView<P<typeof import('./learn/LearnTimeline').L
 export const UnitPlayer = lazyView<P<typeof import('./learn/learnChunk').UnitPlayer>>(() => learnMod().then((m) => ({ default: m.UnitPlayer })));
 export const LearnCard = lazyView<P<typeof import('./learn/learnChunk').LearnCard>>(() => learnMod().then((m) => ({ default: m.LearnCard })));
 export const HistoryPage = lazyView<P<typeof import('./learn/learnChunk').HistoryPage>>(() => learnMod().then((m) => ({ default: m.HistoryPage })));
+export const HistoriesPage = lazyView<P<typeof import('./learn/ListPages').HistoriesPage>>(() => listsMod().then((m) => ({ default: m.HistoriesPage })));
+export const LessonsPage = lazyView<P<typeof import('./learn/ListPages').LessonsPage>>(() => listsMod().then((m) => ({ default: m.LessonsPage })));
+export const CurriculumPage = lazyView<P<typeof import('./learn/ListPages').CurriculumPage>>(() => listsMod().then((m) => ({ default: m.CurriculumPage })));
+export const UnitMeta = lazyView<P<typeof import('./learn/ListPages').UnitMeta>>(() => listsMod().then((m) => ({ default: m.UnitMeta })), null);
 export const MyMap = lazyView<P<typeof import('./learn/miscChunk').MyMap>>(() => miscMod().then((m) => ({ default: m.MyMap })));
 export const LearnRecord = lazyView<P<typeof import('./learn/miscChunk').LearnRecord>>(() => miscMod().then((m) => ({ default: m.LearnRecord })));
 export const SimView = lazyView<P<typeof import('./learn/miscChunk').SimView>>(() => miscMod().then((m) => ({ default: m.SimView })));
@@ -118,6 +123,7 @@ export const preload = {
   history: () => learnMod().catch(() => {}),
   people: () => peopleMod().catch(() => {}),
   misc: () => miscMod().catch(() => {}),
+  lists: () => listsMod().catch(() => {}),
 };
 
 /** 網址是深連結時，這個畫面需要的 chunk（和資料同時開始載，不等首頁畫完） */
@@ -132,6 +138,7 @@ export function preloadForUrl(search = location.search) {
   if (q.get('story') || q.get('view') === 'stories') jobs.push(preload.story);
   if (q.get('dive') || q.get('view') === 'dives') jobs.push(preload.dive);
   if (q.get('peoples')) jobs.push(preload.people);
+  if (['histories', 'lessons', 'curriculum'].includes(q.get('view') ?? '')) jobs.push(preload.lists);
   if (q.get('sim') || q.get('view') === 'mymap' || q.get('view') === 'record') jobs.push(preload.misc);
   // 研究模式一定要用時間軸（D3，很小）；地圖（Leaflet，較大）等地圖元件掛上時才載
   if (research) jobs.push(preload.timeline);

@@ -98,7 +98,7 @@ export function Main({ index, onLearn, pre }: { index: Index; onLearn: () => voi
     const c = params.get('card'), st = params.get('story'), dv = params.get('dive');
     if (c && !index.cards.some((x) => x.id === c)) return { what: '卡片', id: c };
     if (st && !findStory(index, st)) return { what: '故事', id: st };
-    if (dv && !findDive(index, dv)) return { what: '專題', id: dv };
+    if (dv && !findDive(index, dv)) return { what: '深入專題', id: dv };
     return null;
   });
   const [chainT, setChainT] = useState(0);
@@ -218,7 +218,7 @@ export function Main({ index, onLearn, pre }: { index: Index; onLearn: () => voi
 
   const onQuery = (q: string) => { setQuery(q); if (panel.kind !== 'list') home(); if (isMobile) setMobileTab('list'); };
 
-  const panelTitle = ({ list: '卡片清單', card: '卡片', place: '地點', route: '路線', match: '結構對照', chain: '物資鏈', econ: '經濟曲線', today: '今日對照', peoples: '人群', topic: '主題路徑', topics: '主題標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題' } as const)[panel.kind];
+  const panelTitle = ({ list: '卡片清單', card: '卡片', place: '地點', route: '路線', match: '結構對照', chain: '物資鏈', econ: '經濟曲線', today: '今日對照', peoples: '人群', topic: '主題路徑', topics: '#標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題' } as const)[panel.kind];
   const sideRaw = (() => {
     switch (panel.kind) {
       case 'card': return selectedCard && <CardDetail card={selectedCard} index={index} byId={byId} onOpen={openCard}
@@ -267,8 +267,8 @@ export function Main({ index, onLearn, pre }: { index: Index; onLearn: () => voi
         <input className="search" type="search" value={query} onChange={(e) => onQuery(e.target.value)} onFocus={() => { loadSearchLibs().catch(() => {}); }}
           placeholder={isMobile ? '搜尋卡片（可打錯字、簡體、英文）' : '搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）'} aria-label="搜尋" />
         {!isMobile && (index.storylines ?? []).length > 0 && <button className={`btn ${panel.kind === 'story' || panel.kind === 'stories' ? 'on' : ''}`} onClick={() => open({ kind: 'stories' })} title="沿著前因 → 後果，把不同時代的事件接成一條路">故事線</button>}
-        {!isMobile && (index.dives ?? []).length > 0 && <button className={`btn ${panel.kind === 'dive' || panel.kind === 'dives' ? 'on' : ''}`} onClick={() => open({ kind: 'dives' })} title="把一段時代放大來看：地圖、卡片、故事線">專題</button>}
-        {!isMobile && <button className={`btn ${panel.kind === 'topic' || panel.kind === 'topics' ? 'on' : ''}`} onClick={() => open({ kind: 'topics' })} title="依主題把卡片串成歷史路徑，例如 #交易所">主題標籤</button>}
+        {!isMobile && (index.dives ?? []).length > 0 && <button className={`btn ${panel.kind === 'dive' || panel.kind === 'dives' ? 'on' : ''}`} onClick={() => open({ kind: 'dives' })} title="把一段時代放大來看：地圖、卡片、故事線">深入專題</button>}
+        {!isMobile && <button className={`btn ${panel.kind === 'topic' || panel.kind === 'topics' ? 'on' : ''}`} onClick={() => open({ kind: 'topics' })} title="依主題把卡片串成歷史路徑，例如 #交易所">#標籤</button>}
         {!isMobile && <button className={`btn ${panel.kind === 'match' ? 'on' : ''}`} onClick={() => open({ kind: 'match' })}>結構對照</button>}
         {!isMobile && (Object.keys(dock.wins) as RPanel[]).map((id) => <button key={id} className="btn sm dock-back" onClick={() => dock.unpop(id)} title="這個區塊在另一個視窗，按一下收回來">↩ 收回{({ map: '地圖', side: '卡片欄', tl: '時間軸' } as const)[id]}</button>)}
         {!isMobile && dock.customized && <button className="btn layout-reset" onClick={dock.resetAll} title="恢復預設版面：大小、位置、浮動小窗、彈出的視窗全部歸位">⟲ 版面</button>}

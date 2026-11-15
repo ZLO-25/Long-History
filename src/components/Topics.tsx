@@ -30,7 +30,7 @@ export function TopicChips({ card, index, onTopic, label = true, count }: { card
   if (!card.topics?.length) return null;
   return (
     <div className="topic-chips">
-      {label && <span className="tc-label">主題標籤<small>（點了看歷史路徑）</small></span>}
+      {label && <span className="tc-label">#標籤<small>（點了看歷史路徑）</small></span>}
       {card.topics.map((t) => {
         const ft = findTopic(index, t)?.topic;
         const n = ft ? (count ? count(ft) : ft.cards.length) : 0;
@@ -58,7 +58,7 @@ interface ViewProps {
 export function TopicView({ index, name, currentId, onOpen, onTopic, onAll, canOpen, researchHref, read, onMap }: ViewProps) {
   const found = findTopic(index, name);
   const byId = useMemo(() => new Map(index.cards.map((c) => [c.id, c])), [index]);
-  if (!found) return <div className="topic-view"><p>找不到主題「{name}」。</p><button className="link" onClick={onAll}>看全部主題標籤</button></div>;
+  if (!found) return <div className="topic-view"><p>找不到主題「{name}」。</p><button className="link" onClick={onAll}>看全部 #標籤</button></div>;
   const { topic: t, layer } = found;
   const list = t.cards.map((id) => byId.get(id)).filter((c): c is Card => !!c);
   const first = list[0], last = list[list.length - 1];
@@ -67,7 +67,7 @@ export function TopicView({ index, name, currentId, onOpen, onTopic, onAll, canO
   const openable = canOpen ? list.filter(canOpen).length : list.length;
   return (
     <article className="topic-view">
-      <div className="tv-crumb"><button className="link" onClick={onAll}>主題標籤</button> › {layer.icon} {layer.name}</div>
+      <div className="tv-crumb"><button className="link" onClick={onAll}>#標籤</button> › {layer.icon} {layer.name}</div>
       <h2 className="tv-title">#{t.name}</h2>
       <p className="tv-plain">{t.plain}</p>
       <p className="tv-meta">{list.length} 張卡・{span}{read && <> ・你讀過 <b>{readN}</b>／{openable}</>}
@@ -104,7 +104,7 @@ export function TopicView({ index, name, currentId, onOpen, onTopic, onAll, canO
           {t.see.map((s) => <button key={s} className="chip topic" onClick={() => onTopic(s)}>#{s}<small>{findTopic(index, s)?.topic.cards.length ?? 0}</small></button>)}
         </div>
       )}
-      <p className="muted small tv-note">地圖上的編號就是清單的順序（每張卡標第一個地點）。主題標籤說的是「跟什麼東西有關」；卡片裡的「結構標籤」說的是「發生了什麼樣的模式」。</p>
+      <p className="muted small tv-note">地圖上的編號就是清單的順序（每張卡標第一個地點）。#標籤說的是「跟什麼東西有關」；卡片裡的「結構標籤」說的是「發生了什麼樣的模式」。</p>
     </article>
   );
 }
@@ -116,9 +116,9 @@ export function TopicIndex({ index, onTopic, count }: { index: Index; onTopic: (
   const layers = (index.topicLayers ?? []).map((l) => ({ ...l, topics: l.topics.filter((t) => !qq || t.name.includes(qq) || t.plain.includes(qq)) })).filter((l) => l.topics.length);
   return (
     <div className="topic-index">
-      <h2>主題標籤</h2>
+      <h2>#標籤</h2>
       <p className="muted">每個標籤把「跟同一件事物有關」的卡片，依年代串成一條歷史路徑。例如點 <button className="chip topic" onClick={() => onTopic('交易所')}>#交易所</button>，就能從中世紀的布魯日一路看到臺灣證券交易所。</p>
-      <input className="ti-filter" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="找標籤，例：銀行、鐵路、殖民" aria-label="篩選主題標籤" />
+      <input className="ti-filter" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="找標籤，例：銀行、鐵路、殖民" aria-label="篩選 #標籤" />
       {layers.map((l) => (
         <section key={l.name} className="ti-layer">
           <h3>{l.icon} {l.name}</h3>

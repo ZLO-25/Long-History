@@ -17,7 +17,7 @@ import { buildEdges, type Edge } from './lib/causes.ts';
 import { loadStorylines, buildStorylines } from './lib/storylines.ts';
 import { loadStories, checkStories, buildStory } from './lib/stories.ts';
 import { storyPlaces, buildStoryMap, worldLand110 } from './lib/storyMap.ts';
-import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits } from './lib/learn.ts';
+import { loadHistories, historyKeys, historyId, inferHistories, learnTrack, loadUnits, checkUnits, loadCurriculum } from './lib/learn.ts';
 import { loadDives, buildDives, copyPowerMaps } from './lib/dives.ts';
 import { unitMinutes } from './lib/unit-minutes.ts';
 
@@ -197,7 +197,10 @@ const index = {
   chains: buildChains(loadChains(), raw, routes),
   today: buildToday(loadToday(), routes),
   histories,
-  storylines: buildStorylines(loadStorylines(), edges, cards).map((l) => ({ ...l, read: storyMeta.get(l.id) ?? null })),
+  storylines: buildStorylines(loadStorylines(), edges, cards).map((l) => {
+    const raw: any = loadStorylines().find((x) => x.id === l.id);
+    return { ...l, read: storyMeta.get(l.id) ?? null, ...(raw?.level ? { level: raw.level } : {}), ...(raw?.curriculum?.length ? { curriculum: raw.curriculum } : {}) };
+  }),
   // 預估時間（minutes_must／minutes_all／step_min）由字數自動算；原 minutes 欄位保留（手填值，沒用到）
   units: loadUnits().map((u) => u.unit).filter((u) => DEV || u.crosscheck?.result === '通過').map((u) => ({ ...u, ...unitMinutes(u, (id) => cards.find((c: any) => c.id === id)) })),
   // 深入專題：把一段時代的卡片、人物、故事線、勢力圖聚在一起（docs/dives.md）
@@ -282,8 +285,8 @@ fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...in
   const homeData = {
     generated: index.generated,
     histories: (index.histories as any[]).map((h) => ({ ...h, n: cards.filter((c: any) => c.learn && (h.all || c.learn.histories.includes(h.id))).length })),
-    units: (index.units as any[]).map((u) => ({ id: u.id, title: u.title, histories: u.histories, mystery: u.mystery, minutes: u.minutes, minutes_must: u.minutes_must, minutes_all: u.minutes_all, nsteps: u.steps.length })),
-    storylines: (index.storylines as any[]).map((s) => ({ id: s.id, title: s.title, question: s.question, read: s.read ?? null, stops: s.stops.map((x: any) => x.id) })),
+    units: (index.units as any[]).map((u) => ({ id: u.id, title: u.title, histories: u.histories, mystery: u.mystery, minutes: u.minutes, minutes_must: u.minutes_must, minutes_all: u.minutes_all, nsteps: u.steps.length, level: u.level, curriculum: u.curriculum })),
+    storylines: (index.storylines as any[]).map((s) => ({ id: s.id, title: s.title, question: s.question, read: s.read ?? null, stops: s.stops.map((x: any) => x.id), level: s.level, curriculum: s.curriculum })),
     dives: (index.dives as any[]).map((d) => {
       const persons = d.cards.filter((id: string) => cards.find((c: any) => c.id === id)?.type === 'person').length;
       return {
@@ -317,6 +320,8 @@ for (const [id, d] of Object.entries(unitDetail)) {
   fs.writeFileSync(path.join(pubData, 'units', `${id}.json`), JSON.stringify({ generated: index.generated, id, unit: d, cards: cs }));
 }
 fs.writeFileSync(path.join(ROOT, 'public', 'index-detail.json'), detailBody);
+// 課綱條目清單（data/curriculum.yaml）：只有「課綱對照」頁與課的封面要用，延後載入（public/data/curriculum.json），不放進 home.json。沒有這個檔就輸出空清單
+fs.writeFileSync(path.join(pubData, 'curriculum.json'), JSON.stringify({ items: (loadCurriculum() ?? []).map((x) => ({ code: x.code, stage: x.stage, theme: x.theme, text: x.text })) }));
 // 效能：結構對照（src/components/StructureMatch.tsx）要掃過所有卡的內文：只讀各節文字（sections[].role／text）與來源（sources，今日對照鉤子的註記要用），
 // 另存 public/data/match.json（約為 index-detail.json 的 40%），只有打開結構對照才抓（detail.ts loadMatch）。
 fs.writeFileSync(path.join(pubData, 'match.json'), JSON.stringify({ cards: Object.fromEntries(Object.entries(detail).map(([id, d]: [string, any]) => [id, { sections: d.sections.map((s: any) => ({ role: s.role, text: s.text })), sources: d.sources }])) }));

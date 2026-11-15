@@ -113,8 +113,8 @@ function ResearchShell({ index, pre, onLearn }: { index: Index; pre: Pre; onLear
         <input className="search" type="search" value={query} onChange={(e) => { setQuery(e.target.value); pre.query = e.target.value; }} onFocus={() => { pre.focus = true; }} onBlur={() => { pre.focus = false; }}
           placeholder={isMobile ? '搜尋卡片（可打錯字、簡體、英文）' : '搜尋：名稱、別名、古今地名、場域、文明、年份、結構標籤（可打錯字、簡體、英文）'} aria-label="搜尋" />
         {!isMobile && index.storylines.length > 0 && <button className={`btn ${on(['stories'])}`} onClick={() => pick('stories')} title="沿著前因 → 後果，把不同時代的事件接成一條路">故事線</button>}
-        {!isMobile && index.dives && index.dives.length > 0 && <button className={`btn ${on(['dives'])}`} onClick={() => pick('dives')} title="把一段時代放大來看：地圖、卡片、故事線">專題</button>}
-        {!isMobile && <button className={`btn ${on(['topics'])}`} onClick={() => pick('topics')} title="依主題把卡片串成歷史路徑，例如 #交易所">主題標籤</button>}
+        {!isMobile && index.dives && index.dives.length > 0 && <button className={`btn ${on(['dives'])}`} onClick={() => pick('dives')} title="把一段時代放大來看：地圖、卡片、故事線">深入專題</button>}
+        {!isMobile && <button className={`btn ${on(['topics'])}`} onClick={() => pick('topics')} title="依主題把卡片串成歷史路徑，例如 #交易所">#標籤</button>}
         {!isMobile && <button className={`btn ${on(['match'])}`} onClick={() => pick('match')}>結構對照</button>}
         <button className="btn learn-btn" onClick={onLearn} title="給國高中生的自主學習模式">學習模式</button>
         <a className="btn credits" href={`${import.meta.env.BASE_URL}credits.html`} target="_blank" rel="noopener" title="資料來源與授權">出處</a>

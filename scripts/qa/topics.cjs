@@ -46,7 +46,7 @@ const fs = require('fs');
   await p.click('.panel-nav .back'); await p.waitForTimeout(400);
   ok(!!(await p.$('.topic-view')), '← 返回 回到路徑頁');
   // 全部標籤頁
-  await p.click('header .btn >> text=主題標籤'); await p.waitForTimeout(300);
+  await p.click('header .btn >> text=#標籤'); await p.waitForTimeout(300);
   const allChips = await p.$$eval('.topic-index .ti-chips .chip.topic', (es) => es.length);
   ok(allChips === topics.length, `全部標籤頁列出 ${allChips} 個（資料 ${topics.length}）`);
   await p.fill('.ti-filter', '銀行'); await p.waitForTimeout(200);
@@ -77,7 +77,10 @@ const fs = require('fs');
   ok(/你讀過/.test(await l.textContent('.tv-meta')), '顯示「你讀過 n／m」');
   await l.screenshot({ path: `${out}/learn-topic-1280.png` });
   await l.goto(base + '?mode=learn', { waitUntil: 'networkidle' }); await l.waitForTimeout(500);
-  ok(!!(await l.$('.home-topics .chip.topic')), '學習首頁有「順著一個主題往下走」');
+  ok(!!(await l.$('.home-entries .entry >> text=#標籤')), '學習首頁有「#標籤」入口卡');
+  await l.click('.home-entries .entry >> text=#標籤'); await l.waitForSelector('.topic-index');
+  ok((await l.$$eval('.topic-index .ti-chips .chip.topic', (es) => es.length)) > 20, '點入口卡進 #標籤 清單頁');
+  await l.goto(base + '?mode=learn', { waitUntil: 'networkidle' }); await l.waitForTimeout(500);
   await l.fill('.lsearch-box input', '白銀'); await l.waitForTimeout(400);
   ok(!!(await l.$('.lsearch .topic-suggest .chip.topic >> text=#白銀')), '學習模式搜尋「白銀」會推薦 #白銀');
   await l.close();
@@ -86,7 +89,7 @@ const fs = require('fs');
   const m = await b.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }); watch(m);
   await m.goto(base + '?mode=research', { waitUntil: 'networkidle' }); await m.waitForTimeout(500);
   await m.click('nav.tabs button >> text=故事／主題'); await m.waitForTimeout(300);
-  if (await m.$('.story-index')) { await m.click('.story-index button.link >> text=看主題標籤'); await m.waitForTimeout(300); }
+  if (await m.$('.story-index')) { await m.click('.story-index button.link >> text=#標籤'); await m.waitForTimeout(300); }
   ok(!!(await m.$('.topic-index')), '手機研究模式「故事／主題」分頁可到主題標籤');
   await m.click('.topic-index .chip.topic >> text=#紙幣'); await m.waitForTimeout(500);
   ok(!!(await m.$('.topic-view .tv-map')), '手機路徑頁有「在地圖上看」');

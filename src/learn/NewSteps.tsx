@@ -66,7 +66,7 @@ export function MapQ({ s, rec, onRec, after }: { s: Extract<Step, { type: 'mapq'
           <button key={i} role="radio" aria-checked={pick === i} disabled={!!done || wrongs.includes(i)}
             className={`opt ${done && i === s.answer ? 'right' : ''} ${wrongs.includes(i) ? 'wrong' : ''} ${done === 'ok' && pick === i ? 'right' : ''}`}
             onClick={() => choose(i)}>
-            <span className="opt-key">{L[i]}</span>{p.hint ?? `地圖上的 ${L[i]} 點`}{done ? <b>　（{p.label}）</b> : null}
+            <span className="opt-key">{L[i]}</span>{mapFail || done ? (p.hint ?? `地圖上的 ${L[i]} 點`) : <>地圖上的 {L[i]} 點{p.hint ? <span className="mq-sr">：{p.hint}</span> : null}</>}{done ? <b>　（{p.label}）</b> : null}
           </button>
         ))}
       </div>

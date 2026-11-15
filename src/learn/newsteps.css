@@ -48,3 +48,6 @@
   body.print-capstone .cap-sheet { display: block; color: #000; background: #fff; padding: 0; font-size: 14px; line-height: 1.8; }
   body.print-capstone .cap-sheet .cap-sheet-text { white-space: pre-wrap; border: 1px solid #555; padding: 8px; min-height: 8cm; }
 }
+
+/* 地圖能用時，方位描述只給螢幕報讀（不然按鈕文字就把答案說出來了） */
+.mq-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

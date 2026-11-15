@@ -120,6 +120,8 @@ a { color: var(--accent); }
 .code { font-family: ui-monospace, monospace; font-size: 11.5px; background: #eee9df; border-radius: 3px; padding: 0 4px; margin-right: 4px; }
 .lvl { font-size: 11px; font-weight: 400; border-radius: 3px; padding: 0 5px; }
 .lvl-deep { background: #e6eefb; } .lvl-optional { background: #f1f1f1; color: var(--muted); } .lvl-core { background: #fde8e8; }
+/* 手機版（研究模式）：卡片小節標題不放內部編號（C1）和「核心／深入／選填」，學生看不懂 */
+@media (max-width: 768px) { .cd-sec > h3 > .code, .cd-sec > h3 > .lvl { display: none; } }
 .ref { font-size: 11px; vertical-align: super; text-decoration: none; margin-left: 1px; }
 .ref.missing { color: var(--red); }
 .kv { display: grid; grid-template-columns: 70px 1fr; gap: 4px 8px; font-size: 14px; margin: 0; }

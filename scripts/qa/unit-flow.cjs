@@ -37,7 +37,7 @@ const UNIT = 'unit-rome-fall', KEY = 'history-river-learn-v1';
   p.on('console', (m) => { if (m.type() === 'error' && !/tile|favicon|ERR_TUNNEL|ERR_NAME|ERR_PROXY|Failed to load resource/.test(m.text())) errs.push(m.text()); });
   const store = () => p.evaluate((k) => JSON.parse(localStorage.getItem(k) || '{}').units?.[`${'unit-rome-fall'}`] ?? {}, KEY);
   const open = async (seed) => {
-    await p.goto(`${base}?mode=learn`, { waitUntil: 'domcontentloaded' });
+    await p.goto(`${base}?mode=learn`, { waitUntil: 'networkidle' });
     await p.evaluate(([k, v]) => { localStorage.clear(); if (v) localStorage.setItem(k, JSON.stringify(v)); }, [KEY, seed ?? null]);
     await p.goto(`${base}?mode=learn&unit=${UNIT}`, { waitUntil: 'networkidle' });
     await p.waitForSelector('.unit');
@@ -189,9 +189,10 @@ const UNIT = 'unit-rome-fall', KEY = 'history-river-learn-v1';
   ok(!/還沒作答的地方/.test(res2), '全部作答後沒有「還沒作答」');
   // 首頁與紀錄顯示三級
   await p.locator('.brand').click(); // 站內回首頁：單元的完整資料已載入（直接開首頁時用的是 index.json 裡的骨架，那是真實單元而非測試用的改寫版）
-  await p.waitForSelector('.mystery');
+  await p.waitForSelector('.lhome'); await p.click('.home-pick .pick-more .btn >> text=看全部'); // 做完的課在首頁精選裡排後面，去「全部的課」看
+  await p.waitForSelector('.lists-page .mystery.done');
   const hm = await p.locator('.mystery.done .meta').first().innerText();
-  ok(/學會/.test(hm), '首頁謎題列表顯示「學會」' + (/學會/.test(hm) ? '' : '：' + hm));
+  ok(/學會/.test(hm), '「全部的課」列表顯示「學會」' + (/學會/.test(hm) ? '' : '：' + hm));
   await p.goto(`${base}?mode=learn&view=record`, { waitUntil: 'networkidle' });
   ok(/學會/.test(await p.locator('table.rec tr.st-done').first().innerText()) && /\d+／\d+/.test(await p.locator('table.rec tr.st-done td').nth(2).innerText()), '學習紀錄顯示等級與「實際作答 幾／共幾」');
 
@@ -201,7 +202,7 @@ const UNIT = 'unit-rome-fall', KEY = 'history-river-learn-v1';
   await open(old);
   await p.waitForSelector('.unit');
   ok(errs.length === e0, '舊格式進度載入單元不出錯');
-  await p.goto(`${base}?mode=learn`, { waitUntil: 'networkidle' });
+  await p.goto(`${base}?mode=learn&view=lessons`, { waitUntil: 'networkidle' });
   ok(/走完/.test(await p.locator('.mystery.done .meta').first().innerText()), '舊進度裡已完成的單元推算為「走完」');
   await p.goto(`${base}?mode=learn&view=record`, { waitUntil: 'networkidle' });
   ok(await p.locator('table.rec').count() === 1 && errs.length === e0, '舊格式進度的學習紀錄頁正常');

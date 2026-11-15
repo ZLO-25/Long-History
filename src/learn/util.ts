@@ -33,3 +33,23 @@ export function unitScore(u: Unit, answers: Record<string, unknown> | undefined)
 /** 畫面上的預估時間：建置時依字數算的「必讀」分鐘；舊資料或骨架還沒到時退回手填的 minutes */
 export const mustMin = (u: { minutes: number; minutes_must?: number }) => u.minutes_must ?? u.minutes;
 export const allMin = (u: { minutes: number; minutes_all?: number; minutes_must?: number }) => u.minutes_all ?? mustMin(u);
+
+// ---- 年級（國中／高中／皆可）與首頁精選 ----
+export type LevelPick = 'all' | '國中' | '高中';
+export const levelLabel = (l?: string) => (l === '皆可' ? '國高中皆可' : l ?? '');
+/** 有任何一課標了年級嗎（資料還沒填時，年級切換一律顯示全部，不出錯） */
+export const hasLevels = (units: { level?: string }[]) => units.some((u) => !!u.level);
+export const levelMatch = (u: { level?: string }, pick: LevelPick, any = true) => pick === 'all' || !any || u.level === pick || u.level === '皆可';
+/** 首頁「挑一課開始」的精選：沒做完的優先、國中的優先、必讀時間短的優先；同一個史最多 2 課（不夠再補） */
+export function pickUnits<U extends { id: string; histories: string[]; minutes: number; minutes_must?: number; level?: string }>(units: U[], done: (id: string) => boolean, pick: LevelPick, n: number): U[] {
+  const any = hasLevels(units);
+  // 年級資料還沒填完時：符合的不到 n 課，就用還沒標年級的課補滿（排在後面）
+  let pool = units.filter((u) => levelMatch(u, pick, any));
+  if (pool.length < n) pool = [...pool, ...units.filter((u) => !u.level && !pool.includes(u))];
+  const rank = (u: U) => [done(u.id) ? 1 : 0, u.level === pick || (pick === 'all' && u.level === '國中') ? 0 : u.level ? 1 : 2, mustMin(u)];
+  const sorted = [...(pool.length ? pool : units)].sort((a, b) => { const x = rank(a), y = rank(b); return x[0] - y[0] || x[1] - y[1] || x[2] - y[2]; });
+  const out: U[] = [], per = new Map<string, number>();
+  for (const u of sorted) { const k = u.histories[0] ?? ''; if ((per.get(k) ?? 0) >= 2) continue; per.set(k, (per.get(k) ?? 0) + 1); out.push(u); if (out.length >= n) return out; }
+  for (const u of sorted) if (!out.includes(u)) { out.push(u); if (out.length >= n) break; }
+  return out;
+}

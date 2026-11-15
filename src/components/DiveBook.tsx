@@ -194,7 +194,7 @@ export function BookView({ dive, book, byId, cardBtn, open, setOpen, unitBtn }: 
           <div key={p.no} className="bk-part">
             <h4 style={{ borderLeftColor: PART_COLOR[i % PART_COLOR.length] }}>{partName(i, p.no)}　{p.name}<small className="muted">{p.span}</small></h4>
             {p.blurb && <p className="small bk-blurb">{p.blurb}</p>}
-            {p.unit && unitBtn && <div className="bk-unit small">這一部有學習單元：{unitBtn(p.unit)}</div>}
+            {p.unit && unitBtn && <div className="bk-unit small">這一部有課：{unitBtn(p.unit)}</div>}
             {chs.map(station)}
           </div>
         );

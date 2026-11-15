@@ -27,7 +27,7 @@
 .resume { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #fffbea; border: 1px solid #f6e05e; border-radius: 12px; padding: 10px 14px; margin: 10px 0; }
 .resume > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; } .resume small { color: #975a16; font-weight: 700; } .resume b { line-height: 1.4; } .resume .muted { font-size: .85em; }
 .resume .btn { white-space: nowrap; }
-.lhome h2, .hpage h2 { font-size: 1.35em; margin: 12px 0 8px; }
+.lhome h2, .hpage h2, .lists-page h2 { font-size: 1.35em; margin: 12px 0 8px; }
 .intro { background: #f0fff4; border: 1px solid #9ae6b4; border-radius: 12px; padding: 12px 16px; margin-bottom: 12px; }
 .steps3 { padding-left: 20px; } .steps3 li { margin: 6px 0; } .steps3 span { display: block; color: var(--muted); font-size: .92em; }
 .hgroup h3 { font-size: 1em; color: var(--muted); margin: 10px 0 4px; }

@@ -21,3 +21,36 @@
 .dive-entries { list-style: none; margin: 6px 0; padding: 0; }
 .dive-entries .di-item { border-left: 4px solid var(--dive); }
 .di-tag { font-size: 11px; color: #fff; background: var(--dive); border-radius: 999px; padding: 0 8px; }
+
+/* 2026-11 首頁瘦身：挑一課（年級切換）、四個入口卡、講得深／還沒有、年級小標、課綱對照 */
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: #fff; margin: 2px 0 6px; }
+.seg button { border: 0; background: none; padding: 5px 14px; font: inherit; font-size: 14px; cursor: pointer; border-right: 1px solid var(--line); }
+.seg button:last-child { border-right: 0; }
+.seg button.on { background: #2f855a; color: #fff; font-weight: 700; }
+.seg button:focus-visible { outline: 2px solid #2f855a; outline-offset: -2px; }
+.filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.filter-row .seg { flex-wrap: wrap; border-radius: 14px; }
+.pick-more { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 6px; }
+.home-pick .mysteries { gap: 6px; margin: 6px 0; }
+.resume-act { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex: none; }
+.learn.mobile .resume-act { flex-direction: row; align-items: center; justify-content: space-between; }
+.entries { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+.entry { text-align: left; border: 1px solid var(--line); background: #fff; border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 3px; font: inherit; color: inherit; cursor: pointer; }
+.entry b { font-size: 1.05em; } .entry span { font-size: .85em; color: var(--muted); line-height: 1.5; }
+.entry:hover { border-color: #2f855a; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.entry:focus-visible { outline: 2px solid #2f855a; outline-offset: 2px; }
+.learn.mobile .entries { grid-template-columns: 1fr 1fr; }
+.lhome .intro summary { cursor: pointer; font-weight: 700; font-size: 1.05em; }
+.lhome .intro .btn { margin-top: 6px; }
+.coverage { margin: 14px 0 6px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 8px; font-size: .92em; }
+.coverage h3 { margin: 0 0 4px; font-size: 1em; } .coverage p { margin: 3px 0; line-height: 1.6; }
+.lv-tag { display: inline-block; font-size: 11.5px; line-height: 1.6; border-radius: 999px; padding: 0 8px; border: 1px solid var(--line); background: #f7f7f2; color: #4a5568; }
+.lv-tag.lv-jr { background: #e8f3ff; border-color: #b9d8f5; color: #1e4e7a; } .lv-tag.lv-sr { background: #f3ecff; border-color: #d5c5f0; color: #51307f; }
+.unit-meta { margin: 6px 0; } .unit-meta p { margin: 2px 0; }
+.unit-curriculum { font-size: .9em; background: #f7f7f2; border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; }
+.unit-curriculum summary { cursor: pointer; } .unit-curriculum ul { margin: 4px 0; padding-left: 1.2em; }
+.card-empty { padding: 12px 0; } .card-empty .btn { margin-top: 6px; }
+.cur-stage h3 { margin: 16px 0 4px; font-size: 1.15em; } .cur-theme h4 { margin: 12px 0 4px; font-size: 1em; color: var(--muted); }
+.cur-item { border-left: 4px solid #2f855a; background: #fff; border-radius: 6px; padding: 6px 10px; margin: 6px 0; } .cur-item.none { border-left-color: #cbd5e0; }
+.cur-item p { margin: 2px 0; line-height: 1.6; } .cur-item ul { margin: 2px 0; padding-left: 1.2em; } .cur-item .code { margin-right: 4px; }
+.cur-wip { background: #fffbea; border: 1px solid #f6e05e; border-radius: 8px; padding: 10px 12px; }

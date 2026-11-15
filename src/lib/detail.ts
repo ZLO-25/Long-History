@@ -177,7 +177,7 @@ export function intent(kind: 'card' | 'unit', id: string, warm?: () => unknown) 
 /** home.json 讀到後呼叫（先於 adoptCore）：組出骨架 index。只有首頁／清單頁要用的欄位，cards 是空的，coreReady:false */
 export function stubFromHome(h: HomeData): Index {
   const units: Unit[] = h.units.map((u) => ({ ...u, goals: [], next: [], steps: [] }));
-  const storylines: Storyline[] = h.storylines.map((s) => ({ id: s.id, title: s.title, question: s.question, blurb: '', read: s.read, stops: s.stops.map((id) => ({ id, bridge: null })) }));
+  const storylines: Storyline[] = h.storylines.map((s) => ({ id: s.id, title: s.title, question: s.question, blurb: '', read: s.read, level: s.level, curriculum: s.curriculum, stops: s.stops.map((id) => ({ id, bridge: null })) }));
   const dives: Dive[] = h.dives.map(({ power_title, ...d }) => ({ ...d, blurb: '', lanes: [], cards: [], storylines: [], power_maps: [], book: null, curves: null, power_ui: power_title ? { title: power_title } : null }));
   const topicLayers: TopicLayer[] = h.topicLayers.map((l) => ({ ...l, topics: l.topics.map((t) => ({ ...t, path: '', see: [], cards: [] })) }));
   return {

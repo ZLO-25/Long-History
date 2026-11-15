@@ -27,7 +27,7 @@ interface Props {
 
 export function LearnCard({ card: c, index, history, onOpen, onHistory, compact, onTopic, topicCount, onStory, onUnit, hereUnit, onDive, unitMode }: Props) {
   const [term, setTerm] = useState<Term | null>(null);
-  const [more, setMore] = useState<Set<string>>(() => new Set()); // 單元裡「想看更多」展開了哪些（不記）
+  const [more, setMore] = useState<Set<string>>(() => new Set()); // 課裡「想看更多」展開了哪些（不記）
   const L = c.learn!;
   // 從哪個史看：預設是目前選的史（如果這張卡屬於它）
   const views = L.histories.map((id) => index.histories.find((h) => h.id === id)).filter((h): h is History => !!h && !h.all && !h.theme);

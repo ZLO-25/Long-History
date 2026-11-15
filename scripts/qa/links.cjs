@@ -1,4 +1,4 @@
-// node links.cjs baseUrl → ① 沒有 mode 的分享連結進學習模式 ② 壞 id 顯示「找不到」＋回首頁 ③ 學習模式搜尋（問句、亂碼、推薦謎題、桌機「試試：」可點）④ 斷網不整頁換成錯誤頁
+// node links.cjs baseUrl → ① 沒有 mode 的分享連結進學習模式 ② 壞 id 顯示「找不到」＋回首頁 ③ 學習模式搜尋（問句、亂碼、推薦課、桌機「試試：」可點）④ 斷網不整頁換成錯誤頁
 const { chromium } = require('playwright');
 (async () => {
   const base = process.argv[2];
@@ -33,12 +33,12 @@ const { chromium } = require('playwright');
     ok(await p.evaluate(() => !!document.querySelector('.app') && !document.querySelector('.learn')), '明確 mode=research 照舊進研究模式'); await ctx.close(); }
 
   console.log('\n== ② 壞 id ==');
-  for (const [qs, what] of [['?mode=learn&unit=nope-unit', '單元'], ['?unit=nope-unit', '單元'], ['?mode=learn&card=nope-card', '卡片'], ['?mode=learn&story=nope-story&read=1', '故事'], ['?story=nope-story', '故事'], ['?dive=nope-dive', '專題'], ['?mode=research&card=nope-card', '卡片'], ['?card=nope-card', '卡片'], ['?mode=research&dive=nope', '專題'], ['?mode=research&story=nope', '故事']]) {
+  for (const [qs, what] of [['?mode=learn&unit=nope-unit', '課'], ['?unit=nope-unit', '課'], ['?mode=learn&card=nope-card', '卡片'], ['?mode=learn&story=nope-story&read=1', '故事'], ['?story=nope-story', '故事'], ['?dive=nope-dive', '深入專題'], ['?mode=research&card=nope-card', '卡片'], ['?card=nope-card', '卡片'], ['?mode=research&dive=nope', '深入專題'], ['?mode=research&story=nope', '故事']]) {
     const { ctx, p } = await fresh();
     await p.goto(base + qs, { waitUntil: 'networkidle' });
     await p.waitForSelector('.notfound', { timeout: 8000 }).catch(() => {});
     const r = await p.evaluate(() => ({ txt: document.querySelector('.notfound')?.textContent ?? '', fail: /下載失敗/.test(document.body.textContent) }));
-    ok(r.txt.includes(`找不到這個${what}`) && !r.fail && !!(await p.$('.notfound button')), `${qs} → 「找不到這個${what}」＋回首頁鈕，沒有「下載失敗」`);
+    ok(r.txt.includes(what === '課' ? '找不到這一課' : `找不到這個${what}`) && !r.fail && !!(await p.$('.notfound button')), `${qs} → 「找不到${what === '課' ? '這一課' : '這個' + what}」＋回首頁鈕，沒有「下載失敗」`);
     if (qs.includes('mode=learn&unit')) { await p.click('.notfound button'); await p.waitForSelector('.lhome'); ok(true, '按「回首頁」回到學習首頁'); }
     await ctx.close();
   }
@@ -48,14 +48,14 @@ const { chromium } = require('playwright');
     const { ctx, p } = await fresh(vp);
     await p.goto(`${base}?mode=learn`, { waitUntil: 'networkidle' });
     const box = p.locator('.lsearch-box input');
-    const run = async (txt) => { await box.fill(''); await box.fill(txt); await p.waitForTimeout(1200); return p.evaluate(() => ({ results: [...document.querySelectorAll('.lsearch .lresult, .lsearch .mystery')].length, cards: [...document.querySelectorAll('.lsearch .lresult .nm')].map((x) => x.textContent), sug: !!([...document.querySelectorAll('.lsearch h3')].find((h) => h.textContent === '推薦謎題')), sugN: document.querySelectorAll('.lsearch .mystery').length })); };
+    const run = async (txt) => { await box.fill(''); await box.fill(txt); await p.waitForTimeout(1200); return p.evaluate(() => ({ results: [...document.querySelectorAll('.lsearch .lresult, .lsearch .mystery')].length, cards: [...document.querySelectorAll('.lsearch .lresult .nm')].map((x) => x.textContent), sug: !!([...document.querySelectorAll('.lsearch h3')].find((h) => h.textContent === '推薦課')), sugN: document.querySelectorAll('.lsearch .mystery').length })); };
     let r = await run('羅馬為什麼滅亡');
     ok(r.cards.length > 0 && r.cards.some((n) => n.includes('羅馬')), `[${label}]「羅馬為什麼滅亡」有結果：${r.cards.slice(0, 3).join('、')}`);
     r = await run('asdfgh');
-    ok(r.cards.length === 0 && r.sug && r.sugN === 3, `[${label}]「asdfgh」沒有卡片結果，列出 3 個推薦謎題（卡 ${r.cards.length}、謎題 ${r.sugN}）`);
+    ok(r.cards.length === 0 && r.sug && r.sugN === 3, `[${label}]「asdfgh」沒有卡片結果，列出 3 個推薦課（卡 ${r.cards.length}、謎題 ${r.sugN}）`);
     await p.click('.lsearch .mystery');
     await p.waitForSelector('.unit-intro, .unit');
-    ok(true, `[${label}] 推薦謎題點得開`);
+    ok(true, `[${label}] 推薦課點得開`);
     await p.goto(`${base}?mode=learn`, { waitUntil: 'networkidle' });
     r = await run('明朝為何滅亡'); ok(r.results > 0 || r.sug, `[${label}]「明朝為何滅亡」有結果或推薦`);
     r = await run('羅馬'); ok(r.cards.length > 0, `[${label}]「羅馬」仍有結果`);
@@ -89,6 +89,7 @@ const { chromium } = require('playwright');
     await p.goto(`${base}?mode=learn`, { waitUntil: 'networkidle' });
     await p.evaluate(() => { window.__keep = 1; });
     await p.waitForTimeout(500);
+    await p.locator('.entry', { hasText: '依地區與主題' }).click(); await p.waitForSelector('.htile'); // 清單頁的 chunk 先載好；斷網後點 XX史才會需要載入「史頁面」的 chunk
     await ctx.setOffline(true);
     await p.locator('.htile').filter({ hasText: hist.name }).first().click();
     await p.waitForTimeout(1500);
@@ -107,9 +108,9 @@ const { chromium } = require('playwright');
     await p.waitForTimeout(1500);
     r = await p.evaluate(() => ({ keep: window.__keep === 1, ltop: !!document.querySelector('.ltop'), err: document.querySelector('.chunk-err')?.textContent ?? '' }));
     ok(r.keep && r.ltop && r.err.includes('現在沒有網路'), `單元進行中斷網切到地圖：留在原畫面，顯示沒有網路與重試（${r.err.slice(0, 20)}）`);
-    await p.click('.ltabs button:has-text("單元")');
+    await p.click('.ltabs button:has-text("首頁")');
     await p.waitForTimeout(300);
-    ok(await p.evaluate(() => !!document.querySelector('.unit')), '切回單元分頁，單元還能用');
+    ok(await p.evaluate(() => !!document.querySelector('.unit')), '切回首頁分頁，單元還能用');
     await ctx.close();
   }
   await b.close();

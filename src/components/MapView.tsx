@@ -72,7 +72,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
   const [snapInfo, setSnapInfo] = useState<{ today: boolean; year: number; covered: boolean; none?: boolean }>({ today: false, year: 0, covered: false });
   const snapLabel = peoplesOn ? '人群圖層：今天的國界（已隱藏古代疆域）' : snapInfo.today ? '今日對照層：已隱藏古代疆域'
     : snapInfo.none ? `${fmtYear(year)}：還沒有國家，不畫疆域`
-    : `疆域示意：${fmtYear(year)} 年${snapInfo.year && snapInfo.year !== year ? `（用最接近的 ${fmtYear(snapInfo.year)} 年世界疆域快照）` : ''}${snapInfo.covered ? '（專題地圖範圍內以專題地圖為準）' : ''}`;
+    : `疆域示意：${fmtYear(year)} 年${snapInfo.year && snapInfo.year !== year ? `（用最接近的 ${fmtYear(snapInfo.year)} 年世界疆域快照）` : ''}${snapInfo.covered ? '（深入專題地圖範圍內以該地圖為準）' : ''}`;
   const [powerBox, setPowerBox] = useState<L.LatLngBounds | null>(null);
   const [legendOpen, setLegendOpen] = useState(!compact && !power);
   // 打開專題勢力圖時圖例先收起來，免得蓋住主角區域（顏色說明在專題頁）
@@ -682,7 +682,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
           <div className="lg-fams">{pd.families.slice(0, 13).map((f) => <span key={f.id} className={f.hatch ? 'hatch' : ''} style={{ ['--fc' as any]: f.color }}><i />{f.zh}</span>)}<span className="muted">…完整圖例見「◎ 人群圖層說明」</span></div>
         </div>}
         {todayOn && <div><i className="lg today" />今日咽喉要道（灰色＝資料可能過時）</div>}
-        {power && <div><i className="lg power" />專題示意（顏色見專題頁圖例）：{power.title}（示意範圍，不是確切界線）</div>}
+        {power && <div><i className="lg power" />深入專題示意（顏色見該深入專題頁的圖例）：{power.title}（示意範圍，不是確切界線）</div>}
         {trail && trail.length > 1 && <div><i className="lg trail" />人生軌跡：依年份連線（先後順序，不是實際路線）</div>}
         {ch && <div><i className="lg chain" />物資鏈（實線＝沿已畫路線，點線＝路線示意）</div>}
         </>}

@@ -42,7 +42,7 @@ const KEYS = [
   { name: 'places', label: '地名', weight: 2 },
   { name: 'fields', label: '場域', weight: 1.5 },
   { name: 'civilization', label: '文明', weight: 1.5 },
-  { name: 'topics', label: '主題標籤', weight: 1.8 },
+  { name: 'topics', label: '#標籤', weight: 1.8 },
   { name: 'tags', label: '結構標籤', weight: 1.5 },
   { name: 'typeLabel', label: '類型', weight: 1 },
 ] as const;

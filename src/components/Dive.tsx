@@ -51,7 +51,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
     return () => { tgt?.removeEventListener('scroll', onScroll); savePos(chRef.current); };
   }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
   const d = findDive(index, id);
-  if (!d) return <div className="dive-view"><p>找不到這個專題。</p><button className="link" onClick={onAll}>看全部專題</button></div>;
+  if (!d) return <div className="dive-view"><p>找不到這個深入專題。</p><button className="link" onClick={onAll}>看全部深入專題</button></div>;
   const m = byIdOf(index);
   const ui: PowerUi = d.power_ui ?? DEFAULT_POWER_UI;
   const cards = d.cards.map((x) => m.get(x)).filter((c): c is Card => !!c);
@@ -80,7 +80,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
   };
   const readSec = (storyList.length > 0 || unitList.length > 0) && (
     <section className="dv-sec dv-read" id={`dv-read-${d.id}`}>
-      <h3>{learn ? '學習單元（照順序讀）' : '照順序讀'}<small className="muted">{learn ? '有問題、有決策題的導讀，從第 1 課開始' : '故事線＝沿著前因後果走；學習單元＝有問題、有決策題的導讀'}</small></h3>
+      <h3>{learn ? '課（照順序讀）' : '照順序讀'}<small className="muted">{learn ? '有問題、有決策題的導讀，從第 1 課開始' : '故事線＝沿著前因後果走；課＝有問題、有決策題的導讀'}</small></h3>
       {unitList.length > 0 && <div className="dv-chips">{unitList.map(unitBtn)}</div>}
       {storyList.length > 0 && <>
         {learn && unitList.length > 0 && <h4 className="dv-sub">想沿著前因後果走：故事線</h4>}
@@ -146,7 +146,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       ))}
     </section>
   );
-  const anchors: [string, string, boolean][] = [['dv-read', learn ? '學習單元' : '照順序讀', !!readSec], ['dv-legacy', d.legacy?.title ?? '今日影子', !!legacySec], ['dv-compare', d.compare?.[0]?.title ?? '對照表', !!compareSec], ['dv-power', d.curves && d.visual === 'curve' ? d.curves.title : ui.title, !!(powerSec || curveSec)], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true]];
+  const anchors: [string, string, boolean][] = [['dv-read', learn ? '課' : '照順序讀', !!readSec], ['dv-legacy', d.legacy?.title ?? '今日影子', !!legacySec], ['dv-compare', d.compare?.[0]?.title ?? '對照表', !!compareSec], ['dv-power', d.curves && d.visual === 'curve' ? d.curves.title : ui.title, !!(powerSec || curveSec)], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true]];
   const bookAnchors: [string, string, boolean][] = d.book ? [['dv-deep', '深時間軸', true], ['dv-book', `照書讀 ${d.book.chapters.length} 站`, true]] : [];
   const ordered = [...bookAnchors, ...(learn || d.book ? anchors : [anchors[3], anchors[4], anchors[5], anchors[0], anchors[1], anchors[2]])];
   return (
@@ -156,7 +156,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       <p className="dv-q">❓ {d.question}</p>
       {d.blurb && <p className="dv-blurb">{d.blurb}</p>}
       <p className="muted small">{fmtRange(d.range.start, d.range.end)}・{events.length} 張卡{persons.length > 0 && `、${persons.length} 位人物`}{d.range.start < -800 ? '・年代太長，大時間軸放不下，看下面的深時間軸' : timelineZoomed ? '・時間軸已放大到這段年代' : ''}{onMap && <>・<button className="link" onClick={onMap}>在地圖上看</button></>}</p>
-      <nav className="dv-anchors" aria-label="專題頁內導覽">{ordered.filter((x) => x[2]).map(([k, label]) => <button key={k} className="chip" onClick={() => goto(k)}>{label}</button>)}</nav>
+      <nav className="dv-anchors" aria-label="深入專題頁內導覽">{ordered.filter((x) => x[2]).map(([k, label]) => <button key={k} className="chip" onClick={() => goto(k)}>{label}</button>)}</nav>
       {d.book && (
         <section className="dv-sec" id={`dv-deep-${d.id}`}>
           <h3>深時間軸<small className="muted">{fmtRange(d.range.start, d.range.end)}</small></h3>
@@ -166,7 +166,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       {d.book && <BookView dive={d} book={d.book} byId={m} cardBtn={(c) => cardBtn(c, marks.get(c.name))} open={openCh} setOpen={setOpenCh} unitBtn={(uid) => { const i = unitList.findIndex((u) => u.id === uid); return i >= 0 ? unitBtn(unitList[i], i) : null; }} />}
 
       {learn || d.book ? <>{readSec}{legacySec}{compareSec}{powerSec}{curveSec}{personSec}{cardSec}</> : <>{powerSec}{curveSec}{personSec}{cardSec}{readSec}{legacySec}{compareSec}</>}
-      <p className="dv-note muted small">專題只是把這段時代的卡片聚在一起放大看；每張卡仍然在整條長河、地圖和主題標籤裡，可以隨時跳出去比較別的時代。</p>
+      <p className="dv-note muted small">深入專題只是把這段時代的卡片聚在一起放大看；每張卡仍然在整條長河、地圖和#標籤裡，可以隨時跳出去比較別的時代。</p>
     </div>
   );
 }

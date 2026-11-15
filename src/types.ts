@@ -52,7 +52,7 @@ export interface CauseLink { id: string | null; name: string; rel: CauseRel; why
 // 故事線：每一站的 bridge＝到下一站的因果關係（最後一站為 null）
 /** 故事線的故事（data/stories/）：閱讀時間、字數、入口引子；全文另外下載 */
 export interface StoryRead { minutes: number; chars: number; hook: string }
-export interface Storyline { id: string; title: string; question: string; blurb: string; stops: { id: string; bridge: Omit<CauseLink, 'id' | 'name'> | null }[]; read?: StoryRead | null }
+export interface Storyline { id: string; title: string; question: string; blurb: string; level?: LessonLevel; curriculum?: string[]; stops: { id: string; bridge: Omit<CauseLink, 'id' | 'name'> | null }[]; read?: StoryRead | null }
 /** public/data/stories/<id>.json：內文裡的出處寫成 [^n]，n 是 sources 的第 n 筆；**粗體** 是關鍵詞 */
 export interface StoryDoc extends StoryRead {
   id: string; remember: string[]; think: string[]; recall?: { q: string; a: string }[];
@@ -103,6 +103,9 @@ export interface CheckItem {
   kind: 'choice' | 'order' | 'short'; q: string; options?: string[]; answer?: number; items?: string[]; model?: string;
   explain: string; hints: string[]; ref?: string; why_wrong?: (string | null)[]; points?: string[];
 }
+export type LessonLevel = '國中' | '高中' | '皆可';
+/** data/curriculum.yaml 的一個條目（public/data/curriculum.json，延後載入） */
+export interface CurriculumItem { code: string; stage: '國中' | '高中'; theme: string; text: string }
 export interface Unit {
   id: string; title: string; histories: string[]; mystery: string; goals: string[]; minutes: number;
   /** 建置時依字數算的預估分鐘（五分鐘為單位）：必讀／全部讀完；step_min＝每一步必讀的分鐘（算上下半段用） */
@@ -110,6 +113,8 @@ export interface Unit {
   steps: Step[]; next: string[]; teaser?: string;
   /** 只有 home.json 有：步驟數（骨架單元的 steps 是空的；首頁「第 n／N 步」用） */
   nsteps?: number;
+  /** 適合的年級（選填）與對應的課綱條目代碼（選填，代碼在 data/curriculum.yaml） */
+  level?: LessonLevel; curriculum?: string[];
   /** 回顧後的「回到自己」反思題：把這段歷史的選擇連到學生自己的生活（不放新史實） */
   reflect?: string;
 }
@@ -186,8 +191,8 @@ export interface Index {
 export interface HomeData {
   generated: string;
   histories: History[];
-  units: (Pick<Unit, 'id' | 'title' | 'histories' | 'mystery' | 'minutes' | 'minutes_must' | 'minutes_all'> & { nsteps: number })[];
-  storylines: { id: string; title: string; question: string; read: StoryRead | null; stops: string[] }[];
+  units: (Pick<Unit, 'id' | 'title' | 'histories' | 'mystery' | 'minutes' | 'minutes_must' | 'minutes_all' | 'level' | 'curriculum'> & { nsteps: number })[];
+  storylines: { id: string; title: string; question: string; read: StoryRead | null; stops: string[]; level?: LessonLevel; curriculum?: string[] }[];
   dives: (Pick<Dive, 'id' | 'title' | 'question' | 'range' | 'histories' | 'units' | 'visual' | 'focus_year'> & { power_title?: string; stat: NonNullable<Dive['stat']> })[];
   topicLayers: { name: string; icon: string; topics: { name: string; plain: string; n: number; nl: number }[] }[];
 }

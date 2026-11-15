@@ -207,7 +207,7 @@ export function Timeline({ cards: cardsIn, allCards, year, setYear, selectedId, 
     <div className="timeline" ref={wrap}>
       <div className="tl-head">
         <span className="tl-year" title="地圖與清單顯示的年代（紅線）">紅線：{yr(shownYear)}・{eraOf(shownYear)}</span>
-        {prehist.length > 0 && <button className="chip tl-prehist" onClick={onPrehistory} disabled={!onPrehistory} title={`比前 800 年更早的 ${prehist.length} 張卡（${prehist.map((c) => c.name).join('、')}）：時間太長，畫在專題的「深時間軸」`}>◂ 史前 {prehist.length}</button>}
+        {prehist.length > 0 && <button className="chip tl-prehist" onClick={onPrehistory} disabled={!onPrehistory} title={`比前 800 年更早的 ${prehist.length} 張卡（${prehist.map((c) => c.name).join('、')}）：時間太長，畫在深入專題的「深時間軸」`}>◂ 史前 {prehist.length}</button>}
         <EraBar active={eraSel} range={[viewA, viewB]} onAll={() => (svgRef.current as any)?.__zoom_reset?.()} onEra={goEra} />
         <span className="tl-hint" title="滾輪縮放、拖曳平移；拖動紅線或點刻度列改變年代">ⓘ 怎麼操作</span>
         {econ && <span className="econ-toggle">經濟曲線：

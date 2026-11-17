@@ -52,7 +52,7 @@ export interface CauseLink { id: string | null; name: string; rel: CauseRel; why
 // 故事線：每一站的 bridge＝到下一站的因果關係（最後一站為 null）
 /** 故事線的故事（data/stories/）：閱讀時間、字數、入口引子；全文另外下載 */
 export interface StoryRead { minutes: number; chars: number; hook: string }
-export interface Storyline { id: string; title: string; question: string; blurb: string; level?: LessonLevel; curriculum?: string[]; stops: { id: string; bridge: Omit<CauseLink, 'id' | 'name'> | null }[]; read?: StoryRead | null }
+export interface Storyline { id: string; title: string; question: string; blurb: string; dive?: string; level?: LessonLevel; curriculum?: string[]; stops: { id: string; bridge: Omit<CauseLink, 'id' | 'name'> | null }[]; read?: StoryRead | null }
 /** public/data/stories/<id>.json：內文裡的出處寫成 [^n]，n 是 sources 的第 n 筆；**粗體** 是關鍵詞 */
 export interface StoryDoc extends StoryRead {
   id: string; remember: string[]; think: string[]; recall?: { q: string; a: string }[];
@@ -213,7 +213,7 @@ export interface HomeData {
   coverage?: Coverage;
   histories: History[];
   units: (Pick<Unit, 'id' | 'title' | 'histories' | 'mystery' | 'minutes' | 'minutes_must' | 'minutes_all' | 'level' | 'curriculum'> & { nsteps: number })[];
-  storylines: { id: string; title: string; question: string; read: StoryRead | null; stops: string[]; level?: LessonLevel; curriculum?: string[] }[];
+  storylines: { id: string; title: string; question: string; read: StoryRead | null; dive?: string; stops: string[]; level?: LessonLevel; curriculum?: string[] }[];
   dives: (Pick<Dive, 'id' | 'title' | 'question' | 'range' | 'histories' | 'units' | 'visual' | 'focus_year'> & { power_title?: string; stat: NonNullable<Dive['stat']> })[];
   topicLayers: { name: string; icon: string; topics: { name: string; plain: string; n: number; nl: number }[] }[];
 }

@@ -251,6 +251,15 @@ storylines:
     curriculum: ["歷 Ob-IV-1", "歷 Ob-IV-3", "歷 Ia-IV-2"]
 
 
+  - id: story-age-of-discovery
+    title: 大航海時代：從一艘帆船到熱蘭遮城
+    question: 哥倫布往西出海之後，不到兩百年，為什麼連臺灣都被捲進歐洲人的海上貿易網？
+    blurb: 從帆船技術出發，跟著西班牙橫渡大西洋、太平洋到馬尼拉，再看荷蘭人怎麼從澎湖轉進大員、鄭成功又怎麼取代他們。葡萄牙往東那一路，見〈葡萄牙一路往東〉。
+    stops: [tech-sail-navigation, event-columbus-aztec, event-treaty-tordesillas, event-magellan-circumnavigation, event-manila-1571, commodity-manila-galleon, event-dutch-penghu-1622, event-dutch-formosa, event-koxinga-taiwan]
+    level: 高中
+    curriculum: ["歷 Ob-IV-1", "歷 Mb-V-1", "歷 Mb-V-2", "歷 Ia-IV-2", "歷 Bb-IV-1", "歷 Bb-IV-2"]
+    dive: dive-age-of-discovery
+
   - id: story-silver-pacific
     title: 白銀橫渡太平洋：從哥倫布到一條鞭法
     question: 哥倫布往西航行，為什麼最後會讓美洲的白銀流進中國，還影響了明朝的稅制？

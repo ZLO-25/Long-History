@@ -292,7 +292,7 @@ fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...in
     histories: (index.histories as any[]).map((h) => ({ ...h, n: cards.filter((c: any) => c.learn && (h.all || c.learn.histories.includes(h.id))).length })),
     units: (index.units as any[]).map((u) => ({ id: u.id, title: u.title, histories: u.histories, mystery: u.mystery, minutes: u.minutes, minutes_must: u.minutes_must, minutes_all: u.minutes_all, nsteps: u.steps.length, level: u.level, curriculum: u.curriculum })),
     coverage: (index as any).coverage,
-    storylines: (index.storylines as any[]).map((s) => ({ id: s.id, title: s.title, question: s.question, read: s.read ?? null, stops: s.stops.map((x: any) => x.id), level: s.level, curriculum: s.curriculum })),
+    storylines: (index.storylines as any[]).map((s) => ({ id: s.id, title: s.title, question: s.question, read: s.read ?? null, ...(s.dive ? { dive: s.dive } : {}), stops: s.stops.map((x: any) => x.id), level: s.level, curriculum: s.curriculum })),
     dives: (index.dives as any[]).map((d) => {
       const persons = d.cards.filter((id: string) => cards.find((c: any) => c.id === id)?.type === 'person').length;
       return {

@@ -330,7 +330,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onMap={isMobile ? () => setTab('map') : undefined} />;
       case 'topics': return <TopicIndex index={index} onTopic={openTopic} count={learnCount} />;
       case 'story': return <StorylineView key={view.id} index={index} id={view.id} currentId={lastCard} onOpen={(id) => openCard(id)} onAll={() => push({ kind: 'stories' })}
-        canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onStory={openStory} onMap={isMobile ? () => setTab('map') : undefined}
+        canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onStory={openStory} onDive={openDive} onMap={isMobile ? () => setTab('map') : undefined}
         recallApi={{ saved: (sid) => p.stories?.[sid]?.recall ?? NO_RECALL, save: (sid, i, r) => update((o) => withRecall(o, sid, i, r)) }} />;
       case 'stories': return <StorylineIndex index={index} onStory={openStory} onTopics={() => push({ kind: 'topics' })} onDives={(index.dives ?? []).length ? () => push({ kind: 'dives' }) : undefined} />;
       case 'dive': return <DiveView key={view.id} index={index} id={view.id} year={year} setYear={setYear} currentId={lastCard} powerYear={powerYear} setPowerYear={setPowerYear} voyageSel={voyageSel} setVoyageSel={setVoyageSel}

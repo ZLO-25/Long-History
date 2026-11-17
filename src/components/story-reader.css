@@ -218,3 +218,9 @@
 .sr-self-btn.on { background: #4c3d99; border-color: #4c3d99; color: #fff; font-weight: 700; }
 .sr-box.recall li > .sr-recall-q + .sr-self, .sr-box.recall li > .sr-recall-a + .sr-self { margin-top: 6px; }
 .sr-score { margin: .6em 0 0; font-size: .9em; }
+
+/* 閱讀頁結尾：到專題看全貌 */
+.sr-act.dive { background: #fbeee8; border-color: #9b2c2c; color: #7a1f1f; font-weight: 700; }
+.sr-act.dive small { color: #7a1f1f; font-weight: 500; display: block; }
+.sr-act.dive:hover { background: #f6dccf; border-color: #9b2c2c; }
+@media (max-width: 700px) { .sr-act.dive { flex: 1 1 100%; } }

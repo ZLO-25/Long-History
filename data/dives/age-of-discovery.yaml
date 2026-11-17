@@ -71,7 +71,7 @@ cards:
   - event-guo-huaiyi-1652
   - person-zheng-zhilong
   - person-koxinga
-storylines: [story-iberian-world, story-silver-pacific, story-dutch-taiwan, story-silver, story-taiwan-400]
+storylines: [story-age-of-discovery, story-iberian-world, story-silver-pacific, story-dutch-taiwan, story-silver, story-taiwan-400]
 units: [unit-aod-1, unit-aod-3, unit-aod-2]
 # 總結任務：三課都走完之後出現（points 來自三課的 goals 與 mystery）
 capstone:

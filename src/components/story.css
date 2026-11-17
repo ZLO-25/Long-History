@@ -106,3 +106,24 @@
 .cause-list .ce-turn small { font-weight: 400; color: var(--muted); font-size: max(12px, .88em); }
 .cause-list .ce-turn + ul li:first-child { border-top: 0; }
 .pn-more { margin-top: 4px; } .pn-more > summary { cursor: pointer; font-size: 13px; color: var(--story); } @media (pointer: coarse) { .pn-more > summary { min-height: 44px; display: flex; align-items: center; } }
+
+/* 故事線 ↔ 深入專題：頂端導覽行、終點站、卡片頁的「進專題」 */
+.sv-dive-top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 6px 0 8px; padding: 8px 12px; border: 1px solid var(--dive-line, #e3c3b3); background: var(--dive-bg, #fbeee8); color: var(--ink, #26231f); border-radius: 10px; font-size: .95em; font-weight: 600; }
+.sv-dive-btn { font: inherit; font-weight: 700; font-size: .95em; min-height: 44px; padding: 8px 16px; border-radius: 10px; border: 1px solid var(--dive, #9b2c2c); background: var(--dive, #9b2c2c); color: #fff; cursor: pointer; text-align: left; line-height: 1.4; }
+.sv-dive-btn:hover { filter: brightness(1.1); }
+.sv-dive-btn:focus-visible, .pn-dive-link:focus-visible, .sr-act.dive:focus-visible { outline: 3px solid var(--dive, #9b2c2c); outline-offset: 2px; }
+.sv-dive-btn.big { width: 100%; }
+.sv-terminus { display: flex; align-items: center; gap: 10px; margin: 6px 0 12px; }
+.sv-end-dot { flex: none; background: var(--dive, #9b2c2c); color: #fff; border-color: var(--dive, #9b2c2c); }
+.pn-dive-link { font: inherit; font-size: 13px; font-weight: 700; color: var(--dive, #9b2c2c); background: none; border: 0; padding: 2px 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+@media (pointer: coarse) { .pn-dive-link { min-height: 44px; padding: 8px 10px; } }
+@media (max-width: 700px) {
+  .sv-dive-btn.big { flex: 1 1 100%; }
+  .sv-dive-top { gap: 0; padding: 0 12px; font-size: 13px; font-weight: 500; }
+  .sv-dive-top .sv-dive-lead { display: none; }
+  .sv-dive-top .sv-dive-btn { min-height: 44px; padding: 0 0 0 2px; background: none; border: 0; color: var(--dive, #9b2c2c); font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+}
+@media (min-width: 701px) { .sv-dive-sep { display: none; } }
+:root[data-theme="dark"] .sv-dive-top { color: #eee9df; }
+:root[data-theme="dark"] .pn-dive-link, :root[data-theme="dark"] .sv-dive-top .sv-dive-btn { color: #ffb4a0; }
+@media (min-width: 701px) { :root[data-theme="dark"] .sv-dive-top .sv-dive-btn { color: #fff; } }

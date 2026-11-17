@@ -30,7 +30,7 @@ links: [event-treaty-tordesillas, person-magellan, tech-sail-navigation, event-p
 causes:
   - { id: event-treaty-tordesillas, rel: 背景, why: 摩鹿加群島（香料群島）的歸屬在條約分界線上有爭議；麥哲倫與葡萄牙國王吵翻後，向西班牙提出向西航行去那裡的計畫。, src: [event-treaty-tordesillas:s3, event-treaty-tordesillas:s4, s2] }
 effects:
-  - { id: event-manila-1571, rel: 背景, why: 1521 年是歐洲人首次有記錄抵菲律賓；1565 年黎牙實比要找他到過的香料群島，是前後相接，非明說延續。, src: [s2, s3, s5, s7, s8, s9] }
+  - { id: event-manila-1571, rel: 背景, why: 1521 年麥哲倫船隊到菲律賓，是歐洲人第一次有紀錄到這裡；四十多年後，1565 年黎牙實比才來建立據點。兩件事前後相接，但資料沒有說黎牙實比是有意接續麥哲倫。, src: [s2, s3, s5, s7, s8, s9] }
 counterparts: "無適當對照：本卡是歐洲人第一次環球航行；與鄭和下西洋（event-zheng-he-voyages）都是跨洋艦隊，但來源沒有直接比較，不硬湊。"
 sources:
   - { id: s1, title: "Antonio Pigafetta, Magellan's Voyage Around the World（James A. Robertson 1906 英譯本，Arthur H. Clark；網頁節錄版：Around the World with Pigafetta）", url: "https://mariuscomper.uk/in-jurul-lumii-pigafetta/en/", accessed: 2026-11-17, tier: 一手 }

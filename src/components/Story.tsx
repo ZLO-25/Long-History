@@ -97,7 +97,7 @@ export function CauseList({ card, side, index, onOpen, canOpen, researchHref, co
 }
 
 // ---- 這張卡在哪些故事裡 ----
-export interface PathHit { kind: 'unit' | 'story'; id: string; title: string; pos: number; total: number; prev?: string; next?: string }
+export interface PathHit { kind: 'unit' | 'story'; id: string; title: string; pos: number; total: number; prev?: string; next?: string; dive?: string }
 
 export function pathsOf(index: Index, cardId: string): PathHit[] {
   const out: PathHit[] = [];
@@ -109,7 +109,7 @@ export function pathsOf(index: Index, cardId: string): PathHit[] {
   for (const s of index.storylines ?? []) {
     const ids = s.stops.map((x) => x.id);
     const i = ids.indexOf(cardId);
-    if (i >= 0) out.push({ kind: 'story', id: s.id, title: s.title, pos: i + 1, total: ids.length, prev: ids[i - 1], next: ids[i + 1] });
+    if (i >= 0) out.push({ kind: 'story', id: s.id, title: s.title, pos: i + 1, total: ids.length, prev: ids[i - 1], next: ids[i + 1], dive: s.dive });
   }
   return out;
 }
@@ -158,6 +158,7 @@ export function PathNav({ card, index, onOpen, canOpen, researchHref, onUnit, un
                 </span>
                 <span className="pn-pos">第 {h.pos}／{h.total} 站</span>
               </span>
+              {h.kind === 'story' && h.dive && onDive && !dives.some((x) => x.id === h.dive) && (() => { const d = findDiveLite(index, h.dive); return d ? <button className="pn-dive-link" onClick={() => onDive(d.id)} title={`這條故事線是〈${d.title}〉的導覽線`}>進專題 ›</button> : null; })()}
             </div>
           ))}
           <div className="pn-steps">{step(g.hits[0].prev, 'prev')}{step(g.hits[0].next, 'next')}</div>
@@ -177,6 +178,11 @@ export function PathNav({ card, index, onOpen, canOpen, researchHref, onUnit, un
 }
 
 // ---- 故事線 ----
+/** 故事線帶的 dive（選填）對應到的專題；index 裡沒有就當作沒有（不顯示按鈕） */
+export function findDiveLite(index: Index, id: string | undefined) {
+  return id ? (index.dives ?? []).find((d) => d.id === id) : undefined;
+}
+
 export function findStory(index: Index, id: string): Storyline | undefined {
   return (index.storylines ?? []).find((s) => s.id === id);
 }
@@ -194,11 +200,13 @@ interface StoryViewProps extends OpenProps {
   id: string; currentId?: string | null; onAll: () => void; read?: (id: string) => boolean; onMap?: () => void;
   /** 閱讀頁結尾的「下一個故事」 */
   onStory?: (id: string) => void;
+  /** 打開深入專題（故事線帶 dive 時，頂端、終點站與閱讀頁結尾都用它） */
+  onDive?: (id: string) => void;
   /** 學習模式：故事「考考自己」的作答存進學習進度（沒給＝研究模式，閱讀頁自己讀寫 localStorage） */
   recallApi?: { saved: (storyId: string) => Record<string, RecallRec>; save: (storyId: string, i: number, rec: RecallRec | null) => void };
 }
 
-export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, researchHref, read, onMap, onStory, recallApi }: StoryViewProps) {
+export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, researchHref, read, onMap, onStory, onDive, recallApi }: StoryViewProps) {
   const s = findStory(index, id);
   // 故事閱讀頁（?read=1）：全螢幕蓋在上面；關掉回到這一頁
   const [reading, setReading] = useState(() => !!s?.read && wantsRead(id));
@@ -235,6 +243,10 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
   const openFromRead = useCallback((cid: string) => {
     if (pushed.current) { afterBack.current = () => onOpen(cid); history.back(); } else onOpen(cid);
   }, [onOpen]);
+  const diveFromRead = useCallback((did: string) => {
+    if (!onDive) return;
+    if (pushed.current) { afterBack.current = () => onDive(did); history.back(); } else onDive(did);
+  }, [onDive]);
   // 先把故事全文下載好，按「讀故事」時文字馬上出現
   const hasRead = !!s?.read;
   useEffect(() => {
@@ -247,10 +259,12 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
   if (!s) return <div className="story-view"><p>找不到這條故事線。</p><button className="link" onClick={onAll}>看全部故事線</button></div>;
   const m = byIdOf(index);
   const first = m.get(s.stops[0].id), last = m.get(s.stops[s.stops.length - 1].id);
+  const dive = onDive ? findDiveLite(index, s.dive) : undefined;
   return (
     <div className="story-view">
       <nav className="dv-crumb" aria-label="麵包屑"><button className="link" onClick={onAll}>故事線</button> <span aria-hidden>›</span> <span>{s.title}</span></nav>
       <h2>{s.title}</h2>
+      {dive && <div className="sv-dive-top" data-testid="sv-dive-top"><span><span className="sv-dive-lead">這是</span>〈{dive.title}〉的導覽線</span><span aria-hidden className="sv-dive-sep">・</span><button className="sv-dive-btn" onClick={() => onDive!(dive.id)}>進專題 ›</button></div>}
       <p className="sv-q">❓ {s.question}</p>
       {s.blurb && <p className="sv-blurb">{s.blurb}</p>}
       {s.read && (() => {
@@ -263,7 +277,7 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
           </div>
         );
       })()}
-      {reading && s.read && <StoryReader story={s} index={index} onClose={closeRead} onOpen={openFromRead} canOpen={canOpen} researchHref={researchHref} onStory={onStory} recall={recallApi ? { saved: recallApi.saved(s.id), save: (i, r) => recallApi.save(s.id, i, r) } : undefined} />}
+      {reading && s.read && <StoryReader story={s} index={index} onClose={closeRead} onOpen={openFromRead} canOpen={canOpen} researchHref={researchHref} onStory={onStory} onDive={dive ? diveFromRead : undefined} recall={recallApi ? { saved: recallApi.saved(s.id), save: (i, r) => recallApi.save(s.id, i, r) } : undefined} />}
       {s.read && <h3 className="sv-walk">一站一站看因果<small>每兩站之間說明「怎麼造成的」</small></h3>}
       <p className="muted small">{s.stops.length} 站{first && last && `・${fmtRange(first.time.start, last.time.end)}`}・每兩站之間的說明，就是兩張卡之間的前因／後果關係。{onMap && <button className="link" onClick={onMap}>在地圖上看</button>}</p>
       <ol className="sv-line">
@@ -290,6 +304,12 @@ export function StorylineView({ id, index, currentId, onOpen, onAll, canOpen, re
           );
         })}
       </ol>
+      {dive && (
+        <div className="sv-terminus" data-testid="sv-terminus">
+          <span className="sv-dot sv-end-dot" aria-hidden>★</span>
+          <button className="sv-dive-btn big" onClick={() => onDive!(dive.id)}>走完了：到〈{dive.title}〉專題看全貌<span aria-hidden> ›</span></button>
+        </div>
+      )}
       <p className="sv-note muted small">故事線只是看歷史的其中一條路：每一站通常還有別的原因和別的後果，打開卡片看「從哪裡來／往哪裡去」。</p>
     </div>
   );

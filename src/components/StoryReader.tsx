@@ -182,9 +182,10 @@ const StoryBody = memo(function StoryBody({ doc, byId, stopNo, pm, canOpen, rese
 interface EndProps {
   doc: StoryDoc; rec: Record<string, RecallRec>; srcOpen: boolean; reveal: (i: number) => void; rate: (i: number, v: 0 | 1 | 2) => void; toggleSrc: () => void;
   onClose: () => void; next?: Storyline; onStory?: (id: string) => void;
+  dive?: { id: string; title: string }; onDive?: (id: string) => void;
 }
 /** 結尾：考考自己、記住、想一想、出處 */
-const StoryEnd = memo(function StoryEnd({ doc, rec, srcOpen, reveal, rate, toggleSrc, onClose, next, onStory }: EndProps) {
+const StoryEnd = memo(function StoryEnd({ doc, rec, srcOpen, reveal, rate, toggleSrc, onClose, next, onStory, dive, onDive }: EndProps) {
   return (
     <footer className="sr-end">
       {!!doc.recall?.length && (
@@ -209,6 +210,7 @@ const StoryEnd = memo(function StoryEnd({ doc, rec, srcOpen, reveal, rate, toggl
         <p className="sr-note">故事只走了其中一條路：每一站通常還有別的原因和別的後果。想看每兩站之間的因果說明和來源，回到故事線一站一站看。</p>
         <div className="sr-actions">
           <button className="sr-act primary" onClick={onClose}>一站一站看因果 →</button>
+          {dive && onDive && <button className="sr-act dive" onClick={() => onDive(dive.id)}>到專題看全貌<small>〈{dive.title}〉</small></button>}
           {next && onStory && <button className="sr-act" onClick={() => { openReading(next.id); onStory(next.id); }}>下一個故事：{next.title}<small>約 {next.read!.minutes} 分鐘</small></button>}
         </div>
         <button className="sr-sources-btn" aria-expanded={srcOpen} onClick={toggleSrc}>{srcOpen ? '▾' : '▸'} 這篇故事的出處（{doc.sources.length} 筆，都來自各站卡片上的來源）</button>
@@ -226,6 +228,7 @@ interface ReaderProps {
   canOpen?: (c: Card) => boolean;
   researchHref?: (id: string) => string;
   onStory?: (id: string) => void;
+  onDive?: (id: string) => void;
   /** 學習模式：考考自己的作答存進學習進度（saved＝這篇故事已存的；save＝存一題，null＝清掉）。研究模式沒給，閱讀頁自己讀寫 localStorage */
   recall?: { saved: Record<string, RecallRec>; save: (i: number, rec: RecallRec | null) => void };
 }
@@ -234,7 +237,7 @@ const SIZES = ['s', 'm', 'l', 'xl'] as const;
 const SIZE_NAME = ['小', '中', '大', '特大'];
 const year = (y: number) => (y < 0 ? `前 ${-y}` : `${y}`);
 
-export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHref, onStory, recall }: ReaderProps) {
+export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHref, onStory, onDive, recall }: ReaderProps) {
   const [doc, setDoc] = useState<StoryDoc | null>(null);
   const [failed, setFailed] = useState(false);
   const [size, setSize] = useState(() => { const raw = lsGet(SIZE_KEY), v = Number(raw); return raw !== null && raw !== '' && v >= 0 && v <= 3 && Number.isInteger(v) ? v : 1; });
@@ -549,7 +552,17 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
   const all = index.storylines ?? [];
   const withStory = all.filter((x) => x.read);
   const next0 = withStory.length > 1 ? withStory[(withStory.findIndex((x) => x.id === story.id) + 1) % withStory.length] : undefined;
-  const next = next0 && next0.id !== story.id ? next0 : undefined;
+  const next1 = next0 && next0.id !== story.id ? next0 : undefined;
+  // 帶 dive 的故事線：優先推薦同專題裡、與本線站點重複最少的一條（避免剛看過的站又重看）
+  const next = (() => {
+    const dv = story.dive ? (index.dives ?? []).find((d) => d.id === story.dive) : undefined;
+    if (!dv) return next1;
+    const mine = new Set(story.stops.map((x) => x.id));
+    const sibs = (dv.storylines ?? []).map((id) => withStory.find((x) => x.id === id)).filter((x): x is Storyline => !!x && x.id !== story.id);
+    if (!sibs.length) return next1;
+    const dup = (x: Storyline) => x.stops.reduce((n, st) => n + (mine.has(st.id) ? 1 : 0), 0);
+    return sibs.reduce((a, b) => (dup(b) < dup(a) ? b : a));
+  })();
   const first = byId.get(story.stops[0].id), last = byId.get(story.stops[story.stops.length - 1].id);
   const secOf = (id: string) => doc?.sections.findIndex((s) => s.cards.includes(id)) ?? -1;
 
@@ -609,7 +622,7 @@ export function StoryReader({ story, index, onClose, onOpen, canOpen, researchHr
 
       {doc && <StoryBody doc={doc} byId={byId} stopNo={stopNo} pm={pm} canOpen={canOpen} researchHref={researchHref} onOpen={onOpen} rec={rec} reveal={reveal} rate={rate} />}
 
-      {doc && <StoryEnd doc={doc} rec={rec} srcOpen={srcOpen} reveal={reveal} rate={rate} toggleSrc={toggleSrc} onClose={onClose} next={next} onStory={onStory} />}
+      {doc && <StoryEnd doc={doc} rec={rec} srcOpen={srcOpen} reveal={reveal} rate={rate} toggleSrc={toggleSrc} onClose={onClose} next={next} onStory={onStory} dive={onDive ? (index.dives ?? []).find((d) => d.id === story.dive) : undefined} onDive={onDive} />}
     </article>
   );
   return createPortal(

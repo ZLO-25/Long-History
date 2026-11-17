@@ -23,7 +23,7 @@ topics: [航海, 海上貿易]
 links: [tech-compass, event-portugal-africa-coast, event-vasco-da-gama, event-columbus-aztec, event-zheng-he-voyages]
 effects:
   - { id: event-vasco-da-gama, rel: 促成, why: 達伽馬 1497 年先往西南繞進大西洋借風，與回航法同屬風帶知識（兩者連結為本站歸納）。, src: [s3, s9] }
-  - { id: event-columbus-aztec, rel: 背景, why: 哥倫布 1492 年用卡拉維爾帆船橫渡大西洋；英文維基說他若不會繞進西風帶，就無法從加勒比海回到歐洲。, src: [s1, s3] }
+  - { id: event-columbus-aztec, rel: 背景, why: 1492 年哥倫布橫渡大西洋，三艘船裡有兩艘是卡拉維爾帆船；回程從加勒比海往北繞進西風帶，用的正是葡萄牙人摸索出來的回航法。, src: [s1, s3] }
 counterparts: "無適當對照：本卡是歐洲遠洋航行技術的組合，中國軌道的航海技術（指南針、針經）已另有卡 tech-compass，兩者互為來源而不是平行的對照。"
 sources:
   - { id: s1, title: "Caravel — Wikipedia（英文）", url: "https://en.wikipedia.org/wiki/Caravel", accessed: 2026-11-17, tier: 百科 }

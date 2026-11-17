@@ -26,6 +26,7 @@ topics: [東印度公司, 海上貿易, 海戰與水戰, 殖民統治]
 links: [finance-voc, event-dutch-formosa, person-zheng-zhilong, event-hamada-yahei-1628, event-ming-qing-transition]
 causes:
   - { id: finance-voc, rel: 背景, why: 荷蘭東印度公司的特許狀准許它在亞洲開戰、蓋堡壘、與當地統治者訂約，所以它能自己派艦隊占島築城，想逼明朝開放貿易。, src: [finance-voc:s1, finance-voc:s3] }
+  - { id: commodity-manila-galleon, rel: 背景, why: 當時福建商人把絲綢、瓷器運到馬尼拉，換走西班牙大帆船載來的美洲白銀。荷蘭人也想和中國做生意，占澎湖期間曾威脅明朝：不要再和馬尼拉貿易，只能和荷蘭人貿易。這是荷蘭人提出的要求之一，不是他們占澎湖的唯一原因。, src: [s1, commodity-manila-galleon:s1] }
 effects:
   - { id: event-dutch-formosa, rel: 促成, why: 1624 年荷蘭人被明軍圍困而撤出澎湖，轉往大員落腳、蓋起熱蘭遮城，開始統治臺灣西南部。, src: [s1, s6, event-dutch-formosa:s1] }
 counterparts: 無適當對照：本站中國軌與西方軌目前沒有「歐洲貿易公司占島、被中國軍隊逼退」的同類卡片；澳門（葡萄牙人居住）是不同路線，這裡不硬湊。

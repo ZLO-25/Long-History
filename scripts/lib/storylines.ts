@@ -4,8 +4,9 @@ import { exists } from './check.ts';
 import { readYaml, type RawCard } from './cards.ts';
 import type { Edge } from './causes.ts';
 import type { Issue } from './check.ts';
+import { loadDives } from './dives.ts';
 
-export interface Storyline { id: string; title: string; question: string; blurb?: string; stops: string[] }
+export interface Storyline { id: string; title: string; question: string; blurb?: string; stops: string[]; /** 選填：這條線是哪個深入專題的導覽線（data/dives/*.yaml 的 id）；畫面上每站都能連回專題 */ dive?: string }
 
 export function loadStorylines(): Storyline[] {
   return exists('data/storylines.yaml') ? readYaml('data/storylines.yaml')?.storylines ?? [] : [];
@@ -20,11 +21,16 @@ export function checkStorylines(lines: Storyline[], cards: RawCard[], edges: Edg
   const warn = (msg: string) => issues.push({ level: 'warning', file, msg });
   const byId = new Map(cards.filter((c) => c.fm?.id).map((c) => [c.fm.id, c.fm]));
   const ids = new Set<string>();
+  let diveIds: Set<string> | null = null;
   for (const l of lines) {
     const w = `故事線 ${l.id ?? '?'}`;
     if (!/^story-[a-z0-9-]+$/.test(l.id ?? '')) err(`${w}：id 要是 story-xxx 格式`);
     if (ids.has(l.id)) err(`${w}：id 重複`);
     ids.add(l.id);
+    if (l.dive !== undefined) {
+      diveIds ??= new Set(loadDives().map((d) => d.dive.id));
+      if (typeof l.dive !== 'string' || !diveIds.has(l.dive)) err(`${w}：dive 「${l.dive}」找不到對應的深入專題（要寫 data/dives/*.yaml 裡的 id，例如 dive-age-of-discovery）`);
+    }
     if (!l.title) err(`${w}：缺 title`);
     if (!l.question) err(`${w}：缺 question（開場的大問題）`);
     if (!Array.isArray(l.stops) || l.stops.length < 4) { err(`${w}：stops 至少要 4 站`); continue; }
@@ -43,7 +49,7 @@ export function checkStorylines(lines: Storyline[], cards: RawCard[], edges: Edg
 export function buildStorylines(lines: Storyline[], edges: Edge[], cards: { id: string }[]) {
   const has = new Set(cards.map((c) => c.id));
   return lines.filter((l) => Array.isArray(l.stops) && l.stops.every((id) => has.has(id))).map((l) => ({
-    id: l.id, title: l.title, question: l.question, blurb: l.blurb ?? '',
+    id: l.id, title: l.title, question: l.question, blurb: l.blurb ?? '', ...(l.dive ? { dive: l.dive } : {}),
     stops: l.stops.map((id, i) => {
       const e = i < l.stops.length - 1 ? bridgeOf(edges, id, l.stops[i + 1]) : undefined;
       return { id, bridge: e ? { rel: e.rel, why: e.why, disputed: e.disputed, sources: e.sources } : null };

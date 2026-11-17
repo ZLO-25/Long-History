@@ -1,5 +1,17 @@
 # 歷史長河（第 8 期：美國史、金融中心的轉移與錢的起源）
 
+> ## 🌐 線上直接用：<https://zlo-25.github.io/Long-History/>
+>
+> 不用安裝，用手機或電腦的瀏覽器打開就能用。
+>
+> | 想做什麼 | 直接打開 |
+> |---|---|
+> | 🎓 學習模式（給國高中生，一步一步讀單元） | <https://zlo-25.github.io/Long-History/?mode=learn> |
+> | 🔎 研究模式（時間軸＋地圖＋搜尋相似案例） | <https://zlo-25.github.io/Long-History/?mode=research> |
+> | 📚 深入專題範例：日本戰國 | <https://zlo-25.github.io/Long-History/?dive=dive-sengoku> |
+>
+> 想在自己電腦跑或修改程式，再看下面的「第一次使用」。
+
 個人用的「歷史思考工具」：用模糊搜尋或勾選結構條件，找到結構相似的歷史案例；每張卡片都有時間軸、地圖位置與可點的來源。
 
 ```

@@ -61,7 +61,7 @@ const fs = require('fs');
       const s = ix.storylines.find((x) => x.id === sid);
       ok(s && s.stops.length >= 2 && s.stops.every((x, i) => (i === s.stops.length - 1) === !x.bridge), `故事線 ${sid} 每兩站之間都有因果橋（${s?.stops.length} 站）`);
     }
-    ok(['power', 'curve', 'none'].includes(d.visual), `visual 欄位合法（${d.visual}）`);
+    ok(['power', 'curve', 'routes', 'none'].includes(d.visual), `visual 欄位合法（${d.visual}）`);
     if (d.visual === 'power') ok(d.power_maps.length >= 3 && d.power_maps.every((pm) => pm.powers.length >= 3 && pm.sources.length >= 2), `主視覺至少 3 張圖、每張 ≥3 個區塊、≥2 個來源（${d.power_maps.length} 張）`);
     for (const pm of d.power_maps) {
       const gj = await (await fetch(base + 'data/dives/' + pm.file)).json();
@@ -158,6 +158,29 @@ const fs = require('fs');
         ok((await p.$$('.dv-cv-now')).length === d.curves.series.length, '曲線主視覺：紅線標出目前年代');
       }
       await p.screenshot({ path: `${out}/${pre(d)}curve-1280.png` });
+    } else if (d.visual === 'routes') {
+      // 航線主視覺（docs/dives.md 第十一節）：沒有勢力圖，改檢查航線清單；.dv-voyage-sec 也帶 .dv-power 這個 class
+      const vy = d.voyages?.items ?? [];
+      ok(vy.length >= 1 && (d.voyages?.title ?? '').length > 0, `航線主視覺：有 voyages（${vy.length} 條）`);
+      ok((await p.textContent('.dv-voyage-sec h3')).includes(d.voyages.title), `航線主視覺標題（${d.voyages.title}）`);
+      ok((await p.$$('.dv-voyage')).length === vy.length, `航線清單 .dv-voyage 數量＝voyages.items（${vy.length}）`);
+      ok(vy.every((v) => ix.routes.some((r) => r.id === v.route)), '每條航線都在 index.routes');
+      await p.screenshot({ path: `${out}/${pre(d)}dive-research-1280.png` });
+      if (vy.length) {
+        // 第一下只高亮、不離開專題頁；每條航線有自己的色塊；「看卡片」才開卡
+        const sw = await p.$$eval('.dv-voyages li', (els) => els.map((e) => getComputedStyle(e).getPropertyValue('--vc').trim()));
+        ok(sw.length === vy.length && new Set(sw).size === vy.length && sw.every(Boolean), `航線主視覺：每條航線一個不同的顏色（${sw.length} 種）`);
+        await p.click('.dv-voyage >> nth=0'); await p.waitForTimeout(1200);
+        ok(!new URL(p.url()).searchParams.get('card') && !!(await p.$('.dive-view')), `航線主視覺：點第一條「${vy[0].label}」只高亮、留在專題頁`);
+        ok(!!(await p.$('.dv-voyages li.sel')), '航線主視覺：被點的航線有 .sel 標示');
+        ok((await p.textContent('.dv-voyage-sec')).includes('萬公里') || (await p.textContent('.dv-voyage-sec')).includes('千公里'), '航線主視覺：里程是約略值（萬／千公里）');
+        await p.screenshot({ path: `${out}/${pre(d)}voyage-select-1280.png` });
+        await p.click('.dv-vcard >> nth=0'); await p.waitForTimeout(1200);
+        ok(new URL(p.url()).searchParams.get('card') === vy[0].card, `航線主視覺：按「看卡片」打開「${vy[0].label}」`);
+        await p.screenshot({ path: `${out}/${pre(d)}voyage-card-1280.png` });
+        await p.click('.panel-nav .back'); await p.waitForTimeout(600);
+        ok(!!(await p.$('.dive-view')), '航線主視覺：返回回到專題頁');
+      }
     } else {
       ok(!(await p.$('.dv-power')), '沒有主視覺的專題：不顯示主視覺區');
       await p.screenshot({ path: `${out}/${pre(d)}dive-research-1280.png` });

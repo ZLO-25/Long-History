@@ -18,9 +18,11 @@ interface Props {
   selectedId: string | null; onOpen: (id: string) => void; inHistory: (c: Card) => boolean;
   /** 史前卡不畫在軸上，改成一顆「史前」按鈕（同研究模式時間軸） */
   onPrehistory?: () => void;
+  /** 深入專題打開時，時間軸放大到專題年代（同研究模式） */
+  range?: { start: number; end: number } | null;
 }
 
-export function LearnTimeline({ cards: cardsIn, history, year, setYear, selectedId, onOpen, inHistory, onPrehistory }: Props) {
+export function LearnTimeline({ cards: cardsIn, history, year, setYear, selectedId, onOpen, inHistory, onPrehistory, range }: Props) {
   const prehist = useMemo(() => cardsIn.filter((c) => c.time.end < MIN_YEAR && inHistory(c)), [cardsIn, inHistory]);
   const cards = useMemo(() => cardsIn.filter((c) => c.time.end >= MIN_YEAR), [cardsIn]);
   const wrap = useRef<HTMLDivElement>(null);
@@ -64,6 +66,14 @@ export function LearnTimeline({ cards: cardsIn, history, year, setYear, selected
     if (era.current) zoomTo(...era.current); else { setEraSel('all'); svg.call(z.transform, zoomIdentity); }
     return () => { svg.on('.zoom', null); };
   }, [width, base]);
+  // 深入專題：打開時把畫面放大到專題年代；關掉時回到全覽
+  const rangeKey = range ? `${range.start}:${range.end}` : '';
+  useEffect(() => {
+    const svg = svgRef.current as any;
+    if (!svg) return;
+    if (range) { if (range.start < MIN_YEAR) svg.__zoom_reset?.(); else svg.__zoom_to?.(range.start, range.end); setEraSel(null); }
+    else if (era.current) svg.__zoom_reset?.();
+  }, [rangeKey]); // eslint-disable-line react-hooks/exhaustive-deps
   // name：切到某個時代（按鈕亮起）；不給 name＝放大到一小段（例如「+N」），算自訂範圍
   const zoomTo = (a: number, b: number, name: string | null = null) => { (svgRef.current as any)?.__zoom_to?.(a, b); setEraSel(name); };
   const goEra = (name: string, a: number, b: number) => { zoomTo(a, b, name); if (year < a || year > b) setYear(a); };

@@ -13,7 +13,7 @@ import { PEOPLE_INTRO } from '../lib/peoples';
 import { createSearch, learnSearch, learnKeywords, matchTopics, useSearchLibs, loadSearchLibs } from '../lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
 import { findStory, storyMarks, keepRead } from '../lib/storyLite';
-import { findDive, diveMarks, diveRoutes, hasPowerVisual, powerFor, diveYear, prehistDive } from '../lib/dive';
+import { findDive, diveMarks, diveRoutes, diveRouteColors, hasPowerVisual, powerFor, diveYear, prehistDive } from '../lib/dive';
 import { useIsMobile, useTabletPortrait } from '../lib/useIsMobile';
 import { LearnHome } from './LearnHome';
 import { AaPanel } from './AaPanel';
@@ -230,10 +230,12 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const openStory = (id: string) => { setQuery(''); push({ kind: 'story', id }); };
   // 深入專題（docs/dives.md）：學習模式也能打開專題頁；勢力圖疊在地圖上
   const [powerYear, setPowerYear] = useState<number | null>(() => { const dv = findDive(index, params.get('dive') ?? ''); return dv ? powerFor(dv, dv.range.start)?.year ?? null : null; });
+  const [voyageSel, setVoyageSel] = useState<string | null>(null);
   const diveBelow = (() => { for (let i = stack.length - 1; i >= 0; i--) { const v = stack[i]; if (v.kind === 'dive') return v.id; if (v.kind !== 'card') return null; } return null; })();
   const activeDive = diveBelow ? findDive(index, diveBelow) ?? null : null;
   const activePower = activeDive && hasPowerVisual(activeDive) && powerYear != null ? activeDive.power_maps.find((x) => x.year === powerYear) ?? null : null;
   const initDive = (id: string) => {
+    setVoyageSel(null);
     const dv = findDive(index, id);
     if (dv) {
       // 年代不在專題範圍內就跳到專題的第一張圖（沒有圖就跳到專題起點）；沒有圖的專題要清掉上一個專題殘留的年份
@@ -331,7 +333,7 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
         canOpen={(c) => !!c.learn} researchHref={researchHref} read={(id) => !!p.cards[id]} onStory={openStory} onMap={isMobile ? () => setTab('map') : undefined}
         recallApi={{ saved: (sid) => p.stories?.[sid]?.recall ?? NO_RECALL, save: (sid, i, r) => update((o) => withRecall(o, sid, i, r)) }} />;
       case 'stories': return <StorylineIndex index={index} onStory={openStory} onTopics={() => push({ kind: 'topics' })} onDives={(index.dives ?? []).length ? () => push({ kind: 'dives' }) : undefined} />;
-      case 'dive': return <DiveView key={view.id} index={index} id={view.id} year={year} setYear={setYear} currentId={lastCard} powerYear={powerYear} setPowerYear={setPowerYear}
+      case 'dive': return <DiveView key={view.id} index={index} id={view.id} year={year} setYear={setYear} currentId={lastCard} powerYear={powerYear} setPowerYear={setPowerYear} voyageSel={voyageSel} setVoyageSel={setVoyageSel}
         onOpen={(id) => openCard(id)} onStory={openStory} onAll={() => push({ kind: 'dives' })} onUnit={openUnit} canOpen={(c) => !!c.learn} researchHref={researchHref} onMap={isMobile ? () => setTab('map') : undefined} learn
         renderCapstone={(dv) => <Capstone dive={dv} index={index} p={p} update={update} onUnit={openUnit} />} />;
       case 'dives': return <DiveIndex index={index} onDive={openDive} />;
@@ -356,14 +358,14 @@ export function LearnApp({ index, onResearch }: { index: Index; onResearch: () =
   const topicName = view.kind === 'topic' ? view.name : null;
   const storyId = view.kind === 'story' ? view.id : null;
   const diveId = view.kind === 'dive' ? view.id : null;
-  const hl = useMemo(() => diveId ? { keys: [], routes: diveRoutes(index, diveId), marks: diveMarks(index, diveId) } : storyId ? { keys: [], routes: [], marks: storyMarks(index, storyId) } : topicName ? { keys: [], routes: [], marks: topicMarks(index, topicName) }
-    : { keys: selected?.place.locations.map((l) => l.key) ?? [], routes: selected?.routes ?? [] }, [topicName, storyId, diveId, selected?.id, index]);
+  const hl = useMemo(() => diveId ? (() => { const rs = diveRoutes(index, diveId), colors = diveRouteColors(index, diveId); return { keys: [], routes: rs, marks: diveMarks(index, diveId), colors, focus: voyageSel && rs.includes(voyageSel) ? voyageSel : null, dim: Object.keys(colors).length > 0 }; })() : storyId ? { keys: [], routes: [], marks: storyMarks(index, storyId) } : topicName ? { keys: [], routes: [], marks: topicMarks(index, topicName) }
+    : { keys: selected?.place.locations.map((l) => l.key) ?? [], routes: selected?.routes ?? [] }, [topicName, storyId, diveId, selected?.id, index, voyageSel]);
   const map = !coreOk ? <div className="map-skel" /> : <MapView index={index} cards={histCards} bgCards={bgCards} year={year} learn compact={phone} home={home}
     highlight={hl} power={activePower ? { file: activePower.file, title: activePower.title, legend: activeDive?.power_ui?.legend, files: activeDive?.power_maps.map((x) => x.file) } : null} onCard={(id) => openCard(id)}
     trail={selected?.type === 'person' ? selected.place.locations.filter((l) => typeof l.year === 'number').map((l) => ({ lat: l.lat, lng: l.lng, year: l.year!, name: l.name_ancient })) : null}
     onPlace={(key) => { const c = histCards.find((x) => x.place.locations.some((l) => l.key === key)); if (c) openCard(c.id); }} onRoute={() => {}}
     peoples={{ on: peoplesOn || (view.kind === 'unit' && !!unitPeople), setOn: (v) => { setPeoplesOn(v); if (!v) setUnitPeople(null); if (!v && view.kind === 'peoples') back(); }, sel: view.kind === 'peoples' ? view.id : view.kind === 'unit' ? unitPeople : null, onPick: (id) => { openPeople(id); if (isMobile && id !== PEOPLE_INTRO) setTab('main'); } }} />;
-  const timeline = !coreOk ? <Skel h={TL_H.learn} label="時間軸載入中" /> : <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
+  const timeline = !coreOk ? <Skel h={TL_H.learn} label="時間軸載入中" /> : <LearnTimeline cards={all} history={h} year={year} setYear={setYear} selectedId={selected?.id ?? null} onOpen={openCard} inHistory={(c) => inHistory(c, h)} range={activeDive ? activeDive.range : null} onPrehistory={prehistDive(index) ? () => openDive(prehistDive(index)!.id) : undefined} />;
   const cardTab = !coreOk && lastCard ? <CoreWait index={index} /> : lastCard && !cardLoaded(index, lastCard) ? <DetailWait index={index} /> : lastCard && byId(lastCard)?.learn ? <LearnCard card={byId(lastCard)!} index={index} history={h} onOpen={openCard} onTopic={openTopic} topicCount={learnCount} onStory={openStory} onUnit={openUnit} onDive={openDive} /> : <div className="card-empty"><p className="muted">還沒打開任何卡片。卡片會在你讀課、讀故事或點標籤時打開。</p><button className="btn primary" onClick={() => { if (view.kind !== 'home') nav([{ kind: 'home' }]); setTab('main'); }}>去挑一課</button></div>;
 
   const contentTitle = query.trim() ? '搜尋' : ({ home: '學習首頁', history: h?.name ?? '史', unit: '課', card: '卡片', mymap: '我的地圖', record: '學習紀錄', sheet: '學習單', export: '匯出作答', teacher: '老師檢視', review: '今天的複習', exam: '段考複習', sim: '模擬', search: '搜尋', topic: '主題路徑', topics: '#標籤', story: '故事線', stories: '故事線', dive: '深入專題', dives: '深入專題', peoples: '人群', histories: '依地區與主題', lessons: '全部的課', curriculum: '課綱對照' } as Record<View['kind'], string>)[view.kind];

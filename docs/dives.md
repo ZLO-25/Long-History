@@ -114,6 +114,7 @@ public/data/dives/<專題>/power-<年>.geojson   地圖的主視覺圖層
 - 法國大革命（2026-11-07）：17 張新卡（含 5 位人物）、升級法國大革命總卡、1789／1797／1812 歐洲勢力圖（底圖 `npm run basemap -- EU`：歐洲 45 國）、故事線 `story-french-revolution`、2 個單元；另加曲線主視覺（第八節）與全世界底圖 `npm run basemap -- WORLD`。報告 `docs/dive-french-revolution.md`。
 - 日本失落 30 年（2026-11-07）：10 張新卡、第一個曲線主視覺專題（每人平均產值、物價漲幅、人口三條曲線＋10 條事件線）、故事線 `story-japan-lost-decades`、2 個單元。報告 `docs/dive-japan-lost-decades.md`。
 - 冷戰（2026-11-07）：15 張新卡（含 6 位人物）、升級冷戰結束卡、1955／1962／1980 陣營圖（底圖 `npm run basemap -- WORLD`）、故事線 `story-cold-war-berlin`＋既有 `story-cold-war`、2 個單元。報告 `docs/dive-cold-war.md`。
+- 大航海時代（2026-11-17）：第一個航線主視覺專題（`visual: routes`，第十一節）；6 條遠洋航線（`method: ocean`）、約 46 張卡（其中大半由同事撰寫中）、故事線沿用 `story-silver`、`story-taiwan-400`。專題檔 `data/dives/age-of-discovery.yaml`。
 
 ## 七、讀書專題（book，2026-11-07 起，第一個是《人類大歷史》）
 
@@ -206,3 +207,24 @@ sources:
 - `npm run validate`：left／right 的 dive 存在、id＝檔名、每列 aspect／left／right 都有字、卡存在、src 都在 sources、sources 欄位齊全；沒人引用的來源警告。build 時指到還不存在的卡的欄位，只略過卡片按鈕、文字照留。
 - 畫面：`src/components/DiveCompare.tsx`（研究與學習模式共用 `DiveView`）。桌機三欄（面向｜左｜右），手機每個面向一張卡、左右上下排（每格前面標出是哪一邊）；點「看卡片：○○」開卡；出處是每列下方小字。頁內導覽多一顆「希臘 vs 羅馬」按鈕。樣式在 `dive.css`（`.dv-cp-*`）。
 - `scripts/qa/dive.cjs`：有 `legacy` 的專題檢查今日影子條數，有 `compare` 的專題檢查對照表列數。
+
+## 十一、主視覺：航線（visual: routes，2026-11-17 起，第一個是大航海時代）
+
+大航海時代的重點是「誰走哪一條海路」，不是疆域，所以主視覺換成一張航線清單加地圖上的線。專題 yaml 寫 `visual: routes` 和 `voyages`：
+
+```yaml
+visual: routes
+voyages:
+  title: 航線圖
+  subtitle: 誰在什麼時候走哪一條海路
+  caveat: 帆船要順著風帶和洋流走，所以每條線只把史料記載的停靠港與大致的轉向點連起來……   # 「這些航線怎麼畫的」展開後的說明
+  items:
+    - { route: sea-zheng-he, card: event-zheng-he-voyages, label: 鄭和第七次下西洋, year: 1431, note: 一句話講這條線改變了什麼 }
+```
+
+- `route`：`data/routes/routes.yaml` 裡的航線 id；`card`：點下去開的卡；`label`：清單上的名稱；`year`：這條航線的代表年份（點下去時時間軸會跳到這一年）；`note`：一句話，只能用卡片裡已有的說法。清單依 `year` 排序。
+- 航線本身用 `method: ocean`（`scripts/lib/ocean.ts`）：只把 `waypoints`（停靠港加「（轉向點，示意）」）依序用大圓弧連起來，不自己算海路，因為帆船要順著風帶和洋流走（例如達伽馬在南大西洋繞一個大弧）。在 ±180° 經線切成多段，所以太平洋航線不會橫跨整張地圖。有名字的港口站點照史料放，轉向點是示意，`note` 要寫明。
+- `npm run routes` 會檢查每段大圓弧的內插點有沒有落在陸地上（Natural Earth 110m），超過 1 點就印警告，要在那一段之間補轉向點。太窄的水道（目前只有麥哲倫海峽）列在 `ocean.ts` 的 `STRAITS`，只略過檢查、不改線。
+- `npm run validate`（`scripts/lib/dives.ts`）：`visual: routes` 要有 `voyages.items`；每條的 `route` 要在 routes.yaml、`card` 要存在（不在專題 `cards` 只警告）、要有 `label`、`year` 在專題年代內。build 時指到還不存在的卡的條目先略過。
+- 畫面（`src/components/Dive.tsx` 的 `voyageSec`，樣式 `dive.css` 的 `.dv-voyage*`）：專題頁的主視覺區是一張航線清單，每條有年份、名稱和一句 note；點一條會打開那張卡，地圖飛到那條線。專題打開時 6 條線全部亮著（`diveRoutes`），多條同時高亮時線會變細（`MapView`）。展開「這些航線怎麼畫的」可以看 `caveat` 和各航線的來源。航線詳情（`RoutePanel`）會說明這是示意弧線、不是實際航跡。
+- `scripts/qa/dive.cjs`：對 `visual: routes` 的專題檢查 `.dv-voyage` 數量＝`voyages.items` 數、點第一條會打開卡片；沒有勢力圖不算失敗。

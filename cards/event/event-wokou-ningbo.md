@@ -2,7 +2,7 @@
 id: event-wokou-ningbo
 type: event
 name: 寧波之亂與嘉靖大倭寇：海禁下的走私戰爭（1523–1567）
-aliases: [寧波之亂, 寧波爭貢, 寧波の乱, 嘉靖大倭寇, 嘉靖倭亂, 後期倭寇, 倭寇, 王直, 汪直, 徐海, 戚繼光, 雙嶼, 隆慶開關, 隆慶開海, Ningbo incident, Jiajing wokou raids, Wokou, Wako, Wang Zhi]
+aliases: [寧波之亂, 寧波爭貢, 寧波の乱, 嘉靖大倭寇, 嘉靖倭亂, 後期倭寇, 倭寇, 王直, 汪直, 徐海, 戚繼光, 雙嶼, 隆慶開海, 隆慶開關, Ningbo incident, Jiajing wokou raids, Wokou, Wako, Wang Zhi]
 civilization: [中國（明）, 日本（戰國）]
 track: china
 time:

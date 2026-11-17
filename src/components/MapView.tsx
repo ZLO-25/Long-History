@@ -15,7 +15,8 @@ import { activeAt, fmtYear, KIND_LABEL, METHOD_LABEL, SEG_LABEL, ERA_LABEL, eraO
 interface Props {
   index: Index; cards: Card[]; year: number;
   /** marks：主題路徑的編號（依年代排的第幾張卡），畫在該地點上 */
-  highlight: { keys: string[]; routes: string[]; marks?: { key: string; n: number; name: string; en?: string; start?: number; hideFuture?: boolean }[] };
+  /** colors：航線各自的顏色；focus：被選中的航線（其餘淡化、視野飛過去）；dim：專題頁時把不屬於專題的地點調淡 */
+  highlight: { keys: string[]; routes: string[]; colors?: Record<string, string>; focus?: string | null; dim?: boolean; marks?: { key: string; n: number; name: string; en?: string; start?: number; hideFuture?: boolean }[] };
   onPlace: (key: string) => void; onRoute: (id: string) => void; compact?: boolean;
   chain?: { chain: Chain; t: number } | null;
   todayOn?: boolean; setTodayOn?: (v: boolean) => void; onToday?: (id: string) => void; todaySel?: string | null;
@@ -208,12 +209,13 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       const on = r.start <= year && year <= r.end;
       const hl = highlight.routes.includes(r.id);
       if (!on && !hl) continue;
-      const color = r.kind === 'migration' ? '#a21caf' : r.method === 'stations' ? '#555' : r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513';
-      const base = hl ? 6 : r.kind === 'sea' ? 2.5 : r.kind === 'wall' ? 4.5 : 3.5;
+      const focus = highlight.focus, isFocus = !!focus && r.id === focus, faded = !!focus && hl && !isFocus;
+      const color = (hl && highlight.colors?.[r.id]) || (r.kind === 'migration' ? '#a21caf' : r.method === 'stations' ? '#555' : r.kind === 'sea' ? '#2b6cb0' : r.kind === 'wall' ? '#6b2737' : '#8b4513');
+      const base = isFocus ? 7 : faded ? 2.5 : hl ? (highlight.routes.length > 3 ? 3.5 : 6) : r.kind === 'sea' ? 2.5 : r.kind === 'wall' ? 4.5 : 3.5;
       const tip = `${biHtml(r.name)}（${KIND_LABEL[r.kind]}・${METHOD_LABEL[r.method]}）`;
       for (const sg of r.segments) {
         const line = L.polyline(sg.coords, {
-          color, opacity: on ? 0.9 : 0.45,
+          color, opacity: faded ? 0.4 : on || (hl && highlight.colors) ? 0.9 : 0.45,
           weight: sg.kind === 'gap' ? Math.max(2, base - 1.5) : base,
           dashArray: r.kind === 'migration' ? '3 7' : sg.kind === 'unknown' ? '1 7' : r.kind === 'sea' ? '6 6' : sg.kind === 'approx' ? '8 4' : sg.kind === 'gap' ? '2 5' : undefined,
         });
@@ -221,7 +223,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
         line.on('click', () => cb.current.onRoute(r.id));
         line.addTo(g);
       }
-      if (hl || r.method === 'stations') for (const st of r.stations) L.circleMarker([st.lat, st.lng], { radius: 3, color, weight: 1, fillOpacity: 1 }).bindTooltip(biHtml(st.name)).addTo(g);
+      if ((hl && !faded) || r.method === 'stations') for (const st of r.stations) L.circleMarker([st.lat, st.lng], { radius: 3, color, weight: 1, fillOpacity: 1 }).bindTooltip(biHtml(st.name)).addTo(g);
     }
   }, [index.routes, year, highlight]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -235,6 +237,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     }
     return [...m.values()];
   }, [cards]);
+  const dimKeys = useMemo(() => (highlight.dim && (highlight.marks ?? []).length ? new Set((highlight.marks ?? []).map((x) => x.key)) : null), [highlight]);
   useEffect(() => {
     const g = layers.current?.places;
     if (!g) return;
@@ -249,10 +252,11 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     for (const p of places) {
       const act = p.cards.filter((c) => activeAt(c, year));
       const on = act.length > 0;
+      const off = !!dimKeys && !dimKeys.has(p.key); // 專題頁：不屬於專題的地點調淡
       const main = (act[0] ?? p.cards[0]).type;
       const mk = L.circleMarker([p.lat, p.lng], {
-        radius: on ? 7 + Math.min(4, p.cards.length) : 4 + Math.min(3, p.cards.length),
-        color: '#fff', weight: 1.5, fillColor: TYPE_COLOR[main], fillOpacity: on ? 0.95 : 0.35,
+        radius: off ? 3 : on ? 7 + Math.min(4, p.cards.length) : 4 + Math.min(3, p.cards.length),
+        color: '#fff', weight: off ? 0.5 : 1.5, fillColor: TYPE_COLOR[main], fillOpacity: off ? 0.18 : on ? 0.95 : 0.35,
         dashArray: p.precision === 'schematic' ? '2 2' : undefined,
       });
       mk.bindTooltip(`${biHtml(p.name)}（今 ${biHtml(p.modern)}）・${p.cards.length} 張卡${p.precision === 'schematic' ? '・位置示意' : ''}`);
@@ -261,7 +265,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
     }
     // 鍵盤：地圖上幾百個圓點不放進 Tab 順序（同一批卡在清單、專題頁都能用鍵盤開）
     g.eachLayer((l) => (l as L.Path).getElement?.()?.setAttribute('tabindex', '-1'));
-  }, [places, year, bgCards]);
+  }, [places, year, bgCards, dimKeys]);
 
   // 學習模式：換一條史時，先框住這條史的範圍
   const homeKey = home ? home.flat().join() : '';
@@ -285,6 +289,7 @@ export function MapView({ index, cards, year, highlight, onPlace, onRoute, compa
       L.circleMarker([p.lat, p.lng], { radius: 16, color: '#e53e3e', weight: 3, fill: false, className: 'pulse' }).addTo(g);
     }
     for (const id of highlight.routes) {
+      if (highlight.focus && id !== highlight.focus) continue; // 選了一條航線：視野只對準那一條
       const r = index.routes.find((x) => x.id === id);
       if (r) pts.push(...r.coords);
     }

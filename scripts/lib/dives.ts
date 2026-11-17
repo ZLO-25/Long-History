@@ -14,7 +14,9 @@ export interface DiveDef {
   focus_year?: number;
   book?: BookDef;
   /** 主視覺種類：power＝勢力圖／領土圖（預設）；curve＝曲線（畫面尚未做）；none＝沒有主視覺 */
-  visual?: 'power' | 'curve' | 'none';
+  visual?: 'power' | 'curve' | 'routes' | 'none';
+  /** visual: routes 的航線清單（docs/dives.md 第十一節）：route＝data/routes/routes.yaml 的 id */
+  voyages?: { title?: string; subtitle?: string; caveat?: string; items: { route: string; card: string; label: string; year: number; note?: string }[] };
   /** 主視覺的畫面文字（標題、副標、「這張圖怎麼畫的」說明、圖例小字的前綴） */
   power_ui?: { title: string; subtitle?: string; caveat?: string; legend?: string };
   /** visual: curve 的資料：每條曲線一張小圖（不畫雙軸），事件畫成直線（docs/dives.md 第八節） */
@@ -161,6 +163,8 @@ export function loadDives(): { file: string; dive: DiveDef }[] {
 }
 
 export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawCard[], storyIds: Set<string>, unitIds: Set<string>, histories: Set<string>): Issue[] {
+  const rp = path.join(ROOT, 'data', 'routes', 'routes.yaml');
+  const routeIds = new Set<string>(fs.existsSync(rp) ? (YAML.parse(fs.readFileSync(rp, 'utf8'))?.routes ?? []).map((r: any) => r.id) : []);
   const out: Issue[] = [];
   const byId = new Map(cards.filter((c) => c.fm?.id).map((c) => [c.fm.id, c.fm]));
   const seen = new Set<string>();
@@ -213,7 +217,16 @@ export function checkDives(dives: { file: string; dive: DiveDef }[], cards: RawC
     if (d.curves) checkCurves(d.curves, byId, d.range, err, warn);
     if (d.visual === 'curve' && !d.curves) err('visual: curve 要寫 curves（曲線資料）');
     if (d.focus_year != null && (typeof d.focus_year !== 'number' || (d.range && (d.focus_year < d.range.start || d.focus_year > d.range.end)))) err('focus_year 要是專題年代內的年份');
-    if (d.visual !== undefined && !['power', 'curve', 'none'].includes(d.visual)) err(`visual 只能是 power、curve、none：「${d.visual}」`);
+    if (d.visual !== undefined && !['power', 'curve', 'routes', 'none'].includes(d.visual)) err(`visual 只能是 power、curve、routes、none：「${d.visual}」`);
+    if (d.visual === 'routes' && !(d.voyages?.items ?? []).length) err('visual: routes 要寫 voyages.items（至少一條航線）');
+    for (const [i, v] of (d.voyages?.items ?? []).entries()) {
+      const w = `voyages.items[${i}]${v.label ? `「${v.label}」` : ''}`;
+      if (!v.route || !routeIds?.has(v.route)) err(`${w}：route ${v.route} 不在 data/routes/routes.yaml`);
+      if (!v.card || !byId.has(v.card)) err(`${w}：card ${v.card} 不存在`);
+      else if (!ids.includes(v.card)) warn(`${w}：card ${v.card} 不在專題的 cards`);
+      if (!v.label) err(`${w}：要有 label`);
+      if (typeof v.year !== 'number' || (d.range && (v.year < d.range.start || v.year > d.range.end))) err(`${w}：year 要是專題年代內的年份`);
+    }
     if (d.power_ui && !d.power_ui.title) err('power_ui 要有 title');
     if (!(d.power_maps ?? []).length && (d.visual ?? 'power') === 'power' && !d.book) warn('沒有勢力圖（power_maps）；若這個專題不用地圖主視覺，請寫 visual: none 或 curve');
     if ((d.power_maps ?? []).length && !d.power_ui) warn('沒有 power_ui，畫面會用預設文字「勢力圖」');
@@ -228,6 +241,7 @@ export function buildDives(dives: { file: string; dive: DiveDef }[], cards: { id
   return dives.map(({ dive: d }) => ({
     id: d.id, title: d.title, question: d.question, blurb: d.blurb ?? '', range: d.range, histories: d.histories ?? [],
     lanes: d.lanes ?? [], visual: d.visual ?? (d.book ? 'none' : 'power'), power_ui: d.power_ui ?? null,
+    voyages: d.voyages ? { title: d.voyages.title ?? '航線圖', subtitle: d.voyages.subtitle ?? '', caveat: d.voyages.caveat ?? '', items: [...d.voyages.items].filter((v) => has.has(v.card)).sort((a, b) => a.year - b.year).map((v) => ({ route: v.route, card: v.card, label: v.label, year: v.year, note: v.note ?? '' })) } : null,
     cards: allCards(d).filter((id) => has.has(id)).sort((a, b) => has.get(a)!.time.start - has.get(b)!.time.start || has.get(a)!.time.end - has.get(b)!.time.end),
     storylines: d.storylines ?? [], units: d.units ?? [],
     focus_year: d.focus_year, curves: d.curves ? { title: d.curves.title, subtitle: d.curves.subtitle ?? '', caveat: d.curves.caveat ?? '', events: (d.curves.events ?? []).filter((e) => !e.card || has.has(e.card)),

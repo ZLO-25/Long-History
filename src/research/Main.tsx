@@ -5,7 +5,7 @@ import type { Index, Card, Filters } from '../types';
 import { createSearch, matchTopics, useSearchLibs, loadSearchLibs } from '../lib/search';
 import { TopicView, TopicIndex, topicMarks, findTopic } from '../components/Topics';
 import { findStory, storyMarks, keepRead } from '../lib/storyLite';
-import { findDive, hasPowerVisual, powerFor, diveYear, prehistDive, diveRoutes, diveMarks } from '../lib/dive';
+import { findDive, hasPowerVisual, powerFor, diveYear, prehistDive, diveRoutes, diveMarks, diveRouteColors } from '../lib/dive';
 import { activeAt } from '../lib/format';
 import { CardDetail } from '../components/CardDetail';
 import { ResultList } from '../components/ResultList';
@@ -170,6 +170,8 @@ export function Main({ index, onLearn, pre }: { index: Index; onLearn: () => voi
   const back = () => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s));
   const home = () => setStack([{ kind: 'list' }]);
 
+  // 航線專題：清單裡選中的航線（地圖只高亮、飛到那一條，不離開專題頁）
+  const [voyageSel, setVoyageSel] = useState<string | null>(null);
   const selectedCard = panel.kind === 'card' ? byId.get(panel.id) ?? null : null;
   const highlight = useMemo(() => {
     if (selectedCard) return { keys: selectedCard.place.locations.map((l) => l.key), routes: selectedCard.routes };
@@ -177,9 +179,9 @@ export function Main({ index, onLearn, pre }: { index: Index; onLearn: () => voi
     if (panel.kind === 'route') return { keys: [], routes: [panel.id] };
     if (panel.kind === 'topic') return { keys: [], routes: [], marks: topicMarks(index, panel.name) };
     if (panel.kind === 'story') return { keys: [], routes: [], marks: storyMarks(index, panel.id) };
-    if (panel.kind === 'dive') return { keys: [], routes: diveRoutes(index, panel.id), marks: diveMarks(index, panel.id) };
+    if (panel.kind === 'dive') { const rs = diveRoutes(index, panel.id), colors = diveRouteColors(index, panel.id); return { keys: [], routes: rs, marks: diveMarks(index, panel.id), colors, focus: voyageSel && rs.includes(voyageSel) ? voyageSel : null, dim: Object.keys(colors).length > 0 }; }
     return { keys: [], routes: [] };
-  }, [selectedCard, panel, index]);
+  }, [selectedCard, panel, index, voyageSel]);
   // 人物卡：地圖上依年份把他去過的地點連成人生軌跡
   const trail = useMemo(() => selectedCard?.type === 'person' ? selectedCard.place.locations.filter((l) => typeof l.year === 'number').map((l) => ({ lat: l.lat, lng: l.lng, year: l.year!, name: l.name_ancient })) : null, [selectedCard]);
   const openDive = useCallback((id: string) => {
@@ -189,6 +191,7 @@ export function Main({ index, onLearn, pre }: { index: Index; onLearn: () => voi
     // 讀書專題（沒有勢力圖、有 focus_year）一打開就跳到起點，例如《人類大歷史》跳到 7 萬年前
     if (year < d.range.start || year > d.range.end || (d.focus_year != null && !d.power_maps.length)) { const y0 = diveYear(d); setYear(y0); setPowerYear(powerFor(d, y0)?.year ?? null); }
     else setPowerYear(y);
+    setVoyageSel(null);
     open({ kind: 'dive', id });
   }, [open, index, year]);
   const openTopic = useCallback((name: string) => open({ kind: 'topic', name }), [open]);
@@ -234,7 +237,7 @@ export function Main({ index, onLearn, pre }: { index: Index; onLearn: () => voi
       case 'topics': return <TopicIndex index={index} onTopic={openTopic} />;
       case 'story': return <StorylineView key={panel.id} index={index} id={panel.id} currentId={lastOpened} onOpen={openCard} onAll={() => open({ kind: 'stories' })} onStory={openStory} onMap={isMobile ? () => setMobileTab('map') : undefined} />;
       case 'stories': return <StorylineIndex index={index} onStory={openStory} onTopics={() => open({ kind: 'topics' })} onDives={(index.dives ?? []).length ? () => open({ kind: 'dives' }) : undefined} />;
-      case 'dive': return <DiveView key={panel.id} index={index} id={panel.id} year={year} setYear={setYear} currentId={lastOpened} powerYear={powerYear} setPowerYear={setPowerYear} onOpen={openCard} onStory={openStory} onAll={() => open({ kind: 'dives' })} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} onMap={isMobile ? () => setMobileTab('map') : undefined} timelineZoomed={!isMobile} />;
+      case 'dive': return <DiveView key={panel.id} index={index} id={panel.id} year={year} setYear={setYear} currentId={lastOpened} powerYear={powerYear} setPowerYear={setPowerYear} voyageSel={voyageSel} setVoyageSel={setVoyageSel} onOpen={openCard} onStory={openStory} onAll={() => open({ kind: 'dives' })} unitHref={(id) => `${location.pathname}?mode=learn&unit=${id}`} onMap={isMobile ? () => setMobileTab('map') : undefined} timelineZoomed={!isMobile} />;
       case 'dives': return <DiveIndex index={index} onDive={openDive} />;
       default: return <ResultList query={query} result={result} hits={hits} cards={visible} year={year} onOpen={openCard} topics={topicHits} onTopic={openTopic} />;
     }

@@ -240,3 +240,30 @@ storylines:
     stops: [event-dutch-formosa, social-siraya-deer, event-koxinga-taiwan, event-qing-taiwan-frontier, commodity-taiwan-tea-camphor, event-taiwan-aborigine-policy, event-wushe-incident]
     level: 國中
     curriculum: ["歷 Bb-IV-2", "歷 Ca-IV-1", "歷 Cb-IV-1", "歷 Ea-IV-3"]
+
+
+  - id: story-iberian-world
+    title: 葡萄牙一路往東：從帆船到長崎
+    question: 葡萄牙想繞過中間商，為什麼繞了半個地球，最後自己在中日之間當起中間商？
+    blurb: 這條線跟著葡萄牙往東走：從航海技術、繞過非洲、建立海上帝國，再到麻六甲、澳門和日本的南蠻貿易；每一站都是上一站的結果。
+    stops: [tech-sail-navigation, event-vasco-da-gama, event-portuguese-empire, event-malacca-1511, event-macau-1557, commodity-nanban-trade]
+    level: 國中
+    curriculum: ["歷 Ob-IV-1", "歷 Ob-IV-3", "歷 Ia-IV-2"]
+
+
+  - id: story-silver-pacific
+    title: 白銀橫渡太平洋：從哥倫布到一條鞭法
+    question: 哥倫布往西航行，為什麼最後會讓美洲的白銀流進中國，還影響了明朝的稅制？
+    blurb: 這條線跟著西班牙往西：從大西洋到太平洋，再到馬尼拉，看一條航路怎麼把美洲的礦山和中國的稅收接在一起。
+    stops: [event-columbus-aztec, event-treaty-tordesillas, event-magellan-circumnavigation, event-manila-1571, commodity-manila-galleon, commodity-silver-flow, event-single-whip-reform]
+    level: 高中
+    curriculum: ["歷 Ob-IV-1", "歷 Mb-V-1", "歷 Mb-V-2", "歷 Ia-IV-2"]
+
+
+  - id: story-dutch-taiwan
+    title: 荷蘭人為什麼來臺灣，又為什麼離開
+    question: 荷蘭離臺灣有一萬多公里，為什麼會跑來這座島建城？38 年後，又是誰把他們趕走，臺灣接著換了什麼人管？
+    blurb: 這條線從一家有軍隊的公司出發，看它怎麼先在澎湖碰壁、再轉進大員，最後被鄭成功取代，臺灣又被清朝納入版圖。
+    stops: [finance-voc, event-dutch-penghu-1622, event-dutch-formosa, event-koxinga-taiwan, event-qing-taiwan-frontier]
+    level: 國中
+    curriculum: ["歷 Bb-IV-1", "歷 Bb-IV-2", "歷 Ob-IV-1"]

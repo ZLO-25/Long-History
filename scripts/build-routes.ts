@@ -4,6 +4,7 @@
 //                              依序找相鄰兩站之間的最短路徑 → 線條完全沿著地圖集畫出的古道
 //   長城（method: awmc-wall）：直接取 AWMC 城牆圖層中位於兩端點範圍內的線
 //   海路（method: sea）       ：經停港依史料；港與港之間在 Natural Earth 陸地格網上算出不穿過陸地的最短海路（scripts/lib/sea.ts）
+//   遠洋（method: ocean）     ：大航海時代的跨洋航線。經停港與轉向點依史料，點與點之間用大圓弧連（scripts/lib/ocean.ts），線是示意
 //   站點（method: stations）  ：沒有可用古道圖資的路線（中國段）。只標史料記載的站點，站與站之間以點線相連並標「路線不詳」
 //
 // 每條線另外記錄：各站吸附到路網的距離、沿「確定位置」路段的比例，供卡片與報告標示精度。
@@ -11,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { readYaml, readJson, ROOT } from './lib/cards.ts';
 import { seaPath } from './lib/sea.ts';
+import { oceanPath } from './lib/ocean.ts';
 
 type P = [number, number]; // [lng, lat]
 const routes: any[] = readYaml('data/routes/routes.yaml')?.routes ?? [];
@@ -146,6 +148,12 @@ for (const r of routes) {
       coords.push(...(coords.length ? leg.coords.slice(1) : leg.coords));
     }
     stats = { km: Math.round(total) };
+  } else if (r.method === 'ocean') {
+    const o = oceanPath(pts);
+    segments = o.parts.map((c) => ({ kind: 'approx' as Kind, coords: c }));
+    coords = o.parts.flat();
+    stats = { km: o.km, parts: o.parts.length };
+    for (const w of o.warn) report.push(`  ⚠ ${r.id}：${w}`);
   } else if (r.method === 'stations') {
     coords = pts.map((s: any) => s.p);
     segments = [{ kind: 'unknown', coords }];

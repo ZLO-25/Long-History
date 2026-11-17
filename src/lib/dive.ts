@@ -20,9 +20,25 @@ export const byIdOf = (index: Index) => new Map(index.cards.map((c) => [c.id, c]
 /** 讀書專題：地圖上一直亮著的路線（例如《人類大歷史》的智人擴散路線）＝專題卡片的史前遷徙路線 */
 export function diveRoutes(index: Index, id: string): string[] {
   const d = findDive(index, id);
+  // 航線主視覺（大航海時代）：專題打開時，所有航線都亮著
+  if (d?.visual === 'routes' && d.voyages) return d.voyages.items.map((v) => v.route).filter((r) => index.routes.some((x) => x.id === r));
   if (!d?.book) return [];
   const m = byIdOf(index), mig = new Set(index.routes.filter((r) => r.kind === 'migration').map((r) => r.id));
   return [...new Set(d.cards.flatMap((cid) => m.get(cid)?.routes ?? []).filter((r) => mig.has(r)))];
+}
+
+/** 航線主視覺：每條航線一色（地圖線與清單色塊共用）。亮度刻意落在中段（相對亮度約 0.15–0.30），和白底、深色底的對比都 ≥3:1，淺色與深色模式都看得清楚；色相彼此拉開 */
+export const VOYAGE_COLORS = ['#e0661a', '#3b82f6', '#16a34a', '#a855f7', '#db2777', '#0891b2', '#a16207', '#65a30d'];
+export function diveRouteColors(index: Index, id: string): Record<string, string> {
+  const d = findDive(index, id);
+  const out: Record<string, string> = {};
+  if (d?.visual === 'routes' && d.voyages) d.voyages.items.forEach((v, i) => { out[v.route] = VOYAGE_COLORS[i % VOYAGE_COLORS.length]; });
+  return out;
+}
+/** 里程只給約略值：示意線的個位數是假精確。≥ 9,500 公里用「約 N.N 萬公里」，更短用「約 N 千公里」 */
+export function approxKm(km: number): string {
+  if (km >= 9500) return `約 ${(Math.round(km / 1000) / 10).toFixed(1).replace(/\.0$/, '')} 萬公里`;
+  return `約 ${Math.max(1, Math.round(km / 1000))} 千公里`;
 }
 
 /** 地圖上要標的點：專題的每張卡（人物除外）取第一個地點，編號＝依年代的順序 */
@@ -57,5 +73,6 @@ export function diveStat(d: Dive, m: Map<string, Card>): NonNullable<Dive['stat'
   return {
     cards: d.cards.length, persons: d.cards.filter((id) => m.get(id)?.type === 'person').length,
     power: hasPowerVisual(d) ? d.power_maps.length : 0, curves: d.visual === 'curve' && d.curves ? d.curves.series.length : 0, chapters: d.book ? d.book.chapters.length : 0,
+    voyages: d.visual === 'routes' && d.voyages ? d.voyages.items.length : 0,
   };
 }

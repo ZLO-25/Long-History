@@ -131,7 +131,7 @@ export interface Unit {
 export interface Route {
   id: string; name: string; kind: 'road' | 'sea' | 'wall' | 'migration'; start: number; end: number;
   precision: string; note?: string; coords: [number, number][]; sources: Source[];
-  method: 'awmc-road' | 'awmc-wall' | 'sea' | 'stations';
+  method: 'awmc-road' | 'awmc-wall' | 'sea' | 'ocean' | 'stations';
   segments: { kind: 'known' | 'approx' | 'gap' | 'unknown'; coords: [number, number][] }[];
   stations: { name: string; lat: number; lng: number }[];
   stats: { km: number; known_pct?: number; approx_pct?: number; gap_km?: number; max_snap_km?: number };
@@ -160,7 +160,9 @@ export interface Dive {
   focus_year?: number;
   /** 讀書專題（例如《人類大歷史》）：書分幾部、每章一站 */
   book?: DiveBook | null;
-  visual: 'power' | 'curve' | 'none'; power_ui: PowerUi | null;
+  visual: 'power' | 'curve' | 'routes' | 'none'; power_ui: PowerUi | null;
+  /** visual: routes 的航線清單（大航海時代）：每條連到 index.routes 的一條航線與一張卡 */
+  voyages?: DiveVoyages | null;
   /** visual: curve 的曲線資料 */
   curves?: DiveCurves | null;
   /** 今日影子：那時候 → 今天哪裡還看得到（隨專題資料輸出，不進 home.json） */
@@ -170,8 +172,9 @@ export interface Dive {
   /** 總結任務（選填）：走完專題所有課之後，專題頁最下面出現的長一點的寫作題 */
   capstone?: DiveCapstone | null;
   /** 只有 home.json 有（cards、power_maps 等是空的）：專題入口卡要顯示的數字 */
-  stat?: { cards: number; persons: number; power: number; curves: number; chapters: number };
+  stat?: { cards: number; persons: number; power: number; curves: number; chapters: number; voyages?: number };
 }
+export interface DiveVoyages { title: string; subtitle: string; caveat: string; items: { route: string; card: string; label: string; year: number; note: string }[] }
 export interface DiveCapstone { question: string; points: string[]; model_answer?: string; /** 至少幾個字才能看重點（預設 60） */ min?: number }
 export interface DiveCurveSeries { id: string; name: string; unit: string; color: string; note: string; zero: boolean | null; points: [number, number][]; src: string[] }
 export interface DiveCurves { title: string; subtitle: string; caveat: string; series: DiveCurveSeries[]; events: { year: number; label: string; card?: string }[]; sources: DiveSource[] }

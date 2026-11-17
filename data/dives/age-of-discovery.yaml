@@ -1,0 +1,140 @@
+# 深入專題：大航海時代（檔名＝id 去掉 dive-）。程式說明見 docs/dives.md 第十一節（主視覺：航線）
+id: dive-age-of-discovery
+title: 大航海時代：海洋怎麼把世界連成一張網
+question: 1400 年時，美洲人、歐洲人和東亞人幾乎不知道彼此存在；兩百年後，美洲的白銀流進中國、臺灣的鹿皮賣到日本、番薯長在福建的山坡上。這張網是誰織起來的？誰得到好處、誰付出代價？
+blurb: 先看中國和葡萄牙兩種出海方式，再看西班牙橫越大西洋、美洲被征服與哥倫布大交換，接著看橫越太平洋的白銀怎麼把臺灣捲進來，最後是荷蘭、鄭氏在東亞海域爭奪臺灣。多數卡片都能連到原住民族、被奴役者與在地商人的角度。
+range: { start: 1405, end: 1684 }
+histories: [歐洲史, 東南亞史, 臺灣史, 中國史, 美洲史]
+visual: routes
+voyages:
+  title: 航線圖
+  subtitle: 誰在什麼時候走哪一條海路
+  caveat: 帆船要順著風帶和洋流走，所以每條線只把史料記載的停靠港與大致的轉向點連起來，點與點之間的弧線是示意，不是某艘船真正的航跡。點一條航線會打開它的卡片，地圖也會飛到那條線。
+  items:
+    - { route: sea-zheng-he, card: event-zheng-he-voyages, label: 鄭和第七次下西洋, year: 1431, note: 比歐洲人更早，明朝就派出大船隊橫渡印度洋；這條線畫到波斯灣口的忽魯謨斯，分隊另到東非。後來朝廷自己喊停。 }
+    - { route: sea-columbus-1492, card: event-columbus-aztec, label: 哥倫布第一次橫渡大西洋, year: 1492, note: 美洲和歐亞非兩個隔絕上萬年的世界，從這一年接在一起。 }
+    - { route: sea-da-gama-1497, card: event-vasco-da-gama, label: 達伽馬繞過非洲到印度, year: 1497, note: 葡萄牙想繞過中間商、直接從海路到印度買香料，這條路真的走通了。 }
+    - { route: sea-magellan, card: event-magellan-circumnavigation, label: 麥哲倫—埃爾卡諾環球航行, year: 1519, note: 第一次有船繞地球一圈；出發的約 270 人，只有 18 人隨維多利亞號回到西班牙。 }
+    - { route: sea-manila-galleon, card: commodity-manila-galleon, label: 馬尼拉大帆船（墨西哥—菲律賓來回）, year: 1565, note: 墨西哥的白銀經太平洋運到馬尼拉，換走福建商人運來的絲綢，這條航線走了 250 年。 }
+    - { route: sea-voc-tayouan, card: finance-voc, label: 荷蘭東印度公司：荷蘭—巴達維亞—大員—日本, year: 1624, note: 一家有軍隊的公司，把荷蘭、巴達維亞、臺灣和日本連在一起，臺灣被它統治了 38 年。 }
+lanes:
+  - { name: 出海與航線, types: [tech, building] }
+  - { name: 征服與殖民, types: [war, event, social] }
+  - { name: 錢與貨物, types: [finance, commodity] }
+  - { name: 人物（在世期間）, types: [person] }
+cards:
+  # 既有卡
+  - event-zheng-he-voyages
+  - event-portuguese-empire
+  - event-vasco-da-gama
+  - event-columbus-aztec
+  - commodity-potosi
+  - commodity-manila-galleon
+  - commodity-silver-flow
+  - event-atlantic-slave-trade
+  - finance-antwerp-bourse
+  - finance-voc
+  - finance-amsterdam-exchange
+  - commodity-nanban-trade
+  - tech-tanegashima-arquebus
+  - commodity-iwami-silver
+  - event-wokou-ningbo
+  - event-single-whip-reform
+  - event-dutch-formosa
+  - event-spanish-north-taiwan
+  - social-siraya-deer
+  - event-koxinga-taiwan
+  - building-hoi-an
+  - event-takasago-koku-arima
+  - event-sakoku
+  - event-ming-qing-transition
+  - person-luis-frois
+  - war-eighty-years
+  # 新卡（同事撰寫中）
+  - event-portugal-africa-coast
+  - tech-sail-navigation
+  - event-treaty-tordesillas
+  - event-magellan-circumnavigation
+  - person-magellan
+  - event-columbian-exchange
+  - person-columbus
+  - person-las-casas
+  - event-manila-1571
+  - war-banda-1621
+  - person-zheng-he
+  - event-malacca-1511
+  - event-macau-1557
+  - event-longqing-kaihai
+  - person-matteo-ricci
+  - event-dutch-penghu-1622
+  - event-hamada-yahei-1628
+  - event-guo-huaiyi-1652
+  - person-zheng-zhilong
+  - person-koxinga
+storylines: [story-iberian-world, story-silver-pacific, story-dutch-taiwan, story-silver, story-taiwan-400]
+units: [unit-aod-1, unit-aod-3, unit-aod-2]
+# 總結任務：三課都走完之後出現（points 來自三課的 goals 與 mystery）
+capstone:
+  question: 這個專題的大問題是：這張海上的網是誰織起來的？誰得到好處、誰付出代價？請用三課看到的例子，寫一段話比較「明朝、葡萄牙、西班牙、荷蘭東印度公司、鄭氏」：誰出錢、要什麼、怎麼控制、誰付代價。至少寫到三個以上的勢力。
+  min: 100
+  points:
+    - 明朝：鄭和船隊由朝廷出資，為了朝貢與國威，成本高、收益比不上成本，北方又有蒙古壓力，1433 年後停止（原因不只一個）；後來只開福建月港、要許可證與稅，並不是全面開放
+    - 葡萄牙：王室出資，要香料貿易，用沿岸堡壘、商館、艦隊與通行證控制航線，不占內陸；被攻擊的沿岸城市與商人付出代價
+    - 西班牙：靠征服、原住民盟軍與天花控制美洲，用委託監護制與強迫勞動挖銀；馬尼拉靠華人撐起，華人被隔離又遭屠殺；美洲原住民人口大崩潰
+    - 荷蘭東印度公司與鄭氏：公司用特許狀、軍隊與股東的錢，在大員靠漢人開墾、人頭稅與鹿皮賺錢，西拉雅人與漢人農民付代價；鄭成功在大陸打不過清軍，渡海取代荷蘭，靠屯田立足
+  model_answer: 明朝的鄭和船隊由朝廷出資，為了朝貢與國威，花費太大、收益比不上成本，北方又有蒙古的壓力，1433 年之後就停止遠航；後來只開福建月港，商人要領許可證、繳稅。葡萄牙由王室出資，要的是香料貿易，用沿岸堡壘、商館、艦隊與通行證控制航線，被攻擊的沿岸城市與商人付出代價。西班牙靠征服、原住民盟軍與天花控制美洲，用委託監護制與強迫勞動開採白銀，原住民人口大崩潰；馬尼拉靠華人撐起來，華人卻被隔離、還遭屠殺。荷蘭東印度公司是股東出資、有軍隊的公司，在大員招漢人開墾、收人頭稅、賣鹿皮，西拉雅人與漢人農民付出代價；鄭成功在大陸沿海打不過清軍，渡海取代荷蘭，靠屯田立足。每一方要的東西不同，控制的辦法也不同，而代價常常落在沒有被問過的人身上。
+legacy:
+  title: 今日影子
+  items:
+    - then: 1492 年之後，美洲的作物隨著船隻傳到舊世界：16 世紀西班牙人把番薯、玉米帶到亞洲，葡萄牙人把辣椒帶到印度。
+      now: 今天辣椒是印度菜不可缺少的調味，番薯和玉米也是亞洲常見的食物；英文維基把玉米、番薯傳入亞洲與當地人口成長連在一起。
+      tag: 飲食
+      card: event-columbian-exchange
+      src: [L1]
+    - then: 1494 年托德西利亞斯條約在大西洋上畫一條南北線，線以東歸葡萄牙、以西歸西班牙；1500 年葡萄牙宣稱占有今天巴西的土地。
+      now: 今天巴西是人口最多的葡萄牙語國家，多數人以葡萄牙語為母語；拉丁美洲的其他國家，多數說西班牙語。
+      tag: 語言與地名
+      card: event-treaty-tordesillas
+      src: [L2, L3, L8]
+    - then: 1543 年，西班牙探險家比利亞洛沃斯把這片群島命名為「腓力王的群島」（las Islas Filipinas），紀念西班牙王儲腓力（後來的腓力二世）。
+      now: 今天國名「菲律賓」（Philippines）就是從這個名字來的。
+      tag: 語言與地名
+      card: event-manila-1571
+      src: [L4]
+    - then: 16 世紀中葉，葡萄牙商人與傳教士到日本，帶去了新的食物、遊戲與詞彙。
+      now: 日語今天仍有從葡萄牙語來的外來語，例如パン（麵包，來自 pão）、カルタ（紙牌，來自 cartas de jogar）；天ぷら（tempura）一般也被說成來自葡萄牙語，但英文維基只寫「來自 tempero」，詞源在學界有爭議，這裡不下定論。
+      tag: 語言與地名
+      card: commodity-nanban-trade
+      src: [L5]
+    - then: 1557 年起葡萄牙人在澳門居留，後來澳門一直由葡萄牙管理，直到 1999 年 12 月 20 日移交給中國。
+      now: 澳門回歸後，葡萄牙語仍是特別行政區的官方語言之一；「澳門歷史城區」有二十多處教堂、廣場和建築，2005 年列入世界遺產，展現中西建築的交會。
+      tag: 國界與人口
+      card: event-macau-1557
+      src: [L6, L7, L3]
+    - then: 荷蘭東印度公司在 1624 年開始修建熱蘭遮城（Fort Zeelandia），作為在大員的據點，直到 1634 年完成。
+      now: 這座城在今天臺南安平，中文叫「安平古堡」；遺址仍留有南牆、外牆和瞭望塔的殘跡，是臺灣人認識荷蘭時期的景點。
+      tag: 紀念與爭議
+      card: event-dutch-formosa
+      src: [L9]
+    - then: 1521 年，麥哲倫在菲律賓的麥克坦島戰役中戰死，船隊由埃爾卡諾帶回西班牙，完成環球航行；西班牙要到 1565 年才在群島建立據點。
+      now: 在菲律賓，拉普拉普（Lapulapu）被看成「第一位菲律賓英雄」與反抗西班牙殖民的象徵，有紀念像，4 月 27 日是拉普拉普日；但他的事蹟只有皮加費塔一人的記述，其餘史料很少。
+      tag: 紀念與爭議
+      card: event-magellan-circumnavigation
+      src: [L10]
+    - then: 1492 年哥倫布橫渡大西洋，對歐洲人來說是「發現」，對美洲原住民來說卻是被入侵的開始。
+      now: 美國的哥倫布日每年 10 月第二個星期一；華盛頓特區、佛蒙特、新墨西哥、緬因、明尼蘇達等地不承認哥倫布日，改過「原住民日」，柏克萊市 1992 年起就開始這樣做。
+      tag: 紀念與爭議
+      card: person-columbus
+      src: [L11]
+  sources:
+    - { id: L1, title: "Columbian exchange — Wikipedia（番薯、玉米傳入亞洲，辣椒傳入印度）", url: "https://en.wikipedia.org/wiki/Columbian_exchange", accessed: 2026-11-17, tier: 百科 }
+    - { id: L2, title: "Treaty of Tordesillas — Wikipedia（1494 年條約；巴西東端歸葡萄牙，美洲大部分歸卡斯提爾）", url: "https://en.wikipedia.org/wiki/Treaty_of_Tordesillas", accessed: 2026-11-17, tier: 百科 }
+    - { id: L3, title: "Portuguese language — Wikipedia（1500 年巴西被宣稱為葡萄牙所有；巴西人口最多、多數以葡語為母語；葡萄牙語是澳門官方語言之一）", url: "https://en.wikipedia.org/wiki/Portuguese_language", accessed: 2026-11-17, tier: 百科 }
+    - { id: L4, title: "Philippines — Wikipedia（1543 年比利亞洛沃斯為紀念腓力二世命名）", url: "https://en.wikipedia.org/wiki/Philippines", accessed: 2026-11-17, tier: 百科 }
+    - { id: L5, title: "Nanban trade — Wikipedia（日語中的葡萄牙語外來語：pan、tempura、karuta）", url: "https://en.wikipedia.org/wiki/Nanban_trade", accessed: 2026-11-17, tier: 百科 }
+    - { id: L6, title: "Portuguese Macau — Wikipedia（1999 年 12 月 20 日移交中國）", url: "https://en.wikipedia.org/wiki/Portuguese_Macau", accessed: 2026-11-17, tier: 百科 }
+    - { id: L7, title: "Historic Centre of Macau — Wikipedia（2005 年列入世界遺產）", url: "https://en.wikipedia.org/wiki/Historic_Centre_of_Macau", accessed: 2026-11-17, tier: 百科 }
+    - { id: L8, title: "Latin America — Wikipedia（拉丁美洲由說西班牙語的各國與說葡萄牙語的巴西組成）", url: "https://en.wikipedia.org/wiki/Latin_America", accessed: 2026-11-17, tier: 百科 }
+    - { id: L9, title: "Fort Zeelandia (Taiwan) — Wikipedia（1624–1634 年修建；今日安平古堡）", url: "https://en.wikipedia.org/wiki/Fort_Zeelandia_(Taiwan)", accessed: 2026-11-17, tier: 百科 }
+    - { id: L10, title: "Lapulapu — Wikipedia（1521 年麥克坦戰役；今日被視為第一位菲律賓英雄）", url: "https://en.wikipedia.org/wiki/Lapulapu", accessed: 2026-11-17, tier: 百科 }
+    - { id: L11, title: "Columbus Day — Wikipedia（原住民日取代哥倫布日的地區）", url: "https://en.wikipedia.org/wiki/Columbus_Day", accessed: 2026-11-17, tier: 百科 }

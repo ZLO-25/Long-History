@@ -14,6 +14,7 @@ export function RoutePanel({ route, cards, onOpen }: { route: Route; cards: Card
       <p className="small"><b>線條怎麼來的：</b>{METHOD_LABEL[route.method]}。
         {route.method === 'awmc-road' && <>其中 {route.stats.known_pct}% 是地圖集標「路線確定」的路段（實線）、{route.stats.approx_pct}% 標「大致路線」（虛線），另有約 {route.stats.gap_km} 公里是兩段古道之間的缺口，由程式接上（點線）。</>}
         {route.method === 'stations' && <>這條路線沒有可用的古道圖資，地圖上只把史料記載的站點用點線依序連起來；點線不是實際走法。</>}
+        {route.method === 'ocean' && <>帆船橫渡大洋要順著風帶和洋流繞路，所以這條線只把史料記載的停靠港與大致的轉向點依序連起來；點與點之間的弧線是示意，不是那艘船真正走過的航跡。</>}
         {route.method === 'sea' && <>海上沒有「路面」：線條只表示船在兩個有史料記載的港口之間可以走的最短海路，實際航跡會隨風向與季節改變。</>}
       </p>
       <p className="small"><b>經過：</b>{route.stations.map((s) => s.name).join(' → ')}</p>

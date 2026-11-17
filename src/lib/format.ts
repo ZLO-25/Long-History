@@ -21,7 +21,7 @@ export const KIND_LABEL: Record<string, string> = { road: '道路', sea: '航線
 export const activeAt = (c: { type: string; time: { start: number; end: number } }, year: number) =>
   c.type === 'building' || c.type === 'tech' || c.type === 'finance' ? c.time.start <= year : c.time.start <= year && year <= c.time.end;
 
-export const METHOD_LABEL: Record<string, string> = { 'awmc-road': '沿巴林頓地圖集古道描線', 'awmc-wall': '巴林頓地圖集城牆線', sea: '經停港依史料，港間為最短可行海路', stations: '只標史料記載的站點，站與站之間路線不詳' };
+export const METHOD_LABEL: Record<string, string> = { 'awmc-road': '沿巴林頓地圖集古道描線', 'awmc-wall': '巴林頓地圖集城牆線', sea: '經停港依史料，港間為最短可行海路', ocean: '停靠港與轉向點依史料，點間弧線為示意', stations: '只標史料記載的站點，站與站之間路線不詳' };
 export const SEG_LABEL: Record<string, string> = { known: '地圖集標「路線確定」', approx: '地圖集標「大致路線」', gap: '地圖集兩段古道間的缺口（程式補接）', unknown: '路線不詳：只是把兩個站點連起來，不代表實際走法' };
 // 巴林頓地圖集的時代代號：A 古風、C 古典、H 希臘化、R 羅馬、L 古代晚期；M 是本站自訂（640 年以後，地圖集不涵蓋，不畫古道）
 export const ERA_LABEL: Record<string, string> = { A: '古風時代', C: '古典時代', H: '希臘化時代', R: '羅馬時代', L: '古代晚期', M: '中世紀以後不顯示' };

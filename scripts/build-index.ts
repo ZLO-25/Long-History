@@ -298,7 +298,7 @@ fs.writeFileSync(path.join(ROOT, 'public', 'index.json'), JSON.stringify({ ...in
       return {
         id: d.id, title: d.title, question: d.question, range: d.range, histories: d.histories, units: d.units, visual: d.visual, focus_year: d.focus_year,
         power_title: d.power_ui?.title,
-        stat: { cards: d.cards.length, persons, power: d.visual === 'power' || d.visual == null ? d.power_maps.length : 0, curves: d.visual === 'curve' && d.curves ? d.curves.series.length : 0, chapters: d.book ? d.book.chapters.length : 0 },
+        stat: { cards: d.cards.length, persons, power: d.visual === 'power' || d.visual == null ? d.power_maps.length : 0, curves: d.visual === 'curve' && d.curves ? d.curves.series.length : 0, chapters: d.book ? d.book.chapters.length : 0, voyages: d.visual === 'routes' && d.voyages ? d.voyages.items.length : 0 },
       };
     }),
     topicLayers: (index.topicLayers as any[]).map((l) => ({ name: l.name, icon: l.icon, topics: l.topics.map((t: any) => ({ name: t.name, plain: t.plain, n: t.cards.length, nl: t.cards.filter((id: string) => learnIds.has(id)).length })) })),

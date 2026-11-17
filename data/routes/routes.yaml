@@ -248,3 +248,210 @@ routes:
       - { id: s1, title: "Settlement of the Americas — Wikipedia", url: 'https://en.wikipedia.org/wiki/Settlement_of_the_Americas', accessed: 2026-11-07 }
       - { id: s2, title: "Pigati et al. (2023), Independent age estimates resolve the controversy of ancient human footprints at White Sands, Science 382: 73–75", url: 'https://doi.org/10.1126/science.adh5007', accessed: 2026-11-07 }
       - { id: s3, title: "Monte Verde — Wikipedia", url: 'https://en.wikipedia.org/wiki/Monte_Verde', accessed: 2026-11-07 }
+
+  # ---------- 大航海時代（2026-11-17）：method: ocean＝停靠港與轉向點用大圓弧連起來，線是示意 ----------
+  - id: sea-zheng-he
+    name: 鄭和第七次下西洋（1431–1433，去程）
+    kind: sea
+    start: 1431
+    end: 1433
+    precision: attested-ports
+    note: 第七次（最後一次）航行的去程停靠港，依英文維基〈Ming treasure voyages〉整理的日期：南京龍江出發（1431 年 1 月）→ 太倉劉家港 → 福建長樂（在此候風）→ 占城（今越南歸仁附近）→ 爪哇泗水 → 舊港（巨港）→ 滿剌加 → 蘇門答剌 → 錫蘭別羅里 → 古里 → 忽魯謨斯（1433 年 1 月到）[s1]。分艦隊另到阿拉伯半島與東非，地圖未畫。海上的轉向點（臺灣海峽、越南外海、麻六甲海峽北口、斯里蘭卡南端、阿拉伯海）只是為了讓線不穿過陸地，不是史料記載的航跡。
+    method: ocean
+    waypoints:
+      - { lat: 31.6, lng: 121.3, name: 太倉劉家港 }
+      - { lat: 29.5, lng: 123.0, name: 舟山外海（轉向點，示意） }
+      - { lat: 25.95, lng: 119.75, name: 長樂太平港外海 }
+      - { lat: 23.5, lng: 118.5, name: 臺灣海峽（轉向點，示意） }
+      - { lat: 18.0, lng: 111.0, name: 海南島東南外海（轉向點，示意） }
+      - { lat: 13.77, lng: 109.3, name: 占城（今越南歸仁附近） }
+      - { lat: 10.5, lng: 110.5, name: 越南東南外海（轉向點，示意） }
+      - { lat: 4.0, lng: 108.0, name: 南海南部（轉向點，示意） }
+      - { lat: -2.5, lng: 108.7, name: 卡里馬塔海峽（轉向點，示意） }
+      - { lat: -6.9, lng: 112.8, name: 爪哇泗水外海 }
+      - { lat: -4.5, lng: 107.5, name: 爪哇海（轉向點，示意） }
+      - { lat: -2.2, lng: 105.2, name: 舊港（巨港）河口外海 }
+      - { lat: 1.0, lng: 104.4, name: 新加坡海峽（轉向點，示意） }
+      - { lat: 1.3, lng: 103.3, name: 新加坡海峽西段（轉向點，示意） }
+      - { lat: 2.15, lng: 102.2, name: 滿剌加 }
+      - { lat: 5.3, lng: 97.6, name: 蘇門答剌（須文達那，今亞齊北岸） }
+      - { lat: 6.2, lng: 95.0, name: 蘇門答臘北端外海（轉向點，示意） }
+      - { lat: 5.6, lng: 80.6, name: 斯里蘭卡南端外海（轉向點，示意） }
+      - { lat: 6.47, lng: 79.95, name: 錫蘭別羅里（今貝魯瓦拉） }
+      - { lat: 7.3, lng: 77.2, name: 科摩林角外海（轉向點，示意） }
+      - { lat: 11.26, lng: 75.7, name: 古里（今科澤科德） }
+      - { lat: 21.0, lng: 61.0, name: 阿拉伯海北部（轉向點，示意） }
+      - { lat: 26.4, lng: 56.9, name: 荷姆茲海峽 }
+      - { lat: 27.05, lng: 56.45, name: 忽魯謨斯 }
+    sources:
+      - { id: s1, title: "Ming treasure voyages — Wikipedia（第七次航行停靠港與日期）", url: 'https://en.wikipedia.org/wiki/Ming_treasure_voyages', accessed: 2026-11-17 }
+      - { id: s2, title: "The Seven Voyages of Zheng He — World History Encyclopedia", url: 'https://www.worldhistory.org/article/1334/the-seven-voyages-of-zheng-he/', accessed: 2026-10-25 }
+
+  - id: sea-da-gama-1497
+    name: 達伽馬第一次航行（1497–1498，去程）
+    kind: sea
+    start: 1497
+    end: 1499
+    precision: attested-ports
+    note: 1497 年 7 月 8 日四艘船、約 170 人從里斯本出發，經特內里費島與佛得角群島，之後離開非洲海岸往南大西洋開去，在大洋上走了超過一萬公里、三個多月，11 月 4 日才在非洲西南岸登陸 [s1]。這個往西繞的大弧，是為了避開沿岸的逆風與洋流；地圖上的大弧轉向點只是示意，真正的航跡沒有留下。之後繞過好望角，經莫三比克（1498 年 3 月）、蒙巴薩（4 月 7–13 日）、馬林迪（4 月 14–24 日，在此請到領航員），5 月 20 日抵達古里 [s1]。
+    method: ocean
+    waypoints:
+      - { lat: 38.65, lng: -9.3, name: 里斯本 }
+      - { lat: 28.55, lng: -16.1, name: 特內里費島 }
+      - { lat: 14.9, lng: -23.6, name: 佛得角群島（聖地牙哥島） }
+      - { lat: -5.0, lng: -27.0, name: 南大西洋大弧（轉向點，示意） }
+      - { lat: -22.0, lng: -25.0, name: 南大西洋大弧（轉向點，示意） }
+      - { lat: -31.0, lng: 5.0, name: 南大西洋大弧（轉向點，示意） }
+      - { lat: -32.7, lng: 17.9, name: 非洲西南岸登陸處（今聖赫勒拿灣一帶，示意） }
+      - { lat: -34.6, lng: 18.4, name: 好望角外海 }
+      - { lat: -34.3, lng: 22.2, name: 莫塞爾灣外海 }
+      - { lat: -34.0, lng: 27.5, name: 非洲南岸（轉向點，示意） }
+      - { lat: -32.0, lng: 32.0, name: 非洲東南外海（轉向點，示意） }
+      - { lat: -26.0, lng: 34.0, name: 莫三比克海峽南口（轉向點，示意） }
+      - { lat: -18.5, lng: 38.0, name: 莫三比克海峽（轉向點，示意） }
+      - { lat: -15.0, lng: 40.8, name: 莫三比克島 }
+      - { lat: -4.1, lng: 39.75, name: 蒙巴薩 }
+      - { lat: -3.22, lng: 40.2, name: 馬林迪 }
+      - { lat: 11.2, lng: 75.7, name: 古里（今科澤科德） }
+    sources:
+      - { id: s1, title: "Vasco da Gama — Wikipedia（第一次航行的日期與停靠港）", url: 'https://en.wikipedia.org/wiki/Vasco_da_Gama', accessed: 2026-11-17 }
+      - { id: s2, title: "Vasco da Gama — World History Encyclopedia", url: 'https://www.worldhistory.org/Vasco_da_Gama/', accessed: 2026-10-25 }
+
+  - id: sea-columbus-1492
+    name: 哥倫布第一次航行（1492，去程）
+    kind: sea
+    start: 1492
+    end: 1493
+    precision: attested-ports
+    note: 1492 年 8 月 3 日從帕洛斯港出發，先到加那利群島修船（大加那利島），9 月 6 日從戈梅拉島的聖塞巴斯蒂安出發往西，10 月 12 日早上在巴哈馬登陸（他命名為聖薩爾瓦多，當地稱瓜納哈尼）；10 月 28 日到古巴，12 月初到伊斯帕尼奧拉島，聖誕節旗艦聖瑪利亞號擱淺，留下 39 人建拉納維達 [s1]。大西洋上的轉向點只是示意。
+    method: ocean
+    waypoints:
+      - { lat: 37.05, lng: -6.95, name: 帕洛斯港（外海） }
+      - { lat: 28.05, lng: -17.05, name: 戈梅拉島聖塞巴斯蒂安 }
+      - { lat: 27.5, lng: -45.0, name: 大西洋（轉向點，示意） }
+      - { lat: 25.5, lng: -68.0, name: 大西洋（轉向點，示意） }
+      - { lat: 24.05, lng: -74.4, name: 瓜納哈尼（聖薩爾瓦多島，最可能的登陸地） }
+      - { lat: 21.4, lng: -75.6, name: 古巴東北岸 }
+      - { lat: 20.1, lng: -73.6, name: 向風海峽（轉向點，示意） }
+      - { lat: 19.85, lng: -72.3, name: 伊斯帕尼奧拉島北岸（拉納維達附近） }
+    sources:
+      - { id: s1, title: "Voyages of Christopher Columbus — Wikipedia（第一次航行）", url: 'https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus', accessed: 2026-11-17 }
+
+  - id: sea-magellan
+    name: 麥哲倫—埃爾卡諾環球航行（1519–1522）
+    kind: sea
+    start: 1519
+    end: 1522
+    precision: attested-ports
+    note: 1519 年 9 月 20 日約 270 人、5 艘船從桑盧卡爾出發，經特內里費島、里約熱內盧（12 月）、拉布拉他河口，在聖胡利安港過冬並平定叛變；1520 年 11 月 1 日進入海峽（今麥哲倫海峽），之後花了 98 天橫渡太平洋，1521 年 3 月到關島，再到菲律賓霍蒙洪、利馬薩瓦、宿霧；4 月麥哲倫在麥克坦島戰死。剩下的船經巴拉望、汶萊，11 月到香料群島的蒂多雷；維多利亞號由埃爾卡諾帶領，1522 年 5 月繞過好望角、7 月在佛得角被葡萄牙人扣下 12 人，9 月 6 日回到桑盧卡爾，船上只剩 18 人 [s1]。橫渡太平洋與印度洋的轉向點只是示意；離開蒂多雷後還經過帝汶（地圖畫出，本條來源頁面未寫，依一般說法）。
+    method: ocean
+    waypoints:
+      - { lat: 36.75, lng: -6.5, name: 桑盧卡爾 }
+      - { lat: 28.55, lng: -16.1, name: 特內里費島 }
+      - { lat: 8.0, lng: -18.0, name: 西非外海（轉向點，示意） }
+      - { lat: -8.0, lng: -34.0, name: 聖奧古斯丁角外海 }
+      - { lat: -14.0, lng: -36.5, name: 巴西東岸外海（轉向點，示意） }
+      - { lat: -21.0, lng: -39.0, name: 巴西東岸外海（轉向點，示意） }
+      - { lat: -23.05, lng: -43.15, name: 里約熱內盧（聖露西亞灣） }
+      - { lat: -35.2, lng: -54.5, name: 拉布拉他河口 }
+      - { lat: -49.35, lng: -67.4, name: 聖胡利安港 }
+      - { lat: -52.4, lng: -68.0, name: 維爾赫內斯角（海峽東口） }
+      - { lat: -52.7, lng: -75.2, name: 海峽西口（太平洋） }
+      - { lat: -35.0, lng: -82.0, name: 南太平洋（轉向點，示意） }
+      - { lat: -10.0, lng: -125.0, name: 太平洋（轉向點，示意） }
+      - { lat: 10.0, lng: 175.0, name: 太平洋（轉向點，示意） }
+      - { lat: 13.3, lng: 144.6, name: 關島 }
+      - { lat: 10.7, lng: 125.85, name: 霍蒙洪島 }
+      - { lat: 9.95, lng: 125.05, name: 利馬薩瓦島 }
+      - { lat: 10.25, lng: 124.05, name: 宿霧、麥克坦島 }
+      - { lat: 9.3, lng: 123.6, name: 保和島西南（轉向點，示意） }
+      - { lat: 8.6, lng: 121.6, name: 蘇祿海（轉向點，示意） }
+      - { lat: 9.4, lng: 118.7, name: 巴拉望島東岸 }
+      - { lat: 7.5, lng: 116.5, name: 巴拉巴克海峽附近（轉向點，示意） }
+      - { lat: 5.1, lng: 114.8, name: 汶萊外海 }
+      - { lat: 7.0, lng: 115.0, name: 北婆羅洲外海（轉向點，示意） }
+      - { lat: 7.6, lng: 117.4, name: 北婆羅洲北端外海（轉向點，示意） }
+      - { lat: 6.5, lng: 118.2, name: 北婆羅洲外海（轉向點，示意） }
+      - { lat: 5.5, lng: 123.5, name: 蘇拉威西海（轉向點，示意） }
+      - { lat: 0.7, lng: 127.3, name: 蒂多雷 }
+      - { lat: -4.5, lng: 127.0, name: 班達海（轉向點，示意） }
+      - { lat: -10.0, lng: 124.5, name: 帝汶島南岸 }
+      - { lat: -30.0, lng: 75.0, name: 印度洋南部（轉向點，示意） }
+      - { lat: -37.5, lng: 25.0, name: 好望角以南（轉向點，示意） }
+      - { lat: -34.8, lng: 18.2, name: 好望角外海 }
+      - { lat: 14.8, lng: -23.7, name: 佛得角群島 }
+      - { lat: 29.0, lng: -18.0, name: 加那利群島西方（轉向點，示意） }
+      - { lat: 36.75, lng: -6.5, name: 桑盧卡爾 }
+    sources:
+      - { id: s1, title: "Magellan expedition — Wikipedia（停靠點、日期、人數）", url: 'https://en.wikipedia.org/wiki/Magellan_expedition', accessed: 2026-11-17 }
+
+  - id: sea-manila-galleon
+    name: 馬尼拉大帆船（阿卡普爾科—馬尼拉，來回）
+    kind: sea
+    start: 1565
+    end: 1815
+    precision: attested-ports
+    note: 去程（每年約 3 月從阿卡普爾科出發）：先往北緯 18 度，再一路維持在北緯 10–15 度之間順著信風到馬里亞納群島，約兩個月；1668 年起規定停靠關島，再兩三週到馬尼拉 [s1]。回程（約 6 月底從馬尼拉出發）：往北到臺灣、日本外海，順著北緯 40 度附近的西風往東，到加利福尼亞海岸再往南回阿卡普爾科，平均要六個月 [s1]。1565 年烏爾達內塔找到這條回程航線 [s1][s2]。轉向點只是示意；菲律賓東側的入口（聖貝納迪諾海峽）依英文維基。
+    method: ocean
+    waypoints:
+      - { lat: 16.75, lng: -99.9, name: 阿卡普爾科 }
+      - { lat: 18.0, lng: -112.0, name: 北緯 18 度（轉向點，示意） }
+      - { lat: 13.0, lng: -150.0, name: 北緯 10–15 度信風帶（示意） }
+      - { lat: 13.0, lng: 170.0, name: 北緯 10–15 度信風帶（示意） }
+      - { lat: 13.45, lng: 144.6, name: 關島 }
+      - { lat: 12.6, lng: 124.6, name: 聖貝納迪諾海峽 }
+      - { lat: 12.5, lng: 123.0, name: 錫布延海（轉向點，示意） }
+      - { lat: 13.55, lng: 120.9, name: 民都洛海峽北口（轉向點，示意） }
+      - { lat: 14.45, lng: 120.55, name: 馬尼拉灣口 }
+      - { lat: 14.6, lng: 120.95, name: 馬尼拉 }
+      - { lat: 14.45, lng: 120.55, name: 馬尼拉灣口 }
+      - { lat: 13.55, lng: 120.9, name: 民都洛海峽北口（轉向點，示意） }
+      - { lat: 12.5, lng: 123.0, name: 錫布延海（轉向點，示意） }
+      - { lat: 12.6, lng: 124.6, name: 聖貝納迪諾海峽 }
+      - { lat: 20.0, lng: 128.0, name: 臺灣東南外海（轉向點，示意） }
+      - { lat: 32.0, lng: 140.0, name: 日本外海（轉向點，示意） }
+      - { lat: 40.0, lng: 170.0, name: 北緯 40 度西風帶（示意） }
+      - { lat: 40.0, lng: -140.0, name: 北緯 40 度西風帶（示意） }
+      - { lat: 39.0, lng: -125.0, name: 加利福尼亞外海 }
+      - { lat: 33.0, lng: -120.0, name: 加利福尼亞南部外海（示意） }
+      - { lat: 22.5, lng: -110.5, name: 下加利福尼亞南端外海（示意） }
+      - { lat: 19.5, lng: -107.5, name: 墨西哥西岸外海（轉向點，示意） }
+      - { lat: 17.0, lng: -103.5, name: 墨西哥西岸外海（轉向點，示意） }
+      - { lat: 16.75, lng: -99.9, name: 阿卡普爾科 }
+    sources:
+      - { id: s1, title: "Navigation and Cargo of the Manila Galleons — Guampedia", url: 'https://www.guampedia.com/navigation-and-cargo-of-the-manila-galleons/', accessed: 2026-11-17 }
+      - { id: s2, title: "Manila galleon — Wikipedia", url: 'https://en.wikipedia.org/wiki/Manila_galleon', accessed: 2026-11-17 }
+
+  - id: sea-voc-tayouan
+    name: 荷蘭東印度公司航線：荷蘭—巴達維亞—大員—日本
+    kind: sea
+    start: 1624
+    end: 1662
+    precision: attested-ports
+    note: 從荷蘭出發的船在好望角補給後，照「布勞威爾航線」往南進入「咆哮西風帶」（南緯 40 度一帶），一路往東橫越印度洋，看到阿姆斯特丹島或聖保羅島就轉向東北往爪哇；這條航線 1611 年由布勞威爾試出，1616 年起成為公司船長的規定航線 [s1]。之後從巴達維亞北上，到大員（荷蘭在臺灣的據點，1624–1662）[s2]，再到日本（1641 年以前在平戶，之後在長崎出島）[s3]。荷蘭到好望角一段與南中國海一段的轉向點只是示意。
+    method: ocean
+    waypoints:
+      - { lat: 53.0, lng: 4.6, name: 特塞爾島外海（荷蘭船隊出發處） }
+      - { lat: 51.2, lng: 1.8, name: 多佛海峽（轉向點，示意） }
+      - { lat: 49.7, lng: -3.5, name: 英吉利海峽西口（轉向點，示意） }
+      - { lat: 28.0, lng: -20.0, name: 加那利群島西方（轉向點，示意） }
+      - { lat: 2.0, lng: -22.0, name: 赤道大西洋（轉向點，示意） }
+      - { lat: -25.0, lng: -20.0, name: 南大西洋（轉向點，示意） }
+      - { lat: -33.9, lng: 18.35, name: 好望角（桌灣） }
+      - { lat: -39.0, lng: 30.0, name: 咆哮西風帶（示意） }
+      - { lat: -38.5, lng: 77.0, name: 阿姆斯特丹島、聖保羅島附近 }
+      - { lat: -20.0, lng: 100.0, name: 印度洋東部（轉向點，示意） }
+      - { lat: -6.1, lng: 105.6, name: 巽他海峽 }
+      - { lat: -6.05, lng: 106.8, name: 巴達維亞 }
+      - { lat: -2.8, lng: 106.4, name: 邦加海峽附近（轉向點，示意） }
+      - { lat: 1.3, lng: 105.0, name: 新加坡海峽東口（轉向點，示意） }
+      - { lat: 10.0, lng: 111.5, name: 南海（轉向點，示意） }
+      - { lat: 20.5, lng: 117.5, name: 南海北部（轉向點，示意） }
+      - { lat: 22.95, lng: 120.1, name: 大員（熱蘭遮城） }
+      - { lat: 23.3, lng: 119.4, name: 臺灣海峽（轉向點，示意） }
+      - { lat: 26.5, lng: 122.5, name: 東海（轉向點，示意） }
+      - { lat: 33.35, lng: 129.45, name: 平戶 }
+    sources:
+      - { id: s1, title: "Brouwer Route — Wikipedia", url: 'https://en.wikipedia.org/wiki/Brouwer_Route', accessed: 2026-11-17 }
+      - { id: s2, title: "Dutch Formosa — Wikipedia", url: 'https://en.wikipedia.org/wiki/Dutch_Formosa', accessed: 2026-10-25 }
+      - { id: s3, title: "Dutch East India Company — Wikipedia", url: 'https://en.wikipedia.org/wiki/Dutch_East_India_Company', accessed: 2026-11-07 }

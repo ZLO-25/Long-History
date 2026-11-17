@@ -63,7 +63,7 @@
 
 .dive-entries { list-style: none; margin: 6px 0; padding: 0; }
 .dive-entries .di-item { border-left: 4px solid var(--dive); }
-.di-tag { font-size: 11px; color: #fff; background: var(--dive); border-radius: 999px; padding: 0 8px; }
+.di-tag { font-size: 12px; color: #fff; background: var(--dive); border-radius: 999px; padding: 0 8px; }
 
 /* 主視覺：曲線（visual: curve） */
 .dv-curves { display: grid; gap: 10px; }
@@ -138,4 +138,29 @@
   .dv-cp-head { display: none; }
   .dv-cp-row { grid-template-columns: 1fr; }
   .dv-cp-who { display: block; }
+}
+
+/* 航線主視覺（visual: routes，大航海時代） */
+.dv-voyages { list-style: none; margin: .4rem 0 .6rem; padding: 0; display: grid; gap: .35rem; }
+.dv-voyages li { margin: 0; }
+.dv-voyages li > p { margin: .15rem 0 0 4.9rem; }
+.dv-vhint { margin: .2rem 0 .1rem; }
+.dv-vrow { display: flex; align-items: stretch; gap: .4rem; }
+.dv-voyage { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: .6rem; text-align: left; padding: .45rem .6rem; border: 1px solid #d8d2c4; border-left: 6px solid var(--vc, #2b6cb0); border-radius: 6px; background: #fff; color: #2d2a26; font: inherit; cursor: pointer; text-decoration: none; }
+.dv-voyage:hover, .dv-voyage:focus-visible { background: #f4f1ea; }
+.dv-voyages li.sel .dv-voyage { background: #fff; box-shadow: 0 0 0 2px var(--vc, #2b6cb0); border-color: var(--vc, #2b6cb0); }
+.dv-voyages li.here .dv-voyage { background: #f4f1ea; }
+.dv-sw { flex: none; align-self: center; width: 1.6rem; height: 0; border-top: 4px solid var(--vc, #2b6cb0); border-radius: 2px; }
+.dv-vcard { flex: none; align-self: center; white-space: nowrap; text-decoration: none; }
+.dv-voyage.off { color: #5a544a; border-left-color: #8a8478; cursor: default; }
+a.dv-voyage.off { cursor: pointer; }
+.dv-vy { min-width: 3.4rem; font-variant-numeric: tabular-nums; font-weight: 600; color: #1e4f86; }
+.dv-vn { flex: 1; }
+.dv-how { margin-top: .4rem; }
+.dv-how > summary { cursor: pointer; color: #5a544a; font-size: .9rem; }
+@media (max-width: 520px) {
+  .dv-vrow { flex-wrap: wrap; }
+  .dv-voyage { flex-basis: 100%; flex-wrap: wrap; gap: .3rem .6rem; }
+  .dv-vcard { margin-left: auto; }
+  .dv-voyages li > p { margin-left: .2rem; }
 }

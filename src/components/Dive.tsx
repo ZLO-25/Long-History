@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 // 不另開網站、不改卡片格式：所有卡仍是普通卡片，專題只是把它們聚在一起（docs/dives.md）。
 import type { Card, Dive, Index, PowerMap, PowerUi } from '../types';
 import { cardEn } from '../lib/bilingual';
-import { cleanNote, findDive, DEFAULT_POWER_UI, hasPowerVisual, diveRoutes, diveMarks, diveYear, prehistDive, powerFor, diveStat, byIdOf as _byIdOf } from '../lib/dive';
+import { cleanNote, findDive, DEFAULT_POWER_UI, hasPowerVisual, diveRoutes, diveMarks, diveYear, prehistDive, powerFor, diveStat, diveRouteColors, approxKm, byIdOf as _byIdOf } from '../lib/dive';
 import { DiveEntries } from './DiveEntries';
 import { fmtRange, fmtYear, TYPE_COLOR, TYPE_ICON, TYPE_VAR } from '../lib/format';
 import './dive.css';
@@ -30,9 +30,11 @@ interface ViewProps {
   timelineZoomed?: boolean;
   /** 學習模式：專題的總結任務（有 capstone 才會呼叫；進度在學習模式那邊） */
   renderCapstone?: (d: Dive) => import('react').ReactNode;
+  /** 航線專題：清單裡選中的航線（地圖高亮、飛過去）；第一下只選，要按「看卡片」才開卡 */
+  voyageSel?: string | null; setVoyageSel?: (r: string | null) => void;
 }
 
-export function DiveView({ index, id, year, setYear, currentId, powerYear, setPowerYear, onOpen, onStory, onAll, unitHref, onUnit, onMap, canOpen, researchHref, learn, timelineZoomed, renderCapstone }: ViewProps) {
+export function DiveView({ index, id, year, setYear, currentId, powerYear, setPowerYear, onOpen, onStory, onAll, unitHref, onUnit, onMap, canOpen, researchHref, learn, timelineZoomed, renderCapstone, voyageSel, setVoyageSel }: ViewProps) {
   // 從專題點進卡片再按「返回」時，專題頁會重新掛載：打開的站和捲動位置記在 sessionStorage，回來時還原
   const posKey = `dive-pos-${id}${learn ? '-learn' : ''}`;
   const saved = (() => { try { return JSON.parse(sessionStorage.getItem(posKey) ?? 'null') as { ch: number | null; scroll: number } | null; } catch { return null; } })();
@@ -124,6 +126,34 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       )}
     </details>
   );
+  // 航線主視覺：每條航線一列（色塊＝地圖上那條線的顏色）。點一下只高亮、地圖飛到那條線並同步年份（手機會切到地圖）；要看卡片按列尾的「看卡片」
+  const vColors = d.visual === 'routes' ? diveRouteColors(index, d.id) : {};
+  const voyageSec = d.visual === 'routes' && d.voyages && d.voyages.items.length > 0 && (
+    <details className="dv-sec dv-power dv-voyage-sec" id={`dv-power-${d.id}`} open>
+      <summary><h3>{d.voyages.title}<small className="muted">{d.voyages.subtitle}</small></h3></summary>
+      <p className="muted small dv-vhint">點一條航線：地圖只亮那一條{onMap ? '（手機會切到地圖）' : ''}；要看它的卡片，按「看卡片」。</p>
+      <ol className="dv-voyages">
+        {d.voyages.items.map((v) => {
+          const r = index.routes.find((x) => x.id === v.route), c = m.get(v.card);
+          const here = currentId === v.card, sel = voyageSel === v.route, ok = !!c && (!canOpen || canOpen(c));
+          const body = <><i className="dv-sw" aria-hidden /><span className="dv-vy">{fmtYear(v.year)}</span><span className="dv-vn">{v.label}</span>{r && <small className="muted">{approxKm(r.stats.km)}</small>}</>;
+          const pick = () => { setYear(v.year); if (setVoyageSel) { setVoyageSel(sel && !onMap ? null : v.route); } else if (ok) onOpen(v.card); onMap?.(); };
+          return <li key={v.route} className={`${here ? 'here' : ''} ${sel ? 'sel' : ''}`} style={{ ['--vc' as string]: vColors[v.route] }}>
+            <div className="dv-vrow">
+              <button className="dv-voyage" aria-pressed={sel} onClick={pick} title="在地圖上高亮這條航線">{body}</button>
+              {ok ? <button className="chip dv-vcard" onClick={() => onOpen(v.card)}>看卡片</button>
+                : c && researchHref ? <a className="chip dv-vcard off" href={researchHref(c.id)} title="這張卡還不在學習模式，到研究模式看">看卡片（研究模式）</a> : null}
+            </div>
+            {v.note && <p className="small muted">{v.note}</p>}
+          </li>;
+        })}
+      </ol>
+      {onMap ? <button className="chip dv-tomap" onClick={() => { setVoyageSel?.(null); onMap(); }}>🗺 到地圖看全部航線</button> : setVoyageSel && voyageSel && <button className="chip dv-tomap" onClick={() => setVoyageSel(null)}>顯示全部航線</button>}
+      {d.voyages.caveat && <details className="dv-how"><summary>這些航線怎麼畫的</summary><p className="muted small">{cleanNote(d.voyages.caveat)}</p>
+        <ol className="sources">{[...new Map(d.voyages.items.flatMap((v) => index.routes.find((x) => x.id === v.route)?.sources ?? []).map((s) => [s.url, s])).values()].map((s, i) => <li key={i}><a href={s.url} target="_blank" rel="noreferrer">{s.title}</a><span className="muted small">（查閱 {s.accessed}）</span></li>)}</ol>
+      </details>}
+    </details>
+  );
   const curveSec = d.visual === 'curve' && d.curves && (
     <details className="dv-sec dv-power dv-curve-sec" id={`dv-power-${d.id}`} open={!learn}>
       <summary><h3>{d.curves.title}<small className="muted">{d.curves.subtitle}</small></h3></summary>
@@ -148,9 +178,12 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       ))}
     </section>
   );
-  const anchors: [string, string, boolean][] = [['dv-read', learn ? '課' : '照順序讀', !!readSec], ['dv-legacy', d.legacy?.title ?? '今日影子', !!legacySec], ['dv-compare', d.compare?.[0]?.title ?? '對照表', !!compareSec], ['dv-power', d.curves && d.visual === 'curve' ? d.curves.title : ui.title, !!(powerSec || curveSec)], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true], ['dv-capstone', '總結任務', !!(d.capstone && renderCapstone)]];
+  const anchors: [string, string, boolean][] = [['dv-read', learn ? '課' : '照順序讀', !!readSec], ['dv-legacy', d.legacy?.title ?? '今日影子', !!legacySec], ['dv-compare', d.compare?.[0]?.title ?? '對照表', !!compareSec], ['dv-power', d.curves && d.visual === 'curve' ? d.curves.title : d.visual === 'routes' && d.voyages ? d.voyages.title : ui.title, !!(powerSec || curveSec || voyageSec)], ['dv-persons', '人物', !!personSec], ['dv-cards', '卡片', true], ['dv-capstone', '總結任務', !!(d.capstone && renderCapstone)]];
   const bookAnchors: [string, string, boolean][] = d.book ? [['dv-deep', '深時間軸', true], ['dv-book', `照書讀 ${d.book.chapters.length} 站`, true]] : [];
-  const ordered = [...bookAnchors, ...(learn || d.book ? anchors : [anchors[3], anchors[4], anchors[5], anchors[0], anchors[1], anchors[2], anchors[6]])];
+  // 航線專題的學習模式：課 → 航線圖 → 人物 → 今日影子 → 對照 → 卡片（其他專題順序不變）
+  const routesLearn = !!learn && d.visual === 'routes' && !d.book && !!voyageSec;
+  const routesOrder = ['dv-read', 'dv-power', 'dv-persons', 'dv-legacy', 'dv-compare', 'dv-cards', 'dv-capstone'];
+  const ordered = [...bookAnchors, ...(routesLearn ? routesOrder.map((k) => anchors.find((a) => a[0] === k)!) : learn || d.book ? anchors : [anchors[3], anchors[4], anchors[5], anchors[0], anchors[1], anchors[2], anchors[6]])];
   return (
     <div className="dive-view" ref={rootRef}>
       <nav className="dv-crumb" aria-label="麵包屑"><button className="link" onClick={onAll}>深入專題</button> <span aria-hidden>›</span> <span>{d.title}</span></nav>
@@ -167,7 +200,7 @@ export function DiveView({ index, id, year, setYear, currentId, powerYear, setPo
       )}
       {d.book && <BookView dive={d} book={d.book} byId={m} cardBtn={(c) => cardBtn(c, marks.get(c.name))} open={openCh} setOpen={setOpenCh} unitBtn={(uid) => { const i = unitList.findIndex((u) => u.id === uid); return i >= 0 ? unitBtn(unitList[i], i) : null; }} />}
 
-      {learn || d.book ? <>{readSec}{legacySec}{compareSec}{powerSec}{curveSec}{personSec}{cardSec}</> : <>{powerSec}{curveSec}{personSec}{cardSec}{readSec}{legacySec}{compareSec}</>}
+      {routesLearn ? <>{readSec}{voyageSec}{personSec}{legacySec}{compareSec}{cardSec}</> : learn || d.book ? <>{readSec}{legacySec}{compareSec}{powerSec}{curveSec}{voyageSec}{personSec}{cardSec}</> : <>{powerSec}{curveSec}{voyageSec}{personSec}{cardSec}{readSec}{legacySec}{compareSec}</>}
       {d.capstone && renderCapstone?.(d)}
       <p className="dv-note muted small">深入專題只是把這段時代的卡片聚在一起放大看；每張卡仍然在整條長河、地圖和#標籤裡，可以隨時跳出去比較別的時代。</p>
     </div>
@@ -188,7 +221,7 @@ export function DiveIndex({ index, onDive }: { index: Index; onDive: (id: string
               <button className="di-item" onClick={() => onDive(d.id)}>
                 <span className="di-title">{d.title}</span>
                 <span className="di-q">{d.question}</span>
-                <span className="di-meta muted small">{fmtRange(d.range.start, d.range.end)}・{st.cards - persons} 張卡{persons > 0 ? `、${persons} 位人物` : ''}{st.power > 0 && (d.visual ?? 'power') === 'power' ? `・${st.power} 張${(d.power_ui ?? DEFAULT_POWER_UI).title}` : ''}{st.curves > 0 ? `・${st.curves} 條經濟曲線` : ''}{st.chapters > 0 ? `・照書讀 ${st.chapters} 站` : ''}</span>
+                <span className="di-meta muted small">{fmtRange(d.range.start, d.range.end)}・{st.cards - persons} 張卡{persons > 0 ? `、${persons} 位人物` : ''}{st.power > 0 && (d.visual ?? 'power') === 'power' ? `・${st.power} 張${(d.power_ui ?? DEFAULT_POWER_UI).title}` : ''}{st.curves > 0 ? `・${st.curves} 條經濟曲線` : ''}{(st.voyages ?? 0) > 0 ? `・${st.voyages} 條航線` : ''}{st.chapters > 0 ? `・照書讀 ${st.chapters} 站` : ''}</span>
               </button>
             </li>
           );
